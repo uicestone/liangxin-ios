@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "HomeViewController.h"
 #import "GroupViewController.h"
+#import "Channels.h"
 
 #import <HHRouter/HHRouter.h>
 
@@ -17,7 +18,8 @@
 @end
 
 @implementation AppDelegate
-
+@synthesize navigationController;
+@synthesize window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -33,11 +35,9 @@
     
     UIViewController *homeViewController = [[HHRouter shared] matchController:@"/home"];
     
-    UINavigationController* nv =[[UINavigationController alloc] initWithRootViewController:homeViewController];
+    navigationController = [[UINavigationController alloc] initWithRootViewController:homeViewController];
+    window.rootViewController = navigationController;
     
-    self.navigationController = nv;
-    self.window.rootViewController = self.navigationController;
-
     return YES;
 }
 
@@ -46,12 +46,10 @@
     NSString * path = [[@"/" stringByAppendingString:[url host]] stringByAppendingString: [url path]];
     UIViewController *viewController = [[HHRouter shared] matchController:path];
     
-    UINavigationController * nv = self.navigationController;
-    if(nv){
-        [nv pushViewController:viewController animated:YES];
+    if(navigationController){
+        [navigationController pushViewController:viewController animated:YES];
     }
-//    [self.navigationController pushViewController:viewController];
-
+    
     return YES;
 }
 

@@ -8,25 +8,32 @@
 
 #import "HomeViewController.h"
 #import "SwitchBanner.h"
+#import "Channels.h"
 #import "Definition.h"
 #import <AFNetworking/UIKit+AFNetworking.h>
 
 
-@interface HomeViewController () <UIScrollViewDelegate>
+@interface HomeViewController () <UINavigationControllerDelegate>
 @property UIView* bannerWrapper;
+@property Channels* channels;
 @end
 
 
 @implementation HomeViewController
-@synthesize bannerWrapper = _bannerWrapper;
+@synthesize bannerWrapper;
+@synthesize channels;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // 初始化顶部导航
+    self.navigationController.delegate = self;
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
     NSString * title = @"精品推荐";
     self.navigationItem.title = title;
     
+    // 设置背景色
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
     // 初始化滑动控件
@@ -36,7 +43,7 @@
     // 轮播容器
     UIView * wrapper = [[UIView alloc] initWithFrame:rect];
     [self.view addSubview:wrapper];
-    self.bannerWrapper = wrapper;
+    bannerWrapper = wrapper;
     
     // 初始化轮播
     SwitchBanner * banner = [SwitchBanner initWithUrl:@"/banner.json" wrapper:wrapper];
@@ -46,16 +53,27 @@
     // 是否自适应scrollView，可以再测试一下默认情况
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    
     // 初始化六个图标
+    self.channels = [Channels shared];
     [self initButtons];
 }
 
-- (void) initButtons{
-    NSArray * linkPics = @[@"党群组织",@"精彩活动",@"党群课堂",@"党群动态",@"党群服务",@"我的账户"];
+- (void) viewWillAppear:(BOOL)animated{
+    NSString * title = @"精品推荐";
+    self.navigationItem.title = title;
     
-    CGFloat offsetTop = CGRectGetHeight(self.bannerWrapper.frame) + 64.0f;
-    CGFloat contentWidth = CGRectGetWidth(self.bannerWrapper.frame);
+    // 初始化顶部导航
+    UINavigationBar* nvb = self.navigationController.navigationBar;
+    [nvb setBarTintColor:[UIColor whiteColor]];
+    [nvb setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor redColor]}];
+    [nvb setBarTintColor:[UIColor whiteColor]];
+    
+}
+
+- (void) initButtons{
+    
+    CGFloat offsetTop = CGRectGetHeight(bannerWrapper.frame) + 64.0f;
+    CGFloat contentWidth = CGRectGetWidth(bannerWrapper.frame);
     CGFloat blockHeight = contentWidth / 2 / 1.33;
     
     // 这里可以优化一下，少一层View
@@ -67,12 +85,12 @@
             int imageIndex = i * 2 + j;
             UIButton * btn = [UIButton new];
             btn.frame = CGRectMake(j * contentWidth / 2, 0, contentWidth / 2, blockHeight);
-            UIImage * image = [UIImage imageNamed:[linkPics objectAtIndex: imageIndex]];
+            UIImage * image = [UIImage imageNamed: [channels titleAtIndex:imageIndex]];
             [btn setTag: imageIndex];
             [btn setImage:image forState:UIControlStateNormal];
             
             [btn addTarget:self action:@selector(navigateToSubChannel:) forControlEvents:UIControlEventTouchUpInside];
-
+            
             [container addSubview:btn];
         }
         
@@ -81,11 +99,27 @@
 }
 
 - (void)navigateToSubChannel:(id)sender{
-    NSInteger index = [sender tag];
-    NSArray * links = @[@"group",@"activity",@"lesson",@"news",@"service",@"account"];
-    NSURL * url = [NSURL URLWithString:[LXScheme stringByAppendingString:[links objectAtIndex:index]]];
+    int index = (int)[sender tag];
+    
+    // NavigationBar 切换动画
+    CATransition *animation = [CATransition animation];
+    animation.duration = 0.3;
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    animation.type = kCATransitionFade;
+    [self.navigationController.navigationBar.layer addAnimation:animation forKey:nil];
+    
+    // 执行动画
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+        [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+        [self.navigationController.navigationBar setBarTintColor: [channels colorAtIndex:index]];
+    }];
+    
+    // 跳转
+    NSURL * url = [NSURL URLWithString:[LXScheme stringByAppendingString:[channels linkAtIndex:index]]];
     [[UIApplication sharedApplication] openURL:url];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

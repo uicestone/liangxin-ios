@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22238C1B1AF64F02000B4F95 /* Channels.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C1A1AF64F02000B4F95 /* Channels.m */; };
 		223267C61AF2661B00431132 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 223267C51AF2661B00431132 /* main.m */; };
 		223267C91AF2661B00431132 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 223267C81AF2661B00431132 /* AppDelegate.m */; };
 		223267CC1AF2661B00431132 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223267CB1AF2661B00431132 /* HomeViewController.m */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22238C191AF64F02000B4F95 /* Channels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Channels.h; sourceTree = "<group>"; };
+		22238C1A1AF64F02000B4F95 /* Channels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Channels.m; sourceTree = "<group>"; };
 		2225EFFE1AF4591E007A6BB2 /* Definition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definition.h; sourceTree = "<group>"; };
 		223267C01AF2661B00431132 /* Liangxin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Liangxin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		223267C41AF2661B00431132 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -180,6 +183,8 @@
 			children = (
 				2293FA041AF50B550012CD10 /* BannerModel.h */,
 				2293FA051AF50B550012CD10 /* BannerModel.m */,
+				22238C191AF64F02000B4F95 /* Channels.h */,
+				22238C1A1AF64F02000B4F95 /* Channels.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -337,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				223267CC1AF2661B00431132 /* HomeViewController.m in Sources */,
+				22238C1B1AF64F02000B4F95 /* Channels.m in Sources */,
 				2293FA011AF50A1A0012CD10 /* TADotView.m in Sources */,
 				2293F9FF1AF50A1A0012CD10 /* TAAbstractDotView.m in Sources */,
 				2293FA001AF50A1A0012CD10 /* TAAnimatedDotView.m in Sources */,
