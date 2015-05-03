@@ -10,6 +10,7 @@
 #import "SwitchBanner.h"
 #import "Channels.h"
 #import "Definition.h"
+#import <HHRouter/HHRouter.h>
 #import <AFNetworking/UIKit+AFNetworking.h>
 
 
@@ -29,9 +30,6 @@
     
     self.navigationController.delegate = self;
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-    
-    NSString * title = @"精品推荐";
-    self.navigationItem.title = title;
     
     // 设置背景色
     [self.view setBackgroundColor:[UIColor whiteColor]];
@@ -108,16 +106,22 @@
     animation.type = kCATransitionFade;
     [self.navigationController.navigationBar.layer addAnimation:animation forKey:nil];
     
+    
+//    [self.navigationItem setTitle:@"asd"];
+    [self.navigationItem setTitle:[channels titleAtIndex:index]];
     // 执行动画
     [UIView animateWithDuration:0.3 animations:^{
+        [self.navigationItem setTitle:[channels titleAtIndex:index]];
         [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
         [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
         [self.navigationController.navigationBar setBarTintColor: [channels colorAtIndex:index]];
     }];
     
     // 跳转
-    NSURL * url = [NSURL URLWithString:[LXScheme stringByAppendingString:[channels linkAtIndex:index]]];
-    [[UIApplication sharedApplication] openURL:url];
+    NSString * path = [@"/" stringByAppendingString:[channels linkAtIndex:index]];
+    UIViewController *viewController = [[HHRouter shared] matchController:path];
+    [viewController.navigationItem setTitle:[channels titleAtIndex:index]];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 

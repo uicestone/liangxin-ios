@@ -16,12 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self.view setBackgroundColor:[UIColor yellowColor]];
-    
-    
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
-    [self.navigationItem setTitle:@"党群组织"];
 }
 
 - (void)didReceiveMemoryWarning {
