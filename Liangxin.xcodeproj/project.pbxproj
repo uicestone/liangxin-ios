@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		22238C1B1AF64F02000B4F95 /* Channels.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C1A1AF64F02000B4F95 /* Channels.m */; };
+		22238C1E1AF66941000B4F95 /* ChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C1D1AF66941000B4F95 /* ChannelViewController.m */; };
 		223267C61AF2661B00431132 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 223267C51AF2661B00431132 /* main.m */; };
 		223267C91AF2661B00431132 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 223267C81AF2661B00431132 /* AppDelegate.m */; };
 		223267CC1AF2661B00431132 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223267CB1AF2661B00431132 /* HomeViewController.m */; };
@@ -37,6 +38,8 @@
 /* Begin PBXFileReference section */
 		22238C191AF64F02000B4F95 /* Channels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Channels.h; sourceTree = "<group>"; };
 		22238C1A1AF64F02000B4F95 /* Channels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Channels.m; sourceTree = "<group>"; };
+		22238C1C1AF66941000B4F95 /* ChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelViewController.h; sourceTree = "<group>"; };
+		22238C1D1AF66941000B4F95 /* ChannelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelViewController.m; sourceTree = "<group>"; };
 		2225EFFE1AF4591E007A6BB2 /* Definition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definition.h; sourceTree = "<group>"; };
 		223267C01AF2661B00431132 /* Liangxin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Liangxin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		223267C41AF2661B00431132 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -132,6 +135,8 @@
 				2225EFFE1AF4591E007A6BB2 /* Definition.h */,
 				2293FA071AF5DBF20012CD10 /* GroupViewController.h */,
 				2293FA081AF5DBF20012CD10 /* GroupViewController.m */,
+				22238C1C1AF66941000B4F95 /* ChannelViewController.h */,
+				22238C1D1AF66941000B4F95 /* ChannelViewController.m */,
 			);
 			path = Liangxin;
 			sourceTree = "<group>";
@@ -347,6 +352,7 @@
 				2293F9FF1AF50A1A0012CD10 /* TAAbstractDotView.m in Sources */,
 				2293FA001AF50A1A0012CD10 /* TAAnimatedDotView.m in Sources */,
 				22F69A861AF31DF100DC295D /* SwitchBanner.m in Sources */,
+				22238C1E1AF66941000B4F95 /* ChannelViewController.m in Sources */,
 				2293FA021AF50A1A0012CD10 /* TAPageControl.m in Sources */,
 				223267C91AF2661B00431132 /* AppDelegate.m in Sources */,
 				2293FA061AF50B550012CD10 /* BannerModel.m in Sources */,

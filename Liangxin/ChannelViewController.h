@@ -1,5 +1,5 @@
 //
-//  GroupViewControlViewController.h
+//  ChannelViewController.h
 //  Liangxin
 //
 //  Created by Hsu Spud on 15/5/3.
@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ChannelViewController.h"
 
-@interface GroupViewController : ChannelViewController
-
+@interface ChannelViewController : UIViewController
+@property (nonatomic, retain) UITabBarController *tab;
 @end
