@@ -8,4 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
+#define LXScheme @"liangxin://"
+#define LXSchemeChannelBase @"liangxin://channel"
 #define LXApiHost @"http://192.168.0.12:8000/"

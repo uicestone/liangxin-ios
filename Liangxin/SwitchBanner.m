@@ -43,6 +43,7 @@
     
     [view addSubview:scrollView];
     scrollView.pagingEnabled = YES;
+    scrollView.showsHorizontalScrollIndicator = NO;
     switcher.scrollView = scrollView;
     switcher.picList = [NSMutableArray new];
     
@@ -110,7 +111,8 @@
     }
     
     CGRect frame = self.scrollView.frame;
-    self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(frame) * count, CGRectGetHeight(frame));
+    
+    self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(frame) * count, 0);
 }
 
 #pragma mark - 添加控件

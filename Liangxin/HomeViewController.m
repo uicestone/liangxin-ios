@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "SwitchBanner.h"
+#import "Definition.h"
 #import <AFNetworking/UIKit+AFNetworking.h>
 
 
@@ -23,17 +24,10 @@
     [super viewDidLoad];
     
     // 初始化顶部导航
-    UINavigationBar * navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 64)];
-    UINavigationItem* item = [[UINavigationItem alloc] initWithTitle:@"精品推荐"];
+    NSString * title = @"精品推荐";
+    self.navigationItem.title = title;
     
-    NSDictionary * titleAttrs = @{
-                                NSForegroundColorAttributeName: [UIColor colorWithRed:1 green:0 blue:0 alpha:1]
-                                };
-    [[UINavigationBar appearance] setTitleTextAttributes:titleAttrs];
-    
-    [navigationBar pushNavigationItem:item animated:YES];
-    [self.view addSubview:navigationBar];
-    
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     
     // 初始化滑动控件
     CGFloat wrapperWidth = CGRectGetWidth(self.view.frame);
@@ -48,30 +42,49 @@
     SwitchBanner * banner = [SwitchBanner initWithUrl:@"/banner.json" wrapper:wrapper];
     [banner fetchNew];
     
+    // TODO
+    // 是否自适应scrollView，可以再测试一下默认情况
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    
     // 初始化六个图标
     [self initButtons];
 }
 
 - (void) initButtons{
-    NSArray * links = @[@"/group",@"/activity",@"lesson",@"/news",@"service",@"account"];
     NSArray * linkPics = @[@"党群组织",@"精彩活动",@"党群课堂",@"党群动态",@"党群服务",@"我的账户"];
     
     CGFloat offsetTop = CGRectGetHeight(self.bannerWrapper.frame) + 64.0f;
     CGFloat contentWidth = CGRectGetWidth(self.bannerWrapper.frame);
     CGFloat blockHeight = contentWidth / 2 / 1.33;
+    
+    // 这里可以优化一下，少一层View
     for(int i = 0; i < 3 ; i ++){
         UIView * container = [UIView new];
         container.frame = CGRectMake(0, offsetTop + blockHeight * i, contentWidth, blockHeight);
         [self.view addSubview:container];
         for(int j = 0; j < 2; j++){
-            UIImageView * iv = [UIImageView new];
-            iv.frame = CGRectMake(j * contentWidth / 2, 0, contentWidth / 2, blockHeight);
-            iv.image = [UIImage imageNamed:[linkPics objectAtIndex:i * 2 + j]];
-            [container addSubview:iv];
+            int imageIndex = i * 2 + j;
+            UIButton * btn = [UIButton new];
+            btn.frame = CGRectMake(j * contentWidth / 2, 0, contentWidth / 2, blockHeight);
+            UIImage * image = [UIImage imageNamed:[linkPics objectAtIndex: imageIndex]];
+            [btn setTag: imageIndex];
+            [btn setImage:image forState:UIControlStateNormal];
+            
+            [btn addTarget:self action:@selector(navigateToSubChannel:) forControlEvents:UIControlEventTouchUpInside];
+
+            [container addSubview:btn];
         }
         
         [self.view addSubview:container];
     }
+}
+
+- (void)navigateToSubChannel:(id)sender{
+    NSInteger index = [sender tag];
+    NSArray * links = @[@"group",@"activity",@"lesson",@"news",@"service",@"account"];
+    NSURL * url = [NSURL URLWithString:[LXScheme stringByAppendingString:[links objectAtIndex:index]]];
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 - (void)didReceiveMemoryWarning {

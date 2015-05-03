@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "HomeViewController.h"
+#import "GroupViewController.h"
 
 #import <HHRouter/HHRouter.h>
 
@@ -27,8 +28,30 @@
     
     
     [[HHRouter shared] map:@"/home" toControllerClass:[HomeViewController class]];
+    [[HHRouter shared] map:@"/group" toControllerClass:[GroupViewController class]];
     
     
+    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/home"];
+    
+    UINavigationController* nv =[[UINavigationController alloc] initWithRootViewController:homeViewController];
+    
+    self.navigationController = nv;
+    self.window.rootViewController = self.navigationController;
+
+    return YES;
+}
+
+-(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+    
+    NSString * path = [[@"/" stringByAppendingString:[url host]] stringByAppendingString: [url path]];
+    UIViewController *viewController = [[HHRouter shared] matchController:path];
+    
+    UINavigationController * nv = self.navigationController;
+    if(nv){
+        [nv pushViewController:viewController animated:YES];
+    }
+//    [self.navigationController pushViewController:viewController];
+
     return YES;
 }
 
