@@ -12,6 +12,7 @@
 #import "Channels.h"
 
 #import <HHRouter/HHRouter.h>
+#import <PonyDebugger/PDDebugger.h>
 
 @interface AppDelegate ()
 
@@ -28,12 +29,24 @@
     application.statusBarHidden = NO;
     application.statusBarOrientation = UIDeviceOrientationPortrait;
     
+    // 初始化Router
     
     [[HHRouter shared] map:@"/home" toControllerClass:[HomeViewController class]];
     [[HHRouter shared] map:@"/group" toControllerClass:[GroupViewController class]];
     
     
+    // 初始化网络监控
+    PDDebugger *debugger = [PDDebugger defaultInstance];
+//    [debugger autoConnect];
+    [debugger connectToURL:[NSURL URLWithString:@"ws://localhost:9000/device"]];
+    [debugger enableNetworkTrafficDebugging];
+    [debugger enableViewHierarchyDebugging];
+    [debugger enableRemoteLogging];
+    [debugger forwardAllNetworkTraffic];
+    
+    // 初始化Navigation Controller
     UIViewController *homeViewController = [[HHRouter shared] matchController:@"/home"];
+    
     
     navigationController = [[UINavigationController alloc] initWithRootViewController:homeViewController];
     window.rootViewController = navigationController;
