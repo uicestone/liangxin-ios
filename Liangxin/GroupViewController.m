@@ -19,8 +19,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    
     UIViewController* controller = [[[super tab] viewControllers] objectAtIndex:1];
     
     

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		22238C1B1AF64F02000B4F95 /* Channels.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C1A1AF64F02000B4F95 /* Channels.m */; };
 		22238C1E1AF66941000B4F95 /* ChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C1D1AF66941000B4F95 /* ChannelViewController.m */; };
+		22238C541AFBACA5000B4F95 /* BannerApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C531AFBACA5000B4F95 /* BannerApi.m */; };
+		22238C571AFBAE30000B4F95 /* ApiBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C561AFBAE30000B4F95 /* ApiBase.m */; };
 		223267C61AF2661B00431132 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 223267C51AF2661B00431132 /* main.m */; };
 		223267C91AF2661B00431132 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 223267C81AF2661B00431132 /* AppDelegate.m */; };
 		223267CC1AF2661B00431132 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223267CB1AF2661B00431132 /* HomeViewController.m */; };
@@ -40,6 +42,10 @@
 		22238C1A1AF64F02000B4F95 /* Channels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Channels.m; sourceTree = "<group>"; };
 		22238C1C1AF66941000B4F95 /* ChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelViewController.h; sourceTree = "<group>"; };
 		22238C1D1AF66941000B4F95 /* ChannelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelViewController.m; sourceTree = "<group>"; };
+		22238C521AFBACA5000B4F95 /* BannerApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerApi.h; sourceTree = "<group>"; };
+		22238C531AFBACA5000B4F95 /* BannerApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerApi.m; sourceTree = "<group>"; };
+		22238C551AFBAE30000B4F95 /* ApiBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiBase.h; sourceTree = "<group>"; };
+		22238C561AFBAE30000B4F95 /* ApiBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiBase.m; sourceTree = "<group>"; };
 		2225EFFE1AF4591E007A6BB2 /* Definition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definition.h; sourceTree = "<group>"; };
 		223267C01AF2661B00431132 /* Liangxin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Liangxin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		223267C41AF2661B00431132 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,6 +105,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		22238C511AFBAC74000B4F95 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				22238C521AFBACA5000B4F95 /* BannerApi.h */,
+				22238C531AFBACA5000B4F95 /* BannerApi.m */,
+				22238C551AFBAE30000B4F95 /* ApiBase.h */,
+				22238C561AFBAE30000B4F95 /* ApiBase.m */,
+			);
+			name = Api;
+			sourceTree = "<group>";
+		};
 		223267B71AF2661B00431132 = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +139,7 @@
 		223267C21AF2661B00431132 /* Liangxin */ = {
 			isa = PBXGroup;
 			children = (
+				22238C511AFBAC74000B4F95 /* Api */,
 				2293FA031AF50B2C0012CD10 /* Model */,
 				2293F9F61AF50A1A0012CD10 /* TAPageControl */,
 				22F69A831AF31DC300DC295D /* Widgets */,
@@ -350,6 +368,7 @@
 				22238C1B1AF64F02000B4F95 /* Channels.m in Sources */,
 				2293FA011AF50A1A0012CD10 /* TADotView.m in Sources */,
 				2293F9FF1AF50A1A0012CD10 /* TAAbstractDotView.m in Sources */,
+				22238C541AFBACA5000B4F95 /* BannerApi.m in Sources */,
 				2293FA001AF50A1A0012CD10 /* TAAnimatedDotView.m in Sources */,
 				22F69A861AF31DF100DC295D /* SwitchBanner.m in Sources */,
 				22238C1E1AF66941000B4F95 /* ChannelViewController.m in Sources */,
@@ -358,6 +377,7 @@
 				2293FA061AF50B550012CD10 /* BannerModel.m in Sources */,
 				2293FA091AF5DBF20012CD10 /* GroupViewController.m in Sources */,
 				223267C61AF2661B00431132 /* main.m in Sources */,
+				22238C571AFBAE30000B4F95 /* ApiBase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

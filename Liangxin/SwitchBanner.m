@@ -12,13 +12,14 @@
 #import "TAPageControl.h"
 #import "Definition.h"
 #import "BannerModel.h"
+#import "BannerApi.h"
 #import <AFNetworking/UIKit+AFNetworking.h>
 
 @interface SwitchBanner()
 @property (nonatomic, strong) NSMutableArray * picList;
 @property (nonatomic, strong) UIScrollView * scrollView;
 @property (nonatomic, strong) UIView * view;
-@property (nonatomic, strong) NSURL * url;
+@property (nonatomic, strong) NSString * type;
 @property (nonatomic, assign) BOOL fetching;
 @end
 
@@ -28,10 +29,10 @@
 @synthesize fetching = _fetching;
 
 
-+ (id)initWithUrl:(NSString *)url wrapper:(UIView *)view{
++ (id)initWithType:(NSString *)type wrapper:(UIView *)view{
     SwitchBanner * switcher = [[self alloc] init];
     
-    switcher.url =  [NSURL URLWithString: [LXApiHost stringByAppendingString:url]];
+    switcher.type = type;
     switcher.view = view;
     switcher.fetching = NO;
     
@@ -52,7 +53,7 @@
 
 
 - (void) fetchNew{
-    if(!self.url){
+    if(!self.type){
         return;
     }
     
@@ -62,28 +63,15 @@
     
     self.fetching = YES;
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:self.url];
-    AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    op.responseSerializer = [AFJSONResponseSerializer serializer];
-    
-    [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [BannerApi getBannersWithType:self.type successHandler:^(NSArray *banners) {
         [self.picList removeAllObjects];
-        for(int i = 0 ; i < [responseObject count]; i ++){
-            NSDictionary * jsonObj = [responseObject objectAtIndex:i];
-            BannerModel * bm = [BannerModel new];
-            bm.image = [jsonObj objectForKey:@"img"];
-            bm.link = [jsonObj objectForKey:@"url"];
-            [self.picList addObject:bm];
-        }
-        
-        
+        self.picList = [banners copy];
         [self render];
         self.fetching = NO;
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } errorHandler:^(NSError *error) {
         NSLog(@"Error: %@", error);
         self.fetching = NO;
     }];
-    [[NSOperationQueue mainQueue] addOperation:op];
 }
 
 - (void) render{
@@ -114,21 +102,5 @@
     
     self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(frame) * count, 0);
 }
-
-#pragma mark - 添加控件
-//
-//- (void)addView{
-//    // 添加图片
-//    for (int i = 1; i < 5; i++){
-//        [self.advsList addObject:[NSString stringWithFormat:@"%d.jpg", i]];
-//    }
-//
-//    // 添加滑动视图
-//    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 150)];
-//
-//
-//}
-//
-
 
 @end

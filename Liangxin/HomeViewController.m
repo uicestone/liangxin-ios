@@ -44,7 +44,7 @@
     bannerWrapper = wrapper;
     
     // 初始化轮播
-    SwitchBanner * banner = [SwitchBanner initWithUrl:@"/banner.json" wrapper:wrapper];
+    SwitchBanner * banner = [SwitchBanner initWithType:@"home" wrapper:wrapper];
     [banner fetchNew];
     
     // TODO

@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface SwitchBanner : NSObject
-+ (id)initWithUrl:(NSString *)url wrapper:(UIView *)view;
++ (id)initWithType:(NSString *)type wrapper:(UIView *)view;
 - (void) fetchNew;
 @end
