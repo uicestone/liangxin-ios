@@ -24,12 +24,18 @@
     
     [self.view setBackgroundColor:[UIColor yellowColor]];
     
+    
+    // 初始化TableView
     UITableView* tableView = [[UITableView alloc] initWithFrame:controller.view.frame];
-    
-    
     tableView.delegate = self;
     tableView.dataSource = self;
     [controller.view addSubview:tableView];
+    
+    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
+                                                                 target:self
+                                                                 action:@selector(searchButtonTapped:)];
+    
+    super.navigationItem.rightBarButtonItem = barButton;
     
     if(!self.items){
         [GroupApi getAllGroupsWithSuccessHandler:^(NSArray *groups) {
@@ -39,8 +45,17 @@
             NSLog(@"err %@", err);
         }];
     }
+    
+    
+    // 初始化SearchBar
+    UISearchBar* searchbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0,  CGRectGetWidth(controller.view.frame), 40)];
+    [tableView addSubview:searchbar];
 }
 
+
+-(void)searchButtonTapped:(id)sender{
+    NSLog(@"lalala");
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [items count];
