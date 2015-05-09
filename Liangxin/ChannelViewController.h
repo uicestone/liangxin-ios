@@ -10,4 +10,5 @@
 
 @interface ChannelViewController : UIViewController
 @property (nonatomic, retain) UITabBarController *tab;
+-(void)setBackgroundColorForChannel:(int) index;
 @end

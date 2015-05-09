@@ -74,7 +74,7 @@
     CGFloat contentWidth = CGRectGetWidth(bannerWrapper.frame);
     CGFloat blockHeight = contentWidth / 2 / 1.33;
     
-    // 这里可以优化一下，少一层View
+    // 这里可以使用纯绝对定位优化一下，少一层View
     for(int i = 0; i < 3 ; i ++){
         UIView * container = [UIView new];
         container.frame = CGRectMake(0, offsetTop + blockHeight * i, contentWidth, blockHeight);
@@ -106,8 +106,7 @@
     animation.type = kCATransitionFade;
     [self.navigationController.navigationBar.layer addAnimation:animation forKey:nil];
     
-    
-//    [self.navigationItem setTitle:@"asd"];
+
     [self.navigationItem setTitle:[channels titleAtIndex:index]];
     // 执行动画
     [UIView animateWithDuration:0.3 animations:^{
@@ -117,9 +116,10 @@
         [self.navigationController.navigationBar setBarTintColor: [channels colorAtIndex:index]];
     }];
     
-    // 跳转
+    // 跳转到二级子频道
     NSString * path = [@"/" stringByAppendingString:[channels linkAtIndex:index]];
     UIViewController *viewController = [[HHRouter shared] matchController:path];
+//    viewController.view.backgroundColor = [channels colorAtIndex:index];
     [viewController.navigationItem setTitle:[channels titleAtIndex:index]];
     [self.navigationController pushViewController:viewController animated:YES];
 }

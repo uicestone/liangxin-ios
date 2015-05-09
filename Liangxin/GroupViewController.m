@@ -10,32 +10,41 @@
 #import "GroupApi.h"
 #import "Group.h"
 
-@interface GroupViewController() <UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic, strong)  NSArray* items;
+@interface GroupViewController() <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
+@property (nonatomic, strong) NSArray* items;
+@property (nonatomic, strong) UISearchBar* searchbar;
+@property (nonatomic, strong) UIBarButtonItem* searchButton;
+@property (nonatomic, strong) UIViewController* subViewController;
 @end
 
 @implementation GroupViewController
 @synthesize items;
+@synthesize searchbar;
+@synthesize subViewController;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    UIViewController* controller = [[[super tab] viewControllers] objectAtIndex:1];
-    
-    
-    [self.view setBackgroundColor:[UIColor yellowColor]];
-    
+    // 我是第一个频道，下表为0
+    [super setBackgroundColorForChannel:0];
+    // 我是第二个tab，下标为1
+    subViewController = [[[super tab] viewControllers] objectAtIndex:1];
     
     // 初始化TableView
-    UITableView* tableView = [[UITableView alloc] initWithFrame:controller.view.frame];
+    [self initTableView];
+    [self initSearchBar];
+}
+
+-(void)initTableView{
+    UITableView* tableView = [[UITableView alloc] initWithFrame:subViewController.view.frame];
     tableView.delegate = self;
     tableView.dataSource = self;
-    [controller.view addSubview:tableView];
+    [subViewController.view addSubview:tableView];
     
-    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
-                                                                 target:self
-                                                                 action:@selector(searchButtonTapped:)];
+    _searchButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
+                                                                  target:self
+                                                                  action:@selector(searchButtonTapped:)];
     
-    super.navigationItem.rightBarButtonItem = barButton;
+    super.navigationItem.rightBarButtonItem = _searchButton;
     
     if(!self.items){
         [GroupApi getAllGroupsWithSuccessHandler:^(NSArray *groups) {
@@ -45,21 +54,57 @@
             NSLog(@"err %@", err);
         }];
     }
-    
-    
-    // 初始化SearchBar
-    UISearchBar* searchbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0,  CGRectGetWidth(controller.view.frame), 40)];
-    [tableView addSubview:searchbar];
 }
 
+-(void)initSearchBar{
+    // 初始化SearchBar
+    searchbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 20,  CGRectGetWidth(self.view.frame), 44)];
+    searchbar.delegate = self;
+    searchbar.placeholder = @"搜索";
+    searchbar.showsCancelButton = YES;
+    searchbar.barTintColor = [UIColor redColor];
+    
+    float version = [[[UIDevice currentDevice] systemVersion] floatValue];
+    NSArray *subviewContainer = version>7.0 ? ((UIView *)searchbar.subviews[0]).subviews : searchbar.subviews;
+    for (UIView *subview in subviewContainer){
+        if ([subview isKindOfClass:[UIButton class]]){
+            UIButton *cancelButton = (UIButton*)subview;
+            cancelButton.enabled = YES;
+            [cancelButton setTintColor:[UIColor whiteColor]];
+            [cancelButton setTitle:@"取消" forState:UIControlStateNormal];//文字
+            [cancelButton addTarget:self action:@selector(searchCancelButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+            break;
+        }
+        
+        if ([subview isKindOfClass:NSClassFromString(@"UISearchBarBackground")]){
+            [subview removeFromSuperview];
+        }
+    }
+    
+    [self.view addSubview:searchbar];
+    [super navigationController].navigationBar.alpha = 1;
+}
 
 -(void)searchButtonTapped:(id)sender{
-    NSLog(@"lalala");
+    [UIView animateWithDuration:0.3 animations:^{
+        [searchbar becomeFirstResponder];
+        [super navigationController].navigationBar.alpha = 0;
+    }];
 }
+
+-(void)searchCancelButtonTapped:(id)sender{
+    [UIView animateWithDuration:0.3 animations:^{
+        [searchbar resignFirstResponder];
+        [super navigationController].navigationBar.alpha = 1;
+    }];
+}
+
+#pragma UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [items count];
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -71,6 +116,7 @@
     return cell;
 }
 
+#pragma UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     

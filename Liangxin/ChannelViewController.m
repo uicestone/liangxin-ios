@@ -7,6 +7,7 @@
 //
 
 #import "ChannelViewController.h"
+#import "Channels.h"
 
 @interface ChannelViewController ()
 @end
@@ -40,6 +41,11 @@
     
     // 插入子视图之后再重置Frame，不然似乎Frame的origin会为{0,0}
     fvc.view.frame = svc.view.frame = tvc.view.frame = CGRectMake(0, 64,  CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame) - 64);
+}
+
+
+-(void)setBackgroundColorForChannel:(int) index{
+    [self.tab.selectedViewController.view setBackgroundColor:[[Channels shared] colorAtIndex:index]];
 }
 
 - (void)didReceiveMemoryWarning {
