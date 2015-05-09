@@ -26,9 +26,13 @@
     op.responseSerializer = [AFJSONResponseSerializer serializer];
     
     [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        successCallback(responseObject);
+        if(successCallback){
+            successCallback(responseObject);
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        errorCallback(error);
+        if(errorCallback){
+            errorCallback(error);
+        }
     }];
     [[NSOperationQueue mainQueue] addOperation:op];
 }

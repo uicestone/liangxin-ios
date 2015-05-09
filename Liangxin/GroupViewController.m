@@ -7,11 +7,11 @@
 //
 
 #import "GroupViewController.h"
+#import "GroupApi.h"
+#import "Group.h"
 
 @interface GroupViewController() <UITableViewDataSource, UITableViewDelegate>
-@property NSArray* items;
-
-
+@property (nonatomic, strong)  NSArray* items;
 @end
 
 @implementation GroupViewController
@@ -30,11 +30,15 @@
     tableView.delegate = self;
     tableView.dataSource = self;
     [controller.view addSubview:tableView];
-    NSLog(@"My view frame: %@", NSStringFromCGRect(tableView.frame));
     
-    if(self.items == nil){
-    self.items = @[@"a", @"b", @"c"];
-        }
+    if(!self.items){
+        [GroupApi getAllGroupsWithSuccessHandler:^(NSArray *groups) {
+            self.items = [GroupApi getGroupsWithParentId:0];
+            [tableView reloadData];
+        } errorHandler:^(NSError *err){
+            NSLog(@"err %@", err);
+        }];
+    }
 }
 
 
@@ -47,15 +51,25 @@
     int index = (int)[indexPath row];
     
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    cell.textLabel.text = [items objectAtIndex:index];
+    Group* group = [items objectAtIndex:index];
+    cell.textLabel.text = group.name;
     return cell;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    GroupViewController * groupViewController = [GroupViewController new];
-    groupViewController.items = @[@"d", @"e", @"f"];
-    [self.navigationController pushViewController:groupViewController animated:YES];
+    
+    Group* group = [items objectAtIndex:[indexPath row]];
+    NSArray* newGroupItems = [GroupApi getGroupsWithParentId:group.groupid];
+    
+    if([newGroupItems count]){
+        GroupViewController * groupViewController = [GroupViewController new];
+        groupViewController.items = newGroupItems;
+        [groupViewController setTitle: group.name];
+        [self.navigationController pushViewController:groupViewController animated:YES];
+    }else{
+    }
+    
 }
 
 

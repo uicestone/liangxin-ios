@@ -36,13 +36,14 @@
     
     
     // 初始化网络监控
+    #ifdef DEBUG
     PDDebugger *debugger = [PDDebugger defaultInstance];
-//    [debugger autoConnect];
     [debugger connectToURL:[NSURL URLWithString:@"ws://localhost:9000/device"]];
     [debugger enableNetworkTrafficDebugging];
     [debugger enableViewHierarchyDebugging];
     [debugger enableRemoteLogging];
     [debugger forwardAllNetworkTraffic];
+    #endif
     
     // 初始化Navigation Controller
     UIViewController *homeViewController = [[HHRouter shared] matchController:@"/home"];

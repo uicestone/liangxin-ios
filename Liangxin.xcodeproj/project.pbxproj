@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2210A37B1AFDF66800D9CA1A /* GroupApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210A37A1AFDF66800D9CA1A /* GroupApi.m */; };
+		2210A37E1AFDF84900D9CA1A /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210A37D1AFDF84900D9CA1A /* Group.m */; };
 		22238C1B1AF64F02000B4F95 /* Channels.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C1A1AF64F02000B4F95 /* Channels.m */; };
 		22238C1E1AF66941000B4F95 /* ChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C1D1AF66941000B4F95 /* ChannelViewController.m */; };
 		22238C541AFBACA5000B4F95 /* BannerApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C531AFBACA5000B4F95 /* BannerApi.m */; };
@@ -38,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2210A3791AFDF66800D9CA1A /* GroupApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupApi.h; sourceTree = "<group>"; };
+		2210A37A1AFDF66800D9CA1A /* GroupApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupApi.m; sourceTree = "<group>"; };
+		2210A37C1AFDF84900D9CA1A /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
+		2210A37D1AFDF84900D9CA1A /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
 		22238C191AF64F02000B4F95 /* Channels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Channels.h; sourceTree = "<group>"; };
 		22238C1A1AF64F02000B4F95 /* Channels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Channels.m; sourceTree = "<group>"; };
 		22238C1C1AF66941000B4F95 /* ChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelViewController.h; sourceTree = "<group>"; };
@@ -112,6 +118,8 @@
 				22238C531AFBACA5000B4F95 /* BannerApi.m */,
 				22238C551AFBAE30000B4F95 /* ApiBase.h */,
 				22238C561AFBAE30000B4F95 /* ApiBase.m */,
+				2210A3791AFDF66800D9CA1A /* GroupApi.h */,
+				2210A37A1AFDF66800D9CA1A /* GroupApi.m */,
 			);
 			name = Api;
 			sourceTree = "<group>";
@@ -208,6 +216,8 @@
 				2293FA051AF50B550012CD10 /* BannerModel.m */,
 				22238C191AF64F02000B4F95 /* Channels.h */,
 				22238C1A1AF64F02000B4F95 /* Channels.m */,
+				2210A37C1AFDF84900D9CA1A /* Group.h */,
+				2210A37D1AFDF84900D9CA1A /* Group.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -372,12 +382,14 @@
 				2293FA001AF50A1A0012CD10 /* TAAnimatedDotView.m in Sources */,
 				22F69A861AF31DF100DC295D /* SwitchBanner.m in Sources */,
 				22238C1E1AF66941000B4F95 /* ChannelViewController.m in Sources */,
+				2210A37B1AFDF66800D9CA1A /* GroupApi.m in Sources */,
 				2293FA021AF50A1A0012CD10 /* TAPageControl.m in Sources */,
 				223267C91AF2661B00431132 /* AppDelegate.m in Sources */,
 				2293FA061AF50B550012CD10 /* BannerModel.m in Sources */,
 				2293FA091AF5DBF20012CD10 /* GroupViewController.m in Sources */,
 				223267C61AF2661B00431132 /* main.m in Sources */,
 				22238C571AFBAE30000B4F95 /* ApiBase.m in Sources */,
+				2210A37E1AFDF84900D9CA1A /* Group.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
