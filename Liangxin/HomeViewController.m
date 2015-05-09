@@ -108,6 +108,7 @@
     
 
     [self.navigationItem setTitle:[channels titleAtIndex:index]];
+    
     // 执行动画
     [UIView animateWithDuration:0.3 animations:^{
         [self.navigationItem setTitle:[channels titleAtIndex:index]];
@@ -117,11 +118,8 @@
     }];
     
     // 跳转到二级子频道
-    NSString * path = [@"/" stringByAppendingString:[channels linkAtIndex:index]];
-    UIViewController *viewController = [[HHRouter shared] matchController:path];
-//    viewController.view.backgroundColor = [channels colorAtIndex:index];
-    [viewController.navigationItem setTitle:[channels titleAtIndex:index]];
-    [self.navigationController pushViewController:viewController animated:YES];
+    NSURL* url = [NSURL URLWithString: [NSString stringWithFormat:@"liangxin://channel/%d", index]];
+    [[UIApplication sharedApplication] openURL: url];
 }
 
 

@@ -44,11 +44,21 @@ static NSArray *groups = nil;
     }]];
 }
 
+
++ (Group *)getGroupById:(int) groupId{
+    NSArray* matches = [groups objectsAtIndexes:[groups indexesOfObjectsPassingTest:^BOOL(Group* obj, NSUInteger idx, BOOL *stop) {
+        return obj.groupid == groupId;
+    }]];
+    
+    return [matches objectAtIndex:0];
+}
+
 +(NSArray *)getGroupsWithParentId:(int) parentId{
     if(!groups){
         return nil;
     }
     
+    // 这里可以加一个缓存
     return [groups objectsAtIndexes:[groups indexesOfObjectsPassingTest:^BOOL(Group* obj, NSUInteger idx, BOOL *stop) {
         return [obj parentid] == parentId;
     }]];

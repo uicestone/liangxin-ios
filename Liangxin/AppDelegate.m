@@ -7,8 +7,12 @@
 //
 
 #import "AppDelegate.h"
+
 #import "HomeViewController.h"
 #import "GroupViewController.h"
+#import "GroupDetailViewController.h"
+
+
 #import "Channels.h"
 
 #import <HHRouter/HHRouter.h>
@@ -32,8 +36,9 @@
     // 初始化Router
     
     [[HHRouter shared] map:@"/home" toControllerClass:[HomeViewController class]];
+    [[HHRouter shared] map:@"/channel/:id" toControllerClass:[ChannelViewController class]];
     [[HHRouter shared] map:@"/group" toControllerClass:[GroupViewController class]];
-    
+    [[HHRouter shared] map:@"/groupdetail" toControllerClass:[GroupDetailViewController class]];
     
     // 初始化网络监控
     #ifdef DEBUG
@@ -57,7 +62,15 @@
 
 -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
     
-    NSString * path = [[@"/" stringByAppendingString:[url host]] stringByAppendingString: [url path]];
+    NSString* query = [url query];
+    
+    if(!query){
+        query = @"";
+    }else{
+        query = [@"?" stringByAppendingString:query];
+    }
+    NSString* path = [NSString stringWithFormat:@"/%@%@%@", [url host], [url path], query ];
+    
     UIViewController *viewController = [[HHRouter shared] matchController:path];
     
     if(navigationController){

@@ -9,6 +9,7 @@
 #import "GroupViewController.h"
 #import "GroupApi.h"
 #import "Group.h"
+#import <HHRouter/HHRouter.h>
 
 @interface GroupViewController() <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 @property (nonatomic, strong) NSArray* items;
@@ -24,19 +25,34 @@
 @synthesize originItems;
 @synthesize searchBar;
 @synthesize tableView;
+@synthesize tabBarController;
 @synthesize subViewController;
+
+- (void)loadView{
+    CGRect frame = [UIScreen mainScreen].applicationFrame;
+    self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 64,  CGRectGetWidth(frame), CGRectGetHeight(frame) - 64)];
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // 我是第一个频道，下表为0
-    [super setBackgroundColorForChannel:0];
     // 我是第二个tab，下标为1
-    subViewController = [[[super tab] viewControllers] objectAtIndex:1];
+    subViewController = [[[tabBarController tab] viewControllers] objectAtIndex:1];
+    
+    NSDictionary* params = self.tabBarController.params;
+    if(![params[@"groupid"] isEqualToString:@""]){
+        int groupid = [params[@"groupid"] intValue];
+        NSArray* newGroupItems = [GroupApi getGroupsWithParentId:groupid];
+        Group* group = [GroupApi getGroupById:groupid];
+        self.items = newGroupItems;
+        [tabBarController setTitle:group.name];
+    }
     
     // 初始化TableView
     [self initTableView];
     [self initSearchBar];
 }
+
 
 -(void)initTableView{
     tableView = [[UITableView alloc] initWithFrame:subViewController.view.frame];
@@ -44,6 +60,7 @@
     tableView.dataSource = self;
     [subViewController.view addSubview:tableView];
     
+    // 搜个货
     if(!items){
         [GroupApi getAllGroupsWithSuccessHandler:^(NSArray *groups) {
             items = originItems = [GroupApi getGroupsWithParentId:0];
@@ -65,7 +82,7 @@
                                                                   target:self
                                                                   action:@selector(showSearchBar)];
     
-    super.navigationItem.rightBarButtonItem = _searchButton;
+    tabBarController.navigationItem.rightBarButtonItem = _searchButton;
     
     // 初始化SearchBar
     searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 20,  CGRectGetWidth(self.view.frame), 44)];
@@ -73,6 +90,7 @@
     searchBar.placeholder = @"搜索";
     searchBar.showsCancelButton = YES;
     searchBar.barTintColor = [UIColor redColor];
+    searchBar.backgroundColor = [UIColor redColor];
     
     float version = [[[UIDevice currentDevice] systemVersion] floatValue];
     NSArray *subviewContainer = version>7.0 ? ((UIView *)searchBar.subviews[0]).subviews : searchBar.subviews;
@@ -91,7 +109,7 @@
     }
     
     [self.view addSubview:searchBar];
-    [super navigationController].navigationBar.alpha = 1;
+    [tabBarController navigationController].navigationBar.alpha = 1;
 }
 
 #pragma 搜索框protocal
@@ -116,7 +134,7 @@
 -(void)showSearchBar{
     [UIView animateWithDuration:0.3 animations:^{
         [searchBar becomeFirstResponder];
-        [super navigationController].navigationBar.alpha = 0;
+        [tabBarController navigationController].navigationBar.alpha = 0;
     }];
 }
 
@@ -126,7 +144,7 @@
     [tableView reloadData];
     [UIView animateWithDuration:0.3 animations:^{
         [searchBar resignFirstResponder];
-        [super navigationController].navigationBar.alpha = 1;
+        [tabBarController navigationController].navigationBar.alpha = 1;
     }];
 }
 
@@ -138,10 +156,6 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    NSLog(@"=================");
-    NSLog(@"previous: %@", originItems);
-    NSLog(@"current: %@", items);
     int index = (int)[indexPath row];
     
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
@@ -158,11 +172,14 @@
     NSArray* newGroupItems = [GroupApi getGroupsWithParentId:group.groupid];
     
     if([newGroupItems count]){
-        GroupViewController * groupViewController = [GroupViewController new];
-        groupViewController.items = newGroupItems;
-        [groupViewController setTitle: group.name];
-        [self.navigationController pushViewController:groupViewController animated:YES];
+        NSString* urlString = [NSString stringWithFormat:@"liangxin://channel/0?groupid=%d",group.groupid];
+        
+        NSString *escaped = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:escaped]];
     }else{
+        [[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"liangxin://groupdetail"]];
+//        [self.navigationController pushViewController:groupViewController animated:YES];
     }
     
 }

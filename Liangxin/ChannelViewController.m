@@ -7,30 +7,40 @@
 //
 
 #import "ChannelViewController.h"
+#import "GroupViewController.h"
 #import "Channels.h"
+#import <HHRouter/HHRouter.h>
 
 @interface ChannelViewController ()
+@property (nonatomic, strong) Channels* channels;
 @end
 
+// 这里只作为容器，每个ChannelViewContainer还应当继承一个公共类
 @implementation ChannelViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    _channels = [Channels shared];
     self.tab=[[UITabBarController alloc]init];
     
+    int index = [self.params[@"id"] intValue];
+    
     // FirstViewController
-    UIViewController *fvc=[[UIViewController alloc]initWithNibName:nil bundle:nil];
+    UIViewController *fvc=[[UIViewController alloc] initWithNibName:nil bundle:nil];
     fvc.title=@"返回首页";
     fvc.tabBarItem.image=[UIImage imageNamed:@"i.png"];
     
-    //SecondViewController
-    UIViewController *svc=[[UIViewController alloc]initWithNibName:nil bundle:nil];
+    // SecondViewController
+    // 最上面就是在说这里
+    GroupViewController *svc=[[GroupViewController alloc] initWithNibName:nil bundle:nil];
+    svc.tabBarController = self;
+    self.navigationItem.title = [_channels titleAtIndex:index];
+    
     svc.title=@"我要发起";
     svc.tabBarItem.image=[UIImage imageNamed:@"im.png"];
     
     //ThirdViewController
-    UIViewController *tvc=[[UIViewController alloc]initWithNibName:nil bundle:nil];
+    UIViewController *tvc=[[UIViewController alloc] initWithNibName:nil bundle:nil];
     tvc.title=@"我的账号";
     tvc.tabBarItem.image=[UIImage imageNamed:@"img.png"];
     
@@ -39,8 +49,10 @@
     self.tab.selectedIndex = 1;
     [self.view addSubview:self.tab.view];
     
-    // 插入子视图之后再重置Frame，不然似乎Frame的origin会为{0,0}
-    fvc.view.frame = svc.view.frame = tvc.view.frame = CGRectMake(0, 64,  CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame) - 64);
+    
+    // 设置一下频道背景色
+    [self setBackgroundColorForChannel: index];
+    
 }
 
 
