@@ -12,14 +12,18 @@
 
 @interface GroupViewController() <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 @property (nonatomic, strong) NSArray* items;
-@property (nonatomic, strong) UISearchBar* searchbar;
+@property (nonatomic, strong) NSArray* originItems;
+@property (nonatomic, strong) UISearchBar* searchBar;
 @property (nonatomic, strong) UIBarButtonItem* searchButton;
 @property (nonatomic, strong) UIViewController* subViewController;
+@property (nonatomic, strong) UITableView* tableView;
 @end
 
 @implementation GroupViewController
 @synthesize items;
-@synthesize searchbar;
+@synthesize originItems;
+@synthesize searchBar;
+@synthesize tableView;
 @synthesize subViewController;
 
 - (void)viewDidLoad {
@@ -35,44 +39,49 @@
 }
 
 -(void)initTableView{
-    UITableView* tableView = [[UITableView alloc] initWithFrame:subViewController.view.frame];
+    tableView = [[UITableView alloc] initWithFrame:subViewController.view.frame];
     tableView.delegate = self;
     tableView.dataSource = self;
     [subViewController.view addSubview:tableView];
     
-    _searchButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
-                                                                  target:self
-                                                                  action:@selector(searchButtonTapped:)];
-    
-    super.navigationItem.rightBarButtonItem = _searchButton;
-    
-    if(!self.items){
+    if(!items){
         [GroupApi getAllGroupsWithSuccessHandler:^(NSArray *groups) {
-            self.items = [GroupApi getGroupsWithParentId:0];
+            items = originItems = [GroupApi getGroupsWithParentId:0];
             [tableView reloadData];
         } errorHandler:^(NSError *err){
             NSLog(@"err %@", err);
         }];
+    }else{
+        originItems = items;
     }
+    
 }
 
+#pragma 搜索框相关
+
 -(void)initSearchBar{
+    
+    _searchButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
+                                                                  target:self
+                                                                  action:@selector(showSearchBar)];
+    
+    super.navigationItem.rightBarButtonItem = _searchButton;
+    
     // 初始化SearchBar
-    searchbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 20,  CGRectGetWidth(self.view.frame), 44)];
-    searchbar.delegate = self;
-    searchbar.placeholder = @"搜索";
-    searchbar.showsCancelButton = YES;
-    searchbar.barTintColor = [UIColor redColor];
+    searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 20,  CGRectGetWidth(self.view.frame), 44)];
+    searchBar.delegate = self;
+    searchBar.placeholder = @"搜索";
+    searchBar.showsCancelButton = YES;
+    searchBar.barTintColor = [UIColor redColor];
     
     float version = [[[UIDevice currentDevice] systemVersion] floatValue];
-    NSArray *subviewContainer = version>7.0 ? ((UIView *)searchbar.subviews[0]).subviews : searchbar.subviews;
+    NSArray *subviewContainer = version>7.0 ? ((UIView *)searchBar.subviews[0]).subviews : searchBar.subviews;
     for (UIView *subview in subviewContainer){
         if ([subview isKindOfClass:[UIButton class]]){
             UIButton *cancelButton = (UIButton*)subview;
             cancelButton.enabled = YES;
             [cancelButton setTintColor:[UIColor whiteColor]];
             [cancelButton setTitle:@"取消" forState:UIControlStateNormal];//文字
-            [cancelButton addTarget:self action:@selector(searchCancelButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
             break;
         }
         
@@ -81,20 +90,42 @@
         }
     }
     
-    [self.view addSubview:searchbar];
+    [self.view addSubview:searchBar];
     [super navigationController].navigationBar.alpha = 1;
 }
 
--(void)searchButtonTapped:(id)sender{
+#pragma 搜索框protocal
+- (void)searchBarSearchButtonClicked:(UISearchBar *)bar{
+    [self makeSearchWithKeyword:[bar text]];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)bar{
+    [self hideSearchBar];
+}
+
+
+
+#pragma 自定义搜索框处理方法
+
+-(void)makeSearchWithKeyword:(NSString *)keyword{
+    NSArray* groups = [GroupApi getGroupsByKeyword:keyword];
+    items = groups;
+    [tableView reloadData];
+}
+
+-(void)showSearchBar{
     [UIView animateWithDuration:0.3 animations:^{
-        [searchbar becomeFirstResponder];
+        [searchBar becomeFirstResponder];
         [super navigationController].navigationBar.alpha = 0;
     }];
 }
 
--(void)searchCancelButtonTapped:(id)sender{
+-(void)hideSearchBar{
+    searchBar.text = @"";
+    items = [originItems copy];
+    [tableView reloadData];
     [UIView animateWithDuration:0.3 animations:^{
-        [searchbar resignFirstResponder];
+        [searchBar resignFirstResponder];
         [super navigationController].navigationBar.alpha = 1;
     }];
 }
@@ -108,6 +139,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    NSLog(@"=================");
+    NSLog(@"previous: %@", originItems);
+    NSLog(@"current: %@", items);
     int index = (int)[indexPath row];
     
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];

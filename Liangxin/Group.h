@@ -12,4 +12,5 @@
 @property int groupid;
 @property int parentid;
 @property NSString *name;
+@property BOOL isLeaf;
 @end

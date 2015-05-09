@@ -10,5 +10,6 @@
 
 @interface GroupApi : NSObject
 + (void)getAllGroupsWithSuccessHandler:(void (^)(NSArray * groups))success errorHandler:(void (^)(NSError *error))error;
-+(NSArray *)getGroupsWithParentId:(int) parentId;
++ (NSArray *)getGroupsByKeyword:(NSString *)keyword;
++ (NSArray *)getGroupsWithParentId:(int) parentId;
 @end

@@ -25,11 +25,23 @@ static NSArray *groups = nil;
                 g.parentid = [[jsonObj objectForKey:@"parent"] intValue];
             }
             g.name = [jsonObj objectForKey:@"name"];
+            g.isLeaf = [jsonObj objectForKey:@"children"] == nil || [NSNull null] == [jsonObj objectForKey:@"children"];
+            
             [groups addObject:g];
         }
         [self setGroups:groups];
         success(groups);
     } error:error];
+}
+
++ (NSArray *)getGroupsByKeyword:(NSString *)keyword{
+    if(!groups){
+        return nil;
+    }
+    
+    return [groups objectsAtIndexes:[groups indexesOfObjectsPassingTest:^BOOL(Group* obj, NSUInteger idx, BOOL *stop) {
+        return [[obj name] containsString:keyword] && [obj isLeaf];
+    }]];
 }
 
 +(NSArray *)getGroupsWithParentId:(int) parentId{

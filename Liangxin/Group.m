@@ -13,4 +13,5 @@
 @synthesize groupid;
 @synthesize parentid;
 @synthesize name;
+@synthesize isLeaf;
 @end
