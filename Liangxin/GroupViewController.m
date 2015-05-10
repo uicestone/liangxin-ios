@@ -9,6 +9,7 @@
 #import "GroupViewController.h"
 #import "GroupApi.h"
 #import "Group.h"
+#import "Channels.h"
 #import <HHRouter/HHRouter.h>
 
 @interface GroupViewController() <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
@@ -16,7 +17,6 @@
 @property (nonatomic, strong) NSArray* originItems;
 @property (nonatomic, strong) UISearchBar* searchBar;
 @property (nonatomic, strong) UIBarButtonItem* searchButton;
-@property (nonatomic, strong) UIViewController* subViewController;
 @property (nonatomic, strong) UITableView* tableView;
 @end
 
@@ -25,29 +25,32 @@
 @synthesize originItems;
 @synthesize searchBar;
 @synthesize tableView;
-@synthesize tabBarController;
-@synthesize subViewController;
 
 
 // 此段应在父类中
 - (void)loadView{
     CGRect frame = [UIScreen mainScreen].applicationFrame;
-    self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 64,  CGRectGetWidth(frame), CGRectGetHeight(frame) - 64)];
-    
+    self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 0,  CGRectGetWidth(frame), CGRectGetHeight(frame) + 20)];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // 我是第二个tab，下标为1
-    subViewController = [[[tabBarController tab] viewControllers] objectAtIndex:1];
     
-    NSDictionary* params = self.tabBarController.params;
-    if(![params[@"groupid"] isEqualToString:@""]){
-        int groupid = [params[@"groupid"] intValue];
+    // 考虑挪到父类去
+    [self setTitle:[[Channels shared] titleAtIndex:0]];
+    self.navigationController.tabBarController.tabBar.hidden = NO;
+    
+    NSDictionary* params = self.params;
+    if(![params[@"id"] isEqualToString:@""]){
+        int groupid = [params[@"id"] intValue];
         NSArray* newGroupItems = [GroupApi getGroupsWithParentId:groupid];
-        Group* group = [GroupApi getGroupById:groupid];
         self.items = newGroupItems;
-        [tabBarController setTitle:group.name];
+        
+        
+        Group* group = [GroupApi getGroupById:groupid];
+        if(group){
+            [self setTitle:group.name];
+        }
     }
     
     // 初始化TableView
@@ -57,10 +60,10 @@
 
 
 -(void)initTableView{
-    tableView = [[UITableView alloc] initWithFrame:subViewController.view.frame];
+    tableView = [[UITableView alloc] initWithFrame:self.view.frame];
     tableView.delegate = self;
     tableView.dataSource = self;
-    [subViewController.view addSubview:tableView];
+    [self.view addSubview:tableView];
     
     // 搜个货
     if(!items){
@@ -84,7 +87,7 @@
                                                                   target:self
                                                                   action:@selector(showSearchBar)];
     
-    tabBarController.navigationItem.rightBarButtonItem = _searchButton;
+    self.navigationItem.rightBarButtonItem = _searchButton;
     
     // 初始化SearchBar
     searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 20,  CGRectGetWidth(self.view.frame), 44)];
@@ -111,7 +114,7 @@
     }
     
     [self.view addSubview:searchBar];
-    [tabBarController navigationController].navigationBar.alpha = 1;
+    [self navigationController].navigationBar.alpha = 1;
 }
 
 #pragma 搜索框protocal
@@ -136,7 +139,7 @@
 -(void)showSearchBar{
     [UIView animateWithDuration:0.3 animations:^{
         [searchBar becomeFirstResponder];
-        [tabBarController navigationController].navigationBar.alpha = 0;
+        [self navigationController].navigationBar.alpha = 0;
     }];
 }
 
@@ -146,7 +149,7 @@
     [tableView reloadData];
     [UIView animateWithDuration:0.3 animations:^{
         [searchBar resignFirstResponder];
-        [tabBarController navigationController].navigationBar.alpha = 1;
+        [self navigationController].navigationBar.alpha = 1;
     }];
 }
 
@@ -171,14 +174,14 @@
 - (void)tableView:(UITableView *)tv didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     [tv deselectRowAtIndexPath:indexPath animated:NO];
-
+    
     Group* group = [items objectAtIndex:[indexPath row]];
     NSArray* newGroupItems = [GroupApi getGroupsWithParentId:group.groupid];
     
     if([newGroupItems count]){
-        NSString* urlString = [NSString stringWithFormat:@"liangxin://channel/0?groupid=%d",group.groupid];
+        NSString* urlString = [NSString stringWithFormat:@"liangxin://group/%d",group.groupid];
         NSString *escaped = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-
+        
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:escaped]];
     }else{
         [[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"liangxin://groupdetail"]];

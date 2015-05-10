@@ -14,7 +14,9 @@
 
 @property (strong, nonatomic) UIViewController *viewController;
 
-@property (strong, nonatomic) UINavigationController * navigationController;
+@property (strong, nonatomic) UINavigationController *navigationController;
+
+@property (strong, nonatomic) UITabBarController *tabBarController;
 
 @end
 

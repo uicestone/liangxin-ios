@@ -20,44 +20,39 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _channels = [Channels shared];
-    self.tab=[[UITabBarController alloc]init];
+//    _channels = [Channels shared];
+//    self.tab=[[UITabBarController alloc]init];
+//    
+//    int index = [self.params[@"id"] intValue];
+//    
+//    // FirstViewController
+//    UIViewController *fvc=[[UIViewController alloc] initWithNibName:nil bundle:nil];
+//    fvc.title=@"返回首页";
+//    fvc.tabBarItem.image=[UIImage imageNamed:@"i.png"];
+//    
+//    // SecondViewController
+//    // 最上面就是在说这里
+//    GroupViewController *svc=[[GroupViewController alloc] initWithNibName:nil bundle:nil];
+//    svc.tabBarController = self;
+//    self.navigationItem.title = [_channels titleAtIndex:index];
+//    
+//    svc.title=@"我要发起";
+//    svc.tabBarItem.image=[UIImage imageNamed:@"im.png"];
+//    
+//    //ThirdViewController
+//    UIViewController *tvc=[[UIViewController alloc] initWithNibName:nil bundle:nil];
+//    tvc.title=@"我的账号";
+//    tvc.tabBarItem.image=[UIImage imageNamed:@"img.png"];
+//    
+//    
+//    self.tab.viewControllers=[NSArray arrayWithObjects:fvc, svc, tvc, nil];
+//    self.tab.selectedIndex = 1;
+//    [self.view addSubview:self.tab.view];
+//    
+//    
+//    // 设置一下频道背景色
+//    [self setBackgroundColorForChannel: index];
     
-    int index = [self.params[@"id"] intValue];
-    
-    // FirstViewController
-    UIViewController *fvc=[[UIViewController alloc] initWithNibName:nil bundle:nil];
-    fvc.title=@"返回首页";
-    fvc.tabBarItem.image=[UIImage imageNamed:@"i.png"];
-    
-    // SecondViewController
-    // 最上面就是在说这里
-    GroupViewController *svc=[[GroupViewController alloc] initWithNibName:nil bundle:nil];
-    svc.tabBarController = self;
-    self.navigationItem.title = [_channels titleAtIndex:index];
-    
-    svc.title=@"我要发起";
-    svc.tabBarItem.image=[UIImage imageNamed:@"im.png"];
-    
-    //ThirdViewController
-    UIViewController *tvc=[[UIViewController alloc] initWithNibName:nil bundle:nil];
-    tvc.title=@"我的账号";
-    tvc.tabBarItem.image=[UIImage imageNamed:@"img.png"];
-    
-    
-    self.tab.viewControllers=[NSArray arrayWithObjects:fvc, svc, tvc, nil];
-    self.tab.selectedIndex = 1;
-    [self.view addSubview:self.tab.view];
-    
-    
-    // 设置一下频道背景色
-    [self setBackgroundColorForChannel: index];
-    
-}
-
-
--(void)setBackgroundColorForChannel:(int) index{
-    [self.tab.selectedViewController.view setBackgroundColor:[[Channels shared] colorAtIndex:index]];
 }
 
 - (void)didReceiveMemoryWarning {

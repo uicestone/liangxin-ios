@@ -24,6 +24,7 @@
 
 @implementation AppDelegate
 @synthesize navigationController;
+@synthesize tabBarController;
 @synthesize window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -36,8 +37,8 @@
     // 初始化Router
     
     [[HHRouter shared] map:@"/home" toControllerClass:[HomeViewController class]];
-    [[HHRouter shared] map:@"/channel/:id" toControllerClass:[ChannelViewController class]];
     [[HHRouter shared] map:@"/group" toControllerClass:[GroupViewController class]];
+    [[HHRouter shared] map:@"/group/:id" toControllerClass:[GroupViewController class]];
     [[HHRouter shared] map:@"/groupdetail" toControllerClass:[GroupDetailViewController class]];
     
     // 初始化网络监控
@@ -54,11 +55,47 @@
     UIViewController *homeViewController = [[HHRouter shared] matchController:@"/home"];
     
     
-    navigationController = [[UINavigationController alloc] initWithRootViewController:homeViewController];
-    window.rootViewController = navigationController;
+    // 初始化tabbar controller
+    
+    self.tabBarController = [[UITabBarController alloc] init];
+    
+    
+    
+    // FirstViewController
+    UIViewController *fvc=[[UIViewController alloc] initWithNibName:nil bundle:nil];
+    fvc.title=@"返回首页";
+    fvc.tabBarItem.image=[UIImage imageNamed:@"i.png"];
+    
+    // SecondViewController
+    navigationController= [[UINavigationController alloc]
+                                             initWithRootViewController:homeViewController];
+    navigationController.title=@"我要发起";
+    navigationController.tabBarItem.image=[UIImage imageNamed:@"im.png"];
+    
+    //ThirdViewController
+    UIViewController *tvc=[[UIViewController alloc] initWithNibName:nil bundle:nil];
+    tvc.title=@"我的账号";
+    tvc.tabBarItem.image=[UIImage imageNamed:@"img.png"];
+    
+    
+    
+    
+    NSArray* controllers = [NSArray arrayWithObjects:fvc, navigationController, tvc, nil];
+    
+    
+    tabBarController.viewControllers = controllers;
+    
+    tabBarController.selectedIndex = 1;
+    
+    
+    window.rootViewController = tabBarController;
+    
+//    window.rootViewController = navigationController;
     
     return YES;
 }
+
+
 
 -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
     

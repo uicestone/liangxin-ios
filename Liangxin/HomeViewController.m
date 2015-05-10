@@ -31,6 +31,7 @@
     self.navigationController.delegate = self;
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     
+    
     // 设置背景色
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
@@ -53,6 +54,7 @@
     
     // 初始化六个图标
     self.channels = [Channels shared];
+    [self initButtons];
     
     
 }
@@ -60,6 +62,9 @@
 - (void) viewWillAppear:(BOOL)animated{
     NSString * title = @"精品推荐";
     self.navigationItem.title = title;
+    
+    // 隐藏Tabbar
+    self.tabBarController.tabBar.hidden = YES;
     
     // 初始化顶部导航
     UINavigationBar* nvb = self.navigationController.navigationBar;
@@ -119,7 +124,8 @@
     }];
     
     // 跳转到二级子频道
-    NSURL* url = [NSURL URLWithString: [NSString stringWithFormat:@"liangxin://channel/%d", index]];
+    
+    NSURL* url = [NSURL URLWithString: [NSString stringWithFormat:@"liangxin://%@", [channels linkAtIndex:index] ]];
     [[UIApplication sharedApplication] openURL: url];
 }
 

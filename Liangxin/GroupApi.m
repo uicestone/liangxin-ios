@@ -46,6 +46,9 @@ static NSArray *groups = nil;
 
 
 + (Group *)getGroupById:(int) groupId{
+    if(!groupId){
+        return nil;
+    }
     NSArray* matches = [groups objectsAtIndexes:[groups indexesOfObjectsPassingTest:^BOOL(Group* obj, NSUInteger idx, BOOL *stop) {
         return obj.groupid == groupId;
     }]];
