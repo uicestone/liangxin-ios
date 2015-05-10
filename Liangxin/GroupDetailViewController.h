@@ -6,8 +6,9 @@
 //  Copyright (c) 2015年 Hsu Spud. All rights reserved.
 //
 
+#import "LXWebViewController.h"
 #import <UIKit/UIKit.h>
 
-@interface GroupDetailViewController : UIViewController
+@interface GroupDetailViewController : LXWebViewController
 
 @end

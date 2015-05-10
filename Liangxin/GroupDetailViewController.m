@@ -10,12 +10,17 @@
 
 @interface GroupDetailViewController ()
 
+@property (nonatomic, strong) UIWebView* webview;
+
 @end
 
 @implementation GroupDetailViewController
+@synthesize webview;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self loadPage:@"index"];
     // Do any additional setup after loading the view from its nib.
 }
 

@@ -53,7 +53,8 @@
     
     // 初始化六个图标
     self.channels = [Channels shared];
-    [self initButtons];
+    
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated{

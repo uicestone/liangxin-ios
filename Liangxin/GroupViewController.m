@@ -28,6 +28,8 @@
 @synthesize tabBarController;
 @synthesize subViewController;
 
+
+// 此段应在父类中
 - (void)loadView{
     CGRect frame = [UIScreen mainScreen].applicationFrame;
     self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 64,  CGRectGetWidth(frame), CGRectGetHeight(frame) - 64)];
@@ -166,20 +168,20 @@
 
 #pragma UITableViewDelegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tv didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    [tv deselectRowAtIndexPath:indexPath animated:NO];
+
     Group* group = [items objectAtIndex:[indexPath row]];
     NSArray* newGroupItems = [GroupApi getGroupsWithParentId:group.groupid];
     
     if([newGroupItems count]){
         NSString* urlString = [NSString stringWithFormat:@"liangxin://channel/0?groupid=%d",group.groupid];
-        
         NSString *escaped = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:escaped]];
     }else{
         [[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"liangxin://groupdetail"]];
-//        [self.navigationController pushViewController:groupViewController animated:YES];
     }
     
 }

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface LXWebViewController : UIViewController
-
+- (void)loadPage:(NSString *)url;
 @end
