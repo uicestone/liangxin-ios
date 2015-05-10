@@ -23,6 +23,7 @@
 		223267D11AF2661B00431132 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 223267D01AF2661B00431132 /* Images.xcassets */; };
 		223267D41AF2661B00431132 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223267D21AF2661B00431132 /* LaunchScreen.xib */; };
 		223267E01AF2661B00431132 /* LiangxinTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 223267DF1AF2661B00431132 /* LiangxinTests.m */; };
+		225BA69C1AFF30D0000E6D79 /* LXWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 225BA69B1AFF30D0000E6D79 /* LXWebView.m */; };
 		2293F9FF1AF50A1A0012CD10 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2293F9F81AF50A1A0012CD10 /* TAAbstractDotView.m */; };
 		2293FA001AF50A1A0012CD10 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2293F9FA1AF50A1A0012CD10 /* TAAnimatedDotView.m */; };
 		2293FA011AF50A1A0012CD10 /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2293F9FC1AF50A1A0012CD10 /* TADotView.m */; };
@@ -75,6 +76,8 @@
 		223267D91AF2661B00431132 /* LiangxinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiangxinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		223267DE1AF2661B00431132 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		223267DF1AF2661B00431132 /* LiangxinTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiangxinTests.m; sourceTree = "<group>"; };
+		225BA69A1AFF30D0000E6D79 /* LXWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXWebView.h; sourceTree = "<group>"; };
+		225BA69B1AFF30D0000E6D79 /* LXWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXWebView.m; sourceTree = "<group>"; };
 		2293F9F71AF50A1A0012CD10 /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
 		2293F9F81AF50A1A0012CD10 /* TAAbstractDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAbstractDotView.m; sourceTree = "<group>"; };
 		2293F9F91AF50A1A0012CD10 /* TAAnimatedDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAnimatedDotView.h; sourceTree = "<group>"; };
@@ -243,6 +246,8 @@
 			children = (
 				22F69A841AF31DF100DC295D /* SwitchBanner.h */,
 				22F69A851AF31DF100DC295D /* SwitchBanner.m */,
+				225BA69A1AFF30D0000E6D79 /* LXWebView.h */,
+				225BA69B1AFF30D0000E6D79 /* LXWebView.m */,
 			);
 			name = Widgets;
 			sourceTree = "<group>";
@@ -393,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				223267CC1AF2661B00431132 /* HomeViewController.m in Sources */,
+				225BA69C1AFF30D0000E6D79 /* LXWebView.m in Sources */,
 				22238C1B1AF64F02000B4F95 /* Channels.m in Sources */,
 				2293FA011AF50A1A0012CD10 /* TADotView.m in Sources */,
 				2210A38B1AFEE1F800D9CA1A /* LXWebViewController.m in Sources */,

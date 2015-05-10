@@ -7,6 +7,7 @@
 //
 
 #import "GroupDetailViewController.h"
+#import <HHRouter/HHRouter.h>
 
 @interface GroupDetailViewController ()
 
@@ -20,7 +21,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loadPage:@"index"];
+    
+    int _id = [self.params[@"id"] intValue];
+    
+    [self loadPage:[NSString stringWithFormat:@"groupdetail?id=%d", _id]];
+     
     // Do any additional setup after loading the view from its nib.
 }
 

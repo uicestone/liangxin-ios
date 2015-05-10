@@ -75,6 +75,7 @@
         }];
     }else{
         originItems = items;
+        [tableView reloadData];
     }
     
 }
@@ -177,15 +178,16 @@
     
     Group* group = [items objectAtIndex:[indexPath row]];
     NSArray* newGroupItems = [GroupApi getGroupsWithParentId:group.groupid];
-    
+    NSString* urlPath;
     if([newGroupItems count]){
-        NSString* urlString = [NSString stringWithFormat:@"liangxin://group/%d",group.groupid];
-        NSString *escaped = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:escaped]];
+        urlPath = @"group";
     }else{
-        [[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"liangxin://groupdetail"]];
+        urlPath = @"groupdetail";
     }
+    
+    NSString* urlString = [NSString stringWithFormat:@"liangxin://%@/%d", urlPath, group.groupid];
+    NSURL* url = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL: url];
     
 }
 

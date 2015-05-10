@@ -18,7 +18,7 @@
 #import <HHRouter/HHRouter.h>
 #import <PonyDebugger/PDDebugger.h>
 
-@interface AppDelegate ()
+@interface AppDelegate () <UITabBarControllerDelegate, UIActionSheetDelegate>
 
 @end
 
@@ -39,7 +39,20 @@
     [[HHRouter shared] map:@"/home" toControllerClass:[HomeViewController class]];
     [[HHRouter shared] map:@"/group" toControllerClass:[GroupViewController class]];
     [[HHRouter shared] map:@"/group/:id" toControllerClass:[GroupViewController class]];
-    [[HHRouter shared] map:@"/groupdetail" toControllerClass:[GroupDetailViewController class]];
+    [[HHRouter shared] map:@"/groupdetail/:id" toControllerClass:[GroupDetailViewController class]];
+    
+    // 更改默认userAgent
+    
+    // 版本号，应用名
+    NSString* appVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+    NSString* appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
+    
+    // 在UA后面加上一段
+    NSString* ua= [[UIWebView new] stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];
+    ua = [NSString stringWithFormat:@"%@ %@/%@", ua, appName, appVersion];
+    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:ua, @"UserAgent", nil];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
+    
     
     // 初始化网络监控
     #ifdef DEBUG
@@ -52,7 +65,7 @@
     #endif
     
     // 初始化Navigation Controller
-    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/home"];
+    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/groupdetail/1"];
     
     
     // 初始化tabbar controller
@@ -86,13 +99,45 @@
     tabBarController.viewControllers = controllers;
     
     tabBarController.selectedIndex = 1;
-    
+    tabBarController.delegate = self;
     
     window.rootViewController = tabBarController;
     
-//    window.rootViewController = navigationController;
-    
     return YES;
+}
+
+
+- (BOOL)tabBarController:(UITabBarController *)tc shouldSelectViewController:(UIViewController *)vc{
+    int index = [[tc viewControllers] indexOfObject:vc];
+    switch (index) {
+        case 0:
+            [[self tabBarController] setSelectedIndex:1];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+            break;
+        case 1:
+            [self showPostBar];
+            break;
+        case 2:
+            
+            break;
+    }
+    if(index == 2){
+        return YES;
+    }else{
+        return NO;
+    }
+}
+
+#pragma ActionSheetDelegate
+- (void)showPostBar{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle: nil
+                                  delegate:self
+                                  cancelButtonTitle:@"取消"
+                                  destructiveButtonTitle: nil
+                                  otherButtonTitles:@"公告", @"文章", @"相册", nil];
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    [actionSheet showInView:self.tabBarController.view];
 }
 
 

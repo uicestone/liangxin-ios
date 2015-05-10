@@ -7,9 +7,11 @@
 //
 
 #import "LXWebViewController.h"
+#import "LXWebView.h"
+#import "Definition.h"
 
 @interface LXWebViewController () <UIWebViewDelegate>
-@property (nonatomic, strong) UIWebView* webview;
+@property (nonatomic, strong) LXWebView* webview;
 @end
 
 @implementation LXWebViewController
@@ -21,24 +23,79 @@
 }
 
 
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+
+- (NSArray *)keyCommands {
+    return @[
+             [UIKeyCommand keyCommandWithInput:@"r" modifierFlags:UIKeyModifierCommand action:@selector(keyPressR)]
+             ];
+}
+
+
+- (void)keyPressR {
+    [webview stringByEvaluatingJavaScriptFromString:@"location.reload()"];
+    // Do something awesome here.
+}
+
+
 - (void)viewDidLoad {
     
-    self.view.backgroundColor = [UIColor whiteColor];
-    webview = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) + 50)];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor yellowColor]];
+    webview = [[LXWebView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) + 20)];
     webview.delegate = self;
-    self.navigationController.navigationBarHidden = YES;
+    
     [self.view addSubview:webview];
+    
+    
+    
+    
+    // 隐藏NavigationController
+    self.navigationController.navigationBarHidden = YES;
+    
+    // 调整StatusBar
+    [self setStatusBarBackgroundColor];
+    webview.backgroundColor = [UIColor whiteColor];
+
+//    webview.backgroundColor = UIColorFromRGB(0xe6e7e8);
+    
     [super viewDidLoad];
 }
 
+-(void)setStatusBarBackgroundColor{
+    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 20)];
+    [view setBackgroundColor:UIColorFromRGB(0xe6e7e8)];
+    [self.view addSubview:view];
+}
+
 - (void)loadPage:(NSString *)urlPath{
-    NSString* path = [[NSBundle mainBundle] pathForResource:[@"www/" stringByAppendingString:urlPath] ofType:@"html"];
     
-    if(!path){
+    
+    NSArray* arr = [urlPath componentsSeparatedByString:@"?"];
+    NSString* queryString = @"";
+    NSString* path = [arr objectAtIndex:0];
+    
+    if([arr count] > 2){
+        queryString = [@"?" stringByAppendingString:[arr objectAtIndex:1]];
+    }
+    
+    
+    NSString* filePath = [[NSBundle mainBundle] pathForResource:[@"www/" stringByAppendingString:path] ofType:@"html"];
+    
+    
+    if(!filePath){
         NSLog(@"Path %@ not found", path);
     }else{
-        NSURL* url = [NSURL fileURLWithPath:path];
-        NSURLRequest* request = [NSURLRequest requestWithURL:url] ;
+        NSURL* url = [NSURL fileURLWithPath:filePath];
+        
+        // 保证query能正常传过去
+        NSString *absolute = [url absoluteString];
+        NSString *finalUrlString = [absolute stringByAppendingString: queryString];
+        NSURL *finalURL = [NSURL URLWithString: finalUrlString];
+        
+        NSURLRequest *request = [NSURLRequest requestWithURL:finalURL];
         [webview loadRequest:request];
     }
 }

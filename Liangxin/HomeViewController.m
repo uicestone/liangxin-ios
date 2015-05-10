@@ -61,7 +61,9 @@
 
 - (void) viewWillAppear:(BOOL)animated{
     NSString * title = @"精品推荐";
-    self.navigationItem.title = title;
+    self.navigationController.navigationBarHidden = NO;
+    [self setTitle:title];
+//    self.navigationItem.title = title;
     
     // 隐藏Tabbar
     self.tabBarController.tabBar.hidden = YES;
