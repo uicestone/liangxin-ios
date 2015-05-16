@@ -36,6 +36,7 @@
     
     // 初始化Router
     
+    
     [[HHRouter shared] map:@"/home" toControllerClass:[HomeViewController class]];
     [[HHRouter shared] map:@"/group" toControllerClass:[GroupViewController class]];
     [[HHRouter shared] map:@"/group/:id" toControllerClass:[GroupViewController class]];
@@ -65,7 +66,7 @@
     #endif
     
     // 初始化Navigation Controller
-    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/groupdetail/1"];
+    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/home"];
     
     
     // 初始化tabbar controller
