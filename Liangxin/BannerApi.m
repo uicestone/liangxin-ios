@@ -16,7 +16,7 @@
 + (void)getBannersWithType:(NSString *) type successHandler:(void (^)(NSArray * banners))success errorHandler:(void (^)(NSError *error))error{
     NSMutableArray* banners = [NSMutableArray new];
     
-    [ApiBase getJSONWithPath:@"/banners" success:^(id responseObject) {
+    [ApiBase getJSONWithPath:@"/banners" data:nil success:^(id responseObject) {
         for(int i = 0 ; i < [responseObject count]; i ++){
             NSDictionary * jsonObj = [responseObject objectAtIndex:i];
             BannerModel * bm = [BannerModel new];

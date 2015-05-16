@@ -154,6 +154,8 @@
     }
     NSString* path = [NSString stringWithFormat:@"/%@%@%@", [url host], [url path], query ];
     
+    NSLog(@"Navigate to %@", path);
+    
     UIViewController *viewController = [[HHRouter shared] matchController:path];
     
     if(navigationController){

@@ -10,18 +10,30 @@
 #import "Definition.h"
 #import <Foundation/Foundation.h>
 #import <AFNetworking/AFNetworking.h>
+#import "NSDictionary+Encoding.h"
 
 @implementation ApiBase
 
 
-+(NSURL *)getUrlByPath:(NSString *)path{
++(NSURL *)getUrlByPath:(NSString *)path andData:(NSDictionary *)data{
     NSString* urlbase = [LXApiHost stringByAppendingString:@"/api/v1"];
     NSString* url = [urlbase stringByAppendingString:path];
+    
+    if(data){
+        NSString* query = [@"?" stringByAppendingString:[data toQueryString]];
+        url = [url stringByAppendingString:query];
+    }
+    
     return [NSURL URLWithString:url];
 }
 
+
 +(void)getJSONWithPath:(NSString *)path success:(void (^)(id responseObject))successCallback error:(void (^)(NSError *error))errorCallback{
-    NSURLRequest *request = [NSURLRequest requestWithURL:[self getUrlByPath:path]];
+    [self getJSONWithPath:path data:nil success:successCallback error:errorCallback];
+}
+
++(void)getJSONWithPath:(NSString *)path data:(NSDictionary *)data success:(void (^)(id responseObject))successCallback error:(void (^)(NSError *error))errorCallback{
+    NSURLRequest *request = [NSURLRequest requestWithURL:[self getUrlByPath:path andData:data]];
     AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     op.responseSerializer = [AFJSONResponseSerializer serializer];
     
@@ -35,10 +47,13 @@
         }
     }];
     [[NSOperationQueue mainQueue] addOperation:op];
+
 }
 
-+(void)postJSONWithPath:(NSString *)path success:(void (^)(id responseObject))successCallback error:(void (^)(NSError *error))errorCallback{
-    NSURLRequest *request = [NSURLRequest requestWithURL:[self getUrlByPath:path]];
++(void)postJSONWithPath:(NSString *)path data:(NSDictionary *)data  success:(void (^)(id responseObject))successCallback error:(void (^)(NSError *error))errorCallback{
+    
+    NSURL *url = [self getUrlByPath:path andData:data];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
     AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     op.responseSerializer = [AFJSONResponseSerializer serializer];
     

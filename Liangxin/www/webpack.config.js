@@ -12,5 +12,9 @@ module.exports = {
         filename: "[name].js",
         chunkFilename: "[id].bundle.js"
     },
+    resolve: {
+        root: __dirname,
+        modulesDirectories: ["node_modules", "mods"],
+    },
     plugins: [commonsPlugin]
 };

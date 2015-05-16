@@ -16,7 +16,7 @@ static NSArray *groups = nil;
 @implementation GroupApi
 + (void)getAllGroupsWithSuccessHandler:(void (^)(NSArray * groups))success errorHandler:(void (^)(NSError *error))error{
     NSMutableArray* groups = [NSMutableArray new];
-    [ApiBase getJSONWithPath:@"/groups" success:^(id responseObject) {
+    [ApiBase getJSONWithPath:@"/groups" data:nil success:^(id responseObject) {
         for(int i = 0 ; i < [responseObject count]; i ++){
             NSDictionary * jsonObj = [responseObject objectAtIndex:i];
             Group * g = [Group new];

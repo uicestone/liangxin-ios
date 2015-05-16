@@ -13,6 +13,9 @@
 		2210A3871AFE51BD00D9CA1A /* GroupDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210A3851AFE51BD00D9CA1A /* GroupDetailViewController.m */; };
 		2210A38B1AFEE1F800D9CA1A /* LXWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210A38A1AFEE1F800D9CA1A /* LXWebViewController.m */; };
 		2210A38E1AFEEEFF00D9CA1A /* www in Resources */ = {isa = PBXBuildFile; fileRef = 2210A38D1AFEEEFF00D9CA1A /* www */; };
+		2215CB461B075E0900D0359A /* LXJSBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB451B075E0900D0359A /* LXJSBridge.m */; };
+		2215CB491B075E3900D0359A /* LXJSBridge+Fetch.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB481B075E3900D0359A /* LXJSBridge+Fetch.m */; };
+		2215CB4D1B07820C00D0359A /* NSDictionary+Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB4C1B07820C00D0359A /* NSDictionary+Encoding.m */; };
 		22238C1B1AF64F02000B4F95 /* Channels.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C1A1AF64F02000B4F95 /* Channels.m */; };
 		22238C1E1AF66941000B4F95 /* ChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C1D1AF66941000B4F95 /* ChannelViewController.m */; };
 		22238C541AFBACA5000B4F95 /* BannerApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C531AFBACA5000B4F95 /* BannerApi.m */; };
@@ -55,6 +58,12 @@
 		2210A3891AFEE1F800D9CA1A /* LXWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXWebViewController.h; sourceTree = "<group>"; };
 		2210A38A1AFEE1F800D9CA1A /* LXWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXWebViewController.m; sourceTree = "<group>"; };
 		2210A38D1AFEEEFF00D9CA1A /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
+		2215CB441B075E0900D0359A /* LXJSBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXJSBridge.h; sourceTree = "<group>"; };
+		2215CB451B075E0900D0359A /* LXJSBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXJSBridge.m; sourceTree = "<group>"; };
+		2215CB471B075E3900D0359A /* LXJSBridge+Fetch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LXJSBridge+Fetch.h"; sourceTree = "<group>"; };
+		2215CB481B075E3900D0359A /* LXJSBridge+Fetch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LXJSBridge+Fetch.m"; sourceTree = "<group>"; };
+		2215CB4B1B07820C00D0359A /* NSDictionary+Encoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Encoding.h"; sourceTree = "<group>"; };
+		2215CB4C1B07820C00D0359A /* NSDictionary+Encoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Encoding.m"; sourceTree = "<group>"; };
 		22238C191AF64F02000B4F95 /* Channels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Channels.h; sourceTree = "<group>"; };
 		22238C1A1AF64F02000B4F95 /* Channels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Channels.m; sourceTree = "<group>"; };
 		22238C1C1AF66941000B4F95 /* ChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelViewController.h; sourceTree = "<group>"; };
@@ -124,6 +133,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2215CB3D1B07524B00D0359A /* JSBridges */ = {
+			isa = PBXGroup;
+			children = (
+				2215CB441B075E0900D0359A /* LXJSBridge.h */,
+				2215CB451B075E0900D0359A /* LXJSBridge.m */,
+				2215CB471B075E3900D0359A /* LXJSBridge+Fetch.h */,
+				2215CB481B075E3900D0359A /* LXJSBridge+Fetch.m */,
+			);
+			name = JSBridges;
+			sourceTree = "<group>";
+		};
+		2215CB4A1B0781B400D0359A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2215CB4B1B07820C00D0359A /* NSDictionary+Encoding.h */,
+				2215CB4C1B07820C00D0359A /* NSDictionary+Encoding.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		22238C511AFBAC74000B4F95 /* Api */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +189,8 @@
 		223267C21AF2661B00431132 /* Liangxin */ = {
 			isa = PBXGroup;
 			children = (
+				2215CB4A1B0781B400D0359A /* Utils */,
+				2215CB3D1B07524B00D0359A /* JSBridges */,
 				22238C511AFBAC74000B4F95 /* Api */,
 				2293FA031AF50B2C0012CD10 /* Model */,
 				2293F9F61AF50A1A0012CD10 /* TAPageControl */,
@@ -399,6 +430,8 @@
 			files = (
 				223267CC1AF2661B00431132 /* HomeViewController.m in Sources */,
 				225BA69C1AFF30D0000E6D79 /* LXWebView.m in Sources */,
+				2215CB461B075E0900D0359A /* LXJSBridge.m in Sources */,
+				2215CB491B075E3900D0359A /* LXJSBridge+Fetch.m in Sources */,
 				22238C1B1AF64F02000B4F95 /* Channels.m in Sources */,
 				2293FA011AF50A1A0012CD10 /* TADotView.m in Sources */,
 				2210A38B1AFEE1F800D9CA1A /* LXWebViewController.m in Sources */,
@@ -412,6 +445,7 @@
 				2293FA021AF50A1A0012CD10 /* TAPageControl.m in Sources */,
 				223267C91AF2661B00431132 /* AppDelegate.m in Sources */,
 				2293FA061AF50B550012CD10 /* BannerModel.m in Sources */,
+				2215CB4D1B07820C00D0359A /* NSDictionary+Encoding.m in Sources */,
 				2293FA091AF5DBF20012CD10 /* GroupViewController.m in Sources */,
 				223267C61AF2661B00431132 /* main.m in Sources */,
 				22238C571AFBAE30000B4F95 /* ApiBase.m in Sources */,

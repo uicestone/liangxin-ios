@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LXJSBridge.h"
+#import "LXJSBridge+Fetch.h"
 
 @interface LXWebViewController : UIViewController
+@property LXJSBridge* jsbridge;
 - (void)loadPage:(NSString *)url;
 @end

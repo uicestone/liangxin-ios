@@ -11,12 +11,9 @@
 
 @interface GroupDetailViewController ()
 
-@property (nonatomic, strong) UIWebView* webview;
-
 @end
 
 @implementation GroupDetailViewController
-@synthesize webview;
 
 
 - (void)viewDidLoad {
