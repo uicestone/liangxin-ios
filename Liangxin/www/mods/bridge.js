@@ -32,6 +32,7 @@ var Bridge = {
 					error = new Error(error);
 					fail && fail(error);
 					reject(error);
+					Bridge.onerror && Bridge.onerror(error);
 				}else{
 					success && success(result);
 					resolve(result);

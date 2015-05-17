@@ -15,16 +15,16 @@
 @implementation ApiBase
 
 
-+(NSURL *)getUrlByPath:(NSString *)path andData:(NSDictionary *)data{
++(NSString *)getUrlByPath:(NSString *)path{
     NSString* urlbase = [LXApiHost stringByAppendingString:@"/api/v1"];
     NSString* url = [urlbase stringByAppendingString:path];
+//    
+//    if(data){
+//        NSString* query = [@"?" stringByAppendingString:[data toQueryString]];
+//        url = [url stringByAppendingString:query];
+//    }
     
-    if(data){
-        NSString* query = [@"?" stringByAppendingString:[data toQueryString]];
-        url = [url stringByAppendingString:query];
-    }
-    
-    return [NSURL URLWithString:url];
+    return url;
 }
 
 
@@ -33,35 +33,35 @@
 }
 
 +(void)getJSONWithPath:(NSString *)path data:(NSDictionary *)data success:(void (^)(id responseObject))successCallback error:(void (^)(NSError *error))errorCallback{
-    NSURLRequest *request = [NSURLRequest requestWithURL:[self getUrlByPath:path andData:data]];
-    AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    op.responseSerializer = [AFJSONResponseSerializer serializer];
     
-    [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if(successCallback){
-            successCallback(responseObject);
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if(errorCallback){
-            errorCallback(error);
-        }
-    }];
-    [[NSOperationQueue mainQueue] addOperation:op];
-
-}
-
-+(void)postJSONWithPath:(NSString *)path data:(NSDictionary *)data  success:(void (^)(id responseObject))successCallback error:(void (^)(NSError *error))errorCallback{
+    NSString* url = [self getUrlByPath:path];
     
-    NSURL *url = [self getUrlByPath:path andData:data];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    op.responseSerializer = [AFJSONResponseSerializer serializer];
+    NSLog(@"<Request> GET:%@", url);
     
-    [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    [manager GET:url parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
         successCallback(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         errorCallback(error);
     }];
-    [[NSOperationQueue mainQueue] addOperation:op];
+}
+
++(void)postJSONWithPath:(NSString *)path data:(NSDictionary *)data  success:(void (^)(id responseObject))successCallback error:(void (^)(NSError *error))errorCallback{
+    
+    NSString *url = [self getUrlByPath:path];
+    
+    NSLog(@"<Request> POST:%@", url);
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    [manager POST:url parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        successCallback(responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorCallback(error);
+    }];
 }
 @end

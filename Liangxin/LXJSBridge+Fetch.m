@@ -27,6 +27,12 @@
         } error:^(NSError *error) {
             [self completeWithCallback:callback andError:error];
         }];
+    }else if([method isEqual:@"post"]){
+        [ApiBase postJSONWithPath:url data:data success:^(id responseObject) {
+            [self completeWithCallback:callback andResult:responseObject];
+        } error:^(NSError *error) {
+            [self completeWithCallback:callback andError:error];
+        }];
     }
     
     
