@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ejs-loader": "^0.2.1",
     "node-libs-browser": "^0.5.0",
     "webpack": "^1.9.6"
   }

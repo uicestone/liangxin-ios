@@ -14,7 +14,14 @@ module.exports = {
     },
     resolve: {
         root: __dirname,
-        modulesDirectories: ["node_modules", "mods"],
+        modulesDirectories: [__dirname, "node_modules", "mods", "views"],
     },
-    plugins: [commonsPlugin]
+    module: {
+        loaders: [
+            { test: /\.ejs/, loader: "ejs-loader" }
+        ]
+    },
+    plugins: [commonsPlugin, new webpack.ProvidePlugin({
+        _: "underscore"
+    })],
 };

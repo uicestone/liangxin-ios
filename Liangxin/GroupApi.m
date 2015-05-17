@@ -21,8 +21,8 @@ static NSArray *groups = nil;
             NSDictionary * jsonObj = [responseObject objectAtIndex:i];
             Group * g = [Group new];
             g.groupid = [[jsonObj objectForKey:@"id"] intValue];
-            if([NSNull null] != [jsonObj objectForKey:@"parent_id"]) {
-                g.parentid = [[jsonObj objectForKey:@"parent_id"] intValue];
+            if([NSNull null] != [jsonObj objectForKey:@"parent"]) {
+                g.parentid = [[jsonObj objectForKey:@"parent"] intValue];
             }
             g.name = [jsonObj objectForKey:@"name"];
             g.isLeaf = [jsonObj objectForKey:@"children"] == nil || [NSNull null] == [jsonObj objectForKey:@"children"];
