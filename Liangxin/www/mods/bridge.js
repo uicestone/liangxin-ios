@@ -20,18 +20,25 @@ var Bridge = {
 
 ["fetch"].forEach(function(method){
 	Bridge[method] = function(params){
+		var self = this;
 		params = params || {};
-		this.exec(method, params, function(result){
-			var error = result.error;
-			var fail = params.fail;
-			var success = params.success;
-			if(error){
-				fail && fail(new Error(error));
-			}else{
-				success && success(result);
-			}
+
+		return new Promise(function(resolve, reject){
+			self.exec(method, params, function(result){
+				var error = result.error;
+				var fail = params.fail;
+				var success = params.success;
+				if(error){
+					error = new Error(error);
+					fail && fail(error);
+					reject(error);
+				}else{
+					success && success(result);
+					resolve(result);
+				}
+			});
 		});
-	}
+	}.bind(Bridge);
 });
 
 module.exports = Bridge;

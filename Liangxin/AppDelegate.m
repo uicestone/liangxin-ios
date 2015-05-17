@@ -31,6 +31,9 @@
     // Override point for customization after application launch.
     
     
+    window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+
+    
     application.statusBarHidden = NO;
     application.statusBarOrientation = UIDeviceOrientationPortrait;
     
@@ -103,6 +106,8 @@
     tabBarController.delegate = self;
     
     window.rootViewController = tabBarController;
+    
+    [window makeKeyAndVisible];
     
     return YES;
 }

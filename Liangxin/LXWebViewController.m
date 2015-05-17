@@ -55,7 +55,7 @@
     
     
     // 隐藏NavigationController
-    self.navigationController.navigationBarHidden = YES;
+//    self.navigationController.navigationBarHidden = YES;
     
     // 调整StatusBar
     [self setStatusBarBackgroundColor];
@@ -101,6 +101,8 @@
     }
 }
 
+#pragma Webview Delegates
+
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
     
     if (webView != self.webview) { return YES; }
@@ -114,6 +116,13 @@
     
     
     return YES;
+}
+
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
+    
+    NSString* title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    [self.navigationItem setTitle:title];
 }
 
 

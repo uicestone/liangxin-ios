@@ -16,13 +16,13 @@ static NSArray *groups = nil;
 @implementation GroupApi
 + (void)getAllGroupsWithSuccessHandler:(void (^)(NSArray * groups))success errorHandler:(void (^)(NSError *error))error{
     NSMutableArray* groups = [NSMutableArray new];
-    [ApiBase getJSONWithPath:@"/groups" data:nil success:^(id responseObject) {
+    [ApiBase getJSONWithPath:@"/group" data:nil success:^(id responseObject) {
         for(int i = 0 ; i < [responseObject count]; i ++){
             NSDictionary * jsonObj = [responseObject objectAtIndex:i];
             Group * g = [Group new];
             g.groupid = [[jsonObj objectForKey:@"id"] intValue];
-            if([NSNull null] != [jsonObj objectForKey:@"parent"]) {
-                g.parentid = [[jsonObj objectForKey:@"parent"] intValue];
+            if([NSNull null] != [jsonObj objectForKey:@"parent_id"]) {
+                g.parentid = [[jsonObj objectForKey:@"parent_id"] intValue];
             }
             g.name = [jsonObj objectForKey:@"name"];
             g.isLeaf = [jsonObj objectForKey:@"children"] == nil || [NSNull null] == [jsonObj objectForKey:@"children"];
