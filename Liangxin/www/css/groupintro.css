@@ -1,0 +1,28 @@
+.header{
+	padding: 10px 5px
+}
+
+.avatar{
+	width: 85px;
+	height: 85px;
+	float: left;
+	margin-left: 12px;
+	background-color: #000
+}
+
+.meta{
+	margin-left: 105px;
+}
+
+.meta .title{
+	color: #000;
+	margin-bottom: 5px
+}
+
+.meta .details{
+	font-size: 12px;
+}
+
+.item-members{
+	color: #f00;
+}

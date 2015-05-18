@@ -13,5 +13,6 @@
 + (void)getAllGroupsWithSuccessHandler:(void (^)(NSArray * groups))success errorHandler:(void (^)(NSError *error))error;
 + (NSArray *)getGroupsByKeyword:(NSString *)keyword;
 + (NSArray *)getGroupsWithParentId:(int) parentId;
++ (void)getGroupPostsById:(int) groupId andType:(NSString *)type successHandler:(void (^)(NSArray * groups))successHandler errorHandler:(void (^)(NSError *error))errorHandler;
 + (Group *)getGroupById:(int) groupId;
 @end

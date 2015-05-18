@@ -5,7 +5,7 @@ var commonsPlugin =
 module.exports = {
     entry: {
         groupdetail: __dirname + '/entries/groupdetail.js',
-        another: __dirname + '/entries/another.js'
+        groupintro: __dirname + '/entries/groupintro.js'
     },
     output: {
         path: __dirname + '/build',

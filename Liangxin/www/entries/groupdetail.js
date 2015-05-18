@@ -12,6 +12,18 @@ bridge.onerror = function(err){
 
 var group_id = query.id;
 
+$(".section-intro").on("touchend", function(){
+	location.href = "liangxin://groupintro/" + group_id;
+});
+
+$(".section-activity").on("touchend", function(){
+	location.href = "liangxin://groupactivity/" + group_id;
+});
+
+$(".section-album").on("touchend", function(){
+	location.href = "liangxin://groupalbum/" + group_id;
+});
+
 fetch({
 	url: "/group/" + group_id
 }).then(function(result){
@@ -21,6 +33,7 @@ fetch({
 	var $followBtn = $(".btn-follow");
 	var following = result.following;
 	var postFollowing = false;
+
 	// 关注状态
 	if(following){
 		$followBtn.html("已关注");
@@ -44,23 +57,23 @@ fetch({
 		});
 	}
 
-
-
 	$activityList = $(".section-activity ul");
 	$albumList = $(".section-album ul");
 
+	// 简介
 	$(".section-intro .content").html(result.description);
 
+	// 动态
 	result.posts.forEach(function(post){
 		var html = itemTemplate(post);
 		var li = $(html);
 		$activityList.append(li);
 	});
 
+	// 相册
 	result.images.forEach(function(image, i){
 		if(i >= 2){return;}
 		var html = imageTemplate(image);
 		$albumList.append($(html));
 	});
-	console.log(JSON.stringify(result));
 });

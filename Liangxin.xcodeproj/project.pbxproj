@@ -16,6 +16,15 @@
 		2215CB461B075E0900D0359A /* LXJSBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB451B075E0900D0359A /* LXJSBridge.m */; };
 		2215CB491B075E3900D0359A /* LXJSBridge+Fetch.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB481B075E3900D0359A /* LXJSBridge+Fetch.m */; };
 		2215CB4D1B07820C00D0359A /* NSDictionary+Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB4C1B07820C00D0359A /* NSDictionary+Encoding.m */; };
+		2215CB5C1B082B1E00D0359A /* GroupActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB5B1B082B1E00D0359A /* GroupActivityViewController.m */; };
+		2215CB621B08379100D0359A /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB611B08379100D0359A /* Post.m */; };
+		2215CB651B0837C400D0359A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB641B0837C400D0359A /* User.m */; };
+		2215CB681B086A7E00D0359A /* PostListItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2215CB671B086A7E00D0359A /* PostListItem.xib */; };
+		2215CB6B1B08D31E00D0359A /* GroupAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB6A1B08D31E00D0359A /* GroupAlbumViewController.m */; };
+		2215CB6E1B08D3A900D0359A /* GroupArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB6D1B08D3A900D0359A /* GroupArticleViewController.m */; };
+		2215CB711B08E59A00D0359A /* GroupIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB701B08E59A00D0359A /* GroupIntroViewController.m */; };
+		2215CB741B08EA0C00D0359A /* GroupMembersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB731B08EA0C00D0359A /* GroupMembersViewController.m */; };
+		2215CB771B09675E00D0359A /* UserApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB761B09675E00D0359A /* UserApi.m */; };
 		22238C1B1AF64F02000B4F95 /* Channels.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C1A1AF64F02000B4F95 /* Channels.m */; };
 		22238C1E1AF66941000B4F95 /* ChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C1D1AF66941000B4F95 /* ChannelViewController.m */; };
 		22238C541AFBACA5000B4F95 /* BannerApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C531AFBACA5000B4F95 /* BannerApi.m */; };
@@ -64,6 +73,23 @@
 		2215CB481B075E3900D0359A /* LXJSBridge+Fetch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LXJSBridge+Fetch.m"; sourceTree = "<group>"; };
 		2215CB4B1B07820C00D0359A /* NSDictionary+Encoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Encoding.h"; sourceTree = "<group>"; };
 		2215CB4C1B07820C00D0359A /* NSDictionary+Encoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Encoding.m"; sourceTree = "<group>"; };
+		2215CB5A1B082B1E00D0359A /* GroupActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupActivityViewController.h; sourceTree = "<group>"; };
+		2215CB5B1B082B1E00D0359A /* GroupActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupActivityViewController.m; sourceTree = "<group>"; };
+		2215CB601B08379100D0359A /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		2215CB611B08379100D0359A /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		2215CB631B0837C400D0359A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		2215CB641B0837C400D0359A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		2215CB671B086A7E00D0359A /* PostListItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostListItem.xib; sourceTree = "<group>"; };
+		2215CB691B08D31E00D0359A /* GroupAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupAlbumViewController.h; sourceTree = "<group>"; };
+		2215CB6A1B08D31E00D0359A /* GroupAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupAlbumViewController.m; sourceTree = "<group>"; };
+		2215CB6C1B08D3A900D0359A /* GroupArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupArticleViewController.h; sourceTree = "<group>"; };
+		2215CB6D1B08D3A900D0359A /* GroupArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupArticleViewController.m; sourceTree = "<group>"; };
+		2215CB6F1B08E59A00D0359A /* GroupIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupIntroViewController.h; sourceTree = "<group>"; };
+		2215CB701B08E59A00D0359A /* GroupIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupIntroViewController.m; sourceTree = "<group>"; };
+		2215CB721B08EA0C00D0359A /* GroupMembersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupMembersViewController.h; sourceTree = "<group>"; };
+		2215CB731B08EA0C00D0359A /* GroupMembersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupMembersViewController.m; sourceTree = "<group>"; };
+		2215CB751B09675E00D0359A /* UserApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserApi.h; sourceTree = "<group>"; };
+		2215CB761B09675E00D0359A /* UserApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserApi.m; sourceTree = "<group>"; };
 		22238C191AF64F02000B4F95 /* Channels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Channels.h; sourceTree = "<group>"; };
 		22238C1A1AF64F02000B4F95 /* Channels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Channels.m; sourceTree = "<group>"; };
 		22238C1C1AF66941000B4F95 /* ChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelViewController.h; sourceTree = "<group>"; };
@@ -153,6 +179,35 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		2215CB591B082AD700D0359A /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				2293FA071AF5DBF20012CD10 /* GroupViewController.h */,
+				2293FA081AF5DBF20012CD10 /* GroupViewController.m */,
+				2210A3841AFE51BD00D9CA1A /* GroupDetailViewController.h */,
+				2210A3851AFE51BD00D9CA1A /* GroupDetailViewController.m */,
+				2215CB5A1B082B1E00D0359A /* GroupActivityViewController.h */,
+				2215CB5B1B082B1E00D0359A /* GroupActivityViewController.m */,
+				2215CB691B08D31E00D0359A /* GroupAlbumViewController.h */,
+				2215CB6A1B08D31E00D0359A /* GroupAlbumViewController.m */,
+				2215CB6C1B08D3A900D0359A /* GroupArticleViewController.h */,
+				2215CB6D1B08D3A900D0359A /* GroupArticleViewController.m */,
+				2215CB6F1B08E59A00D0359A /* GroupIntroViewController.h */,
+				2215CB701B08E59A00D0359A /* GroupIntroViewController.m */,
+				2215CB721B08EA0C00D0359A /* GroupMembersViewController.h */,
+				2215CB731B08EA0C00D0359A /* GroupMembersViewController.m */,
+			);
+			name = Group;
+			sourceTree = "<group>";
+		};
+		2215CB661B086A5E00D0359A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2215CB671B086A7E00D0359A /* PostListItem.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		22238C511AFBAC74000B4F95 /* Api */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +217,8 @@
 				22238C561AFBAE30000B4F95 /* ApiBase.m */,
 				2210A3791AFDF66800D9CA1A /* GroupApi.h */,
 				2210A37A1AFDF66800D9CA1A /* GroupApi.m */,
+				2215CB751B09675E00D0359A /* UserApi.h */,
+				2215CB761B09675E00D0359A /* UserApi.m */,
 			);
 			name = Api;
 			sourceTree = "<group>";
@@ -189,6 +246,8 @@
 		223267C21AF2661B00431132 /* Liangxin */ = {
 			isa = PBXGroup;
 			children = (
+				2215CB661B086A5E00D0359A /* Views */,
+				2215CB591B082AD700D0359A /* Group */,
 				2215CB4A1B0781B400D0359A /* Utils */,
 				2215CB3D1B07524B00D0359A /* JSBridges */,
 				22238C511AFBAC74000B4F95 /* Api */,
@@ -204,13 +263,9 @@
 				223267D21AF2661B00431132 /* LaunchScreen.xib */,
 				223267C31AF2661B00431132 /* Supporting Files */,
 				2225EFFE1AF4591E007A6BB2 /* Definition.h */,
-				2293FA071AF5DBF20012CD10 /* GroupViewController.h */,
-				2293FA081AF5DBF20012CD10 /* GroupViewController.m */,
 				22238C1C1AF66941000B4F95 /* ChannelViewController.h */,
 				22238C1D1AF66941000B4F95 /* ChannelViewController.m */,
 				2210A37F1AFE2B4500D9CA1A /* DemoView.xib */,
-				2210A3841AFE51BD00D9CA1A /* GroupDetailViewController.h */,
-				2210A3851AFE51BD00D9CA1A /* GroupDetailViewController.m */,
 				2210A3891AFEE1F800D9CA1A /* LXWebViewController.h */,
 				2210A38A1AFEE1F800D9CA1A /* LXWebViewController.m */,
 			);
@@ -268,6 +323,10 @@
 				22238C1A1AF64F02000B4F95 /* Channels.m */,
 				2210A37C1AFDF84900D9CA1A /* Group.h */,
 				2210A37D1AFDF84900D9CA1A /* Group.m */,
+				2215CB601B08379100D0359A /* Post.h */,
+				2215CB611B08379100D0359A /* Post.m */,
+				2215CB631B0837C400D0359A /* User.h */,
+				2215CB641B0837C400D0359A /* User.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -376,6 +435,7 @@
 			files = (
 				223267D41AF2661B00431132 /* LaunchScreen.xib in Resources */,
 				2210A3801AFE2B4500D9CA1A /* DemoView.xib in Resources */,
+				2215CB681B086A7E00D0359A /* PostListItem.xib in Resources */,
 				2210A38E1AFEEEFF00D9CA1A /* www in Resources */,
 				223267D11AF2661B00431132 /* Images.xcassets in Resources */,
 			);
@@ -428,18 +488,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2215CB651B0837C400D0359A /* User.m in Sources */,
 				223267CC1AF2661B00431132 /* HomeViewController.m in Sources */,
 				225BA69C1AFF30D0000E6D79 /* LXWebView.m in Sources */,
 				2215CB461B075E0900D0359A /* LXJSBridge.m in Sources */,
+				2215CB6E1B08D3A900D0359A /* GroupArticleViewController.m in Sources */,
+				2215CB6B1B08D31E00D0359A /* GroupAlbumViewController.m in Sources */,
 				2215CB491B075E3900D0359A /* LXJSBridge+Fetch.m in Sources */,
 				22238C1B1AF64F02000B4F95 /* Channels.m in Sources */,
+				2215CB5C1B082B1E00D0359A /* GroupActivityViewController.m in Sources */,
 				2293FA011AF50A1A0012CD10 /* TADotView.m in Sources */,
+				2215CB741B08EA0C00D0359A /* GroupMembersViewController.m in Sources */,
+				2215CB621B08379100D0359A /* Post.m in Sources */,
 				2210A38B1AFEE1F800D9CA1A /* LXWebViewController.m in Sources */,
 				2293F9FF1AF50A1A0012CD10 /* TAAbstractDotView.m in Sources */,
 				22238C541AFBACA5000B4F95 /* BannerApi.m in Sources */,
 				2293FA001AF50A1A0012CD10 /* TAAnimatedDotView.m in Sources */,
 				2210A3871AFE51BD00D9CA1A /* GroupDetailViewController.m in Sources */,
 				22F69A861AF31DF100DC295D /* SwitchBanner.m in Sources */,
+				2215CB711B08E59A00D0359A /* GroupIntroViewController.m in Sources */,
+				2215CB771B09675E00D0359A /* UserApi.m in Sources */,
 				22238C1E1AF66941000B4F95 /* ChannelViewController.m in Sources */,
 				2210A37B1AFDF66800D9CA1A /* GroupApi.m in Sources */,
 				2293FA021AF50A1A0012CD10 /* TAPageControl.m in Sources */,

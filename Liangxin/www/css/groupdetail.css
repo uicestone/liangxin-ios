@@ -1,0 +1,58 @@
+.section .title:after{
+	content:"MORE";
+	float: right;
+	font-weight: normal;
+}
+
+.btn{
+	width: 56px;
+	font-size: 12px;
+	padding: 2px;
+	border-radius: 5px;
+	color: #f00;
+	text-align: center;
+	border: 0.5px solid #f00;
+}
+
+.section ul li .detail .author{
+	float: left;
+}
+
+.section ul li .detail .date{
+	float: right;
+}
+
+.section-album .content{
+	overflow: hidden;
+}
+.section-album .content ul{
+	display: flex;
+	display: -webkit-flex;
+}
+.section-album .content li{
+	margin: 0 5px 0 0;
+	padding: 0;
+	position: relative;
+	float: left;
+	flex: 1;
+}
+
+.section-album .content li:last-child{
+	margin-right: 0;
+}
+
+.section-album .content li .pic-title{
+	padding: 0;
+	background-color: rgba(0,0,0,0.5);
+	width: 100%;
+	bottom: 0;
+	color: #fff;
+	text-align: center;
+	position: absolute;
+}
+
+.section-album img{
+	width: 100%;
+	height: 100%;
+	display: block;
+}

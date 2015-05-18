@@ -27,7 +27,6 @@
 @synthesize tableView;
 
 
-// 此段应在父类中
 - (void)loadView{
     CGRect frame = [UIScreen mainScreen].applicationFrame;
     self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 0,  CGRectGetWidth(frame), CGRectGetHeight(frame) + 20)];

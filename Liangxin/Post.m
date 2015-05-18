@@ -1,13 +1,13 @@
 //
-//  Group.m
+//  Post.m
 //  Liangxin
 //
-//  Created by Hsu Spud on 15/5/9.
+//  Created by Hsu Spud on 15/5/17.
 //  Copyright (c) 2015年 Hsu Spud. All rights reserved.
 //
 
-#import "Group.h"
+#import "Post.h"
 
+@implementation Post
 
-@implementation Group
 @end

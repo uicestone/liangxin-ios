@@ -9,11 +9,15 @@
 #import "ApiBase.h"
 #import "GroupApi.h"
 #import "Group.h"
+#import "Post.h"
+#import "NSDictionary+Encoding.h"
 #import <Foundation/Foundation.h>
 
 static NSArray *groups = nil;
 
 @implementation GroupApi
+
+#pragma 实现方法
 + (void)getAllGroupsWithSuccessHandler:(void (^)(NSArray * groups))success errorHandler:(void (^)(NSError *error))error{
     NSMutableArray* groups = [NSMutableArray new];
     [ApiBase getJSONWithPath:@"/group" data:nil success:^(id responseObject) {
@@ -45,17 +49,6 @@ static NSArray *groups = nil;
 }
 
 
-+ (Group *)getGroupById:(int) groupId{
-    if(!groupId){
-        return nil;
-    }
-    NSArray* matches = [groups objectsAtIndexes:[groups indexesOfObjectsPassingTest:^BOOL(Group* obj, NSUInteger idx, BOOL *stop) {
-        return obj.groupid == groupId;
-    }]];
-    
-    return [matches objectAtIndex:0];
-}
-
 +(NSArray *)getGroupsWithParentId:(int) parentId{
     if(!groups){
         return nil;
@@ -67,6 +60,50 @@ static NSArray *groups = nil;
     }]];
 }
 
++ (void)getGroupPostsById:(int) groupId andType:(NSString *)type successHandler:(void (^)(NSArray * groups))successHandler errorHandler:(void (^)(NSError *error))errorHandler{
+    NSDictionary* data = @{
+                           @"type": type,
+                           @"group_id": [NSNumber numberWithInt:groupId]
+                           };
+    
+    [ApiBase getJSONWithPath:@"/post" data:data success:^(id responseObject) {
+        NSMutableArray* posts = [NSMutableArray new];
+        
+        NSDictionary* keyMapping = @{
+                                     @"title": @"title",
+                                     @"id": @"postId",
+                                     @"created_at": @"createTime"
+                                     };
+        
+        
+        for(int i = 0 ; i < [responseObject count]; i ++){
+            NSDictionary * jsonObj = [responseObject objectAtIndex:i];
+            Post * post = [jsonObj toModel:[Post class] withKeyMapping:keyMapping];
+            [posts addObject:post];
+        }
+        
+        successHandler(posts);
+    } error:^(NSError *error) {
+        errorHandler(error);
+    }];
+}
+
++ (Group *)getGroupById:(int) groupId{
+    if(!groupId){
+        return nil;
+    }
+    NSArray* matches = [groups objectsAtIndexes:[groups indexesOfObjectsPassingTest:^BOOL(Group* obj, NSUInteger idx, BOOL *stop) {
+        return obj.groupid == groupId;
+    }]];
+    
+    return [matches objectAtIndex:0];
+}
+
++ (void)getGroupById:(int) groupId successHandler:(void (^)(NSArray * groups))successHandler errorHandler:(void (^)(NSError *error))errorHandler{
+    
+}
+
+#pragma 内部方法
 + (void) setGroups:(NSArray *)grps{
     groups = grps;
 }

@@ -12,5 +12,5 @@
 
 -(NSString *)toJSON;
 -(NSString *)toQueryString;
-
+-(id)toModel:(Class)ModelClass withKeyMapping:(NSDictionary *)map;
 @end

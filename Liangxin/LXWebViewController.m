@@ -73,6 +73,12 @@
 
 - (void)loadPage:(NSString *)urlPath{
     
+    if([urlPath hasPrefix:@"http://"]){
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlPath]];
+        [webview loadRequest:request];
+        return;
+    }
+    
     
     NSArray* arr = [urlPath componentsSeparatedByString:@"?"];
     NSString* queryString = @"";

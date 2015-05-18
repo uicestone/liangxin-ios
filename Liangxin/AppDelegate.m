@@ -11,7 +11,9 @@
 #import "HomeViewController.h"
 #import "GroupViewController.h"
 #import "GroupDetailViewController.h"
-
+#import "GroupActivityViewController.h"
+#import "GroupIntroViewController.h"
+#import "GroupMembersViewController.h"
 
 #import "Channels.h"
 
@@ -44,6 +46,12 @@
     [[HHRouter shared] map:@"/group" toControllerClass:[GroupViewController class]];
     [[HHRouter shared] map:@"/group/:id" toControllerClass:[GroupViewController class]];
     [[HHRouter shared] map:@"/groupdetail/:id" toControllerClass:[GroupDetailViewController class]];
+    [[HHRouter shared] map:@"/groupintro/:id" toControllerClass:[GroupIntroViewController class]];
+    [[HHRouter shared] map:@"/groupactivity/:id" toControllerClass:[GroupActivityViewController class]];
+    [[HHRouter shared] map:@"/groupalbum/:id" toControllerClass:[GroupDetailViewController class]];
+    [[HHRouter shared] map:@"/groupmembers/:id" toControllerClass:[GroupMembersViewController class]];
+    
+    
     
     // 更改默认userAgent
     
@@ -69,7 +77,7 @@
     #endif
     
     // 初始化Navigation Controller
-    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/home"];
+    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/groupdetail/1"];
     
     
     // 初始化tabbar controller

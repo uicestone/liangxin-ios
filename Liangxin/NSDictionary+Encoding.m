@@ -45,4 +45,18 @@ static NSString *urlEncode(id object) {
     return [parts componentsJoinedByString: @"&"];
 }
 
+
+-(id)toModel:(Class)ModelClass withKeyMapping:(NSDictionary *)mapping{
+    id model = [[ModelClass alloc] init];
+    
+    for(id key in mapping){
+        NSString* objKey = [mapping objectForKey:key];
+        id value = [self objectForKey:key];
+        [model setValue:value forKey:objKey];
+    }
+    
+    
+    return model;
+}
+
 @end
