@@ -71,19 +71,15 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拨打电话", nil];
+    User* user = [members objectAtIndex:[indexPath row]];
+    NSURL* phoneURL = [NSURL URLWithString:[@"tel://" stringByAppendingString:user.contact]];
+    [[UIApplication sharedApplication] openURL:phoneURL];
     
-    [actionSheet showInView:self.view];
+    
+//    [actionSheet showInView:self.view];
     
 }
 
-#pragma UIActionSheetDelegate
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    
-    User* user = [members objectAtIndex:buttonIndex];
-//    NSString* phoneNumber = 
-}
 
 /*
  #pragma mark - Navigation

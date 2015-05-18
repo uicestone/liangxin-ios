@@ -9,7 +9,6 @@
 #import "UserApi.h"
 #import "ApiBase.h"
 #import "User.h"
-#import "NSDictionary+Encoding.h"
 
 @implementation UserApi 
 
@@ -18,7 +17,8 @@
     NSDictionary* data = @{@"group_id":[NSNumber numberWithInt:groupId]};
     [ApiBase getJSONWithPath:@"/user" data:data success:^(id responseObject) {
         NSDictionary* mapping = @{
-                                  @"name":@"name"
+                                  @"name":@"name",
+                                  @"contact":@"contact"
                                   };
         NSMutableArray* users = [@[] mutableCopy];
         for(int i = 0 ; i < [responseObject count]; i ++){

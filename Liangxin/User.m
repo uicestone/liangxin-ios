@@ -7,7 +7,13 @@
 //
 
 #import "User.h"
-
+#import "NSDictionary+Encoding.h"
 @implementation User
 
++userFromJSONObject:(NSDictionary *)json{
+    return [json toModel:[User class] withKeyMapping:@{
+                                                       @"name":@"name",
+                                                       @"contact":@"contact"
+                                                       }];
+}
 @end

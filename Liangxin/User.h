@@ -11,4 +11,6 @@
 @interface User : NSObject
 @property int userId;
 @property NSString* name;
+@property NSString* contact;
++userFromJSONObject:(NSDictionary *)json;
 @end

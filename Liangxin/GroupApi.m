@@ -10,8 +10,6 @@
 #import "GroupApi.h"
 #import "Group.h"
 #import "Post.h"
-#import "NSDictionary+Encoding.h"
-#import <Foundation/Foundation.h>
 
 static NSArray *groups = nil;
 
@@ -58,34 +56,6 @@ static NSArray *groups = nil;
     return [groups objectsAtIndexes:[groups indexesOfObjectsPassingTest:^BOOL(Group* obj, NSUInteger idx, BOOL *stop) {
         return [obj parentid] == parentId;
     }]];
-}
-
-+ (void)getGroupPostsById:(int) groupId andType:(NSString *)type successHandler:(void (^)(NSArray * groups))successHandler errorHandler:(void (^)(NSError *error))errorHandler{
-    NSDictionary* data = @{
-                           @"type": type,
-                           @"group_id": [NSNumber numberWithInt:groupId]
-                           };
-    
-    [ApiBase getJSONWithPath:@"/post" data:data success:^(id responseObject) {
-        NSMutableArray* posts = [NSMutableArray new];
-        
-        NSDictionary* keyMapping = @{
-                                     @"title": @"title",
-                                     @"id": @"postId",
-                                     @"created_at": @"createTime"
-                                     };
-        
-        
-        for(int i = 0 ; i < [responseObject count]; i ++){
-            NSDictionary * jsonObj = [responseObject objectAtIndex:i];
-            Post * post = [jsonObj toModel:[Post class] withKeyMapping:keyMapping];
-            [posts addObject:post];
-        }
-        
-        successHandler(posts);
-    } error:^(NSError *error) {
-        errorHandler(error);
-    }];
 }
 
 + (Group *)getGroupById:(int) groupId{

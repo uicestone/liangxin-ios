@@ -12,7 +12,7 @@
 
 @property int postId;
 @property NSString *type;
-@property User *user;
+@property User *author;
 @property NSString *title;
 @property NSString *createTime;
 

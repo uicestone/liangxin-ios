@@ -9,11 +9,16 @@
 #import "AppDelegate.h"
 
 #import "HomeViewController.h"
+
+// Group ViewControllers
 #import "GroupViewController.h"
 #import "GroupDetailViewController.h"
 #import "GroupActivityViewController.h"
 #import "GroupIntroViewController.h"
 #import "GroupMembersViewController.h"
+#import "GroupAlbumViewController.h"
+#import "PublishViewController.h"
+
 
 #import "Channels.h"
 
@@ -48,10 +53,11 @@
     [[HHRouter shared] map:@"/groupdetail/:id" toControllerClass:[GroupDetailViewController class]];
     [[HHRouter shared] map:@"/groupintro/:id" toControllerClass:[GroupIntroViewController class]];
     [[HHRouter shared] map:@"/groupactivity/:id" toControllerClass:[GroupActivityViewController class]];
-    [[HHRouter shared] map:@"/groupalbum/:id" toControllerClass:[GroupDetailViewController class]];
+    [[HHRouter shared] map:@"/groupalbum/:id" toControllerClass:[GroupAlbumViewController class]];
     [[HHRouter shared] map:@"/groupmembers/:id" toControllerClass:[GroupMembersViewController class]];
     
     
+    [[HHRouter shared] map:@"/publish/:id" toControllerClass:[PublishViewController class]];
     
     // 更改默认userAgent
     

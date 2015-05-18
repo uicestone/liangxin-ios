@@ -7,10 +7,12 @@
 //
 
 #import "GroupActivityViewController.h"
-#import "GroupApi.h"
 #import "Post.h"
+#import "PostApi.h"
+#import "PostItemCell.h"
 #import <HHRouter/HHRouter.h>
 
+#define kReuseIdentifier @"postItemCell"
 
 @interface GroupActivityViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) UITableView* tableview;
@@ -37,15 +39,13 @@
     tableview.delegate = self;
     tableview.dataSource = self;
     
-    int _id = [self.params[@"id"] intValue];
+    int groupId = [self.params[@"id"] intValue];
     
-    [GroupApi getGroupPostsById:_id andType:@"文章" successHandler:^(NSArray *_posts) {
+    [PostApi getPostsByGroupId:groupId andType:@"文章" successHandler:^(NSArray *_posts) {
         self.posts = [_posts mutableCopy];
         [tableview reloadData];
-        // init listview
     } errorHandler:^(NSError *error) {
         NSLog(@"err %@", error);
-        // pop fail
     }];
 }
 
@@ -64,23 +64,26 @@
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    int index = (int)[indexPath row];
+    Post *post = [posts objectAtIndex:[indexPath row]];
+    PostItemCell *cell = [tableview dequeueReusableCellWithIdentifier:kReuseIdentifier];
     
-
-     [[NSBundle mainBundle] loadNibNamed:@"PostListItem" owner:nil options:nil];
+    if(!cell){
+        [tableview registerNib:[UINib nibWithNibName:@"PostItemCell" bundle:nil] forCellReuseIdentifier:kReuseIdentifier];
+        cell = [tableview dequeueReusableCellWithIdentifier:kReuseIdentifier];
+    }
     
-//    [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
-//    
+    cell.title.text = post.title;
+    cell.author.text = post.author.name;
+    cell.date.text = post.createTime;
     
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    Post* post = [posts objectAtIndex:index];
-    cell.textLabel.text = post.title;
     return cell;
 }
 
 
 #pragma UITableViewDelegate
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 46.0f;
+}
 /*
 #pragma mark - Navigation
 
