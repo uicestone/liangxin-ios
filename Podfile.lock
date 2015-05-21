@@ -1,11 +1,11 @@
 PODS:
   - AFNetworking (2.5.3):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-    - AFNetworking/UIKit
+    - AFNetworking/NSURLConnection (= 2.5.3)
+    - AFNetworking/NSURLSession (= 2.5.3)
+    - AFNetworking/Reachability (= 2.5.3)
+    - AFNetworking/Security (= 2.5.3)
+    - AFNetworking/Serialization (= 2.5.3)
+    - AFNetworking/UIKit (= 2.5.3)
   - AFNetworking/NSURLConnection (2.5.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
@@ -21,22 +21,13 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - HHRouter (0.1.5)
-  - PonyDebugger (0.4.3):
-    - SocketRocket
-  - Reveal-iOS-SDK (1.5.1)
-  - SocketRocket (0.3.1-beta2)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - HHRouter (~> 0.1.5)
-  - PonyDebugger (~> 0.4.3)
-  - Reveal-iOS-SDK
 
 SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
   HHRouter: c82ce169fea838ea85a819133df40d19605f5c95
-  PonyDebugger: 52f96f501df018dc2b7153fa18464b82553e700c
-  Reveal-iOS-SDK: c9c55cad2729c85f6ced415f1b21857c9a2d8ef9
-  SocketRocket: 7284ab9370a06c99aba92b2fe3a32aedd0f9a6fa
 
-COCOAPODS: 0.34.4
+COCOAPODS: 0.35.0

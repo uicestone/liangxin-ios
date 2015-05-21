@@ -54,25 +54,3 @@
 #define COCOAPODS_VERSION_MINOR_HHRouter 1
 #define COCOAPODS_VERSION_PATCH_HHRouter 5
 
-// PonyDebugger
-#define COCOAPODS_POD_AVAILABLE_PonyDebugger
-#define COCOAPODS_VERSION_MAJOR_PonyDebugger 0
-#define COCOAPODS_VERSION_MINOR_PonyDebugger 4
-#define COCOAPODS_VERSION_PATCH_PonyDebugger 3
-
-// SocketRocket
-#define COCOAPODS_POD_AVAILABLE_SocketRocket
-#define COCOAPODS_VERSION_MAJOR_SocketRocket 0
-#define COCOAPODS_VERSION_MINOR_SocketRocket 3
-#define COCOAPODS_VERSION_PATCH_SocketRocket 1
-
-// Debug build configuration
-#ifdef DEBUG
-
-  // Reveal-iOS-SDK
-  #define COCOAPODS_POD_AVAILABLE_Reveal_iOS_SDK
-  #define COCOAPODS_VERSION_MAJOR_Reveal_iOS_SDK 1
-  #define COCOAPODS_VERSION_MINOR_Reveal_iOS_SDK 5
-  #define COCOAPODS_VERSION_PATCH_Reveal_iOS_SDK 1
-
-#endif

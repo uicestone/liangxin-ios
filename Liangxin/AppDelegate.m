@@ -23,7 +23,6 @@
 #import "Channels.h"
 
 #import <HHRouter/HHRouter.h>
-#import <PonyDebugger/PDDebugger.h>
 
 @interface AppDelegate () <UITabBarControllerDelegate, UIActionSheetDelegate>
 
@@ -74,16 +73,16 @@
     
     // 初始化网络监控
     #ifdef DEBUG
-    PDDebugger *debugger = [PDDebugger defaultInstance];
-    [debugger connectToURL:[NSURL URLWithString:@"ws://localhost:9000/device"]];
-    [debugger enableNetworkTrafficDebugging];
-    [debugger enableViewHierarchyDebugging];
-    [debugger enableRemoteLogging];
-    [debugger forwardAllNetworkTraffic];
+//    PDDebugger *debugger = [PDDebugger defaultInstance];
+//    [debugger connectToURL:[NSURL URLWithString:@"ws://localhost:9000/device"]];
+//    [debugger enableNetworkTrafficDebugging];
+//    [debugger enableViewHierarchyDebugging];
+//    [debugger enableRemoteLogging];
+//    [debugger forwardAllNetworkTraffic];
     #endif
     
     // 初始化Navigation Controller
-    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/groupdetail/1"];
+    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/groupalbum/1"];
     
     
     // 初始化tabbar controller
