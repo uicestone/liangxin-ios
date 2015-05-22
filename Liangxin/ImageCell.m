@@ -19,19 +19,26 @@
 }
 */
 
--(id) initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier{
-    self = [super initWithFrame: frame reuseIdentifier: reuseIdentifier];
+-(id) initWithFrame:(CGRect)frame{
+    self = [super initWithFrame: frame];
     if (self){
     
-        UIView* mainView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 90, 90
-                                                                    )];
+        CGRect mainFrame = CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame));
+        
+        UIView* mainView = [[UIView alloc] initWithFrame:mainFrame];
+        
+        
         [mainView setBackgroundColor:[UIColor blackColor]];
         
         
-        self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(13, 8, 135, 84)];
+        self.imageView = [[UIImageView alloc] initWithFrame:mainFrame];
         
     
-        self.captionLabel = [[UILabel alloc] initWithFrame:CGRectMake(13, 92, 106, 21)];
+        self.captionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(frame) - 21, CGRectGetWidth(frame), 21)];
+        
+        captionLabel.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+        captionLabel.textColor = [UIColor whiteColor];
+        captionLabel.textAlignment = NSTextAlignmentCenter;
         [captionLabel setFont:[UIFont systemFontOfSize:14]];
         
         [mainView addSubview:imageView];

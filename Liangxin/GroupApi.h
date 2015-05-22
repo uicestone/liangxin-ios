@@ -10,9 +10,16 @@
 #import "Group.h"
 
 @interface GroupApi : NSObject
+
+
+// 网络相关方法
+// 获取所有群组
 + (void)getAllGroupsWithSuccessHandler:(void (^)(NSArray * groups))success errorHandler:(void (^)(NSError *error))error;
+
+
+// 网络取完group列表之后可以使用以下同步方法进行筛选
 + (NSArray *)getGroupsByKeyword:(NSString *)keyword;
 + (NSArray *)getGroupsWithParentId:(int) parentId;
-+ (void)getGroupPostsById:(int) groupId andType:(NSString *)type successHandler:(void (^)(NSArray * groups))successHandler errorHandler:(void (^)(NSError *error))errorHandler;
 + (Group *)getGroupById:(int) groupId;
+
 @end

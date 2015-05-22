@@ -52,7 +52,9 @@ static NSString *urlEncode(id object) {
     for(id key in mapping){
         NSString* objKey = [mapping objectForKey:key];
         id value = [self objectForKey:key];
-        [model setValue:value forKey:objKey];
+        if(value){
+            [model setValue:value forKey:objKey];
+        }
     }
     
     

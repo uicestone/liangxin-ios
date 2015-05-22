@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 Hsu Spud. All rights reserved.
 //
 
-#import "AQGridViewCell.h"
 
-@interface ImageCell : AQGridViewCell
+#import <UIKit/UIKit.h>
+@interface ImageCell : UICollectionViewCell
 
 @property (nonatomic, retain) UIImageView * imageView;
 @property (nonatomic, retain) UILabel * captionLabel;

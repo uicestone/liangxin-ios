@@ -36,6 +36,7 @@ static NSArray *groups = nil;
     } error:error];
 }
 
+
 + (NSArray *)getGroupsByKeyword:(NSString *)keyword{
     if(!groups){
         return nil;

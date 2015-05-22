@@ -14,6 +14,7 @@
 @property NSString *type;
 @property User *author;
 @property NSString *title;
+@property NSString *url;
 @property NSString *createTime;
 
 

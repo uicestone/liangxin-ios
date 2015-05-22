@@ -7,54 +7,103 @@
 //
 
 #import "GroupAlbumViewController.h"
-#import "AQGridView.h"
+#import "PostApi.h"
+#import "Post.h"
 #import "ImageCell.h"
 #import <HHRouter/HHRouter.h>
+#import <AFNetworking/UIKit+AFNetworking.h>
 
 #define kImageCellReuseIdentifier @"imageCell"
 
-@interface GroupAlbumViewController () <AQGridViewDataSource, AQGridViewDelegate>
 
+
+@interface GroupAlbumViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+@property (nonatomic, strong) NSMutableArray* images;
 @end
 
+
 @implementation GroupAlbumViewController
+@synthesize images;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     int groupId = [self.params[@"id"] intValue];
-    AQGridView* gridView = [[AQGridView alloc] initWithFrame:self.view.bounds];
     
-    gridView.delegate = self;
-    gridView.dataSource = self;
     
-    [self.view addSubview:gridView];
-    [gridView reloadData];
+    
+    
+    CGFloat width = (CGRectGetWidth(self.view.frame) - 7 * 2 ) / 3 - 3 * 2;
+    CGFloat height = width / 1.54;
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    
+    flowLayout.itemSize = CGSizeMake(width, height);
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    flowLayout.sectionInset = UIEdgeInsetsMake(7, 7, 7, 7);
+    flowLayout.minimumInteritemSpacing = 3;
+    
+    
+    UICollectionView* collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
+    [collectionView registerClass:[ImageCell class] forCellWithReuseIdentifier:kImageCellReuseIdentifier];
+    
+    
+    collectionView.backgroundColor = [UIColor whiteColor];
+    [collectionView setCollectionViewLayout:flowLayout];
+    
+    
+    
+    collectionView.delegate = self;
+    collectionView.dataSource = self;
+    
+    [self.view addSubview:collectionView];
+    
+    [PostApi getPostsByGroupId:groupId andType:@"图片" successHandler:^(NSArray *posts) {
+        images = [posts mutableCopy];
+        [collectionView reloadData];
+    } errorHandler:^(NSError *error) {
+        NSLog(@"error %@", error);
+    }];
     
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
+    
     
     //    [self loadPage:[NSString stringWithFormat:@"groupalbum?id=%d", _id]];
     // Do any additional setup after loading the view.
 }
 
-- (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView{
-    return 9;
+
+#pragma UICollectionViewDelegate
+
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    
 }
-- (AQGridViewCell *) gridView: (AQGridView *) gridView cellForItemAtIndex: (NSUInteger) index{
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return [images count];
+}
+
+// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+
     
+    ImageCell * cell = (ImageCell *)[collectionView dequeueReusableCellWithReuseIdentifier:kImageCellReuseIdentifier forIndexPath:indexPath];
     
-    ImageCell * cell = (ImageCell *)[gridView dequeueReusableCellWithIdentifier:kImageCellReuseIdentifier];
-    
-    if ( cell == nil ) {
-        cell = [[ImageCell alloc] initWithFrame: CGRectMake(0.0, 0.0, 160, 123)
-                                reuseIdentifier: kImageCellReuseIdentifier];
+    if (cell == nil ) {
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:kImageCellReuseIdentifier forIndexPath:indexPath];
     }
     
+    NSInteger index = [indexPath row];
+    Post* imagePost = [images objectAtIndex:index];
+    NSURL* url = [NSURL URLWithString:imagePost.url];
     
-    [cell.imageView setImage:[UIImage imageNamed:@"service-2.jpg"]];
-    [cell.captionLabel setText:@"Sample service"];
+    [cell.imageView setImageWithURL:url];
+    [cell.captionLabel setText:imagePost.title];
     
     return cell;
+
     
 }
 
@@ -64,12 +113,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-- (void) gridView: (AQGridView *) gridView didSelectItemAtIndex: (NSUInteger) index{
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"yeah!" message:@"hoho!" delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
-    
-    [alert show];
-}
 
 /*
  #pragma mark - Navigation

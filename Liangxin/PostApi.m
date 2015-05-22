@@ -25,6 +25,7 @@
         NSDictionary* keyMapping = @{
                                      @"title": @"title",
                                      @"id": @"postId",
+                                     @"url":@"url",
                                      @"created_at": @"createTime"
                                      };
         
