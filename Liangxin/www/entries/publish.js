@@ -18,15 +18,38 @@ function init(type){
 	}
 }
 
+function uploadedImages(container){
+	var results = [];
+	container.find("img").each(function(i, img){
+		results.push({
+			url: img.src,
+			title: img.alt
+		});
+	});
+	return results;
+}
+
 function publish(type){
+	var data = {type: type};
+
+	if(type == 'image'){
+		$('#input-row-album').show();
+		data.title = $("#title").val();
+		data.images = uploadedImages($("#input-row-album"));
+	}else if(type == 'public'){
+		$('#input-row-content').show();
+		data.title = $("#title").val();
+		data.content = $("#content").val();
+	}else if(type == 'article'){
+		data.title = $("#title").val();
+		data.content = $("#content").val();
+		data.image = uploadedImages($("#input-row-article-picture"));
+	}
+
 	fetch({
 		url: "/post",
 		method: "post",
-		data: {
-			type: "公告",
-			title: $("#title").val(),
-			content: $("#content").val()
-		},
+		data: data,
 	}).then(function(data){
 		console.log(data);
 		alert("success");
