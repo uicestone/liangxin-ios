@@ -56,7 +56,7 @@
     [[HHRouter shared] map:@"/groupmembers/:id" toControllerClass:[GroupMembersViewController class]];
     
     
-    [[HHRouter shared] map:@"/publish/:id" toControllerClass:[PublishViewController class]];
+    [[HHRouter shared] map:@"/publish/" toControllerClass:[PublishViewController class]];
     
     // 更改默认userAgent
     
@@ -82,7 +82,7 @@
     #endif
     
     // 初始化Navigation Controller
-    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/groupalbum/1"];
+    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/publish/?type=article"];
     
     
     // 初始化tabbar controller

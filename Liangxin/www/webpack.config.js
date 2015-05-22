@@ -2,11 +2,19 @@ var webpack = require('webpack');
 var commonsPlugin =
   new webpack.optimize.CommonsChunkPlugin('common.js');
 
+
+var entries = {};
+
+[
+    'groupdetail',
+    'groupintro',
+    'publish'
+].forEach(function(key){
+    entries[key] = __dirname + '/entries/' + key + '.js';
+});
+
 module.exports = {
-    entry: {
-        groupdetail: __dirname + '/entries/groupdetail.js',
-        groupintro: __dirname + '/entries/groupintro.js'
-    },
+    entry: entries,
     output: {
         path: __dirname + '/build',
         filename: "[name].js",

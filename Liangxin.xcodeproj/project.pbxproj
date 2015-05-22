@@ -290,8 +290,6 @@
 				2210A37F1AFE2B4500D9CA1A /* DemoView.xib */,
 				2210A3891AFEE1F800D9CA1A /* LXWebViewController.h */,
 				2210A38A1AFEE1F800D9CA1A /* LXWebViewController.m */,
-				2215CB781B0972A800D0359A /* PublishViewController.h */,
-				2215CB791B0972A900D0359A /* PublishViewController.m */,
 			);
 			path = Liangxin;
 			sourceTree = "<group>";
@@ -358,6 +356,8 @@
 		22D64A331B0ACD10004045B8 /* Post */ = {
 			isa = PBXGroup;
 			children = (
+				2215CB781B0972A800D0359A /* PublishViewController.h */,
+				2215CB791B0972A900D0359A /* PublishViewController.m */,
 				22D64A341B0ACD2C004045B8 /* PostViewController.h */,
 				22D64A351B0ACD2C004045B8 /* PostViewController.m */,
 			);

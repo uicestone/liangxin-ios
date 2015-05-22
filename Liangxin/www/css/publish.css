@@ -1,0 +1,42 @@
+body{
+	background-color: #f1f1f2;
+}
+.input-container{
+	padding: 10px;
+}
+
+.input-row{
+	margin-bottom: 7px;
+}
+
+.hide{
+	display: none;
+}
+
+#input-row-article-picture{
+	background-color: #fff
+}
+
+#input-row-album{
+	background-color: #fff;
+	overflow: hidden;
+	padding: 10px;
+}
+
+#input-row-album .add-image{
+	float: left;
+	width: 67px;
+	height: 67px;
+	margin-right: 10px;
+	border: 1px dashed #ccc;
+	line-height: 67px;
+	text-align: center;
+	font-size: 30px;
+	color: #ccc;
+}
+
+
+#input-row-album .add-image{
+	float: left;
+	color: ;
+}

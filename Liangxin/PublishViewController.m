@@ -20,13 +20,8 @@
     
     NSString* type = self.params[@"type"];
     
-    if([type isEqual:@"公告"]){
-        NSLog(@"lalala");
-    }else{
-        NSLog(@"not lala");
-    }
     
-    [self loadPage:@"/publish"];
+    [self loadPage:[@"/publish?type=" stringByAppendingString:type]];
 }
 
 - (void)didReceiveMemoryWarning {

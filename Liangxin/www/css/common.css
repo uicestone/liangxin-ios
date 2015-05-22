@@ -8,6 +8,36 @@ li{
 	list-style-type: none;
 }
 
+.input{
+	width: 100%;
+	border-radius: 4px;
+	color: #999;
+	box-sizing: border-box;
+	border: 1px solid #808284;
+	background-color: #fff;
+	-webkit-appearance: none;
+	font-size: 13px
+}
+
+.btn{
+	background-color: #f00;
+	color: #fff;
+	width: 100%;
+	font-weight: bold;
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	border-radius: 4px;
+	border: 0;
+	font-size: 13px;
+	height: 25px;
+	line-height: 25px;
+}
+
+.input.input-text{
+	height: 25px;
+	line-height: 25px
+}
+
 .header{
 	background-color: #e6e7e8;
 	padding: 10px;

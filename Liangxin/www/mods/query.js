@@ -3,7 +3,7 @@ exports.parse = function(){
   var ret = {};
   query.split("&").forEach(function(pair){
     var splited = pair.split("=");
-    ret[splited[0]] = splited[1];
+    ret[splited[0]] = decodeURIComponent(splited[1]);
   });
   return ret;
 }
