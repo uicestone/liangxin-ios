@@ -15,6 +15,8 @@ function init(type){
 	}else if(type == 'article'){
 		$('#input-row-content').show();
 		$('#input-row-article-picture').show();
+	}else if(type == 'activity'){
+		$("#input-row-content").show();
 	}
 }
 

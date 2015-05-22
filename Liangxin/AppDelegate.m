@@ -82,7 +82,7 @@
     #endif
     
     // 初始化Navigation Controller
-    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/publish/?type=article"];
+    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/publish/?type=activity"];
     
     
     // 初始化tabbar controller
