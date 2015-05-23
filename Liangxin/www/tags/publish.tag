@@ -18,26 +18,54 @@ require('./selectctrl.tag')
 		<imgctrl icon='upload' model='files' placeholder='添加课堂文件' />
 		<imgctrl icon='plus' model='images' placeholder='添加课堂图片资料' />
 		<imgctrl icon='link' model='videos' placeholder='添加课堂视频链接' />
-		<btn title='发布' onclick='{submit}' />
 	</div>
 
 	<!-- 发布活动 -->
 	<div show={ opts.type=='activity' }>
 		<imgctrl icon='plus' placeholder='为你的活动上传海报' model='poster' />
-		<datepicker title='请输入活动时间' limit='50' model='title' />
-		<inputctrl title='请输入活动地点' limit='50' model='title' />
+		<datepicker title='请输入活动时间' model='event_date' />
+		<inputctrl title='请输入活动地点' limit='50' model='event_address' />
 		<textareactrl title='添加活动文字详情（字数限制1000字）' limit='500' model='describe'></textareactrl>
-		<selectctrl title='请选择活动类型' choices={choices} />
-		<imgctrl icon='upload' model='files' placeholder='添加活动文件' />
-		<imgctrl icon='plus' model='images' placeholder='添加活动图片资料' />
-		<imgctrl icon='link' model='videos' placeholder='添加活动视频链接' />
-		<btn title='发布' onclick='{submit}' />
+		<selectctrl title='请选择活动类型' choices={choices} model='event_type' />
+		<datepicker title='请输入报名截止日期' model='due_date' />	
+	</div>
+	
+	<!-- 发布公告 -->
+	<div show={ opts.type=='bulletin' }>
+		<inputctrl title='请输入公告标题（字数限制50字）' limit='50' model='title' />
+		<textareactrl title='添加公告内容（字数限制1000字）' limit='1000' model='content'></textareactrl>
+	</div>
+
+	<!-- 发布文章 -->
+	<div show={ opts.type=='article' }>
+		<inputctrl title='请输入公告标题（字数限制50字）' limit='50' model='title' />
+		<textareactrl title='添加公告内容（字数限制1000字）' limit='1000' model='content'></textareactrl>
+		<imgctrl icon='plus' size='big' model='images' placeholder='上传图片' />
+	</div>
+
+	<!-- 发布照片 -->
+	<div show={ opts.type=='image' }>
+		<inputctrl title='请输入公告标题（字数限制50字）' limit='50' model='title' />
+		<textareactrl title='添加公告内容（字数限制1000字）' limit='1000' model='content'></textareactrl>
+		<imgctrl icon='plus' model='images' placeholder='上传图片' />
 	</div>
 
 	
-	if(opts.type == 'activity'){
-		this.choices = ['爱摄影','做公益','文艺迷','体育狂','长知识','学环保'];
-	}
+
+	<btn title='发布' onclick='{submit}' />
+	
+	this.choices = ({
+		"event": ['爱摄影','做公益','文艺迷','体育狂','长知识','学环保'],
+		"class": ['党建', '青年', '宣传', '妇女', '工会', '廉政']
+	})[opts.type];
+
+	var keys = ({
+		"bulletin": ["title", "content"],
+		"article": ["title", "content", "images"],
+		"image": ["title", "images"],
+		"event": ["poster", ""],
+		"class": ["poster","title","describe","content","title","files","images","videos"]
+	})[opts.type];
 
 	edit(field){
 		this[field.model] = field.val();
@@ -46,7 +74,6 @@ require('./selectctrl.tag')
 	submit(){
 		var self = this;
 		var data = {};
-		var keys = ["poster","title","describe","content","title","files","images","videos"]
 		
 		keys.forEach(function(k){
 			data[k] = self[k];

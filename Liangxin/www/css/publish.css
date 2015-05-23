@@ -43,13 +43,34 @@ body{
 	color: #ccc;
 }
 
-.input-row-image .text-hint{
+.size-big .add-image{
+	width: 67px;
+	height: 67px;
+	line-height: 67px;
+}
+
+.size-big .image-item{
+	height: 67px;
+	line-height: 67px;
+}
+
+.size-big .image-item img{
+	height: 67px;
+	width: 67px;
+}
+
+.size-big .text-hint{
+	height: 67px;
+	width: 67px;
+}
+
+.text-hint{
 	color: #a7a9ac;
 	line-height: 32px;
 	float: left;
 	font-size: 13px
 }
 
-.input-row-image .add-image img{
+.add-image img{
 	width: 14px;
 }

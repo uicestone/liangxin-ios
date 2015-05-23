@@ -1,6 +1,6 @@
 <textareactrl>
 	<div class="input-row">	
-		<textarea id="title" type="text" placeholder="{opts.title}"  maxlength="{opts.limit}" class="input input-textarea"></textarea>
+		<textarea id="title" type="text" placeholder="{opts.title}"  maxlength="{opts.limit}" class="input input-textarea" onkeyup="{edit}"></textarea>
 	</div>
 	
 	this.value = "";
