@@ -26,10 +26,11 @@ module.exports = {
     },
     module: {
         loaders: [
-            { test: /\.ejs/, loader: "ejs-loader" }
+            { test: /\.ejs/, loader: "ejs-loader" },
+            { test: /\.tag$/, loader: "tag" }
         ]
     },
     plugins: [commonsPlugin, new webpack.ProvidePlugin({
-        _: "underscore"
+        riot: 'riot'
     })],
 };

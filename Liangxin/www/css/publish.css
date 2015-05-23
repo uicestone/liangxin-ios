@@ -1,8 +1,10 @@
 body{
 	background-color: #f1f1f2;
 }
+
 .input-container{
 	padding: 10px;
+	display: block;
 }
 
 .input-row{
@@ -13,30 +15,41 @@ body{
 	display: none;
 }
 
-#input-row-article-picture{
-	background-color: #fff
-}
-
-#input-row-album{
+.input-row-image{
 	background-color: #fff;
 	overflow: hidden;
 	padding: 10px;
 }
 
-#input-row-album .add-image{
+.image-item{
 	float: left;
-	width: 67px;
-	height: 67px;
-	margin-right: 10px;
-	border: 1px dashed #ccc;
-	line-height: 67px;
-	text-align: center;
-	font-size: 30px;
-	color: #ccc;
+	margin-right: 10px
 }
 
 
-#input-row-album .add-image{
+.image-item img{
+	width: 32px;
+	height: 32px
+}
+
+.input-row-image .add-image{
 	float: left;
-	color: ;
+	width: 32px;
+	height: 32px;
+	margin-right: 10px;
+	border: 1px dashed #ccc;
+	line-height: 32px;
+	text-align: center;
+	color: #ccc;
+}
+
+.input-row-image .text-hint{
+	color: #a7a9ac;
+	line-height: 32px;
+	float: left;
+	font-size: 13px
+}
+
+.input-row-image .add-image img{
+	width: 14px;
 }

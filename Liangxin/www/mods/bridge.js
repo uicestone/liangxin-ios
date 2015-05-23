@@ -18,7 +18,7 @@ var Bridge = {
 
 };
 
-["fetch"].forEach(function(method){
+["fetch", "pickimage"].forEach(function(method){
 	Bridge[method] = function(params){
 		var self = this;
 		params = params || {};
@@ -41,5 +41,11 @@ var Bridge = {
 		});
 	}.bind(Bridge);
 });
+
+Bridge.pickimage = function(){
+	return new Promise(function(resolve, reject){
+		resolve("abcdsad");
+	});
+}
 
 module.exports = Bridge;

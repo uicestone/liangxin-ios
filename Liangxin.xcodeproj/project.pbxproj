@@ -25,6 +25,7 @@
 		2215CB741B08EA0C00D0359A /* GroupMembersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB731B08EA0C00D0359A /* GroupMembersViewController.m */; };
 		2215CB771B09675E00D0359A /* UserApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB761B09675E00D0359A /* UserApi.m */; };
 		2215CB7A1B0972A900D0359A /* PublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB791B0972A900D0359A /* PublishViewController.m */; };
+		2215D95E1B0EC44D00D96C46 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215D95D1B0EC44D00D96C46 /* ActivityViewController.m */; };
 		22238C1B1AF64F02000B4F95 /* Channels.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C1A1AF64F02000B4F95 /* Channels.m */; };
 		22238C1E1AF66941000B4F95 /* ChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C1D1AF66941000B4F95 /* ChannelViewController.m */; };
 		22238C541AFBACA5000B4F95 /* BannerApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C531AFBACA5000B4F95 /* BannerApi.m */; };
@@ -96,6 +97,8 @@
 		2215CB761B09675E00D0359A /* UserApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserApi.m; sourceTree = "<group>"; };
 		2215CB781B0972A800D0359A /* PublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishViewController.h; sourceTree = "<group>"; };
 		2215CB791B0972A900D0359A /* PublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishViewController.m; sourceTree = "<group>"; };
+		2215D95C1B0EC44D00D96C46 /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
+		2215D95D1B0EC44D00D96C46 /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
 		22238C191AF64F02000B4F95 /* Channels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Channels.h; sourceTree = "<group>"; };
 		22238C1A1AF64F02000B4F95 /* Channels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Channels.m; sourceTree = "<group>"; };
 		22238C1C1AF66941000B4F95 /* ChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelViewController.h; sourceTree = "<group>"; };
@@ -227,6 +230,16 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		2215D95B1B0EC43A00D96C46 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				2215D95C1B0EC44D00D96C46 /* ActivityViewController.h */,
+				2215D95D1B0EC44D00D96C46 /* ActivityViewController.m */,
+			);
+			name = Activity;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		22238C511AFBAC74000B4F95 /* Api */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +280,7 @@
 		223267C21AF2661B00431132 /* Liangxin */ = {
 			isa = PBXGroup;
 			children = (
+				2215D95B1B0EC43A00D96C46 /* Activity */,
 				2215CB661B086A5E00D0359A /* Views */,
 				22D64A331B0ACD10004045B8 /* Post */,
 				2215CB591B082AD700D0359A /* Group */,
@@ -528,6 +542,7 @@
 				2215CB6E1B08D3A900D0359A /* GroupArticleViewController.m in Sources */,
 				2215CB6B1B08D31E00D0359A /* GroupAlbumViewController.m in Sources */,
 				2215CB491B075E3900D0359A /* LXJSBridge+Fetch.m in Sources */,
+				2215D95E1B0EC44D00D96C46 /* ActivityViewController.m in Sources */,
 				22238C1B1AF64F02000B4F95 /* Channels.m in Sources */,
 				2215CB5C1B082B1E00D0359A /* GroupActivityViewController.m in Sources */,
 				2293FA011AF50A1A0012CD10 /* TADotView.m in Sources */,
