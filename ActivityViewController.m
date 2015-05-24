@@ -10,6 +10,7 @@
 #import "ActivityViewController.h"
 #import "SwitchBanner.h"
 #import "EntryListView.h"
+#import "Channels.h"
 
 
 @implementation ActivityViewController
@@ -65,6 +66,9 @@
                             @"link":@""
                             }
                         ];
+    
+    [self setTitle:[[Channels shared] titleAtIndex:1]];
+    
     [super viewDidLoad];
 }
 

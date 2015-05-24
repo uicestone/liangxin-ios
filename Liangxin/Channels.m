@@ -39,7 +39,7 @@
                                   UIColorFromRGB(0xa97b50)
                                   ];
             channels.titles = @[@"党群组织",@"精彩活动",@"党群课堂",@"党群动态",@"党群服务",@"我的账户"];
-            channels.links = @[@"group",@"activity",@"lesson",@"news",@"service",@"account"];
+            channels.links = @[@"group",@"activity",@"class",@"news",@"service",@"account"];
         }
     });
     return channels;

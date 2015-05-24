@@ -8,6 +8,7 @@
 
 #import "ClassViewController.h"
 #import "Definition.h"
+#import "Channels.h"
 
 
 @interface ClassViewController ()
@@ -68,6 +69,8 @@
                             @"link":@""
                             }
                         ];
+    
+    [self setTitle:[[Channels shared] titleAtIndex:2]];
     
     [super viewDidLoad];
 }

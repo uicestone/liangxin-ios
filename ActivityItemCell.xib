@@ -37,6 +37,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CGf-Qd-sL2">
+                        <rect key="frame" x="158" y="65" width="60" height="20"/>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JZT-Qu-qSv">
                         <rect key="frame" x="226" y="65" width="60" height="20"/>
                         <subviews>
@@ -52,6 +58,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="va6-SJ-WO5">
+                        <rect key="frame" x="226" y="65" width="60" height="20"/>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZPZ-lf-Bfc">
                         <rect key="frame" x="90" y="65" width="60" height="20"/>
                         <subviews>
@@ -73,6 +85,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVO-9e-LjP">
+                        <rect key="frame" x="90" y="65" width="60" height="20"/>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jbA-51-CWE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGz-xW-4uH">
                         <rect key="frame" x="90" y="5" width="222" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -83,9 +107,13 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="attendcount" destination="lgn-ar-kW2" id="kV8-cg-Td2"/>
+                <outlet property="attendeebtn" destination="rVO-9e-LjP" id="vS5-KQ-sTm"/>
                 <outlet property="desc" destination="5D9-wh-Msa" id="Ns1-Sa-xWe"/>
                 <outlet property="image" destination="3Nr-T6-ddO" id="dn8-Hd-DEo"/>
+                <outlet property="likebtn" destination="CGf-Qd-sL2" id="XUR-x6-Yhc"/>
                 <outlet property="likecount" destination="7S2-YU-xro" id="h5R-HM-XpS"/>
+                <outlet property="postbtn" destination="jbA-51-CWE" id="BiT-2x-haG"/>
+                <outlet property="reviewbtn" destination="va6-SJ-WO5" id="RWp-Lx-nWg"/>
                 <outlet property="reviewcount" destination="Dbl-XM-YVD" id="dJ8-7R-pV0"/>
                 <outlet property="title" destination="MGz-xW-4uH" id="gDu-4x-gzN"/>
             </connections>

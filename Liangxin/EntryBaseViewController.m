@@ -100,10 +100,9 @@
 // 初始化活动列表
 -(void) initEventList{
     CGRect frame = CGRectMake(0, offset, self.winWidth, 300);
-    self.tableView = [[UITableView alloc] initWithFrame:frame];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
+    _tableView = [[UITableView alloc] initWithFrame:frame];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
     
     [PostApi getPostsByQuery:@{@"type":@"class"} successHandler:^(NSArray *posts) {
         self.activities = posts;
@@ -133,6 +132,8 @@
         cell = [tableView dequeueReusableCellWithIdentifier:kReuseIdentifier];
     }
     
+    cell.selectionStyle = UITableViewCellAccessoryNone;
+    
     cell.desc.text = activity.desc;
     cell.title.text = activity.title;
     cell.attendcount.text = [NSString stringWithFormat:@"%d", activity.attendeeCount];
@@ -140,8 +141,40 @@
     cell.likecount.text = [NSString stringWithFormat:@"%d", activity.likeCount];
     [cell.image setImageWithURL:[NSURL URLWithString:activity.poster.url]];
     
+    [cell.attendeebtn addTarget:self action:@selector(attendeeBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.likebtn addTarget:self action:@selector(likeBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.reviewbtn addTarget:self action:@selector(reviewBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.postbtn addTarget:self action:@selector(postBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    cell.separatorInset = UIEdgeInsetsZero;
+    
     return cell;
+}
 
+- (void)postBtnClicked:(id)sender{
+    Post* activity = [self activityFromSender:sender];
+    NSLog(@"%d post touched", activity.postId);
+}
+
+- (void)attendeeBtnClicked:(id)sender{
+    Post* activity = [self activityFromSender:sender];
+}
+
+- (void)likeBtnClicked:(id)sender{
+    Post* activity = [self activityFromSender:sender];
+}
+
+- (void)reviewBtnClicked:(id)sender{
+    Post* activity = [self activityFromSender:sender];
+}
+
+
+-(Post *)activityFromSender:(id)sender{
+    
+    UITableViewCell * cell = (UITableViewCell *)[[sender superview] superview];//根据button加在cell上的层次关系，一层层获取其所在的cell（我的层次关系是：cell-》ImageView—》Label-》Button，所以要获取三次取得cell）
+    
+    NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];//获得cell所在的表格行row和section
+    
+    return [activities objectAtIndex:[indexPath row]];
 }
 
 
