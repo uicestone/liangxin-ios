@@ -11,6 +11,8 @@
 
 @implementation LXJSBridge
 @synthesize webview;
+@synthesize viewController;
+@synthesize callback;
 
 +(instancetype)initWithWebView:(UIWebView *)webview{
     LXJSBridge* bridge = [[self alloc] init];
@@ -50,14 +52,13 @@
 
 -(void)exec:(NSDictionary *)query{
     NSString* paramsString = [query objectForKey:@"params"];
-    NSString* callback = [query objectForKey:@"callback"];
     NSString* method = [query objectForKey:@"method"];
     
     
     NSString *jsonString = [paramsString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSDictionary* params = [[self jsonToDictionary:jsonString] mutableCopy];
-    [params setValue:callback forKey:@"callback"];
     
+    self.callback = [query objectForKey:@"callback"];
     SEL selector =  NSSelectorFromString([NSString stringWithFormat:@"%@:", method]);
     if (selector == nil) return;
     if (![self respondsToSelector:selector]) {
@@ -72,14 +73,14 @@
 #pragma clang diagnostic pop
 }
 
--(void)completeWithCallback:(NSString *)callback andError:(NSError *)error{
-    NSString *jsCode = [NSString stringWithFormat:@"setTimeout(function(){%@({error:\"%@\"})},0);", callback, [error localizedDescription]];
+-(void)completeWithError:(NSError *)error{
+    NSString *jsCode = [NSString stringWithFormat:@"setTimeout(function(){%@({error:\"%@\"})},0);", self.callback, [error localizedDescription]];
     [webview stringByEvaluatingJavaScriptFromString:jsCode];
 }
 
--(void)completeWithCallback:(NSString *)callback andResult:(NSDictionary *)result{
+-(void)completeWithResult:(NSDictionary *)result{
     NSString* jsonString = [result toJSON];
-    NSString *jsCode = [NSString stringWithFormat:@"setTimeout(function(){%@(%@)},0);", callback, jsonString];
+    NSString *jsCode = [NSString stringWithFormat:@"setTimeout(function(){%@(%@)},0);", self.callback, jsonString];
     [webview stringByEvaluatingJavaScriptFromString:jsCode];
 }
 
@@ -87,6 +88,5 @@
 -(void)log:(NSObject *)message{
     NSLog(@"<JSBridge>: %@", message);
 }
-
 
 @end

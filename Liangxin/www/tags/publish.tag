@@ -38,15 +38,14 @@ require('./selectctrl.tag')
 
 	<!-- 发布文章 -->
 	<div show={ opts.type=='article' }>
-		<inputctrl title='请输入公告标题（字数限制50字）' limit='50' model='title' />
-		<textareactrl title='添加公告内容（字数限制1000字）' limit='1000' model='content'></textareactrl>
+		<inputctrl title='请输入文章标题（字数限制50字）' limit='50' model='title' />
+		<textareactrl title='添加文章内容（字数限制1000字）' limit='1000' model='content'></textareactrl>
 		<imgctrl icon='plus' size='big' model='images' placeholder='上传图片' />
 	</div>
 
 	<!-- 发布照片 -->
 	<div show={ opts.type=='image' }>
-		<inputctrl title='请输入公告标题（字数限制50字）' limit='50' model='title' />
-		<textareactrl title='添加公告内容（字数限制1000字）' limit='1000' model='content'></textareactrl>
+		<inputctrl title='请输入图片标题（字数限制50字）' limit='50' model='title' />
 		<imgctrl icon='plus' model='images' placeholder='上传图片' />
 	</div>
 

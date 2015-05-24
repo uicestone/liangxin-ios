@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "LXJSBridge.h"
 #import "LXJSBridge+Fetch.h"
+#import "LXJSBridge+SetTitle.h"
+#import "LXJSBridge+PickImage.h"
 
 @interface LXWebViewController : UIViewController
 @property LXJSBridge* jsbridge;

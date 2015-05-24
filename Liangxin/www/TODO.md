@@ -10,3 +10,6 @@
 - 拍照/文件上传
 - 弹出发布界面
 - 登录界面及接口
+
+- publish request
+- image picker

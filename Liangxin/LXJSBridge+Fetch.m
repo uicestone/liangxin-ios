@@ -12,7 +12,6 @@
 @implementation LXJSBridge (Fetch)
 
 -(void)fetch:(NSDictionary *)params{
-    NSString* callback = [params objectForKey:@"callback"];
     NSDictionary* data = [params objectForKey:@"data"];
     NSString* url = [params objectForKey:@"url"];
     NSString* method = [params objectForKey:@"method"];
@@ -23,19 +22,17 @@
     
     if([method isEqual:@"get"]){
         [ApiBase getJSONWithPath:url data:data success:^(id responseObject) {
-            [self completeWithCallback:callback andResult:responseObject];
+            [self completeWithResult:responseObject];
         } error:^(NSError *error) {
-            [self completeWithCallback:callback andError:error];
+            [self completeWithError:error];
         }];
     }else if([method isEqual:@"post"]){
         [ApiBase postJSONWithPath:url data:data success:^(id responseObject) {
-            [self completeWithCallback:callback andResult:responseObject];
+            [self completeWithResult:responseObject];
         } error:^(NSError *error) {
-            [self completeWithCallback:callback andError:error];
+            [self completeWithError:error];
         }];
     }
-    
-    
 }
 
 @end

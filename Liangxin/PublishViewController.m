@@ -20,6 +20,21 @@
     
     NSString* type = self.params[@"type"];
     
+    NSDictionary* titles = @{
+        @"bulletin": @"公告",
+        @"article": @"文章",
+        @"image": @"照片",
+        @"class": @"课堂",
+        @"event": @"活动"
+    };
+    
+    NSString* title = titles[type];
+    
+    
+    self.navigationItem.title = [@"发布" stringByAppendingString:title];
+    
+    
+    
     
     [self loadPage:[@"/publish?type=" stringByAppendingString:type]];
 }

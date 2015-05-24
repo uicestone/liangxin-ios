@@ -11,9 +11,13 @@
 
 
 @interface LXJSBridge : NSObject
-@property UIWebView* webview;
+@property (strong, nonatomic) NSString* callback;
+@property (strong, nonatomic) UIWebView* webview;
+@property (strong, nonatomic) UIViewController* viewController;
 +(instancetype) initWithWebView:(UIWebView *)webview;
 -(void)handleMessage:(NSString *)message;
--(void)completeWithCallback:(NSString *)callback andError:(NSError *)error;
--(void)completeWithCallback:(NSString *)callback andResult:(NSDictionary *)result;
+-(void)completeWithError:(NSError *)error;
+-(void)completeWithResult:(NSDictionary *)result;
+
+
 @end

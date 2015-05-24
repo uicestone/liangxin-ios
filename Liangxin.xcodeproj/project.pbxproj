@@ -26,6 +26,11 @@
 		2215CB771B09675E00D0359A /* UserApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB761B09675E00D0359A /* UserApi.m */; };
 		2215CB7A1B0972A900D0359A /* PublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB791B0972A900D0359A /* PublishViewController.m */; };
 		2215D95E1B0EC44D00D96C46 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215D95D1B0EC44D00D96C46 /* ActivityViewController.m */; };
+		2215D9611B10CF3600D96C46 /* LXJSBridge+SetTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215D9601B10CF3600D96C46 /* LXJSBridge+SetTitle.m */; };
+		2215D96B1B10D08A00D96C46 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215D9641B10D08A00D96C46 /* TAAbstractDotView.m */; };
+		2215D96C1B10D08A00D96C46 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215D9661B10D08A00D96C46 /* TAAnimatedDotView.m */; };
+		2215D96D1B10D08A00D96C46 /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215D9681B10D08A00D96C46 /* TADotView.m */; };
+		2215D96E1B10D08A00D96C46 /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215D96A1B10D08A00D96C46 /* TAPageControl.m */; };
 		22238C1B1AF64F02000B4F95 /* Channels.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C1A1AF64F02000B4F95 /* Channels.m */; };
 		22238C1E1AF66941000B4F95 /* ChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C1D1AF66941000B4F95 /* ChannelViewController.m */; };
 		22238C541AFBACA5000B4F95 /* BannerApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C531AFBACA5000B4F95 /* BannerApi.m */; };
@@ -37,10 +42,6 @@
 		223267D41AF2661B00431132 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223267D21AF2661B00431132 /* LaunchScreen.xib */; };
 		223267E01AF2661B00431132 /* LiangxinTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 223267DF1AF2661B00431132 /* LiangxinTests.m */; };
 		225BA69C1AFF30D0000E6D79 /* LXWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 225BA69B1AFF30D0000E6D79 /* LXWebView.m */; };
-		2293F9FF1AF50A1A0012CD10 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2293F9F81AF50A1A0012CD10 /* TAAbstractDotView.m */; };
-		2293FA001AF50A1A0012CD10 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2293F9FA1AF50A1A0012CD10 /* TAAnimatedDotView.m */; };
-		2293FA011AF50A1A0012CD10 /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2293F9FC1AF50A1A0012CD10 /* TADotView.m */; };
-		2293FA021AF50A1A0012CD10 /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2293F9FE1AF50A1A0012CD10 /* TAPageControl.m */; };
 		2293FA061AF50B550012CD10 /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2293FA051AF50B550012CD10 /* BannerModel.m */; };
 		2293FA091AF5DBF20012CD10 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2293FA081AF5DBF20012CD10 /* GroupViewController.m */; };
 		22D649D91B0A29FF004045B8 /* PostItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D649D81B0A29FF004045B8 /* PostItemCell.m */; };
@@ -48,6 +49,7 @@
 		22D649DE1B0A3314004045B8 /* PostItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D649DD1B0A3314004045B8 /* PostItemCell.xib */; };
 		22D64A321B0ACB6A004045B8 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D64A311B0ACB6A004045B8 /* ImageCell.m */; };
 		22D64A361B0ACD2C004045B8 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D64A351B0ACD2C004045B8 /* PostViewController.m */; };
+		22E6E2471B115E41005E528E /* LXJSBridge+PickImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E6E2461B115E41005E528E /* LXJSBridge+PickImage.m */; };
 		22F69A861AF31DF100DC295D /* SwitchBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F69A851AF31DF100DC295D /* SwitchBanner.m */; };
 		9073049D9796F236635CB35B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 749E78FDB631FDC0769D75E2 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -99,6 +101,16 @@
 		2215CB791B0972A900D0359A /* PublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishViewController.m; sourceTree = "<group>"; };
 		2215D95C1B0EC44D00D96C46 /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
 		2215D95D1B0EC44D00D96C46 /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
+		2215D95F1B10CF3600D96C46 /* LXJSBridge+SetTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LXJSBridge+SetTitle.h"; sourceTree = "<group>"; };
+		2215D9601B10CF3600D96C46 /* LXJSBridge+SetTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LXJSBridge+SetTitle.m"; sourceTree = "<group>"; };
+		2215D9631B10D08A00D96C46 /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
+		2215D9641B10D08A00D96C46 /* TAAbstractDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAbstractDotView.m; sourceTree = "<group>"; };
+		2215D9651B10D08A00D96C46 /* TAAnimatedDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAnimatedDotView.h; sourceTree = "<group>"; };
+		2215D9661B10D08A00D96C46 /* TAAnimatedDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAnimatedDotView.m; sourceTree = "<group>"; };
+		2215D9671B10D08A00D96C46 /* TADotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TADotView.h; sourceTree = "<group>"; };
+		2215D9681B10D08A00D96C46 /* TADotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TADotView.m; sourceTree = "<group>"; };
+		2215D9691B10D08A00D96C46 /* TAPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAPageControl.h; sourceTree = "<group>"; };
+		2215D96A1B10D08A00D96C46 /* TAPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAPageControl.m; sourceTree = "<group>"; };
 		22238C191AF64F02000B4F95 /* Channels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Channels.h; sourceTree = "<group>"; };
 		22238C1A1AF64F02000B4F95 /* Channels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Channels.m; sourceTree = "<group>"; };
 		22238C1C1AF66941000B4F95 /* ChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelViewController.h; sourceTree = "<group>"; };
@@ -122,14 +134,6 @@
 		223267DF1AF2661B00431132 /* LiangxinTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiangxinTests.m; sourceTree = "<group>"; };
 		225BA69A1AFF30D0000E6D79 /* LXWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXWebView.h; sourceTree = "<group>"; };
 		225BA69B1AFF30D0000E6D79 /* LXWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXWebView.m; sourceTree = "<group>"; };
-		2293F9F71AF50A1A0012CD10 /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
-		2293F9F81AF50A1A0012CD10 /* TAAbstractDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAbstractDotView.m; sourceTree = "<group>"; };
-		2293F9F91AF50A1A0012CD10 /* TAAnimatedDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAnimatedDotView.h; sourceTree = "<group>"; };
-		2293F9FA1AF50A1A0012CD10 /* TAAnimatedDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAnimatedDotView.m; sourceTree = "<group>"; };
-		2293F9FB1AF50A1A0012CD10 /* TADotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TADotView.h; sourceTree = "<group>"; };
-		2293F9FC1AF50A1A0012CD10 /* TADotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TADotView.m; sourceTree = "<group>"; };
-		2293F9FD1AF50A1A0012CD10 /* TAPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAPageControl.h; sourceTree = "<group>"; };
-		2293F9FE1AF50A1A0012CD10 /* TAPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAPageControl.m; sourceTree = "<group>"; };
 		2293FA041AF50B550012CD10 /* BannerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerModel.h; sourceTree = "<group>"; };
 		2293FA051AF50B550012CD10 /* BannerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerModel.m; sourceTree = "<group>"; };
 		2293FA071AF5DBF20012CD10 /* GroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupViewController.h; sourceTree = "<group>"; };
@@ -143,6 +147,8 @@
 		22D64A311B0ACB6A004045B8 /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
 		22D64A341B0ACD2C004045B8 /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
 		22D64A351B0ACD2C004045B8 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
+		22E6E2451B115E41005E528E /* LXJSBridge+PickImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LXJSBridge+PickImage.h"; sourceTree = "<group>"; };
+		22E6E2461B115E41005E528E /* LXJSBridge+PickImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LXJSBridge+PickImage.m"; sourceTree = "<group>"; };
 		22F69A841AF31DF100DC295D /* SwitchBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchBanner.h; sourceTree = "<group>"; };
 		22F69A851AF31DF100DC295D /* SwitchBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchBanner.m; sourceTree = "<group>"; };
 		3CB410544CD4D7ABDFD79BB5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -184,6 +190,10 @@
 				2215CB451B075E0900D0359A /* LXJSBridge.m */,
 				2215CB471B075E3900D0359A /* LXJSBridge+Fetch.h */,
 				2215CB481B075E3900D0359A /* LXJSBridge+Fetch.m */,
+				2215D95F1B10CF3600D96C46 /* LXJSBridge+SetTitle.h */,
+				2215D9601B10CF3600D96C46 /* LXJSBridge+SetTitle.m */,
+				22E6E2451B115E41005E528E /* LXJSBridge+PickImage.h */,
+				22E6E2461B115E41005E528E /* LXJSBridge+PickImage.m */,
 			);
 			name = JSBridges;
 			sourceTree = "<group>";
@@ -240,6 +250,21 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		2215D9621B10D08A00D96C46 /* TAPageControl */ = {
+			isa = PBXGroup;
+			children = (
+				2215D9631B10D08A00D96C46 /* TAAbstractDotView.h */,
+				2215D9641B10D08A00D96C46 /* TAAbstractDotView.m */,
+				2215D9651B10D08A00D96C46 /* TAAnimatedDotView.h */,
+				2215D9661B10D08A00D96C46 /* TAAnimatedDotView.m */,
+				2215D9671B10D08A00D96C46 /* TADotView.h */,
+				2215D9681B10D08A00D96C46 /* TADotView.m */,
+				2215D9691B10D08A00D96C46 /* TAPageControl.h */,
+				2215D96A1B10D08A00D96C46 /* TAPageControl.m */,
+			);
+			path = TAPageControl;
+			sourceTree = "<group>";
+		};
 		22238C511AFBAC74000B4F95 /* Api */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,7 +313,7 @@
 				2215CB3D1B07524B00D0359A /* JSBridges */,
 				22238C511AFBAC74000B4F95 /* Api */,
 				2293FA031AF50B2C0012CD10 /* Model */,
-				2293F9F61AF50A1A0012CD10 /* TAPageControl */,
+				2215D9621B10D08A00D96C46 /* TAPageControl */,
 				22F69A831AF31DC300DC295D /* Widgets */,
 				223267C81AF2661B00431132 /* AppDelegate.m */,
 				223267C71AF2661B00431132 /* AppDelegate.h */,
@@ -332,22 +357,6 @@
 				223267DE1AF2661B00431132 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		2293F9F61AF50A1A0012CD10 /* TAPageControl */ = {
-			isa = PBXGroup;
-			children = (
-				2293F9F71AF50A1A0012CD10 /* TAAbstractDotView.h */,
-				2293F9F81AF50A1A0012CD10 /* TAAbstractDotView.m */,
-				2293F9F91AF50A1A0012CD10 /* TAAnimatedDotView.h */,
-				2293F9FA1AF50A1A0012CD10 /* TAAnimatedDotView.m */,
-				2293F9FB1AF50A1A0012CD10 /* TADotView.h */,
-				2293F9FC1AF50A1A0012CD10 /* TADotView.m */,
-				2293F9FD1AF50A1A0012CD10 /* TAPageControl.h */,
-				2293F9FE1AF50A1A0012CD10 /* TAPageControl.m */,
-			);
-			name = TAPageControl;
-			path = "../../../../Downloads/TAPageControl-master 4/TAPageControl";
 			sourceTree = "<group>";
 		};
 		2293FA031AF50B2C0012CD10 /* Model */ = {
@@ -545,7 +554,6 @@
 				2215D95E1B0EC44D00D96C46 /* ActivityViewController.m in Sources */,
 				22238C1B1AF64F02000B4F95 /* Channels.m in Sources */,
 				2215CB5C1B082B1E00D0359A /* GroupActivityViewController.m in Sources */,
-				2293FA011AF50A1A0012CD10 /* TADotView.m in Sources */,
 				22D649D91B0A29FF004045B8 /* PostItemCell.m in Sources */,
 				22D64A321B0ACB6A004045B8 /* ImageCell.m in Sources */,
 				22D64A361B0ACD2C004045B8 /* PostViewController.m in Sources */,
@@ -553,24 +561,27 @@
 				22D649DC1B0A2CDC004045B8 /* PostApi.m in Sources */,
 				2215CB621B08379100D0359A /* Post.m in Sources */,
 				2210A38B1AFEE1F800D9CA1A /* LXWebViewController.m in Sources */,
-				2293F9FF1AF50A1A0012CD10 /* TAAbstractDotView.m in Sources */,
 				22238C541AFBACA5000B4F95 /* BannerApi.m in Sources */,
-				2293FA001AF50A1A0012CD10 /* TAAnimatedDotView.m in Sources */,
 				2210A3871AFE51BD00D9CA1A /* GroupDetailViewController.m in Sources */,
 				2215CB7A1B0972A900D0359A /* PublishViewController.m in Sources */,
+				2215D96B1B10D08A00D96C46 /* TAAbstractDotView.m in Sources */,
 				22F69A861AF31DF100DC295D /* SwitchBanner.m in Sources */,
 				2215CB711B08E59A00D0359A /* GroupIntroViewController.m in Sources */,
 				2215CB771B09675E00D0359A /* UserApi.m in Sources */,
+				22E6E2471B115E41005E528E /* LXJSBridge+PickImage.m in Sources */,
 				22238C1E1AF66941000B4F95 /* ChannelViewController.m in Sources */,
 				2210A37B1AFDF66800D9CA1A /* GroupApi.m in Sources */,
-				2293FA021AF50A1A0012CD10 /* TAPageControl.m in Sources */,
+				2215D96D1B10D08A00D96C46 /* TADotView.m in Sources */,
 				223267C91AF2661B00431132 /* AppDelegate.m in Sources */,
 				2293FA061AF50B550012CD10 /* BannerModel.m in Sources */,
 				2215CB4D1B07820C00D0359A /* NSDictionary+Encoding.m in Sources */,
 				2293FA091AF5DBF20012CD10 /* GroupViewController.m in Sources */,
+				2215D96E1B10D08A00D96C46 /* TAPageControl.m in Sources */,
 				223267C61AF2661B00431132 /* main.m in Sources */,
+				2215D96C1B10D08A00D96C46 /* TAAnimatedDotView.m in Sources */,
 				22238C571AFBAE30000B4F95 /* ApiBase.m in Sources */,
 				2210A37E1AFDF84900D9CA1A /* Group.m in Sources */,
+				2215D9611B10CF3600D96C46 /* LXJSBridge+SetTitle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -50,16 +50,17 @@
     webview = [[LXWebView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) + 20)];
     webview.delegate = self;
     jsbridge = [LXJSBridge initWithWebView:webview];
+    jsbridge.viewController = self;
     
     [self.view addSubview:webview];
     
     
     // 隐藏NavigationController
-//    self.navigationController.navigationBarHidden = YES;
+    //    self.navigationController.navigationBarHidden = YES;
     
     // 调整StatusBar
     [self setStatusBarBackgroundColor];
-
+    
     webview.backgroundColor = UIColorFromRGB(0xe6e7e8);
     
     [super viewDidLoad];
@@ -100,7 +101,7 @@
         NSString *absolute = [url absoluteString];
         NSString *finalUrlString = [absolute stringByAppendingString: queryString];
         NSURL *finalURL = [NSURL URLWithString: finalUrlString];
-    
+        
         NSLog(@"Load url %@", finalURL);
         NSURLRequest *request = [NSURLRequest requestWithURL:finalURL];
         [webview loadRequest:request];
@@ -128,7 +129,9 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     
     NSString* title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
-    [self.navigationItem setTitle:title];
+    if(title.length){
+        [self.navigationItem setTitle:title];
+    }
 }
 
 

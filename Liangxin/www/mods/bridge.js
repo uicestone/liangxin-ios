@@ -5,7 +5,7 @@ var Bridge = {
 		var iframe = document.createElement('iframe');
 		window[callbackName] = callback;
     iframe.src = "js://_?method=" + method + "&params=" + encodeURIComponent(JSON.stringify(params)) + "&callback=" + callbackName;
-		
+		console.log("iframe src", iframe.src);
 		document.body.appendChild(iframe);
 		iframe.style.display = "none";
 		function removeNode(){
@@ -18,7 +18,7 @@ var Bridge = {
 
 };
 
-["fetch", "pickimage"].forEach(function(method){
+["fetch", "pickImage", "setTitle"].forEach(function(method){
 	Bridge[method] = function(params){
 		var self = this;
 		params = params || {};
@@ -41,11 +41,5 @@ var Bridge = {
 		});
 	}.bind(Bridge);
 });
-
-Bridge.pickimage = function(){
-	return new Promise(function(resolve, reject){
-		resolve("abcdsad");
-	});
-}
 
 module.exports = Bridge;

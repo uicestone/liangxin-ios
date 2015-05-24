@@ -1,5 +1,5 @@
 var bridge = require('bridge');
-var pickimage = bridge.pickimage;
+var pickImage = bridge.pickImage;
 <imgctrl>
 	<div class="input-row input-row-image size-{opts.size}">
 		<div class="image-item" each={image, i in images}><img src='{image}' /></div>
@@ -13,10 +13,12 @@ var pickimage = bridge.pickimage;
 	this.model = opts.model;
 	add(){
 		var self = this;
-		pickimage()
-			.then(function(data){
+		pickImage()
+			.then(function(result){
+				var data = result.url;
 				self.images.push(data);
 				self.parent.edit(self);
+				self.update();
 			});
 	}
 

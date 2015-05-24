@@ -136,7 +136,7 @@
 
 
 - (BOOL)tabBarController:(UITabBarController *)tc shouldSelectViewController:(UIViewController *)vc{
-    int index = [[tc viewControllers] indexOfObject:vc];
+    int index = (int)[[tc viewControllers] indexOfObject:vc];
     switch (index) {
         case 0:
             [[self tabBarController] setSelectedIndex:1];
