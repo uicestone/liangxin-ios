@@ -47,10 +47,6 @@
     
     
     collectionView.backgroundColor = [UIColor whiteColor];
-    [collectionView setCollectionViewLayout:flowLayout];
-    
-    
-    
     collectionView.delegate = self;
     collectionView.dataSource = self;
     

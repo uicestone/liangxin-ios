@@ -7,7 +7,9 @@
 //
 
 #import "LXWebViewController.h"
+#import "EntryListView.h"
+#import "EntryBaseViewController.h"
 
-@interface ActivityViewController : LXWebViewController
+@interface ActivityViewController : EntryBaseViewController <EntryListViewDelegate>
 
 @end

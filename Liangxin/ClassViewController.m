@@ -1,48 +1,51 @@
 //
-//  ActivityViewController.m
+//  ClassViewController.m
 //  Liangxin
 //
-//  Created by Hsu Spud on 15/5/22.
+//  Created by Hsu Spud on 15/5/24.
 //  Copyright (c) 2015年 Hsu Spud. All rights reserved.
 //
 
+#import "ClassViewController.h"
 #import "Definition.h"
-#import "ActivityViewController.h"
-#import "SwitchBanner.h"
-#import "EntryListView.h"
 
 
-@implementation ActivityViewController
+@interface ClassViewController ()
+
+@end
+
+@implementation ClassViewController
+
 
 - (void)viewDidLoad {
     self.categoryList = @[
                           @{
-                              @"title":@"爱摄影",
+                              @"title":@"党建",
                               @"icon":@"star",
                               @"link":@""
                               },
                           @{
-                              @"title":@"做公益",
+                              @"title":@"青年",
                               @"icon":@"star",
                               @"link":@""
                               },
                           @{
-                              @"title":@"文艺迷",
+                              @"title":@"宣传",
                               @"icon":@"new",
                               @"link":@""
                               },
                           @{
-                              @"title":@"体育狂",
+                              @"title":@"妇女",
                               @"icon":@"new",
                               @"link":@""
                               },
                           @{
-                              @"title":@"长知识",
+                              @"title":@"工会",
                               @"icon":@"new",
                               @"link":@""
                               },
                           @{
-                              @"title":@"学环保",
+                              @"title":@"廉政",
                               @"icon":@"new",
                               @"link":@""
                               }
@@ -50,37 +53,37 @@
     
     self.filterList = @[
                         @{
-                            @"title":@"a",
+                            @"title":@"最受欢迎课堂",
                             @"icon":@"star",
                             @"link":@""
                             },
                         @{
-                            @"title":@"b",
+                            @"title":@"最新课堂",
                             @"icon":@"star",
                             @"link":@""
                             },
                         @{
-                            @"title":@"c",
+                            @"title":@"全部课堂",
                             @"icon":@"new",
                             @"link":@""
                             }
                         ];
+    
     [super viewDidLoad];
 }
 
 -(UIColor *)colorForFilterView:(EntryListView *)filterView andIndex:(int)index{
     
     if(filterView.type == EntryListViewTypeCategory){
-        return UIColorFromRGB(0x39aea5);
+        return UIColorFromRGB(0xff9b2a);
     }else{
         switch (index) {
             case 0:
-            case 3:
-                return UIColorFromRGB(0x99cbc7);
+            case 2:
+                return UIColorFromRGB(0xffb15e);
                 break;
             case 1:
-            case 2:
-                return UIColorFromRGB(0x70bcb6);
+                return UIColorFromRGB(0xffc788);
                 break;
             default:
                 return UIColorFromRGB(0xffffff);
@@ -95,13 +98,13 @@
 }
 
 /*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

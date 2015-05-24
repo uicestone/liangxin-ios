@@ -50,6 +50,10 @@
 		22D64A321B0ACB6A004045B8 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D64A311B0ACB6A004045B8 /* ImageCell.m */; };
 		22D64A361B0ACD2C004045B8 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D64A351B0ACD2C004045B8 /* PostViewController.m */; };
 		22E6E2471B115E41005E528E /* LXJSBridge+PickImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E6E2461B115E41005E528E /* LXJSBridge+PickImage.m */; };
+		22E6E24A1B119445005E528E /* EntryListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E6E2491B119445005E528E /* EntryListView.m */; };
+		22E6E2551B11C380005E528E /* EntryListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E6E2541B11C380005E528E /* EntryListCell.m */; };
+		22E6E2591B11C582005E528E /* ClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E6E2581B11C582005E528E /* ClassViewController.m */; };
+		22E6E25C1B11C64B005E528E /* EntryBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E6E25B1B11C64B005E528E /* EntryBaseViewController.m */; };
 		22F69A861AF31DF100DC295D /* SwitchBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F69A851AF31DF100DC295D /* SwitchBanner.m */; };
 		9073049D9796F236635CB35B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 749E78FDB631FDC0769D75E2 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -149,6 +153,14 @@
 		22D64A351B0ACD2C004045B8 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
 		22E6E2451B115E41005E528E /* LXJSBridge+PickImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LXJSBridge+PickImage.h"; sourceTree = "<group>"; };
 		22E6E2461B115E41005E528E /* LXJSBridge+PickImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LXJSBridge+PickImage.m"; sourceTree = "<group>"; };
+		22E6E2481B119445005E528E /* EntryListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryListView.h; sourceTree = "<group>"; };
+		22E6E2491B119445005E528E /* EntryListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryListView.m; sourceTree = "<group>"; };
+		22E6E2531B11C380005E528E /* EntryListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryListCell.h; sourceTree = "<group>"; };
+		22E6E2541B11C380005E528E /* EntryListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryListCell.m; sourceTree = "<group>"; };
+		22E6E2571B11C582005E528E /* ClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassViewController.h; sourceTree = "<group>"; };
+		22E6E2581B11C582005E528E /* ClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassViewController.m; sourceTree = "<group>"; };
+		22E6E25A1B11C64B005E528E /* EntryBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryBaseViewController.h; sourceTree = "<group>"; };
+		22E6E25B1B11C64B005E528E /* EntryBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryBaseViewController.m; sourceTree = "<group>"; };
 		22F69A841AF31DF100DC295D /* SwitchBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchBanner.h; sourceTree = "<group>"; };
 		22F69A851AF31DF100DC295D /* SwitchBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchBanner.m; sourceTree = "<group>"; };
 		3CB410544CD4D7ABDFD79BB5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -236,6 +248,10 @@
 				22D649DD1B0A3314004045B8 /* PostItemCell.xib */,
 				22D64A301B0ACB6A004045B8 /* ImageCell.h */,
 				22D64A311B0ACB6A004045B8 /* ImageCell.m */,
+				22E6E2481B119445005E528E /* EntryListView.h */,
+				22E6E2491B119445005E528E /* EntryListView.m */,
+				22E6E2531B11C380005E528E /* EntryListCell.h */,
+				22E6E2541B11C380005E528E /* EntryListCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -305,6 +321,7 @@
 		223267C21AF2661B00431132 /* Liangxin */ = {
 			isa = PBXGroup;
 			children = (
+				22E6E2561B11C56C005E528E /* Class */,
 				2215D95B1B0EC43A00D96C46 /* Activity */,
 				2215CB661B086A5E00D0359A /* Views */,
 				22D64A331B0ACD10004045B8 /* Post */,
@@ -329,6 +346,8 @@
 				2210A37F1AFE2B4500D9CA1A /* DemoView.xib */,
 				2210A3891AFEE1F800D9CA1A /* LXWebViewController.h */,
 				2210A38A1AFEE1F800D9CA1A /* LXWebViewController.m */,
+				22E6E25A1B11C64B005E528E /* EntryBaseViewController.h */,
+				22E6E25B1B11C64B005E528E /* EntryBaseViewController.m */,
 			);
 			path = Liangxin;
 			sourceTree = "<group>";
@@ -385,6 +404,15 @@
 				22D64A351B0ACD2C004045B8 /* PostViewController.m */,
 			);
 			name = Post;
+			sourceTree = "<group>";
+		};
+		22E6E2561B11C56C005E528E /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				22E6E2571B11C582005E528E /* ClassViewController.h */,
+				22E6E2581B11C582005E528E /* ClassViewController.m */,
+			);
+			name = Class;
 			sourceTree = "<group>";
 		};
 		22F69A831AF31DC300DC295D /* Widgets */ = {
@@ -557,6 +585,7 @@
 				22D649D91B0A29FF004045B8 /* PostItemCell.m in Sources */,
 				22D64A321B0ACB6A004045B8 /* ImageCell.m in Sources */,
 				22D64A361B0ACD2C004045B8 /* PostViewController.m in Sources */,
+				22E6E2551B11C380005E528E /* EntryListCell.m in Sources */,
 				2215CB741B08EA0C00D0359A /* GroupMembersViewController.m in Sources */,
 				22D649DC1B0A2CDC004045B8 /* PostApi.m in Sources */,
 				2215CB621B08379100D0359A /* Post.m in Sources */,
@@ -566,14 +595,17 @@
 				2215CB7A1B0972A900D0359A /* PublishViewController.m in Sources */,
 				2215D96B1B10D08A00D96C46 /* TAAbstractDotView.m in Sources */,
 				22F69A861AF31DF100DC295D /* SwitchBanner.m in Sources */,
+				22E6E24A1B119445005E528E /* EntryListView.m in Sources */,
 				2215CB711B08E59A00D0359A /* GroupIntroViewController.m in Sources */,
 				2215CB771B09675E00D0359A /* UserApi.m in Sources */,
 				22E6E2471B115E41005E528E /* LXJSBridge+PickImage.m in Sources */,
 				22238C1E1AF66941000B4F95 /* ChannelViewController.m in Sources */,
+				22E6E25C1B11C64B005E528E /* EntryBaseViewController.m in Sources */,
 				2210A37B1AFDF66800D9CA1A /* GroupApi.m in Sources */,
 				2215D96D1B10D08A00D96C46 /* TADotView.m in Sources */,
 				223267C91AF2661B00431132 /* AppDelegate.m in Sources */,
 				2293FA061AF50B550012CD10 /* BannerModel.m in Sources */,
+				22E6E2591B11C582005E528E /* ClassViewController.m in Sources */,
 				2215CB4D1B07820C00D0359A /* NSDictionary+Encoding.m in Sources */,
 				2293FA091AF5DBF20012CD10 /* GroupViewController.m in Sources */,
 				2215D96E1B10D08A00D96C46 /* TAPageControl.m in Sources */,

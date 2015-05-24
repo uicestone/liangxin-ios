@@ -16,7 +16,7 @@
     UIViewController* vc = self.viewController;
     
     
-    UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle:@"选择图片" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"销毁" otherButtonTitles:@"拍照",@"选取系统相册",@"选取支部相册", nil];
+    UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle:@"选择图片" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"选取系统相册",@"选取支部相册", nil];
     sheet.tag = kTagPickImageSheet;
     sheet.delegate = self;
     [sheet showInView:vc.view];

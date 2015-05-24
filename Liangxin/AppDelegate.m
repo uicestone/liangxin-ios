@@ -19,7 +19,7 @@
 #import "GroupAlbumViewController.h"
 #import "PublishViewController.h"
 #import "ActivityViewController.h"
-
+#import "ClassViewController.h"
 
 #import "Channels.h"
 
@@ -63,6 +63,8 @@
     // 活动
     [[HHRouter shared] map:@"/activity" toControllerClass:[ActivityViewController class]];
     
+    // 课堂
+    [[HHRouter shared] map:@"/class" toControllerClass:[ClassViewController class]];
     
     // 发布
     [[HHRouter shared] map:@"/publish/" toControllerClass:[PublishViewController class]];
@@ -91,7 +93,7 @@
     #endif
     
     // 初始化Navigation Controller
-    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/publish/?type=image"];
+    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/class"];
     
     
     // 初始化tabbar controller
@@ -115,8 +117,6 @@
     UIViewController *tvc=[[UIViewController alloc] initWithNibName:nil bundle:nil];
     tvc.title=@"我的账号";
     tvc.tabBarItem.image=[UIImage imageNamed:@"img.png"];
-    
-    
     
     
     NSArray* controllers = [NSArray arrayWithObjects:fvc, navigationController, tvc, nil];
