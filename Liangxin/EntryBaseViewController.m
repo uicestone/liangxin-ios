@@ -10,11 +10,18 @@
 #import "EntryBaseViewController.h"
 #import "SwitchBanner.h"
 #import "EntryListView.h"
+#import "Post.h"
+#import "ActivityItemCell.h"
+#import "PostApi.h"
+#import <AFNetworking/UIImageView+AFNetworking.h>
+
+#define kReuseIdentifier @"ActivityItemCell"
 
 @interface EntryBaseViewController ()
 @property (nonatomic, assign) CGFloat winWidth;
 @property (nonatomic, assign) CGFloat winHeight;
 @property (assign) CGFloat offset;
+@property (nonatomic, strong) UITableView* tableView;
 @end
 
 @implementation EntryBaseViewController
@@ -23,10 +30,13 @@
 @synthesize offset;
 @synthesize categoryList;
 @synthesize filterList;
+@synthesize activities;
+@synthesize type;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    offset = 0;
+    offset = 65;
     self.view.backgroundColor = [UIColor whiteColor];
     
     // 公共变量
@@ -42,7 +52,7 @@
 
 // 初始化搜索
 -(void) initSearch{
-    offset += 100;
+    offset += 0;
 }
 
 // 初始化轮播
@@ -86,11 +96,61 @@
 }
 
 
+
 // 初始化活动列表
 -(void) initEventList{
-    CGRect frame = CGRectMake(0, offset, self.winWidth, 25);
-    UITableView* tableView = [[UITableView alloc] initWithFrame:frame];
-    [self.view addSubview:tableView];
+    CGRect frame = CGRectMake(0, offset, self.winWidth, 300);
+    self.tableView = [[UITableView alloc] initWithFrame:frame];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
+    
+    [PostApi getPostsByQuery:@{@"type":@"class"} successHandler:^(NSArray *posts) {
+        self.activities = posts;
+        [self.tableView reloadData];
+    } errorHandler:^(NSError *error) {
+        NSLog(@"Error");
+    }];
+    
+    [self.view addSubview:self.tableView];
+}
+
+
+-(UIColor *)colorForFilterView:(EntryListView *)filterView andIndex:(int)index{
+    return [UIColor whiteColor];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [activities count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    Post *activity = [activities objectAtIndex:[indexPath row]];
+    ActivityItemCell *cell = [tableView dequeueReusableCellWithIdentifier:kReuseIdentifier];
+    
+    if(!cell){
+        [tableView registerNib:[UINib nibWithNibName:@"ActivityItemCell" bundle:nil] forCellReuseIdentifier:kReuseIdentifier];
+        cell = [tableView dequeueReusableCellWithIdentifier:kReuseIdentifier];
+    }
+    
+    cell.desc.text = activity.desc;
+    cell.title.text = activity.title;
+    cell.attendcount.text = [NSString stringWithFormat:@"%d", activity.attendeeCount];
+    cell.reviewcount.text = [NSString stringWithFormat:@"%d", activity.reviewCount];
+    cell.likecount.text = [NSString stringWithFormat:@"%d", activity.likeCount];
+    [cell.image setImageWithURL:[NSURL URLWithString:activity.poster.url]];
+    
+    return cell;
+
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 90.0f;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
 }
 
 - (void)didReceiveMemoryWarning {

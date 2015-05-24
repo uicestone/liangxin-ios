@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "EntryListView.h"
 
-@interface EntryBaseViewController : UIViewController
+@interface EntryBaseViewController : UIViewController <EntryListViewDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) NSArray* filterList;
 @property (nonatomic, strong) NSArray* categoryList;
+@property (nonatomic, strong) NSArray* activities;
+@property (nonatomic, strong) NSString* type;
 @end

@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 Hsu Spud. All rights reserved.
 //
 
-#import "GroupActivityViewController.h"
+#import "GroupPostViewController.h"
 #import "Post.h"
 #import "PostApi.h"
 #import "PostItemCell.h"
@@ -14,12 +14,12 @@
 
 #define kReuseIdentifier @"postItemCell"
 
-@interface GroupActivityViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface GroupPostViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) UITableView* tableview;
 @property (strong, nonatomic) NSMutableArray* posts;
 @end
 
-@implementation GroupActivityViewController
+@implementation GroupPostViewController
 @synthesize tableview;
 @synthesize posts;
 

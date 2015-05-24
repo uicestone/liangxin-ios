@@ -16,7 +16,7 @@
 		2215CB461B075E0900D0359A /* LXJSBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB451B075E0900D0359A /* LXJSBridge.m */; };
 		2215CB491B075E3900D0359A /* LXJSBridge+Fetch.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB481B075E3900D0359A /* LXJSBridge+Fetch.m */; };
 		2215CB4D1B07820C00D0359A /* NSDictionary+Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB4C1B07820C00D0359A /* NSDictionary+Encoding.m */; };
-		2215CB5C1B082B1E00D0359A /* GroupActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB5B1B082B1E00D0359A /* GroupActivityViewController.m */; };
+		2215CB5C1B082B1E00D0359A /* GroupPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB5B1B082B1E00D0359A /* GroupPostViewController.m */; };
 		2215CB621B08379100D0359A /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB611B08379100D0359A /* Post.m */; };
 		2215CB651B0837C400D0359A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB641B0837C400D0359A /* User.m */; };
 		2215CB6B1B08D31E00D0359A /* GroupAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB6A1B08D31E00D0359A /* GroupAlbumViewController.m */; };
@@ -51,9 +51,11 @@
 		22D64A361B0ACD2C004045B8 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D64A351B0ACD2C004045B8 /* PostViewController.m */; };
 		22E6E2471B115E41005E528E /* LXJSBridge+PickImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E6E2461B115E41005E528E /* LXJSBridge+PickImage.m */; };
 		22E6E24A1B119445005E528E /* EntryListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E6E2491B119445005E528E /* EntryListView.m */; };
-		22E6E2551B11C380005E528E /* EntryListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E6E2541B11C380005E528E /* EntryListCell.m */; };
+		22E6E2551B11C380005E528E /* EntryItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E6E2541B11C380005E528E /* EntryItemCell.m */; };
 		22E6E2591B11C582005E528E /* ClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E6E2581B11C582005E528E /* ClassViewController.m */; };
 		22E6E25C1B11C64B005E528E /* EntryBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E6E25B1B11C64B005E528E /* EntryBaseViewController.m */; };
+		22E6E2621B11F38B005E528E /* ActivityItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E6E2601B11F38B005E528E /* ActivityItemCell.m */; };
+		22E6E2631B11F38B005E528E /* ActivityItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22E6E2611B11F38B005E528E /* ActivityItemCell.xib */; };
 		22F69A861AF31DF100DC295D /* SwitchBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F69A851AF31DF100DC295D /* SwitchBanner.m */; };
 		9073049D9796F236635CB35B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 749E78FDB631FDC0769D75E2 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -85,8 +87,8 @@
 		2215CB481B075E3900D0359A /* LXJSBridge+Fetch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LXJSBridge+Fetch.m"; sourceTree = "<group>"; };
 		2215CB4B1B07820C00D0359A /* NSDictionary+Encoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Encoding.h"; sourceTree = "<group>"; };
 		2215CB4C1B07820C00D0359A /* NSDictionary+Encoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Encoding.m"; sourceTree = "<group>"; };
-		2215CB5A1B082B1E00D0359A /* GroupActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupActivityViewController.h; sourceTree = "<group>"; };
-		2215CB5B1B082B1E00D0359A /* GroupActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupActivityViewController.m; sourceTree = "<group>"; };
+		2215CB5A1B082B1E00D0359A /* GroupPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupPostViewController.h; sourceTree = "<group>"; };
+		2215CB5B1B082B1E00D0359A /* GroupPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupPostViewController.m; sourceTree = "<group>"; };
 		2215CB601B08379100D0359A /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		2215CB611B08379100D0359A /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		2215CB631B0837C400D0359A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -155,12 +157,15 @@
 		22E6E2461B115E41005E528E /* LXJSBridge+PickImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LXJSBridge+PickImage.m"; sourceTree = "<group>"; };
 		22E6E2481B119445005E528E /* EntryListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryListView.h; sourceTree = "<group>"; };
 		22E6E2491B119445005E528E /* EntryListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryListView.m; sourceTree = "<group>"; };
-		22E6E2531B11C380005E528E /* EntryListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryListCell.h; sourceTree = "<group>"; };
-		22E6E2541B11C380005E528E /* EntryListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryListCell.m; sourceTree = "<group>"; };
+		22E6E2531B11C380005E528E /* EntryItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryItemCell.h; sourceTree = "<group>"; };
+		22E6E2541B11C380005E528E /* EntryItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryItemCell.m; sourceTree = "<group>"; };
 		22E6E2571B11C582005E528E /* ClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassViewController.h; sourceTree = "<group>"; };
 		22E6E2581B11C582005E528E /* ClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassViewController.m; sourceTree = "<group>"; };
 		22E6E25A1B11C64B005E528E /* EntryBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryBaseViewController.h; sourceTree = "<group>"; };
 		22E6E25B1B11C64B005E528E /* EntryBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryBaseViewController.m; sourceTree = "<group>"; };
+		22E6E25F1B11F38B005E528E /* ActivityItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityItemCell.h; path = ../ActivityItemCell.h; sourceTree = "<group>"; };
+		22E6E2601B11F38B005E528E /* ActivityItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityItemCell.m; path = ../ActivityItemCell.m; sourceTree = "<group>"; };
+		22E6E2611B11F38B005E528E /* ActivityItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ActivityItemCell.xib; path = ../ActivityItemCell.xib; sourceTree = "<group>"; };
 		22F69A841AF31DF100DC295D /* SwitchBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchBanner.h; sourceTree = "<group>"; };
 		22F69A851AF31DF100DC295D /* SwitchBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchBanner.m; sourceTree = "<group>"; };
 		3CB410544CD4D7ABDFD79BB5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -226,8 +231,8 @@
 				2293FA081AF5DBF20012CD10 /* GroupViewController.m */,
 				2210A3841AFE51BD00D9CA1A /* GroupDetailViewController.h */,
 				2210A3851AFE51BD00D9CA1A /* GroupDetailViewController.m */,
-				2215CB5A1B082B1E00D0359A /* GroupActivityViewController.h */,
-				2215CB5B1B082B1E00D0359A /* GroupActivityViewController.m */,
+				2215CB5A1B082B1E00D0359A /* GroupPostViewController.h */,
+				2215CB5B1B082B1E00D0359A /* GroupPostViewController.m */,
 				2215CB691B08D31E00D0359A /* GroupAlbumViewController.h */,
 				2215CB6A1B08D31E00D0359A /* GroupAlbumViewController.m */,
 				2215CB6C1B08D3A900D0359A /* GroupArticleViewController.h */,
@@ -243,6 +248,9 @@
 		2215CB661B086A5E00D0359A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				22E6E25F1B11F38B005E528E /* ActivityItemCell.h */,
+				22E6E2601B11F38B005E528E /* ActivityItemCell.m */,
+				22E6E2611B11F38B005E528E /* ActivityItemCell.xib */,
 				22D649D71B0A29FF004045B8 /* PostItemCell.h */,
 				22D649D81B0A29FF004045B8 /* PostItemCell.m */,
 				22D649DD1B0A3314004045B8 /* PostItemCell.xib */,
@@ -250,8 +258,8 @@
 				22D64A311B0ACB6A004045B8 /* ImageCell.m */,
 				22E6E2481B119445005E528E /* EntryListView.h */,
 				22E6E2491B119445005E528E /* EntryListView.m */,
-				22E6E2531B11C380005E528E /* EntryListCell.h */,
-				22E6E2541B11C380005E528E /* EntryListCell.m */,
+				22E6E2531B11C380005E528E /* EntryItemCell.h */,
+				22E6E2541B11C380005E528E /* EntryItemCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -522,6 +530,7 @@
 				22D649DE1B0A3314004045B8 /* PostItemCell.xib in Resources */,
 				2210A38E1AFEEEFF00D9CA1A /* www in Resources */,
 				223267D11AF2661B00431132 /* Images.xcassets in Resources */,
+				22E6E2631B11F38B005E528E /* ActivityItemCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,12 +589,13 @@
 				2215CB6B1B08D31E00D0359A /* GroupAlbumViewController.m in Sources */,
 				2215CB491B075E3900D0359A /* LXJSBridge+Fetch.m in Sources */,
 				2215D95E1B0EC44D00D96C46 /* ActivityViewController.m in Sources */,
+				22E6E2621B11F38B005E528E /* ActivityItemCell.m in Sources */,
 				22238C1B1AF64F02000B4F95 /* Channels.m in Sources */,
-				2215CB5C1B082B1E00D0359A /* GroupActivityViewController.m in Sources */,
+				2215CB5C1B082B1E00D0359A /* GroupPostViewController.m in Sources */,
 				22D649D91B0A29FF004045B8 /* PostItemCell.m in Sources */,
 				22D64A321B0ACB6A004045B8 /* ImageCell.m in Sources */,
 				22D64A361B0ACD2C004045B8 /* PostViewController.m in Sources */,
-				22E6E2551B11C380005E528E /* EntryListCell.m in Sources */,
+				22E6E2551B11C380005E528E /* EntryItemCell.m in Sources */,
 				2215CB741B08EA0C00D0359A /* GroupMembersViewController.m in Sources */,
 				22D649DC1B0A2CDC004045B8 /* PostApi.m in Sources */,
 				2215CB621B08379100D0359A /* Post.m in Sources */,

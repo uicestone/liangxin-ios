@@ -8,15 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EntryListCell : UIView
+@interface EntryItemCell : UIView
 @property (nonatomic, strong) UIImageView* icon;
 @property (nonatomic, strong) UILabel* title;
 @end
 
 
-@interface FilterCell : EntryListCell
+@interface FilterCell : EntryItemCell
 @end
 
 
-@interface CategoryCell : EntryListCell
+@interface CategoryCell : EntryItemCell
 @end

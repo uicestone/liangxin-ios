@@ -13,7 +13,7 @@
 // Group ViewControllers
 #import "GroupViewController.h"
 #import "GroupDetailViewController.h"
-#import "GroupActivityViewController.h"
+#import "GroupPostViewController.h"
 #import "GroupIntroViewController.h"
 #import "GroupMembersViewController.h"
 #import "GroupAlbumViewController.h"
@@ -54,7 +54,7 @@
     [[HHRouter shared] map:@"/group/:id" toControllerClass:[GroupViewController class]];
     [[HHRouter shared] map:@"/groupdetail/:id" toControllerClass:[GroupDetailViewController class]];
     [[HHRouter shared] map:@"/groupintro/:id" toControllerClass:[GroupIntroViewController class]];
-    [[HHRouter shared] map:@"/groupactivity/:id" toControllerClass:[GroupActivityViewController class]];
+    [[HHRouter shared] map:@"/groupactivity/:id" toControllerClass:[GroupPostViewController class]];
     [[HHRouter shared] map:@"/groupalbum/:id" toControllerClass:[GroupAlbumViewController class]];
     [[HHRouter shared] map:@"/groupmembers/:id" toControllerClass:[GroupMembersViewController class]];
     

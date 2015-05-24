@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 Hsu Spud. All rights reserved.
 //
 
-#import "EntryListCell.h"
+#import "EntryItemCell.h"
 
-@implementation EntryListCell
+@implementation EntryItemCell
 @synthesize icon, title;
 -(id) initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];

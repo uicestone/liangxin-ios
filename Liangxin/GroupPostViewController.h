@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GroupActivityViewController : UIViewController
+@interface GroupPostViewController : UIViewController
 
 @end

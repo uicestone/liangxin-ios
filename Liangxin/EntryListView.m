@@ -7,7 +7,7 @@
 //
 
 #import "EntryListView.h"
-#import "EntryListCell.h"
+#import "EntryItemCell.h"
 
 
 @interface EntryListView()
@@ -46,7 +46,7 @@
     
     CGRect frame = CGRectMake(itemWidth * c, itemHeight * r, itemWidth, itemHeight);
     
-    EntryListCell* cell;
+    EntryItemCell* cell;
     
     if(type == EntryListViewTypeCategory){
         cell = [[CategoryCell alloc] initWithFrame:frame];
