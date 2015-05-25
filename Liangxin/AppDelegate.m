@@ -20,6 +20,7 @@
 #import "PublishViewController.h"
 #import "ActivityViewController.h"
 #import "ClassViewController.h"
+#import "LoginViewController.h"
 
 #import "Channels.h"
 
@@ -69,6 +70,11 @@
     // 发布
     [[HHRouter shared] map:@"/publish/" toControllerClass:[PublishViewController class]];
     
+    // 登录
+    [[HHRouter shared] map:@"/login" toControllerClass:[LoginViewController class]];
+    
+    
+    
     // 更改默认userAgent
     
     // 版本号，应用名
@@ -93,7 +99,7 @@
     #endif
     
     // 初始化Navigation Controller
-    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/home"];
+    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/login"];
     
     
     // 初始化tabbar controller
