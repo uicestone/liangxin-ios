@@ -107,7 +107,7 @@
     #endif
     
     // 初始化Navigation Controller
-    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/modifypassword"];
+    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/login"];
     
     
     // 初始化tabbar controller

@@ -22,9 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    tableview.delegate = self;
-    tableview.dataSource = self;
-    
+    tableview.scrollEnabled = NO;
     // Do any additional setup after loading the view from its nib.
 }
 
