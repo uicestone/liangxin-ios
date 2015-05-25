@@ -21,6 +21,9 @@
 #import "ActivityViewController.h"
 #import "ClassViewController.h"
 #import "LoginViewController.h"
+#import "PhoneInputViewController.h"
+#import "VCodeInputViewController.h"
+#import "ModifyPasswordViewController.h"
 
 #import "Channels.h"
 
@@ -72,7 +75,12 @@
     
     // 登录
     [[HHRouter shared] map:@"/login" toControllerClass:[LoginViewController class]];
-    
+    // 输入手机号
+    [[HHRouter shared] map:@"/phoneinput" toControllerClass:[PhoneInputViewController class]];
+    // 输入验证码
+    [[HHRouter shared] map:@"/vcodeinput" toControllerClass:[VCodeInputViewController class]];
+    // 更改密码
+    [[HHRouter shared] map:@"/modifypassword" toControllerClass:[ModifyPasswordViewController class]];
     
     
     // 更改默认userAgent
@@ -99,7 +107,7 @@
     #endif
     
     // 初始化Navigation Controller
-    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/login"];
+    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/modifypassword"];
     
     
     // 初始化tabbar controller

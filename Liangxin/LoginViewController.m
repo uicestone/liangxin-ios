@@ -34,6 +34,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    NSLog(@"loginview tablecell count");
     return 2;
 }
 
@@ -64,8 +65,7 @@
 
 
 - (IBAction)forgetBtnTouched:(id)sender {
-    
-    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"liangxin://phoneinput"]];
 }
 
 - (IBAction)submitBtnTouched:(id)sender {
@@ -81,6 +81,8 @@
             password = cell.input.text;
         }
     }
+    
+    
     
     
     NSLog(@"%@", username);

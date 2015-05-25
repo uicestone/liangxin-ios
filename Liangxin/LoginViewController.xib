@@ -18,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJA-SY-byZ">
-                    <rect key="frame" x="20" y="332" width="560" height="40"/>
+                    <rect key="frame" x="20" y="325" width="560" height="40"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="QVX-ot-4N6"/>
@@ -37,6 +37,10 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="88" id="nAC-X2-nlp"/>
                     </constraints>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Bdh-83-IfB"/>
+                        <outlet property="delegate" destination="-1" id="Wba-lj-0wj"/>
+                    </connections>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQm-Oa-Erk">
                     <rect key="frame" x="520" y="155" width="60" height="30"/>
@@ -60,7 +64,7 @@
                 <constraint firstAttribute="centerX" secondItem="YJA-SY-byZ" secondAttribute="centerX" id="U57-lN-rdu"/>
                 <constraint firstItem="NmQ-KX-142" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iuC-If-AJW"/>
                 <constraint firstAttribute="centerX" secondItem="NmQ-KX-142" secondAttribute="centerX" id="vE7-Pi-wmJ"/>
-                <constraint firstAttribute="bottom" secondItem="YJA-SY-byZ" secondAttribute="bottom" constant="228" id="wW1-ev-PYd"/>
+                <constraint firstAttribute="bottom" secondItem="YJA-SY-byZ" secondAttribute="bottom" constant="235" id="wW1-ev-PYd"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
