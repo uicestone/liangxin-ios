@@ -72,7 +72,7 @@
     NSString* username;
     NSString* password;
     for(int i = 0 ; i < 2; i++){
-        NSIndexPath* index = [NSIndexPath indexPathForRow:i inSection:1];
+        NSIndexPath* index = [NSIndexPath indexPathForRow:i inSection:0];
         LoginViewCell* cell = (LoginViewCell*)[tableview cellForRowAtIndexPath:index];
         
         if(i==0){
