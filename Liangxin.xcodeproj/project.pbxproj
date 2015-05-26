@@ -42,6 +42,7 @@
 		223267D41AF2661B00431132 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223267D21AF2661B00431132 /* LaunchScreen.xib */; };
 		223267E01AF2661B00431132 /* LiangxinTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 223267DF1AF2661B00431132 /* LiangxinTests.m */; };
 		225BA69C1AFF30D0000E6D79 /* LXWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 225BA69B1AFF30D0000E6D79 /* LXWebView.m */; };
+		2287B1F41B1408EB00DB6E68 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2287B1F31B1408EB00DB6E68 /* View.xib */; };
 		2293FA061AF50B550012CD10 /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2293FA051AF50B550012CD10 /* BannerModel.m */; };
 		2293FA091AF5DBF20012CD10 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2293FA081AF5DBF20012CD10 /* GroupViewController.m */; };
 		22D649D91B0A29FF004045B8 /* PostItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D649D81B0A29FF004045B8 /* PostItemCell.m */; };
@@ -152,6 +153,7 @@
 		223267DF1AF2661B00431132 /* LiangxinTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiangxinTests.m; sourceTree = "<group>"; };
 		225BA69A1AFF30D0000E6D79 /* LXWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXWebView.h; sourceTree = "<group>"; };
 		225BA69B1AFF30D0000E6D79 /* LXWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXWebView.m; sourceTree = "<group>"; };
+		2287B1F31B1408EB00DB6E68 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		2293FA041AF50B550012CD10 /* BannerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerModel.h; sourceTree = "<group>"; };
 		2293FA051AF50B550012CD10 /* BannerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerModel.m; sourceTree = "<group>"; };
 		2293FA071AF5DBF20012CD10 /* GroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupViewController.h; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 				2210A3851AFE51BD00D9CA1A /* GroupDetailViewController.m */,
 				2215CB5A1B082B1E00D0359A /* GroupPostViewController.h */,
 				2215CB5B1B082B1E00D0359A /* GroupPostViewController.m */,
+				2287B1F31B1408EB00DB6E68 /* View.xib */,
 				2215CB691B08D31E00D0359A /* GroupAlbumViewController.h */,
 				2215CB6A1B08D31E00D0359A /* GroupAlbumViewController.m */,
 				2215CB6C1B08D3A900D0359A /* GroupArticleViewController.h */,
@@ -586,6 +589,7 @@
 				22D649DE1B0A3314004045B8 /* PostItemCell.xib in Resources */,
 				2210A38E1AFEEEFF00D9CA1A /* www in Resources */,
 				22E6E28D1B1344C2005E528E /* VCodeInputViewController.xib in Resources */,
+				2287B1F41B1408EB00DB6E68 /* View.xib in Resources */,
 				22E6E2831B13416B005E528E /* PhoneInputViewController.xib in Resources */,
 				223267D11AF2661B00431132 /* Images.xcassets in Resources */,
 				22E6E26D1B12AB09005E528E /* LoginViewController.xib in Resources */,
