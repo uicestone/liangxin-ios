@@ -10,5 +10,6 @@
 
 @interface GroupPostViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
-
+@property (weak, nonatomic) IBOutlet UIButton *tab1;
+@property (weak, nonatomic) IBOutlet UIButton *tab2;
 @end

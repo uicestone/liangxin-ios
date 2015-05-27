@@ -4,7 +4,14 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GroupPostViewController"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GroupPostViewController">
+            <connections>
+                <outlet property="tab1" destination="QoH-Ab-NOC" id="jjm-3S-di0"/>
+                <outlet property="tab2" destination="ZZf-eh-mGD" id="ys1-cn-ny7"/>
+                <outlet property="tableview" destination="IqN-0n-ge2" id="JcQ-pT-QnZ"/>
+                <outlet property="view" destination="iN0-l3-epB" id="p8F-VK-JOx"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -14,14 +21,14 @@
                     <rect key="frame" x="0.0" y="65" width="600" height="30"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J4N-Ym-veM" userLabel="横线">
-                            <rect key="frame" x="0.0" y="29" width="590" height="1"/>
+                            <rect key="frame" x="10" y="29" width="580" height="1"/>
                             <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="uqd-D7-b9W"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NGM-Xm-M71" userLabel="竖线">
-                            <rect key="frame" x="300" y="0.0" width="1" height="30"/>
+                            <rect key="frame" x="300" y="5" width="1" height="30"/>
                             <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="1" id="Wz4-Wm-1Gh"/>
@@ -34,6 +41,9 @@
                                 <color key="titleColor" red="0.92941176470588238" green="0.10588235294117647" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="tab1Touched:" destination="-1" eventType="touchUpInside" id="I0N-dQ-OEA"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZf-eh-mGD">
                             <rect key="frame" x="300" y="0.0" width="290" height="30"/>
@@ -41,13 +51,16 @@
                                 <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="tab2Touched:" destination="-1" eventType="touchUpInside" id="Sca-Wc-LBd"/>
+                            </connections>
                         </button>
                     </subviews>
                     <accessibility key="accessibilityConfiguration" label="asd"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="J4N-Ym-veM" secondAttribute="trailing" constant="10" id="CJU-zj-PMd"/>
-                        <constraint firstItem="J4N-Ym-veM" firstAttribute="leading" secondItem="68u-1X-L0r" secondAttribute="leading" id="GKB-C2-Sv4"/>
-                        <constraint firstItem="NGM-Xm-M71" firstAttribute="top" secondItem="68u-1X-L0r" secondAttribute="top" id="MAb-iv-Jde"/>
+                        <constraint firstItem="J4N-Ym-veM" firstAttribute="leading" secondItem="68u-1X-L0r" secondAttribute="leading" constant="10" id="GKB-C2-Sv4"/>
+                        <constraint firstItem="NGM-Xm-M71" firstAttribute="top" secondItem="68u-1X-L0r" secondAttribute="top" constant="5" id="MAb-iv-Jde"/>
                         <constraint firstItem="ZZf-eh-mGD" firstAttribute="leading" secondItem="QoH-Ab-NOC" secondAttribute="trailing" id="QUT-bl-zEu"/>
                         <constraint firstItem="QoH-Ab-NOC" firstAttribute="leading" secondItem="68u-1X-L0r" secondAttribute="leading" constant="10" id="aiW-gh-Aok"/>
                         <constraint firstAttribute="trailing" secondItem="ZZf-eh-mGD" secondAttribute="trailing" constant="10" id="alf-b4-FC6"/>
@@ -61,6 +74,10 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="IqN-0n-ge2">
                     <rect key="frame" x="0.0" y="95" width="600" height="505"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="WmU-a6-yvu"/>
+                        <outlet property="delegate" destination="-1" id="6d7-aq-PhL"/>
+                    </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

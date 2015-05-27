@@ -15,18 +15,41 @@
 #define kReuseIdentifier @"postItemCell"
 
 @interface GroupPostViewController () <UITableViewDataSource, UITableViewDelegate>
-@property (strong, nonatomic) UITableView* tableview;
-@property (strong, nonatomic) NSMutableArray* posts;
+@property (nonatomic, strong) NSMutableArray* posts;
+@property (nonatomic, assign) int groupId;
+@property (nonatomic, strong) NSString* currentType;
+@property (nonatomic, strong) UIButton* currentTab;
 @end
 
 @implementation GroupPostViewController
 @synthesize tableview;
-@synthesize posts;
+@synthesize tab1, tab2, currentTab;
+@synthesize posts, groupId, currentType;
 
-- (void)loadView{
-    CGRect frame = [UIScreen mainScreen].applicationFrame;
-    self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 0,  CGRectGetWidth(frame), CGRectGetHeight(frame) + 20)];
-    self.view.backgroundColor = [UIColor greenColor];
+-(void) fetchPostList{
+    tab1.titleLabel.textColor = [UIColor blackColor];
+    tab2.titleLabel.textColor = [UIColor blackColor];
+    currentTab.titleLabel.textColor = [UIColor redColor];
+    
+    [PostApi getPostsByGroupId:groupId andType:currentType successHandler:^(NSArray *_posts) {
+        self.posts = [_posts mutableCopy];
+        [tableview reloadData];
+    } errorHandler:^(NSError *error) {
+        NSLog(@"err %@", error);
+    }];
+}
+
+- (IBAction)tab1Touched:(id)sender {
+    currentType = @"公告";
+    currentTab = sender;
+    [self fetchPostList];
+}
+
+
+- (IBAction)tab2Touched:(id)sender {
+    currentType = @"文章";
+    currentTab = sender;
+    [self fetchPostList];
 }
 
 - (void)viewDidLoad {
@@ -34,14 +57,12 @@
     
     [self.navigationItem setTitle:@"支部动态"];
     
-    int groupId = [self.params[@"id"] intValue];
+    groupId = [self.params[@"id"] intValue];
+    currentType = @"文章";
     
-    [PostApi getPostsByGroupId:groupId andType:@"文章" successHandler:^(NSArray *_posts) {
-        self.posts = [_posts mutableCopy];
-        [tableview reloadData];
-    } errorHandler:^(NSError *error) {
-        NSLog(@"err %@", error);
-    }];
+    [self fetchPostList];
+    
+    self.tabBarController.tabBar.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
