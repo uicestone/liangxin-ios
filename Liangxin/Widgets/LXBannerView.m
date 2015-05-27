@@ -15,7 +15,7 @@
     for (UIView *subview in self.subviews) {
         [subview removeFromSuperview];
     }
-    if (self.images.count == self.titles.count && self.images.count > 0) {
+    if (self.titles.count > 0) {
         CGFloat width = CGRectGetWidth(self.bounds) / self.images.count;
         for (NSInteger i = 0; i < self.images.count; i++) {
             UIButton *subview = [UIButton buttonWithType:UIButtonTypeCustom];

@@ -73,6 +73,7 @@
 		2DFD651F1B15FE7800FAC662 /* LXCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD651E1B15FE7800FAC662 /* LXCarouselView.m */; };
 		2DFD65221B16001200FAC662 /* LXCarouselViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD65211B16001200FAC662 /* LXCarouselViewCell.m */; };
 		2DFD65261B1603D200FAC662 /* LXBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD65251B1603D200FAC662 /* LXBannerView.m */; };
+		2DFD65291B16143400FAC662 /* LXBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD65281B16143400FAC662 /* LXBaseTableViewCell.m */; };
 		9073049D9796F236635CB35B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 749E78FDB631FDC0769D75E2 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -210,6 +211,8 @@
 		2DFD65231B1600CD00FAC662 /* LXPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXPrefixHeader.pch; sourceTree = "<group>"; };
 		2DFD65241B1603D200FAC662 /* LXBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXBannerView.h; path = Widgets/LXBannerView.h; sourceTree = "<group>"; };
 		2DFD65251B1603D200FAC662 /* LXBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXBannerView.m; path = Widgets/LXBannerView.m; sourceTree = "<group>"; };
+		2DFD65271B16143400FAC662 /* LXBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXBaseTableViewCell.h; path = Widgets/LXBaseTableViewCell.h; sourceTree = "<group>"; };
+		2DFD65281B16143400FAC662 /* LXBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXBaseTableViewCell.m; path = Widgets/LXBaseTableViewCell.m; sourceTree = "<group>"; };
 		3CB410544CD4D7ABDFD79BB5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		749E78FDB631FDC0769D75E2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA660F51A7D667456EB9C6B8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -506,6 +509,8 @@
 				2DFD65211B16001200FAC662 /* LXCarouselViewCell.m */,
 				2DFD65241B1603D200FAC662 /* LXBannerView.h */,
 				2DFD65251B1603D200FAC662 /* LXBannerView.m */,
+				2DFD65271B16143400FAC662 /* LXBaseTableViewCell.h */,
+				2DFD65281B16143400FAC662 /* LXBaseTableViewCell.m */,
 			);
 			name = Widgets;
 			sourceTree = "<group>";
@@ -695,6 +700,7 @@
 				22F69A861AF31DF100DC295D /* SwitchBanner.m in Sources */,
 				22E6E24A1B119445005E528E /* EntryListView.m in Sources */,
 				2215CB711B08E59A00D0359A /* GroupIntroViewController.m in Sources */,
+				2DFD65291B16143400FAC662 /* LXBaseTableViewCell.m in Sources */,
 				2DFD65221B16001200FAC662 /* LXCarouselViewCell.m in Sources */,
 				2215CB771B09675E00D0359A /* UserApi.m in Sources */,
 				22E6E2471B115E41005E528E /* LXJSBridge+PickImage.m in Sources */,
