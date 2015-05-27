@@ -8,7 +8,10 @@
 
 #import "LoginViewCell.h"
 #import "LoginViewController.h"
+#import "ApiBase.h"
+
 #define kReuseIdentifier @"LoginViewCell"
+
 
 
 @interface LoginViewController () 
@@ -81,10 +84,18 @@
     }
     
     
+    NSDictionary* data = @{
+                           @"username": username,
+                           @"password": password
+                           };
     
     
-    NSLog(@"%@", username);
-    NSLog(@"%@", password);
+    [ApiBase postJSONWithPath:@"/auth/login" data:data success:^(id responseObject) {
+        
+        // back to home
+    } error:^(NSError *error) {
+        // pop error
+    }];
     
 }
 

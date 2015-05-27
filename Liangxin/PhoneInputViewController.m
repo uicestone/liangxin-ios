@@ -8,6 +8,8 @@
 
 #import "PhoneInputViewController.h"
 #import "AccountFieldCell.h"
+#import "ApiBase.h"
+
 
 #define kReuseIdentifier @"AccountFieldCell"
 
@@ -31,8 +33,23 @@
 }
 
 - (IBAction)submitTouched:(id)sender {
-    // send a request
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"liangxin://vcodeinput"]];
+    
+    NSIndexPath* index = [NSIndexPath indexPathForRow:0 inSection:0];
+    AccountFieldCell* cell = (AccountFieldCell*)[tableview cellForRowAtIndexPath:index];
+    
+    
+    
+    NSDictionary* data = @{
+                           @"contact": cell.text.text
+                           };
+    
+    [ApiBase postJSONWithPath:@"/auth/user" data:data success:^(id responseObject) {
+        // send a request
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"liangxin://vcodeinput"]];
+    } error:^(NSError *error) {
+        // pop error
+    }];
+    
 }
 
 

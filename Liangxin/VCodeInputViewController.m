@@ -8,6 +8,7 @@
 
 #import "VCodeInputViewController.h"
 #import "AccountFieldCell.h"
+#import "ApiBase.h"
 
 #define kReuseIdentifier @"AccountFieldCell"
 
@@ -16,6 +17,7 @@
 @end
 
 @implementation VCodeInputViewController
+@synthesize tableview;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,7 +35,27 @@
 
 - (IBAction)submitTouched:(id)sender {
     
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"liangxin://modifypassword" ]];
+    
+    
+    NSIndexPath* index = [NSIndexPath indexPathForRow:0 inSection:0];
+    AccountFieldCell* cell = (AccountFieldCell*)[tableview cellForRowAtIndexPath:index];
+    
+    
+    NSDictionary* data = @{
+                           @"contact": cell.text.text
+                           };
+    
+    [ApiBase postJSONWithPath:@"/auth/user" data:data success:^(id responseObject) {
+        
+        NSString* token = responseObject[@"token"];
+        
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://modifypassword?token=%@", token]]];
+        
+    } error:^(NSError *error) {
+        // pop error
+    }];
+    
+    
     
 }
 
