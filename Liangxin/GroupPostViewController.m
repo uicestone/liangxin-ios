@@ -34,11 +34,6 @@
     
     [self.navigationItem setTitle:@"支部动态"];
     
-    tableview = [[UITableView alloc] initWithFrame:[self view].bounds];
-    [self.view addSubview:tableview];
-    tableview.delegate = self;
-    tableview.dataSource = self;
-    
     int groupId = [self.params[@"id"] intValue];
     
     [PostApi getPostsByGroupId:groupId andType:@"文章" successHandler:^(NSArray *_posts) {

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface GroupPostViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITableView *tableview;
 
 @end

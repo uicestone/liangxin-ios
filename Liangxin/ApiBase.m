@@ -51,24 +51,6 @@
 
 
 
-+(void)getJSONWithPath:(NSString *)path data:(NSDictionary *)data success:(void (^)(id responseObject))successCallback error:(void (^)(NSError *error))errorCallback{
-    
-    NSString* url = [self getUrlByPath:path];
-    
-    NSLog(@"<Request> GET:%@", url);
-    
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    
-    [manager GET:url parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        successCallback(responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        errorCallback(error);
-    }];
-}
-
-
 +(void)postJSONWithPath:(NSString *)path data:(NSDictionary *)data  success:(void (^)(id responseObject))successCallback error:(void (^)(NSError *error))errorCallback{
     
     NSString *url = [self getUrlByPath:path];

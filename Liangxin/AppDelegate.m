@@ -107,7 +107,7 @@
     #endif
     
     // 初始化Navigation Controller
-    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/login"];
+    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/groupactivity/1"];
     
     
     // 初始化tabbar controller
