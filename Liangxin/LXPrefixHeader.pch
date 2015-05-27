@@ -1,0 +1,14 @@
+//
+//  LXPrefixHeader.pch
+//  Liangxin
+//
+//  Created by xiebohui on 5/27/15.
+//  Copyright (c) 2015 Hsu Spud. All rights reserved.
+//
+
+#ifndef Liangxin_LXPrefixHeader_pch
+#define Liangxin_LXPrefixHeader_pch
+
+#import "Masonry.h"
+
+#endif
