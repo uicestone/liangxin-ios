@@ -24,12 +24,16 @@
 @implementation GroupPostViewController
 @synthesize tableview;
 @synthesize tab1, tab2, currentTab;
-@synthesize posts, groupId, currentType;
+@synthesize posts, groupId;
 
 -(void) fetchPostList{
-    tab1.titleLabel.textColor = [UIColor blackColor];
-    tab2.titleLabel.textColor = [UIColor blackColor];
-    currentTab.titleLabel.textColor = [UIColor redColor];
+    
+    [tab1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [tab2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [currentTab setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    
+    NSString* currentType = currentTab.titleLabel.text;
+    
     
     [PostApi getPostsByGroupId:groupId andType:currentType successHandler:^(NSArray *_posts) {
         self.posts = [_posts mutableCopy];
@@ -40,14 +44,12 @@
 }
 
 - (IBAction)tab1Touched:(id)sender {
-    currentType = @"公告";
     currentTab = sender;
     [self fetchPostList];
 }
 
 
 - (IBAction)tab2Touched:(id)sender {
-    currentType = @"文章";
     currentTab = sender;
     [self fetchPostList];
 }
@@ -58,7 +60,7 @@
     [self.navigationItem setTitle:@"支部动态"];
     
     groupId = [self.params[@"id"] intValue];
-    currentType = @"文章";
+    currentTab = tab1;
     
     [self fetchPostList];
     
