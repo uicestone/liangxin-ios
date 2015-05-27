@@ -13,6 +13,13 @@
                 <view contentMode="scaleToFill" restorationIdentifier="12312312" translatesAutoresizingMaskIntoConstraints="NO" id="68u-1X-L0r" userLabel="TabContainer">
                     <rect key="frame" x="0.0" y="65" width="600" height="30"/>
                     <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J4N-Ym-veM" userLabel="横线">
+                            <rect key="frame" x="0.0" y="29" width="590" height="1"/>
+                            <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="uqd-D7-b9W"/>
+                            </constraints>
+                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NGM-Xm-M71" userLabel="竖线">
                             <rect key="frame" x="300" y="0.0" width="1" height="30"/>
                             <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -38,10 +45,13 @@
                     </subviews>
                     <accessibility key="accessibilityConfiguration" label="asd"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="J4N-Ym-veM" secondAttribute="trailing" constant="10" id="CJU-zj-PMd"/>
+                        <constraint firstItem="J4N-Ym-veM" firstAttribute="leading" secondItem="68u-1X-L0r" secondAttribute="leading" id="GKB-C2-Sv4"/>
                         <constraint firstItem="NGM-Xm-M71" firstAttribute="top" secondItem="68u-1X-L0r" secondAttribute="top" id="MAb-iv-Jde"/>
                         <constraint firstItem="ZZf-eh-mGD" firstAttribute="leading" secondItem="QoH-Ab-NOC" secondAttribute="trailing" id="QUT-bl-zEu"/>
                         <constraint firstItem="QoH-Ab-NOC" firstAttribute="leading" secondItem="68u-1X-L0r" secondAttribute="leading" constant="10" id="aiW-gh-Aok"/>
                         <constraint firstAttribute="trailing" secondItem="ZZf-eh-mGD" secondAttribute="trailing" constant="10" id="alf-b4-FC6"/>
+                        <constraint firstAttribute="bottom" secondItem="J4N-Ym-veM" secondAttribute="bottom" id="buv-Qh-6dD"/>
                         <constraint firstItem="QoH-Ab-NOC" firstAttribute="width" secondItem="ZZf-eh-mGD" secondAttribute="width" id="fYo-ZE-wgo"/>
                         <constraint firstItem="ZZf-eh-mGD" firstAttribute="top" secondItem="68u-1X-L0r" secondAttribute="top" id="idQ-SM-aCy"/>
                         <constraint firstAttribute="centerX" secondItem="NGM-Xm-M71" secondAttribute="centerX" id="phG-pb-5yW"/>
