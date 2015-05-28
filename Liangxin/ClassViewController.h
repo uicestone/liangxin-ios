@@ -7,9 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EntryListView.h"
-#import "EntryBaseViewController.h"
 
-@interface ClassViewController : EntryBaseViewController  <EntryListViewDelegate>
+@interface ClassViewController : UIViewController
 
 @end
