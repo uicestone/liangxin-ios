@@ -11,7 +11,7 @@
 @interface ActivityItemCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UILabel *title;
-@property (weak, nonatomic) IBOutlet UILabel *desc;
+@property (weak, nonatomic) IBOutlet UITextView *desc;
 @property (weak, nonatomic) IBOutlet UILabel *attendcount;
 @property (weak, nonatomic) IBOutlet UILabel *likecount;
 @property (weak, nonatomic) IBOutlet UILabel *reviewcount;

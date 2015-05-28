@@ -33,7 +33,6 @@
 @synthesize activities;
 @synthesize type;
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     offset = 65;
@@ -74,12 +73,12 @@
 
 // 初始化智能筛选入口
 -(void) initFilter{
-    CGRect frame = CGRectMake(0, offset, self.winWidth, 100);
+    CGRect frame = CGRectMake(0, offset, self.winWidth, 104);
     EntryListView* filter = [[EntryListView alloc] initWithFrame:frame andData:self.filterList rows:2 columns:2];
     filter.delegate = self;
     [filter render];
     [self.view addSubview:filter.view];
-    offset += 100;
+    offset += 104;
 }
 
 // 初始化分类入口
@@ -103,6 +102,7 @@
     _tableView = [[UITableView alloc] initWithFrame:frame];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.separatorColor = [UIColor clearColor];
     
     [PostApi getPostsByQuery:@{@"type":@"class"} successHandler:^(NSArray *posts) {
         self.activities = posts;
@@ -133,6 +133,7 @@
     }
     
     cell.selectionStyle = UITableViewCellAccessoryNone;
+
     
     cell.desc.text = activity.desc;
     cell.title.text = activity.title;
@@ -179,7 +180,7 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 90.0f;
+    return 75.0f;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

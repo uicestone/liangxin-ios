@@ -107,7 +107,7 @@
     #endif
     
     // 初始化Navigation Controller
-    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/groupactivity/1"];
+    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/activity"];
     
     
     // 初始化tabbar controller
@@ -179,6 +179,10 @@
                                   destructiveButtonTitle: nil
                                   otherButtonTitles:@"公告", @"文章", @"相册", nil];
     actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    
+    actionSheet.delegate = self;
+    
+    
     [actionSheet showInView:self.tabBarController.view];
 }
 

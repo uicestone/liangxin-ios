@@ -32,7 +32,7 @@
             channels = [[self alloc] init];
             channels.colors =  @[
                                   [UIColor redColor],
-                                  UIColorFromRGB(0x00a79d),
+                                  UIColorFromRGB(0x00B0A2),
                                   UIColorFromRGB(0xf7931d),
                                   UIColorFromRGB(0xee2a7b),
                                   UIColorFromRGB(0x0f75bc),

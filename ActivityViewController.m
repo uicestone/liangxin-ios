@@ -16,53 +16,59 @@
 @implementation ActivityViewController
 
 - (void)viewDidLoad {
+    
     self.categoryList = @[
                           @{
                               @"title":@"爱摄影",
-                              @"icon":@"star",
+                              @"icon":@"爱摄影",
                               @"link":@""
                               },
                           @{
                               @"title":@"做公益",
-                              @"icon":@"star",
+                              @"icon":@"做公益",
                               @"link":@""
                               },
                           @{
                               @"title":@"文艺迷",
-                              @"icon":@"new",
+                              @"icon":@"文艺迷",
                               @"link":@""
                               },
                           @{
                               @"title":@"体育狂",
-                              @"icon":@"new",
+                              @"icon":@"体育狂",
                               @"link":@""
                               },
                           @{
                               @"title":@"长知识",
-                              @"icon":@"new",
+                              @"icon":@"长知识",
                               @"link":@""
                               },
                           @{
                               @"title":@"学环保",
-                              @"icon":@"new",
+                              @"icon":@"学环保",
                               @"link":@""
                               }
                           ];
     
     self.filterList = @[
                         @{
-                            @"title":@"a",
-                            @"icon":@"star",
+                            @"title":@"最受欢迎",
+                            @"icon":@"最受欢迎",
                             @"link":@""
                             },
                         @{
-                            @"title":@"b",
-                            @"icon":@"star",
+                            @"title":@"最新活动",
+                            @"icon":@"最新",
                             @"link":@""
                             },
                         @{
-                            @"title":@"c",
-                            @"icon":@"new",
+                            @"title":@"即将下线",
+                            @"icon":@"即将下线",
+                            @"link":@""
+                            },
+                        @{
+                            @"title":@"全部活动",
+                            @"icon":@"全部",
                             @"link":@""
                             }
                         ];
@@ -75,16 +81,16 @@
 -(UIColor *)colorForFilterView:(EntryListView *)filterView andIndex:(int)index{
     
     if(filterView.type == EntryListViewTypeCategory){
-        return UIColorFromRGB(0x39aea5);
+        return UIColorFromRGB(0x00B6AA);
     }else{
         switch (index) {
             case 0:
             case 3:
-                return UIColorFromRGB(0x99cbc7);
+                return UIColorFromRGB(0x90D1CA);
                 break;
             case 1:
             case 2:
-                return UIColorFromRGB(0x70bcb6);
+                return UIColorFromRGB(0x5EC3BA);
                 break;
             default:
                 return UIColorFromRGB(0xffffff);

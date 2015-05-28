@@ -12,10 +12,9 @@
 @synthesize icon, title;
 -(id) initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
-    self.icon = [[UIImageView alloc] initWithFrame:CGRectMake((CGRectGetWidth(frame) - 15) / 2, (CGRectGetHeight(frame) - 15) / 2, 15, 15)];
-    self.title = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(frame) - 21, CGRectGetWidth(frame), 21)];
+    self.icon = [[UIImageView alloc] init];
+    self.title = [[UILabel alloc] init];
     
-    self.title.font = [UIFont systemFontOfSize:16];
     self.title.textColor = [UIColor whiteColor];
     self.title.textAlignment = NSTextAlignmentCenter;
     [self addSubview:title];
@@ -28,12 +27,28 @@
 
 @implementation FilterCell
 -(id) initWithFrame:(CGRect)frame{
-    return [super initWithFrame:frame];
+    EntryItemCell *cell = [super initWithFrame:frame];
+    
+    self.icon.frame = CGRectMake((CGRectGetWidth(frame) - 16) / 2, 10, 16, 16);
+    self.title.frame = CGRectMake(0, 28, CGRectGetWidth(frame), 21);
+    self.title.font = [UIFont systemFontOfSize:12];
+    
+    
+    return (FilterCell *) cell;
 }
 @end
 
 @implementation CategoryCell
 -(id) initWithFrame:(CGRect)frame{
-    return [super initWithFrame:frame];
+    EntryItemCell *cell = [super initWithFrame:frame];
+    
+    
+    
+    self.icon.frame = CGRectMake((CGRectGetWidth(frame) - 15) / 2, 2, 15, 15);
+    self.title.frame = CGRectMake(0, 17, CGRectGetWidth(frame), 7);
+    self.title.font = [UIFont systemFontOfSize:7];
+    
+    
+    return (CategoryCell *) cell;
 }
 @end

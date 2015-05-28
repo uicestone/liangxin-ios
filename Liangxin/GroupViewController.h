@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ChannelViewController.h"
 
 @interface GroupViewController : UIViewController
-@property (nonatomic, strong) ChannelViewController* tabBarController;
 @end

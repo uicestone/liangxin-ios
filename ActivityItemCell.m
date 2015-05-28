@@ -7,10 +7,20 @@
 //
 
 #import "ActivityItemCell.h"
+#import "Definition.h"
 
 @implementation ActivityItemCell
 
 - (void)awakeFromNib {
+    
+    
+    UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height, self.bounds.size.width, 1)];
+    separatorLineView.backgroundColor = UIColorFromRGB(0xececec);
+    [self.contentView addSubview:separatorLineView];
+    
+    self.desc.userInteractionEnabled = NO;
+    self.desc.textContainerInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    
     // Initialization code
 }
 

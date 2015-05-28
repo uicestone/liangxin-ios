@@ -58,7 +58,18 @@
     
     cell.backgroundColor = [self.delegate colorForFilterView:self andIndex:index];
     cell.title.text = item[@"title"];
-    cell.icon.image = [UIImage imageNamed:item[@"icon"]];
+    
+    
+    // 区别对待 new
+    NSString* imageName = item[@"icon"];
+    
+    if([imageName isEqualToString:@"最新"]){
+        cell.icon.frame = CGRectMake((itemWidth - 30) / 2, 15, 30, 9);
+    }
+    
+    cell.icon.image = [UIImage imageNamed:imageName];
+    
+    
     return cell;
 }
 

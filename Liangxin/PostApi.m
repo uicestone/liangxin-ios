@@ -22,7 +22,7 @@
                                      @"title": @"title",
                                      @"id": @"postId",
                                      @"url":@"url",
-                                     @"desc":@"",
+                                     @"excerpt":@"desc",
                                      @"likes":@"likeCount",
                                      @"created_at": @"createTime"
                                      };
