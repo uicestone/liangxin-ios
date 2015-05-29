@@ -44,7 +44,7 @@
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.top.mas_equalTo(self.carouselView.mas_bottom);
-        make.height.mas_equalTo(325);
+        make.height.mas_equalTo(162.5);
     }];
     
     NSArray *channelTitles = @[@"最受欢迎课堂", @"最新课堂", @"全部课堂"];
