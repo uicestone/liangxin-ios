@@ -10,4 +10,19 @@
 
 @implementation LXCarouselViewCell
 
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        _imageView = [[UIImageView alloc] initWithFrame:frame];
+        [self addSubview:_imageView];
+        [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(0);
+            make.left.mas_equalTo(0);
+            make.right.mas_equalTo(0);
+            make.bottom.mas_equalTo(0);
+        }];
+    }
+    return self;
+}
+
 @end

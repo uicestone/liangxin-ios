@@ -10,4 +10,6 @@
 
 @interface LXClassViewModel : NSObject
 
+- (RACSignal *)getClassBanners;
+
 @end

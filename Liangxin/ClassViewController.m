@@ -10,12 +10,15 @@
 #import "LXCarouselView.h"
 #import "LXBannerView.h"
 #import "LXBaseTableViewCell.h"
+#import "LXClassViewModel.h"
 
 @interface ClassViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) LXCarouselView *carouselView;
 @property (nonatomic, strong) UIView *titleView;
+
+@property (nonatomic, strong) LXClassViewModel *viewModel;
 
 @end
 
@@ -81,6 +84,20 @@
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.bottom.mas_equalTo(-75);
+    }];
+    self.viewModel = [LXClassViewModel new];
+    @weakify(self)
+    [[self.viewModel getClassBanners] subscribeNext:^(NSArray *x) {
+        @strongify(self)
+        NSMutableArray *bannerURLs = [NSMutableArray array];
+        for (NSDictionary *post in x) {
+            if ([[post objectForKey:@"poster"] objectForKey:@"url"]) {
+                [bannerURLs addObject:[[post objectForKey:@"poster"] objectForKey:@"url"]];
+            }
+        }
+        self.carouselView.imageURLsGroup = bannerURLs;
+    } error:^(NSError *error) {
+        
     }];
 }
 
