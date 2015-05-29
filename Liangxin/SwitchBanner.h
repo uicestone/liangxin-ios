@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SwitchBanner : NSObject
+@interface SwitchBanner : NSObject <UIGestureRecognizerDelegate>
 + (id)initWithType:(NSString *)type wrapper:(UIView *)view;
 - (void) fetchNew;
 @end

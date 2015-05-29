@@ -14,6 +14,8 @@
 #import "BannerModel.h"
 #import "BannerApi.h"
 #import <AFNetworking/UIKit+AFNetworking.h>
+#import "UIButton+AFNetworking.h"
+
 
 @interface SwitchBanner()
 @property (nonatomic, strong) NSMutableArray * picList;
@@ -90,17 +92,31 @@
                                  CGRectGetHeight(scrollViewFrame)
                                  );
         
-        UIImageView * image = [[UIImageView alloc] initWithFrame:rect];
+        UIButton* button = [[UIButton alloc] initWithFrame:rect];
         NSURL * url = [NSURL URLWithString:bm.image];
         
-        image.contentMode = UIViewContentModeScaleAspectFill;
-        [image setImageWithURL: url];
-        [self.scrollView addSubview:image];
+        [button setTag:i];
+        
+        
+        [button addTarget:self action:@selector(singleTapping:) forControlEvents:UIControlEventTouchUpInside];
+        
+        button.contentMode = UIViewContentModeScaleAspectFill;
+        [button setImageForState:UIControlStateNormal withURL:url];
+        
+        [self.scrollView addSubview:button];
     }
     
     CGRect frame = self.scrollView.frame;
     
     self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(frame) * count, 0);
+}
+
+
+-(void)singleTapping:(id)sender{
+    UIButton* img = (UIButton*) sender;
+    NSInteger index = img.tag;
+    BannerModel* model = [self.picList objectAtIndex:index];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:model.link]];
 }
 
 @end

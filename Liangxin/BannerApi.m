@@ -16,11 +16,14 @@
 + (void)getBannersWithType:(NSString *) type successHandler:(void (^)(NSArray * banners))success errorHandler:(void (^)(NSError *error))error{
     NSMutableArray* banners = [NSMutableArray new];
     
-    [ApiBase getJSONWithPath:@"/banners" data:nil success:^(id responseObject) {
+    [ApiBase getJSONWithPath:@"/post" data:@{
+        @"type": @"横幅",
+        @"banner_position": type
+    } success:^(id responseObject) {
         for(int i = 0 ; i < [responseObject count]; i ++){
             NSDictionary * jsonObj = [responseObject objectAtIndex:i];
             BannerModel * bm = [BannerModel new];
-            bm.image = [jsonObj objectForKey:@"img"];
+            bm.image = [[jsonObj objectForKey:@"poster"] objectForKey:@"url"];
             bm.link = [jsonObj objectForKey:@"url"];
             [banners addObject:bm];
         }

@@ -45,7 +45,7 @@
     bannerWrapper = wrapper;
     
     // 初始化轮播
-    SwitchBanner * banner = [SwitchBanner initWithType:@"home" wrapper:wrapper];
+    SwitchBanner * banner = [SwitchBanner initWithType:@"首页" wrapper:wrapper];
     [banner fetchNew];
     
     // TODO
