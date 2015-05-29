@@ -10,4 +10,6 @@
 
 @interface LXBaseTableViewCell : UITableViewCell
 
+- (void)reloadViewWithData:(NSDictionary *)data;
+
 @end

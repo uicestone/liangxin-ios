@@ -7,12 +7,13 @@
 //
 
 #import "LXBaseTableViewCell.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface LXBaseTableViewCell()
 
 @property (nonatomic, strong) UIImageView *mainImageView;
 @property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) UILabel *subtitleLabel;
+@property (nonatomic, strong) UILabel *summaryLabel;
 @property (nonatomic, strong) UIButton *likeButton;
 @property (nonatomic, strong) UIButton *messageButton;
 @property (nonatomic, strong) UILabel *likeCountLabel;
@@ -30,28 +31,28 @@
         _mainImageView = [UIImageView new];
         [self addSubview:_mainImageView];
         [_mainImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(15);
-            make.top.mas_equalTo(10);
-            make.bottom.mas_equalTo(-10);
-            make.width.mas_equalTo(125);
+            make.left.mas_equalTo(9);
+            make.top.mas_equalTo(6.5);
+            make.bottom.mas_equalTo(-6.5);
+            make.width.mas_equalTo(65);
         }];
         
         _titleLabel = [UILabel new];
         [self addSubview:_titleLabel];
         [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.mas_equalTo(-15);
-            make.left.equalTo(_mainImageView.mas_right).offset(10);
-            make.top.mas_equalTo(10);
-            make.height.mas_equalTo(25);
+            make.right.mas_equalTo(-9);
+            make.left.equalTo(_mainImageView.mas_right).offset(8);
+            make.top.mas_equalTo(6.5);
+            make.height.mas_equalTo(12);
         }];
         
-        _subtitleLabel = [UILabel new];
-        [self addSubview:_subtitleLabel];
-        [_subtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.mas_equalTo(-15);
-            make.left.equalTo(_mainImageView.mas_right).offset(10);
-            make.top.mas_equalTo(50);
-            make.height.mas_equalTo(60);
+        _summaryLabel = [UILabel new];
+        [self addSubview:_summaryLabel];
+        [_summaryLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.mas_equalTo(-9);
+            make.left.equalTo(_mainImageView.mas_right).offset(8);
+            make.top.mas_equalTo(25);
+            make.height.mas_equalTo(33);
         }];
     }
     return self;
@@ -59,6 +60,12 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+}
+
+- (void)reloadViewWithData:(NSDictionary *)data {
+    if ([data objectForKey:@"title"]) {
+        self.titleLabel.text = [data objectForKey:@"title"];
+    }
 }
 
 @end

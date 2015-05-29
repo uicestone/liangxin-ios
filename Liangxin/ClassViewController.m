@@ -76,6 +76,7 @@
     }];
 
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    self.tableView.rowHeight = 75;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
@@ -96,6 +97,13 @@
             }
         }
         self.carouselView.imageURLsGroup = bannerURLs;
+    } error:^(NSError *error) {
+        
+    }];
+    [[self.viewModel getPostByPage:1] subscribeNext:^(NSArray *x) {
+        @strongify(self)
+        [self.viewModel.classData addObjectsFromArray:x];
+        [self.tableView reloadData];
     } error:^(NSError *error) {
         
     }];
@@ -127,7 +135,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return self.viewModel.classData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -135,6 +143,8 @@
     if (!cell) {
         cell = [[LXBaseTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ClassCell"];
     }
+    NSDictionary *data = [self.viewModel.classData objectAtIndex:indexPath.row];
+    [cell reloadViewWithData:data];
     return cell;
 }
 
