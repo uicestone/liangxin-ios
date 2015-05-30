@@ -22,8 +22,13 @@
             subview.enabled = NO;
             [subview setTitle:[self.titles objectAtIndex:i] forState:UIControlStateNormal];
             [subview setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            [subview setImage:[self.images objectAtIndex:i] forState:UIControlStateNormal];
-            subview.titleLabel.font = [UIFont systemFontOfSize:12.0];
+            [subview setImage:[UIImage imageNamed:[self.images objectAtIndex:i]] forState:UIControlStateNormal];
+            subview.titleLabel.font = [UIFont systemFontOfSize:10.0];
+            CGFloat spacing = 0;
+            CGSize imageSize = subview.imageView.image.size;
+            subview.titleEdgeInsets = UIEdgeInsetsMake(0.0, - imageSize.width, - (imageSize.height + spacing), 0.0);
+            CGSize titleSize = [subview.titleLabel.text sizeWithAttributes:@{NSFontAttributeName: subview.titleLabel.font}];
+            subview.imageEdgeInsets = UIEdgeInsetsMake(- (titleSize.height + spacing), 0.0, 0.0, - titleSize.width);
             [self addSubview:subview];
             [subview mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.mas_equalTo(0);

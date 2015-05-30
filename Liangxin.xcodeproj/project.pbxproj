@@ -223,6 +223,7 @@
 		2D537DD41B196555006BD35E /* ClassDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassDetailViewController.m; path = Class/ClassDetailViewController.m; sourceTree = "<group>"; };
 		2D537DD71B1968B5006BD35E /* LXBaseCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXBaseCollectionView.h; path = Base/LXBaseCollectionView.h; sourceTree = "<group>"; };
 		2D537DD81B1968B5006BD35E /* LXBaseCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXBaseCollectionView.m; path = Base/LXBaseCollectionView.m; sourceTree = "<group>"; };
+		2D537DDA1B19A2ED006BD35E /* LXMacroDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LXMacroDefinition.h; path = Utils/LXMacroDefinition.h; sourceTree = "<group>"; };
 		2DFD651D1B15FE7800FAC662 /* LXCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXCarouselView.h; path = Widgets/LXCarouselView.h; sourceTree = "<group>"; };
 		2DFD651E1B15FE7800FAC662 /* LXCarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXCarouselView.m; path = Widgets/LXCarouselView.m; sourceTree = "<group>"; };
 		2DFD65201B16001200FAC662 /* LXCarouselViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXCarouselViewCell.h; path = Widgets/LXCarouselViewCell.h; sourceTree = "<group>"; };
@@ -552,6 +553,7 @@
 			children = (
 				2D537DD01B1956F9006BD35E /* NSDictionary+Utils.h */,
 				2D537DD11B1956F9006BD35E /* NSDictionary+Utils.m */,
+				2D537DDA1B19A2ED006BD35E /* LXMacroDefinition.h */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
