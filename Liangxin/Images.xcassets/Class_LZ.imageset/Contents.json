@@ -8,11 +8,12 @@
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "廉政@2x.png"
+      "filename" : "Class_LZ@2x.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "Class_LZ@3x.png"
     }
   ],
   "info" : {
