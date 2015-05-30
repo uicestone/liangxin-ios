@@ -12,3 +12,4 @@
 #define LXSchemeChannelBase @"liangxin://channel"
 //#define LXApiHost @"http://127.0.0.1:3000"
 #define LXApiHost @"http://dangqun.malu.gov.cn"
+#define openURL(url) [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[@"liangxin://" stringByAppendingString:url]]];

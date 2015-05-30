@@ -31,7 +31,7 @@ require('./selectctrl.tag')
 	</div>
 	
 	<!-- 发布公告 -->
-	<div show={ opts.type=='bulletin' }>
+	<div show={ opts.type=='notice' }>
 		<inputctrl title='请输入公告标题（字数限制50字）' limit='50' model='title' />
 		<textareactrl title='添加公告内容（字数限制1000字）' limit='1000' model='content'></textareactrl>
 	</div>

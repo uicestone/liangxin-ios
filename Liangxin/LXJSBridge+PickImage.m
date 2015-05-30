@@ -26,16 +26,20 @@
 
 // Called when a button is clicked. The view will be automatically dismissed after this call returns
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    UIImagePickerController* picker = [[UIImagePickerController alloc] init];
     
-    picker.delegate = self;
-    //    picker.allowsEditing = YES;
-    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
-    [self.viewController presentViewController:picker animated:YES completion:NULL];
+    if(buttonIndex == 3){
+        [actionSheet dismissWithClickedButtonIndex:buttonIndex animated:YES];
     
-    //    NSString* url = @"";
-    //    [self completeWithResult:@{@"url":url}];
+    }else{
+        UIImagePickerController* picker = [[UIImagePickerController alloc] init];
+        
+        picker.delegate = self;
+        //    picker.allowsEditing = YES;
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        
+        [self.viewController presentViewController:picker animated:YES completion:NULL];
+    }
 }
 
 
@@ -51,5 +55,10 @@
     [self completeWithResult:@{@"url":datauri}];
     [picker dismissViewControllerAnimated:YES completion:nil];     
 }
+
+- (void)actionSheetCancel:(UIActionSheet *)actionSheet{
+
+}
+
 
 @end

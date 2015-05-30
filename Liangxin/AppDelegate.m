@@ -28,6 +28,7 @@
 
 #import "Channels.h"
 
+#import "Definition.h"
 #import <HHRouter/HHRouter.h>
 
 @interface AppDelegate () <UITabBarControllerDelegate, UIActionSheetDelegate>
@@ -48,6 +49,11 @@
     
     application.statusBarHidden = NO;
     application.statusBarOrientation = UIDeviceOrientationPortrait;
+    
+    
+    // 初始化status bar
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
     
     // 初始化Router
     
@@ -115,23 +121,23 @@
     
     self.tabBarController = [[UITabBarController alloc] init];
     
-    
-    
     // FirstViewController
     UIViewController *fvc=[[UIViewController alloc] initWithNibName:nil bundle:nil];
     fvc.title=@"返回首页";
-    fvc.tabBarItem.image=[UIImage imageNamed:@"i.png"];
+    fvc.tabBarItem.image=[UIImage imageNamed:@"tab-home"];
     
     // SecondViewController
     navigationController= [[LXNavigationController alloc]
                                              initWithRootViewController:homeViewController];
     navigationController.title=@"我要发起";
-    navigationController.tabBarItem.image=[UIImage imageNamed:@"im.png"];
+    navigationController.tabBarItem.image=[UIImage imageNamed:@"tab-plus"];
     
     //ThirdViewController
     UIViewController *tvc=[[UIViewController alloc] initWithNibName:nil bundle:nil];
     tvc.title=@"我的账号";
-    tvc.tabBarItem.image=[UIImage imageNamed:@"img.png"];
+    tvc.tabBarItem.image=[UIImage imageNamed:@"tab-account"];
+    
+    
     
     
     NSArray* controllers = [NSArray arrayWithObjects:fvc, navigationController, tvc, nil];
@@ -178,15 +184,24 @@
                                   delegate:self
                                   cancelButtonTitle:@"取消"
                                   destructiveButtonTitle: nil
-                                  otherButtonTitles:@"公告", @"文章", @"相册", nil];
+                                  otherButtonTitles:@"公告", @"文章", @"照片", nil];
     actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     
     actionSheet.delegate = self;
     
     
     [actionSheet showInView:self.tabBarController.view];
+
 }
 
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(buttonIndex != 3){
+        NSString* type = [@[@"notice",@"article",@"image"] objectAtIndex:buttonIndex];
+        NSString* url = [@"publish/?type=" stringByAppendingString:type];
+        openURL(url);
+    }
+}
 
 
 -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
@@ -208,11 +223,6 @@
     int index = (int)[channels indexOfChannel:[url host]];
     
     if(index != -1){
-        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-        
-        NSLog(@"%d", navigationController.preferredStatusBarStyle == UIStatusBarStyleDefault);
-        
-        
         [self.navigationController.navigationItem setTitle:[channels titleAtIndex:index]];
         // 执行动画
         [UIView animateWithDuration:0.3 animations:^{

@@ -12,15 +12,15 @@ bridge.onerror = function(err){
 
 var group_id = query.id;
 
-$(".section-intro").on("touchend", function(){
+$(".section-intro .title").on("click", function(){
 	location.href = "liangxin://groupintro/" + group_id;
 });
 
-$(".section-activity").on("touchend", function(){
+$(".section-activity .title").on("click", function(){
 	location.href = "liangxin://groupactivity/" + group_id;
 });
 
-$(".section-album").on("touchend", function(){
+$(".section-album .title").on("click", function(){
 	location.href = "liangxin://groupalbum/" + group_id;
 });
 

@@ -21,7 +21,7 @@
     NSString* type = self.params[@"type"];
     
     NSDictionary* titles = @{
-        @"bulletin": @"公告",
+        @"notice": @"公告",
         @"article": @"文章",
         @"image": @"照片",
         @"class": @"课堂",
@@ -34,8 +34,7 @@
     self.navigationItem.title = [@"发布" stringByAppendingString:title];
     
     
-    
-    
+    self.tabBarController.tabBar.hidden = YES;
     [self loadPage:[@"/publish?type=" stringByAppendingString:type]];
 }
 

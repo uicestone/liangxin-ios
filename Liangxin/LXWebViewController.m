@@ -46,7 +46,6 @@
 
 - (void)viewDidLoad {
     
-    [[UINavigationBar appearance] setBarTintColor:[UIColor yellowColor]];
     webview = [[LXWebView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) + 20)];
     webview.delegate = self;
     jsbridge = [LXJSBridge initWithWebView:webview];
@@ -108,11 +107,11 @@
     }
 }
 
--(void) viewDidDisappear:(BOOL)animated{
+
+-(void) viewWillUnload{
     [webview removeFromSuperview];
     webview = nil;
     jsbridge = nil;
-    
 }
 
 #pragma Webview Delegates

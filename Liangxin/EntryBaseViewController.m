@@ -22,6 +22,7 @@
 @property (nonatomic, assign) CGFloat winHeight;
 @property (assign) CGFloat offset;
 @property (nonatomic, strong) UITableView* tableView;
+@property (nonatomic, strong) SwitchBanner* banner;
 @end
 
 @implementation EntryBaseViewController
@@ -32,6 +33,7 @@
 @synthesize filterList;
 @synthesize activities;
 @synthesize type;
+@synthesize banner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -61,7 +63,7 @@
     
     wrapper.backgroundColor = [UIColor redColor];
     [self.view addSubview:wrapper];
-    SwitchBanner * banner = [SwitchBanner initWithType:@"home" wrapper:wrapper];
+    banner = [SwitchBanner initWithType:@"home" wrapper:wrapper];
     [banner fetchNew];
     
     // 这句很关键，没有的话布局会错乱
@@ -92,10 +94,6 @@
     [self.view addSubview:categoryView.view];
     
     offset += 25;
-}
-
-- (UIStatusBarStyle)preferredStatusBarStyle{
-    return UIStatusBarStyleLightContent;
 }
 
 // 初始化活动列表

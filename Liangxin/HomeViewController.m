@@ -60,6 +60,9 @@
     
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleDefault;
+}
 
 - (void) viewWillAppear:(BOOL)animated{
     NSString * title = @"精品推荐";
