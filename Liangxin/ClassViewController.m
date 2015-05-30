@@ -11,12 +11,14 @@
 #import "LXBannerView.h"
 #import "LXBaseTableViewCell.h"
 #import "LXClassViewModel.h"
+#import "ClassDetailViewController.h"
 
 @interface ClassViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) LXCarouselView *carouselView;
 @property (nonatomic, strong) UIView *titleView;
+@property (nonatomic, strong) UIToolbar *bottomBar;
 
 @property (nonatomic, strong) LXClassViewModel *viewModel;
 
@@ -31,13 +33,14 @@
 
 - (void)commonInit {
     self.title = @"党群课堂";
-    self.carouselView = [LXCarouselView carouselViewWithFrame:CGRectZero imageURLsGroup:nil];
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.carouselView = [LXCarouselView carouselViewWithFrame:CGRectMake(0, 0, 320, 200) imageURLsGroup:nil];
     [self.view addSubview:self.carouselView];
     [self.carouselView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(0);
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
-        make.height.mas_equalTo(250);
+        make.height.mas_equalTo(200);
     }];
     
     self.titleView = [UIView new];
@@ -47,7 +50,7 @@
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.top.mas_equalTo(self.carouselView.mas_bottom);
-        make.height.mas_equalTo(162.5);
+        make.height.mas_equalTo(85);
     }];
     
     NSArray *channelTitles = @[@"最受欢迎课堂", @"最新课堂", @"全部课堂"];
@@ -61,7 +64,7 @@
             make.top.mas_equalTo(0);
             make.left.mas_equalTo(i * width);
             make.width.mas_equalTo(width);
-            make.height.mas_equalTo(100);
+            make.height.mas_equalTo(50);
         }];
     }
     
@@ -71,10 +74,20 @@
     [bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
-        make.top.mas_equalTo(107.5);
-        make.height.mas_equalTo(50);
+        make.top.mas_equalTo(55);
+        make.height.mas_equalTo(25);
     }];
 
+    self.bottomBar = [[UIToolbar alloc] init];
+    self.bottomBar.barStyle = UIBarStyleDefault;
+    [self.view addSubview:self.bottomBar];
+    [self.bottomBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        make.bottom.mas_equalTo(0);
+        make.height.mas_equalTo(44);
+    }];
+    
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView.separatorInset = UIEdgeInsetsZero;
     self.tableView.layoutMargins = UIEdgeInsetsZero;
@@ -86,8 +99,9 @@
         make.top.mas_equalTo(self.titleView.mas_bottom);
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
-        make.bottom.mas_equalTo(-75);
+        make.bottom.equalTo(self.bottomBar.mas_top);
     }];
+    
     self.viewModel = [LXClassViewModel new];
     @weakify(self)
     [[self.viewModel getClassBanners] subscribeNext:^(NSArray *x) {
@@ -114,7 +128,7 @@
 #pragma mark - UITableViewDataSource  && UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 40;
+    return 22;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -148,6 +162,11 @@
     LXBaseModelPost *data = [self.viewModel.classData objectAtIndex:indexPath.row];
     [cell reloadViewWithData:data];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self.navigationController pushViewController:[ClassDetailViewController new] animated:YES];
 }
 
 @end
