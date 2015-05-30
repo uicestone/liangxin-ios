@@ -3,16 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "妇女.png"
+      "filename" : "党建.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "妇女@2x.png"
+      "filename" : "Banner_DJ@2x.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "Banner_DJ@3x.png"
     }
   ],
   "info" : {
