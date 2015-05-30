@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LXBaseModelPost.h"
 
 @interface LXBaseTableViewCell : UITableViewCell
 
-- (void)reloadViewWithData:(NSDictionary *)data;
+- (void)reloadViewWithData:(LXBaseModelPost *)data;
 
 @end

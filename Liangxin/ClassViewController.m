@@ -76,6 +76,8 @@
     }];
 
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    self.tableView.separatorInset = UIEdgeInsetsZero;
+    self.tableView.layoutMargins = UIEdgeInsetsZero;
     self.tableView.rowHeight = 75;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -143,7 +145,7 @@
     if (!cell) {
         cell = [[LXBaseTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ClassCell"];
     }
-    NSDictionary *data = [self.viewModel.classData objectAtIndex:indexPath.row];
+    LXBaseModelPost *data = [self.viewModel.classData objectAtIndex:indexPath.row];
     [cell reloadViewWithData:data];
     return cell;
 }
