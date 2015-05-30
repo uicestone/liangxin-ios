@@ -29,7 +29,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         _mainImageView = [UIImageView new];
-        [self addSubview:_mainImageView];
+        [self.contentView addSubview:_mainImageView];
         [_mainImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(9);
             make.top.mas_equalTo(6.5);
@@ -38,7 +38,7 @@
         }];
         
         _titleLabel = [UILabel new];
-        [self addSubview:_titleLabel];
+        [self.contentView addSubview:_titleLabel];
         [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.mas_equalTo(-9);
             make.left.equalTo(_mainImageView.mas_right).offset(8);
@@ -47,7 +47,7 @@
         }];
         
         _summaryLabel = [UILabel new];
-        [self addSubview:_summaryLabel];
+        [self.contentView addSubview:_summaryLabel];
         [_summaryLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.mas_equalTo(-9);
             make.left.equalTo(_mainImageView.mas_right).offset(8);
@@ -62,9 +62,12 @@
     [super setSelected:selected animated:animated];
 }
 
-- (void)reloadViewWithData:(NSDictionary *)data {
-    if ([data objectForKey:@"title"]) {
-        self.titleLabel.text = [data objectForKey:@"title"];
+- (void)reloadViewWithData:(LXBaseModelPost *)data {
+    if (data.title.length > 0) {
+        self.titleLabel.text = data.title;
+    }
+    if (data.excerpt.length > 0) {
+        self.summaryLabel.text = data.excerpt;
     }
 }
 

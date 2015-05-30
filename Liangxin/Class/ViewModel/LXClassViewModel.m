@@ -48,7 +48,11 @@
 - (RACSignal *)getPostByPage:(NSInteger)pageNumber {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         [self.sessionManager GET:@"/api/v1/post" parameters:@{@"type":@"课堂", @"page":@(pageNumber)} success:^(NSURLSessionDataTask *task, id responseObject) {
-            [subscriber sendNext:responseObject];
+            NSMutableArray *posts = [NSMutableArray array];
+            for (NSDictionary *post in responseObject) {
+                [posts addObject:[LXBaseModelPost modelWithDictionary:post error:nil]];
+            }
+            [subscriber sendNext:posts];
             [subscriber sendCompleted];
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             [subscriber sendError:error];
