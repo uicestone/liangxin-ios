@@ -76,6 +76,7 @@
 		2D537DD21B1956F9006BD35E /* NSDictionary+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DD11B1956F9006BD35E /* NSDictionary+Utils.m */; };
 		2D537DD51B196555006BD35E /* ClassDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DD41B196555006BD35E /* ClassDetailViewController.m */; };
 		2D537DD91B1968B5006BD35E /* LXBaseCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DD81B1968B5006BD35E /* LXBaseCollectionView.m */; };
+		2D537DDE1B19C024006BD35E /* ClassDetailTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DDD1B19C024006BD35E /* ClassDetailTitleCell.m */; };
 		2DFD651F1B15FE7800FAC662 /* LXCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD651E1B15FE7800FAC662 /* LXCarouselView.m */; };
 		2DFD65221B16001200FAC662 /* LXCarouselViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD65211B16001200FAC662 /* LXCarouselViewCell.m */; };
 		2DFD65261B1603D200FAC662 /* LXBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD65251B1603D200FAC662 /* LXBannerView.m */; };
@@ -224,6 +225,8 @@
 		2D537DD71B1968B5006BD35E /* LXBaseCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXBaseCollectionView.h; path = Base/LXBaseCollectionView.h; sourceTree = "<group>"; };
 		2D537DD81B1968B5006BD35E /* LXBaseCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXBaseCollectionView.m; path = Base/LXBaseCollectionView.m; sourceTree = "<group>"; };
 		2D537DDA1B19A2ED006BD35E /* LXMacroDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LXMacroDefinition.h; path = Utils/LXMacroDefinition.h; sourceTree = "<group>"; };
+		2D537DDC1B19C024006BD35E /* ClassDetailTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassDetailTitleCell.h; path = Class/Views/ClassDetailTitleCell.h; sourceTree = "<group>"; };
+		2D537DDD1B19C024006BD35E /* ClassDetailTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassDetailTitleCell.m; path = Class/Views/ClassDetailTitleCell.m; sourceTree = "<group>"; };
 		2DFD651D1B15FE7800FAC662 /* LXCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXCarouselView.h; path = Widgets/LXCarouselView.h; sourceTree = "<group>"; };
 		2DFD651E1B15FE7800FAC662 /* LXCarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXCarouselView.m; path = Widgets/LXCarouselView.m; sourceTree = "<group>"; };
 		2DFD65201B16001200FAC662 /* LXCarouselViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXCarouselViewCell.h; path = Widgets/LXCarouselViewCell.h; sourceTree = "<group>"; };
@@ -495,6 +498,7 @@
 		22E6E2561B11C56C005E528E /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				2D537DDB1B19BFDB006BD35E /* Views */,
 				2DFD652C1B175D6400FAC662 /* ViewModel */,
 				22E6E2571B11C582005E528E /* ClassViewController.h */,
 				22E6E2581B11C582005E528E /* ClassViewController.m */,
@@ -565,6 +569,15 @@
 				2D537DD81B1968B5006BD35E /* LXBaseCollectionView.m */,
 			);
 			name = Base;
+			sourceTree = "<group>";
+		};
+		2D537DDB1B19BFDB006BD35E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2D537DDC1B19C024006BD35E /* ClassDetailTitleCell.h */,
+				2D537DDD1B19C024006BD35E /* ClassDetailTitleCell.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		2DFD652C1B175D6400FAC662 /* ViewModel */ = {
@@ -773,6 +786,7 @@
 				22E6E2471B115E41005E528E /* LXJSBridge+PickImage.m in Sources */,
 				22E6E2781B12ADB4005E528E /* LoginViewCell.m in Sources */,
 				22E6E25C1B11C64B005E528E /* EntryBaseViewController.m in Sources */,
+				2D537DDE1B19C024006BD35E /* ClassDetailTitleCell.m in Sources */,
 				2210A37B1AFDF66800D9CA1A /* GroupApi.m in Sources */,
 				2215D96D1B10D08A00D96C46 /* TADotView.m in Sources */,
 				223267C91AF2661B00431132 /* AppDelegate.m in Sources */,
