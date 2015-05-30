@@ -17,12 +17,13 @@
 @interface HomeViewController () <UINavigationControllerDelegate>
 @property UIView* bannerWrapper;
 @property Channels* channels;
+@property (strong, nonatomic) SwitchBanner* banner;
 @end
 
 
 @implementation HomeViewController
 @synthesize bannerWrapper;
-@synthesize channels;
+@synthesize channels, banner;
 
 
 - (void)viewDidLoad {
@@ -45,7 +46,7 @@
     bannerWrapper = wrapper;
     
     // 初始化轮播
-    SwitchBanner * banner = [SwitchBanner initWithType:@"首页" wrapper:wrapper];
+    banner = [SwitchBanner initWithType:@"首页" wrapper:wrapper];
     [banner fetchNew];
     
     // TODO
