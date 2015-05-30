@@ -10,4 +10,6 @@
 
 @interface LXCarouselViewCell : UICollectionViewCell
 
+@property (nonatomic, strong) UIImageView *imageView;
+
 @end

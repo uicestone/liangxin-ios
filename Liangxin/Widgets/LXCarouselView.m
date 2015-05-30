@@ -8,6 +8,7 @@
 
 #import "LXCarouselView.h"
 #import "LXCarouselViewCell.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface LXCarouselView() <UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -27,9 +28,8 @@
     return carouselView;
 }
 
-- (instancetype)init
-{
-    self = [super init];
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
     if (self) {
         [self commonInit];
     }
@@ -104,6 +104,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     _collectionView.frame = self.bounds;
+    _flowLayout.itemSize = self.frame.size;
     if (_collectionView.contentOffset.x == 0 &&  _totalItemsCount) {
         [_collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:_totalItemsCount * 0.5 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
     }
@@ -128,6 +129,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     LXCarouselViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"LXCarouselViewCell" forIndexPath:indexPath];
     NSInteger itemIndex = indexPath.item % self.imageURLsGroup.count;
+    [cell.imageView setImageWithURL:[NSURL URLWithString:[self.imageURLsGroup objectAtIndex:itemIndex]]];
     return cell;
 }
 

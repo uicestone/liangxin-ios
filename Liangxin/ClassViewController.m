@@ -10,12 +10,15 @@
 #import "LXCarouselView.h"
 #import "LXBannerView.h"
 #import "LXBaseTableViewCell.h"
+#import "LXClassViewModel.h"
 
 @interface ClassViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) LXCarouselView *carouselView;
 @property (nonatomic, strong) UIView *titleView;
+
+@property (nonatomic, strong) LXClassViewModel *viewModel;
 
 @end
 
@@ -73,6 +76,7 @@
     }];
 
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    self.tableView.rowHeight = 75;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
@@ -81,6 +85,27 @@
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.bottom.mas_equalTo(-75);
+    }];
+    self.viewModel = [LXClassViewModel new];
+    @weakify(self)
+    [[self.viewModel getClassBanners] subscribeNext:^(NSArray *x) {
+        @strongify(self)
+        NSMutableArray *bannerURLs = [NSMutableArray array];
+        for (LXBaseModelPost *post in x) {
+            if ([post.poster isValidObjectForKey:@"url"]) {
+                [bannerURLs addObject:[post.poster objectForKey:@"url"]];
+            }
+        }
+        self.carouselView.imageURLsGroup = bannerURLs;
+    } error:^(NSError *error) {
+        
+    }];
+    [[self.viewModel getPostByPage:1] subscribeNext:^(NSArray *x) {
+        @strongify(self)
+        [self.viewModel.classData addObjectsFromArray:x];
+        [self.tableView reloadData];
+    } error:^(NSError *error) {
+        
     }];
 }
 
@@ -110,7 +135,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return self.viewModel.classData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -118,6 +143,8 @@
     if (!cell) {
         cell = [[LXBaseTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ClassCell"];
     }
+    NSDictionary *data = [self.viewModel.classData objectAtIndex:indexPath.row];
+    [cell reloadViewWithData:data];
     return cell;
 }
 
