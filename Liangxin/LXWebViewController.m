@@ -108,6 +108,13 @@
     }
 }
 
+-(void) viewDidDisappear:(BOOL)animated{
+    [webview removeFromSuperview];
+    webview = nil;
+    jsbridge = nil;
+    
+}
+
 #pragma Webview Delegates
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
