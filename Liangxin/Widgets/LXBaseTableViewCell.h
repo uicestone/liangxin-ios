@@ -9,7 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "LXBaseModelPost.h"
 
+typedef NS_ENUM(NSInteger, LXTableViewCellStyle){
+    LXTableViewCellStyleClass,
+};
+
 @interface LXBaseTableViewCell : UITableViewCell
+
+@property (nonatomic, assign) LXTableViewCellStyle style;
 
 - (void)reloadViewWithData:(LXBaseModelPost *)data;
 

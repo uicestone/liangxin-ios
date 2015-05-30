@@ -151,7 +151,7 @@
     headerView.backgroundColor = UIColorFromRGB(0xe6e7e8);
     UILabel *headerLabel = [UILabel new];
     headerLabel.text = @"活动列表";
-    headerLabel.textColor = [UIColor lightGrayColor];
+    headerLabel.textColor = [UIColor darkGrayColor];
     headerLabel.font = [UIFont boldSystemFontOfSize:15.0];
     [headerView addSubview:headerLabel];
     [headerLabel mas_makeConstraints:^(MASConstraintMaker *make) {

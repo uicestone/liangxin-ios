@@ -38,6 +38,8 @@
         }];
         
         _titleLabel = [UILabel new];
+        _titleLabel.font = [UIFont systemFontOfSize:15.0];
+        _titleLabel.textColor = [UIColor darkGrayColor];
         [self.contentView addSubview:_titleLabel];
         [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.mas_equalTo(-9);
@@ -60,6 +62,18 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+}
+
+- (void)setStyle:(LXTableViewCellStyle)style {
+    _style = style;
+    switch (_style) {
+        case LXTableViewCellStyleClass: {
+            
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)reloadViewWithData:(LXBaseModelPost *)data {
