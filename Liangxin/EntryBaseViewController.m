@@ -94,7 +94,9 @@
     offset += 25;
 }
 
-
+- (UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
 
 // 初始化活动列表
 -(void) initEventList{

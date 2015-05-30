@@ -13,4 +13,5 @@
 -(UIColor *) colorAtIndex:(int) index;
 -(NSString *) linkAtIndex:(int) index;
 -(NSString *) titleAtIndex:(int) index;
+-(NSUInteger)indexOfChannel:(NSString *) channelName;
 @end

@@ -24,6 +24,7 @@
 #import "PhoneInputViewController.h"
 #import "VCodeInputViewController.h"
 #import "ModifyPasswordViewController.h"
+#import "LXNavigationController.h"
 
 #import "Channels.h"
 
@@ -122,7 +123,7 @@
     fvc.tabBarItem.image=[UIImage imageNamed:@"i.png"];
     
     // SecondViewController
-    navigationController= [[UINavigationController alloc]
+    navigationController= [[LXNavigationController alloc]
                                              initWithRootViewController:homeViewController];
     navigationController.title=@"我要发起";
     navigationController.tabBarItem.image=[UIImage imageNamed:@"im.png"];
@@ -202,6 +203,29 @@
     NSLog(@"Navigate to %@", path);
     
     UIViewController *viewController = [[HHRouter shared] matchController:path];
+    
+    Channels* channels = [Channels shared];
+    int index = (int)[channels indexOfChannel:[url host]];
+    
+    if(index != -1){
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        
+        NSLog(@"%d", navigationController.preferredStatusBarStyle == UIStatusBarStyleDefault);
+        
+        
+        [self.navigationController.navigationItem setTitle:[channels titleAtIndex:index]];
+        // 执行动画
+        [UIView animateWithDuration:0.3 animations:^{
+            [self.navigationController.navigationItem setTitle:[channels titleAtIndex:index]];
+            [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+            [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+            [self.navigationController.navigationBar setBarTintColor: [channels colorAtIndex:index]];
+        }];
+        
+        
+    }
+    
+
     
     if(navigationController){
         [navigationController pushViewController:viewController animated:YES];

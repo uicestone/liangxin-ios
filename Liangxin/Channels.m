@@ -45,6 +45,10 @@
     return channels;
 }
 
+-(NSUInteger)indexOfChannel:(NSString *) channelName{
+    return [_links indexOfObject:channelName];
+}
+
 -(UIColor *) colorAtIndex:(int) index{
     return [_colors objectAtIndex:index];
 }

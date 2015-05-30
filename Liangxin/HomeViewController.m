@@ -60,6 +60,7 @@
     
 }
 
+
 - (void) viewWillAppear:(BOOL)animated{
     NSString * title = @"精品推荐";
     self.navigationController.navigationBarHidden = NO;
@@ -107,25 +108,13 @@
 
 - (void)navigateToSubChannel:(id)sender{
     int index = (int)[sender tag];
-    
     // NavigationBar 切换动画
     CATransition *animation = [CATransition animation];
     animation.duration = 0.3;
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     animation.type = kCATransitionFade;
     [self.navigationController.navigationBar.layer addAnimation:animation forKey:nil];
-    
-
-    [self.navigationItem setTitle:[channels titleAtIndex:index]];
-    
-    // 执行动画
-    [UIView animateWithDuration:0.3 animations:^{
-        [self.navigationItem setTitle:[channels titleAtIndex:index]];
-        [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-        [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
-        [self.navigationController.navigationBar setBarTintColor: [channels colorAtIndex:index]];
-    }];
-    
+        
     // 跳转到二级子频道
     
     NSURL* url = [NSURL URLWithString: [NSString stringWithFormat:@"liangxin://%@", [channels linkAtIndex:index] ]];
