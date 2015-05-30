@@ -15,9 +15,9 @@
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *summaryLabel;
 @property (nonatomic, strong) UIButton *likeButton;
-@property (nonatomic, strong) UIButton *messageButton;
+@property (nonatomic, strong) UIButton *reviewButton;
 @property (nonatomic, strong) UILabel *likeCountLabel;
-@property (nonatomic, strong) UILabel *messageCountLabel;
+@property (nonatomic, strong) UILabel *reviewCountLabel;
 @property (nonatomic, strong) UIButton *userButton;
 @property (nonatomic, strong) UILabel *userCountLabel;
 
@@ -68,7 +68,44 @@
     _style = style;
     switch (_style) {
         case LXTableViewCellStyleClass: {
-            
+            self.likeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            [self.likeButton setImage:[UIImage imageNamed:@"Like"] forState:UIControlStateNormal];
+            [self.contentView addSubview:self.likeButton];
+            [self.likeButton mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(_mainImageView.mas_right).offset(8);
+                make.bottom.equalTo(_mainImageView.mas_bottom);
+                make.width.mas_equalTo(14);
+                make.height.mas_equalTo(12.5);
+            }];
+            self.likeCountLabel = [UILabel new];
+            self.likeCountLabel.textColor = UIColorFromRGB(0x939597);
+            self.likeCountLabel.font = [UIFont systemFontOfSize:13.0];
+            [self.contentView addSubview:self.likeCountLabel];
+            [self.likeCountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(self.likeButton.mas_right).offset(5);
+                make.width.mas_equalTo(50);
+                make.height.mas_equalTo(self.likeButton.mas_height);
+                make.centerY.equalTo(self.likeButton.mas_centerY);
+            }];
+            self.reviewButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            [self.reviewButton setImage:[UIImage imageNamed:@"Review"] forState:UIControlStateNormal];
+            [self.contentView addSubview:self.reviewButton];
+            [self.reviewButton mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(self.likeButton.mas_right).offset(60);
+                make.bottom.equalTo(_mainImageView.mas_bottom);
+                make.width.mas_equalTo(15);
+                make.height.mas_equalTo(12.5);
+            }];
+            self.reviewCountLabel = [UILabel new];
+            self.reviewCountLabel.textColor = UIColorFromRGB(0x939597);
+            self.reviewCountLabel.font = [UIFont systemFontOfSize:13.0];
+            [self.contentView addSubview:self.reviewCountLabel];
+            [self.reviewCountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(self.reviewButton.mas_right).offset(5);
+                make.width.mas_equalTo(50);
+                make.height.mas_equalTo(self.reviewButton.mas_height);
+                make.centerY.equalTo(self.reviewButton.mas_centerY);
+            }];
         }
             break;
         default:
@@ -82,6 +119,27 @@
     }
     if (data.excerpt.length > 0) {
         self.summaryLabel.text = data.excerpt;
+    }
+    switch (self.style) {
+        case LXTableViewCellStyleClass: {
+            if (data.likes.length > 0) {
+                self.likeCountLabel.text = data.likes;
+            }
+            else {
+                self.likeCountLabel.text = @"0";
+            }
+            
+            if (data.comments != nil) {
+                self.reviewCountLabel.text = [NSString stringWithFormat:@"%@", @(data.comments.count)];
+            }
+            else {
+                self.reviewCountLabel.text = @"0";
+            }
+        }
+            break;
+            
+        default:
+            break;
     }
 }
 

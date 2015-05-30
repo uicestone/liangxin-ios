@@ -176,6 +176,7 @@
     if (!cell) {
         cell = [[LXBaseTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ClassCell"];
     }
+    cell.style = LXTableViewCellStyleClass;
     LXBaseModelPost *data = [self.viewModel.classData objectAtIndex:indexPath.row];
     [cell reloadViewWithData:data];
     return cell;
