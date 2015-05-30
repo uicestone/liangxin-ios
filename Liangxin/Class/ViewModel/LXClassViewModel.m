@@ -30,7 +30,11 @@
 - (RACSignal *)getClassBanners {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         [self.sessionManager GET:@"/api/v1/post" parameters:@{@"type":@"横幅", @"banner_position":@"课堂"} success:^(NSURLSessionDataTask *task, id responseObject) {
-            [subscriber sendNext:responseObject];
+            NSMutableArray *posts = [NSMutableArray array];
+            for (NSDictionary *post in responseObject) {
+                [posts addObject:[LXBaseModelPost modelWithDictionary:post error:nil]];
+            }
+            [subscriber sendNext:posts];
             [subscriber sendCompleted];
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             [subscriber sendError:error];

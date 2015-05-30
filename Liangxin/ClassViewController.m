@@ -91,9 +91,9 @@
     [[self.viewModel getClassBanners] subscribeNext:^(NSArray *x) {
         @strongify(self)
         NSMutableArray *bannerURLs = [NSMutableArray array];
-        for (NSDictionary *post in x) {
-            if ([[post objectForKey:@"poster"] objectForKey:@"url"]) {
-                [bannerURLs addObject:[[post objectForKey:@"poster"] objectForKey:@"url"]];
+        for (LXBaseModelPost *post in x) {
+            if ([post.poster isValidObjectForKey:@"url"]) {
+                [bannerURLs addObject:[post.poster objectForKey:@"url"]];
             }
         }
         self.carouselView.imageURLsGroup = bannerURLs;

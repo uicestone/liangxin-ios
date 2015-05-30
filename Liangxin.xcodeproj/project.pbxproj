@@ -72,6 +72,7 @@
 		2D537DC81B18BD7A006BD35E /* LXBaseModelUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DC71B18BD7A006BD35E /* LXBaseModelUser.m */; };
 		2D537DCB1B18BE66006BD35E /* LXBaseModelPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DCA1B18BE66006BD35E /* LXBaseModelPost.m */; };
 		2D537DCE1B18BE83006BD35E /* LXBaseModelGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DCD1B18BE83006BD35E /* LXBaseModelGroup.m */; };
+		2D537DD21B1956F9006BD35E /* NSDictionary+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DD11B1956F9006BD35E /* NSDictionary+Utils.m */; };
 		2DFD651F1B15FE7800FAC662 /* LXCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD651E1B15FE7800FAC662 /* LXCarouselView.m */; };
 		2DFD65221B16001200FAC662 /* LXCarouselViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD65211B16001200FAC662 /* LXCarouselViewCell.m */; };
 		2DFD65261B1603D200FAC662 /* LXBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD65251B1603D200FAC662 /* LXBannerView.m */; };
@@ -211,6 +212,8 @@
 		2D537DCA1B18BE66006BD35E /* LXBaseModelPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXBaseModelPost.m; path = Models/LXBaseModelPost.m; sourceTree = "<group>"; };
 		2D537DCC1B18BE83006BD35E /* LXBaseModelGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXBaseModelGroup.h; path = Models/LXBaseModelGroup.h; sourceTree = "<group>"; };
 		2D537DCD1B18BE83006BD35E /* LXBaseModelGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXBaseModelGroup.m; path = Models/LXBaseModelGroup.m; sourceTree = "<group>"; };
+		2D537DD01B1956F9006BD35E /* NSDictionary+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+Utils.h"; path = "Utils/NSDictionary+Utils.h"; sourceTree = "<group>"; };
+		2D537DD11B1956F9006BD35E /* NSDictionary+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+Utils.m"; path = "Utils/NSDictionary+Utils.m"; sourceTree = "<group>"; };
 		2DFD651D1B15FE7800FAC662 /* LXCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXCarouselView.h; path = Widgets/LXCarouselView.h; sourceTree = "<group>"; };
 		2DFD651E1B15FE7800FAC662 /* LXCarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXCarouselView.m; path = Widgets/LXCarouselView.m; sourceTree = "<group>"; };
 		2DFD65201B16001200FAC662 /* LXCarouselViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXCarouselViewCell.h; path = Widgets/LXCarouselViewCell.h; sourceTree = "<group>"; };
@@ -384,6 +387,7 @@
 		223267C21AF2661B00431132 /* Liangxin */ = {
 			isa = PBXGroup;
 			children = (
+				2D537DCF1B1956AF006BD35E /* Utils */,
 				22E6E2681B12AAF3005E528E /* Account */,
 				22E6E2561B11C56C005E528E /* Class */,
 				2215D95B1B0EC43A00D96C46 /* Activity */,
@@ -527,6 +531,15 @@
 				2DFD65281B16143400FAC662 /* LXBaseTableViewCell.m */,
 			);
 			name = Widgets;
+			sourceTree = "<group>";
+		};
+		2D537DCF1B1956AF006BD35E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2D537DD01B1956F9006BD35E /* NSDictionary+Utils.h */,
+				2D537DD11B1956F9006BD35E /* NSDictionary+Utils.m */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		2DFD652C1B175D6400FAC662 /* ViewModel */ = {
@@ -694,6 +707,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22E6E2871B1343F3005E528E /* AccountFieldCell.m in Sources */,
+				2D537DD21B1956F9006BD35E /* NSDictionary+Utils.m in Sources */,
 				2215CB651B0837C400D0359A /* User.m in Sources */,
 				2D537DCE1B18BE83006BD35E /* LXBaseModelGroup.m in Sources */,
 				2DFD65261B1603D200FAC662 /* LXBannerView.m in Sources */,
