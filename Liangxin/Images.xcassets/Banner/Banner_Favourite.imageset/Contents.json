@@ -3,16 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "new-1.png"
+      "filename" : "最新活动.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "new@2x.png"
+      "filename" : "Banner_Favourite@2x.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "Banner_Favourite@3x.png"
     }
   ],
   "info" : {
