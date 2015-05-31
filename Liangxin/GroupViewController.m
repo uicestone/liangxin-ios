@@ -41,7 +41,6 @@
     
     // 考虑挪到父类去
     [self setTitle:[[Channels shared] titleAtIndex:0]];
-    self.navigationController.tabBarController.tabBar.hidden = NO;
     
     NSDictionary* params = self.params;
     if(![params[@"id"] isEqualToString:@""]){
@@ -61,6 +60,10 @@
     [self initSearchBar];
 }
 
+
+-(void)viewWillAppear:(BOOL)animated{
+    self.navigationController.tabBarController.tabBar.hidden = NO;
+}
 
 -(void)initTableView{
     tableView = [[UITableView alloc] initWithFrame:self.view.frame];

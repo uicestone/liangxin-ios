@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LXBaseCollectionViewController.h"
 
-@interface GroupViewController : UIViewController
+@interface GroupViewController : LXBaseViewController
 @end

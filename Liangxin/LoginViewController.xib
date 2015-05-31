@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
@@ -18,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJA-SY-byZ">
-                    <rect key="frame" x="20" y="325" width="560" height="40"/>
+                    <rect key="frame" x="20" y="260" width="560" height="40"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="QVX-ot-4N6"/>
@@ -32,7 +33,7 @@
                     </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="NmQ-KX-142">
-                    <rect key="frame" x="0.0" y="65" width="600" height="88"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="88"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="88" id="nAC-X2-nlp"/>
@@ -43,7 +44,7 @@
                     </connections>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQm-Oa-Erk">
-                    <rect key="frame" x="520" y="155" width="60" height="30"/>
+                    <rect key="frame" x="520" y="90" width="60" height="30"/>
                     <state key="normal" title="忘记密码">
                         <color key="titleColor" red="0.65490196078431373" green="0.66274509803921566" blue="0.67450980392156867" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -57,14 +58,14 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="YJA-SY-byZ" secondAttribute="trailing" constant="20" id="1lq-MF-Wo2"/>
                 <constraint firstItem="YJA-SY-byZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="88" id="DVm-nb-DF9"/>
-                <constraint firstItem="NmQ-KX-142" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="65" id="EYv-0l-n32"/>
+                <constraint firstItem="NmQ-KX-142" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="EYv-0l-n32"/>
                 <constraint firstAttribute="trailing" secondItem="OQm-Oa-Erk" secondAttribute="trailing" constant="20" id="HGr-26-HHl"/>
                 <constraint firstItem="YJA-SY-byZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="HRa-Oa-vga"/>
                 <constraint firstItem="OQm-Oa-Erk" firstAttribute="top" secondItem="NmQ-KX-142" secondAttribute="bottom" constant="2" id="ILb-yR-tFe"/>
                 <constraint firstAttribute="centerX" secondItem="YJA-SY-byZ" secondAttribute="centerX" id="U57-lN-rdu"/>
                 <constraint firstItem="NmQ-KX-142" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iuC-If-AJW"/>
                 <constraint firstAttribute="centerX" secondItem="NmQ-KX-142" secondAttribute="centerX" id="vE7-Pi-wmJ"/>
-                <constraint firstAttribute="bottom" secondItem="YJA-SY-byZ" secondAttribute="bottom" constant="235" id="wW1-ev-PYd"/>
+                <constraint firstAttribute="bottom" secondItem="YJA-SY-byZ" secondAttribute="bottom" constant="300" id="wW1-ev-PYd"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">

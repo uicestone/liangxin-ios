@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "UserApi.h"
 #import <HHRouter.h>
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface LXBaseViewController ()
 
@@ -26,18 +27,21 @@
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
-- (void)viewDidLoad {
-    if([self shouldLogin] && ![UserApi getCurrentUser]){
-        LoginViewController* loginViewController = [[LoginViewController alloc] init];
-        UINavigationController* loginNavigationController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
-        
-        loginNavigationController.navigationItem.rightBarButtonItem.title = @"取消";
-        
-        [self presentViewController:loginNavigationController animated:YES completion:nil];
-    }
+-(void)popMessage:(NSString *)message{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeAnnularDeterminate;
+    hud.labelText = message;
+    hud.mode = MBProgressHUDModeText;
     
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        hud.hidden = YES;
+    });
+}
+
+- (void)viewDidLoad {
     [super viewDidLoad];
-    self.extendedLayoutIncludesOpaqueBars = NO;
+    self.extendedLayoutIncludesOpaqueBars = YES;
     self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 

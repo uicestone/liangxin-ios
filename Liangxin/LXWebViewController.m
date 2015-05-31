@@ -108,7 +108,7 @@
 }
 
 
--(void) viewWillUnload{
+-(void) dealloc{
     [webview removeFromSuperview];
     webview = nil;
     jsbridge = nil;

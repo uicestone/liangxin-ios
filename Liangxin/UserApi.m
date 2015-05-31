@@ -17,14 +17,16 @@ static LXBaseModelUser* currentUser;
 
 +(LXBaseModelUser *)getCurrentUser{
     if(!currentUser){
-        currentUser = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
+        NSData* userData = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
+        currentUser = [NSKeyedUnarchiver unarchiveObjectWithData:userData];
     }
     
     return currentUser;
 }
 
 +(void)setCurrentUser:(LXBaseModelUser *)user{
-    [[NSUserDefaults standardUserDefaults] setObject:user forKey:@"user"];
+    NSData *serialized = [NSKeyedArchiver archivedDataWithRootObject:user];
+    [[NSUserDefaults standardUserDefaults] setObject:serialized forKey:@"user"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     currentUser = user;

@@ -1,4 +1,4 @@
-//
+ //
 //  AppDelegate.m
 //  Liangxin
 //
@@ -32,7 +32,7 @@
 #import "Definition.h"
 #import <HHRouter/HHRouter.h>
 
-@interface AppDelegate () <UITabBarControllerDelegate, UIActionSheetDelegate>
+@interface AppDelegate () <UITabBarControllerDelegate, UIActionSheetDelegate, LoginFinishDelegate>
 
 @end
 
@@ -209,6 +209,9 @@
     }
 }
 
+-(void)loginFinished:(LXBaseViewController *)nextViewController{
+    [self pushViewController:nextViewController];
+}
 
 -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
     
@@ -226,8 +229,6 @@
     
     NSLog(@"Navigate to %@", path);
     
-    UIViewController *viewController = [[HHRouter shared] matchController:path];
-    
     Channels* channels = [Channels shared];
     int index = (int)[channels indexOfChannel: host];
     
@@ -242,11 +243,28 @@
         }];
     }
     
-    if(navigationController){
-        [navigationController pushViewController:viewController animated:YES];
-    }
+    
+    LXBaseViewController *viewController = (LXBaseViewController *)[[HHRouter shared] matchController:path];
+    [self pushViewController:viewController];
     
     return YES;
+}
+
+-(void)pushViewController:(LXBaseViewController *)viewController{
+    if(navigationController){
+        if([viewController shouldLogin] && ![UserApi getCurrentUser]){
+            LoginViewController* loginViewController = [[LoginViewController alloc] init];
+            UINavigationController* loginNavigationController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+            
+            loginNavigationController.navigationItem.rightBarButtonItem.title = @"取消";
+            loginViewController.nextViewController = viewController;
+            loginViewController.finishDelegate = self;
+            [self.navigationController presentViewController:loginNavigationController animated:YES completion:nil];
+        }else{
+            [navigationController pushViewController:viewController animated:YES];
+        }
+    }
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

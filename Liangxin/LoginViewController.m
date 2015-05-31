@@ -13,6 +13,7 @@
 #import "LXBaseModelUser.h"
 #import "NSDictionary+Encoding.h"
 #import <HHRouter/HHRouter.h>
+#import <MBProgressHUD/MBProgressHUD.h>
 
 #define kReuseIdentifier @"LoginViewCell"
 
@@ -105,13 +106,21 @@
     [ApiBase postJSONWithPath:@"/auth/login" data:data success:^(NSDictionary* responseObject, AFHTTPRequestOperation* operation) {
         LXBaseModelUser* user = [LXBaseModelUser modelWithDictionary:responseObject error:nil];
         [UserApi setCurrentUser: user];
-        [self.navigationController popToRootViewControllerAnimated:YES];
-        // back to home
-    } error:^(NSError *error) {
+        [self dismissLoginView:nil];
+        [self.finishDelegate loginFinished:[self nextViewController]];
+    } error:^(AFHTTPRequestOperation *operation, NSError* error) {
+        NSLog(@"err %@", error);
+        
+        NSDictionary* result = (NSDictionary*) operation.responseObject;
+        NSString* message = [result objectForKey:@"message"];
+        
+        [self popMessage:message];
+        NSLog(@"err detail %@", [result objectForKey:@"message"]);
         // pop error
     }];
     
 }
+
 
 /*
 #pragma mark - Navigation

@@ -51,7 +51,7 @@
         
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://modifypassword?token=%@", token]]];
         
-    } error:^(NSError *error) {
+    } error:^(AFHTTPRequestOperation *operation, NSError *error) {
         // pop error
     }];
     
