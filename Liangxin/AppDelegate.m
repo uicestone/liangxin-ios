@@ -56,6 +56,9 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     
+    // 设置返回按钮样式
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
+    
     // 初始化Router
     
     
@@ -121,6 +124,8 @@
     // 初始化tabbar controller
     
     self.tabBarController = [[UITabBarController alloc] init];
+    self.tabBarController.tabBar.translucent = NO;
+    self.tabBarController.tabBar.tintColor = [UIColor whiteColor];
     
     // FirstViewController
     UIViewController *fvc=[[UIViewController alloc] initWithNibName:nil bundle:nil];

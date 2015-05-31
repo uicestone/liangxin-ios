@@ -10,9 +10,9 @@
 
 @interface ClassDetailBaseCell()
 
-@property (nonatomic, strong) UIView *titleView;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UIButton *moreButton;
+@property (nonatomic, strong) UIView *bottomLine;
 
 @end
 
@@ -33,6 +33,8 @@
         }];
         
         _titleView = [UIView new];
+        _titleView.layer.borderWidth = 1.0;
+        _titleView.layer.borderColor = [UIColorFromRGB(0xe6e7e8) CGColor];
         [self.contentView addSubview:_titleView];
         [_titleView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(0);
@@ -46,8 +48,8 @@
         [self.titleView addSubview:_titleLabel];
         [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(20);
-            make.top.mas_equalTo(0);
-            make.bottom.mas_equalTo(0);
+            make.top.mas_equalTo(1);
+            make.bottom.mas_equalTo(-1);
             make.width.mas_equalTo(100);
         }];
         _moreButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -58,9 +60,18 @@
         [self.titleView addSubview:_moreButton];
         [_moreButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.mas_equalTo(-15);
-            make.top.mas_equalTo(0);
-            make.bottom.mas_equalTo(0);
+            make.top.mas_equalTo(1);
+            make.bottom.mas_equalTo(-1);
             make.width.mas_equalTo(44);
+        }];
+        _bottomLine = [UIView new];
+        _bottomLine.backgroundColor = UIColorFromRGB(0xe6e7e8);
+        [self.contentView addSubview:_bottomLine];
+        [_bottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(0);
+            make.right.mas_equalTo(0);
+            make.bottom.mas_equalTo(0);
+            make.height.mas_equalTo(1);
         }];
     }
     return self;

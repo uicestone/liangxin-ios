@@ -11,5 +11,6 @@
 @interface ClassDetailBaseCell : UITableViewCell
 
 @property (nonatomic, copy) NSString *title;
+@property (nonatomic, strong) UIView *titleView;
 
 @end

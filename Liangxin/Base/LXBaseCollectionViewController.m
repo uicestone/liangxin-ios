@@ -1,20 +1,20 @@
 //
-//  LXBaseCollectionView.m
+//  LXBaseCollectionViewController.m
 //  Liangxin
 //
-//  Created by xiebohui on 5/30/15.
+//  Created by xiebohui on 5/31/15.
 //  Copyright (c) 2015 Hsu Spud. All rights reserved.
 //
 
-#import "LXBaseCollectionView.h"
+#import "LXBaseCollectionViewController.h"
 
-@interface LXBaseCollectionView()
+@interface LXBaseCollectionViewController ()
 
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
 
 @end
 
-@implementation LXBaseCollectionView
+@implementation LXBaseCollectionViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
