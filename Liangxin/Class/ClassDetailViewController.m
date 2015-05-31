@@ -12,7 +12,6 @@
 
 @interface ClassDetailViewController() <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) UIToolbar *bottomBar;
 @property (nonatomic, strong) UITableView *tableView;
 
 @end
@@ -26,14 +25,6 @@
 
 - (void)commonInit {
     self.view.backgroundColor = [UIColor whiteColor];
-    self.bottomBar = [[UIToolbar alloc] init];
-    [self.view addSubview:self.bottomBar];
-    [self.bottomBar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(0);
-        make.right.mas_equalTo(0);
-        make.bottom.mas_equalTo(0);
-        make.height.mas_equalTo(44);
-    }];
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -43,7 +34,7 @@
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.top.mas_equalTo(0);
-        make.bottom.equalTo(self.bottomBar.mas_top);
+        make.bottom.mas_equalTo(0);
     }];
 }
 

@@ -80,6 +80,10 @@
 		2D537DE11B1AA0AA006BD35E /* LXBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DE01B1AA0AA006BD35E /* LXBaseViewController.m */; };
 		2D537DE41B1ABA5B006BD35E /* ClassDetailDescCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DE31B1ABA5B006BD35E /* ClassDetailDescCell.m */; };
 		2D537DE71B1ABB8F006BD35E /* ClassDetailBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DE61B1ABB8F006BD35E /* ClassDetailBaseCell.m */; };
+		2D537DEA1B1AEA61006BD35E /* ClassDetailDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DE91B1AEA61006BD35E /* ClassDetailDetailCell.m */; };
+		2D537DED1B1AEAD3006BD35E /* ClassDetailAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DEC1B1AEAD3006BD35E /* ClassDetailAlbumCell.m */; };
+		2D537DF01B1AEB38006BD35E /* ClassDetailVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DEF1B1AEB38006BD35E /* ClassDetailVideoCell.m */; };
+		2D537DF31B1AED21006BD35E /* ClassDetailDocumentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DF21B1AED21006BD35E /* ClassDetailDocumentCell.m */; };
 		2DFD651F1B15FE7800FAC662 /* LXCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD651E1B15FE7800FAC662 /* LXCarouselView.m */; };
 		2DFD65221B16001200FAC662 /* LXCarouselViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD65211B16001200FAC662 /* LXCarouselViewCell.m */; };
 		2DFD65261B1603D200FAC662 /* LXBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD65251B1603D200FAC662 /* LXBannerView.m */; };
@@ -236,6 +240,14 @@
 		2D537DE31B1ABA5B006BD35E /* ClassDetailDescCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassDetailDescCell.m; path = Class/Views/ClassDetailDescCell.m; sourceTree = "<group>"; };
 		2D537DE51B1ABB8F006BD35E /* ClassDetailBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassDetailBaseCell.h; path = Class/Views/ClassDetailBaseCell.h; sourceTree = "<group>"; };
 		2D537DE61B1ABB8F006BD35E /* ClassDetailBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassDetailBaseCell.m; path = Class/Views/ClassDetailBaseCell.m; sourceTree = "<group>"; };
+		2D537DE81B1AEA61006BD35E /* ClassDetailDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassDetailDetailCell.h; path = Class/Views/ClassDetailDetailCell.h; sourceTree = "<group>"; };
+		2D537DE91B1AEA61006BD35E /* ClassDetailDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassDetailDetailCell.m; path = Class/Views/ClassDetailDetailCell.m; sourceTree = "<group>"; };
+		2D537DEB1B1AEAD3006BD35E /* ClassDetailAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassDetailAlbumCell.h; path = Class/Views/ClassDetailAlbumCell.h; sourceTree = "<group>"; };
+		2D537DEC1B1AEAD3006BD35E /* ClassDetailAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassDetailAlbumCell.m; path = Class/Views/ClassDetailAlbumCell.m; sourceTree = "<group>"; };
+		2D537DEE1B1AEB38006BD35E /* ClassDetailVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassDetailVideoCell.h; path = Class/Views/ClassDetailVideoCell.h; sourceTree = "<group>"; };
+		2D537DEF1B1AEB38006BD35E /* ClassDetailVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassDetailVideoCell.m; path = Class/Views/ClassDetailVideoCell.m; sourceTree = "<group>"; };
+		2D537DF11B1AED21006BD35E /* ClassDetailDocumentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassDetailDocumentCell.h; path = Class/Views/ClassDetailDocumentCell.h; sourceTree = "<group>"; };
+		2D537DF21B1AED21006BD35E /* ClassDetailDocumentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassDetailDocumentCell.m; path = Class/Views/ClassDetailDocumentCell.m; sourceTree = "<group>"; };
 		2DFD651D1B15FE7800FAC662 /* LXCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXCarouselView.h; path = Widgets/LXCarouselView.h; sourceTree = "<group>"; };
 		2DFD651E1B15FE7800FAC662 /* LXCarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXCarouselView.m; path = Widgets/LXCarouselView.m; sourceTree = "<group>"; };
 		2DFD65201B16001200FAC662 /* LXCarouselViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXCarouselViewCell.h; path = Widgets/LXCarouselViewCell.h; sourceTree = "<group>"; };
@@ -591,6 +603,14 @@
 				2D537DE61B1ABB8F006BD35E /* ClassDetailBaseCell.m */,
 				2D537DE21B1ABA5B006BD35E /* ClassDetailDescCell.h */,
 				2D537DE31B1ABA5B006BD35E /* ClassDetailDescCell.m */,
+				2D537DE81B1AEA61006BD35E /* ClassDetailDetailCell.h */,
+				2D537DE91B1AEA61006BD35E /* ClassDetailDetailCell.m */,
+				2D537DEB1B1AEAD3006BD35E /* ClassDetailAlbumCell.h */,
+				2D537DEC1B1AEAD3006BD35E /* ClassDetailAlbumCell.m */,
+				2D537DEE1B1AEB38006BD35E /* ClassDetailVideoCell.h */,
+				2D537DEF1B1AEB38006BD35E /* ClassDetailVideoCell.m */,
+				2D537DF11B1AED21006BD35E /* ClassDetailDocumentCell.h */,
+				2D537DF21B1AED21006BD35E /* ClassDetailDocumentCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -775,6 +795,7 @@
 				2215CB491B075E3900D0359A /* LXJSBridge+Fetch.m in Sources */,
 				2215D95E1B0EC44D00D96C46 /* ActivityViewController.m in Sources */,
 				22E6E2621B11F38B005E528E /* ActivityItemCell.m in Sources */,
+				2D537DF31B1AED21006BD35E /* ClassDetailDocumentCell.m in Sources */,
 				22238C1B1AF64F02000B4F95 /* Channels.m in Sources */,
 				2D537DD51B196555006BD35E /* ClassDetailViewController.m in Sources */,
 				2215CB5C1B082B1E00D0359A /* GroupPostViewController.m in Sources */,
@@ -786,6 +807,7 @@
 				22E6E2551B11C380005E528E /* EntryItemCell.m in Sources */,
 				2215CB741B08EA0C00D0359A /* GroupMembersViewController.m in Sources */,
 				22D649DC1B0A2CDC004045B8 /* PostApi.m in Sources */,
+				2D537DED1B1AEAD3006BD35E /* ClassDetailAlbumCell.m in Sources */,
 				2215CB621B08379100D0359A /* Post.m in Sources */,
 				2210A38B1AFEE1F800D9CA1A /* LXWebViewController.m in Sources */,
 				22238C541AFBACA5000B4F95 /* BannerApi.m in Sources */,
@@ -802,6 +824,7 @@
 				2215CB771B09675E00D0359A /* UserApi.m in Sources */,
 				22E6E2471B115E41005E528E /* LXJSBridge+PickImage.m in Sources */,
 				22E6E2781B12ADB4005E528E /* LoginViewCell.m in Sources */,
+				2D537DEA1B1AEA61006BD35E /* ClassDetailDetailCell.m in Sources */,
 				22E6E25C1B11C64B005E528E /* EntryBaseViewController.m in Sources */,
 				2D537DDE1B19C024006BD35E /* ClassDetailTitleCell.m in Sources */,
 				2210A37B1AFDF66800D9CA1A /* GroupApi.m in Sources */,
@@ -822,6 +845,7 @@
 				2215D96C1B10D08A00D96C46 /* TAAnimatedDotView.m in Sources */,
 				22238C571AFBAE30000B4F95 /* ApiBase.m in Sources */,
 				2210A37E1AFDF84900D9CA1A /* Group.m in Sources */,
+				2D537DF01B1AEB38006BD35E /* ClassDetailVideoCell.m in Sources */,
 				2215D9611B10CF3600D96C46 /* LXJSBridge+SetTitle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
