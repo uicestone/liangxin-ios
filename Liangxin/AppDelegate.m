@@ -198,13 +198,9 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     if(buttonIndex != 3){
-        if([UserApi getCurrentUser]){
-            NSString* type = [@[@"notice",@"article",@"image"] objectAtIndex:buttonIndex];
-            NSString* url = [@"publish/?type=" stringByAppendingString:type];
-            openURL(url);
-        }else{
-            openURL(@"login");
-        }
+        NSString* type = [@[@"notice",@"article",@"image"] objectAtIndex:buttonIndex];
+        NSString* url = [@"publish/?type=" stringByAppendingString:type];
+        openURL(url);
     }
 }
 

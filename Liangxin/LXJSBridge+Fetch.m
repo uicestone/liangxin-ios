@@ -27,7 +27,7 @@
             [self completeWithError:error];
         }];
     }else if([method isEqual:@"post"]){
-        [ApiBase postJSONWithPath:url data:data success:^(id responseObject) {
+        [ApiBase postJSONWithPath:url data:data success:^(id responseObject, AFHTTPRequestOperation* operation) {
             [self completeWithResult:responseObject];
         } error:^(NSError *error) {
             [self completeWithError:error];

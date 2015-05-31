@@ -45,7 +45,7 @@
                            @"contact": cell.text.text
                            };
     
-    [ApiBase postJSONWithPath:@"/auth/user" data:data success:^(id responseObject) {
+    [ApiBase postJSONWithPath:@"/auth/user" data:data success:^(id responseObject, AFHTTPRequestOperation* operation) {
         
         NSString* token = responseObject[@"token"];
         

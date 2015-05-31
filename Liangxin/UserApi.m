@@ -8,17 +8,25 @@
 
 #import "UserApi.h"
 #import "ApiBase.h"
-#import "User.h"
+#import "LXBaseModelUser.h"
+
 
 @implementation UserApi 
 
-static User* currentUser;
+static LXBaseModelUser* currentUser;
 
-+(User *)getCurrentUser{
++(LXBaseModelUser *)getCurrentUser{
+    if(!currentUser){
+        currentUser = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
+    }
+    
     return currentUser;
 }
 
-+(void)setCurrentUser:(User *)user{
++(void)setCurrentUser:(LXBaseModelUser *)user{
+    [[NSUserDefaults standardUserDefaults] setObject:user forKey:@"user"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     currentUser = user;
 }
 
@@ -26,15 +34,14 @@ static User* currentUser;
 
     NSDictionary* data = @{@"group_id":[NSNumber numberWithInt:groupId]};
     [ApiBase getJSONWithPath:@"/user" data:data success:^(id responseObject) {
-        NSDictionary* mapping = @{
-                                  @"name":@"name",
-                                  @"contact":@"contact"
-                                  };
         NSMutableArray* users = [@[] mutableCopy];
         for(int i = 0 ; i < [responseObject count]; i ++){
             NSDictionary * jsonObj = [responseObject objectAtIndex:i];
-            User* u = [jsonObj toModel:[User class] withKeyMapping:mapping];
-            [users addObject:u];
+            
+            LXBaseModelUser* user = [LXBaseModelUser
+                                     modelWithDictionary:jsonObj
+                                     error:nil];
+            [users addObject:user];
         }
         successHandler(users);
     } error:errorHandler];

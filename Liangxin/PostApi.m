@@ -9,6 +9,7 @@
 #import "ApiBase.h"
 #import "PostApi.h"
 #import "Post.h"
+#import "User.h"
 
 @implementation PostApi
 

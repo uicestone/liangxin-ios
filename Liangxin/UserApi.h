@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "User.h"
+#import "LXBaseModelUser.h"
 
 @interface UserApi : NSObject
 
 
-+(User *)getCurrentUser;
-+(void)setCurrentUser:(User *)user;
++(LXBaseModelUser *)getCurrentUser;
++(void)setCurrentUser:(LXBaseModelUser *)user;
 
 +(void) getUsersByGroupId:(int) groupId successHandler:(void (^)(NSArray *users))successHandler errorHandler:(void (^)(NSError *error))errorHandler;
 

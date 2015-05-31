@@ -10,7 +10,7 @@
 #import "LoginViewController.h"
 #import "ApiBase.h"
 #import "UserApi.h"
-#import "User.h"
+#import "LXBaseModelUser.h"
 #import "NSDictionary+Encoding.h"
 
 #define kReuseIdentifier @"LoginViewCell"
@@ -28,6 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tabBarController.tabBar.hidden = YES;
     self.navigationItem.title = @"用户登录";
     
     tableview.scrollEnabled = NO;
@@ -93,8 +94,8 @@
                            @"password": password
                            };
     
-    [ApiBase postJSONWithPath:@"/auth/login" data:data success:^(NSDictionary* responseObject) {
-        User* user = [[User alloc] init];
+    [ApiBase postJSONWithPath:@"/auth/login" data:data success:^(NSDictionary* responseObject, AFHTTPRequestOperation* operation) {
+        LXBaseModelUser* user = [LXBaseModelUser modelWithDictionary:responseObject error:nil];
         [UserApi setCurrentUser: user];
         [self.navigationController popToRootViewControllerAnimated:YES];
         // back to home

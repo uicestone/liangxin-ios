@@ -51,7 +51,7 @@
 
 
 
-+(void)postJSONWithPath:(NSString *)path data:(NSDictionary *)data  success:(void (^)(id responseObject))successCallback error:(void (^)(NSError *error))errorCallback{
++(void)postJSONWithPath:(NSString *)path data:(NSDictionary *)data  success:(void (^)(id responseObject, AFHTTPRequestOperation* operation))successCallback error:(void (^)(NSError *error))errorCallback{
     
     NSString *url = [self getUrlByPath:path];
     
@@ -61,7 +61,7 @@
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     
     [manager POST:url parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        successCallback(responseObject);
+        successCallback(responseObject, operation);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         errorCallback(error);
     }];

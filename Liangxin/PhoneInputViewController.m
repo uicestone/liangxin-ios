@@ -45,7 +45,7 @@
                            @"contact": cell.text.text
                            };
     
-    [ApiBase postJSONWithPath:@"/auth/user" data:data success:^(id responseObject) {
+    [ApiBase postJSONWithPath:@"/auth/user" data:data success:^(id responseObject, AFHTTPRequestOperation* operation) {
         // send a request
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"liangxin://vcodeinput"]];
     } error:^(NSError *error) {
