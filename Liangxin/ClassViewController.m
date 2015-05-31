@@ -40,7 +40,7 @@
         make.top.mas_equalTo(0);
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
-        make.height.mas_equalTo(200);
+        make.height.mas_equalTo(125);
     }];
     
     self.titleView = [UIView new];
