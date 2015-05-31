@@ -18,7 +18,6 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) LXCarouselView *carouselView;
 @property (nonatomic, strong) UIView *titleView;
-@property (nonatomic, strong) UIToolbar *bottomBar;
 
 @property (nonatomic, strong) LXClassViewModel *viewModel;
 
@@ -34,6 +33,8 @@
 - (void)commonInit {
     self.title = @"党群课堂";
     self.view.backgroundColor = [UIColor whiteColor];
+    self.tabBarController.tabBar.hidden = NO;
+    
     self.carouselView = [LXCarouselView carouselViewWithFrame:CGRectMake(0, 0, 320, 200) imageURLsGroup:nil];
     [self.view addSubview:self.carouselView];
     [self.carouselView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -92,16 +93,6 @@
         make.top.mas_equalTo(55);
         make.height.mas_equalTo(25);
     }];
-
-    self.bottomBar = [[UIToolbar alloc] init];
-    self.bottomBar.barStyle = UIBarStyleDefault;
-    [self.view addSubview:self.bottomBar];
-    [self.bottomBar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(0);
-        make.right.mas_equalTo(0);
-        make.bottom.mas_equalTo(0);
-        make.height.mas_equalTo(44);
-    }];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView.separatorInset = UIEdgeInsetsZero;
@@ -114,7 +105,7 @@
         make.top.mas_equalTo(self.titleView.mas_bottom);
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
-        make.bottom.equalTo(self.bottomBar.mas_top);
+        make.bottom.mas_equalTo(0);
     }];
     
     self.viewModel = [LXClassViewModel new];

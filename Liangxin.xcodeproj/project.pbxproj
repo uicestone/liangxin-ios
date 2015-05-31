@@ -78,6 +78,8 @@
 		2D537DD91B1968B5006BD35E /* LXBaseCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DD81B1968B5006BD35E /* LXBaseCollectionView.m */; };
 		2D537DDE1B19C024006BD35E /* ClassDetailTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DDD1B19C024006BD35E /* ClassDetailTitleCell.m */; };
 		2D537DE11B1AA0AA006BD35E /* LXBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DE01B1AA0AA006BD35E /* LXBaseViewController.m */; };
+		2D537DE41B1ABA5B006BD35E /* ClassDetailDescCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DE31B1ABA5B006BD35E /* ClassDetailDescCell.m */; };
+		2D537DE71B1ABB8F006BD35E /* ClassDetailBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DE61B1ABB8F006BD35E /* ClassDetailBaseCell.m */; };
 		2DFD651F1B15FE7800FAC662 /* LXCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD651E1B15FE7800FAC662 /* LXCarouselView.m */; };
 		2DFD65221B16001200FAC662 /* LXCarouselViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD65211B16001200FAC662 /* LXCarouselViewCell.m */; };
 		2DFD65261B1603D200FAC662 /* LXBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD65251B1603D200FAC662 /* LXBannerView.m */; };
@@ -230,6 +232,10 @@
 		2D537DDD1B19C024006BD35E /* ClassDetailTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassDetailTitleCell.m; path = Class/Views/ClassDetailTitleCell.m; sourceTree = "<group>"; };
 		2D537DDF1B1AA0AA006BD35E /* LXBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXBaseViewController.h; path = Base/LXBaseViewController.h; sourceTree = "<group>"; };
 		2D537DE01B1AA0AA006BD35E /* LXBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXBaseViewController.m; path = Base/LXBaseViewController.m; sourceTree = "<group>"; };
+		2D537DE21B1ABA5B006BD35E /* ClassDetailDescCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassDetailDescCell.h; path = Class/Views/ClassDetailDescCell.h; sourceTree = "<group>"; };
+		2D537DE31B1ABA5B006BD35E /* ClassDetailDescCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassDetailDescCell.m; path = Class/Views/ClassDetailDescCell.m; sourceTree = "<group>"; };
+		2D537DE51B1ABB8F006BD35E /* ClassDetailBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassDetailBaseCell.h; path = Class/Views/ClassDetailBaseCell.h; sourceTree = "<group>"; };
+		2D537DE61B1ABB8F006BD35E /* ClassDetailBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassDetailBaseCell.m; path = Class/Views/ClassDetailBaseCell.m; sourceTree = "<group>"; };
 		2DFD651D1B15FE7800FAC662 /* LXCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXCarouselView.h; path = Widgets/LXCarouselView.h; sourceTree = "<group>"; };
 		2DFD651E1B15FE7800FAC662 /* LXCarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXCarouselView.m; path = Widgets/LXCarouselView.m; sourceTree = "<group>"; };
 		2DFD65201B16001200FAC662 /* LXCarouselViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXCarouselViewCell.h; path = Widgets/LXCarouselViewCell.h; sourceTree = "<group>"; };
@@ -581,6 +587,10 @@
 			children = (
 				2D537DDC1B19C024006BD35E /* ClassDetailTitleCell.h */,
 				2D537DDD1B19C024006BD35E /* ClassDetailTitleCell.m */,
+				2D537DE51B1ABB8F006BD35E /* ClassDetailBaseCell.h */,
+				2D537DE61B1ABB8F006BD35E /* ClassDetailBaseCell.m */,
+				2D537DE21B1ABA5B006BD35E /* ClassDetailDescCell.h */,
+				2D537DE31B1ABA5B006BD35E /* ClassDetailDescCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -771,6 +781,7 @@
 				22D649D91B0A29FF004045B8 /* PostItemCell.m in Sources */,
 				22E6E2821B13416B005E528E /* PhoneInputViewController.m in Sources */,
 				22D64A321B0ACB6A004045B8 /* ImageCell.m in Sources */,
+				2D537DE41B1ABA5B006BD35E /* ClassDetailDescCell.m in Sources */,
 				22D64A361B0ACD2C004045B8 /* PostViewController.m in Sources */,
 				22E6E2551B11C380005E528E /* EntryItemCell.m in Sources */,
 				2215CB741B08EA0C00D0359A /* GroupMembersViewController.m in Sources */,
@@ -800,6 +811,7 @@
 				2293FA061AF50B550012CD10 /* BannerModel.m in Sources */,
 				2D537DC81B18BD7A006BD35E /* LXBaseModelUser.m in Sources */,
 				22E6E2591B11C582005E528E /* ClassViewController.m in Sources */,
+				2D537DE71B1ABB8F006BD35E /* ClassDetailBaseCell.m in Sources */,
 				2215CB4D1B07820C00D0359A /* NSDictionary+Encoding.m in Sources */,
 				22B51AA81B196A76000CF4A8 /* LXNavigationController.m in Sources */,
 				2293FA091AF5DBF20012CD10 /* GroupViewController.m in Sources */,
