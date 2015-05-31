@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UIButton *moreButton;
+@property (nonatomic, strong) UIView *bottomLine;
 
 @end
 
@@ -62,6 +63,15 @@
             make.top.mas_equalTo(1);
             make.bottom.mas_equalTo(-1);
             make.width.mas_equalTo(44);
+        }];
+        _bottomLine = [UIView new];
+        _bottomLine.backgroundColor = UIColorFromRGB(0xe6e7e8);
+        [self.contentView addSubview:_bottomLine];
+        [_bottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(0);
+            make.right.mas_equalTo(0);
+            make.bottom.mas_equalTo(0);
+            make.height.mas_equalTo(1);
         }];
     }
     return self;

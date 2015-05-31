@@ -121,6 +121,8 @@
     // 初始化tabbar controller
     
     self.tabBarController = [[UITabBarController alloc] init];
+    self.tabBarController.tabBar.translucent = NO;
+    self.tabBarController.tabBar.tintColor = [UIColor whiteColor];
     
     // FirstViewController
     UIViewController *fvc=[[UIViewController alloc] initWithNibName:nil bundle:nil];
