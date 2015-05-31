@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LXBaseViewController.h"
 
-@interface ClassDetailViewController : UIViewController
+@interface ClassDetailViewController : LXBaseViewController
 
 @end

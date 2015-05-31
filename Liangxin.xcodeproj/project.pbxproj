@@ -77,6 +77,7 @@
 		2D537DD51B196555006BD35E /* ClassDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DD41B196555006BD35E /* ClassDetailViewController.m */; };
 		2D537DD91B1968B5006BD35E /* LXBaseCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DD81B1968B5006BD35E /* LXBaseCollectionView.m */; };
 		2D537DDE1B19C024006BD35E /* ClassDetailTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DDD1B19C024006BD35E /* ClassDetailTitleCell.m */; };
+		2D537DE11B1AA0AA006BD35E /* LXBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DE01B1AA0AA006BD35E /* LXBaseViewController.m */; };
 		2DFD651F1B15FE7800FAC662 /* LXCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD651E1B15FE7800FAC662 /* LXCarouselView.m */; };
 		2DFD65221B16001200FAC662 /* LXCarouselViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD65211B16001200FAC662 /* LXCarouselViewCell.m */; };
 		2DFD65261B1603D200FAC662 /* LXBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD65251B1603D200FAC662 /* LXBannerView.m */; };
@@ -227,6 +228,8 @@
 		2D537DDA1B19A2ED006BD35E /* LXMacroDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LXMacroDefinition.h; path = Utils/LXMacroDefinition.h; sourceTree = "<group>"; };
 		2D537DDC1B19C024006BD35E /* ClassDetailTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassDetailTitleCell.h; path = Class/Views/ClassDetailTitleCell.h; sourceTree = "<group>"; };
 		2D537DDD1B19C024006BD35E /* ClassDetailTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassDetailTitleCell.m; path = Class/Views/ClassDetailTitleCell.m; sourceTree = "<group>"; };
+		2D537DDF1B1AA0AA006BD35E /* LXBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXBaseViewController.h; path = Base/LXBaseViewController.h; sourceTree = "<group>"; };
+		2D537DE01B1AA0AA006BD35E /* LXBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXBaseViewController.m; path = Base/LXBaseViewController.m; sourceTree = "<group>"; };
 		2DFD651D1B15FE7800FAC662 /* LXCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXCarouselView.h; path = Widgets/LXCarouselView.h; sourceTree = "<group>"; };
 		2DFD651E1B15FE7800FAC662 /* LXCarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXCarouselView.m; path = Widgets/LXCarouselView.m; sourceTree = "<group>"; };
 		2DFD65201B16001200FAC662 /* LXCarouselViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXCarouselViewCell.h; path = Widgets/LXCarouselViewCell.h; sourceTree = "<group>"; };
@@ -567,6 +570,8 @@
 			children = (
 				2D537DD71B1968B5006BD35E /* LXBaseCollectionView.h */,
 				2D537DD81B1968B5006BD35E /* LXBaseCollectionView.m */,
+				2D537DDF1B1AA0AA006BD35E /* LXBaseViewController.h */,
+				2D537DE01B1AA0AA006BD35E /* LXBaseViewController.m */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -751,6 +756,7 @@
 				2DFD65261B1603D200FAC662 /* LXBannerView.m in Sources */,
 				2DFD651F1B15FE7800FAC662 /* LXCarouselView.m in Sources */,
 				223267CC1AF2661B00431132 /* HomeViewController.m in Sources */,
+				2D537DE11B1AA0AA006BD35E /* LXBaseViewController.m in Sources */,
 				225BA69C1AFF30D0000E6D79 /* LXWebView.m in Sources */,
 				2D537DCB1B18BE66006BD35E /* LXBaseModelPost.m in Sources */,
 				2215CB461B075E0900D0359A /* LXJSBridge.m in Sources */,
