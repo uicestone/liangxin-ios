@@ -19,7 +19,7 @@
         CGFloat width = CGRectGetWidth(self.bounds) / self.images.count;
         for (NSInteger i = 0; i < self.images.count; i++) {
             UIButton *subview = [UIButton buttonWithType:UIButtonTypeCustom];
-            subview.enabled = NO;
+            subview.tag = 100 + i;
             [subview setTitle:[self.titles objectAtIndex:i] forState:UIControlStateNormal];
             [subview setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             [subview setImage:[UIImage imageNamed:[self.images objectAtIndex:i]] forState:UIControlStateNormal];
@@ -29,6 +29,7 @@
             subview.titleEdgeInsets = UIEdgeInsetsMake(0.0, - imageSize.width, - (imageSize.height + spacing), 0.0);
             CGSize titleSize = [subview.titleLabel.text sizeWithAttributes:@{NSFontAttributeName: subview.titleLabel.font}];
             subview.imageEdgeInsets = UIEdgeInsetsMake(- (titleSize.height + spacing), 0.0, 0.0, - titleSize.width);
+            [subview addTarget:self action:@selector(doClickSubview:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:subview];
             [subview mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.mas_equalTo(0);
@@ -37,6 +38,12 @@
                 make.width.mas_equalTo(width);
             }];
         }
+    }
+}
+
+- (void)doClickSubview:(UIButton *)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(bannerView:didSelectItemAtIndex:)]) {
+        [self.delegate bannerView:self didSelectItemAtIndex:sender.tag - 100];
     }
 }
 

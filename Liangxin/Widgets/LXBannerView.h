@@ -8,7 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class LXBannerView;
+
+@protocol LXBannerViewDelegate <NSObject>
+
+- (void)bannerView:(LXBannerView *)bannerView didSelectItemAtIndex:(NSInteger)index;
+
+@end
+
 @interface LXBannerView : UIView
+
+@property (nonatomic, weak) id<LXBannerViewDelegate> delegate;
 
 @property (nonatomic, strong) NSArray *images;
 @property (nonatomic, strong) NSArray *titles;

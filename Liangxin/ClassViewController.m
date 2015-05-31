@@ -14,7 +14,7 @@
 #import "ClassDetailViewController.h"
 #import "ClassListViewController.h"
 
-@interface ClassViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface ClassViewController () <UITableViewDataSource, UITableViewDelegate, LXBannerViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) LXCarouselView *carouselView;
@@ -98,6 +98,7 @@
     bannerView.titles = @[@"党建", @"青年", @"宣传", @"妇女", @"工会", @"廉政"];
     bannerView.images = @[@"Banner_DJ", @"Banner_QN", @"Banner_XC", @"Banner_FN", @"Banner_GH", @"Banner_LZ"];
     bannerView.backgroundColor = UIColorFromRGB(0xf99d33);
+    bannerView.delegate = self;
     [self.titleView addSubview:bannerView];
     [bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(0);
@@ -139,6 +140,12 @@
     } error:^(NSError *error) {
         
     }];
+}
+
+#pragma mark - LXBannerViewDelegate
+
+- (void)bannerView:(LXBannerView *)bannerView didSelectItemAtIndex:(NSInteger)index {
+    [self.navigationController pushViewController:[ClassListViewController new] animated:YES];
 }
 
 #pragma mark - UITableViewDataSource  && UITableViewDelegate
