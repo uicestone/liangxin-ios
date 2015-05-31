@@ -12,5 +12,7 @@
 @property int userId;
 @property NSString* name;
 @property NSString* contact;
+@property NSDictionary* group;
+@property NSString* groupPosition;
 +userFromJSONObject:(NSDictionary *)json;
 @end

@@ -20,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationItem.title = @"修改密码";
     tableview.scrollEnabled = NO;
     // Do any additional setup after loading the view from its nib.
 }

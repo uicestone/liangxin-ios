@@ -27,6 +27,7 @@
 #import "LXNavigationController.h"
 
 #import "Channels.h"
+#import "UserApi.h"
 
 #import "Definition.h"
 #import <HHRouter/HHRouter.h>
@@ -197,9 +198,13 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     if(buttonIndex != 3){
-        NSString* type = [@[@"notice",@"article",@"image"] objectAtIndex:buttonIndex];
-        NSString* url = [@"publish/?type=" stringByAppendingString:type];
-        openURL(url);
+        if([UserApi getCurrentUser]){
+            NSString* type = [@[@"notice",@"article",@"image"] objectAtIndex:buttonIndex];
+            NSString* url = [@"publish/?type=" stringByAppendingString:type];
+            openURL(url);
+        }else{
+            openURL(@"login");
+        }
     }
 }
 
@@ -213,14 +218,17 @@
     }else{
         query = [@"?" stringByAppendingString:query];
     }
-    NSString* path = [NSString stringWithFormat:@"/%@%@%@", [url host], [url path], query ];
+    
+    NSString* host = [url host];
+    
+    NSString* path = [NSString stringWithFormat:@"/%@%@%@", host, [url path], query ];
     
     NSLog(@"Navigate to %@", path);
     
     UIViewController *viewController = [[HHRouter shared] matchController:path];
     
     Channels* channels = [Channels shared];
-    int index = (int)[channels indexOfChannel:[url host]];
+    int index = (int)[channels indexOfChannel: host];
     
     if(index != -1){
         [self.navigationController.navigationItem setTitle:[channels titleAtIndex:index]];
@@ -231,11 +239,7 @@
             [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
             [self.navigationController.navigationBar setBarTintColor: [channels colorAtIndex:index]];
         }];
-        
-        
     }
-    
-
     
     if(navigationController){
         [navigationController pushViewController:viewController animated:YES];

@@ -7,8 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "User.h"
 
 @interface UserApi : NSObject
+
+
++(User *)getCurrentUser;
++(void)setCurrentUser:(User *)user;
 
 +(void) getUsersByGroupId:(int) groupId successHandler:(void (^)(NSArray *users))successHandler errorHandler:(void (^)(NSError *error))errorHandler;
 

@@ -9,6 +9,9 @@
 #import "LoginViewCell.h"
 #import "LoginViewController.h"
 #import "ApiBase.h"
+#import "UserApi.h"
+#import "User.h"
+#import "NSDictionary+Encoding.h"
 
 #define kReuseIdentifier @"LoginViewCell"
 
@@ -24,6 +27,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationItem.title = @"用户登录";
     
     tableview.scrollEnabled = NO;
     // Do any additional setup after loading the view from its nib.
@@ -83,15 +88,15 @@
         }
     }
     
-    
     NSDictionary* data = @{
                            @"username": username,
                            @"password": password
                            };
     
-    
-    [ApiBase postJSONWithPath:@"/auth/login" data:data success:^(id responseObject) {
-        
+    [ApiBase postJSONWithPath:@"/auth/login" data:data success:^(NSDictionary* responseObject) {
+        User* user = [[User alloc] init];
+        [UserApi setCurrentUser: user];
+        [self.navigationController popToRootViewControllerAnimated:YES];
         // back to home
     } error:^(NSError *error) {
         // pop error

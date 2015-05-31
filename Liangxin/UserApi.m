@@ -12,6 +12,16 @@
 
 @implementation UserApi 
 
+static User* currentUser;
+
++(User *)getCurrentUser{
+    return currentUser;
+}
+
++(void)setCurrentUser:(User *)user{
+    currentUser = user;
+}
+
 +(void) getUsersByGroupId:(int) groupId successHandler:(void (^)(NSArray *users))successHandler errorHandler:(void (^)(NSError *error))errorHandler{
 
     NSDictionary* data = @{@"group_id":[NSNumber numberWithInt:groupId]};
