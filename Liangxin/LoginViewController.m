@@ -12,6 +12,7 @@
 #import "UserApi.h"
 #import "LXBaseModelUser.h"
 #import "NSDictionary+Encoding.h"
+#import <HHRouter/HHRouter.h>
 
 #define kReuseIdentifier @"LoginViewCell"
 
@@ -28,11 +29,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(dismissLoginView:)];
+    self.navigationItem.rightBarButtonItem = cancelButton;
+    
     self.tabBarController.tabBar.hidden = YES;
     self.navigationItem.title = @"用户登录";
     
     tableview.scrollEnabled = NO;
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void)dismissLoginView:(id) sender{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,7 +80,7 @@
 
 
 - (IBAction)forgetBtnTouched:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"liangxin://phoneinput"]];
+    [self navigateToPath:@"/phoneinput"];
 }
 
 - (IBAction)submitBtnTouched:(id)sender {

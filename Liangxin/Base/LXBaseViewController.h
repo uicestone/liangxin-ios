@@ -10,4 +10,5 @@
 
 @interface LXBaseViewController : UIViewController
 
+- (void)navigateToPath:(NSString *)path;
 @end

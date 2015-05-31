@@ -47,7 +47,7 @@
     
     [ApiBase postJSONWithPath:@"/auth/user" data:data success:^(id responseObject, AFHTTPRequestOperation* operation) {
         // send a request
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"liangxin://vcodeinput"]];
+        [self navigateToPath:@"/vcodeinput"];
     } error:^(NSError *error) {
         // pop error
     }];

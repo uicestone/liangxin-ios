@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LXBaseViewController.h"
 
-@interface ModifyPasswordViewController : UIViewController
+@interface ModifyPasswordViewController : LXBaseViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (weak, nonatomic) IBOutlet UIButton *submit;
 

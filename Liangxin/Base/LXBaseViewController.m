@@ -7,6 +7,9 @@
 //
 
 #import "LXBaseViewController.h"
+#import "LoginViewController.h"
+#import "UserApi.h"
+#import <HHRouter.h>
 
 @interface LXBaseViewController ()
 
@@ -14,9 +17,27 @@
 
 @implementation LXBaseViewController
 
+- (BOOL) shouldLogin{
+    return NO;
+}
+
+- (void)navigateToPath:(NSString *)path{
+    UIViewController *viewController = [[HHRouter shared] matchController:path];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
 - (void)viewDidLoad {
+    if([self shouldLogin] && ![UserApi getCurrentUser]){
+        LoginViewController* loginViewController = [[LoginViewController alloc] init];
+        UINavigationController* loginNavigationController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+        
+        loginNavigationController.navigationItem.rightBarButtonItem.title = @"取消";
+        
+        [self presentViewController:loginNavigationController animated:YES completion:nil];
+    }
+    
     [super viewDidLoad];
-    self.extendedLayoutIncludesOpaqueBars = YES;
+    self.extendedLayoutIncludesOpaqueBars = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 

@@ -11,8 +11,9 @@
 #import "LXJSBridge+Fetch.h"
 #import "LXJSBridge+SetTitle.h"
 #import "LXJSBridge+PickImage.h"
+#import "LXBaseViewController.h"
 
-@interface LXWebViewController : UIViewController
+@interface LXWebViewController : LXBaseViewController
 @property LXJSBridge* jsbridge;
 - (void)loadPage:(NSString *)url;
 @end

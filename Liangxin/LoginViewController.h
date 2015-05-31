@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LXBaseViewController.h"
 
-@interface LoginViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface LoginViewController : LXBaseViewController <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (weak, nonatomic) IBOutlet UIButton *forget;
 @property (weak, nonatomic) IBOutlet UIButton *submit;

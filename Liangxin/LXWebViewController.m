@@ -46,7 +46,7 @@
 
 - (void)viewDidLoad {
     
-    webview = [[LXWebView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) + 20)];
+    webview = [[LXWebView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds))];
     webview.delegate = self;
     jsbridge = [LXJSBridge initWithWebView:webview];
     jsbridge.viewController = self;
@@ -66,7 +66,7 @@
 }
 
 -(void)setStatusBarBackgroundColor{
-    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 20)];
+    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 0)];
     [view setBackgroundColor:UIColorFromRGB(0xe6e7e8)];
     [self.view addSubview:view];
 }

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LXBaseViewController.h"
 
-@interface PhoneInputViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface PhoneInputViewController : LXBaseViewController <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (weak, nonatomic) IBOutlet UIButton *submit;
 

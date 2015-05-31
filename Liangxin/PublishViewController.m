@@ -16,6 +16,10 @@
 @implementation PublishViewController
 
 
+- (BOOL)shouldLogin{
+    return YES;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

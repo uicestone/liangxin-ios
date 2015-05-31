@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LXBaseViewController.h"
 
-@interface VCodeInputViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface VCodeInputViewController : LXBaseViewController <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (weak, nonatomic) IBOutlet UIButton *submit;
 
