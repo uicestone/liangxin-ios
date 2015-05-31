@@ -8,7 +8,7 @@
 
 #import "LXCarouselView.h"
 #import "LXCarouselViewCell.h"
-#import "UIImageView+AFNetworking.h"
+#import "UIImageView+WebCache.h"
 
 @interface LXCarouselView() <UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -16,7 +16,6 @@
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
 @property (nonatomic, assign) NSInteger totalItemsCount;
 @property (nonatomic, strong) NSTimer *timer;
-@property (nonatomic, strong) UIPageControl *pageControl;
 
 @end
 
@@ -129,7 +128,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     LXCarouselViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"LXCarouselViewCell" forIndexPath:indexPath];
     NSInteger itemIndex = indexPath.item % self.imageURLsGroup.count;
-    [cell.imageView setImageWithURL:[NSURL URLWithString:[self.imageURLsGroup objectAtIndex:itemIndex]]];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:[self.imageURLsGroup objectAtIndex:itemIndex]]];
     return cell;
 }
 

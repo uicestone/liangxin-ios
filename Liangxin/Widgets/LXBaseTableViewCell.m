@@ -56,6 +56,16 @@
             make.top.mas_equalTo(25);
             make.height.mas_equalTo(33);
         }];
+        
+        UIView *bottomLine = [UIView new];
+        bottomLine.backgroundColor = [UIColor colorWithRed:200/255.0 green:199/255.0 blue:204/255.0 alpha:1.0];
+        [self.contentView addSubview:bottomLine];
+        [bottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(0);
+            make.right.mas_equalTo(0);
+            make.bottom.mas_equalTo(0);
+            make.height.mas_equalTo(1/[UIScreen mainScreen].scale);
+        }];
     }
     return self;
 }
