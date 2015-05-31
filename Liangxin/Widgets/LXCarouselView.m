@@ -16,7 +16,6 @@
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
 @property (nonatomic, assign) NSInteger totalItemsCount;
 @property (nonatomic, strong) NSTimer *timer;
-@property (nonatomic, strong) UIPageControl *pageControl;
 
 @end
 

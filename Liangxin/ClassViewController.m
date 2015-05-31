@@ -36,6 +36,8 @@
     self.tabBarController.tabBar.hidden = NO;
     
     self.carouselView = [LXCarouselView carouselViewWithFrame:CGRectMake(0, 0, 320, 200) imageURLsGroup:nil];
+    self.carouselView.pageControl.currentPageIndicatorTintColor = UIColorFromRGB(0xf99d33);
+    self.carouselView.pageControl.pageIndicatorTintColor = UIColorFromRGB(0xbbbdc0);
     [self.view addSubview:self.carouselView];
     [self.carouselView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(0);

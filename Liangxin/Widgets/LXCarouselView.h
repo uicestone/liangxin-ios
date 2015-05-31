@@ -18,6 +18,7 @@
 
 @interface LXCarouselView : UIView
 
+@property (nonatomic, strong) UIPageControl *pageControl;
 @property (nonatomic, strong) NSArray *imageURLsGroup;
 @property (nonatomic, assign) CGFloat autoScrollTimeInterval;
 
