@@ -12,6 +12,7 @@
 #import "LXBaseTableViewCell.h"
 #import "LXClassViewModel.h"
 #import "ClassDetailViewController.h"
+#import "ClassListViewController.h"
 
 @interface ClassViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -81,6 +82,15 @@
             make.left.mas_equalTo(i * width);
             make.width.mas_equalTo(width);
             make.height.mas_equalTo(50);
+        }];
+        @weakify(self)
+        channelView.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+            return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+                @strongify(self)
+                [self.navigationController pushViewController:[ClassListViewController new] animated:YES];
+                [subscriber sendCompleted];
+                return nil;
+            }];
         }];
     }
     
