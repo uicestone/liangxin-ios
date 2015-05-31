@@ -7,10 +7,13 @@
 //
 
 #import "ClassListViewController.h"
+#import "LXBaseTableViewCell.h"
+#import "LXClassListViewModel.h"
 
 @interface ClassListViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) LXClassListViewModel *viewModel;
 
 @end
 
@@ -18,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self commonInit];
 }
 
 - (void)commonInit {
@@ -25,8 +29,6 @@
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.separatorInset = UIEdgeInsetsZero;
-    self.tableView.layoutMargins = UIEdgeInsetsZero;
     self.tableView.rowHeight = 75;
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -36,6 +38,7 @@
         make.bottom.mas_equalTo(0);
     }];
     self.tabBarController.tabBar.hidden = YES;
+    self.viewModel = [LXClassListViewModel new];
 }
 
 #pragma mark - UITableViewDataSource && UITableViewDelegate
@@ -45,7 +48,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return self.viewModel.listData.count;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -53,7 +56,12 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    LXBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ClassCell"];
+    if (!cell) {
+        cell = [[LXBaseTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ClassCell"];
+    }
+    cell.style = LXTableViewCellStyleClass;
+    return cell;
 }
 
 @end
