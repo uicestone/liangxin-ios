@@ -8,6 +8,7 @@
 
 #import "ClassDetailViewController.h"
 #import "ClassDetailTitleCell.h"
+#import "ClassDetailDescCell.h"
 
 @interface ClassDetailViewController() <UITableViewDataSource, UITableViewDelegate>
 
@@ -36,6 +37,7 @@
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(0);
@@ -51,11 +53,14 @@
     if (indexPath.section == 0) {
         return 85;
     }
+    if (indexPath.section == 1) {
+        return 70;
+    }
     return 0;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -68,6 +73,14 @@
         if (!cell) {
             cell = [[ClassDetailTitleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ClassDetailTitleCell"];
         }
+        return cell;
+    }
+    else if (indexPath.section == 1) {
+        ClassDetailDescCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ClassDetailDescCell"];
+        if (!cell) {
+            cell = [[ClassDetailDescCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ClassDetailDescCell"];
+        }
+        cell.title = @"课堂描述";
         return cell;
     }
     return nil;
