@@ -84,6 +84,9 @@
 		2D537DF01B1AEB38006BD35E /* ClassDetailVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DEF1B1AEB38006BD35E /* ClassDetailVideoCell.m */; };
 		2D537DF31B1AED21006BD35E /* ClassDetailDocumentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DF21B1AED21006BD35E /* ClassDetailDocumentCell.m */; };
 		2D537DF61B1AF4CE006BD35E /* LXBaseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DF51B1AF4CE006BD35E /* LXBaseCollectionViewController.m */; };
+		2D537DF91B1AF55F006BD35E /* ClassAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DF81B1AF55F006BD35E /* ClassAlbumViewController.m */; };
+		2D537DFC1B1AF572006BD35E /* ClassVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DFB1B1AF572006BD35E /* ClassVideoViewController.m */; };
+		2D537DFF1B1AF588006BD35E /* ClassDocumentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DFE1B1AF588006BD35E /* ClassDocumentViewController.m */; };
 		2DFD651F1B15FE7800FAC662 /* LXCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD651E1B15FE7800FAC662 /* LXCarouselView.m */; };
 		2DFD65221B16001200FAC662 /* LXCarouselViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD65211B16001200FAC662 /* LXCarouselViewCell.m */; };
 		2DFD65261B1603D200FAC662 /* LXBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD65251B1603D200FAC662 /* LXBannerView.m */; };
@@ -248,6 +251,12 @@
 		2D537DF21B1AED21006BD35E /* ClassDetailDocumentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassDetailDocumentCell.m; path = Class/Views/ClassDetailDocumentCell.m; sourceTree = "<group>"; };
 		2D537DF41B1AF4CE006BD35E /* LXBaseCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXBaseCollectionViewController.h; path = Base/LXBaseCollectionViewController.h; sourceTree = "<group>"; };
 		2D537DF51B1AF4CE006BD35E /* LXBaseCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXBaseCollectionViewController.m; path = Base/LXBaseCollectionViewController.m; sourceTree = "<group>"; };
+		2D537DF71B1AF55F006BD35E /* ClassAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassAlbumViewController.h; path = Class/ClassAlbumViewController.h; sourceTree = "<group>"; };
+		2D537DF81B1AF55F006BD35E /* ClassAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassAlbumViewController.m; path = Class/ClassAlbumViewController.m; sourceTree = "<group>"; };
+		2D537DFA1B1AF572006BD35E /* ClassVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassVideoViewController.h; path = Class/ClassVideoViewController.h; sourceTree = "<group>"; };
+		2D537DFB1B1AF572006BD35E /* ClassVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassVideoViewController.m; path = Class/ClassVideoViewController.m; sourceTree = "<group>"; };
+		2D537DFD1B1AF588006BD35E /* ClassDocumentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassDocumentViewController.h; path = Class/ClassDocumentViewController.h; sourceTree = "<group>"; };
+		2D537DFE1B1AF588006BD35E /* ClassDocumentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassDocumentViewController.m; path = Class/ClassDocumentViewController.m; sourceTree = "<group>"; };
 		2DFD651D1B15FE7800FAC662 /* LXCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXCarouselView.h; path = Widgets/LXCarouselView.h; sourceTree = "<group>"; };
 		2DFD651E1B15FE7800FAC662 /* LXCarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXCarouselView.m; path = Widgets/LXCarouselView.m; sourceTree = "<group>"; };
 		2DFD65201B16001200FAC662 /* LXCarouselViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXCarouselViewCell.h; path = Widgets/LXCarouselViewCell.h; sourceTree = "<group>"; };
@@ -525,6 +534,12 @@
 				22E6E2581B11C582005E528E /* ClassViewController.m */,
 				2D537DD31B196555006BD35E /* ClassDetailViewController.h */,
 				2D537DD41B196555006BD35E /* ClassDetailViewController.m */,
+				2D537DF71B1AF55F006BD35E /* ClassAlbumViewController.h */,
+				2D537DF81B1AF55F006BD35E /* ClassAlbumViewController.m */,
+				2D537DFA1B1AF572006BD35E /* ClassVideoViewController.h */,
+				2D537DFB1B1AF572006BD35E /* ClassVideoViewController.m */,
+				2D537DFD1B1AF588006BD35E /* ClassDocumentViewController.h */,
+				2D537DFE1B1AF588006BD35E /* ClassDocumentViewController.m */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -784,6 +799,7 @@
 				2215CB651B0837C400D0359A /* User.m in Sources */,
 				2D537DCE1B18BE83006BD35E /* LXBaseModelGroup.m in Sources */,
 				2DFD65261B1603D200FAC662 /* LXBannerView.m in Sources */,
+				2D537DFC1B1AF572006BD35E /* ClassVideoViewController.m in Sources */,
 				2DFD651F1B15FE7800FAC662 /* LXCarouselView.m in Sources */,
 				223267CC1AF2661B00431132 /* HomeViewController.m in Sources */,
 				2D537DE11B1AA0AA006BD35E /* LXBaseViewController.m in Sources */,
@@ -795,8 +811,10 @@
 				2215CB491B075E3900D0359A /* LXJSBridge+Fetch.m in Sources */,
 				2215D95E1B0EC44D00D96C46 /* ActivityViewController.m in Sources */,
 				22E6E2621B11F38B005E528E /* ActivityItemCell.m in Sources */,
+				2D537DFF1B1AF588006BD35E /* ClassDocumentViewController.m in Sources */,
 				2D537DF31B1AED21006BD35E /* ClassDetailDocumentCell.m in Sources */,
 				22238C1B1AF64F02000B4F95 /* Channels.m in Sources */,
+				2D537DF91B1AF55F006BD35E /* ClassAlbumViewController.m in Sources */,
 				2D537DD51B196555006BD35E /* ClassDetailViewController.m in Sources */,
 				2215CB5C1B082B1E00D0359A /* GroupPostViewController.m in Sources */,
 				22D649D91B0A29FF004045B8 /* PostItemCell.m in Sources */,
