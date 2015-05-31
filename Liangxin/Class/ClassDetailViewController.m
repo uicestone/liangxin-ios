@@ -7,10 +7,12 @@
 //
 
 #import "ClassDetailViewController.h"
+#import "ClassDetailTitleCell.h"
 
-@interface ClassDetailViewController()
+@interface ClassDetailViewController() <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UIToolbar *bottomBar;
+@property (nonatomic, strong) UITableView *tableView;
 
 @end
 
@@ -31,15 +33,44 @@
         make.bottom.mas_equalTo(0);
         make.height.mas_equalTo(44);
     }];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        make.top.mas_equalTo(0);
+        make.bottom.equalTo(self.bottomBar.mas_top);
+    }];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = YES;
+#pragma mark - UITableViewDataSource && UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return 85;
+    }
+    return 0;
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        ClassDetailTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ClassDetailTitleCell"];
+        if (!cell) {
+            cell = [[ClassDetailTitleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ClassDetailTitleCell"];
+        }
+        return cell;
+    }
+    return nil;
 }
 
 @end

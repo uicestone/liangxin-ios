@@ -1,5 +1,5 @@
 //
-//  ClassDetailViewController.h
+//  ClassDetailTitleCell.h
 //  Liangxin
 //
 //  Created by xiebohui on 5/30/15.
@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LXBaseViewController.h"
 
-@interface ClassDetailViewController : LXBaseViewController
+@interface ClassDetailTitleCell : UITableViewCell
 
 @end

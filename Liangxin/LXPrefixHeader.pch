@@ -13,5 +13,6 @@
 #import "ReactiveCocoa.h"
 #import "AFNetworking.h"
 #import "NSDictionary+Utils.h"
+#import "LXMacroDefinition.h"
 
 #endif
