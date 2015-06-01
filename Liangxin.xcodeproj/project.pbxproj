@@ -89,6 +89,7 @@
 		2D537DFF1B1AF588006BD35E /* ClassDocumentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DFE1B1AF588006BD35E /* ClassDocumentViewController.m */; };
 		2D537E021B1AF6D7006BD35E /* ClassListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537E011B1AF6D7006BD35E /* ClassListViewController.m */; };
 		2D6160AD1B1C9661001D01D8 /* LXFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160AC1B1C9661001D01D8 /* LXFilterView.m */; };
+		2D6160B01B1C9EB7001D01D8 /* LXFilterViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160AF1B1C9EB7001D01D8 /* LXFilterViewCell.m */; };
 		2D75A2DB1B1B4A0700A8FA95 /* LXClassListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D75A2DA1B1B4A0700A8FA95 /* LXClassListViewModel.m */; };
 		2DFD651F1B15FE7800FAC662 /* LXCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD651E1B15FE7800FAC662 /* LXCarouselView.m */; };
 		2DFD65221B16001200FAC662 /* LXCarouselViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD65211B16001200FAC662 /* LXCarouselViewCell.m */; };
@@ -264,6 +265,8 @@
 		2D537E011B1AF6D7006BD35E /* ClassListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassListViewController.m; path = Class/ClassListViewController.m; sourceTree = "<group>"; };
 		2D6160AB1B1C9661001D01D8 /* LXFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXFilterView.h; path = Widgets/LXFilterView.h; sourceTree = "<group>"; };
 		2D6160AC1B1C9661001D01D8 /* LXFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXFilterView.m; path = Widgets/LXFilterView.m; sourceTree = "<group>"; };
+		2D6160AE1B1C9EB7001D01D8 /* LXFilterViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXFilterViewCell.h; path = Widgets/LXFilterViewCell.h; sourceTree = "<group>"; };
+		2D6160AF1B1C9EB7001D01D8 /* LXFilterViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXFilterViewCell.m; path = Widgets/LXFilterViewCell.m; sourceTree = "<group>"; };
 		2D75A2D91B1B4A0700A8FA95 /* LXClassListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXClassListViewModel.h; path = Class/ViewModel/LXClassListViewModel.h; sourceTree = "<group>"; };
 		2D75A2DA1B1B4A0700A8FA95 /* LXClassListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXClassListViewModel.m; path = Class/ViewModel/LXClassListViewModel.m; sourceTree = "<group>"; };
 		2DFD651D1B15FE7800FAC662 /* LXCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXCarouselView.h; path = Widgets/LXCarouselView.h; sourceTree = "<group>"; };
@@ -597,6 +600,8 @@
 				2DFD65281B16143400FAC662 /* LXBaseTableViewCell.m */,
 				2D6160AB1B1C9661001D01D8 /* LXFilterView.h */,
 				2D6160AC1B1C9661001D01D8 /* LXFilterView.m */,
+				2D6160AE1B1C9EB7001D01D8 /* LXFilterViewCell.h */,
+				2D6160AF1B1C9EB7001D01D8 /* LXFilterViewCell.m */,
 			);
 			name = Widgets;
 			sourceTree = "<group>";
@@ -882,6 +887,7 @@
 				22238C571AFBAE30000B4F95 /* ApiBase.m in Sources */,
 				2210A37E1AFDF84900D9CA1A /* Group.m in Sources */,
 				2D537DF01B1AEB38006BD35E /* ClassDetailVideoCell.m in Sources */,
+				2D6160B01B1C9EB7001D01D8 /* LXFilterViewCell.m in Sources */,
 				2215D9611B10CF3600D96C46 /* LXJSBridge+SetTitle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

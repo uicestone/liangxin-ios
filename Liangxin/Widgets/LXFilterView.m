@@ -8,13 +8,21 @@
 
 #import "LXFilterView.h"
 
-@interface LXFilterView()
+typedef NS_ENUM(NSInteger, LXFilterViewType){
+    LXFilterViewTypeDefault,
+    LXFilterViewType1,
+    LXFilterViewType2
+};
+
+@interface LXFilterView() <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UIView *filterView;
 @property (nonatomic, strong) UITableView *tableView;
 
 @property (nonatomic, strong) UIButton *filterButton1;
 @property (nonatomic, strong) UIButton *filterButton2;
+
+@property (nonatomic, assign) LXFilterViewType currentType;
 
 @end
 
@@ -71,6 +79,13 @@
             make.bottom.mas_equalTo(0);
         }];
         self.bounds = self.filterView.bounds;
+        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.rowHeight = 18;
+        [self addSubview:_tableView];
+        
+        _currentType = LXFilterViewTypeDefault;
     }
     return self;
 }
@@ -87,6 +102,33 @@
     if (_category2.count > 0) {
         [self.filterButton2 setTitle:self.category2[0] forState:UIControlStateNormal];
     }
+}
+
+#pragma mark - UITableViewDataSource && UITableViewDelegate
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return nil;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    switch (self.currentType) {
+        case LXFilterViewTypeDefault:
+            return 0;
+            break;
+        case LXFilterViewType1:
+            return self.category1.count;
+            break;
+        case LXFilterViewType2:
+            return self.category2.count;
+            break;
+        default:
+            break;
+    }
+    return 0;
 }
 
 @end
