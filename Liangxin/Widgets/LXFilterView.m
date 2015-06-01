@@ -7,6 +7,7 @@
 //
 
 #import "LXFilterView.h"
+#import "LXFilterViewCell.h"
 
 typedef NS_ENUM(NSInteger, LXFilterViewType){
     LXFilterViewTypeDefault,
@@ -61,6 +62,7 @@ typedef NS_ENUM(NSInteger, LXFilterViewType){
         self.filterButton1 = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.filterButton1 setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         self.filterButton1.titleLabel.font = [UIFont systemFontOfSize:15.0];
+        [self.filterButton1 addTarget:self action:@selector(showFilterView:) forControlEvents:UIControlEventTouchUpInside];
         [self.filterView addSubview:self.filterButton1];
         [self.filterButton1 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(0);
@@ -71,6 +73,7 @@ typedef NS_ENUM(NSInteger, LXFilterViewType){
         self.filterButton2 = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.filterButton2 setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         self.filterButton2.titleLabel.font = [UIFont systemFontOfSize:15.0];
+        [self.filterButton2 addTarget:self action:@selector(showFilterView:) forControlEvents:UIControlEventTouchUpInside];
         [self.filterView addSubview:self.filterButton2];
         [self.filterButton1 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(seperatorLine.mas_right);
@@ -104,10 +107,57 @@ typedef NS_ENUM(NSInteger, LXFilterViewType){
     }
 }
 
+- (void)showFilterView:(id)sender {
+    if (sender == self.filterButton1) {
+        self.currentType = LXFilterViewType1;
+    }
+    else {
+        self.currentType = LXFilterViewType2;
+    }
+}
+
+- (void)setCurrentType:(LXFilterViewType)currentType {
+    if (currentType == LXFilterViewTypeDefault) {
+        CGFloat height = CGRectGetHeight(self.tableView.bounds);
+        [UIView animateWithDuration:0.3 animations:^{
+            self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds) - height, CGRectGetWidth(self.bounds), height);
+        }];
+    }
+    if (currentType == LXFilterViewType1 && _currentType == LXFilterViewTypeDefault) {
+        CGFloat height = self.category1.count >= 6?108:self.category1.count * 18;
+        self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds) - height, CGRectGetWidth(self.bounds), height);
+        [UIView animateWithDuration:0.5 animations:^{
+            self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds), CGRectGetWidth(self.bounds), height);
+        }];
+    }
+    else if (currentType == LXFilterViewType2 && _currentType == LXFilterViewTypeDefault) {
+        CGFloat height = self.category2.count >= 6?108:self.category2.count * 18;
+        self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds) - height, CGRectGetWidth(self.bounds), height);
+        [UIView animateWithDuration:0.5 animations:^{
+            self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds), CGRectGetWidth(self.bounds), height);
+        }];
+    }
+    else if (currentType == LXFilterViewType1 && _currentType == LXFilterViewType2){
+        CGFloat height = self.category1.count >= 6?108:self.category1.count * 18;
+        self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds), CGRectGetWidth(self.bounds), height);
+    }
+    else {
+        CGFloat height = self.category2.count >= 6?108:self.category2.count * 18;
+        self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds), CGRectGetWidth(self.bounds), height);
+    }
+    _currentType = currentType;
+    [self.tableView reloadData];
+}
+
 #pragma mark - UITableViewDataSource && UITableViewDelegate
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    static NSString *cellIdentifier = @"LXFilterViewCell";
+    LXFilterViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (!cell) {
+        cell = [[LXFilterViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    return cell;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
