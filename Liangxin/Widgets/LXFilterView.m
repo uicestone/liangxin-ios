@@ -29,10 +29,10 @@ typedef NS_ENUM(NSInteger, LXFilterViewType){
 
 @implementation LXFilterView
 
-- (instancetype)init
-{
-    self = [super init];
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = [UIColor whiteColor];
         self.filterView = [UIView new];
         [self addSubview:self.filterView];
         [self.filterView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -60,6 +60,7 @@ typedef NS_ENUM(NSInteger, LXFilterViewType){
             make.centerX.equalTo(self.mas_centerX);
         }];
         self.filterButton1 = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.filterButton1.backgroundColor = [UIColor whiteColor];
         [self.filterButton1 setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         self.filterButton1.titleLabel.font = [UIFont systemFontOfSize:15.0];
         [self.filterButton1 addTarget:self action:@selector(showFilterView:) forControlEvents:UIControlEventTouchUpInside];
@@ -68,20 +69,20 @@ typedef NS_ENUM(NSInteger, LXFilterViewType){
             make.left.mas_equalTo(0);
             make.right.equalTo(seperatorLine.mas_left);
             make.top.mas_equalTo(0);
-            make.bottom.mas_equalTo(0);
+            make.bottom.equalTo(bottomLine.mas_top);
         }];
         self.filterButton2 = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.filterButton2.backgroundColor = [UIColor whiteColor];
         [self.filterButton2 setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         self.filterButton2.titleLabel.font = [UIFont systemFontOfSize:15.0];
         [self.filterButton2 addTarget:self action:@selector(showFilterView:) forControlEvents:UIControlEventTouchUpInside];
         [self.filterView addSubview:self.filterButton2];
-        [self.filterButton1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        [self.filterButton2 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(seperatorLine.mas_right);
-            make.right.equalTo(0);
+            make.right.mas_equalTo(0);
             make.top.mas_equalTo(0);
-            make.bottom.mas_equalTo(0);
+            make.bottom.equalTo(bottomLine.mas_top);
         }];
-        self.bounds = self.filterView.bounds;
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;

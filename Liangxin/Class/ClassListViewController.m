@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) LXClassListViewModel *viewModel;
+@property (nonatomic, strong) LXFilterView *filterView;
 
 @end
 
@@ -27,6 +28,16 @@
 
 - (void)commonInit {
     self.title = @"课堂列表";
+    self.tabBarController.tabBar.hidden = YES;
+    self.viewModel = [LXClassListViewModel new];
+    self.filterView = [[LXFilterView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 22)];
+    [self.view addSubview:self.filterView];
+    [self.filterView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        make.top.mas_equalTo(0);
+        make.height.mas_equalTo(22);
+    }];
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -35,11 +46,9 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
-        make.top.mas_equalTo(0);
+        make.top.mas_equalTo(CGRectGetHeight(self.filterView.bounds));
         make.bottom.mas_equalTo(0);
     }];
-    self.tabBarController.tabBar.hidden = YES;
-    self.viewModel = [LXClassListViewModel new];
 }
 
 #pragma mark - UITableViewDataSource && UITableViewDelegate
