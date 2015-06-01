@@ -10,4 +10,7 @@
 
 @interface LXFilterView : UIView
 
+@property (nonatomic, strong) NSArray *category1;
+@property (nonatomic, strong) NSArray *category2;
+
 @end
