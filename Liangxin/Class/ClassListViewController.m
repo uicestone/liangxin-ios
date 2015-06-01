@@ -9,6 +9,7 @@
 #import "ClassListViewController.h"
 #import "LXBaseTableViewCell.h"
 #import "LXClassListViewModel.h"
+#import "LXFilterView.h"
 
 @interface ClassListViewController () <UITableViewDataSource, UITableViewDelegate>
 

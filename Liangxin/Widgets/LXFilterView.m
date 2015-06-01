@@ -128,6 +128,7 @@ typedef NS_ENUM(NSInteger, LXFilterViewType){
         self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds) - height, CGRectGetWidth(self.bounds), height);
         [UIView animateWithDuration:0.5 animations:^{
             self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds), CGRectGetWidth(self.bounds), height);
+            self.bounds = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.filterView.bounds) + CGRectGetHeight(self.tableView.bounds));
         }];
     }
     else if (currentType == LXFilterViewType2 && _currentType == LXFilterViewTypeDefault) {
@@ -135,15 +136,18 @@ typedef NS_ENUM(NSInteger, LXFilterViewType){
         self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds) - height, CGRectGetWidth(self.bounds), height);
         [UIView animateWithDuration:0.5 animations:^{
             self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds), CGRectGetWidth(self.bounds), height);
+            self.bounds = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.filterView.bounds) + CGRectGetHeight(self.tableView.bounds));
         }];
     }
     else if (currentType == LXFilterViewType1 && _currentType == LXFilterViewType2){
         CGFloat height = self.category1.count >= 6?108:self.category1.count * 18;
         self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds), CGRectGetWidth(self.bounds), height);
+        self.bounds = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.filterView.bounds) + CGRectGetHeight(self.tableView.bounds));
     }
     else {
         CGFloat height = self.category2.count >= 6?108:self.category2.count * 18;
         self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds), CGRectGetWidth(self.bounds), height);
+        self.bounds = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.filterView.bounds) + CGRectGetHeight(self.tableView.bounds));
     }
     _currentType = currentType;
     [self.tableView reloadData];
