@@ -12,4 +12,6 @@
 - (BOOL) shouldLogin;
 - (void)navigateToPath:(NSString *)path;
 - (void)popMessage:(NSString *)message;
+- (void)showProgress;
+- (void)hideProgress;
 @end

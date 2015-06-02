@@ -25,6 +25,7 @@
 #import "VCodeInputViewController.h"
 #import "ModifyPasswordViewController.h"
 #import "LXNavigationController.h"
+#import "ServiceHomeViewController.h"
 
 #import "Channels.h"
 #import "UserApi.h"
@@ -93,6 +94,9 @@
     // 更改密码
     [[HHRouter shared] map:@"/modifypassword" toControllerClass:[ModifyPasswordViewController class]];
     
+    // 党群服务
+    [[HHRouter shared] map:@"/service" toControllerClass:[ServiceHomeViewController class]];
+    
     
     // 更改默认userAgent
     
@@ -118,7 +122,7 @@
     #endif
     
     // 初始化Navigation Controller
-    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/home"];
+    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/service"];
     
     
     // 初始化tabbar controller

@@ -8,10 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "EntryListView.h"
+#import "Channels.h"
+#import "LXBaseViewController.h"
 
-@interface EntryBaseViewController : UIViewController <EntryListViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface EntryBaseViewController : LXBaseViewController <EntryListViewDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) NSArray* filterList;
 @property (nonatomic, strong) NSArray* categoryList;
-@property (nonatomic, strong) NSArray* activities;
-@property (nonatomic, strong) NSString* type;
+@property (nonatomic, strong) NSArray* posts;
+@property (nonatomic, strong) NSString* bannerType;
+@property (nonatomic, strong) NSString* postType;
+@property (nonatomic, strong) UITableView* tableView;
+@property (nonatomic, strong) NSString* tableViewTitle;
+@property (nonatomic, assign) CGFloat winWidth;
+@property (nonatomic, assign) CGFloat winHeight;
+@property (nonatomic, assign) int filterRows, filterColumns;
+@property (assign) CGFloat offset;
 @end

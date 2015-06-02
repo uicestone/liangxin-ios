@@ -13,7 +13,7 @@
 #import <MBProgressHUD/MBProgressHUD.h>
 
 @interface LXBaseViewController ()
-
+@property (nonatomic, strong) MBProgressHUD* progress;
 @end
 
 @implementation LXBaseViewController
@@ -27,9 +27,18 @@
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
+-(void)showProgress{
+    _progress = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+}
+
+-(void)hideProgress{
+    if(_progress){
+        _progress.hidden = YES;
+    }
+}
+
 -(void)popMessage:(NSString *)message{
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.mode = MBProgressHUDModeAnnularDeterminate;
     hud.labelText = message;
     hud.mode = MBProgressHUDModeText;
     

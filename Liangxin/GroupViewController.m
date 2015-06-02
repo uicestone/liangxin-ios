@@ -48,7 +48,6 @@
         NSArray* newGroupItems = [GroupApi getGroupsWithParentId:groupid];
         self.items = newGroupItems;
         
-        
         Group* group = [GroupApi getGroupById:groupid];
         if(group){
             [self setTitle:group.name];
@@ -73,7 +72,10 @@
     
     // 搜个货
     if(!items){
+        [self showProgress];
+        
         [GroupApi getAllGroupsWithSuccessHandler:^(NSArray *groups) {
+            [self hideProgress];
             items = originItems = [GroupApi getGroupsWithParentId:0];
             [tableView reloadData];
         } errorHandler:^(NSError *err){

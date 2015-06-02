@@ -41,7 +41,7 @@
     CGFloat itemHeight = CGRectGetHeight(self.view.frame) / self.rows;
     
     int r = index / self.columns;
-    int c = index - r * self.rows;
+    int c = index - r * self.columns;
     
     
     CGRect frame = CGRectMake(itemWidth * c, itemHeight * r, itemWidth, itemHeight);

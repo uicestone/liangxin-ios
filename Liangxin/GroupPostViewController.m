@@ -27,6 +27,7 @@
 @synthesize posts, groupId;
 
 -(void) fetchPostList{
+    [self showProgress];
     
     [tab1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [tab2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -37,6 +38,7 @@
     
     [PostApi getPostsByGroupId:groupId andType:currentType successHandler:^(NSArray *_posts) {
         self.posts = [_posts mutableCopy];
+        [self hideProgress];
         [tableview reloadData];
     } errorHandler:^(NSError *error) {
         NSLog(@"err %@", error);

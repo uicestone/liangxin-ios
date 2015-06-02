@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LXBaseViewController.h"
 
-@interface GroupPostViewController : UIViewController
+@interface GroupPostViewController : LXBaseViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (weak, nonatomic) IBOutlet UIButton *tab1;
 @property (weak, nonatomic) IBOutlet UIButton *tab2;

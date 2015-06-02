@@ -41,6 +41,7 @@
 		223267D41AF2661B00431132 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223267D21AF2661B00431132 /* LaunchScreen.xib */; };
 		223267E01AF2661B00431132 /* LiangxinTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 223267DF1AF2661B00431132 /* LiangxinTests.m */; };
 		225BA69C1AFF30D0000E6D79 /* LXWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 225BA69B1AFF30D0000E6D79 /* LXWebView.m */; };
+		227CA1C91B1D21D80094E7A7 /* ServiceHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227CA1C81B1D21D80094E7A7 /* ServiceHomeViewController.m */; };
 		2287B1F41B1408EB00DB6E68 /* GroupPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2287B1F31B1408EB00DB6E68 /* GroupPostViewController.xib */; };
 		2293FA061AF50B550012CD10 /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2293FA051AF50B550012CD10 /* BannerModel.m */; };
 		2293FA091AF5DBF20012CD10 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2293FA081AF5DBF20012CD10 /* GroupViewController.m */; };
@@ -177,6 +178,8 @@
 		223267DF1AF2661B00431132 /* LiangxinTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiangxinTests.m; sourceTree = "<group>"; };
 		225BA69A1AFF30D0000E6D79 /* LXWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXWebView.h; sourceTree = "<group>"; };
 		225BA69B1AFF30D0000E6D79 /* LXWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXWebView.m; sourceTree = "<group>"; };
+		227CA1C71B1D21D80094E7A7 /* ServiceHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceHomeViewController.h; sourceTree = "<group>"; };
+		227CA1C81B1D21D80094E7A7 /* ServiceHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceHomeViewController.m; sourceTree = "<group>"; };
 		2287B1F31B1408EB00DB6E68 /* GroupPostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupPostViewController.xib; sourceTree = "<group>"; };
 		2293FA041AF50B550012CD10 /* BannerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerModel.h; sourceTree = "<group>"; };
 		2293FA051AF50B550012CD10 /* BannerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerModel.m; sourceTree = "<group>"; };
@@ -442,6 +445,7 @@
 		223267C21AF2661B00431132 /* Liangxin */ = {
 			isa = PBXGroup;
 			children = (
+				227CA1C61B1D21BC0094E7A7 /* Service */,
 				2D537DD61B19688A006BD35E /* Base */,
 				2D537DCF1B1956AF006BD35E /* Utils */,
 				22E6E2681B12AAF3005E528E /* Account */,
@@ -501,6 +505,15 @@
 				223267DE1AF2661B00431132 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		227CA1C61B1D21BC0094E7A7 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				227CA1C71B1D21D80094E7A7 /* ServiceHomeViewController.h */,
+				227CA1C81B1D21D80094E7A7 /* ServiceHomeViewController.m */,
+			);
+			name = Service;
 			sourceTree = "<group>";
 		};
 		2293FA031AF50B2C0012CD10 /* Model */ = {
@@ -857,6 +870,7 @@
 				22F69A861AF31DF100DC295D /* SwitchBanner.m in Sources */,
 				22E6E24A1B119445005E528E /* EntryListView.m in Sources */,
 				2DFD652F1B175EAE00FAC662 /* LXClassViewModel.m in Sources */,
+				227CA1C91B1D21D80094E7A7 /* ServiceHomeViewController.m in Sources */,
 				2215CB711B08E59A00D0359A /* GroupIntroViewController.m in Sources */,
 				2D537DF61B1AF4CE006BD35E /* LXBaseCollectionViewController.m in Sources */,
 				2DFD65291B16143400FAC662 /* LXBaseTableViewCell.m in Sources */,

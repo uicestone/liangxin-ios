@@ -18,10 +18,6 @@
 #define kReuseIdentifier @"ActivityItemCell"
 
 @interface EntryBaseViewController ()
-@property (nonatomic, assign) CGFloat winWidth;
-@property (nonatomic, assign) CGFloat winHeight;
-@property (assign) CGFloat offset;
-@property (nonatomic, strong) UITableView* tableView;
 @property (nonatomic, strong) SwitchBanner* banner;
 @end
 
@@ -31,13 +27,13 @@
 @synthesize offset;
 @synthesize categoryList;
 @synthesize filterList;
-@synthesize activities;
-@synthesize type;
+@synthesize posts;
+@synthesize bannerType;
 @synthesize banner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    offset = 65;
+    offset = 0;
     self.view.backgroundColor = [UIColor whiteColor];
     
     // 公共变量
@@ -48,7 +44,8 @@
     [self initBanner];
     [self initFilter];
     [self initCategory];
-    [self initEventList];
+    [self initListTitle];
+    [self initList];
 }
 
 // 初始化搜索
@@ -63,7 +60,7 @@
     
     wrapper.backgroundColor = [UIColor redColor];
     [self.view addSubview:wrapper];
-    banner = [SwitchBanner initWithType:@"home" wrapper:wrapper];
+    banner = [SwitchBanner initWithType:self.bannerType wrapper:wrapper];
     [banner fetchNew];
     
     // 这句很关键，没有的话布局会错乱
@@ -75,39 +72,67 @@
 
 // 初始化智能筛选入口
 -(void) initFilter{
-    CGRect frame = CGRectMake(0, offset, self.winWidth, 104);
-    EntryListView* filter = [[EntryListView alloc] initWithFrame:frame andData:self.filterList rows:2 columns:2];
+    NSInteger height = 52 * (([self.filterList count] + 1) / 2);
+    CGRect frame = CGRectMake(0, offset, self.winWidth, height);
+    EntryListView* filter = [[EntryListView alloc] initWithFrame:frame andData:self.filterList rows:self.filterRows columns:self.filterColumns];
     filter.delegate = self;
     [filter render];
     [self.view addSubview:filter.view];
-    offset += 104;
+    offset += height;
 }
 
 // 初始化分类入口
 -(void) initCategory{
+    if(self.categoryList){
+        
+        CGRect frame = CGRectMake(0, offset, self.winWidth, 25);
+        EntryListView* categoryView = [[EntryListView alloc] initWithFrame:frame andData:self.categoryList rows:1 columns:(int)[self.categoryList count]];
+        categoryView.type = EntryListViewTypeCategory;
+        categoryView.delegate = self;
+        [categoryView render];
+        [self.view addSubview:categoryView.view];
+        
+        offset += 25;
+    }
+}
+
+-(void) initListTitle{
     
-    CGRect frame = CGRectMake(0, offset, self.winWidth, 25);
-    EntryListView* categoryView = [[EntryListView alloc] initWithFrame:frame andData:self.categoryList rows:1 columns:(int)[self.categoryList count]];
-    categoryView.type = EntryListViewTypeCategory;
-    categoryView.delegate = self;
-    [categoryView render];
-    [self.view addSubview:categoryView.view];
+    CGRect frame = CGRectMake(0, offset, self.winWidth, 22);
+    UIView* view = [[UIView alloc] initWithFrame:frame];
+    view.backgroundColor = UIColorFromRGB(0xe6e7e8);
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(14, 0, self.winWidth, 22)];
+    label.text = self.tableViewTitle;
+    label.textColor = UIColorFromRGB(0x58595b);
+    label.font = [UIFont systemFontOfSize:13.f];
+    [view addSubview:label];
     
-    offset += 25;
+    
+    UILabel* more = [[UILabel alloc] initWithFrame:CGRectMake(self.winWidth - 50, 0, self.winWidth, 22)];
+    more.text = @"MORE";
+    more.textColor = UIColorFromRGB(0x58595b);
+    more.font = [UIFont systemFontOfSize:13.f];
+    [view addSubview:more];
+    
+    
+    
+    [self.view addSubview:view];
+    self.offset += 22;
 }
 
 // 初始化活动列表
--(void) initEventList{
+-(void) initList{
     CGRect frame = CGRectMake(0, offset, self.winWidth, 300);
-    _tableView = [[UITableView alloc] initWithFrame:frame];
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    _tableView.separatorColor = [UIColor clearColor];
+    self.tableView = [[UITableView alloc] initWithFrame:frame];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.separatorColor = [UIColor clearColor];
     
-    [PostApi getPostsByQuery:@{@"type":@"class"} successHandler:^(NSArray *posts) {
-        self.activities = posts;
+    [PostApi getPostsByQuery:@{@"type":self.postType} successHandler:^(NSArray *_posts) {
+        self.posts = _posts;
         [self.tableView reloadData];
     } errorHandler:^(NSError *error) {
+        [self popMessage:@"加载发生错误"];
         NSLog(@"Error");
     }];
     
@@ -120,11 +145,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [activities count];
+    return [posts count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    Post *activity = [activities objectAtIndex:[indexPath row]];
+    Post *activity = [posts objectAtIndex:[indexPath row]];
     ActivityItemCell *cell = [tableView dequeueReusableCellWithIdentifier:kReuseIdentifier];
     
     if(!cell){
@@ -175,7 +200,7 @@
     
     NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];//获得cell所在的表格行row和section
     
-    return [activities objectAtIndex:[indexPath row]];
+    return [posts objectAtIndex:[indexPath row]];
 }
 
 
