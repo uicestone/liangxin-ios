@@ -33,61 +33,38 @@ typedef NS_ENUM(NSInteger, LXFilterViewType){
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
+        self.clipsToBounds = NO;
         self.filterView = [UIView new];
         [self addSubview:self.filterView];
-        [self.filterView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(0);
-            make.right.mas_equalTo(0);
-            make.top.mas_equalTo(0);
-            make.height.mas_equalTo(22);
-        }];
+        self.filterView.frame = self.bounds;
         UIView *bottomLine = [UIView new];
         bottomLine.backgroundColor = [UIColor colorWithRed:200/255.0 green:199/255.0 blue:204/255.0 alpha:1.0];
         [self.filterView addSubview:bottomLine];
-        [bottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(8);
-            make.right.mas_equalTo(-8);
-            make.bottom.mas_equalTo(0);
-            make.height.mas_equalTo(1/[UIScreen mainScreen].scale);
-        }];
+        bottomLine.frame = CGRectMake(8, CGRectGetHeight(self.bounds) - 1/[UIScreen mainScreen].scale, CGRectGetWidth(self.bounds) - 16, 1/[UIScreen mainScreen].scale);
         UIView *seperatorLine = [UIView new];
         seperatorLine.backgroundColor = [UIColor colorWithRed:200/255.0 green:199/255.0 blue:204/255.0 alpha:1.0];
         [self.filterView addSubview:seperatorLine];
-        [seperatorLine mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.width.mas_equalTo(1/[UIScreen mainScreen].scale);
-            make.bottom.mas_equalTo(0);
-            make.top.mas_equalTo(8);
-            make.centerX.equalTo(self.mas_centerX);
-        }];
+        seperatorLine.frame = CGRectMake((CGRectGetWidth(self.bounds) - 1/[UIScreen mainScreen].scale)/2, 8, 1/[UIScreen mainScreen].scale, CGRectGetHeight(self.bounds) - 8);
         self.filterButton1 = [UIButton buttonWithType:UIButtonTypeCustom];
         self.filterButton1.backgroundColor = [UIColor whiteColor];
         [self.filterButton1 setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         self.filterButton1.titleLabel.font = [UIFont systemFontOfSize:15.0];
         [self.filterButton1 addTarget:self action:@selector(showFilterView:) forControlEvents:UIControlEventTouchUpInside];
         [self.filterView addSubview:self.filterButton1];
-        [self.filterButton1 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(0);
-            make.right.equalTo(seperatorLine.mas_left);
-            make.top.mas_equalTo(0);
-            make.bottom.equalTo(bottomLine.mas_top);
-        }];
+        self.filterButton1.frame = CGRectMake(0, 0, (CGRectGetWidth(self.bounds) - CGRectGetWidth(seperatorLine.bounds))/2, CGRectGetHeight(self.bounds) - CGRectGetHeight(bottomLine.bounds));
         self.filterButton2 = [UIButton buttonWithType:UIButtonTypeCustom];
         self.filterButton2.backgroundColor = [UIColor whiteColor];
         [self.filterButton2 setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         self.filterButton2.titleLabel.font = [UIFont systemFontOfSize:15.0];
         [self.filterButton2 addTarget:self action:@selector(showFilterView:) forControlEvents:UIControlEventTouchUpInside];
         [self.filterView addSubview:self.filterButton2];
-        [self.filterButton2 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(seperatorLine.mas_right);
-            make.right.mas_equalTo(0);
-            make.top.mas_equalTo(0);
-            make.bottom.equalTo(bottomLine.mas_top);
-        }];
+        self.filterButton2.frame = CGRectMake(CGRectGetWidth(self.filterButton1.bounds) + CGRectGetWidth(seperatorLine.bounds), 0, (CGRectGetWidth(self.bounds) - CGRectGetWidth(seperatorLine.bounds))/2, CGRectGetHeight(self.bounds) - CGRectGetHeight(bottomLine.bounds));
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.rowHeight = 18;
-        [self addSubview:_tableView];
+        [self insertSubview:_tableView belowSubview:self.filterView];
         
         _currentType = LXFilterViewTypeDefault;
     }
@@ -129,7 +106,8 @@ typedef NS_ENUM(NSInteger, LXFilterViewType){
         self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds) - height, CGRectGetWidth(self.bounds), height);
         [UIView animateWithDuration:0.5 animations:^{
             self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds), CGRectGetWidth(self.bounds), height);
-            self.bounds = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.filterView.bounds) + CGRectGetHeight(self.tableView.bounds));
+        } completion:^(BOOL finished) {
+            self.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.filterView.bounds) + CGRectGetHeight(self.tableView.bounds));
         }];
     }
     else if (currentType == LXFilterViewType2 && _currentType == LXFilterViewTypeDefault) {
@@ -161,6 +139,18 @@ typedef NS_ENUM(NSInteger, LXFilterViewType){
     LXFilterViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
         cell = [[LXFilterViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    switch (self.currentType) {
+        case LXFilterViewType1: {
+            
+        }
+            break;
+        case LXFilterViewType2: {
+            
+        }
+            break;
+        default:
+            break;
     }
     return cell;
 }
