@@ -26,6 +26,7 @@
 #import "ModifyPasswordViewController.h"
 #import "LXNavigationController.h"
 #import "ServiceHomeViewController.h"
+#import "AccountHomeViewController.h"
 
 #import "Channels.h"
 #import "UserApi.h"
@@ -97,6 +98,8 @@
     // 党群服务
     [[HHRouter shared] map:@"/service" toControllerClass:[ServiceHomeViewController class]];
     
+    // 个人中心
+    [[HHRouter shared] map:@"/account" toControllerClass:[AccountHomeViewController class]];
     
     // 更改默认userAgent
     
@@ -122,7 +125,7 @@
     #endif
     
     // 初始化Navigation Controller
-    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/service"];
+    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/account"];
     
     
     // 初始化tabbar controller

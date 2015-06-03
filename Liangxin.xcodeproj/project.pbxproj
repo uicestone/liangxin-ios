@@ -46,6 +46,7 @@
 		2293FA061AF50B550012CD10 /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2293FA051AF50B550012CD10 /* BannerModel.m */; };
 		2293FA091AF5DBF20012CD10 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2293FA081AF5DBF20012CD10 /* GroupViewController.m */; };
 		22B51AA81B196A76000CF4A8 /* LXNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B51AA71B196A76000CF4A8 /* LXNavigationController.m */; };
+		22BE07B01B1D3C9200A1E91F /* AccountHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BE07AF1B1D3C9200A1E91F /* AccountHomeViewController.m */; };
 		22D649D91B0A29FF004045B8 /* PostItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D649D81B0A29FF004045B8 /* PostItemCell.m */; };
 		22D649DC1B0A2CDC004045B8 /* PostApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D649DB1B0A2CDC004045B8 /* PostApi.m */; };
 		22D649DE1B0A3314004045B8 /* PostItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D649DD1B0A3314004045B8 /* PostItemCell.xib */; };
@@ -187,6 +188,8 @@
 		2293FA081AF5DBF20012CD10 /* GroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupViewController.m; sourceTree = "<group>"; };
 		22B51AA61B196A76000CF4A8 /* LXNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXNavigationController.h; sourceTree = "<group>"; };
 		22B51AA71B196A76000CF4A8 /* LXNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXNavigationController.m; sourceTree = "<group>"; };
+		22BE07AE1B1D3C9200A1E91F /* AccountHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountHomeViewController.h; sourceTree = "<group>"; };
+		22BE07AF1B1D3C9200A1E91F /* AccountHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountHomeViewController.m; sourceTree = "<group>"; };
 		22D649D71B0A29FF004045B8 /* PostItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostItemCell.h; sourceTree = "<group>"; };
 		22D649D81B0A29FF004045B8 /* PostItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostItemCell.m; sourceTree = "<group>"; };
 		22D649DA1B0A2CDC004045B8 /* PostApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostApi.h; sourceTree = "<group>"; };
@@ -592,6 +595,8 @@
 				22E6E28E1B1344ED005E528E /* ModifyPasswordViewController.h */,
 				22E6E28F1B1344ED005E528E /* ModifyPasswordViewController.m */,
 				22E6E2901B1344ED005E528E /* ModifyPasswordViewController.xib */,
+				22BE07AE1B1D3C9200A1E91F /* AccountHomeViewController.h */,
+				22BE07AF1B1D3C9200A1E91F /* AccountHomeViewController.m */,
 			);
 			name = Account;
 			sourceTree = "<group>";
@@ -855,6 +860,7 @@
 				22D64A321B0ACB6A004045B8 /* ImageCell.m in Sources */,
 				2D537DE41B1ABA5B006BD35E /* ClassDetailDescCell.m in Sources */,
 				22D64A361B0ACD2C004045B8 /* PostViewController.m in Sources */,
+				22BE07B01B1D3C9200A1E91F /* AccountHomeViewController.m in Sources */,
 				22E6E2551B11C380005E528E /* EntryItemCell.m in Sources */,
 				2D537E021B1AF6D7006BD35E /* ClassListViewController.m in Sources */,
 				2215CB741B08EA0C00D0359A /* GroupMembersViewController.m in Sources */,
