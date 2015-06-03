@@ -7,18 +7,22 @@
 //
 
 #import "AccountHomeViewController.h"
+#import "UserApi.h"
+#import "Definition.h"
 
 @interface AccountHomeViewController ()
 @property (nonatomic, strong) UIView* headerContainer;
 @property (nonatomic, strong) UIView* tabContainer;
 @property (nonatomic, strong) UITableView* tableview;
 @property (nonatomic, strong) NSArray* items;
+@property (nonatomic, strong) NSArray* tabitems;
 @end
 
 @implementation AccountHomeViewController
 @synthesize tableview;
 @synthesize headerContainer, tabContainer;
 @synthesize items;
+@synthesize tabitems;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,7 +44,8 @@
 -(void)initHead{
     @weakify(self)
     headerContainer = [UIView new];
-    headerContainer.backgroundColor = [UIColor yellowColor];
+    
+    headerContainer.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:headerContainer];
     [headerContainer mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self)
@@ -52,7 +57,6 @@
     
     
     UIImageView* avatar = [UIImageView new];
-    avatar.backgroundColor = [UIColor blackColor];
     [headerContainer addSubview:avatar];
     [avatar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(headerContainer).with.offset(13);
@@ -61,7 +65,6 @@
     }];
     
     UILabel* name = [UILabel new];
-    name.backgroundColor = [UIColor blueColor];
     [headerContainer addSubview:name];
     [name mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(headerContainer).with.offset(13);
@@ -71,7 +74,6 @@
     
     
     UILabel* desc = [UILabel new];
-    desc.backgroundColor = [UIColor greenColor];
     [headerContainer addSubview:desc];
     [desc mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(avatar.mas_right).with.offset(5);
@@ -82,7 +84,7 @@
     
     UIButton* message = [UIButton new];
     [headerContainer addSubview:message];
-    message.backgroundColor = [UIColor grayColor];
+    [message.imageView setImage:[UIImage imageNamed:@"account-message"]];
     [message mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(headerContainer).with.offset(-20);
         make.top.equalTo(headerContainer).with.offset(14);
@@ -91,7 +93,10 @@
     
     UIButton* logout = [UIButton new];
     [headerContainer addSubview:logout];
-    logout.backgroundColor = [UIColor grayColor];
+    logout.titleLabel.text = @"登出";
+    logout.backgroundColor = UIColorFromRGB(0x808284);
+    logout.tintColor = [UIColor whiteColor];
+    [logout addTarget:self action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
     [logout mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(headerContainer).with.offset(-12);
         make.top.equalTo(headerContainer).with.offset(36);
@@ -99,12 +104,16 @@
     }];
 }
 
+-(void)logout{
+    [UserApi setCurrentUser:nil];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 -(void)initTabs{
     @weakify(self)
     tabContainer = [UIView new];
     
     [self.view addSubview:tabContainer];
-    tabContainer.backgroundColor = [UIColor redColor];
     [tabContainer mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self)
         make.top.equalTo(self.view).with.offset(64);
@@ -117,6 +126,20 @@
     UIView* lastTab;
     UIView* currentTab;
     BOOL isFirst, isLast;
+    tabitems = @[@{
+                 @"name":@"我的支部",
+                 @"icon":@"我的支部",
+                 @"link":@"group"
+                 },@{
+                 @"name":@"我的积分",
+                 @"icon":@"我的积分",
+                 @"link":@"credit"
+                 },@{
+                 @"name":@"我的收藏",
+                 @"icon":@"我的收藏",
+                 @"link":@"collection"
+                 }];
+    
     for(int i = 0; i < 3; i++){
         isFirst = i == 0;
         isLast = i == 2;
@@ -126,8 +149,7 @@
         currentTab = [UIView new];
         
         
-        currentTab.backgroundColor = [UIColor greenColor];
-        
+        currentTab.backgroundColor = [UIColor whiteColor];
         [tabContainer addSubview:currentTab];
         [tabs addObject:currentTab];
         [currentTab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -150,7 +172,7 @@
         
         if(!isFirst){
             UIView* spliter = [UIView new];
-            spliter.backgroundColor = [UIColor blackColor];
+            spliter.backgroundColor = UIColorFromRGB(0xb2b4b7);
             [tabContainer addSubview:spliter];
             [spliter mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.height.equalTo(tabContainer);
@@ -159,6 +181,38 @@
                 make.left.equalTo(lastTab.mas_right);
             }];
         }
+        
+        NSDictionary* item = [tabitems objectAtIndex:i];
+        UIImageView* imgView = [UIImageView new];
+        imgView.image = [UIImage imageNamed:[item objectForKey:@"icon"]];
+        [currentTab addSubview:imgView];
+        [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(currentTab);
+            make.size.mas_equalTo(CGSizeMake(12, 12));
+            make.top.equalTo(currentTab).with.offset(10);
+        }];
+        
+        UILabel* label = [UILabel new];
+        label.font = [UIFont systemFontOfSize:13.f];
+        label.tintColor = UIColorFromRGB(0x939598);
+        label.text = [item objectForKey:@"name"];
+        label.textAlignment = NSTextAlignmentCenter;
+        [currentTab addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(60, 13));
+            make.centerX.equalTo(currentTab);
+            make.bottom.equalTo(currentTab).with.offset(-9);
+        }];
+        
+        UIButton* btn = [UIButton new];
+        btn.tag = i;
+        [btn addTarget:self action:@selector(tabTouched:) forControlEvents:UIControlEventTouchUpInside
+         ];
+        [currentTab addSubview:btn];
+        [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.height.top.left.equalTo(currentTab);
+        }];
+        
     }
     
     UIView* bottomSpliter = [UIView new];
@@ -171,9 +225,17 @@
     }];
 }
 
+-(void) tabTouched:(id) sender{
+    NSInteger index = [(UIButton *)sender tag];
+    NSDictionary* item = [tabitems objectAtIndex:index];
+    NSString* link = [item objectForKey:@"link"];
+    openURL([@"account/" stringByAppendingString:link]);
+    
+}
+
 -(void) initTableView{
     tableview = [UITableView new];
-    
+    tableview.scrollEnabled = NO;
     tableview.backgroundColor = UIColorFromRGB(0xf1f1f2);
     tableview.delegate = self;
     tableview.dataSource = self;
@@ -183,29 +245,29 @@
               @[@{
                     @"name":@"我的文章",
                     @"icon":@"我的文章",
-                    @"link":@"aaa"
+                    @"link":@"article"
                     },@{
                     @"name":@"我的相册",
                     @"icon":@"我的相册",
-                    @"link":@"aaa"
+                    @"link":@"album"
                     },@{
                     @"name":@"我的活动",
                     @"icon":@"我的活动",
-                    @"link":@"aaa"
+                    @"link":@"activity"
                     }],
               @[@{
                     @"name":@"我关注的支部",
                     @"icon":@"我关注的支部",
-                    @"link":@"aaa"
+                    @"link":@"follow"
                     },@{
                     @"name":@"党费缴交记录",
                     @"icon":@"党费缴交记录",
-                    @"link":@"aaa"
+                    @"link":@"record"
                     }],
               @[@{
                     @"name":@"关于",
                     @"icon":@"关于",
-                    @"link":@"aaa"
+                    @"link":@"about"
                   }]
             ];
     
@@ -249,6 +311,18 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSInteger section = [indexPath section];
+    NSInteger row = [indexPath row];
+    
+    
+    NSDictionary* item = [[items objectAtIndex:section] objectAtIndex:row];
+    NSString* link = [item objectForKey:@"link"];
+    openURL([@"account/" stringByAppendingString:link]);
 }
 
 

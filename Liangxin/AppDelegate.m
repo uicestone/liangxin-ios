@@ -26,7 +26,19 @@
 #import "ModifyPasswordViewController.h"
 #import "LXNavigationController.h"
 #import "ServiceHomeViewController.h"
+
+// 个人中心
 #import "AccountHomeViewController.h"
+#import "AccountArticleViewController.h"
+#import "AccountAlbumViewController.h"
+#import "AccountFollowViewController.h"
+#import "AccountRecordViewController.h"
+#import "AccountAboutViewController.h"
+#import "AccountCollectionViewController.h"
+#import "AccountCreditsViewController.h"
+#import "AccountGroupViewController.h"
+#import "AccountActivityViewController.h"
+
 
 #import "Channels.h"
 #import "UserApi.h"
@@ -100,6 +112,15 @@
     
     // 个人中心
     [[HHRouter shared] map:@"/account" toControllerClass:[AccountHomeViewController class]];
+    [[HHRouter shared] map:@"/account/article" toControllerClass:[AccountArticleViewController class]];
+    [[HHRouter shared] map:@"/account/album" toControllerClass:[AccountAlbumViewController class]];
+    [[HHRouter shared] map:@"/account/activity" toControllerClass:[AccountActivityViewController class]];
+    [[HHRouter shared] map:@"/account/follow" toControllerClass:[AccountFollowViewController class]];
+    [[HHRouter shared] map:@"/account/record" toControllerClass:[AccountRecordViewController class]];
+    [[HHRouter shared] map:@"/account/about" toControllerClass:[AccountAboutViewController class]];
+    [[HHRouter shared] map:@"/account/collection" toControllerClass:[AccountCollectionViewController class]];
+    [[HHRouter shared] map:@"/account/credit" toControllerClass:[AccountCreditsViewController class]];
+    [[HHRouter shared] map:@"/account/group" toControllerClass:[AccountGroupViewController class]];
     
     // 更改默认userAgent
     
