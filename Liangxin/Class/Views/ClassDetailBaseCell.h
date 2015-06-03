@@ -12,5 +12,6 @@
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, strong) UIView *titleView;
+@property (nonatomic, strong) UIView *baseView;
 
 @end
