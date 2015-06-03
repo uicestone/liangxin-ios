@@ -87,10 +87,20 @@ typedef NS_ENUM(NSInteger, LXFilterViewType){
 
 - (void)showFilterView:(id)sender {
     if (sender == self.filterButton1) {
-        self.currentType = LXFilterViewType1;
+        if (self.currentType == LXFilterViewType1) {
+            self.currentType = LXFilterViewTypeDefault;
+        }
+        else {
+            self.currentType = LXFilterViewType1;
+        }
     }
     else {
-        self.currentType = LXFilterViewType2;
+        if (self.currentType == LXFilterViewType2) {
+            self.currentType = LXFilterViewTypeDefault;
+        }
+        else {
+            self.currentType = LXFilterViewType2;
+        }
     }
 }
 
@@ -99,37 +109,44 @@ typedef NS_ENUM(NSInteger, LXFilterViewType){
         CGFloat height = CGRectGetHeight(self.tableView.bounds);
         [UIView animateWithDuration:0.3 animations:^{
             self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds) - height, CGRectGetWidth(self.bounds), height);
-        }];
-    }
-    if (currentType == LXFilterViewType1 && _currentType == LXFilterViewTypeDefault) {
-        CGFloat height = self.category1.count >= 6?108:self.category1.count * 18;
-        self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds) - height, CGRectGetWidth(self.bounds), height);
-        [UIView animateWithDuration:0.5 animations:^{
-            self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds), CGRectGetWidth(self.bounds), height);
         } completion:^(BOOL finished) {
-            self.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.filterView.bounds) + CGRectGetHeight(self.tableView.bounds));
+            self.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.filterView.bounds));
+            _currentType = currentType;
+            [self.tableView reloadData];
         }];
-    }
-    else if (currentType == LXFilterViewType2 && _currentType == LXFilterViewTypeDefault) {
-        CGFloat height = self.category2.count >= 6?108:self.category2.count * 18;
-        self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds) - height, CGRectGetWidth(self.bounds), height);
-        [UIView animateWithDuration:0.5 animations:^{
-            self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds), CGRectGetWidth(self.bounds), height);
-            self.bounds = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.filterView.bounds) + CGRectGetHeight(self.tableView.bounds));
-        }];
-    }
-    else if (currentType == LXFilterViewType1 && _currentType == LXFilterViewType2){
-        CGFloat height = self.category1.count >= 6?108:self.category1.count * 18;
-        self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds), CGRectGetWidth(self.bounds), height);
-        self.bounds = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.filterView.bounds) + CGRectGetHeight(self.tableView.bounds));
     }
     else {
-        CGFloat height = self.category2.count >= 6?108:self.category2.count * 18;
-        self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds), CGRectGetWidth(self.bounds), height);
-        self.bounds = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.filterView.bounds) + CGRectGetHeight(self.tableView.bounds));
+        if (currentType == LXFilterViewType1 && _currentType == LXFilterViewTypeDefault) {
+            CGFloat height = self.category1.count >= 6?108:self.category1.count * 18;
+            self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds) - height, CGRectGetWidth(self.bounds), height);
+            [UIView animateWithDuration:0.5 animations:^{
+                self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds), CGRectGetWidth(self.bounds), height);
+            } completion:^(BOOL finished) {
+                self.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.filterView.bounds) + CGRectGetHeight(self.tableView.bounds));
+            }];
+        }
+        else if (currentType == LXFilterViewType2 && _currentType == LXFilterViewTypeDefault) {
+            CGFloat height = self.category2.count >= 6?108:self.category2.count * 18;
+            self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds) - height, CGRectGetWidth(self.bounds), height);
+            [UIView animateWithDuration:0.5 animations:^{
+                self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds), CGRectGetWidth(self.bounds), height);
+            } completion:^(BOOL finished) {
+                self.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.filterView.bounds) + CGRectGetHeight(self.tableView.bounds));
+            }];
+        }
+        else if (currentType == LXFilterViewType1 && _currentType == LXFilterViewType2){
+            CGFloat height = self.category1.count >= 6?108:self.category1.count * 18;
+            self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds), CGRectGetWidth(self.bounds), height);
+            self.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.filterView.bounds) + CGRectGetHeight(self.tableView.bounds));
+        }
+        else if (currentType == LXFilterViewType2 && _currentType == LXFilterViewType1) {
+            CGFloat height = self.category2.count >= 6?108:self.category2.count * 18;
+            self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds), CGRectGetWidth(self.bounds), height);
+            self.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.filterView.bounds) + CGRectGetHeight(self.tableView.bounds));
+        }
+        _currentType = currentType;
+        [self.tableView reloadData];
     }
-    _currentType = currentType;
-    [self.tableView reloadData];
 }
 
 #pragma mark - UITableViewDataSource && UITableViewDelegate
@@ -142,11 +159,17 @@ typedef NS_ENUM(NSInteger, LXFilterViewType){
     }
     switch (self.currentType) {
         case LXFilterViewType1: {
-            
+            cell.titleLabel.text = self.category1[indexPath.row];
+            if (indexPath.row == 0) {
+                cell.mainColor = UIColorFromRGB(0xf99d33);
+            }
         }
             break;
         case LXFilterViewType2: {
-            
+            cell.titleLabel.text = self.category2[indexPath.row];
+            if (indexPath.row == 0) {
+                cell.mainColor = UIColorFromRGB(0xf99d33);
+            }
         }
             break;
         default:
