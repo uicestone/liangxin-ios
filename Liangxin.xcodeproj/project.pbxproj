@@ -413,6 +413,8 @@
 		2215D95B1B0EC43A00D96C46 /* Activity */ = {
 			isa = PBXGroup;
 			children = (
+				2DE2F49E1B203CA400E3DA29 /* ViewModel */,
+				2DE2F49D1B203C9D00E3DA29 /* Views */,
 				2215D95C1B0EC44D00D96C46 /* ActivityViewController.h */,
 				2215D95D1B0EC44D00D96C46 /* ActivityViewController.m */,
 			);
@@ -709,6 +711,20 @@
 				2D537DF21B1AED21006BD35E /* ClassDetailDocumentCell.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		2DE2F49D1B203C9D00E3DA29 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		2DE2F49E1B203CA400E3DA29 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 		2DFD652C1B175D6400FAC662 /* ViewModel */ = {
