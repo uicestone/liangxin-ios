@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "LXBaseModelUser.h"
 @interface LXBaseViewController : UIViewController
+@property (nonatomic, strong) LXBaseModelUser* currentUser;
 - (BOOL) shouldLogin;
 - (void)navigateToPath:(NSString *)path;
 - (void)popMessage:(NSString *)message;

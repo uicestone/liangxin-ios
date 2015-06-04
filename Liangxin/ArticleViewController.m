@@ -1,22 +1,24 @@
 //
-//  PostViewController.m
+//  ArticleViewController.m
 //  Liangxin
 //
-//  Created by Hsu Spud on 15/5/19.
+//  Created by Hsu Spud on 15/6/4.
 //  Copyright (c) 2015年 Hsu Spud. All rights reserved.
 //
 
-#import "PostViewController.h"
+#import "ArticleViewController.h"
 
-@interface PostViewController ()
+@interface ArticleViewController ()
 
 @end
 
-@implementation PostViewController
+@implementation ArticleViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loadPage:@"publish"];
+    
+    [self loadPage:@"http://127.0.0.1:8000/"];
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {

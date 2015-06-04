@@ -7,8 +7,10 @@
 //
 
 #import "AccountHomeViewController.h"
-#import "UserApi.h"
 #import "Definition.h"
+#import "UserApi.h"
+#import <AFNetworking/UIImageView+AFNetworking.h>
+
 
 @interface AccountHomeViewController ()
 @property (nonatomic, strong) UIView* headerContainer;
@@ -28,7 +30,6 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = UIColorFromRGB(0xf1f1f2);
-    
     [self initHead];
     [self initTabs];
     [self initTableView];
@@ -42,7 +43,7 @@
 }
 
 -(BOOL)shouldLogin{
-    return YES;
+    return NO;
 }
 
 -(void)initHead{
@@ -68,16 +69,25 @@
         make.size.mas_equalTo(CGSizeMake(40, 40));
     }];
     
+    if(self.currentUser.avatar){
+        [avatar setImageWithURL:[NSURL URLWithString:self.currentUser.avatar]];
+    }else{
+        avatar.image = [UIImage imageNamed:@"defaultAvatar"];
+    }
+    
+    
     UILabel* name = [UILabel new];
+    name.text = self.currentUser.name;
     [headerContainer addSubview:name];
     [name mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(headerContainer).with.offset(13);
         make.left.equalTo(avatar.mas_right).with.offset(5);
-        make.size.mas_equalTo(CGSizeMake(60, 16));
+        make.size.mas_equalTo(CGSizeMake(120, 16));
     }];
     
     
     UILabel* desc = [UILabel new];
+    desc.text = self.currentUser.group_name;
     [headerContainer addSubview:desc];
     [desc mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(avatar.mas_right).with.offset(5);
@@ -88,7 +98,7 @@
     
     UIButton* message = [UIButton new];
     [headerContainer addSubview:message];
-    [message.imageView setImage:[UIImage imageNamed:@"account-message"]];
+    [message setBackgroundImage:[UIImage imageNamed:@"account-message"] forState:UIControlStateNormal];
     [message mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(headerContainer).with.offset(-20);
         make.top.equalTo(headerContainer).with.offset(14);
@@ -97,9 +107,10 @@
     
     UIButton* logout = [UIButton new];
     [headerContainer addSubview:logout];
-    logout.titleLabel.text = @"登出";
+    [logout setTitle:@"等出" forState:UIControlStateNormal];
+    [logout.titleLabel setFont:[UIFont systemFontOfSize:10]];
     logout.backgroundColor = UIColorFromRGB(0x808284);
-    logout.tintColor = [UIColor whiteColor];
+    logout.titleLabel.textColor = [UIColor whiteColor];
     [logout addTarget:self action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
     [logout mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(headerContainer).with.offset(-12);
@@ -192,9 +203,11 @@
         [currentTab addSubview:imgView];
         [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(currentTab);
-            make.size.mas_equalTo(CGSizeMake(12, 12));
+            make.size.mas_equalTo(CGSizeMake(15, 15));
             make.top.equalTo(currentTab).with.offset(10);
         }];
+        
+        
         
         UILabel* label = [UILabel new];
         label.font = [UIFont systemFontOfSize:13.f];

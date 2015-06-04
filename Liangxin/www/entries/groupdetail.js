@@ -73,7 +73,7 @@ fetch({
 		var html = itemTemplate(post);
 		var li = $(html);
 		li.on("click", function(){
-			bridge.open("/article/" + post.id);
+			bridge.open("liangxin://article/" + post.id);
 		});
 		$activityList.append(li);
 	});

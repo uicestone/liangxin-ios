@@ -9,6 +9,7 @@
 #import "LXBaseViewController.h"
 #import "LoginViewController.h"
 #import "UserApi.h"
+#import "LXBaseModelUser.h"
 #import <HHRouter.h>
 #import <MBProgressHUD/MBProgressHUD.h>
 
@@ -17,6 +18,7 @@
 @end
 
 @implementation LXBaseViewController
+@synthesize currentUser;
 
 - (BOOL) shouldLogin{
     return NO;
@@ -52,6 +54,7 @@
     [super viewDidLoad];
     self.extendedLayoutIncludesOpaqueBars = YES;
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.currentUser = [UserApi getCurrentUser];
 }
 
 @end

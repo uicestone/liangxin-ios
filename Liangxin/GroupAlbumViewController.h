@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "LXWebViewController.h"
 
-@interface GroupAlbumViewController : UIViewController
+@interface GroupAlbumViewController : LXBaseViewController
 
 @end

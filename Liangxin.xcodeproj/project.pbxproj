@@ -58,11 +58,11 @@
 		22BE07D21B1F384C00A1E91F /* AccountActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BE07D11B1F384C00A1E91F /* AccountActivityViewController.m */; };
 		22BE07D51B1FCC5500A1E91F /* LXJSBridge+Open.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BE07D41B1FCC5400A1E91F /* LXJSBridge+Open.m */; };
 		22BE07D81B1FCC6D00A1E91F /* LXJSBridge+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BE07D71B1FCC6D00A1E91F /* LXJSBridge+Tint.m */; };
+		22BE07DB1B1FDE7400A1E91F /* ArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BE07DA1B1FDE7400A1E91F /* ArticleViewController.m */; };
 		22D649D91B0A29FF004045B8 /* PostItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D649D81B0A29FF004045B8 /* PostItemCell.m */; };
 		22D649DC1B0A2CDC004045B8 /* PostApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D649DB1B0A2CDC004045B8 /* PostApi.m */; };
 		22D649DE1B0A3314004045B8 /* PostItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D649DD1B0A3314004045B8 /* PostItemCell.xib */; };
 		22D64A321B0ACB6A004045B8 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D64A311B0ACB6A004045B8 /* ImageCell.m */; };
-		22D64A361B0ACD2C004045B8 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D64A351B0ACD2C004045B8 /* PostViewController.m */; };
 		22E6E2471B115E41005E528E /* LXJSBridge+PickImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E6E2461B115E41005E528E /* LXJSBridge+PickImage.m */; };
 		22E6E24A1B119445005E528E /* EntryListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E6E2491B119445005E528E /* EntryListView.m */; };
 		22E6E2551B11C380005E528E /* EntryItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E6E2541B11C380005E528E /* EntryItemCell.m */; };
@@ -223,6 +223,8 @@
 		22BE07D41B1FCC5400A1E91F /* LXJSBridge+Open.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LXJSBridge+Open.m"; sourceTree = "<group>"; };
 		22BE07D61B1FCC6D00A1E91F /* LXJSBridge+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LXJSBridge+Tint.h"; sourceTree = "<group>"; };
 		22BE07D71B1FCC6D00A1E91F /* LXJSBridge+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LXJSBridge+Tint.m"; sourceTree = "<group>"; };
+		22BE07D91B1FDE7400A1E91F /* ArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleViewController.h; sourceTree = "<group>"; };
+		22BE07DA1B1FDE7400A1E91F /* ArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleViewController.m; sourceTree = "<group>"; };
 		22D649D71B0A29FF004045B8 /* PostItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostItemCell.h; sourceTree = "<group>"; };
 		22D649D81B0A29FF004045B8 /* PostItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostItemCell.m; sourceTree = "<group>"; };
 		22D649DA1B0A2CDC004045B8 /* PostApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostApi.h; sourceTree = "<group>"; };
@@ -230,8 +232,6 @@
 		22D649DD1B0A3314004045B8 /* PostItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostItemCell.xib; sourceTree = "<group>"; };
 		22D64A301B0ACB6A004045B8 /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
 		22D64A311B0ACB6A004045B8 /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
-		22D64A341B0ACD2C004045B8 /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
-		22D64A351B0ACD2C004045B8 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
 		22E6E2451B115E41005E528E /* LXJSBridge+PickImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LXJSBridge+PickImage.h"; sourceTree = "<group>"; };
 		22E6E2461B115E41005E528E /* LXJSBridge+PickImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LXJSBridge+PickImage.m"; sourceTree = "<group>"; };
 		22E6E2481B119445005E528E /* EntryListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryListView.h; sourceTree = "<group>"; };
@@ -584,8 +584,8 @@
 			children = (
 				2215CB781B0972A800D0359A /* PublishViewController.h */,
 				2215CB791B0972A900D0359A /* PublishViewController.m */,
-				22D64A341B0ACD2C004045B8 /* PostViewController.h */,
-				22D64A351B0ACD2C004045B8 /* PostViewController.m */,
+				22BE07D91B1FDE7400A1E91F /* ArticleViewController.h */,
+				22BE07DA1B1FDE7400A1E91F /* ArticleViewController.m */,
 			);
 			name = Post;
 			sourceTree = "<group>";
@@ -916,7 +916,6 @@
 				22E6E2821B13416B005E528E /* PhoneInputViewController.m in Sources */,
 				22D64A321B0ACB6A004045B8 /* ImageCell.m in Sources */,
 				2D537DE41B1ABA5B006BD35E /* ClassDetailDescCell.m in Sources */,
-				22D64A361B0ACD2C004045B8 /* PostViewController.m in Sources */,
 				22BE07B01B1D3C9200A1E91F /* AccountHomeViewController.m in Sources */,
 				22E6E2551B11C380005E528E /* EntryItemCell.m in Sources */,
 				2D537E021B1AF6D7006BD35E /* ClassListViewController.m in Sources */,
@@ -934,6 +933,7 @@
 				22E6E24A1B119445005E528E /* EntryListView.m in Sources */,
 				2DFD652F1B175EAE00FAC662 /* LXClassViewModel.m in Sources */,
 				227CA1C91B1D21D80094E7A7 /* ServiceHomeViewController.m in Sources */,
+				22BE07DB1B1FDE7400A1E91F /* ArticleViewController.m in Sources */,
 				2215CB711B08E59A00D0359A /* GroupIntroViewController.m in Sources */,
 				2D537DF61B1AF4CE006BD35E /* LXBaseCollectionViewController.m in Sources */,
 				2DFD65291B16143400FAC662 /* LXBaseTableViewCell.m in Sources */,

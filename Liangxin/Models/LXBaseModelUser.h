@@ -12,8 +12,10 @@
 
 @property (nonatomic, copy) NSString *id;
 @property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *avatar;
 @property (nonatomic, assign) int group_id;
 @property (nonatomic, copy) NSString *group_position;
+@property (nonatomic, copy) NSString *group_name;
 @property (nonatomic, copy) NSString *contact;
 @property (nonatomic, copy) NSString *token;
 
