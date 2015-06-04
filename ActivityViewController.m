@@ -56,7 +56,7 @@
     }];
     
     NSArray *channelTitles = @[@"最受欢迎", @"最新活动", @"即将下线", @"全部活动"];
-    NSArray *channelImages = @[@"Banner_Favourite", @"Banner_New", @"Banner_All"];
+    NSArray *channelImages = @[@"Banner_Favourite", @"Banner_New", @"Banner_All", @"Banner_Offline"];
     CGFloat width = CGRectGetWidth([UIScreen mainScreen].bounds) / channelTitles.count;
     for (NSInteger i = 0; i < channelTitles.count; i ++) {
         UIButton *channelView = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -90,7 +90,7 @@
     }
     
     LXBannerView *bannerView = [LXBannerView new];
-    bannerView.titles = @[@"党建", @"青年", @"宣传", @"妇女", @"工会", @"廉政"];
+    bannerView.titles = @[@"爱摄影", @"做公益", @"文艺迷", @"体育狂", @"张知识", @"学环保"];
     bannerView.images = @[@"Banner_DJ", @"Banner_QN", @"Banner_XC", @"Banner_FN", @"Banner_GH", @"Banner_LZ"];
     bannerView.backgroundColor = UIColorFromRGB(0xf99d33);
     bannerView.delegate = self;
