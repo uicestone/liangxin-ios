@@ -102,6 +102,7 @@
 		2D537E021B1AF6D7006BD35E /* ClassListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537E011B1AF6D7006BD35E /* ClassListViewController.m */; };
 		2D6160AD1B1C9661001D01D8 /* LXFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160AC1B1C9661001D01D8 /* LXFilterView.m */; };
 		2D6160B01B1C9EB7001D01D8 /* LXFilterViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160AF1B1C9EB7001D01D8 /* LXFilterViewCell.m */; };
+		2D6160B91B2087DE001D01D8 /* ActivityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160B81B2087DE001D01D8 /* ActivityListViewController.m */; };
 		2D75A2DB1B1B4A0700A8FA95 /* LXClassListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D75A2DA1B1B4A0700A8FA95 /* LXClassListViewModel.m */; };
 		2DE2F4A11B2041C600E3DA29 /* ActivityViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE2F4A01B2041C600E3DA29 /* ActivityViewModel.m */; };
 		2DFD651F1B15FE7800FAC662 /* LXCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD651E1B15FE7800FAC662 /* LXCarouselView.m */; };
@@ -304,6 +305,8 @@
 		2D6160AC1B1C9661001D01D8 /* LXFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXFilterView.m; path = Widgets/LXFilterView.m; sourceTree = "<group>"; };
 		2D6160AE1B1C9EB7001D01D8 /* LXFilterViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXFilterViewCell.h; path = Widgets/LXFilterViewCell.h; sourceTree = "<group>"; };
 		2D6160AF1B1C9EB7001D01D8 /* LXFilterViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXFilterViewCell.m; path = Widgets/LXFilterViewCell.m; sourceTree = "<group>"; };
+		2D6160B71B2087DE001D01D8 /* ActivityListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityListViewController.h; path = Liangxin/Activity/ActivityListViewController.h; sourceTree = "<group>"; };
+		2D6160B81B2087DE001D01D8 /* ActivityListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityListViewController.m; path = Liangxin/Activity/ActivityListViewController.m; sourceTree = "<group>"; };
 		2D75A2D91B1B4A0700A8FA95 /* LXClassListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXClassListViewModel.h; path = Class/ViewModel/LXClassListViewModel.h; sourceTree = "<group>"; };
 		2D75A2DA1B1B4A0700A8FA95 /* LXClassListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXClassListViewModel.m; path = Class/ViewModel/LXClassListViewModel.m; sourceTree = "<group>"; };
 		2DE2F49F1B2041C600E3DA29 /* ActivityViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityViewModel.h; path = Liangxin/Activity/ViewModel/ActivityViewModel.h; sourceTree = "<group>"; };
@@ -425,6 +428,8 @@
 				2215D95D1B0EC44D00D96C46 /* ActivityViewController.m */,
 				2D00FF811B20798B00106110 /* ActivityDetailViewController.h */,
 				2D00FF821B20798B00106110 /* ActivityDetailViewController.m */,
+				2D6160B71B2087DE001D01D8 /* ActivityListViewController.h */,
+				2D6160B81B2087DE001D01D8 /* ActivityListViewController.m */,
 			);
 			name = Activity;
 			path = ..;
@@ -964,6 +969,7 @@
 				22E6E25C1B11C64B005E528E /* EntryBaseViewController.m in Sources */,
 				2D537DDE1B19C024006BD35E /* ClassDetailTitleCell.m in Sources */,
 				2210A37B1AFDF66800D9CA1A /* GroupApi.m in Sources */,
+				2D6160B91B2087DE001D01D8 /* ActivityListViewController.m in Sources */,
 				2215D96D1B10D08A00D96C46 /* TADotView.m in Sources */,
 				223267C91AF2661B00431132 /* AppDelegate.m in Sources */,
 				2D6160AD1B1C9661001D01D8 /* LXFilterView.m in Sources */,
