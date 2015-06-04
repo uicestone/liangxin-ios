@@ -146,7 +146,7 @@
     #endif
     
     // 初始化Navigation Controller
-    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/account"];
+    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/groupdetail/3"];
     
     
     // 初始化tabbar controller
@@ -242,43 +242,15 @@
 }
 
 -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
-    
-    NSString* query = [url query];
-    
-    if(!query){
-        query = @"";
-    }else{
-        query = [@"?" stringByAppendingString:query];
-    }
-    
-    NSString* host = [url host];
-    
-    NSString* path = [NSString stringWithFormat:@"/%@%@%@", host, [url path], query ];
-    
-    NSLog(@"Navigate to %@", path);
-    
-    Channels* channels = [Channels shared];
-    int index = (int)[channels indexOfChannel: host];
-    
-    if(index != -1){
-        [self.navigationController.navigationItem setTitle:[channels titleAtIndex:index]];
-        // 执行动画
-        [UIView animateWithDuration:0.3 animations:^{
-            [self.navigationController.navigationItem setTitle:[channels titleAtIndex:index]];
-            [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-            [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
-            [self.navigationController.navigationBar setBarTintColor: [channels colorAtIndex:index]];
-        }];
-    }
-    
-    
-    LXBaseViewController *viewController = (LXBaseViewController *)[[HHRouter shared] matchController:path];
+    LXBaseViewController *viewController = (LXBaseViewController *)[[HHRouter shared] matchController:[url absoluteString]];
     [self pushViewController:viewController];
     
     return YES;
 }
 
 -(void)pushViewController:(LXBaseViewController *)viewController{
+    
+    
     if(navigationController){
         if([viewController shouldLogin] && ![UserApi getCurrentUser]){
             LoginViewController* loginViewController = [[LoginViewController alloc] init];
@@ -289,6 +261,26 @@
             loginViewController.finishDelegate = self;
             [self.navigationController presentViewController:loginNavigationController animated:YES completion:nil];
         }else{
+            NSString* path = viewController.params[@"route"];
+            NSArray* components = [path componentsSeparatedByString:@"/"];
+            NSString* host = [components objectAtIndex:1];
+            Channels* channels = [Channels shared];
+            int index = (int)[channels indexOfChannel: host];
+
+            NSLog(@"Navigate to %@", path);
+            if(index != -1){
+                Channels* channels = [Channels shared];
+                [self.navigationController.navigationItem setTitle:[channels titleAtIndex:index]];
+                // 执行动画
+                [UIView animateWithDuration:0.3 animations:^{
+                    [self.navigationController.navigationItem setTitle:[channels titleAtIndex:index]];
+                    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+                    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+                    [self.navigationController.navigationBar setBarTintColor: [channels colorAtIndex:index]];
+                }];
+            }
+    
+            
             [navigationController pushViewController:viewController animated:YES];
         }
     }

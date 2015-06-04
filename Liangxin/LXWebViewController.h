@@ -11,6 +11,8 @@
 #import "LXJSBridge+Fetch.h"
 #import "LXJSBridge+SetTitle.h"
 #import "LXJSBridge+PickImage.h"
+#import "LXJSBridge+Open.h"
+#import "LXJSBridge+Tint.h"
 #import "LXBaseViewController.h"
 
 @interface LXWebViewController : LXBaseViewController

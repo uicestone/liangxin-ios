@@ -7,7 +7,6 @@
 //
 
 #import "LXWebViewController.h"
-#import "LXJSBridge.h"
 #import "LXWebView.h"
 #import "Definition.h"
 

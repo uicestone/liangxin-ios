@@ -73,8 +73,11 @@
                             }
                         ];
     
-    [self setTitle:[[Channels shared] titleAtIndex:1]];
     
+    [self setTitle:[[Channels shared] titleAtIndex:1]];
+    self.filterColumns = 2;
+    self.filterRows = 2;
+    self.postType = @"activity";
     [super viewDidLoad];
 }
 

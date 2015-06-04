@@ -24,9 +24,14 @@ $(".section-album .title").on("click", function(){
 	location.href = "liangxin://groupalbum/" + group_id;
 });
 
+bridge.showProgress();
+
 fetch({
 	url: "/group/" + group_id
 }).then(function(result){
+
+	bridge.hideProgress();
+
 	// 头像
 	$(".avatar").attr("src", result.avatar);
 
@@ -67,6 +72,9 @@ fetch({
 	result.posts.forEach(function(post){
 		var html = itemTemplate(post);
 		var li = $(html);
+		li.on("click", function(){
+			bridge.open("/article/" + post.id);
+		});
 		$activityList.append(li);
 	});
 

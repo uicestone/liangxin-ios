@@ -41,6 +41,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(BOOL)shouldLogin{
+    return YES;
+}
+
 -(void)initHead{
     @weakify(self)
     headerContainer = [UIView new];

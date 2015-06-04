@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
+#import "LXBaseViewController.h"
 
 @interface LXJSBridge : NSObject
 @property (strong, nonatomic) NSString* callback;
 @property (strong, nonatomic) UIWebView* webview;
-@property (strong, nonatomic) UIViewController* viewController;
+@property (strong, nonatomic) LXBaseViewController* viewController;
 +(instancetype) initWithWebView:(UIWebView *)webview;
 -(void)handleMessage:(NSString *)message;
 -(void)completeWithError:(NSError *)error;

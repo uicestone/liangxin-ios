@@ -56,6 +56,8 @@
 		22BE07CC1B1F365D00A1E91F /* AccountCreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BE07CB1B1F365C00A1E91F /* AccountCreditsViewController.m */; };
 		22BE07CF1B1F367100A1E91F /* AccountGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BE07CE1B1F367100A1E91F /* AccountGroupViewController.m */; };
 		22BE07D21B1F384C00A1E91F /* AccountActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BE07D11B1F384C00A1E91F /* AccountActivityViewController.m */; };
+		22BE07D51B1FCC5500A1E91F /* LXJSBridge+Open.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BE07D41B1FCC5400A1E91F /* LXJSBridge+Open.m */; };
+		22BE07D81B1FCC6D00A1E91F /* LXJSBridge+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BE07D71B1FCC6D00A1E91F /* LXJSBridge+Tint.m */; };
 		22D649D91B0A29FF004045B8 /* PostItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D649D81B0A29FF004045B8 /* PostItemCell.m */; };
 		22D649DC1B0A2CDC004045B8 /* PostApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D649DB1B0A2CDC004045B8 /* PostApi.m */; };
 		22D649DE1B0A3314004045B8 /* PostItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D649DD1B0A3314004045B8 /* PostItemCell.xib */; };
@@ -217,6 +219,10 @@
 		22BE07CE1B1F367100A1E91F /* AccountGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountGroupViewController.m; sourceTree = "<group>"; };
 		22BE07D01B1F384C00A1E91F /* AccountActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountActivityViewController.h; sourceTree = "<group>"; };
 		22BE07D11B1F384C00A1E91F /* AccountActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountActivityViewController.m; sourceTree = "<group>"; };
+		22BE07D31B1FCC5400A1E91F /* LXJSBridge+Open.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LXJSBridge+Open.h"; sourceTree = "<group>"; };
+		22BE07D41B1FCC5400A1E91F /* LXJSBridge+Open.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LXJSBridge+Open.m"; sourceTree = "<group>"; };
+		22BE07D61B1FCC6D00A1E91F /* LXJSBridge+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LXJSBridge+Tint.h"; sourceTree = "<group>"; };
+		22BE07D71B1FCC6D00A1E91F /* LXJSBridge+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LXJSBridge+Tint.m"; sourceTree = "<group>"; };
 		22D649D71B0A29FF004045B8 /* PostItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostItemCell.h; sourceTree = "<group>"; };
 		22D649D81B0A29FF004045B8 /* PostItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostItemCell.m; sourceTree = "<group>"; };
 		22D649DA1B0A2CDC004045B8 /* PostApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostApi.h; sourceTree = "<group>"; };
@@ -356,6 +362,10 @@
 				2215D9601B10CF3600D96C46 /* LXJSBridge+SetTitle.m */,
 				22E6E2451B115E41005E528E /* LXJSBridge+PickImage.h */,
 				22E6E2461B115E41005E528E /* LXJSBridge+PickImage.m */,
+				22BE07D31B1FCC5400A1E91F /* LXJSBridge+Open.h */,
+				22BE07D41B1FCC5400A1E91F /* LXJSBridge+Open.m */,
+				22BE07D61B1FCC6D00A1E91F /* LXJSBridge+Tint.h */,
+				22BE07D71B1FCC6D00A1E91F /* LXJSBridge+Tint.m */,
 			);
 			name = JSBridges;
 			sourceTree = "<group>";
@@ -933,9 +943,11 @@
 				22BE07C91B1F363000A1E91F /* AccountCollectionViewController.m in Sources */,
 				22E6E2471B115E41005E528E /* LXJSBridge+PickImage.m in Sources */,
 				22E6E2781B12ADB4005E528E /* LoginViewCell.m in Sources */,
+				22BE07D51B1FCC5500A1E91F /* LXJSBridge+Open.m in Sources */,
 				2D537DEA1B1AEA61006BD35E /* ClassDetailDetailCell.m in Sources */,
 				22E6E25C1B11C64B005E528E /* EntryBaseViewController.m in Sources */,
 				2D537DDE1B19C024006BD35E /* ClassDetailTitleCell.m in Sources */,
+				22BE07D81B1FCC6D00A1E91F /* LXJSBridge+Tint.m in Sources */,
 				2210A37B1AFDF66800D9CA1A /* GroupApi.m in Sources */,
 				2215D96D1B10D08A00D96C46 /* TADotView.m in Sources */,
 				223267C91AF2661B00431132 /* AppDelegate.m in Sources */,

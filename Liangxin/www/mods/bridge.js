@@ -1,6 +1,6 @@
 var Bridge = {
 
-	exec: function(method, params, callback){
+	_exec: function(method, params, callback){
 		var callbackName = "LiangxinJSCallback_" + (+new Date()) + "_" + Math.floor(Math.random() * 50);
 		var iframe = document.createElement('iframe');
 		window[callbackName] = callback;
@@ -14,32 +14,44 @@ var Bridge = {
     }
     iframe.onload = iframe.onerror = removeNode;
 		setTimeout(removeNode, 1000);
+	},
+	exec: function(method, params){
+		return new Promise(function(resolve, reject){
+				Bridge._exec(method, params, function(result){
+					var error = result.error;
+					var fail = params.fail;
+					var success = params.success;
+					if(error){
+						error = new Error(error);
+						fail && fail(error);
+						reject(error);
+						Bridge.onerror && Bridge.onerror(error);
+					}else{
+						success && success(result);
+						resolve(result);
+					}
+				});
+			});
 	}
-
 };
 
-["fetch", "pickImage", "setTitle"].forEach(function(method){
+["fetch", "pickImage", "showProgress", "hideProgress"].forEach(function(method){
 	Bridge[method] = function(params){
-		var self = this;
 		params = params || {};
-
-		return new Promise(function(resolve, reject){
-			self.exec(method, params, function(result){
-				var error = result.error;
-				var fail = params.fail;
-				var success = params.success;
-				if(error){
-					error = new Error(error);
-					fail && fail(error);
-					reject(error);
-					Bridge.onerror && Bridge.onerror(error);
-				}else{
-					success && success(result);
-					resolve(result);
-				}
-			});
-		});
-	}.bind(Bridge);
+		return Bridge.exec(method, params);
+	};
 });
+
+Bridge.setTitle = function(title){
+	return Bridge.exec("setTitle", {title: title});
+};
+
+Bridge.open = function(url){
+	return Bridge.exec("open", {url: url});
+};
+
+Bridge.showMessage = function(){
+	return Bridge.exec("showMessage", {message:message});
+};
 
 module.exports = Bridge;
