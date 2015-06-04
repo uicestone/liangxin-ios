@@ -18,6 +18,7 @@
 @property (nonatomic, strong) LXCarouselView *carouselView;
 @property (nonatomic, strong) UIView *titleView;
 @property (nonatomic, strong) ActivityViewModel *viewModel;
+@property (nonatomic, strong) UISearchBar *searchBar;
 
 @end
 
@@ -34,12 +35,33 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.tabBarController.tabBar.hidden = NO;
     
+    UIView *searchView = [UIView new];
+    searchView.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
+    [self.view addSubview:searchView];
+    [searchView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(0);
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        make.height.mas_equalTo(44);
+    }];
+    
+    self.searchBar = [[UISearchBar alloc] init];
+    self.searchBar.searchBarStyle = UISearchBarStyleMinimal;
+    self.searchBar.placeholder = @"请输入要查找的活动";
+    [searchView addSubview:self.searchBar];
+    [self.searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(5);
+        make.right.mas_equalTo(-5);
+        make.top.mas_equalTo(12);
+        make.bottom.mas_equalTo(-12);
+    }];
+    
     self.carouselView = [LXCarouselView carouselViewWithFrame:CGRectMake(0, 0, 320, 200) imageURLsGroup:nil];
-    self.carouselView.pageControl.currentPageIndicatorTintColor = UIColorFromRGB(0xf99d33);
+    self.carouselView.pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0];
     self.carouselView.pageControl.pageIndicatorTintColor = UIColorFromRGB(0xbbbdc0);
     [self.view addSubview:self.carouselView];
     [self.carouselView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(0);
+        make.top.equalTo(searchView.mas_bottom);
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.height.mas_equalTo(125);
@@ -63,11 +85,11 @@
         [channelView setImage:[UIImage imageNamed:channelImages[i]] forState:UIControlStateNormal];
         [channelView setTitle:channelTitles[i] forState:UIControlStateNormal];
         channelView.titleLabel.font = [UIFont systemFontOfSize:15.0];
-        if (i % 2 == 0) {
-            channelView.backgroundColor = UIColorFromRGB(0xfbb161);
+        if (i == 0 ||i == 3) {
+            channelView.backgroundColor = [UIColor colorWithRed:0.62 green:0.80 blue:0.78 alpha:1.0];
         }
         else {
-            channelView.backgroundColor = UIColorFromRGB(0xfdc689);
+            channelView.backgroundColor = [UIColor colorWithRed:0.47 green:0.74 blue:0.72 alpha:1.0];
         }
         CGFloat spacing = 6.0;
         CGSize imageSize = channelView.imageView.image.size;
@@ -102,7 +124,7 @@
     LXBannerView *bannerView = [LXBannerView new];
     bannerView.titles = @[@"爱摄影", @"做公益", @"文艺迷", @"体育狂", @"张知识", @"学环保"];
     bannerView.images = @[@"Banner_ISY", @"Banner_ZGY", @"Banner_WYM", @"Banner_TYK", @"Banner_ZZS", @"Banner_XHB"];
-    bannerView.backgroundColor = UIColorFromRGB(0xf99d33);
+    bannerView.backgroundColor = [UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0];
     bannerView.delegate = self;
     [self.titleView addSubview:bannerView];
     [bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
