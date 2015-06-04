@@ -104,6 +104,7 @@
 		2D6160B01B1C9EB7001D01D8 /* LXFilterViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160AF1B1C9EB7001D01D8 /* LXFilterViewCell.m */; };
 		2D6160B91B2087DE001D01D8 /* ActivityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160B81B2087DE001D01D8 /* ActivityListViewController.m */; };
 		2D6160BF1B208938001D01D8 /* ActivityListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160BE1B208938001D01D8 /* ActivityListViewModel.m */; };
+		2D6160C21B208AB3001D01D8 /* ActivityParticipantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160C11B208AB3001D01D8 /* ActivityParticipantsViewController.m */; };
 		2D75A2DB1B1B4A0700A8FA95 /* LXClassListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D75A2DA1B1B4A0700A8FA95 /* LXClassListViewModel.m */; };
 		2DE2F4A11B2041C600E3DA29 /* ActivityViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE2F4A01B2041C600E3DA29 /* ActivityViewModel.m */; };
 		2DFD651F1B15FE7800FAC662 /* LXCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD651E1B15FE7800FAC662 /* LXCarouselView.m */; };
@@ -310,6 +311,8 @@
 		2D6160B81B2087DE001D01D8 /* ActivityListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityListViewController.m; path = Liangxin/Activity/ActivityListViewController.m; sourceTree = "<group>"; };
 		2D6160BD1B208938001D01D8 /* ActivityListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityListViewModel.h; path = Liangxin/Activity/ViewModel/ActivityListViewModel.h; sourceTree = "<group>"; };
 		2D6160BE1B208938001D01D8 /* ActivityListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityListViewModel.m; path = Liangxin/Activity/ViewModel/ActivityListViewModel.m; sourceTree = "<group>"; };
+		2D6160C01B208AB3001D01D8 /* ActivityParticipantsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityParticipantsViewController.h; path = Liangxin/Activity/ActivityParticipantsViewController.h; sourceTree = "<group>"; };
+		2D6160C11B208AB3001D01D8 /* ActivityParticipantsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityParticipantsViewController.m; path = Liangxin/Activity/ActivityParticipantsViewController.m; sourceTree = "<group>"; };
 		2D75A2D91B1B4A0700A8FA95 /* LXClassListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXClassListViewModel.h; path = Class/ViewModel/LXClassListViewModel.h; sourceTree = "<group>"; };
 		2D75A2DA1B1B4A0700A8FA95 /* LXClassListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXClassListViewModel.m; path = Class/ViewModel/LXClassListViewModel.m; sourceTree = "<group>"; };
 		2DE2F49F1B2041C600E3DA29 /* ActivityViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityViewModel.h; path = Liangxin/Activity/ViewModel/ActivityViewModel.h; sourceTree = "<group>"; };
@@ -433,6 +436,8 @@
 				2D00FF821B20798B00106110 /* ActivityDetailViewController.m */,
 				2D6160B71B2087DE001D01D8 /* ActivityListViewController.h */,
 				2D6160B81B2087DE001D01D8 /* ActivityListViewController.m */,
+				2D6160C01B208AB3001D01D8 /* ActivityParticipantsViewController.h */,
+				2D6160C11B208AB3001D01D8 /* ActivityParticipantsViewController.m */,
 			);
 			name = Activity;
 			path = ..;
@@ -968,6 +973,7 @@
 				22BE07BD1B1F35F200A1E91F /* AccountAlbumViewController.m in Sources */,
 				2DFD65221B16001200FAC662 /* LXCarouselViewCell.m in Sources */,
 				2215CB771B09675E00D0359A /* UserApi.m in Sources */,
+				2D6160C21B208AB3001D01D8 /* ActivityParticipantsViewController.m in Sources */,
 				22BE07C91B1F363000A1E91F /* AccountCollectionViewController.m in Sources */,
 				22E6E2471B115E41005E528E /* LXJSBridge+PickImage.m in Sources */,
 				22E6E2781B12ADB4005E528E /* LoginViewCell.m in Sources */,
