@@ -105,6 +105,7 @@
 		2D6160B91B2087DE001D01D8 /* ActivityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160B81B2087DE001D01D8 /* ActivityListViewController.m */; };
 		2D6160BF1B208938001D01D8 /* ActivityListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160BE1B208938001D01D8 /* ActivityListViewModel.m */; };
 		2D6160C21B208AB3001D01D8 /* ActivityParticipantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160C11B208AB3001D01D8 /* ActivityParticipantsViewController.m */; };
+		2D6160C61B20AA1B001D01D8 /* LXHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160C51B20AA1B001D01D8 /* LXHomeViewController.m */; };
 		2D75A2DB1B1B4A0700A8FA95 /* LXClassListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D75A2DA1B1B4A0700A8FA95 /* LXClassListViewModel.m */; };
 		2DE2F4A11B2041C600E3DA29 /* ActivityViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE2F4A01B2041C600E3DA29 /* ActivityViewModel.m */; };
 		2DFD651F1B15FE7800FAC662 /* LXCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD651E1B15FE7800FAC662 /* LXCarouselView.m */; };
@@ -313,6 +314,8 @@
 		2D6160BE1B208938001D01D8 /* ActivityListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityListViewModel.m; path = Liangxin/Activity/ViewModel/ActivityListViewModel.m; sourceTree = "<group>"; };
 		2D6160C01B208AB3001D01D8 /* ActivityParticipantsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityParticipantsViewController.h; path = Liangxin/Activity/ActivityParticipantsViewController.h; sourceTree = "<group>"; };
 		2D6160C11B208AB3001D01D8 /* ActivityParticipantsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityParticipantsViewController.m; path = Liangxin/Activity/ActivityParticipantsViewController.m; sourceTree = "<group>"; };
+		2D6160C41B20AA1B001D01D8 /* LXHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXHomeViewController.h; path = Home/LXHomeViewController.h; sourceTree = "<group>"; };
+		2D6160C51B20AA1B001D01D8 /* LXHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXHomeViewController.m; path = Home/LXHomeViewController.m; sourceTree = "<group>"; };
 		2D75A2D91B1B4A0700A8FA95 /* LXClassListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXClassListViewModel.h; path = Class/ViewModel/LXClassListViewModel.h; sourceTree = "<group>"; };
 		2D75A2DA1B1B4A0700A8FA95 /* LXClassListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXClassListViewModel.m; path = Class/ViewModel/LXClassListViewModel.m; sourceTree = "<group>"; };
 		2DE2F49F1B2041C600E3DA29 /* ActivityViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityViewModel.h; path = Liangxin/Activity/ViewModel/ActivityViewModel.h; sourceTree = "<group>"; };
@@ -498,6 +501,7 @@
 		223267C21AF2661B00431132 /* Liangxin */ = {
 			isa = PBXGroup;
 			children = (
+				2D6160C31B20A9BC001D01D8 /* Home */,
 				227CA1C61B1D21BC0094E7A7 /* Service */,
 				2D537DD61B19688A006BD35E /* Base */,
 				2D537DCF1B1956AF006BD35E /* Utils */,
@@ -732,6 +736,15 @@
 				2D537DF21B1AED21006BD35E /* ClassDetailDocumentCell.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		2D6160C31B20A9BC001D01D8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2D6160C41B20AA1B001D01D8 /* LXHomeViewController.h */,
+				2D6160C51B20AA1B001D01D8 /* LXHomeViewController.m */,
+			);
+			name = Home;
 			sourceTree = "<group>";
 		};
 		2DE2F49D1B203C9D00E3DA29 /* Views */ = {
@@ -983,6 +996,7 @@
 				2210A37B1AFDF66800D9CA1A /* GroupApi.m in Sources */,
 				2D6160B91B2087DE001D01D8 /* ActivityListViewController.m in Sources */,
 				2215D96D1B10D08A00D96C46 /* TADotView.m in Sources */,
+				2D6160C61B20AA1B001D01D8 /* LXHomeViewController.m in Sources */,
 				223267C91AF2661B00431132 /* AppDelegate.m in Sources */,
 				2D6160AD1B1C9661001D01D8 /* LXFilterView.m in Sources */,
 				2D00FF831B20798B00106110 /* ActivityDetailViewController.m in Sources */,
