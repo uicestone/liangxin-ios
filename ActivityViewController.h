@@ -6,10 +6,8 @@
 //  Copyright (c) 2015年 Hsu Spud. All rights reserved.
 //
 
-#import "LXWebViewController.h"
-#import "EntryListView.h"
-#import "EntryBaseViewController.h"
+#import "LXBaseViewController.h"
 
-@interface ActivityViewController : EntryBaseViewController <EntryListViewDelegate>
+@interface ActivityViewController : LXBaseViewController
 
 @end
