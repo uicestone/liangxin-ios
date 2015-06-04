@@ -81,6 +81,7 @@
 		22E6E2911B1344ED005E528E /* ModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E6E28F1B1344ED005E528E /* ModifyPasswordViewController.m */; };
 		22E6E2921B1344ED005E528E /* ModifyPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22E6E2901B1344ED005E528E /* ModifyPasswordViewController.xib */; };
 		22F69A861AF31DF100DC295D /* SwitchBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F69A851AF31DF100DC295D /* SwitchBanner.m */; };
+		2D00FF831B20798B00106110 /* ActivityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF821B20798B00106110 /* ActivityDetailViewController.m */; };
 		2D537DC81B18BD7A006BD35E /* LXBaseModelUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DC71B18BD7A006BD35E /* LXBaseModelUser.m */; };
 		2D537DCB1B18BE66006BD35E /* LXBaseModelPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DCA1B18BE66006BD35E /* LXBaseModelPost.m */; };
 		2D537DCE1B18BE83006BD35E /* LXBaseModelGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DCD1B18BE83006BD35E /* LXBaseModelGroup.m */; };
@@ -260,6 +261,8 @@
 		22E6E2901B1344ED005E528E /* ModifyPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModifyPasswordViewController.xib; sourceTree = "<group>"; };
 		22F69A841AF31DF100DC295D /* SwitchBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchBanner.h; sourceTree = "<group>"; };
 		22F69A851AF31DF100DC295D /* SwitchBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchBanner.m; sourceTree = "<group>"; };
+		2D00FF811B20798B00106110 /* ActivityDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityDetailViewController.h; path = Liangxin/Activity/ActivityDetailViewController.h; sourceTree = "<group>"; };
+		2D00FF821B20798B00106110 /* ActivityDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityDetailViewController.m; path = Liangxin/Activity/ActivityDetailViewController.m; sourceTree = "<group>"; };
 		2D537DC61B18BD7A006BD35E /* LXBaseModelUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXBaseModelUser.h; path = Models/LXBaseModelUser.h; sourceTree = "<group>"; };
 		2D537DC71B18BD7A006BD35E /* LXBaseModelUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXBaseModelUser.m; path = Models/LXBaseModelUser.m; sourceTree = "<group>"; };
 		2D537DC91B18BE66006BD35E /* LXBaseModelPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXBaseModelPost.h; path = Models/LXBaseModelPost.h; sourceTree = "<group>"; };
@@ -420,6 +423,8 @@
 				2DE2F49D1B203C9D00E3DA29 /* Views */,
 				2215D95C1B0EC44D00D96C46 /* ActivityViewController.h */,
 				2215D95D1B0EC44D00D96C46 /* ActivityViewController.m */,
+				2D00FF811B20798B00106110 /* ActivityDetailViewController.h */,
+				2D00FF821B20798B00106110 /* ActivityDetailViewController.m */,
 			);
 			name = Activity;
 			path = ..;
@@ -962,6 +967,7 @@
 				2215D96D1B10D08A00D96C46 /* TADotView.m in Sources */,
 				223267C91AF2661B00431132 /* AppDelegate.m in Sources */,
 				2D6160AD1B1C9661001D01D8 /* LXFilterView.m in Sources */,
+				2D00FF831B20798B00106110 /* ActivityDetailViewController.m in Sources */,
 				22BE07C31B1F360700A1E91F /* AccountRecordViewController.m in Sources */,
 				22BE07CC1B1F365D00A1E91F /* AccountCreditsViewController.m in Sources */,
 				22E6E28C1B1344C2005E528E /* VCodeInputViewController.m in Sources */,
