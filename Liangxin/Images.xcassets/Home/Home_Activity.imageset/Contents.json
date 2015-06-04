@@ -7,11 +7,12 @@
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "我的账户.png"
+      "filename" : "Home_Activity@2x.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "Home_Activity@3x.png"
     }
   ],
   "info" : {

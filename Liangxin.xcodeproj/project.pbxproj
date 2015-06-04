@@ -106,6 +106,7 @@
 		2D6160BF1B208938001D01D8 /* ActivityListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160BE1B208938001D01D8 /* ActivityListViewModel.m */; };
 		2D6160C21B208AB3001D01D8 /* ActivityParticipantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160C11B208AB3001D01D8 /* ActivityParticipantsViewController.m */; };
 		2D6160C61B20AA1B001D01D8 /* LXHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160C51B20AA1B001D01D8 /* LXHomeViewController.m */; };
+		2D6160CA1B20B26B001D01D8 /* LXHomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160C91B20B26B001D01D8 /* LXHomeCollectionViewCell.m */; };
 		2D75A2DB1B1B4A0700A8FA95 /* LXClassListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D75A2DA1B1B4A0700A8FA95 /* LXClassListViewModel.m */; };
 		2DE2F4A11B2041C600E3DA29 /* ActivityViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE2F4A01B2041C600E3DA29 /* ActivityViewModel.m */; };
 		2DFD651F1B15FE7800FAC662 /* LXCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD651E1B15FE7800FAC662 /* LXCarouselView.m */; };
@@ -316,6 +317,8 @@
 		2D6160C11B208AB3001D01D8 /* ActivityParticipantsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityParticipantsViewController.m; path = Liangxin/Activity/ActivityParticipantsViewController.m; sourceTree = "<group>"; };
 		2D6160C41B20AA1B001D01D8 /* LXHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXHomeViewController.h; path = Home/LXHomeViewController.h; sourceTree = "<group>"; };
 		2D6160C51B20AA1B001D01D8 /* LXHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXHomeViewController.m; path = Home/LXHomeViewController.m; sourceTree = "<group>"; };
+		2D6160C81B20B26B001D01D8 /* LXHomeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXHomeCollectionViewCell.h; path = Home/Views/LXHomeCollectionViewCell.h; sourceTree = "<group>"; };
+		2D6160C91B20B26B001D01D8 /* LXHomeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXHomeCollectionViewCell.m; path = Home/Views/LXHomeCollectionViewCell.m; sourceTree = "<group>"; };
 		2D75A2D91B1B4A0700A8FA95 /* LXClassListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXClassListViewModel.h; path = Class/ViewModel/LXClassListViewModel.h; sourceTree = "<group>"; };
 		2D75A2DA1B1B4A0700A8FA95 /* LXClassListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXClassListViewModel.m; path = Class/ViewModel/LXClassListViewModel.m; sourceTree = "<group>"; };
 		2DE2F49F1B2041C600E3DA29 /* ActivityViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityViewModel.h; path = Liangxin/Activity/ViewModel/ActivityViewModel.h; sourceTree = "<group>"; };
@@ -741,10 +744,20 @@
 		2D6160C31B20A9BC001D01D8 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				2D6160C71B20B1C2001D01D8 /* Views */,
 				2D6160C41B20AA1B001D01D8 /* LXHomeViewController.h */,
 				2D6160C51B20AA1B001D01D8 /* LXHomeViewController.m */,
 			);
 			name = Home;
+			sourceTree = "<group>";
+		};
+		2D6160C71B20B1C2001D01D8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2D6160C81B20B26B001D01D8 /* LXHomeCollectionViewCell.h */,
+				2D6160C91B20B26B001D01D8 /* LXHomeCollectionViewCell.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		2DE2F49D1B203C9D00E3DA29 /* Views */ = {
@@ -966,6 +979,7 @@
 				22BE07B01B1D3C9200A1E91F /* AccountHomeViewController.m in Sources */,
 				22E6E2551B11C380005E528E /* EntryItemCell.m in Sources */,
 				2D537E021B1AF6D7006BD35E /* ClassListViewController.m in Sources */,
+				2D6160CA1B20B26B001D01D8 /* LXHomeCollectionViewCell.m in Sources */,
 				2215CB741B08EA0C00D0359A /* GroupMembersViewController.m in Sources */,
 				22D649DC1B0A2CDC004045B8 /* PostApi.m in Sources */,
 				2D537DED1B1AEAD3006BD35E /* ClassDetailAlbumCell.m in Sources */,
