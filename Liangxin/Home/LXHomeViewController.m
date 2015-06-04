@@ -22,17 +22,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self commonInit];
 }
 
 - (void)commonInit {
-    self.title = @"精品推荐";
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
+    titleLabel.textColor = [UIColor redColor];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.font = [UIFont boldSystemFontOfSize:22.0];
+    titleLabel.text = @"精品推荐";
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    self.navigationItem.titleView = titleLabel;
     self.channelImages = @[@"Home_Group", @"Home_Activity", @"Home_Class", @"Home_Post", @"Home_Service", @"Home_Account"];
+    self.channelSchemes = @[@"group", @"activity", @"class", @"post", @"service", @"account"];
     self.view.backgroundColor = [UIColor whiteColor];
     self.flowLayout = [UICollectionViewFlowLayout new];
-    self.flowLayout.itemSize = CGSizeMake(CGRectGetWidth([UIScreen mainScreen].bounds)/2, (CGRectGetHeight(self.view.bounds) - 125)/3);
+    self.flowLayout.itemSize = CGSizeMake(CGRectGetWidth([UIScreen mainScreen].bounds)/2, (CGRectGetHeight(self.view.bounds) - 189)/3);
     self.flowLayout.minimumInteritemSpacing = 0;
     self.flowLayout.minimumLineSpacing = 0;
-    self.collectionView = [UICollectionView new];
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.flowLayout];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     self.collectionView.showsHorizontalScrollIndicator = NO;
@@ -47,16 +55,21 @@
     }];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:248/255.0 green:248/255.0 blue:248/255.0 alpha:1.0];
+}
+
 #pragma mark - UICollectionViewDataSource && UICollectionViewDelegate
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     LXHomeCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"LXHomeCollectionViewCell" forIndexPath:indexPath];
-    cell.imageView.image = [self.channelImages objectAtIndex:indexPath.row];
+    cell.imageView.image = [UIImage imageNamed:[self.channelImages objectAtIndex:indexPath.row]];
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://%@", self.channelSchemes[indexPath.row]]]];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {

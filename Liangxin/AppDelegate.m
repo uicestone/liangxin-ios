@@ -46,6 +46,8 @@
 #import "Definition.h"
 #import <HHRouter/HHRouter.h>
 
+#import "LXHomeViewController.h"
+
 @interface AppDelegate () <UITabBarControllerDelegate, UIActionSheetDelegate, LoginFinishDelegate>
 
 @end
@@ -78,7 +80,7 @@
     
     // 党群
     
-    [[HHRouter shared] map:@"/home" toControllerClass:[HomeViewController class]];
+    [[HHRouter shared] map:@"/home" toControllerClass:[LXHomeViewController class]];
     [[HHRouter shared] map:@"/group" toControllerClass:[GroupViewController class]];
     [[HHRouter shared] map:@"/group/:id" toControllerClass:[GroupViewController class]];
     [[HHRouter shared] map:@"/groupdetail/:id" toControllerClass:[GroupDetailViewController class]];
@@ -149,40 +151,11 @@
     UIViewController *homeViewController = [[HHRouter shared] matchController:@"/home"];
     
     
-    // 初始化tabbar controller
-    
-    self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.tabBar.translucent = NO;
-    self.tabBarController.tabBar.tintColor = [UIColor whiteColor];
-    
-    // FirstViewController
-    UIViewController *fvc=[[UIViewController alloc] initWithNibName:nil bundle:nil];
-    fvc.title=@"返回首页";
-    fvc.tabBarItem.image=[UIImage imageNamed:@"tab-home"];
-    
     // SecondViewController
     navigationController= [[LXNavigationController alloc]
                                              initWithRootViewController:homeViewController];
-    navigationController.title=@"我要发起";
-    navigationController.tabBarItem.image=[UIImage imageNamed:@"tab-plus"];
     
-    //ThirdViewController
-    UIViewController *tvc=[[UIViewController alloc] initWithNibName:nil bundle:nil];
-    tvc.title=@"我的账号";
-    tvc.tabBarItem.image=[UIImage imageNamed:@"tab-account"];
-    
-    
-    
-    
-    NSArray* controllers = [NSArray arrayWithObjects:fvc, navigationController, tvc, nil];
-    
-    
-    tabBarController.viewControllers = controllers;
-    
-    tabBarController.selectedIndex = 1;
-    tabBarController.delegate = self;
-    
-    window.rootViewController = tabBarController;
+    window.rootViewController = navigationController;
     
     [window makeKeyAndVisible];
     

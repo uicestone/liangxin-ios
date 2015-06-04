@@ -52,6 +52,7 @@
     [super viewDidLoad];
     self.extendedLayoutIncludesOpaqueBars = YES;
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.navigationController.navigationBar.translucent = NO;
 }
 
 @end
