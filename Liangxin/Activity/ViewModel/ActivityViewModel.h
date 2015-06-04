@@ -10,4 +10,6 @@
 
 @interface ActivityViewModel : NSObject
 
+@property (nonatomic, strong) NSMutableArray *activityData;
+
 @end

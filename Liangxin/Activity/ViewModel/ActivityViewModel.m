@@ -10,4 +10,13 @@
 
 @implementation ActivityViewModel
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _activityData = [NSMutableArray array];
+    }
+    return self;
+}
+
 @end

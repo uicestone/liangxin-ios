@@ -138,6 +138,7 @@
     self.tableView.rowHeight = 75;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 1)];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.titleView.mas_bottom);
@@ -155,16 +156,44 @@
 
 #pragma mark - UITableViewDataSource && UITableViewDelegate
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 22;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.tableView.bounds), 40)];
+    headerView.backgroundColor = UIColorFromRGB(0xe6e7e8);
+    UILabel *headerLabel = [UILabel new];
+    headerLabel.text = @"活动列表";
+    headerLabel.textColor = [UIColor darkGrayColor];
+    headerLabel.font = [UIFont boldSystemFontOfSize:15.0];
+    [headerView addSubview:headerLabel];
+    [headerLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(15);
+        make.top.mas_equalTo(0);
+        make.bottom.mas_equalTo(0);
+        make.width.mas_equalTo(100);
+    }];
+    return headerView;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    LXBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityCell"];
+    if (!cell) {
+        cell = [[LXBaseTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ActivityCell"];
+    }
+    cell.style = LXTableViewCellStyleActivity;
+    LXBaseModelPost *data = [self.viewModel.activityData objectAtIndex:indexPath.row];
+    [cell reloadViewWithData:data];
+    return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return self.viewModel.activityData.count;
 }
 
 @end
