@@ -28,7 +28,7 @@
 
 - (RACSignal *)getHomeBanners {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        [self.sessionManager GET:@"/api/v1/post" parameters:@{@"type":@"横幅", @"banner_position":@"首页"} success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSURLSessionDataTask *task = [self.sessionManager GET:@"/api/v1/post" parameters:@{@"type":@"横幅", @"banner_position":@"首页"} success:^(NSURLSessionDataTask *task, id responseObject) {
             NSMutableArray *posts = [NSMutableArray array];
             for (NSDictionary *post in responseObject) {
                 [posts addObject:[LXBaseModelPost modelWithDictionary:post error:nil]];
@@ -39,9 +39,8 @@
             [subscriber sendError:error];
         }];
         return [RACDisposable disposableWithBlock:^{
-            
+            [task cancel];
         }];
-        return nil;
     }];
 }
 

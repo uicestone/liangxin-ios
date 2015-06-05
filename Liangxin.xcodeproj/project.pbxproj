@@ -369,15 +369,6 @@
 			name = JSBridges;
 			sourceTree = "<group>";
 		};
-		2215CB4A1B0781B400D0359A /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				2215CB4B1B07820C00D0359A /* NSDictionary+Encoding.h */,
-				2215CB4C1B07820C00D0359A /* NSDictionary+Encoding.m */,
-			);
-			name = Utils;
-			sourceTree = "<group>";
-		};
 		2215CB591B082AD700D0359A /* Group */ = {
 			isa = PBXGroup;
 			children = (
@@ -502,7 +493,6 @@
 				2215CB661B086A5E00D0359A /* Views */,
 				22D64A331B0ACD10004045B8 /* Post */,
 				2215CB591B082AD700D0359A /* Group */,
-				2215CB4A1B0781B400D0359A /* Utils */,
 				2215CB3D1B07524B00D0359A /* JSBridges */,
 				22238C511AFBAC74000B4F95 /* Api */,
 				2293FA031AF50B2C0012CD10 /* Model */,
@@ -703,6 +693,8 @@
 				2D537DD01B1956F9006BD35E /* NSDictionary+Utils.h */,
 				2D537DD11B1956F9006BD35E /* NSDictionary+Utils.m */,
 				2D537DDA1B19A2ED006BD35E /* LXMacroDefinition.h */,
+				2215CB4B1B07820C00D0359A /* NSDictionary+Encoding.h */,
+				2215CB4C1B07820C00D0359A /* NSDictionary+Encoding.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";

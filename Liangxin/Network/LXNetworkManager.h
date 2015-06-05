@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, LXBannerType){
+    LXBannerTypeHome,
+    LXBannerTypeClass,
+    LXBannerTypeActivity
+};
+
 @interface LXNetworkManager : NSObject
+
+- (RACSignal *)getBannersByType:(LXBannerType)bannerType;
 
 @end
