@@ -25,7 +25,6 @@
 		2215CB741B08EA0C00D0359A /* GroupMembersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB731B08EA0C00D0359A /* GroupMembersViewController.m */; };
 		2215CB771B09675E00D0359A /* UserApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB761B09675E00D0359A /* UserApi.m */; };
 		2215CB7A1B0972A900D0359A /* PublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB791B0972A900D0359A /* PublishViewController.m */; };
-		2215D95E1B0EC44D00D96C46 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215D95D1B0EC44D00D96C46 /* ActivityViewController.m */; };
 		2215D9611B10CF3600D96C46 /* LXJSBridge+SetTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215D9601B10CF3600D96C46 /* LXJSBridge+SetTitle.m */; };
 		2215D96B1B10D08A00D96C46 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215D9641B10D08A00D96C46 /* TAAbstractDotView.m */; };
 		2215D96C1B10D08A00D96C46 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215D9661B10D08A00D96C46 /* TAAnimatedDotView.m */; };
@@ -83,6 +82,7 @@
 		2D00FF831B20798B00106110 /* ActivityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF821B20798B00106110 /* ActivityDetailViewController.m */; };
 		2D00FF921B217D0200106110 /* LXRouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF911B217D0200106110 /* LXRouteManager.m */; };
 		2D00FF961B217F6F00106110 /* LXHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF951B217F6F00106110 /* LXHomeViewModel.m */; };
+		2D00FF991B21842200106110 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF981B21842200106110 /* ActivityViewController.m */; };
 		2D537DC81B18BD7A006BD35E /* LXBaseModelUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DC71B18BD7A006BD35E /* LXBaseModelUser.m */; };
 		2D537DCB1B18BE66006BD35E /* LXBaseModelPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DCA1B18BE66006BD35E /* LXBaseModelPost.m */; };
 		2D537DCE1B18BE83006BD35E /* LXBaseModelGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DCD1B18BE83006BD35E /* LXBaseModelGroup.m */; };
@@ -153,8 +153,6 @@
 		2215CB761B09675E00D0359A /* UserApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserApi.m; sourceTree = "<group>"; };
 		2215CB781B0972A800D0359A /* PublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishViewController.h; sourceTree = "<group>"; };
 		2215CB791B0972A900D0359A /* PublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishViewController.m; sourceTree = "<group>"; };
-		2215D95C1B0EC44D00D96C46 /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
-		2215D95D1B0EC44D00D96C46 /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
 		2215D95F1B10CF3600D96C46 /* LXJSBridge+SetTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LXJSBridge+SetTitle.h"; sourceTree = "<group>"; };
 		2215D9601B10CF3600D96C46 /* LXJSBridge+SetTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LXJSBridge+SetTitle.m"; sourceTree = "<group>"; };
 		2215D9631B10D08A00D96C46 /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
@@ -260,6 +258,8 @@
 		2D00FF911B217D0200106110 /* LXRouteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXRouteManager.m; path = Routes/LXRouteManager.m; sourceTree = "<group>"; };
 		2D00FF941B217F6F00106110 /* LXHomeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXHomeViewModel.h; path = Home/ViewModel/LXHomeViewModel.h; sourceTree = "<group>"; };
 		2D00FF951B217F6F00106110 /* LXHomeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXHomeViewModel.m; path = Home/ViewModel/LXHomeViewModel.m; sourceTree = "<group>"; };
+		2D00FF971B21842200106110 /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityViewController.h; path = Liangxin/Activity/ActivityViewController.h; sourceTree = "<group>"; };
+		2D00FF981B21842200106110 /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityViewController.m; path = Liangxin/Activity/ActivityViewController.m; sourceTree = "<group>"; };
 		2D537DC61B18BD7A006BD35E /* LXBaseModelUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXBaseModelUser.h; path = Models/LXBaseModelUser.h; sourceTree = "<group>"; };
 		2D537DC71B18BD7A006BD35E /* LXBaseModelUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXBaseModelUser.m; path = Models/LXBaseModelUser.m; sourceTree = "<group>"; };
 		2D537DC91B18BE66006BD35E /* LXBaseModelPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXBaseModelPost.h; path = Models/LXBaseModelPost.h; sourceTree = "<group>"; };
@@ -421,14 +421,14 @@
 			children = (
 				2DE2F49E1B203CA400E3DA29 /* ViewModel */,
 				2DE2F49D1B203C9D00E3DA29 /* Views */,
-				2215D95C1B0EC44D00D96C46 /* ActivityViewController.h */,
-				2215D95D1B0EC44D00D96C46 /* ActivityViewController.m */,
 				2D00FF811B20798B00106110 /* ActivityDetailViewController.h */,
 				2D00FF821B20798B00106110 /* ActivityDetailViewController.m */,
 				2D6160B71B2087DE001D01D8 /* ActivityListViewController.h */,
 				2D6160B81B2087DE001D01D8 /* ActivityListViewController.m */,
 				2D6160C01B208AB3001D01D8 /* ActivityParticipantsViewController.h */,
 				2D6160C11B208AB3001D01D8 /* ActivityParticipantsViewController.m */,
+				2D00FF971B21842200106110 /* ActivityViewController.h */,
+				2D00FF981B21842200106110 /* ActivityViewController.m */,
 			);
 			name = Activity;
 			path = ..;
@@ -919,7 +919,6 @@
 				2215CB6B1B08D31E00D0359A /* GroupAlbumViewController.m in Sources */,
 				2215CB491B075E3900D0359A /* LXJSBridge+Fetch.m in Sources */,
 				2DE2F4A11B2041C600E3DA29 /* ActivityViewModel.m in Sources */,
-				2215D95E1B0EC44D00D96C46 /* ActivityViewController.m in Sources */,
 				22E6E2621B11F38B005E528E /* ActivityItemCell.m in Sources */,
 				2D537DFF1B1AF588006BD35E /* ClassDocumentViewController.m in Sources */,
 				2D00FF961B217F6F00106110 /* LXHomeViewModel.m in Sources */,
@@ -975,6 +974,7 @@
 				22BE07C31B1F360700A1E91F /* AccountRecordViewController.m in Sources */,
 				22BE07CC1B1F365D00A1E91F /* AccountCreditsViewController.m in Sources */,
 				22E6E28C1B1344C2005E528E /* VCodeInputViewController.m in Sources */,
+				2D00FF991B21842200106110 /* ActivityViewController.m in Sources */,
 				2293FA061AF50B550012CD10 /* BannerModel.m in Sources */,
 				2D537DC81B18BD7A006BD35E /* LXBaseModelUser.m in Sources */,
 				22E6E2591B11C582005E528E /* ClassViewController.m in Sources */,
