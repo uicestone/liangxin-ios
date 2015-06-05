@@ -61,9 +61,6 @@
     
     window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    // 初始化status bar
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    
     // 设置返回按钮样式
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
     
