@@ -54,7 +54,6 @@
 
 @implementation AppDelegate
 @synthesize navigationController;
-@synthesize tabBarController;
 @synthesize window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
