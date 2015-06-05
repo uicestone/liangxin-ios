@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface LXBaseViewController : UIViewController
-- (BOOL) shouldLogin;
+
+- (void)back:(id)sender;
+
+- (BOOL)shouldLogin;
 - (void)navigateToPath:(NSString *)path;
 - (void)popMessage:(NSString *)message;
 - (void)showProgress;
