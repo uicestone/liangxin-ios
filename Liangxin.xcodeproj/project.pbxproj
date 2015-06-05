@@ -39,7 +39,6 @@
 		223267CC1AF2661B00431132 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223267CB1AF2661B00431132 /* HomeViewController.m */; };
 		223267D11AF2661B00431132 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 223267D01AF2661B00431132 /* Images.xcassets */; };
 		223267D41AF2661B00431132 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223267D21AF2661B00431132 /* LaunchScreen.xib */; };
-		223267E01AF2661B00431132 /* LiangxinTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 223267DF1AF2661B00431132 /* LiangxinTests.m */; };
 		225BA69C1AFF30D0000E6D79 /* LXWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 225BA69B1AFF30D0000E6D79 /* LXWebView.m */; };
 		227CA1C91B1D21D80094E7A7 /* ServiceHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227CA1C81B1D21D80094E7A7 /* ServiceHomeViewController.m */; };
 		2287B1F41B1408EB00DB6E68 /* GroupPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2287B1F31B1408EB00DB6E68 /* GroupPostViewController.xib */; };
@@ -117,16 +116,6 @@
 		9073049D9796F236635CB35B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 749E78FDB631FDC0769D75E2 /* libPods.a */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		223267DA1AF2661B00431132 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 223267B81AF2661B00431132 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 223267BF1AF2661B00431132;
-			remoteInfo = Liangxin;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		2210A3791AFDF66800D9CA1A /* GroupApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupApi.h; sourceTree = "<group>"; };
 		2210A37A1AFDF66800D9CA1A /* GroupApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupApi.m; sourceTree = "<group>"; };
@@ -190,9 +179,6 @@
 		223267CB1AF2661B00431132 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		223267D01AF2661B00431132 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		223267D31AF2661B00431132 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		223267D91AF2661B00431132 /* LiangxinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiangxinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		223267DE1AF2661B00431132 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		223267DF1AF2661B00431132 /* LiangxinTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiangxinTests.m; sourceTree = "<group>"; };
 		225BA69A1AFF30D0000E6D79 /* LXWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXWebView.h; sourceTree = "<group>"; };
 		225BA69B1AFF30D0000E6D79 /* LXWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXWebView.m; sourceTree = "<group>"; };
 		227CA1C71B1D21D80094E7A7 /* ServiceHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceHomeViewController.h; sourceTree = "<group>"; };
@@ -348,13 +334,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		223267D61AF2661B00431132 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -485,7 +464,6 @@
 			isa = PBXGroup;
 			children = (
 				223267C21AF2661B00431132 /* Liangxin */,
-				223267DC1AF2661B00431132 /* LiangxinTests */,
 				223267C11AF2661B00431132 /* Products */,
 				F41337B7084173F8F4E37747 /* Pods */,
 				098BF1C8DD010D2BA28A633B /* Frameworks */,
@@ -496,7 +474,6 @@
 			isa = PBXGroup;
 			children = (
 				223267C01AF2661B00431132 /* Liangxin.app */,
-				223267D91AF2661B00431132 /* LiangxinTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -546,23 +523,6 @@
 				223267C41AF2661B00431132 /* Info.plist */,
 				223267C51AF2661B00431132 /* main.m */,
 				2DFD65231B1600CD00FAC662 /* LXPrefixHeader.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		223267DC1AF2661B00431132 /* LiangxinTests */ = {
-			isa = PBXGroup;
-			children = (
-				223267DF1AF2661B00431132 /* LiangxinTests.m */,
-				223267DD1AF2661B00431132 /* Supporting Files */,
-			);
-			path = LiangxinTests;
-			sourceTree = "<group>";
-		};
-		223267DD1AF2661B00431132 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				223267DE1AF2661B00431132 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -820,24 +780,6 @@
 			productReference = 223267C01AF2661B00431132 /* Liangxin.app */;
 			productType = "com.apple.product-type.application";
 		};
-		223267D81AF2661B00431132 /* LiangxinTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 223267E61AF2661B00431132 /* Build configuration list for PBXNativeTarget "LiangxinTests" */;
-			buildPhases = (
-				223267D51AF2661B00431132 /* Sources */,
-				223267D61AF2661B00431132 /* Frameworks */,
-				223267D71AF2661B00431132 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				223267DB1AF2661B00431132 /* PBXTargetDependency */,
-			);
-			name = LiangxinTests;
-			productName = LiangxinTests;
-			productReference = 223267D91AF2661B00431132 /* LiangxinTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -850,10 +792,6 @@
 					223267BF1AF2661B00431132 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = LJWWUZH366;
-					};
-					223267D81AF2661B00431132 = {
-						CreatedOnToolsVersion = 6.3.1;
-						TestTargetID = 223267BF1AF2661B00431132;
 					};
 				};
 			};
@@ -871,7 +809,6 @@
 			projectRoot = "";
 			targets = (
 				223267BF1AF2661B00431132 /* Liangxin */,
-				223267D81AF2661B00431132 /* LiangxinTests */,
 			);
 		};
 /* End PBXProject section */
@@ -894,13 +831,6 @@
 				22E6E2881B1343F3005E528E /* AccountFieldCell.xib in Resources */,
 				22E6E2921B1344ED005E528E /* ModifyPasswordViewController.xib in Resources */,
 				22E6E2631B11F38B005E528E /* ActivityItemCell.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		223267D71AF2661B00431132 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1040,23 +970,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		223267D51AF2661B00431132 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				223267E01AF2661B00431132 /* LiangxinTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		223267DB1AF2661B00431132 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 223267BF1AF2661B00431132 /* Liangxin */;
-			targetProxy = 223267DA1AF2661B00431132 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		223267D21AF2661B00431132 /* LaunchScreen.xib */ = {
@@ -1190,40 +1104,6 @@
 			};
 			name = Release;
 		};
-		223267E71AF2661B00431132 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = LiangxinTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Liangxin.app/Liangxin";
-			};
-			name = Debug;
-		};
-		223267E81AF2661B00431132 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = LiangxinTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Liangxin.app/Liangxin";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1241,15 +1121,6 @@
 			buildConfigurations = (
 				223267E41AF2661B00431132 /* Debug */,
 				223267E51AF2661B00431132 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		223267E61AF2661B00431132 /* Build configuration list for PBXNativeTarget "LiangxinTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				223267E71AF2661B00431132 /* Debug */,
-				223267E81AF2661B00431132 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
