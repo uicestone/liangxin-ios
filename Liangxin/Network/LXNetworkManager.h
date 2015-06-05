@@ -16,6 +16,8 @@ typedef NS_ENUM(NSInteger, LXBannerType){
 
 @interface LXNetworkManager : NSObject
 
++ (instancetype)sharedManager;
+
 - (RACSignal *)getBannersByType:(LXBannerType)bannerType;
 
 @end

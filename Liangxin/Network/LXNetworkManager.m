@@ -27,6 +27,15 @@
     return self;
 }
 
++ (instancetype)sharedManager {
+    static LXNetworkManager *sharedManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedManager = [LXNetworkManager new];
+    });
+    return sharedManager;
+}
+
 - (NSString *)bannerNameByType:(LXBannerType)bannerType {
     switch (bannerType) {
         case LXBannerTypeHome:
