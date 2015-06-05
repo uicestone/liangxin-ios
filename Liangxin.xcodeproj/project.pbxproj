@@ -83,6 +83,7 @@
 		2D00FF921B217D0200106110 /* LXRouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF911B217D0200106110 /* LXRouteManager.m */; };
 		2D00FF961B217F6F00106110 /* LXHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF951B217F6F00106110 /* LXHomeViewModel.m */; };
 		2D00FF991B21842200106110 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF981B21842200106110 /* ActivityViewController.m */; };
+		2D00FF9D1B218CBB00106110 /* LXNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF9C1B218CBB00106110 /* LXNetworkManager.m */; };
 		2D537DC81B18BD7A006BD35E /* LXBaseModelUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DC71B18BD7A006BD35E /* LXBaseModelUser.m */; };
 		2D537DCB1B18BE66006BD35E /* LXBaseModelPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DCA1B18BE66006BD35E /* LXBaseModelPost.m */; };
 		2D537DCE1B18BE83006BD35E /* LXBaseModelGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DCD1B18BE83006BD35E /* LXBaseModelGroup.m */; };
@@ -260,6 +261,8 @@
 		2D00FF951B217F6F00106110 /* LXHomeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXHomeViewModel.m; path = Home/ViewModel/LXHomeViewModel.m; sourceTree = "<group>"; };
 		2D00FF971B21842200106110 /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityViewController.h; path = Liangxin/Activity/ActivityViewController.h; sourceTree = "<group>"; };
 		2D00FF981B21842200106110 /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityViewController.m; path = Liangxin/Activity/ActivityViewController.m; sourceTree = "<group>"; };
+		2D00FF9B1B218CBB00106110 /* LXNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXNetworkManager.h; path = Network/LXNetworkManager.h; sourceTree = "<group>"; };
+		2D00FF9C1B218CBB00106110 /* LXNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXNetworkManager.m; path = Network/LXNetworkManager.m; sourceTree = "<group>"; };
 		2D537DC61B18BD7A006BD35E /* LXBaseModelUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXBaseModelUser.h; path = Models/LXBaseModelUser.h; sourceTree = "<group>"; };
 		2D537DC71B18BD7A006BD35E /* LXBaseModelUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXBaseModelUser.m; path = Models/LXBaseModelUser.m; sourceTree = "<group>"; };
 		2D537DC91B18BE66006BD35E /* LXBaseModelPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXBaseModelPost.h; path = Models/LXBaseModelPost.h; sourceTree = "<group>"; };
@@ -487,6 +490,7 @@
 		223267C21AF2661B00431132 /* Liangxin */ = {
 			isa = PBXGroup;
 			children = (
+				2D00FF9A1B218B6F00106110 /* Network */,
 				2D00FF8F1B217CBB00106110 /* Routes */,
 				2D6160C31B20A9BC001D01D8 /* Home */,
 				227CA1C61B1D21BC0094E7A7 /* Service */,
@@ -682,6 +686,15 @@
 				2D00FF951B217F6F00106110 /* LXHomeViewModel.m */,
 			);
 			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		2D00FF9A1B218B6F00106110 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				2D00FF9B1B218CBB00106110 /* LXNetworkManager.h */,
+				2D00FF9C1B218CBB00106110 /* LXNetworkManager.m */,
+			);
+			name = Network;
 			sourceTree = "<group>";
 		};
 		2D537DCF1B1956AF006BD35E /* Utils */ = {
@@ -986,6 +999,7 @@
 				22E6E2911B1344ED005E528E /* ModifyPasswordViewController.m in Sources */,
 				22BE07C01B1F35FD00A1E91F /* AccountFollowViewController.m in Sources */,
 				2215D96E1B10D08A00D96C46 /* TAPageControl.m in Sources */,
+				2D00FF9D1B218CBB00106110 /* LXNetworkManager.m in Sources */,
 				22BE07C61B1F361B00A1E91F /* AccountAboutViewController.m in Sources */,
 				223267C61AF2661B00431132 /* main.m in Sources */,
 				2215D96C1B10D08A00D96C46 /* TAAnimatedDotView.m in Sources */,
