@@ -33,7 +33,6 @@
     self.title = @"精彩活动";
     self.viewModel = [ActivityViewModel new];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.tabBarController.tabBar.hidden = NO;
     
     UIView *searchView = [UIView new];
     searchView.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
