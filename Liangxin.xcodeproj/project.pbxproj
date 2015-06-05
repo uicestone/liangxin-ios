@@ -25,7 +25,6 @@
 		2215CB741B08EA0C00D0359A /* GroupMembersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB731B08EA0C00D0359A /* GroupMembersViewController.m */; };
 		2215CB771B09675E00D0359A /* UserApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB761B09675E00D0359A /* UserApi.m */; };
 		2215CB7A1B0972A900D0359A /* PublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215CB791B0972A900D0359A /* PublishViewController.m */; };
-		2215D95E1B0EC44D00D96C46 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215D95D1B0EC44D00D96C46 /* ActivityViewController.m */; };
 		2215D9611B10CF3600D96C46 /* LXJSBridge+SetTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215D9601B10CF3600D96C46 /* LXJSBridge+SetTitle.m */; };
 		2215D96B1B10D08A00D96C46 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215D9641B10D08A00D96C46 /* TAAbstractDotView.m */; };
 		2215D96C1B10D08A00D96C46 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215D9661B10D08A00D96C46 /* TAAnimatedDotView.m */; };
@@ -39,7 +38,6 @@
 		223267CC1AF2661B00431132 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223267CB1AF2661B00431132 /* HomeViewController.m */; };
 		223267D11AF2661B00431132 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 223267D01AF2661B00431132 /* Images.xcassets */; };
 		223267D41AF2661B00431132 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223267D21AF2661B00431132 /* LaunchScreen.xib */; };
-		223267E01AF2661B00431132 /* LiangxinTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 223267DF1AF2661B00431132 /* LiangxinTests.m */; };
 		225BA69C1AFF30D0000E6D79 /* LXWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 225BA69B1AFF30D0000E6D79 /* LXWebView.m */; };
 		227CA1C91B1D21D80094E7A7 /* ServiceHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227CA1C81B1D21D80094E7A7 /* ServiceHomeViewController.m */; };
 		228587AA1B20AFC100CCA3A4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 228587A91B20AFC100CCA3A4 /* libPods.a */; };
@@ -83,6 +81,11 @@
 		22E6E2911B1344ED005E528E /* ModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E6E28F1B1344ED005E528E /* ModifyPasswordViewController.m */; };
 		22E6E2921B1344ED005E528E /* ModifyPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22E6E2901B1344ED005E528E /* ModifyPasswordViewController.xib */; };
 		22F69A861AF31DF100DC295D /* SwitchBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F69A851AF31DF100DC295D /* SwitchBanner.m */; };
+		2D00FF831B20798B00106110 /* ActivityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF821B20798B00106110 /* ActivityDetailViewController.m */; };
+		2D00FF921B217D0200106110 /* LXRouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF911B217D0200106110 /* LXRouteManager.m */; };
+		2D00FF961B217F6F00106110 /* LXHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF951B217F6F00106110 /* LXHomeViewModel.m */; };
+		2D00FF991B21842200106110 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF981B21842200106110 /* ActivityViewController.m */; };
+		2D00FF9D1B218CBB00106110 /* LXNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF9C1B218CBB00106110 /* LXNetworkManager.m */; };
 		2D537DC81B18BD7A006BD35E /* LXBaseModelUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DC71B18BD7A006BD35E /* LXBaseModelUser.m */; };
 		2D537DCB1B18BE66006BD35E /* LXBaseModelPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DCA1B18BE66006BD35E /* LXBaseModelPost.m */; };
 		2D537DCE1B18BE83006BD35E /* LXBaseModelGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DCD1B18BE83006BD35E /* LXBaseModelGroup.m */; };
@@ -103,23 +106,19 @@
 		2D537E021B1AF6D7006BD35E /* ClassListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537E011B1AF6D7006BD35E /* ClassListViewController.m */; };
 		2D6160AD1B1C9661001D01D8 /* LXFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160AC1B1C9661001D01D8 /* LXFilterView.m */; };
 		2D6160B01B1C9EB7001D01D8 /* LXFilterViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160AF1B1C9EB7001D01D8 /* LXFilterViewCell.m */; };
+		2D6160B91B2087DE001D01D8 /* ActivityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160B81B2087DE001D01D8 /* ActivityListViewController.m */; };
+		2D6160BF1B208938001D01D8 /* ActivityListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160BE1B208938001D01D8 /* ActivityListViewModel.m */; };
+		2D6160C21B208AB3001D01D8 /* ActivityParticipantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160C11B208AB3001D01D8 /* ActivityParticipantsViewController.m */; };
+		2D6160C61B20AA1B001D01D8 /* LXHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160C51B20AA1B001D01D8 /* LXHomeViewController.m */; };
+		2D6160CA1B20B26B001D01D8 /* LXHomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160C91B20B26B001D01D8 /* LXHomeCollectionViewCell.m */; };
 		2D75A2DB1B1B4A0700A8FA95 /* LXClassListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D75A2DA1B1B4A0700A8FA95 /* LXClassListViewModel.m */; };
+		2DE2F4A11B2041C600E3DA29 /* ActivityViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE2F4A01B2041C600E3DA29 /* ActivityViewModel.m */; };
 		2DFD651F1B15FE7800FAC662 /* LXCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD651E1B15FE7800FAC662 /* LXCarouselView.m */; };
 		2DFD65221B16001200FAC662 /* LXCarouselViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD65211B16001200FAC662 /* LXCarouselViewCell.m */; };
 		2DFD65261B1603D200FAC662 /* LXBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD65251B1603D200FAC662 /* LXBannerView.m */; };
 		2DFD65291B16143400FAC662 /* LXBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD65281B16143400FAC662 /* LXBaseTableViewCell.m */; };
 		2DFD652F1B175EAE00FAC662 /* LXClassViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD652E1B175EAE00FAC662 /* LXClassViewModel.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		223267DA1AF2661B00431132 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 223267B81AF2661B00431132 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 223267BF1AF2661B00431132;
-			remoteInfo = Liangxin;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2210A3791AFDF66800D9CA1A /* GroupApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupApi.h; sourceTree = "<group>"; };
@@ -156,8 +155,6 @@
 		2215CB761B09675E00D0359A /* UserApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserApi.m; sourceTree = "<group>"; };
 		2215CB781B0972A800D0359A /* PublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishViewController.h; sourceTree = "<group>"; };
 		2215CB791B0972A900D0359A /* PublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishViewController.m; sourceTree = "<group>"; };
-		2215D95C1B0EC44D00D96C46 /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
-		2215D95D1B0EC44D00D96C46 /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
 		2215D95F1B10CF3600D96C46 /* LXJSBridge+SetTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LXJSBridge+SetTitle.h"; sourceTree = "<group>"; };
 		2215D9601B10CF3600D96C46 /* LXJSBridge+SetTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LXJSBridge+SetTitle.m"; sourceTree = "<group>"; };
 		2215D9631B10D08A00D96C46 /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
@@ -184,9 +181,6 @@
 		223267CB1AF2661B00431132 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		223267D01AF2661B00431132 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		223267D31AF2661B00431132 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		223267D91AF2661B00431132 /* LiangxinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiangxinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		223267DE1AF2661B00431132 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		223267DF1AF2661B00431132 /* LiangxinTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiangxinTests.m; sourceTree = "<group>"; };
 		225BA69A1AFF30D0000E6D79 /* LXWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXWebView.h; sourceTree = "<group>"; };
 		225BA69B1AFF30D0000E6D79 /* LXWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXWebView.m; sourceTree = "<group>"; };
 		227CA1C71B1D21D80094E7A7 /* ServiceHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceHomeViewController.h; sourceTree = "<group>"; };
@@ -264,6 +258,16 @@
 		22E6E2901B1344ED005E528E /* ModifyPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModifyPasswordViewController.xib; sourceTree = "<group>"; };
 		22F69A841AF31DF100DC295D /* SwitchBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchBanner.h; sourceTree = "<group>"; };
 		22F69A851AF31DF100DC295D /* SwitchBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchBanner.m; sourceTree = "<group>"; };
+		2D00FF811B20798B00106110 /* ActivityDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityDetailViewController.h; path = Liangxin/Activity/ActivityDetailViewController.h; sourceTree = "<group>"; };
+		2D00FF821B20798B00106110 /* ActivityDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityDetailViewController.m; path = Liangxin/Activity/ActivityDetailViewController.m; sourceTree = "<group>"; };
+		2D00FF901B217D0200106110 /* LXRouteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXRouteManager.h; path = Routes/LXRouteManager.h; sourceTree = "<group>"; };
+		2D00FF911B217D0200106110 /* LXRouteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXRouteManager.m; path = Routes/LXRouteManager.m; sourceTree = "<group>"; };
+		2D00FF941B217F6F00106110 /* LXHomeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXHomeViewModel.h; path = Home/ViewModel/LXHomeViewModel.h; sourceTree = "<group>"; };
+		2D00FF951B217F6F00106110 /* LXHomeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXHomeViewModel.m; path = Home/ViewModel/LXHomeViewModel.m; sourceTree = "<group>"; };
+		2D00FF971B21842200106110 /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityViewController.h; path = Liangxin/Activity/ActivityViewController.h; sourceTree = "<group>"; };
+		2D00FF981B21842200106110 /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityViewController.m; path = Liangxin/Activity/ActivityViewController.m; sourceTree = "<group>"; };
+		2D00FF9B1B218CBB00106110 /* LXNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXNetworkManager.h; path = Network/LXNetworkManager.h; sourceTree = "<group>"; };
+		2D00FF9C1B218CBB00106110 /* LXNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXNetworkManager.m; path = Network/LXNetworkManager.m; sourceTree = "<group>"; };
 		2D537DC61B18BD7A006BD35E /* LXBaseModelUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXBaseModelUser.h; path = Models/LXBaseModelUser.h; sourceTree = "<group>"; };
 		2D537DC71B18BD7A006BD35E /* LXBaseModelUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXBaseModelUser.m; path = Models/LXBaseModelUser.m; sourceTree = "<group>"; };
 		2D537DC91B18BE66006BD35E /* LXBaseModelPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXBaseModelPost.h; path = Models/LXBaseModelPost.h; sourceTree = "<group>"; };
@@ -305,8 +309,20 @@
 		2D6160AC1B1C9661001D01D8 /* LXFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXFilterView.m; path = Widgets/LXFilterView.m; sourceTree = "<group>"; };
 		2D6160AE1B1C9EB7001D01D8 /* LXFilterViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXFilterViewCell.h; path = Widgets/LXFilterViewCell.h; sourceTree = "<group>"; };
 		2D6160AF1B1C9EB7001D01D8 /* LXFilterViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXFilterViewCell.m; path = Widgets/LXFilterViewCell.m; sourceTree = "<group>"; };
+		2D6160B71B2087DE001D01D8 /* ActivityListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityListViewController.h; path = Liangxin/Activity/ActivityListViewController.h; sourceTree = "<group>"; };
+		2D6160B81B2087DE001D01D8 /* ActivityListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityListViewController.m; path = Liangxin/Activity/ActivityListViewController.m; sourceTree = "<group>"; };
+		2D6160BD1B208938001D01D8 /* ActivityListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityListViewModel.h; path = Liangxin/Activity/ViewModel/ActivityListViewModel.h; sourceTree = "<group>"; };
+		2D6160BE1B208938001D01D8 /* ActivityListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityListViewModel.m; path = Liangxin/Activity/ViewModel/ActivityListViewModel.m; sourceTree = "<group>"; };
+		2D6160C01B208AB3001D01D8 /* ActivityParticipantsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityParticipantsViewController.h; path = Liangxin/Activity/ActivityParticipantsViewController.h; sourceTree = "<group>"; };
+		2D6160C11B208AB3001D01D8 /* ActivityParticipantsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityParticipantsViewController.m; path = Liangxin/Activity/ActivityParticipantsViewController.m; sourceTree = "<group>"; };
+		2D6160C41B20AA1B001D01D8 /* LXHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXHomeViewController.h; path = Home/LXHomeViewController.h; sourceTree = "<group>"; };
+		2D6160C51B20AA1B001D01D8 /* LXHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXHomeViewController.m; path = Home/LXHomeViewController.m; sourceTree = "<group>"; };
+		2D6160C81B20B26B001D01D8 /* LXHomeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXHomeCollectionViewCell.h; path = Home/Views/LXHomeCollectionViewCell.h; sourceTree = "<group>"; };
+		2D6160C91B20B26B001D01D8 /* LXHomeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXHomeCollectionViewCell.m; path = Home/Views/LXHomeCollectionViewCell.m; sourceTree = "<group>"; };
 		2D75A2D91B1B4A0700A8FA95 /* LXClassListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXClassListViewModel.h; path = Class/ViewModel/LXClassListViewModel.h; sourceTree = "<group>"; };
 		2D75A2DA1B1B4A0700A8FA95 /* LXClassListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXClassListViewModel.m; path = Class/ViewModel/LXClassListViewModel.m; sourceTree = "<group>"; };
+		2DE2F49F1B2041C600E3DA29 /* ActivityViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityViewModel.h; path = Liangxin/Activity/ViewModel/ActivityViewModel.h; sourceTree = "<group>"; };
+		2DE2F4A01B2041C600E3DA29 /* ActivityViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityViewModel.m; path = Liangxin/Activity/ViewModel/ActivityViewModel.m; sourceTree = "<group>"; };
 		2DFD651D1B15FE7800FAC662 /* LXCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXCarouselView.h; path = Widgets/LXCarouselView.h; sourceTree = "<group>"; };
 		2DFD651E1B15FE7800FAC662 /* LXCarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXCarouselView.m; path = Widgets/LXCarouselView.m; sourceTree = "<group>"; };
 		2DFD65201B16001200FAC662 /* LXCarouselViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXCarouselViewCell.h; path = Widgets/LXCarouselViewCell.h; sourceTree = "<group>"; };
@@ -329,13 +345,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				228587AA1B20AFC100CCA3A4 /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		223267D61AF2661B00431132 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,15 +377,6 @@
 				22BE07D71B1FCC6D00A1E91F /* LXJSBridge+Tint.m */,
 			);
 			name = JSBridges;
-			sourceTree = "<group>";
-		};
-		2215CB4A1B0781B400D0359A /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				2215CB4B1B07820C00D0359A /* NSDictionary+Encoding.h */,
-				2215CB4C1B07820C00D0359A /* NSDictionary+Encoding.m */,
-			);
-			name = Utils;
 			sourceTree = "<group>";
 		};
 		2215CB591B082AD700D0359A /* Group */ = {
@@ -422,8 +422,16 @@
 		2215D95B1B0EC43A00D96C46 /* Activity */ = {
 			isa = PBXGroup;
 			children = (
-				2215D95C1B0EC44D00D96C46 /* ActivityViewController.h */,
-				2215D95D1B0EC44D00D96C46 /* ActivityViewController.m */,
+				2DE2F49E1B203CA400E3DA29 /* ViewModel */,
+				2DE2F49D1B203C9D00E3DA29 /* Views */,
+				2D00FF811B20798B00106110 /* ActivityDetailViewController.h */,
+				2D00FF821B20798B00106110 /* ActivityDetailViewController.m */,
+				2D6160B71B2087DE001D01D8 /* ActivityListViewController.h */,
+				2D6160B81B2087DE001D01D8 /* ActivityListViewController.m */,
+				2D6160C01B208AB3001D01D8 /* ActivityParticipantsViewController.h */,
+				2D6160C11B208AB3001D01D8 /* ActivityParticipantsViewController.m */,
+				2D00FF971B21842200106110 /* ActivityViewController.h */,
+				2D00FF981B21842200106110 /* ActivityViewController.m */,
 			);
 			name = Activity;
 			path = ..;
@@ -465,7 +473,6 @@
 			isa = PBXGroup;
 			children = (
 				223267C21AF2661B00431132 /* Liangxin */,
-				223267DC1AF2661B00431132 /* LiangxinTests */,
 				223267C11AF2661B00431132 /* Products */,
 				F41337B7084173F8F4E37747 /* Pods */,
 				098BF1C8DD010D2BA28A633B /* Frameworks */,
@@ -476,7 +483,6 @@
 			isa = PBXGroup;
 			children = (
 				223267C01AF2661B00431132 /* Liangxin.app */,
-				223267D91AF2661B00431132 /* LiangxinTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -484,6 +490,9 @@
 		223267C21AF2661B00431132 /* Liangxin */ = {
 			isa = PBXGroup;
 			children = (
+				2D00FF9A1B218B6F00106110 /* Network */,
+				2D00FF8F1B217CBB00106110 /* Routes */,
+				2D6160C31B20A9BC001D01D8 /* Home */,
 				227CA1C61B1D21BC0094E7A7 /* Service */,
 				2D537DD61B19688A006BD35E /* Base */,
 				2D537DCF1B1956AF006BD35E /* Utils */,
@@ -493,7 +502,6 @@
 				2215CB661B086A5E00D0359A /* Views */,
 				22D64A331B0ACD10004045B8 /* Post */,
 				2215CB591B082AD700D0359A /* Group */,
-				2215CB4A1B0781B400D0359A /* Utils */,
 				2215CB3D1B07524B00D0359A /* JSBridges */,
 				22238C511AFBAC74000B4F95 /* Api */,
 				2293FA031AF50B2C0012CD10 /* Model */,
@@ -525,23 +533,6 @@
 				223267C41AF2661B00431132 /* Info.plist */,
 				223267C51AF2661B00431132 /* main.m */,
 				2DFD65231B1600CD00FAC662 /* LXPrefixHeader.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		223267DC1AF2661B00431132 /* LiangxinTests */ = {
-			isa = PBXGroup;
-			children = (
-				223267DF1AF2661B00431132 /* LiangxinTests.m */,
-				223267DD1AF2661B00431132 /* Supporting Files */,
-			);
-			path = LiangxinTests;
-			sourceTree = "<group>";
-		};
-		223267DD1AF2661B00431132 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				223267DE1AF2661B00431132 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -678,12 +669,41 @@
 			name = Widgets;
 			sourceTree = "<group>";
 		};
+		2D00FF8F1B217CBB00106110 /* Routes */ = {
+			isa = PBXGroup;
+			children = (
+				2D00FF901B217D0200106110 /* LXRouteManager.h */,
+				2D00FF911B217D0200106110 /* LXRouteManager.m */,
+			);
+			name = Routes;
+			sourceTree = "<group>";
+		};
+		2D00FF931B217ED800106110 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2D00FF941B217F6F00106110 /* LXHomeViewModel.h */,
+				2D00FF951B217F6F00106110 /* LXHomeViewModel.m */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		2D00FF9A1B218B6F00106110 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				2D00FF9B1B218CBB00106110 /* LXNetworkManager.h */,
+				2D00FF9C1B218CBB00106110 /* LXNetworkManager.m */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
 		2D537DCF1B1956AF006BD35E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				2D537DD01B1956F9006BD35E /* NSDictionary+Utils.h */,
 				2D537DD11B1956F9006BD35E /* NSDictionary+Utils.m */,
 				2D537DDA1B19A2ED006BD35E /* LXMacroDefinition.h */,
+				2215CB4B1B07820C00D0359A /* NSDictionary+Encoding.h */,
+				2215CB4C1B07820C00D0359A /* NSDictionary+Encoding.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -718,6 +738,44 @@
 				2D537DF21B1AED21006BD35E /* ClassDetailDocumentCell.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		2D6160C31B20A9BC001D01D8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2D00FF931B217ED800106110 /* ViewModel */,
+				2D6160C71B20B1C2001D01D8 /* Views */,
+				2D6160C41B20AA1B001D01D8 /* LXHomeViewController.h */,
+				2D6160C51B20AA1B001D01D8 /* LXHomeViewController.m */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		2D6160C71B20B1C2001D01D8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2D6160C81B20B26B001D01D8 /* LXHomeCollectionViewCell.h */,
+				2D6160C91B20B26B001D01D8 /* LXHomeCollectionViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		2DE2F49D1B203C9D00E3DA29 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		2DE2F49E1B203CA400E3DA29 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2DE2F49F1B2041C600E3DA29 /* ActivityViewModel.h */,
+				2DE2F4A01B2041C600E3DA29 /* ActivityViewModel.m */,
+				2D6160BD1B208938001D01D8 /* ActivityListViewModel.h */,
+				2D6160BE1B208938001D01D8 /* ActivityListViewModel.m */,
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 		2DFD652C1B175D6400FAC662 /* ViewModel */ = {
@@ -762,24 +820,6 @@
 			productReference = 223267C01AF2661B00431132 /* Liangxin.app */;
 			productType = "com.apple.product-type.application";
 		};
-		223267D81AF2661B00431132 /* LiangxinTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 223267E61AF2661B00431132 /* Build configuration list for PBXNativeTarget "LiangxinTests" */;
-			buildPhases = (
-				223267D51AF2661B00431132 /* Sources */,
-				223267D61AF2661B00431132 /* Frameworks */,
-				223267D71AF2661B00431132 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				223267DB1AF2661B00431132 /* PBXTargetDependency */,
-			);
-			name = LiangxinTests;
-			productName = LiangxinTests;
-			productReference = 223267D91AF2661B00431132 /* LiangxinTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -792,10 +832,6 @@
 					223267BF1AF2661B00431132 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = LJWWUZH366;
-					};
-					223267D81AF2661B00431132 = {
-						CreatedOnToolsVersion = 6.3.1;
-						TestTargetID = 223267BF1AF2661B00431132;
 					};
 				};
 			};
@@ -813,7 +849,6 @@
 			projectRoot = "";
 			targets = (
 				223267BF1AF2661B00431132 /* Liangxin */,
-				223267D81AF2661B00431132 /* LiangxinTests */,
 			);
 		};
 /* End PBXProject section */
@@ -835,13 +870,6 @@
 				22E6E2881B1343F3005E528E /* AccountFieldCell.xib in Resources */,
 				22E6E2921B1344ED005E528E /* ModifyPasswordViewController.xib in Resources */,
 				22E6E2631B11F38B005E528E /* ActivityItemCell.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		223267D71AF2661B00431132 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -892,6 +920,7 @@
 				2DFD65261B1603D200FAC662 /* LXBannerView.m in Sources */,
 				2D537DFC1B1AF572006BD35E /* ClassVideoViewController.m in Sources */,
 				2DFD651F1B15FE7800FAC662 /* LXCarouselView.m in Sources */,
+				2D6160BF1B208938001D01D8 /* ActivityListViewModel.m in Sources */,
 				22BE07BA1B1F35E500A1E91F /* AccountArticleViewController.m in Sources */,
 				223267CC1AF2661B00431132 /* HomeViewController.m in Sources */,
 				2D537DE11B1AA0AA006BD35E /* LXBaseViewController.m in Sources */,
@@ -902,9 +931,10 @@
 				2215CB6E1B08D3A900D0359A /* GroupArticleViewController.m in Sources */,
 				2215CB6B1B08D31E00D0359A /* GroupAlbumViewController.m in Sources */,
 				2215CB491B075E3900D0359A /* LXJSBridge+Fetch.m in Sources */,
-				2215D95E1B0EC44D00D96C46 /* ActivityViewController.m in Sources */,
+				2DE2F4A11B2041C600E3DA29 /* ActivityViewModel.m in Sources */,
 				22E6E2621B11F38B005E528E /* ActivityItemCell.m in Sources */,
 				2D537DFF1B1AF588006BD35E /* ClassDocumentViewController.m in Sources */,
+				2D00FF961B217F6F00106110 /* LXHomeViewModel.m in Sources */,
 				2D537DF31B1AED21006BD35E /* ClassDetailDocumentCell.m in Sources */,
 				22238C1B1AF64F02000B4F95 /* Channels.m in Sources */,
 				2D537DF91B1AF55F006BD35E /* ClassAlbumViewController.m in Sources */,
@@ -917,6 +947,7 @@
 				22BE07B01B1D3C9200A1E91F /* AccountHomeViewController.m in Sources */,
 				22E6E2551B11C380005E528E /* EntryItemCell.m in Sources */,
 				2D537E021B1AF6D7006BD35E /* ClassListViewController.m in Sources */,
+				2D6160CA1B20B26B001D01D8 /* LXHomeCollectionViewCell.m in Sources */,
 				2215CB741B08EA0C00D0359A /* GroupMembersViewController.m in Sources */,
 				22D649DC1B0A2CDC004045B8 /* PostApi.m in Sources */,
 				2D537DED1B1AEAD3006BD35E /* ClassDetailAlbumCell.m in Sources */,
@@ -938,21 +969,27 @@
 				22BE07BD1B1F35F200A1E91F /* AccountAlbumViewController.m in Sources */,
 				2DFD65221B16001200FAC662 /* LXCarouselViewCell.m in Sources */,
 				2215CB771B09675E00D0359A /* UserApi.m in Sources */,
+				2D6160C21B208AB3001D01D8 /* ActivityParticipantsViewController.m in Sources */,
 				22BE07C91B1F363000A1E91F /* AccountCollectionViewController.m in Sources */,
 				22E6E2471B115E41005E528E /* LXJSBridge+PickImage.m in Sources */,
 				22E6E2781B12ADB4005E528E /* LoginViewCell.m in Sources */,
 				22BE07D51B1FCC5500A1E91F /* LXJSBridge+Open.m in Sources */,
 				2D537DEA1B1AEA61006BD35E /* ClassDetailDetailCell.m in Sources */,
+				2D00FF921B217D0200106110 /* LXRouteManager.m in Sources */,
 				22E6E25C1B11C64B005E528E /* EntryBaseViewController.m in Sources */,
 				2D537DDE1B19C024006BD35E /* ClassDetailTitleCell.m in Sources */,
 				22BE07D81B1FCC6D00A1E91F /* LXJSBridge+Tint.m in Sources */,
 				2210A37B1AFDF66800D9CA1A /* GroupApi.m in Sources */,
+				2D6160B91B2087DE001D01D8 /* ActivityListViewController.m in Sources */,
 				2215D96D1B10D08A00D96C46 /* TADotView.m in Sources */,
+				2D6160C61B20AA1B001D01D8 /* LXHomeViewController.m in Sources */,
 				223267C91AF2661B00431132 /* AppDelegate.m in Sources */,
 				2D6160AD1B1C9661001D01D8 /* LXFilterView.m in Sources */,
+				2D00FF831B20798B00106110 /* ActivityDetailViewController.m in Sources */,
 				22BE07C31B1F360700A1E91F /* AccountRecordViewController.m in Sources */,
 				22BE07CC1B1F365D00A1E91F /* AccountCreditsViewController.m in Sources */,
 				22E6E28C1B1344C2005E528E /* VCodeInputViewController.m in Sources */,
+				2D00FF991B21842200106110 /* ActivityViewController.m in Sources */,
 				2293FA061AF50B550012CD10 /* BannerModel.m in Sources */,
 				2D537DC81B18BD7A006BD35E /* LXBaseModelUser.m in Sources */,
 				22E6E2591B11C582005E528E /* ClassViewController.m in Sources */,
@@ -964,6 +1001,7 @@
 				22E6E2911B1344ED005E528E /* ModifyPasswordViewController.m in Sources */,
 				22BE07C01B1F35FD00A1E91F /* AccountFollowViewController.m in Sources */,
 				2215D96E1B10D08A00D96C46 /* TAPageControl.m in Sources */,
+				2D00FF9D1B218CBB00106110 /* LXNetworkManager.m in Sources */,
 				22BE07C61B1F361B00A1E91F /* AccountAboutViewController.m in Sources */,
 				223267C61AF2661B00431132 /* main.m in Sources */,
 				2215D96C1B10D08A00D96C46 /* TAAnimatedDotView.m in Sources */,
@@ -976,23 +1014,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		223267D51AF2661B00431132 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				223267E01AF2661B00431132 /* LiangxinTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		223267DB1AF2661B00431132 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 223267BF1AF2661B00431132 /* Liangxin */;
-			targetProxy = 223267DA1AF2661B00431132 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		223267D21AF2661B00431132 /* LaunchScreen.xib */ = {
@@ -1207,40 +1229,6 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-			};
-			name = Release;
-		};
-		223267E71AF2661B00431132 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = LiangxinTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Liangxin.app/Liangxin";
-			};
-			name = Debug;
-		};
-		223267E81AF2661B00431132 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = LiangxinTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Liangxin.app/Liangxin";
 			};
 			name = Release;
 		};

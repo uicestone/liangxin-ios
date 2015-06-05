@@ -73,6 +73,14 @@
             make.bottom.mas_equalTo(0);
             make.height.mas_equalTo(1);
         }];
+        _baseView = [UIView new];
+        [self.contentView addSubview:_baseView];
+        [_baseView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_titleView.mas_bottom);
+            make.left.mas_equalTo(0);
+            make.right.mas_equalTo(0);
+            make.bottom.equalTo(_bottomLine.mas_top);
+        }];
     }
     return self;
 }

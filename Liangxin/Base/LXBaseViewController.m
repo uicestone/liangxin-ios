@@ -20,6 +20,25 @@
 @implementation LXBaseViewController
 @synthesize currentUser;
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.extendedLayoutIncludesOpaqueBars = YES;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.navigationController.navigationBar.translucent = NO;
+    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+    [backButton setImage:[UIImage imageNamed:@"Back"] forState:UIControlStateNormal];
+    backButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [backButton addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    self.currentUser = [UserApi getCurrentUser];
+}
+
+#pragma mark - Private Methods
+
+- (void)back:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (BOOL) shouldLogin{
     return NO;
 }
@@ -48,14 +67,6 @@
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         hud.hidden = YES;
     });
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.extendedLayoutIncludesOpaqueBars = YES;
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.currentUser = [UserApi getCurrentUser];
-    self.view.backgroundColor = UIColorFromRGB(0xf8f8f8);
 }
 
 @end

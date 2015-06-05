@@ -10,4 +10,6 @@
 
 @interface ClassDetailAlbumCell : ClassDetailBaseCell
 
+@property (nonatomic, strong) NSArray *albumTitles;
+
 @end

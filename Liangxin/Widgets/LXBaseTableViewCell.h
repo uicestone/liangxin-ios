@@ -11,6 +11,7 @@
 
 typedef NS_ENUM(NSInteger, LXTableViewCellStyle){
     LXTableViewCellStyleClass,
+    LXTableViewCellStyleActivity
 };
 
 @interface LXBaseTableViewCell : UITableViewCell

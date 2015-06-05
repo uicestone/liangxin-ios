@@ -11,6 +11,7 @@
 @interface LXBaseViewController : UIViewController
 @property (nonatomic, strong) LXBaseModelUser* currentUser;
 - (BOOL) shouldLogin;
+- (void)back:(id)sender;
 - (void)navigateToPath:(NSString *)path;
 - (void)popMessage:(NSString *)message;
 - (void)showProgress;
