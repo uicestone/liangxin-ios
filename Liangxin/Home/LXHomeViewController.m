@@ -8,8 +8,9 @@
 
 #import "LXHomeViewController.h"
 #import "LXHomeCollectionViewCell.h"
-#import "LXHomeViewModel.h"
+#import "LXNetworkManager.h"
 #import "LXCarouselView.h"
+#import "LXBaseModelPost.h"
 
 @interface LXHomeViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -18,7 +19,6 @@
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
 @property (nonatomic, strong) NSArray *channelImages;
 @property (nonatomic, strong) NSArray *channelSchemes;
-@property (nonatomic, strong) LXHomeViewModel *viewModel;
 
 @end
 
@@ -30,8 +30,6 @@
 }
 
 - (void)commonInit {
-    self.viewModel = [LXHomeViewModel new];
-    
     self.navigationItem.leftBarButtonItem = nil;
     
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
@@ -74,7 +72,7 @@
     }];
     
     @weakify(self)
-    [[self.viewModel getHomeBanners] subscribeNext:^(NSArray *x) {
+    [[[LXNetworkManager sharedManager] getBannersByType:LXBannerTypeHome] subscribeNext:^(NSArray *x) {
         @strongify(self)
         NSMutableArray *bannerURLs = [NSMutableArray array];
         for (LXBaseModelPost *post in x) {
