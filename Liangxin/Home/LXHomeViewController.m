@@ -31,6 +31,9 @@
 
 - (void)commonInit {
     self.viewModel = [LXHomeViewModel new];
+    
+    self.navigationItem.leftBarButtonItem = nil;
+    
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
     titleLabel.textColor = [UIColor redColor];
     titleLabel.textAlignment = NSTextAlignmentCenter;
