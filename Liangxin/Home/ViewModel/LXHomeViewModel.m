@@ -7,7 +7,6 @@
 //
 
 #import "LXHomeViewModel.h"
-#import "LXBaseModelPost.h"
 
 @interface LXHomeViewModel()
 

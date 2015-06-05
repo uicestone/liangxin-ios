@@ -8,13 +8,17 @@
 
 #import "LXHomeViewController.h"
 #import "LXHomeCollectionViewCell.h"
+#import "LXHomeViewModel.h"
+#import "LXCarouselView.h"
 
 @interface LXHomeViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) LXCarouselView *carouselView;
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
 @property (nonatomic, strong) NSArray *channelImages;
 @property (nonatomic, strong) NSArray *channelSchemes;
+@property (nonatomic, strong) LXHomeViewModel *viewModel;
 
 @end
 
@@ -26,6 +30,7 @@
 }
 
 - (void)commonInit {
+    self.viewModel = [LXHomeViewModel new];
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
     titleLabel.textColor = [UIColor redColor];
     titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -33,6 +38,17 @@
     titleLabel.text = @"精品推荐";
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     self.navigationItem.titleView = titleLabel;
+    
+    self.carouselView = [LXCarouselView carouselViewWithFrame:CGRectMake(0, 0, 320, 200) imageURLsGroup:nil];
+    self.carouselView.pageControl.hidden = YES;
+    [self.view addSubview:self.carouselView];
+    [self.carouselView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(0);
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        make.height.mas_equalTo(125);
+    }];
+    
     self.channelImages = @[@"Home_Group", @"Home_Activity", @"Home_Class", @"Home_Post", @"Home_Service", @"Home_Account"];
     self.channelSchemes = @[@"group", @"activity", @"class", @"post", @"service", @"account"];
     self.view.backgroundColor = [UIColor whiteColor];
@@ -52,6 +68,20 @@
         make.right.mas_equalTo(0);
         make.bottom.mas_equalTo(0);
         make.top.mas_equalTo(125);
+    }];
+    
+    @weakify(self)
+    [[self.viewModel getHomeBanners] subscribeNext:^(NSArray *x) {
+        @strongify(self)
+        NSMutableArray *bannerURLs = [NSMutableArray array];
+        for (LXBaseModelPost *post in x) {
+            if ([post.poster isValidObjectForKey:@"url"]) {
+                [bannerURLs addObject:[post.poster objectForKey:@"url"]];
+            }
+        }
+        self.carouselView.imageURLsGroup = bannerURLs;
+    } error:^(NSError *error) {
+        
     }];
 }
 

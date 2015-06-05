@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LXBaseModelPost.h"
 
 @interface LXHomeViewModel : NSObject
 
