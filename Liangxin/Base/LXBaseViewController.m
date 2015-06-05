@@ -55,6 +55,7 @@
     self.extendedLayoutIncludesOpaqueBars = YES;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.currentUser = [UserApi getCurrentUser];
+    self.view.backgroundColor = UIColorFromRGB(0xf8f8f8);
 }
 
 @end

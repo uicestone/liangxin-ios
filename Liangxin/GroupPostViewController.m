@@ -19,12 +19,68 @@
 @property (nonatomic, assign) int groupId;
 @property (nonatomic, strong) NSString* currentType;
 @property (nonatomic, strong) UIButton* currentTab;
+@property (nonatomic, strong) UITableView* tableview;
+@property (nonatomic, strong) UIButton* tab1;
+@property (nonatomic, strong) UIButton* tab2;
 @end
 
 @implementation GroupPostViewController
 @synthesize tableview;
 @synthesize tab1, tab2, currentTab;
 @synthesize posts, groupId;
+
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [self.navigationItem setTitle:@"支部动态"];
+    
+    groupId = [self.params[@"id"] intValue];
+    
+    
+    
+    // init tabs
+    tab1 = [UIButton new];
+    tab2 = [UIButton new];
+    
+    tab1.titleLabel.text = @"公告";
+    tab2.titleLabel.text = @"文章";
+    
+    UIView* tabContainer = [UIView new];
+    
+    [self.view addSubview:tabContainer];
+    [tabContainer mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.view);
+        make.height.mas_equalTo(20);
+        make.top.equalTo(self.view);
+        make.left.equalTo(self.view);
+    }];
+    
+    [tabContainer addSubview:tab1];
+    [tabContainer addSubview:tab2];
+    [tab1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(tabContainer).with.offset(8);
+    }];
+    [tab2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(tab1.mas_right).with.offset(0);
+        make.width.equalTo(tab1);
+        make.right.equalTo(tabContainer).with.offset(8);
+    }];
+    
+    
+    // init tableview
+    tableview = [UITableView new];
+    tableview.delegate = self;
+    tableview.dataSource = self;
+    
+    currentTab = tab1;
+    
+//    [self fetchPostList];
+    
+    self.tabBarController.tabBar.hidden = YES;
+}
+
 
 -(void) fetchPostList{
     [self showProgress];
@@ -54,19 +110,6 @@
 - (IBAction)tab2Touched:(id)sender {
     currentTab = sender;
     [self fetchPostList];
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    [self.navigationItem setTitle:@"支部动态"];
-    
-    groupId = [self.params[@"id"] intValue];
-    currentTab = tab1;
-    
-    [self fetchPostList];
-    
-    self.tabBarController.tabBar.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {

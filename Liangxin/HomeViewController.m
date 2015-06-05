@@ -38,7 +38,7 @@
     
     // 初始化滑动控件
     CGFloat wrapperWidth = CGRectGetWidth(self.view.frame);
-    CGRect rect = CGRectMake(0, 65, wrapperWidth, wrapperWidth / 2.5);
+    CGRect rect = CGRectMake(0, 0, wrapperWidth, wrapperWidth / 2.5);
     
     // 轮播容器
     UIView * wrapper = [[UIView alloc] initWithFrame:rect];
@@ -83,7 +83,7 @@
 
 - (void) initButtons{
     
-    CGFloat offsetTop = CGRectGetHeight(bannerWrapper.frame) + 64.0f;
+    CGFloat offsetTop = CGRectGetHeight(bannerWrapper.frame);
     CGFloat contentWidth = CGRectGetWidth(bannerWrapper.frame);
     CGFloat blockHeight = contentWidth / 2 / 1.33;
     

@@ -29,7 +29,7 @@
 
 - (void)loadView{
     CGRect frame = [UIScreen mainScreen].applicationFrame;
-    self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 0,  CGRectGetWidth(frame), CGRectGetHeight(frame) + 20)];
+    self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 0,  CGRectGetWidth(frame), CGRectGetHeight(frame))];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle{
@@ -99,7 +99,7 @@
     self.navigationItem.rightBarButtonItem = _searchButton;
     
     // 初始化SearchBar
-    searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 20,  CGRectGetWidth(self.view.frame), 44)];
+    searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, -44,  CGRectGetWidth(self.view.frame), 44)];
     searchBar.delegate = self;
     searchBar.placeholder = @"搜索";
     searchBar.showsCancelButton = YES;

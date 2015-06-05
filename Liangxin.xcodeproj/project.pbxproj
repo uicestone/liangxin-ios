@@ -42,7 +42,7 @@
 		223267E01AF2661B00431132 /* LiangxinTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 223267DF1AF2661B00431132 /* LiangxinTests.m */; };
 		225BA69C1AFF30D0000E6D79 /* LXWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 225BA69B1AFF30D0000E6D79 /* LXWebView.m */; };
 		227CA1C91B1D21D80094E7A7 /* ServiceHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227CA1C81B1D21D80094E7A7 /* ServiceHomeViewController.m */; };
-		2287B1F41B1408EB00DB6E68 /* GroupPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2287B1F31B1408EB00DB6E68 /* GroupPostViewController.xib */; };
+		228587AA1B20AFC100CCA3A4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 228587A91B20AFC100CCA3A4 /* libPods.a */; };
 		2293FA061AF50B550012CD10 /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2293FA051AF50B550012CD10 /* BannerModel.m */; };
 		2293FA091AF5DBF20012CD10 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2293FA081AF5DBF20012CD10 /* GroupViewController.m */; };
 		22B51AA81B196A76000CF4A8 /* LXNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B51AA71B196A76000CF4A8 /* LXNavigationController.m */; };
@@ -109,7 +109,6 @@
 		2DFD65261B1603D200FAC662 /* LXBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD65251B1603D200FAC662 /* LXBannerView.m */; };
 		2DFD65291B16143400FAC662 /* LXBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD65281B16143400FAC662 /* LXBaseTableViewCell.m */; };
 		2DFD652F1B175EAE00FAC662 /* LXClassViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD652E1B175EAE00FAC662 /* LXClassViewModel.m */; };
-		9073049D9796F236635CB35B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 749E78FDB631FDC0769D75E2 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -192,7 +191,7 @@
 		225BA69B1AFF30D0000E6D79 /* LXWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXWebView.m; sourceTree = "<group>"; };
 		227CA1C71B1D21D80094E7A7 /* ServiceHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceHomeViewController.h; sourceTree = "<group>"; };
 		227CA1C81B1D21D80094E7A7 /* ServiceHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceHomeViewController.m; sourceTree = "<group>"; };
-		2287B1F31B1408EB00DB6E68 /* GroupPostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupPostViewController.xib; sourceTree = "<group>"; };
+		228587A91B20AFC100CCA3A4 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		2293FA041AF50B550012CD10 /* BannerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerModel.h; sourceTree = "<group>"; };
 		2293FA051AF50B550012CD10 /* BannerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerModel.m; sourceTree = "<group>"; };
 		2293FA071AF5DBF20012CD10 /* GroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupViewController.h; sourceTree = "<group>"; };
@@ -329,7 +328,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9073049D9796F236635CB35B /* libPods.a in Frameworks */,
+				228587AA1B20AFC100CCA3A4 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +345,7 @@
 		098BF1C8DD010D2BA28A633B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				228587A91B20AFC100CCA3A4 /* libPods.a */,
 				749E78FDB631FDC0769D75E2 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -388,7 +388,6 @@
 				2210A3851AFE51BD00D9CA1A /* GroupDetailViewController.m */,
 				2215CB5A1B082B1E00D0359A /* GroupPostViewController.h */,
 				2215CB5B1B082B1E00D0359A /* GroupPostViewController.m */,
-				2287B1F31B1408EB00DB6E68 /* GroupPostViewController.xib */,
 				2215CB691B08D31E00D0359A /* GroupAlbumViewController.h */,
 				2215CB6A1B08D31E00D0359A /* GroupAlbumViewController.m */,
 				2215CB6C1B08D3A900D0359A /* GroupArticleViewController.h */,
@@ -829,7 +828,6 @@
 				22D649DE1B0A3314004045B8 /* PostItemCell.xib in Resources */,
 				2210A38E1AFEEEFF00D9CA1A /* www in Resources */,
 				22E6E28D1B1344C2005E528E /* VCodeInputViewController.xib in Resources */,
-				2287B1F41B1408EB00DB6E68 /* GroupPostViewController.xib in Resources */,
 				22E6E2831B13416B005E528E /* PhoneInputViewController.xib in Resources */,
 				223267D11AF2661B00431132 /* Images.xcassets in Resources */,
 				22E6E26D1B12AB09005E528E /* LoginViewController.xib in Resources */,
@@ -1008,6 +1006,82 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		223047351B20ACC800AB632D /* ad hoc distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "ad hoc distribution";
+		};
+		223047361B20ACC800AB632D /* ad hoc distribution */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA660F51A7D667456EB9C6B8 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jiayi Xu (LJWWUZH366)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries",
+				);
+				GCC_PREFIX_HEADER = Liangxin/LXPrefixHeader.pch;
+				INFOPLIST_FILE = Liangxin/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = "ad hoc distribution";
+		};
+		223047371B20ACC800AB632D /* ad hoc distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = LiangxinTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Liangxin.app/Liangxin";
+			};
+			name = "ad hoc distribution";
+		};
 		223267E11AF2661B00431132 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1103,6 +1177,10 @@
 				INFOPLIST_FILE = Liangxin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1123,6 +1201,10 @@
 				INFOPLIST_FILE = Liangxin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1170,6 +1252,7 @@
 			buildConfigurations = (
 				223267E11AF2661B00431132 /* Debug */,
 				223267E21AF2661B00431132 /* Release */,
+				223047351B20ACC800AB632D /* ad hoc distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1179,6 +1262,7 @@
 			buildConfigurations = (
 				223267E41AF2661B00431132 /* Debug */,
 				223267E51AF2661B00431132 /* Release */,
+				223047361B20ACC800AB632D /* ad hoc distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1188,6 +1272,7 @@
 			buildConfigurations = (
 				223267E71AF2661B00431132 /* Debug */,
 				223267E81AF2661B00431132 /* Release */,
+				223047371B20ACC800AB632D /* ad hoc distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

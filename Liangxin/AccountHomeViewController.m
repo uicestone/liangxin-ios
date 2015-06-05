@@ -43,7 +43,7 @@
 }
 
 -(BOOL)shouldLogin{
-    return NO;
+    return YES;
 }
 
 -(void)initHead{
