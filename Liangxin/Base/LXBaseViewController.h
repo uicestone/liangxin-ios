@@ -13,7 +13,7 @@
 @property (nonatomic, strong) LXBaseModelUser* currentUser;
 @property (nonatomic, strong) UIButton *backButton;
 
-- (BOOL) shouldLogin;
+- (BOOL)needLogin;
 - (void)back:(id)sender;
 - (void)navigateToPath:(NSString *)path;
 - (void)popMessage:(NSString *)message;

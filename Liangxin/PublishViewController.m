@@ -16,7 +16,7 @@
 @implementation PublishViewController
 
 
-- (BOOL)shouldLogin{
+- (BOOL)needLogin{
     return YES;
 }
 

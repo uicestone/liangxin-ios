@@ -160,7 +160,7 @@
     
     
     if(navigationController){
-        if([viewController shouldLogin] && ![UserApi getCurrentUser]){
+        if([viewController needLogin] && ![UserApi getCurrentUser]){
             LoginViewController* loginViewController = [[LoginViewController alloc] init];
             UINavigationController* loginNavigationController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
             

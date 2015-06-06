@@ -21,6 +21,7 @@ static LXBaseModelUser* currentUser;
         currentUser = [NSKeyedUnarchiver unarchiveObjectWithData:userData];
     }
     
+    currentUser.id = @"4";
     return currentUser;
 }
 

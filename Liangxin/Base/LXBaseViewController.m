@@ -44,7 +44,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (BOOL) shouldLogin{
+- (BOOL) needLogin{
     return NO;
 }
 
