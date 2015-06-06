@@ -38,7 +38,8 @@
 #import "AccountRecordViewController.h"
 #import "AccountAboutViewController.h"
 #import "AccountCollectionViewController.h"
-#import "AccountCreditsViewController.h"
+#import "AccountCreditViewController.h"
+#import "AccountCreditDetailViewController.h"
 #import "AccountGroupViewController.h"
 #import "AccountActivityViewController.h"
 
@@ -109,7 +110,8 @@
     [[HHRouter shared] map:@"/account/record" toControllerClass:[AccountRecordViewController class]];
     [[HHRouter shared] map:@"/account/about" toControllerClass:[AccountAboutViewController class]];
     [[HHRouter shared] map:@"/account/collection" toControllerClass:[AccountCollectionViewController class]];
-    [[HHRouter shared] map:@"/account/credit" toControllerClass:[AccountCreditsViewController class]];
+    [[HHRouter shared] map:@"/account/credit" toControllerClass:[AccountCreditViewController class]];
+    [[HHRouter shared] map:@"/account/credit-detail" toControllerClass:[AccountCreditDetailViewController class]];
     [[HHRouter shared] map:@"/account/group" toControllerClass:[AccountGroupViewController class]];
     
     // 更改默认userAgent

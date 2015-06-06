@@ -47,9 +47,10 @@
 }
 
 -(void)initHead{
+    self.title = @"我的账号";
+    
     @weakify(self)
     headerContainer = [UIView new];
-    
     headerContainer.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:headerContainer];
     [headerContainer mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -107,7 +108,7 @@
     
     UIButton* logout = [UIButton new];
     [headerContainer addSubview:logout];
-    [logout setTitle:@"等出" forState:UIControlStateNormal];
+    [logout setTitle:@"登出" forState:UIControlStateNormal];
     [logout.titleLabel setFont:[UIFont systemFontOfSize:10]];
     logout.backgroundColor = UIColorFromRGB(0x808284);
     logout.titleLabel.textColor = [UIColor whiteColor];
@@ -223,8 +224,7 @@
         
         UIButton* btn = [UIButton new];
         btn.tag = i;
-        [btn addTarget:self action:@selector(tabTouched:) forControlEvents:UIControlEventTouchUpInside
-         ];
+        [btn addTarget:self action:@selector(tabTouched:) forControlEvents:UIControlEventTouchUpInside];
         [currentTab addSubview:btn];
         [btn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.width.height.top.left.equalTo(currentTab);
@@ -246,8 +246,7 @@
     NSInteger index = [(UIButton *)sender tag];
     NSDictionary* item = [tabitems objectAtIndex:index];
     NSString* link = [item objectForKey:@"link"];
-    openURL([@"account/" stringByAppendingString:link]);
-    
+    [self navigateToPath:[@"account/" stringByAppendingString:link]];
 }
 
 -(void) initTableView{
@@ -339,7 +338,7 @@
     
     NSDictionary* item = [[items objectAtIndex:section] objectAtIndex:row];
     NSString* link = [item objectForKey:@"link"];
-    openURL([@"account/" stringByAppendingString:link]);
+    [self navigateToPath:[@"/account/" stringByAppendingString:link]];
 }
 
 
