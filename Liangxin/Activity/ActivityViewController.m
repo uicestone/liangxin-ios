@@ -11,6 +11,7 @@
 #import "LXBannerView.h"
 #import "LXBaseTableViewCell.h"
 #import "ActivityViewModel.h"
+#import "LXNetworkManager.h"
 
 @interface ActivityViewController() <UITableViewDataSource, UITableViewDelegate, LXBannerViewDelegate>
 
@@ -144,6 +145,31 @@
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.bottom.mas_equalTo(0);
+    }];
+
+    @weakify(self)
+    [[[LXNetworkManager sharedManager] getBannersByType:LXBannerTypeClass] subscribeNext:^(id x) {
+        @strongify(self)
+        NSMutableArray *bannerURLs = [NSMutableArray array];
+        for (LXBaseModelPost *post in x) {
+            if ([post.poster isValidObjectForKey:@"url"]) {
+                [bannerURLs addObject:[post.poster objectForKey:@"url"]];
+            }
+        }
+        self.carouselView.imageURLsGroup = bannerURLs;
+    } error:^(NSError *error) {
+        
+    }];
+    
+    LXNetworkPostParameters *parameters = [LXNetworkPostParameters new];
+    parameters.page = @(1);
+    parameters.type = @"活动";
+    [[[LXNetworkManager sharedManager] getPostByParameters:parameters] subscribeNext:^(NSArray *x) {
+        @strongify(self)
+        [self.viewModel.activityData addObjectsFromArray:x];
+        [self.tableView reloadData];
+    } error:^(NSError *error) {
+        
     }];
 }
 

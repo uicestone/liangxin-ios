@@ -136,7 +136,10 @@
         
     }];
     
-    [[self.viewModel getPostByPage:1] subscribeNext:^(NSArray *x) {
+    LXNetworkPostParameters *parameters = [LXNetworkPostParameters new];
+    parameters.page = @(1);
+    parameters.type = @"课堂";
+    [[[LXNetworkManager sharedManager] getPostByParameters:parameters] subscribeNext:^(NSArray *x) {
         @strongify(self)
         [self.viewModel.classData addObjectsFromArray:x];
         [self.tableView reloadData];

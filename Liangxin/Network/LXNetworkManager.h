@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LXNetworkParameters.h"
 
 typedef NS_ENUM(NSInteger, LXBannerType){
     LXBannerTypeHome,
@@ -19,5 +20,6 @@ typedef NS_ENUM(NSInteger, LXBannerType){
 + (instancetype)sharedManager;
 
 - (RACSignal *)getBannersByType:(LXBannerType)bannerType;
+- (RACSignal *)getPostByParameters:(LXNetworkPostParameters *)parameters;
 
 @end

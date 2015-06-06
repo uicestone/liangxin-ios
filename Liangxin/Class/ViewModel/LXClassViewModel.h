@@ -13,7 +13,4 @@
 
 @property (nonatomic, strong) NSMutableArray *classData;
 
-- (RACSignal *)getClassBanners;
-- (RACSignal *)getPostByPage:(NSInteger)pageNumber;
-
 @end

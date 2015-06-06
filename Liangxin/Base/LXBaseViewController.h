@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "LXBaseModelUser.h"
 @interface LXBaseViewController : UIViewController
+
 @property (nonatomic, strong) LXBaseModelUser* currentUser;
+@property (nonatomic, strong) UIButton *backButton;
+
 - (BOOL) shouldLogin;
 - (void)back:(id)sender;
 - (void)navigateToPath:(NSString *)path;
