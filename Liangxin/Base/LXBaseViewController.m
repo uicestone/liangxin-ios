@@ -25,10 +25,15 @@
     self.extendedLayoutIncludesOpaqueBars = YES;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationController.navigationBar.translucent = NO;
+    
     self.backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
     [self.backButton setImage:[UIImage imageNamed:@"Back"] forState:UIControlStateNormal];
     self.backButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [self.backButton addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
+    if (!self.params[@"route"]) {
+        self.backButton.imageView.tintColor = [UIColor blueColor];
+    }
+    
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.backButton];
     self.currentUser = [UserApi getCurrentUser];
 }
