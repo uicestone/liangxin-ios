@@ -68,7 +68,6 @@
     
     // 党群
     [[HHRouter shared] map:@"/article/:id" toControllerClass:[ArticleViewController class]];
-    [[HHRouter shared] map:@"/article/:id" toControllerClass:[GroupArticleViewController class]];
     
     
     [[HHRouter shared] map:@"/home" toControllerClass:[LXHomeViewController class]];

@@ -38,11 +38,11 @@
     
     NSString* url = [self getUrlByPath:path];
     
-    NSLog(@"<Request> GET:%@", url);
+    NSLog(@"<Request> GET:%@ %@", url, data);
     
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     
     [manager GET:url parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
         successCallback(responseObject);

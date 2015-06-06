@@ -37,60 +37,89 @@
     [self.navigationItem setTitle:@"支部动态"];
     
     groupId = [self.params[@"id"] intValue];
-    
-    
+
+    UIView* tabContainer = [UIView new];
+    [self.view addSubview:tabContainer];
+
+
+    [tabContainer mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.view);
+        make.height.mas_equalTo(30);
+        make.top.equalTo(self.view);
+        make.left.equalTo(self.view);
+    }];
+
     
     // init tabs
     tab1 = [UIButton new];
     tab2 = [UIButton new];
-    
-    tab1.titleLabel.text = @"公告";
-    tab2.titleLabel.text = @"文章";
-    
-    UIView* tabContainer = [UIView new];
-    
-    [self.view addSubview:tabContainer];
-    [tabContainer mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(self.view);
-        make.height.mas_equalTo(20);
-        make.top.equalTo(self.view);
-        make.left.equalTo(self.view);
-    }];
-    
+    [tab1 addTarget:self action:@selector(tab1Touched:) forControlEvents:UIControlEventTouchUpInside];
+    [tab2 addTarget:self action:@selector(tab2Touched:) forControlEvents:UIControlEventTouchUpInside];
+    [tab1 setTitle:@"公告" forState:UIControlStateNormal];
+    [tab2 setTitle:@"文章" forState:UIControlStateNormal];
+    tab1.titleLabel.font = [UIFont systemFontOfSize:14];
+    tab2.titleLabel.font = [UIFont systemFontOfSize:14];
     [tabContainer addSubview:tab1];
     [tabContainer addSubview:tab2];
+    
     [tab1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(tabContainer).with.offset(8);
+        make.top.equalTo(tabContainer).with.offset(7);
+        make.bottom.equalTo(tabContainer).with.offset(-5);
     }];
     [tab2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(tab1.mas_right).with.offset(0);
         make.width.equalTo(tab1);
-        make.right.equalTo(tabContainer).with.offset(8);
+        make.right.equalTo(tabContainer).with.offset(-8);
+        make.top.equalTo(tabContainer).with.offset(7);
+        make.bottom.equalTo(tabContainer).with.offset(-5);
     }];
-    
+
+    UIView* split1 = [UIView new];
+    UIView* split2 = [UIView new];
+    split1.backgroundColor = UIColorFromRGB(0x808284);
+    split2.backgroundColor = UIColorFromRGB(0x808284);
+    [tabContainer addSubview:split1];
+    [tabContainer addSubview:split2];
+    [split1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(tabContainer);
+        make.width.mas_equalTo(1);
+        make.top.equalTo(tabContainer).with.offset(7);
+        make.bottom.equalTo(tabContainer);
+    }];
+    [split2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(tabContainer);
+        make.left.equalTo(tabContainer).with.offset(8);
+        make.right.equalTo(tabContainer).with.offset(-8);
+        make.height.mas_equalTo(1);
+    }];
+
     
     // init tableview
     tableview = [UITableView new];
     tableview.delegate = self;
     tableview.dataSource = self;
+    [self.view addSubview:tableview];
+    [tableview mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(tabContainer.mas_bottom);
+        make.bottom.equalTo(self.view);
+        make.width.equalTo(self.view);
+    }];
     
     currentTab = tab1;
-    
-//    [self fetchPostList];
-    
-    self.tabBarController.tabBar.hidden = YES;
+    [self fetchPostList];
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 
 -(void) fetchPostList{
     [self showProgress];
     
-    [tab1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [tab2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [currentTab setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [tab1 setTitleColor:UIColorFromRGB(0x808284) forState:UIControlStateNormal];
+    [tab2 setTitleColor:UIColorFromRGB(0x808284) forState:UIControlStateNormal];
+    [currentTab setTitleColor:UIColorFromRGB(0xed1b23) forState:UIControlStateNormal];
     
     NSString* currentType = currentTab.titleLabel.text;
-    
     
     [PostApi getPostsByGroupId:groupId andType:currentType successHandler:^(NSArray *_posts) {
         self.posts = [_posts mutableCopy];
@@ -101,13 +130,13 @@
     }];
 }
 
-- (IBAction)tab1Touched:(id)sender {
+- (void)tab1Touched:(id)sender {
     currentTab = sender;
     [self fetchPostList];
 }
 
 
-- (IBAction)tab2Touched:(id)sender {
+- (void)tab2Touched:(id)sender {
     currentTab = sender;
     [self fetchPostList];
 }
@@ -147,6 +176,14 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 50.0f;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSInteger row = [indexPath row];
+    Post* post = [posts objectAtIndex:row];
+    NSString* path = [NSString stringWithFormat:@"/article/%d", post.postId];
+    [self navigateToPath:path];
+}
+
 /*
 #pragma mark - Navigation
 
