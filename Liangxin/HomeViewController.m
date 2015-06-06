@@ -56,8 +56,6 @@
     // 初始化六个图标
     self.channels = [Channels shared];
     [self initButtons];
-    
-    
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle{

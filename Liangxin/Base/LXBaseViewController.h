@@ -14,6 +14,7 @@
 @property (nonatomic, strong) UIButton *backButton;
 
 - (BOOL)needLogin;
+- (BOOL)hasToolBar;
 - (void)back:(id)sender;
 - (void)navigateToPath:(NSString *)path;
 - (void)popMessage:(NSString *)message;
