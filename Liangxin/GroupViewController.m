@@ -12,11 +12,12 @@
 #import "Channels.h"
 #import <HHRouter/HHRouter.h>
 
-@interface GroupViewController() <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
+@interface GroupViewController() <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 @property (nonatomic, strong) NSArray* items;
 @property (nonatomic, strong) NSArray* originItems;
-@property (nonatomic, strong) UISearchBar* searchBar;
-@property (nonatomic, strong) UIBarButtonItem* searchButton;
+@property (nonatomic, strong) UIView* searchBar;
+@property (nonatomic, strong) UITextField* searchInput;
+@property (nonatomic, strong) UIButton* cancelButton;
 @property (nonatomic, strong) UITableView* tableView;
 @end
 
@@ -24,6 +25,8 @@
 @synthesize items;
 @synthesize originItems;
 @synthesize searchBar;
+@synthesize searchInput;
+@synthesize cancelButton;
 @synthesize tableView;
 
 
@@ -55,8 +58,8 @@
     }
     
     // 初始化TableView
-    [self initTableView];
     [self initSearchBar];
+    [self initTableView];
 }
 
 
@@ -64,11 +67,117 @@
     self.navigationController.tabBarController.tabBar.hidden = NO;
 }
 
+
+#pragma 搜索框相关
+
+-(void)initSearchBar{
+    // 初始化SearchBar
+    searchBar = [UIView new];
+    searchBar.backgroundColor = UIColorFromRGB(0xe6e7e8);
+    [self.view addSubview:searchBar];
+    @weakify(self);
+    [searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.top.equalTo(self.view);
+        make.left.equalTo(self.view);
+        make.height.mas_equalTo(33);
+        make.width.equalTo(self.view);
+    }];
+    
+    UIView* searchFieldContainer = [UIView new];
+    [searchBar addSubview:searchFieldContainer];
+    searchFieldContainer.layer.masksToBounds = YES;
+    searchFieldContainer.layer.cornerRadius = 5;
+    searchFieldContainer.clipsToBounds = YES;
+    searchFieldContainer.backgroundColor = [UIColor whiteColor];
+    [searchFieldContainer mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(searchBar).with.offset(10);
+        make.top.equalTo(searchBar).with.offset(6);
+        make.bottom.equalTo(searchBar).with.offset(-6);
+        make.right.equalTo(searchBar).with.offset(-10);
+    }];
+    
+    UIImageView* searchIcon = [UIImageView new];
+    [searchBar addSubview:searchIcon];
+    searchIcon.image = [UIImage imageNamed:@"Group_SearchIcon"];
+    [searchIcon mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(searchFieldContainer).with.offset(9);
+        make.top.equalTo(searchFieldContainer).with.offset(3);
+        make.width.mas_equalTo(15);
+        make.height.mas_equalTo(15);
+    }];
+    
+    searchInput = [UITextField new];
+    searchInput.delegate = self;
+    [searchBar addSubview:searchInput];
+    searchInput.placeholder = @"请输入要查找的支部";
+    searchInput.font = [UIFont systemFontOfSize:10];
+    [searchInput mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(searchIcon.mas_right).with.offset(10);
+        make.top.equalTo(searchFieldContainer);
+        make.bottom.equalTo(searchFieldContainer);
+    }];
+    
+    
+    cancelButton = [UIButton new];
+    [searchBar addSubview:cancelButton];
+    [cancelButton setTitle:@"取消" forState:UIControlStateNormal];
+    cancelButton.titleLabel.font = [UIFont systemFontOfSize:10];
+    cancelButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    cancelButton.backgroundColor = [UIColor redColor];
+    [cancelButton addTarget:self action:@selector(clearSearchResults) forControlEvents:UIControlEventTouchUpInside];
+    [cancelButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(searchInput.mas_right);
+        make.width.mas_equalTo(38);
+        make.right.equalTo(searchFieldContainer);
+        make.top.equalTo(searchFieldContainer);
+        make.bottom.equalTo(searchFieldContainer);
+    }];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+    [theTextField resignFirstResponder];
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    [self makeSearch];
+}
+
+-(void)makeSearch{
+    if([searchInput.text isEqualToString:@""]){
+        [self clearSearchResults];
+    }else{
+        NSArray* groups = [GroupApi getGroupsByKeyword:[searchInput text]];
+        items = groups;
+        [tableView reloadData];
+    }
+}
+
+-(void)clearSearchResults{
+    searchInput.text = @"";
+    items = [originItems copy];
+    [tableView reloadData];
+    [UIView animateWithDuration:0.3 animations:^{
+        [searchInput resignFirstResponder];
+        [self navigationController].navigationBar.alpha = 1;
+    }];
+
+}
+
 -(void)initTableView{
     tableView = [[UITableView alloc] initWithFrame:self.view.frame];
     tableView.delegate = self;
     tableView.dataSource = self;
     [self.view addSubview:tableView];
+    
+    @weakify(self);
+    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.top.equalTo(searchBar.mas_bottom);
+        make.bottom.equalTo(self.view);
+        make.width.equalTo(self.view);
+    }];
     
     // 搜个货
     if(!items){
@@ -88,79 +197,6 @@
     
 }
 
-#pragma 搜索框相关
-
--(void)initSearchBar{
-    
-    _searchButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
-                                                                  target:self
-                                                                  action:@selector(showSearchBar)];
-    
-    self.navigationItem.rightBarButtonItem = _searchButton;
-    
-    // 初始化SearchBar
-    searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, -44,  CGRectGetWidth(self.view.frame), 44)];
-    searchBar.delegate = self;
-    searchBar.placeholder = @"搜索";
-    searchBar.showsCancelButton = YES;
-    searchBar.barTintColor = [UIColor redColor];
-    searchBar.backgroundColor = [UIColor redColor];
-    
-    float version = [[[UIDevice currentDevice] systemVersion] floatValue];
-    NSArray *subviewContainer = version>7.0 ? ((UIView *)searchBar.subviews[0]).subviews : searchBar.subviews;
-    for (UIView *subview in subviewContainer){
-        if ([subview isKindOfClass:[UIButton class]]){
-            UIButton *cancelButton = (UIButton*)subview;
-            cancelButton.enabled = YES;
-            [cancelButton setTintColor:[UIColor whiteColor]];
-            [cancelButton setTitle:@"取消" forState:UIControlStateNormal];//文字
-            break;
-        }
-        
-        if ([subview isKindOfClass:NSClassFromString(@"UISearchBarBackground")]){
-            [subview removeFromSuperview];
-        }
-    }
-    
-    [self.view addSubview:searchBar];
-    [self navigationController].navigationBar.alpha = 1;
-}
-
-#pragma 搜索框protocal
-- (void)searchBarSearchButtonClicked:(UISearchBar *)bar{
-    [self makeSearchWithKeyword:[bar text]];
-}
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *)bar{
-    [self hideSearchBar];
-}
-
-
-
-#pragma 自定义搜索框处理方法
-
--(void)makeSearchWithKeyword:(NSString *)keyword{
-    NSArray* groups = [GroupApi getGroupsByKeyword:keyword];
-    items = groups;
-    [tableView reloadData];
-}
-
--(void)showSearchBar{
-    [UIView animateWithDuration:0.3 animations:^{
-        [searchBar becomeFirstResponder];
-        [self navigationController].navigationBar.alpha = 0;
-    }];
-}
-
--(void)hideSearchBar{
-    searchBar.text = @"";
-    items = [originItems copy];
-    [tableView reloadData];
-    [UIView animateWithDuration:0.3 animations:^{
-        [searchBar resignFirstResponder];
-        [self navigationController].navigationBar.alpha = 1;
-    }];
-}
 
 #pragma UITableViewDataSource
 
