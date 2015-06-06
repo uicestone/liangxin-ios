@@ -13,6 +13,7 @@
 #import "LXClassViewModel.h"
 #import "ClassDetailViewController.h"
 #import "ClassListViewController.h"
+#import "LXNetworkManager.h"
 
 @interface ClassViewController () <UITableViewDataSource, UITableViewDelegate, LXBannerViewDelegate>
 
@@ -120,8 +121,9 @@
     }];
     
     self.viewModel = [LXClassViewModel new];
+    
     @weakify(self)
-    [[self.viewModel getClassBanners] subscribeNext:^(NSArray *x) {
+    [[[LXNetworkManager sharedManager] getBannersByType:LXBannerTypeClass] subscribeNext:^(id x) {
         @strongify(self)
         NSMutableArray *bannerURLs = [NSMutableArray array];
         for (LXBaseModelPost *post in x) {
@@ -133,6 +135,7 @@
     } error:^(NSError *error) {
         
     }];
+    
     [[self.viewModel getPostByPage:1] subscribeNext:^(NSArray *x) {
         @strongify(self)
         [self.viewModel.classData addObjectsFromArray:x];

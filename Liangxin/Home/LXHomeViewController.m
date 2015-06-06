@@ -8,8 +8,9 @@
 
 #import "LXHomeViewController.h"
 #import "LXHomeCollectionViewCell.h"
-#import "LXHomeViewModel.h"
+#import "LXNetworkManager.h"
 #import "LXCarouselView.h"
+#import "LXBaseModelPost.h"
 
 @interface LXHomeViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -18,7 +19,6 @@
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
 @property (nonatomic, strong) NSArray *channelImages;
 @property (nonatomic, strong) NSArray *channelSchemes;
-@property (nonatomic, strong) LXHomeViewModel *viewModel;
 
 @end
 
@@ -30,8 +30,6 @@
 }
 
 - (void)commonInit {
-    self.viewModel = [LXHomeViewModel new];
-    
     self.navigationItem.leftBarButtonItem = nil;
     
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
@@ -43,23 +41,21 @@
     self.navigationItem.titleView = titleLabel;
     
     
-    CGFloat bannerWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
-    CGFloat bannerHeight = bannerWidth / 2.53;
-    self.carouselView = [LXCarouselView carouselViewWithFrame:CGRectMake(0, 0, bannerWidth, bannerHeight) imageURLsGroup:nil];
+    self.carouselView = [LXCarouselView carouselViewWithFrame:CGRectMake(0, 0, 320, 200) imageURLsGroup:nil];
     self.carouselView.pageControl.hidden = YES;
     [self.view addSubview:self.carouselView];
     [self.carouselView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(0);
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
-        make.height.mas_equalTo(bannerHeight);
+        make.height.mas_equalTo(125);
     }];
     
     self.channelImages = @[@"Home_Group", @"Home_Activity", @"Home_Class", @"Home_Post", @"Home_Service", @"Home_Account"];
     self.channelSchemes = @[@"group", @"activity", @"class", @"post", @"service", @"account"];
     self.view.backgroundColor = [UIColor whiteColor];
     self.flowLayout = [UICollectionViewFlowLayout new];
-    self.flowLayout.itemSize = CGSizeMake(CGRectGetWidth([UIScreen mainScreen].bounds)/2, (CGRectGetWidth(self.view.bounds) / 2 / 1.33));
+    self.flowLayout.itemSize = CGSizeMake(CGRectGetWidth([UIScreen mainScreen].bounds)/2, (CGRectGetHeight(self.view.bounds) - 189)/3);
     self.flowLayout.minimumInteritemSpacing = 0;
     self.flowLayout.minimumLineSpacing = 0;
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.flowLayout];
@@ -67,20 +63,17 @@
     self.collectionView.delegate = self;
     self.collectionView.showsHorizontalScrollIndicator = NO;
     self.collectionView.showsVerticalScrollIndicator = NO;
-    self.collectionView.backgroundColor = [UIColor whiteColor];
     [self.collectionView registerClass:[LXHomeCollectionViewCell class] forCellWithReuseIdentifier:@"LXHomeCollectionViewCell"];
     [self.view addSubview:self.collectionView];
-    @weakify(self)
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.bottom.mas_equalTo(0);
-        @strongify(self)
-        make.top.mas_equalTo(self.carouselView.mas_bottom);
+        make.top.mas_equalTo(125);
     }];
     
-    
-    [[self.viewModel getHomeBanners] subscribeNext:^(NSArray *x) {
+    @weakify(self)
+    [[[LXNetworkManager sharedManager] getBannersByType:LXBannerTypeHome] subscribeNext:^(NSArray *x) {
         @strongify(self)
         NSMutableArray *bannerURLs = [NSMutableArray array];
         for (LXBaseModelPost *post in x) {
@@ -92,9 +85,6 @@
     } error:^(NSError *error) {
         
     }];
-    
-    
-    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
