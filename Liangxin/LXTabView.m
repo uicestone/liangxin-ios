@@ -16,8 +16,9 @@
 @implementation LXTabView
 @synthesize tab1, tab2, currentTab, delegate;
 
--(instancetype)initWithContainer:(UIView *)container firstTab:(NSString *)firstTab secondTab:(NSString *)secondTab{
+-(instancetype)initWithContainer:(UIView *)container firstTab:(NSString *)firstTab secondTab:(NSString *)secondTab tabColor:(UIColor*)tabColor{
     self = [super init];
+    self.backgroundColor = [UIColor whiteColor];
     CGRect frame = container.frame;
     [container addSubview:self];
     
@@ -73,6 +74,7 @@
         make.height.mas_equalTo(1);
     }];
     
+    self.selectedColor = tabColor;
     [self selectTab:tab1];
     return self;
 }
@@ -87,7 +89,7 @@
         another = tab1;
     }
     
-    [currentTab setTitleColor:UIColorFromRGB(0xed1b23) forState:UIControlStateNormal];
+    [currentTab setTitleColor:self.selectedColor forState:UIControlStateNormal];
     [another setTitleColor:UIColorFromRGB(0x808284) forState:UIControlStateNormal];
 }
 

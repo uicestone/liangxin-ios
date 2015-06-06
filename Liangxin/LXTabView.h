@@ -15,7 +15,8 @@
 
 @interface LXTabView : UIView
 @property (nonatomic, strong) UIButton* currentTab;
+@property (nonatomic, strong) UIColor* selectedColor;
 @property (strong, nonatomic) id<LXTabViewDelegate> delegate;
--(instancetype)initWithContainer:(UIView *)container firstTab:(NSString *)firstTab secondTab:(NSString *)secondTab;
+-(instancetype)initWithContainer:(UIView *)container firstTab:(NSString *)firstTab secondTab:(NSString *)secondTab tabColor:(UIColor*)tabColor;
 -(NSString *)currentType;
 @end

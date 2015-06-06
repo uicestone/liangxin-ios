@@ -36,7 +36,7 @@
     groupId = [self.params[@"id"] intValue];
     
     // init tabs
-    tabview = [[LXTabView alloc] initWithContainer:self.view firstTab:@"公告" secondTab:@"文章"];
+    tabview = [[LXTabView alloc] initWithContainer:self.view firstTab:@"公告" secondTab:@"文章" tabColor:UIColorFromRGB(0xed1b23)];
     tabview.delegate = self;
     
     // init tableview

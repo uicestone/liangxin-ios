@@ -138,7 +138,7 @@
     #endif
     
     // 初始化Navigation Controller
-    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/groupactivity/3"];
+    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/home"];
     navigationController= [[LXNavigationController alloc] initWithRootViewController:homeViewController];
     window.rootViewController = navigationController;
     [window makeKeyAndVisible];
