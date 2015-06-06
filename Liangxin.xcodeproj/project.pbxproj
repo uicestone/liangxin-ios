@@ -112,6 +112,7 @@
 		2D6160C61B20AA1B001D01D8 /* LXHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160C51B20AA1B001D01D8 /* LXHomeViewController.m */; };
 		2D6160CA1B20B26B001D01D8 /* LXHomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160C91B20B26B001D01D8 /* LXHomeCollectionViewCell.m */; };
 		2D75A2DB1B1B4A0700A8FA95 /* LXClassListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D75A2DA1B1B4A0700A8FA95 /* LXClassListViewModel.m */; };
+		2DB6C2B31B2280CB00A94E6E /* LXNetworkParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB6C2B21B2280CB00A94E6E /* LXNetworkParameters.m */; };
 		2DE2F4A11B2041C600E3DA29 /* ActivityViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE2F4A01B2041C600E3DA29 /* ActivityViewModel.m */; };
 		2DFD651F1B15FE7800FAC662 /* LXCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD651E1B15FE7800FAC662 /* LXCarouselView.m */; };
 		2DFD65221B16001200FAC662 /* LXCarouselViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD65211B16001200FAC662 /* LXCarouselViewCell.m */; };
@@ -321,6 +322,8 @@
 		2D6160C91B20B26B001D01D8 /* LXHomeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXHomeCollectionViewCell.m; path = Home/Views/LXHomeCollectionViewCell.m; sourceTree = "<group>"; };
 		2D75A2D91B1B4A0700A8FA95 /* LXClassListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXClassListViewModel.h; path = Class/ViewModel/LXClassListViewModel.h; sourceTree = "<group>"; };
 		2D75A2DA1B1B4A0700A8FA95 /* LXClassListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXClassListViewModel.m; path = Class/ViewModel/LXClassListViewModel.m; sourceTree = "<group>"; };
+		2DB6C2B11B2280CB00A94E6E /* LXNetworkParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXNetworkParameters.h; path = Network/Parameters/LXNetworkParameters.h; sourceTree = "<group>"; };
+		2DB6C2B21B2280CB00A94E6E /* LXNetworkParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXNetworkParameters.m; path = Network/Parameters/LXNetworkParameters.m; sourceTree = "<group>"; };
 		2DE2F49F1B2041C600E3DA29 /* ActivityViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityViewModel.h; path = Liangxin/Activity/ViewModel/ActivityViewModel.h; sourceTree = "<group>"; };
 		2DE2F4A01B2041C600E3DA29 /* ActivityViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityViewModel.m; path = Liangxin/Activity/ViewModel/ActivityViewModel.m; sourceTree = "<group>"; };
 		2DFD651D1B15FE7800FAC662 /* LXCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXCarouselView.h; path = Widgets/LXCarouselView.h; sourceTree = "<group>"; };
@@ -690,6 +693,7 @@
 		2D00FF9A1B218B6F00106110 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				2DB6C2B01B22806A00A94E6E /* Parameters */,
 				2D00FF9B1B218CBB00106110 /* LXNetworkManager.h */,
 				2D00FF9C1B218CBB00106110 /* LXNetworkManager.m */,
 			);
@@ -758,6 +762,15 @@
 				2D6160C91B20B26B001D01D8 /* LXHomeCollectionViewCell.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		2DB6C2B01B22806A00A94E6E /* Parameters */ = {
+			isa = PBXGroup;
+			children = (
+				2DB6C2B11B2280CB00A94E6E /* LXNetworkParameters.h */,
+				2DB6C2B21B2280CB00A94E6E /* LXNetworkParameters.m */,
+			);
+			name = Parameters;
 			sourceTree = "<group>";
 		};
 		2DE2F49D1B203C9D00E3DA29 /* Views */ = {
@@ -1007,6 +1020,7 @@
 				2215D96C1B10D08A00D96C46 /* TAAnimatedDotView.m in Sources */,
 				22238C571AFBAE30000B4F95 /* ApiBase.m in Sources */,
 				22BE07D21B1F384C00A1E91F /* AccountActivityViewController.m in Sources */,
+				2DB6C2B31B2280CB00A94E6E /* LXNetworkParameters.m in Sources */,
 				2210A37E1AFDF84900D9CA1A /* Group.m in Sources */,
 				2D537DF01B1AEB38006BD35E /* ClassDetailVideoCell.m in Sources */,
 				2D6160B01B1C9EB7001D01D8 /* LXFilterViewCell.m in Sources */,
@@ -1086,21 +1100,6 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-			};
-			name = "ad hoc distribution";
-		};
-		223047371B20ACC800AB632D /* ad hoc distribution */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = LiangxinTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Liangxin.app/Liangxin";
 			};
 			name = "ad hoc distribution";
 		};
@@ -1251,16 +1250,6 @@
 				223267E41AF2661B00431132 /* Debug */,
 				223267E51AF2661B00431132 /* Release */,
 				223047361B20ACC800AB632D /* ad hoc distribution */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		223267E61AF2661B00431132 /* Build configuration list for PBXNativeTarget "LiangxinTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				223267E71AF2661B00431132 /* Debug */,
-				223267E81AF2661B00431132 /* Release */,
-				223047371B20ACC800AB632D /* ad hoc distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
