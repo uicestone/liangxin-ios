@@ -17,7 +17,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         UIColor* textColor = UIColorFromRGB(0x58595b);
-        UIFont* metaFont = [UIFont systemFontOfSize:8];
+        UIFont* metaFont = [UIFont systemFontOfSize:9];
         UIView* contentView = self.contentView;
         UIView* commentContainer = [UIView new];
         UIView* likeContainer = [UIView new];
@@ -52,57 +52,62 @@
         [likeContainer addSubview:likeCount];
         
         
-        title.font = [UIFont systemFontOfSize:12];
+        title.font = [UIFont systemFontOfSize:14];
         [title mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(contentView).with.offset(7);
-            make.left.equalTo(contentView).with.offset(15);
+            make.top.equalTo(contentView).with.offset(10);
+            make.left.equalTo(contentView).with.offset(32);
             make.width.mas_equalTo(250);
             make.height.mas_equalTo(12);
         }];
         
         
         [date mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(contentView).with.offset(-5);
-            make.left.equalTo(contentView).with.offset(15);
+            make.bottom.equalTo(contentView).with.offset(-7);
+            make.left.equalTo(contentView).with.offset(32);
             make.width.mas_equalTo(60);
             make.height.mas_equalTo(25);
         }];
         
         [commentContainer mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(contentView).with.offset(-5);
+            make.bottom.equalTo(contentView).with.offset(-7);
             make.right.equalTo(contentView).with.offset(-9);
             make.width.mas_equalTo(50);
             make.height.mas_equalTo(25);
         }];
         
         [likeContainer mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(contentView).with.offset(-5);
+            make.bottom.equalTo(contentView).with.offset(-7);
             make.right.equalTo(commentContainer.mas_left).with.offset(-50);
             make.width.mas_equalTo(50);
             make.height.mas_equalTo(25);
         }];
         
         [likeImage mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(likeContainer);
+            make.bottom.equalTo(likeContainer);
             make.left.equalTo(likeContainer);
-            make.width.mas_equalTo(28);
-            make.height.mas_equalTo(25);
+            make.width.mas_equalTo(18);
+            make.height.mas_equalTo(18);
         }];
         
         [commentImage mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(commentContainer);
+            make.bottom.equalTo(commentContainer);
             make.left.equalTo(commentContainer);
-            make.width.mas_equalTo(28);
-            make.height.mas_equalTo(25);
+            make.width.mas_equalTo(20);
+            make.height.mas_equalTo(18);
         }];
         
         [likeCount mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(likeImage.mas_right).with.offset(3);
+            make.left.equalTo(likeImage.mas_right).with.offset(4);
+            make.bottom.equalTo(likeContainer).with.offset(-2);
+            make.left.equalTo(likeImage.mas_right).with.offset(18);
         }];
         
         
         [commentCount mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(commentImage.mas_right).with.offset(3);
+            make.left.equalTo(commentImage.mas_right).with.offset(4);
+            make.bottom.equalTo(likeContainer).with.offset(-2);
+            make.bottom.equalTo(commentImage);
+            make.left.equalTo(commentImage.mas_right).with.offset(18);
         }];
     }
     return self;

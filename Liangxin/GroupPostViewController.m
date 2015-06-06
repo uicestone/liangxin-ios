@@ -10,23 +10,20 @@
 #import "Post.h"
 #import "PostApi.h"
 #import "PostItemCell.h"
+#import "LXTabView.h"
 #import <HHRouter/HHRouter.h>
 
 #define kReuseIdentifier @"postItemCell"
 
-@interface GroupPostViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface GroupPostViewController () <UITableViewDataSource, UITableViewDelegate, LXTabViewDelegate>
 @property (nonatomic, strong) NSMutableArray* posts;
 @property (nonatomic, assign) int groupId;
-@property (nonatomic, strong) NSString* currentType;
-@property (nonatomic, strong) UIButton* currentTab;
 @property (nonatomic, strong) UITableView* tableview;
-@property (nonatomic, strong) UIButton* tab1;
-@property (nonatomic, strong) UIButton* tab2;
+@property (nonatomic, strong) LXTabView* tabview;
 @end
 
 @implementation GroupPostViewController
-@synthesize tableview;
-@synthesize tab1, tab2, currentTab;
+@synthesize tableview, tabview;
 @synthesize posts, groupId;
 
 
@@ -37,63 +34,10 @@
     [self.navigationItem setTitle:@"支部动态"];
     
     groupId = [self.params[@"id"] intValue];
-
-    UIView* tabContainer = [UIView new];
-    [self.view addSubview:tabContainer];
-
-
-    [tabContainer mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(self.view);
-        make.height.mas_equalTo(30);
-        make.top.equalTo(self.view);
-        make.left.equalTo(self.view);
-    }];
-
     
     // init tabs
-    tab1 = [UIButton new];
-    tab2 = [UIButton new];
-    [tab1 addTarget:self action:@selector(tab1Touched:) forControlEvents:UIControlEventTouchUpInside];
-    [tab2 addTarget:self action:@selector(tab2Touched:) forControlEvents:UIControlEventTouchUpInside];
-    [tab1 setTitle:@"公告" forState:UIControlStateNormal];
-    [tab2 setTitle:@"文章" forState:UIControlStateNormal];
-    tab1.titleLabel.font = [UIFont systemFontOfSize:14];
-    tab2.titleLabel.font = [UIFont systemFontOfSize:14];
-    [tabContainer addSubview:tab1];
-    [tabContainer addSubview:tab2];
-    
-    [tab1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(tabContainer).with.offset(8);
-        make.top.equalTo(tabContainer).with.offset(7);
-        make.bottom.equalTo(tabContainer).with.offset(-5);
-    }];
-    [tab2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(tab1.mas_right).with.offset(0);
-        make.width.equalTo(tab1);
-        make.right.equalTo(tabContainer).with.offset(-8);
-        make.top.equalTo(tabContainer).with.offset(7);
-        make.bottom.equalTo(tabContainer).with.offset(-5);
-    }];
-
-    UIView* split1 = [UIView new];
-    UIView* split2 = [UIView new];
-    split1.backgroundColor = UIColorFromRGB(0x808284);
-    split2.backgroundColor = UIColorFromRGB(0x808284);
-    [tabContainer addSubview:split1];
-    [tabContainer addSubview:split2];
-    [split1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(tabContainer);
-        make.width.mas_equalTo(1);
-        make.top.equalTo(tabContainer).with.offset(7);
-        make.bottom.equalTo(tabContainer);
-    }];
-    [split2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(tabContainer);
-        make.left.equalTo(tabContainer).with.offset(8);
-        make.right.equalTo(tabContainer).with.offset(-8);
-        make.height.mas_equalTo(1);
-    }];
-
+    tabview = [[LXTabView alloc] initWithContainer:self.view firstTab:@"公告" secondTab:@"文章"];
+    tabview.delegate = self;
     
     // init tableview
     tableview = [UITableView new];
@@ -101,12 +45,11 @@
     tableview.dataSource = self;
     [self.view addSubview:tableview];
     [tableview mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(tabContainer.mas_bottom);
+        make.top.equalTo(tabview.mas_bottom);
         make.bottom.equalTo(self.view);
         make.width.equalTo(self.view);
     }];
     
-    currentTab = tab1;
     [self fetchPostList];
     self.view.backgroundColor = [UIColor whiteColor];
 }
@@ -115,11 +58,7 @@
 -(void) fetchPostList{
     [self showProgress];
     
-    [tab1 setTitleColor:UIColorFromRGB(0x808284) forState:UIControlStateNormal];
-    [tab2 setTitleColor:UIColorFromRGB(0x808284) forState:UIControlStateNormal];
-    [currentTab setTitleColor:UIColorFromRGB(0xed1b23) forState:UIControlStateNormal];
-    
-    NSString* currentType = currentTab.titleLabel.text;
+    NSString* currentType = tabview.currentType;
     
     [PostApi getPostsByGroupId:groupId andType:currentType successHandler:^(NSArray *_posts) {
         self.posts = [_posts mutableCopy];
@@ -130,14 +69,7 @@
     }];
 }
 
-- (void)tab1Touched:(id)sender {
-    currentTab = sender;
-    [self fetchPostList];
-}
-
-
-- (void)tab2Touched:(id)sender {
-    currentTab = sender;
+-(void)tabview:(LXTabView *)tabview tappedAtIndex:(int)index{
     [self fetchPostList];
 }
 
