@@ -52,6 +52,27 @@
 }
 
 
++(void)deleteWithPath:(NSString *)path data:(NSDictionary *)data success:(void (^)(id responseObject, AFHTTPRequestOperation* operation))successCallback error:(void (^)(AFHTTPRequestOperation *operation, NSError *error))errorCallback{
+    NSString *url = [self getUrlByPath:path];
+    
+    NSLog(@"<Request> DELETE:%@ %@", url, data);
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    
+    
+    LXBaseModelUser* user= [UserApi getCurrentUser];
+    if(user && user.token){
+        NSLog(@"Authorization %@", user.token);
+        [manager.requestSerializer setValue:user.token forHTTPHeaderField:@"Authorization"];
+    }
+    
+    [manager DELETE:url parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        successCallback(responseObject, operation);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorCallback(operation, error);
+    }];
+}
 
 +(void)postJSONWithPath:(NSString *)path data:(NSDictionary *)data  success:(void (^)(id responseObject, AFHTTPRequestOperation* operation))successCallback error:(void (^)(AFHTTPRequestOperation *operation, NSError *error))errorCallback{
     

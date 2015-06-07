@@ -34,6 +34,13 @@
             NSLog(@"%@", operation.responseObject);
             [self completeWithError:error];
         }];
+    }else if([method isEqual:@"delete"]){
+        [ApiBase deleteWithPath:url data:nil success:^(id responseObject, AFHTTPRequestOperation* operation) {
+            [self completeWithResult:responseObject];
+        } error:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"%@", operation.responseObject);
+            [self completeWithError:error];
+        }];
     }
 }
 
