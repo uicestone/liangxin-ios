@@ -12,6 +12,7 @@
 #import "LXBaseTableViewCell.h"
 #import "ActivityViewModel.h"
 #import "LXNetworkManager.h"
+#import "LXSearchBar.h"
 
 @interface ActivityViewController() <UITableViewDataSource, UITableViewDelegate, LXBannerViewDelegate>
 
@@ -19,7 +20,7 @@
 @property (nonatomic, strong) LXCarouselView *carouselView;
 @property (nonatomic, strong) UIView *titleView;
 @property (nonatomic, strong) ActivityViewModel *viewModel;
-@property (nonatomic, strong) UISearchBar *searchBar;
+@property (nonatomic, strong) LXSearchBar *searchBar;
 
 @end
 
@@ -44,16 +45,16 @@
         make.right.mas_equalTo(0);
         make.height.mas_equalTo(44);
     }];
-    
-    self.searchBar = [[UISearchBar alloc] init];
-    self.searchBar.searchBarStyle = UISearchBarStyleMinimal;
+
+    self.searchBar = [[LXSearchBar alloc] initWithFrame:CGRectZero];
     self.searchBar.placeholder = @"请输入要查找的活动";
+    self.searchBar.searchTintColor = [UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0];
     [searchView addSubview:self.searchBar];
     [self.searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(5);
         make.right.mas_equalTo(-5);
-        make.top.mas_equalTo(12);
-        make.bottom.mas_equalTo(-12);
+        make.top.mas_equalTo(10);
+        make.bottom.mas_equalTo(-10);
     }];
     
     self.carouselView = [LXCarouselView carouselViewWithFrame:CGRectMake(0, 0, 320, 200) imageURLsGroup:nil];

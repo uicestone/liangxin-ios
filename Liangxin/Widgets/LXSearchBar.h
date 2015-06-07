@@ -10,6 +10,8 @@
 
 @interface LXSearchBar : UIView
 
+@property (nonatomic, strong) UIColor *searchTintColor;
 @property (nonatomic, strong) UITextField *searchField;
+@property (nonatomic, copy) NSString *placeholder;
 
 @end
