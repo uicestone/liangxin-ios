@@ -58,8 +58,15 @@ require('./selectctrl.tag')
 		"class": ['党建', '青年', '宣传', '妇女', '工会', '廉政']
 	})[opts.type];
 
+	var type = ({
+		"notice": "公告",
+		"article": "文章",
+		"image": "照片",
+		"event": "活动",
+		"class": "课程"
+	})[opts.type];
 	var keys = ({
-		"bulletin": ["title", "content"],
+		"notice": ["title", "content"],
 		"article": ["title", "content", "images"],
 		"image": ["title", "images"],
 		"event": ["poster", ""],
@@ -77,6 +84,19 @@ require('./selectctrl.tag')
 		keys.forEach(function(k){
 			data[k] = self[k];
 		});
-		console.log(data);
+
+		bridge.showProgress();
+		data['type'] = type;
+		fetch({
+			url: "/post",
+			method:"post",
+			data: data
+		}).then(function(){
+			bridge.hideProgress();
+			bridge.showMessage("发布成功");
+		}).catch(function(err){
+			bridge.hideProgress();
+			bridge.showMessage(err.message);
+		});
 	}
 </publish>

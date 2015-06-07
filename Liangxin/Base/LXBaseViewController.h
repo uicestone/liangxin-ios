@@ -18,6 +18,7 @@
 - (void)back:(id)sender;
 - (void)navigateToPath:(NSString *)path;
 - (void)popMessage:(NSString *)message;
+- (void)dismissViewController;
 - (void)showProgress;
 - (void)hideProgress;
 @end

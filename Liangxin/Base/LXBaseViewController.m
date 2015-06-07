@@ -5,20 +5,22 @@
 //  Created by xiebohui on 5/31/15.
 //  Copyright (c) 2015 Hsu Spud. All rights reserved.
 //
-
+#import "AppDelegate.h"
 #import "LXBaseViewController.h"
 #import "LoginViewController.h"
 #import "UserApi.h"
 #import "LXBaseModelUser.h"
+#import "PublishViewController.h"
 #import <HHRouter.h>
 #import <MBProgressHUD/MBProgressHUD.h>
 
-@interface LXBaseViewController ()
+@interface LXBaseViewController () <UIActionSheetDelegate>
 @property (nonatomic, strong) MBProgressHUD* progress;
+@property (nonatomic, strong) AppDelegate* appDelegate;
 @end
 
 @implementation LXBaseViewController
-@synthesize currentUser;
+@synthesize currentUser, appDelegate;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,6 +43,8 @@
         [self initToolBar];
     }
     
+    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
 }
 
 -(void)initToolBar{
@@ -51,50 +55,99 @@
     NSMutableArray* toolbarItems = [@[] mutableCopy];
     
     for(int i = 0; i < 3; i++){
-        UIButton* tab = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+        UIButton* tab = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width / 3, 49)];
+
+        tab.tag = i;
+        tab.backgroundColor = UIColorFromRGB(0xf1f1f2);
+        [tab addTarget:self action:@selector(toolbarItemsPressed:) forControlEvents:UIControlEventTouchUpInside];
         
-        [tab setImage:[UIImage imageNamed:[btnIcons objectAtIndex:i]] forState:UIControlStateNormal];
-        [tab setTitleEdgeInsets:UIEdgeInsetsMake(4.0, 4.0, 4.0, 4.0)];
-        [tab setTitle:[btnTitles objectAtIndex:i] forState:UIControlStateNormal];
+        UIImageView* imageView = [UIImageView new];
+        imageView.image = [UIImage imageNamed:[btnIcons objectAtIndex:i]];
+        [tab addSubview:imageView];
+        [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(tab).with.offset(4);
+            make.width.mas_equalTo(25);
+            make.height.mas_equalTo(25);
+            make.centerX.equalTo(tab);
+        }];
         
-//        
-//        UIImageView* imageView = [UIImageView new];
-//        imageView.image = [UIImage imageNamed:[btnIcons objectAtIndex:i]];
-//        [tab addSubview:imageView];
-//        [tab mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.top.equalTo(tab).with.offset(4);
-//            make.width.mas_equalTo(25);
-//            make.height.mas_equalTo(25);
-//            make.centerX.equalTo(tab);
-//        }];
-//        
-//        UILabel* label = [UILabel new];
-//        label.text = [btnTitles objectAtIndex:i];
-//        label.font = [UIFont systemFontOfSize:11];
-//        [tab addSubview:label];
-//        [label mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.bottom.equalTo(tab).with.offset(-4);
-//            make.centerX.equalTo(tab);
-//            make.width.equalTo(tab);
-//            make.height.mas_equalTo(11);
-//        }];
+        UILabel* label = [UILabel new];
+        label.text = [btnTitles objectAtIndex:i];
+        label.font = [UIFont systemFontOfSize:11];
+        label.textAlignment = NSTextAlignmentCenter;
+        [tab addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(tab).with.offset(-4);
+            make.centerX.equalTo(tab);
+            make.width.equalTo(tab);
+            make.height.mas_equalTo(11);
+        }];
         
+        
+        UIBarButtonItem *sep = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+        sep.width = 0;
+        [toolbarItems addObject:sep];
+        
+        
+        UIBarButtonItem *sep2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+        sep2.width = i == 0 ? -20 : -10;
+        [toolbarItems addObject:sep2];
         
         UIBarButtonItem* btn = [[UIBarButtonItem alloc] initWithCustomView:tab];
-        btn.tag = i;
-        btn.target = self;
-        btn.action = @selector(toolbarItemsPressed:);
         [toolbarItems addObject:btn];
+        
     }
+    
+    
     
     self.navigationController.toolbar.backgroundColor = UIColorFromRGB(0xf1f1f2);
     self.toolbarItems = [toolbarItems copy];
     [self.navigationController setToolbarHidden:NO animated:YES];
 }
 
--(void)toolbarItemsPressed:(id)sender{
-
+-(void)toolbarItemsPressed:(UIButton *)sender{
+    NSInteger index = sender.tag;
+    
+    if(index == 0){
+        [self navigateToPath:@"/account"];
+    }else if(index == 1){
+        
+        if(!self.currentUser){
+            [appDelegate popLoginWithFinishHandler:^{
+                [self showPublishActionSheet];
+            }];
+        }else{
+            [self showPublishActionSheet];
+        }
+    }else{
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
 }
+
+- (void)showPublishActionSheet{
+    UIActionSheet* actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:nil
+                                  delegate:self
+                                  cancelButtonTitle:@"取消"
+                                  destructiveButtonTitle:nil
+                                  otherButtonTitles:@"公告", @"文章", @"相片", nil];
+    actionSheet.delegate = self;
+    [actionSheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+//    NSArray* publishTypes = @[@"class",@"activity",@"notice",@"article",@"image"];
+    NSArray* publishTypes = @[@"notice",@"article",@"image"];
+    
+    if(buttonIndex < publishTypes.count){
+        [actionSheet dismissWithClickedButtonIndex:buttonIndex animated:YES];
+        NSString* path = [@"/publish/?type=" stringByAppendingString: [publishTypes objectAtIndex:buttonIndex]];
+        [self popModalToPath:path complete:^{
+            NSLog(@"oh yeah");
+        }];
+    }
+}
+
 
 -(BOOL)hasToolBar{
     return YES;
@@ -110,9 +163,27 @@
     return NO;
 }
 
+- (void)popModalToPath:(NSString *)path complete:(ModalCompleteBlock)complete{
+    LXBaseViewController *viewController = (LXBaseViewController *)[[HHRouter shared] matchController:path];
+    
+    UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    navigationController.navigationItem.rightBarButtonItem.title = @"取消";
+    
+    @weakify(self);
+    [self presentViewController:navigationController animated:YES completion:^{
+        @strongify(self);
+        [self popMessage:@"Oh Yeah"];
+        complete();
+    }];
+}
+
 - (void)navigateToPath:(NSString *)path{
-    UIViewController *viewController = [[HHRouter shared] matchController:path];
-    [self.navigationController pushViewController:viewController animated:YES];
+    LXBaseViewController *viewController = (LXBaseViewController *)[[HHRouter shared] matchController:path];
+    [appDelegate pushViewController:viewController];
+}
+
+-(void)dismissViewController{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)showProgress{

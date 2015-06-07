@@ -31,6 +31,7 @@
         [ApiBase postJSONWithPath:url data:data success:^(id responseObject, AFHTTPRequestOperation* operation) {
             [self completeWithResult:responseObject];
         } error:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"%@", operation.responseObject);
             [self completeWithError:error];
         }];
     }

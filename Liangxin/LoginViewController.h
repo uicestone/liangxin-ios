@@ -9,17 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "LXBaseViewController.h"
 
-@protocol LoginFinishDelegate <NSObject>
-
-@required
-- (void)loginFinished:(LXBaseViewController *)nextViewController;
-@end
-
+typedef void(^ LoginFinishBlock)();
 
 @interface LoginViewController : LXBaseViewController <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (weak, nonatomic) IBOutlet UIButton *forget;
 @property (weak, nonatomic) IBOutlet UIButton *submit;
-@property (strong, nonatomic) id<LoginFinishDelegate> finishDelegate;
+@property (strong, nonatomic) LoginFinishBlock finishBlock;
 @property (strong, nonatomic) LXBaseViewController* nextViewController;
 @end

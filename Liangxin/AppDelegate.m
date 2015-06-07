@@ -52,7 +52,7 @@
 
 #import "LXHomeViewController.h"
 
-@interface AppDelegate () <LoginFinishDelegate>
+@interface AppDelegate ()
 
 @end
 
@@ -145,10 +145,6 @@
     return YES;
 }
 
--(void)loginFinished:(LXBaseViewController *)nextViewController{
-    [self pushViewController:nextViewController];
-}
-
 -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
     LXBaseViewController *viewController = (LXBaseViewController *)[[HHRouter shared] matchController:[url absoluteString]];
     [self pushViewController:viewController];
@@ -156,43 +152,44 @@
     return YES;
 }
 
--(void)pushViewController:(LXBaseViewController *)viewController{
-    
-    
-    if(navigationController){
-        if([viewController needLogin] && ![UserApi getCurrentUser]){
-            LoginViewController* loginViewController = [[LoginViewController alloc] init];
-            UINavigationController* loginNavigationController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
-            
-            loginNavigationController.navigationItem.rightBarButtonItem.title = @"取消";
-            loginViewController.nextViewController = viewController;
-            loginViewController.finishDelegate = self;
-            [self.navigationController presentViewController:loginNavigationController animated:YES completion:nil];
-        }else{
-            NSString* path = viewController.params[@"route"];
-            NSArray* components = [path componentsSeparatedByString:@"/"];
-            NSString* host = [components objectAtIndex:1];
+-(void)assureLoginWithViewController:(LXBaseViewController*)viewController finish:(LoginFinishBlock)loginFinish{
+    if([viewController needLogin] && ![UserApi getCurrentUser]){
+        LoginViewController* loginViewController = [[LoginViewController alloc] init];
+        UINavigationController* loginNavigationController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+        
+        loginNavigationController.navigationItem.rightBarButtonItem.title = @"取消";
+        loginViewController.finishBlock = loginFinish;
+        [self.navigationController presentViewController:loginNavigationController animated:YES completion:nil];
+    }else{
+        NSString* path = viewController.params[@"route"];
+        NSArray* components = [path componentsSeparatedByString:@"/"];
+        NSString* host = [components objectAtIndex:1];
+        Channels* channels = [Channels shared];
+        int index = (int)[channels indexOfChannel: host];
+        
+        NSLog(@"Navigate to %@", path);
+        if(index != -1){
             Channels* channels = [Channels shared];
-            int index = (int)[channels indexOfChannel: host];
-
-            NSLog(@"Navigate to %@", path);
-            if(index != -1){
-                Channels* channels = [Channels shared];
+            [self.navigationController.navigationItem setTitle:[channels titleAtIndex:index]];
+            // 执行动画
+            [UIView animateWithDuration:0.3 animations:^{
                 [self.navigationController.navigationItem setTitle:[channels titleAtIndex:index]];
-                // 执行动画
-                [UIView animateWithDuration:0.3 animations:^{
-                    [self.navigationController.navigationItem setTitle:[channels titleAtIndex:index]];
-                    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-                    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
-                    [self.navigationController.navigationBar setBarTintColor: [channels colorAtIndex:index]];
-                }];
-            }
-    
-            
-            [navigationController pushViewController:viewController animated:YES];
+                [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+                [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+                [self.navigationController.navigationBar setBarTintColor: [channels colorAtIndex:index]];
+            }];
         }
+        
+        loginFinish();
     }
-    
+}
+
+-(void)pushViewController:(LXBaseViewController *)viewController{
+    if(navigationController){
+        [self assureLoginWithViewController:viewController finish:^{
+            [navigationController pushViewController:viewController animated:YES];
+        }];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

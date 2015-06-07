@@ -57,7 +57,7 @@
     
     NSString *url = [self getUrlByPath:path];
     
-    NSLog(@"<Request> POST:%@", url);
+    NSLog(@"<Request> POST:%@ %@", url, data);
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
@@ -67,7 +67,7 @@
     
     LXBaseModelUser* user= [UserApi getCurrentUser];
     if(user && user.token){
-        [manager.requestSerializer setValue:@"Token" forKey:user.token];
+        [manager.requestSerializer setValue:user.token forHTTPHeaderField:@"Authorization"];
     }
     
     

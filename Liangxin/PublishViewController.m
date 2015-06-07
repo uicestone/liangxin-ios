@@ -23,6 +23,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(dismissViewController)];
+    self.navigationItem.rightBarButtonItem = cancelButton;
+    
     NSString* type = self.params[@"type"];
     
     NSDictionary* titles = @{

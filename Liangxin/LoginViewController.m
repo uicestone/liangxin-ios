@@ -20,28 +20,24 @@
 
 
 @interface LoginViewController () 
-
+@property (nonatomic, assign) BOOL processing;
 @end
 
 @implementation LoginViewController
-@synthesize forget, tableview, submit;
+@synthesize forget, tableview, submit, processing;
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(dismissLoginView:)];
+    processing = NO;
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(dismissViewController)];
     self.navigationItem.rightBarButtonItem = cancelButton;
     
-    self.tabBarController.tabBar.hidden = YES;
     self.navigationItem.title = @"用户登录";
     
     tableview.scrollEnabled = NO;
     // Do any additional setup after loading the view from its nib.
-}
-
--(void)dismissLoginView:(id) sender{
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,8 +77,6 @@
     return cell;
 }
 
-
-
 - (IBAction)forgetBtnTouched:(id)sender {
     [self navigateToPath:@"/phoneinput"];
 }
@@ -105,15 +99,23 @@
                            @"username": username,
                            @"password": password
                            };
-    
+    @weakify(self)
+    if(!processing){
+        processing = YES;
+        [self showProgress];
     [ApiBase postJSONWithPath:@"/auth/login" data:data success:^(NSDictionary* responseObject, AFHTTPRequestOperation* operation) {
+        @strongify(self);
+        processing = NO;
         LXBaseModelUser* user = [LXBaseModelUser modelWithDictionary:responseObject error:nil];
         [UserApi setCurrentUser: user];
-        [self dismissLoginView:nil];
-        [self.finishDelegate loginFinished:[self nextViewController]];
+        [self hideProgress];
+        [self dismissViewController];
+        self.finishBlock();
     } error:^(AFHTTPRequestOperation *operation, NSError* error) {
+        @strongify(self);
         NSLog(@"err %@", error);
-        
+        [self hideProgress];
+        processing = NO;
         NSDictionary* result = (NSDictionary*) operation.responseObject;
         NSString* message = [result objectForKey:@"message"];
         
@@ -121,6 +123,7 @@
         NSLog(@"err detail %@", [result objectForKey:@"message"]);
         // pop error
     }];
+    }
     
 }
 

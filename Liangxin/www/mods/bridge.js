@@ -35,7 +35,7 @@ var Bridge = {
 	}
 };
 
-["fetch", "pickImage", "showProgress", "hideProgress"].forEach(function(method){
+["fetch", "pickImage", "showProgress", "hideProgress", "close"].forEach(function(method){
 	Bridge[method] = function(params){
 		params = params || {};
 		return Bridge.exec(method, params);
@@ -50,7 +50,7 @@ Bridge.open = function(url){
 	return Bridge.exec("open", {url: url});
 };
 
-Bridge.showMessage = function(){
+Bridge.showMessage = function(message){
 	return Bridge.exec("showMessage", {message:message});
 };
 

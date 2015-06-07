@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LoginViewController.h"
+
+typedef void(^ModalCompleteBlock)();
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UINavigationController *navigationController;
-
+-(void)popLoginWithFinishHandler:(LoginFinishBlock)loginFinish;
+-(void)pushViewController:(LXBaseViewController *)viewController;
 @end
 
