@@ -86,9 +86,8 @@
     
     UIView* searchFieldContainer = [UIView new];
     [searchBar addSubview:searchFieldContainer];
-    searchFieldContainer.layer.masksToBounds = YES;
-    searchFieldContainer.layer.cornerRadius = 5;
     searchFieldContainer.clipsToBounds = YES;
+    searchFieldContainer.layer.masksToBounds = YES;
     searchFieldContainer.backgroundColor = [UIColor whiteColor];
     [searchFieldContainer mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(searchBar).with.offset(10);
@@ -98,7 +97,7 @@
     }];
     
     UIImageView* searchIcon = [UIImageView new];
-    [searchBar addSubview:searchIcon];
+    [searchFieldContainer addSubview:searchIcon];
     searchIcon.image = [UIImage imageNamed:@"Group_SearchIcon"];
     [searchIcon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(searchFieldContainer).with.offset(9);
@@ -109,7 +108,7 @@
     
     searchInput = [UITextField new];
     searchInput.delegate = self;
-    [searchBar addSubview:searchInput];
+    [searchFieldContainer addSubview:searchInput];
     searchInput.placeholder = @"请输入要查找的支部";
     searchInput.font = [UIFont systemFontOfSize:10];
     [searchInput mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -120,7 +119,7 @@
     
     
     cancelButton = [UIButton new];
-    [searchBar addSubview:cancelButton];
+    [searchFieldContainer addSubview:cancelButton];
     [cancelButton setTitle:@"取消" forState:UIControlStateNormal];
     cancelButton.titleLabel.font = [UIFont systemFontOfSize:10];
     cancelButton.titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -133,6 +132,8 @@
         make.top.equalTo(searchFieldContainer);
         make.bottom.equalTo(searchFieldContainer);
     }];
+    
+    searchFieldContainer.layer.cornerRadius = 5;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
