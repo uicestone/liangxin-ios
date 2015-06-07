@@ -97,15 +97,12 @@
         }];
         
         [likeCount mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(likeImage.mas_right).with.offset(4);
             make.bottom.equalTo(likeContainer).with.offset(-2);
             make.left.equalTo(likeImage.mas_right).with.offset(18);
         }];
         
         
         [commentCount mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(commentImage.mas_right).with.offset(4);
-            make.bottom.equalTo(likeContainer).with.offset(-2);
             make.bottom.equalTo(commentImage);
             make.left.equalTo(commentImage.mas_right).with.offset(18);
         }];

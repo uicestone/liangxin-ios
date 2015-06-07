@@ -97,6 +97,7 @@ require('./selectctrl.tag')
 		}).catch(function(err){
 			bridge.hideProgress();
 			bridge.showMessage(err.message);
+			bridge.dismiss();
 		});
 	}
 </publish>

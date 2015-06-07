@@ -34,10 +34,20 @@
     
     [self.view addSubview:tableview];
     
-    [PostApi getPostsByQuery:@{@"author_id":self.currentUser.id} successHandler:^(NSArray *_posts) {
-        self.posts = [_posts mutableCopy];
-        [self hideProgress];
-        [tableview reloadData];
+    [self showProgress];
+    [PostApi getPostsByQuery:@{
+                               @"author_id":self.currentUser.id,
+                               @"type":@"文章"
+                               } successHandler:^(NSArray *_posts) {
+                                   
+                               
+       [self hideProgress];
+        if(!_posts.count){
+            [self popMessage:@"没有文章"];
+        }else{
+            self.posts = [_posts mutableCopy];
+            [tableview reloadData];
+        }
     } errorHandler:^(NSError *error) {
         NSLog(@"%@", error);
         [self popMessage:@"加载失败"];
