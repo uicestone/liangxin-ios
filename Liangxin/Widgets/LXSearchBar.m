@@ -22,7 +22,9 @@
     if (self) {
         self.clipsToBounds = YES;
         self.backgroundColor = [UIColor whiteColor];
-        _searchIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"search"]];
+        UIImage *searchImage = [UIImage imageNamed:@"search"];
+        searchImage = [searchImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        _searchIcon = [[UIImageView alloc] initWithImage:searchImage];
         [self addSubview:_searchIcon];
         [_searchIcon mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(5);
