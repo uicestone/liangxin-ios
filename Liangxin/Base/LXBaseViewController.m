@@ -45,51 +45,26 @@
 
 -(void)initToolBar{
     
-    NSArray* btnTitles = @[@"我的账号",@"我要发起",@"返回首页"];
-    NSArray* btnIcons = @[@"tab-account", @"tab-plus", @"tab-home"];
+    NSArray* tabTitles = @[@"我的账号",@"我要发起",@"返回首页"];
+    NSArray* tabIcons = @[@"tab-account", @"tab-plus", @"tab-home"];
     
-    NSMutableArray* toolbarItems = [@[] mutableCopy];
-    
-    for(int i = 0; i < 3; i++){
-        UIButton* tab = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
-        
-        [tab setImage:[UIImage imageNamed:[btnIcons objectAtIndex:i]] forState:UIControlStateNormal];
-        [tab setTitleEdgeInsets:UIEdgeInsetsMake(4.0, 4.0, 4.0, 4.0)];
-        [tab setTitle:[btnTitles objectAtIndex:i] forState:UIControlStateNormal];
-        
-//        
-//        UIImageView* imageView = [UIImageView new];
-//        imageView.image = [UIImage imageNamed:[btnIcons objectAtIndex:i]];
-//        [tab addSubview:imageView];
-//        [tab mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.top.equalTo(tab).with.offset(4);
-//            make.width.mas_equalTo(25);
-//            make.height.mas_equalTo(25);
-//            make.centerX.equalTo(tab);
-//        }];
-//        
-//        UILabel* label = [UILabel new];
-//        label.text = [btnTitles objectAtIndex:i];
-//        label.font = [UIFont systemFontOfSize:11];
-//        [tab addSubview:label];
-//        [label mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.bottom.equalTo(tab).with.offset(-4);
-//            make.centerX.equalTo(tab);
-//            make.width.equalTo(tab);
-//            make.height.mas_equalTo(11);
-//        }];
-        
-        
-        UIBarButtonItem* btn = [[UIBarButtonItem alloc] initWithCustomView:tab];
-        btn.tag = i;
-        btn.target = self;
-        btn.action = @selector(toolbarItemsPressed:);
-        [toolbarItems addObject:btn];
+    CGFloat width = CGRectGetWidth([UIScreen mainScreen].bounds) / 3;
+    for (NSInteger i = 0; i < 3; i++) {
+        UIButton *tabButton = [[UIButton alloc] initWithFrame:CGRectMake(i * width, 0, width, 44)];
+        [tabButton setImage:[UIImage imageNamed:[tabIcons objectAtIndex:i]] forState:UIControlStateNormal];
+        [tabButton setTitle:[tabTitles objectAtIndex:i] forState:UIControlStateNormal];
+        [tabButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        tabButton.titleLabel.font = [UIFont systemFontOfSize:13.0];
+        CGFloat spacing = 3;
+        CGSize imageSize = tabButton.imageView.image.size;
+        tabButton.titleEdgeInsets = UIEdgeInsetsMake(0.0, - imageSize.width, - (imageSize.height + spacing), 0.0);
+        CGSize titleSize = [tabButton.titleLabel.text sizeWithAttributes:@{NSFontAttributeName: tabButton.titleLabel.font}];
+        tabButton.imageEdgeInsets = UIEdgeInsetsMake(- (titleSize.height + spacing), 0.0, 0.0, - titleSize.width);
+        [self.navigationController.toolbar addSubview:tabButton];
     }
     
     self.navigationController.toolbar.backgroundColor = UIColorFromRGB(0xf1f1f2);
-    self.toolbarItems = [toolbarItems copy];
-    [self.navigationController setToolbarHidden:NO animated:YES];
+    [self.navigationController setToolbarHidden:NO animated:NO];
 }
 
 -(void)toolbarItemsPressed:(id)sender{
