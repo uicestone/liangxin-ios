@@ -83,6 +83,7 @@
 		22E7BBD01B22A2B3009F0266 /* AccountCreditDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E7BBCF1B22A2B3009F0266 /* AccountCreditDetailViewController.m */; };
 		22E7BBD41B22CA8C009F0266 /* AccountArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E7BBD31B22CA8C009F0266 /* AccountArticleCell.m */; };
 		22E7BBD71B230AF6009F0266 /* LXTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E7BBD61B230AF6009F0266 /* LXTabView.m */; };
+		22E7BBDA1B24435F009F0266 /* LXJSBridge+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E7BBD91B24435F009F0266 /* LXJSBridge+ViewController.m */; };
 		22F69A861AF31DF100DC295D /* SwitchBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F69A851AF31DF100DC295D /* SwitchBanner.m */; };
 		2D00FF831B20798B00106110 /* ActivityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF821B20798B00106110 /* ActivityDetailViewController.m */; };
 		2D00FF921B217D0200106110 /* LXRouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF911B217D0200106110 /* LXRouteManager.m */; };
@@ -266,6 +267,8 @@
 		22E7BBD31B22CA8C009F0266 /* AccountArticleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountArticleCell.m; sourceTree = "<group>"; };
 		22E7BBD51B230AF6009F0266 /* LXTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXTabView.h; sourceTree = "<group>"; };
 		22E7BBD61B230AF6009F0266 /* LXTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXTabView.m; sourceTree = "<group>"; };
+		22E7BBD81B24435F009F0266 /* LXJSBridge+ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LXJSBridge+ViewController.h"; sourceTree = "<group>"; };
+		22E7BBD91B24435F009F0266 /* LXJSBridge+ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LXJSBridge+ViewController.m"; sourceTree = "<group>"; };
 		22F69A841AF31DF100DC295D /* SwitchBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchBanner.h; sourceTree = "<group>"; };
 		22F69A851AF31DF100DC295D /* SwitchBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchBanner.m; sourceTree = "<group>"; };
 		2D00FF811B20798B00106110 /* ActivityDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityDetailViewController.h; path = Liangxin/Activity/ActivityDetailViewController.h; sourceTree = "<group>"; };
@@ -387,6 +390,8 @@
 				22BE07D41B1FCC5400A1E91F /* LXJSBridge+Open.m */,
 				22BE07D61B1FCC6D00A1E91F /* LXJSBridge+Tint.h */,
 				22BE07D71B1FCC6D00A1E91F /* LXJSBridge+Tint.m */,
+				22E7BBD81B24435F009F0266 /* LXJSBridge+ViewController.h */,
+				22E7BBD91B24435F009F0266 /* LXJSBridge+ViewController.m */,
 			);
 			name = JSBridges;
 			sourceTree = "<group>";
@@ -1021,6 +1026,7 @@
 				2210A37B1AFDF66800D9CA1A /* GroupApi.m in Sources */,
 				2D6160B91B2087DE001D01D8 /* ActivityListViewController.m in Sources */,
 				2215D96D1B10D08A00D96C46 /* TADotView.m in Sources */,
+				22E7BBDA1B24435F009F0266 /* LXJSBridge+ViewController.m in Sources */,
 				2D6160C61B20AA1B001D01D8 /* LXHomeViewController.m in Sources */,
 				223267C91AF2661B00431132 /* AppDelegate.m in Sources */,
 				22E7BBCD1B22A2A0009F0266 /* AccountCreditViewController.m in Sources */,

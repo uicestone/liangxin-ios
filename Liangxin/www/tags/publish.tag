@@ -93,7 +93,7 @@ require('./selectctrl.tag')
 			data: data
 		}).then(function(){
 			bridge.hideProgress();
-			bridge.showMessage("发布成功");
+			bridge.dismiss();
 		}).catch(function(err){
 			bridge.hideProgress();
 			bridge.showMessage(err.message);

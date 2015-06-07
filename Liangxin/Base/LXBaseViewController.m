@@ -14,6 +14,8 @@
 #import <HHRouter.h>
 #import <MBProgressHUD/MBProgressHUD.h>
 
+static BOOL toolbarInited = NO;
+
 @interface LXBaseViewController () <UIActionSheetDelegate>
 @property (nonatomic, strong) MBProgressHUD* progress;
 @property (nonatomic, strong) AppDelegate* appDelegate;
@@ -40,64 +42,30 @@
     self.currentUser = [UserApi getCurrentUser];
     
     if([self hasToolBar]){
-        [self initToolBar];
+        if(!toolbarInited){
+            [self initToolBar];
+        }
+        [self showToolBar];
+    }else{
+        [self hideToolBar];
     }
     
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
 }
 
+-(void)showToolBar{
+    self.navigationController.toolbar.hidden = NO;
+}
+
+-(void)hideToolBar{
+    self.navigationController.toolbar.hidden = YES;
+}
+
 -(void)initToolBar{
     
     NSArray* tabTitles = @[@"我的账号",@"我要发起",@"返回首页"];
     NSArray* tabIcons = @[@"tab-account", @"tab-plus", @"tab-home"];
-//    
-//<<<<<<< HEAD
-//    NSMutableArray* toolbarItems = [@[] mutableCopy];
-//    
-//    for(int i = 0; i < 3; i++){
-//        UIButton* tab = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width / 3, 49)];
-//
-//        tab.tag = i;
-//        tab.backgroundColor = UIColorFromRGB(0xf1f1f2);
-//        [tab addTarget:self action:@selector(toolbarItemsPressed:) forControlEvents:UIControlEventTouchUpInside];
-//        
-//        UIImageView* imageView = [UIImageView new];
-//        imageView.image = [UIImage imageNamed:[btnIcons objectAtIndex:i]];
-//        [tab addSubview:imageView];
-//        [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.top.equalTo(tab).with.offset(4);
-//            make.width.mas_equalTo(25);
-//            make.height.mas_equalTo(25);
-//            make.centerX.equalTo(tab);
-//        }];
-//        
-//        UILabel* label = [UILabel new];
-//        label.text = [btnTitles objectAtIndex:i];
-//        label.font = [UIFont systemFontOfSize:11];
-//        label.textAlignment = NSTextAlignmentCenter;
-//        [tab addSubview:label];
-//        [label mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.bottom.equalTo(tab).with.offset(-4);
-//            make.centerX.equalTo(tab);
-//            make.width.equalTo(tab);
-//            make.height.mas_equalTo(11);
-//        }];
-//        
-//        
-//        UIBarButtonItem *sep = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-//        sep.width = 0;
-//        [toolbarItems addObject:sep];
-//        
-//        
-//        UIBarButtonItem *sep2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-//        sep2.width = i == 0 ? -20 : -10;
-//        [toolbarItems addObject:sep2];
-//        
-//        UIBarButtonItem* btn = [[UIBarButtonItem alloc] initWithCustomView:tab];
-//        [toolbarItems addObject:btn];
-//        
-//=======
     CGFloat width = CGRectGetWidth([UIScreen mainScreen].bounds) / 3;
     for (NSInteger i = 0; i < 3; i++) {
         UIButton *tabButton = [[UIButton alloc] initWithFrame:CGRectMake(i * width, 0, width, 44)];
@@ -117,6 +85,8 @@
     
     self.navigationController.toolbar.backgroundColor = UIColorFromRGB(0xf1f1f2);
     [self.navigationController setToolbarHidden:NO animated:NO];
+    
+    toolbarInited = YES;
 }
 
 -(void)toolbarItemsPressed:(UIButton *)sender{

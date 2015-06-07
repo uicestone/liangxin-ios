@@ -18,7 +18,7 @@ var Bridge = {
 	exec: function(method, params){
 		return new Promise(function(resolve, reject){
 				Bridge._exec(method, params, function(result){
-					var error = result.error;
+					var error = result && result.error;
 					var fail = params.fail;
 					var success = params.success;
 					if(error){
@@ -35,7 +35,7 @@ var Bridge = {
 	}
 };
 
-["fetch", "pickImage", "showProgress", "hideProgress", "close"].forEach(function(method){
+["fetch", "pickImage", "showProgress", "hideProgress", "close", "dismiss"].forEach(function(method){
 	Bridge[method] = function(params){
 		params = params || {};
 		return Bridge.exec(method, params);
