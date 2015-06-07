@@ -40,31 +40,27 @@ fetch({
 	var postFollowing = false;
 
 	// 关注状态
-	if(following){
-		$followBtn.html("已关注");
-	}else{
-		$followBtn.html("关注");
-		$followBtn.on("touchend", function(){
-			if(following){return;}
-			if(postFollowing){return;}
-			var $btn = $(this);
-			postFollowing = true;
-			fetch({
-				method: "post",
-				url: "/follow/" + group_id
-			}).then(function(result){
-				following = true;
-				postFollowing = false;
-				$btn.html("已关注");
-			}).catch(function(){
-				postFollowing = false;
-			});
+	$followBtn.html(following ? "已关注" : "关注");
+	$followBtn.on("touchend", function(){
+		if(postFollowing){return;}
+		var $btn = $(this);
+		postFollowing = true;
+		fetch({
+			method: following ? "delete" : "post",
+			url: "/follow/" + group_id
+		}).then(function(result){
+			following = !following;
+			postFollowing = false;
+			$btn.html(following ? "已关注" : "关注");
+		}).catch(function(){
+			postFollowing = false;
 		});
-	}
+	});
 
 	$activityList = $(".section-activity ul");
 	$albumList = $(".section-album ul");
-
+	$(".meta .title").html(result.name);
+	
 	// 简介
 	$(".section-intro .content").html(result.description);
 

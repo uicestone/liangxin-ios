@@ -41,8 +41,15 @@
     NSLog(@"<Request> GET:%@ %@", url, data);
     
     
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    
+    LXBaseModelUser* user= [UserApi getCurrentUser];
+    if(user && user.token){
+        NSLog(@"Authorization %@", user.token);
+        [manager.requestSerializer setValue:user.token forHTTPHeaderField:@"Authorization"];
+    }
     
     [manager GET:url parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
         successCallback(responseObject);
