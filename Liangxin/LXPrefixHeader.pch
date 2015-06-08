@@ -14,5 +14,6 @@
 #import "AFNetworking.h"
 #import "NSDictionary+Utils.h"
 #import "LXMacroDefinition.h"
+#import <HHRouter/HHRouter.h>
 
 #endif
