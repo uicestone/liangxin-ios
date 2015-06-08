@@ -85,6 +85,10 @@
 		22E7BBD71B230AF6009F0266 /* LXTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E7BBD61B230AF6009F0266 /* LXTabView.m */; };
 		22E7BBDA1B24435F009F0266 /* LXJSBridge+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E7BBD91B24435F009F0266 /* LXJSBridge+ViewController.m */; };
 		22F69A861AF31DF100DC295D /* SwitchBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F69A851AF31DF100DC295D /* SwitchBanner.m */; };
+		2D00002B1B258DED00106110 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D00002A1B258DED00106110 /* SystemConfiguration.framework */; };
+		2D00002D1B258DF900106110 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D00002C1B258DF900106110 /* libz.dylib */; };
+		2D00002F1B258E0200106110 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D00002E1B258E0200106110 /* libsqlite3.0.dylib */; };
+		2D0000311B258E7E00106110 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D0000301B258E7E00106110 /* libc++.dylib */; };
 		2D00FF831B20798B00106110 /* ActivityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF821B20798B00106110 /* ActivityDetailViewController.m */; };
 		2D00FF921B217D0200106110 /* LXRouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF911B217D0200106110 /* LXRouteManager.m */; };
 		2D00FF961B217F6F00106110 /* LXHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF951B217F6F00106110 /* LXHomeViewModel.m */; };
@@ -275,6 +279,10 @@
 		22E7BBD91B24435F009F0266 /* LXJSBridge+ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LXJSBridge+ViewController.m"; sourceTree = "<group>"; };
 		22F69A841AF31DF100DC295D /* SwitchBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchBanner.h; sourceTree = "<group>"; };
 		22F69A851AF31DF100DC295D /* SwitchBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchBanner.m; sourceTree = "<group>"; };
+		2D00002A1B258DED00106110 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		2D00002C1B258DF900106110 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		2D00002E1B258E0200106110 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		2D0000301B258E7E00106110 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		2D00FF811B20798B00106110 /* ActivityDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityDetailViewController.h; path = Liangxin/Activity/ActivityDetailViewController.h; sourceTree = "<group>"; };
 		2D00FF821B20798B00106110 /* ActivityDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityDetailViewController.m; path = Liangxin/Activity/ActivityDetailViewController.m; sourceTree = "<group>"; };
 		2D00FF901B217D0200106110 /* LXRouteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXRouteManager.h; path = Routes/LXRouteManager.h; sourceTree = "<group>"; };
@@ -379,6 +387,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D0000311B258E7E00106110 /* libc++.dylib in Frameworks */,
+				2D00002F1B258E0200106110 /* libsqlite3.0.dylib in Frameworks */,
+				2D00002D1B258DF900106110 /* libz.dylib in Frameworks */,
+				2D00002B1B258DED00106110 /* SystemConfiguration.framework in Frameworks */,
 				2D00FFCA1B25828600106110 /* libWeChatSDK.a in Frameworks */,
 				2D00FFD71B2582D000106110 /* libWeiboSDK.a in Frameworks */,
 				228587AA1B20AFC100CCA3A4 /* libPods.a in Frameworks */,
@@ -391,6 +403,10 @@
 		098BF1C8DD010D2BA28A633B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D0000301B258E7E00106110 /* libc++.dylib */,
+				2D00002E1B258E0200106110 /* libsqlite3.0.dylib */,
+				2D00002C1B258DF900106110 /* libz.dylib */,
+				2D00002A1B258DED00106110 /* SystemConfiguration.framework */,
 				228587A91B20AFC100CCA3A4 /* libPods.a */,
 				749E78FDB631FDC0769D75E2 /* libPods.a */,
 			);
