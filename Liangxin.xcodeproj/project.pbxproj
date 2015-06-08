@@ -87,6 +87,7 @@
 		2D00002D1B258DF900106110 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D00002C1B258DF900106110 /* libz.dylib */; };
 		2D00002F1B258E0200106110 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D00002E1B258E0200106110 /* libsqlite3.0.dylib */; };
 		2D0000311B258E7E00106110 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D0000301B258E7E00106110 /* libc++.dylib */; };
+		2D0000341B2595F600106110 /* ActivityParticipantCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0000331B2595F600106110 /* ActivityParticipantCell.m */; };
 		2D00FF831B20798B00106110 /* ActivityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF821B20798B00106110 /* ActivityDetailViewController.m */; };
 		2D00FF921B217D0200106110 /* LXRouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF911B217D0200106110 /* LXRouteManager.m */; };
 		2D00FF961B217F6F00106110 /* LXHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF951B217F6F00106110 /* LXHomeViewModel.m */; };
@@ -278,6 +279,8 @@
 		2D00002C1B258DF900106110 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		2D00002E1B258E0200106110 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		2D0000301B258E7E00106110 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		2D0000321B2595F600106110 /* ActivityParticipantCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityParticipantCell.h; path = Liangxin/Activity/Views/ActivityParticipantCell.h; sourceTree = "<group>"; };
+		2D0000331B2595F600106110 /* ActivityParticipantCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityParticipantCell.m; path = Liangxin/Activity/Views/ActivityParticipantCell.m; sourceTree = "<group>"; };
 		2D00FF811B20798B00106110 /* ActivityDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityDetailViewController.h; path = Liangxin/Activity/ActivityDetailViewController.h; sourceTree = "<group>"; };
 		2D00FF821B20798B00106110 /* ActivityDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityDetailViewController.m; path = Liangxin/Activity/ActivityDetailViewController.m; sourceTree = "<group>"; };
 		2D00FF901B217D0200106110 /* LXRouteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXRouteManager.h; path = Routes/LXRouteManager.h; sourceTree = "<group>"; };
@@ -874,6 +877,8 @@
 		2DE2F49D1B203C9D00E3DA29 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2D0000321B2595F600106110 /* ActivityParticipantCell.h */,
+				2D0000331B2595F600106110 /* ActivityParticipantCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1056,6 +1061,7 @@
 				22D64A321B0ACB6A004045B8 /* ImageCell.m in Sources */,
 				2D537DE41B1ABA5B006BD35E /* ClassDetailDescCell.m in Sources */,
 				22E7BBD01B22A2B3009F0266 /* AccountCreditDetailViewController.m in Sources */,
+				2D0000341B2595F600106110 /* ActivityParticipantCell.m in Sources */,
 				22BE07B01B1D3C9200A1E91F /* AccountHomeViewController.m in Sources */,
 				22E6E2551B11C380005E528E /* EntryItemCell.m in Sources */,
 				2D537E021B1AF6D7006BD35E /* ClassListViewController.m in Sources */,
