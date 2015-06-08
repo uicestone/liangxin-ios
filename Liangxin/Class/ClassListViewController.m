@@ -42,6 +42,7 @@
         make.bottom.mas_equalTo(0);
     }];
     self.filterView = [[LXFilterView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 22)];
+    self.filterView.tintColor = UIColorFromRGB(0xf99d33);
     self.filterView.category1 = @[@"类别", @"最受欢迎课堂", @"最新课堂", @"全部课堂"];
     self.filterView.category2 = @[@"智能筛选", @"党建", @"青年", @"宣传", @"妇女", @"工会", @"廉政"];
     [self.view addSubview:self.filterView];
