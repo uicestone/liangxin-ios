@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2210A37B1AFDF66800D9CA1A /* GroupApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210A37A1AFDF66800D9CA1A /* GroupApi.m */; };
 		2210A37E1AFDF84900D9CA1A /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210A37D1AFDF84900D9CA1A /* Group.m */; };
-		2210A3801AFE2B4500D9CA1A /* DemoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2210A37F1AFE2B4500D9CA1A /* DemoView.xib */; };
 		2210A3871AFE51BD00D9CA1A /* GroupDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210A3851AFE51BD00D9CA1A /* GroupDetailViewController.m */; };
 		2210A38B1AFEE1F800D9CA1A /* LXWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210A38A1AFEE1F800D9CA1A /* LXWebViewController.m */; };
 		2210A38E1AFEEEFF00D9CA1A /* www in Resources */ = {isa = PBXBuildFile; fileRef = 2210A38D1AFEEEFF00D9CA1A /* www */; };
@@ -137,7 +136,6 @@
 		2210A37A1AFDF66800D9CA1A /* GroupApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupApi.m; sourceTree = "<group>"; };
 		2210A37C1AFDF84900D9CA1A /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
 		2210A37D1AFDF84900D9CA1A /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
-		2210A37F1AFE2B4500D9CA1A /* DemoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoView.xib; sourceTree = "<group>"; };
 		2210A3841AFE51BD00D9CA1A /* GroupDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDetailViewController.h; sourceTree = "<group>"; };
 		2210A3851AFE51BD00D9CA1A /* GroupDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDetailViewController.m; sourceTree = "<group>"; };
 		2210A3891AFEE1F800D9CA1A /* LXWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXWebViewController.h; sourceTree = "<group>"; };
@@ -567,7 +565,6 @@
 				223267D21AF2661B00431132 /* LaunchScreen.xib */,
 				223267C31AF2661B00431132 /* Supporting Files */,
 				2225EFFE1AF4591E007A6BB2 /* Definition.h */,
-				2210A37F1AFE2B4500D9CA1A /* DemoView.xib */,
 				2210A3891AFEE1F800D9CA1A /* LXWebViewController.h */,
 				2210A38A1AFEE1F800D9CA1A /* LXWebViewController.m */,
 				22E6E25A1B11C64B005E528E /* EntryBaseViewController.h */,
@@ -973,7 +970,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				223267D41AF2661B00431132 /* LaunchScreen.xib in Resources */,
-				2210A3801AFE2B4500D9CA1A /* DemoView.xib in Resources */,
 				22D649DE1B0A3314004045B8 /* PostItemCell.xib in Resources */,
 				2210A38E1AFEEEFF00D9CA1A /* www in Resources */,
 				22E6E28D1B1344C2005E528E /* VCodeInputViewController.xib in Resources */,
