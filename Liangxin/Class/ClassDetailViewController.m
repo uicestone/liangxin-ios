@@ -84,6 +84,7 @@
         if (!cell) {
             cell = [[ClassDetailTitleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ClassDetailTitleCell"];
         }
+        [cell reloadViewWithData:self.postData];
         return cell;
     }
     else if (indexPath.section == 1) {
@@ -91,6 +92,7 @@
         if (!cell) {
             cell = [[ClassDetailDescCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ClassDetailDescCell"];
         }
+        [cell reloadViewWithData:self.postData];
         cell.title = @"课堂描述";
         return cell;
     }
@@ -99,6 +101,7 @@
         if (!cell) {
             cell = [[ClassDetailDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ClassDetailDetailCell"];
         }
+        [cell reloadViewWithData:self.postData];
         cell.title = @"课堂详情";
         return cell;
     }
@@ -115,6 +118,7 @@
         if (!cell) {
             cell = [[ClassDetailVideoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ClassDetailVideoCell"];
         }
+        [cell reloadViewWithData:self.postData];
         cell.title = @"课堂视频";
         return cell;
     }
@@ -123,6 +127,7 @@
         if (!cell) {
             cell = [[ClassDetailDocumentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ClassDetailDocumentCell"];
         }
+        [cell reloadViewWithData:self.postData];
         cell.title = @"课堂文件";
         return cell;
     }

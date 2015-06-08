@@ -71,4 +71,8 @@
     [super setSelected:selected animated:animated];
 }
 
+- (void)reloadViewWithData:(LXBaseModelPost *)data {
+    
+}
+
 @end

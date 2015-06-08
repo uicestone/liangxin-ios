@@ -93,4 +93,8 @@
     self.titleLabel.text = title;
 }
 
+- (void)reloadViewWithData:(LXBaseModelPost *)data {
+    
+}
+
 @end
