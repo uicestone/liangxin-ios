@@ -42,6 +42,7 @@
         make.bottom.mas_equalTo(0);
     }];
     self.filterView = [[LXFilterView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 22)];
+    self.filterView.tintColor = [UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0];
     self.filterView.category1 = @[@"类别", @"最受欢迎", @"最新活动", @"即将下线", @"全部活动"];
     self.filterView.category2 = @[@"智能筛选", @"爱摄影", @"做公益", @"文艺迷", @"体育狂", @"长知识", @"学环保"];
     [self.view addSubview:self.filterView];
@@ -62,9 +63,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    LXBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ClassCell"];
+    LXBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityCell"];
     if (!cell) {
-        cell = [[LXBaseTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ClassCell"];
+        cell = [[LXBaseTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ActivityCell"];
     }
     cell.style = LXTableViewCellStyleClass;
     return cell;
