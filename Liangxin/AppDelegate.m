@@ -30,6 +30,9 @@
 #import "LXNavigationController.h"
 #import "ServiceHomeViewController.h"
 
+// 党群动态
+#import "FeedsViewController.h"
+
 // 个人中心
 #import "AccountHomeViewController.h"
 #import "AccountArticleViewController.h"
@@ -85,6 +88,11 @@
     
     // 课堂
     [[HHRouter shared] map:@"/class" toControllerClass:[ClassViewController class]];
+    
+    // 党群动态
+    [[HHRouter shared] map:@"/feeds" toControllerClass:[FeedsViewController class]];
+    
+    
     
     // 发布
     [[HHRouter shared] map:@"/publish/" toControllerClass:[PublishViewController class]];

@@ -52,7 +52,7 @@
     }];
     
     self.channelImages = @[@"Home_Group", @"Home_Activity", @"Home_Class", @"Home_Post", @"Home_Service", @"Home_Account"];
-    self.channelSchemes = @[@"group", @"activity", @"class", @"post", @"service", @"account"];
+    self.channelSchemes = @[@"group", @"activity", @"class", @"feeds", @"service", @"account"];
     self.view.backgroundColor = [UIColor whiteColor];
     self.flowLayout = [UICollectionViewFlowLayout new];
     self.flowLayout.itemSize = CGSizeMake(CGRectGetWidth([UIScreen mainScreen].bounds)/2, (CGRectGetHeight(self.view.bounds) - 189)/3);

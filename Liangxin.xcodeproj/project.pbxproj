@@ -60,6 +60,8 @@
 		22D649DC1B0A2CDC004045B8 /* PostApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D649DB1B0A2CDC004045B8 /* PostApi.m */; };
 		22D649DE1B0A3314004045B8 /* PostItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D649DD1B0A3314004045B8 /* PostItemCell.xib */; };
 		22D64A321B0ACB6A004045B8 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D64A311B0ACB6A004045B8 /* ImageCell.m */; };
+		22E5E8D31B272A700004D1CA /* FeedsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E5E8D21B272A700004D1CA /* FeedsViewController.m */; };
+		22E5E8D71B27339B0004D1CA /* FeedsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E5E8D61B27339B0004D1CA /* FeedsViewModel.m */; };
 		22E6E2471B115E41005E528E /* LXJSBridge+PickImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E6E2461B115E41005E528E /* LXJSBridge+PickImage.m */; };
 		22E6E24A1B119445005E528E /* EntryListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E6E2491B119445005E528E /* EntryListView.m */; };
 		22E6E2551B11C380005E528E /* EntryItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E6E2541B11C380005E528E /* EntryItemCell.m */; };
@@ -229,6 +231,10 @@
 		22D649DD1B0A3314004045B8 /* PostItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostItemCell.xib; sourceTree = "<group>"; };
 		22D64A301B0ACB6A004045B8 /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
 		22D64A311B0ACB6A004045B8 /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
+		22E5E8D11B272A700004D1CA /* FeedsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedsViewController.h; sourceTree = "<group>"; };
+		22E5E8D21B272A700004D1CA /* FeedsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedsViewController.m; sourceTree = "<group>"; };
+		22E5E8D51B27339B0004D1CA /* FeedsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedsViewModel.h; sourceTree = "<group>"; };
+		22E5E8D61B27339B0004D1CA /* FeedsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedsViewModel.m; sourceTree = "<group>"; };
 		22E6E2451B115E41005E528E /* LXJSBridge+PickImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LXJSBridge+PickImage.h"; sourceTree = "<group>"; };
 		22E6E2461B115E41005E528E /* LXJSBridge+PickImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LXJSBridge+PickImage.m"; sourceTree = "<group>"; };
 		22E6E2481B119445005E528E /* EntryListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryListView.h; sourceTree = "<group>"; };
@@ -510,6 +516,7 @@
 		223267C21AF2661B00431132 /* Liangxin */ = {
 			isa = PBXGroup;
 			children = (
+				22E5E8D01B272A5A0004D1CA /* Feeds */,
 				2D00FF9A1B218B6F00106110 /* Network */,
 				2D00FF8F1B217CBB00106110 /* Routes */,
 				2D6160C31B20A9BC001D01D8 /* Home */,
@@ -598,6 +605,25 @@
 				22BE07DA1B1FDE7400A1E91F /* ArticleViewController.m */,
 			);
 			name = Post;
+			sourceTree = "<group>";
+		};
+		22E5E8D01B272A5A0004D1CA /* Feeds */ = {
+			isa = PBXGroup;
+			children = (
+				22E5E8D41B27337A0004D1CA /* ViewModel */,
+				22E5E8D11B272A700004D1CA /* FeedsViewController.h */,
+				22E5E8D21B272A700004D1CA /* FeedsViewController.m */,
+			);
+			name = Feeds;
+			sourceTree = "<group>";
+		};
+		22E5E8D41B27337A0004D1CA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				22E5E8D51B27339B0004D1CA /* FeedsViewModel.h */,
+				22E5E8D61B27339B0004D1CA /* FeedsViewModel.m */,
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 		22E6E2561B11C56C005E528E /* Class */ = {
@@ -997,6 +1023,7 @@
 				2D537E021B1AF6D7006BD35E /* ClassListViewController.m in Sources */,
 				2D6160CA1B20B26B001D01D8 /* LXHomeCollectionViewCell.m in Sources */,
 				2215CB741B08EA0C00D0359A /* GroupMembersViewController.m in Sources */,
+				22E5E8D31B272A700004D1CA /* FeedsViewController.m in Sources */,
 				22D649DC1B0A2CDC004045B8 /* PostApi.m in Sources */,
 				2D537DED1B1AEAD3006BD35E /* ClassDetailAlbumCell.m in Sources */,
 				2215CB621B08379100D0359A /* Post.m in Sources */,
@@ -1004,6 +1031,7 @@
 				22238C541AFBACA5000B4F95 /* BannerApi.m in Sources */,
 				22E6E26C1B12AB09005E528E /* LoginViewController.m in Sources */,
 				2210A3871AFE51BD00D9CA1A /* GroupDetailViewController.m in Sources */,
+				22E5E8D71B27339B0004D1CA /* FeedsViewModel.m in Sources */,
 				2215CB7A1B0972A900D0359A /* PublishViewController.m in Sources */,
 				2215D96B1B10D08A00D96C46 /* TAAbstractDotView.m in Sources */,
 				22F69A861AF31DF100DC295D /* SwitchBanner.m in Sources */,
