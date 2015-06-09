@@ -11,4 +11,6 @@
 
 @interface ClassDetailViewController : LXBaseViewController
 
+@property (nonatomic, strong) LXBaseModelPost *postData;
+
 @end

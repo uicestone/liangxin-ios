@@ -14,4 +14,6 @@
 @property (nonatomic, strong) UIView *titleView;
 @property (nonatomic, strong) UIView *baseView;
 
+- (void)reloadViewWithData:(LXBaseModelPost *)data;
+
 @end

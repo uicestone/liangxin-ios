@@ -29,6 +29,10 @@
     [self commonInit];
 }
 
+- (BOOL)hasToolBar {
+    return NO;
+}
+
 - (void)commonInit {
     self.navigationItem.leftBarButtonItem = nil;
     
@@ -89,7 +93,14 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    self.navigationController.toolbarHidden = YES;
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:248/255.0 green:248/255.0 blue:248/255.0 alpha:1.0];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 }
 
 #pragma mark - UICollectionViewDataSource && UICollectionViewDelegate

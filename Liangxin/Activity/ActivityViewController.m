@@ -13,6 +13,7 @@
 #import "ActivityViewModel.h"
 #import "LXNetworkManager.h"
 #import "LXSearchBar.h"
+#import "ActivityListViewController.h"
 
 @interface ActivityViewController() <UITableViewDataSource, UITableViewDelegate, LXBannerViewDelegate>
 
@@ -177,7 +178,8 @@
 #pragma mark - LXBannerViewDelegate
 
 - (void)bannerView:(LXBannerView *)bannerView didSelectItemAtIndex:(NSInteger)index {
-    
+    ActivityListViewController *listViewController = [ActivityListViewController new];
+    [self.navigationController pushViewController:listViewController animated:YES];
 }
 
 #pragma mark - UITableViewDataSource && UITableViewDelegate

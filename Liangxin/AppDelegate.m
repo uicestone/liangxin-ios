@@ -7,9 +7,6 @@
 //
 
 #import "AppDelegate.h"
-
-#import "HomeViewController.h"
-
 // Group ViewControllers
 
 #import "ArticleViewController.h"
@@ -49,11 +46,9 @@
 
 #import "Channels.h"
 #import "UserApi.h"
-
+#import "LXNavigationController.h"
 #import "Definition.h"
-#import <HHRouter/HHRouter.h>
-
-#import "LXHomeViewController.h"
+#import "LXRouteManager.h"
 
 @interface AppDelegate ()
 
@@ -66,61 +61,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    
-    // 设置返回按钮样式
-    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
-    
-    // 党群
-    [[HHRouter shared] map:@"/article/:id" toControllerClass:[ArticleViewController class]];
-    
-    
-    [[HHRouter shared] map:@"/home" toControllerClass:[LXHomeViewController class]];
-    [[HHRouter shared] map:@"/group" toControllerClass:[GroupViewController class]];
-    [[HHRouter shared] map:@"/group/:id" toControllerClass:[GroupViewController class]];
-    [[HHRouter shared] map:@"/groupdetail/:id" toControllerClass:[GroupDetailViewController class]];
-    [[HHRouter shared] map:@"/groupintro/:id" toControllerClass:[GroupIntroViewController class]];
-    [[HHRouter shared] map:@"/groupactivity/:id" toControllerClass:[GroupPostViewController class]];
-    [[HHRouter shared] map:@"/groupalbum/:id" toControllerClass:[GroupAlbumViewController class]];
-    [[HHRouter shared] map:@"/groupmembers/:id" toControllerClass:[GroupMembersViewController class]];
-    
-    // 活动
-    [[HHRouter shared] map:@"/activity" toControllerClass:[ActivityViewController class]];
-    
-    // 课堂
-    [[HHRouter shared] map:@"/class" toControllerClass:[ClassViewController class]];
-    
-    // 党群动态
-    [[HHRouter shared] map:@"/feeds" toControllerClass:[FeedsViewController class]];
-    
-    
-    
-    // 发布
-    [[HHRouter shared] map:@"/publish/" toControllerClass:[PublishViewController class]];
-    
-    // 登录
-    [[HHRouter shared] map:@"/login" toControllerClass:[LoginViewController class]];
-    // 输入手机号
-    [[HHRouter shared] map:@"/phoneinput" toControllerClass:[PhoneInputViewController class]];
-    // 输入验证码
-    [[HHRouter shared] map:@"/vcodeinput" toControllerClass:[VCodeInputViewController class]];
-    // 更改密码
-    [[HHRouter shared] map:@"/modifypassword" toControllerClass:[ModifyPasswordViewController class]];
-    
-    // 党群服务
-    [[HHRouter shared] map:@"/service" toControllerClass:[ServiceHomeViewController class]];
-    
-    // 个人中心
-    [[HHRouter shared] map:@"/account" toControllerClass:[AccountHomeViewController class]];
-    [[HHRouter shared] map:@"/account/article" toControllerClass:[AccountArticleViewController class]];
-    [[HHRouter shared] map:@"/account/album" toControllerClass:[AccountAlbumViewController class]];
-    [[HHRouter shared] map:@"/account/activity" toControllerClass:[AccountActivityViewController class]];
-    [[HHRouter shared] map:@"/account/follow" toControllerClass:[AccountFollowViewController class]];
-    [[HHRouter shared] map:@"/account/record" toControllerClass:[AccountRecordViewController class]];
-    [[HHRouter shared] map:@"/account/about" toControllerClass:[AccountAboutViewController class]];
-    [[HHRouter shared] map:@"/account/collection" toControllerClass:[AccountCollectionViewController class]];
-    [[HHRouter shared] map:@"/account/credit" toControllerClass:[AccountCreditViewController class]];
-    [[HHRouter shared] map:@"/account/credit-detail" toControllerClass:[AccountCreditDetailViewController class]];
-    [[HHRouter shared] map:@"/account/group" toControllerClass:[AccountGroupViewController class]];
+    [[LXRouteManager sharedManager] initRoutes];
     
     // 更改默认userAgent
     

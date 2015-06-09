@@ -29,6 +29,8 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         _mainImageView = [UIImageView new];
+        _mainImageView.layer.borderWidth = 1.0;
+        _mainImageView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         [self.contentView addSubview:_mainImageView];
         [_mainImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(9);

@@ -10,4 +10,8 @@
 
 @interface LXRouteManager : NSObject
 
++ (instancetype)sharedManager;
+
+- (void)initRoutes;
+
 @end

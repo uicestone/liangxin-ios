@@ -10,4 +10,6 @@
 
 @interface ClassDetailTitleCell : UITableViewCell
 
+- (void)reloadViewWithData:(LXBaseModelPost *)data;
+
 @end

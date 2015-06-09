@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2210A37B1AFDF66800D9CA1A /* GroupApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210A37A1AFDF66800D9CA1A /* GroupApi.m */; };
 		2210A37E1AFDF84900D9CA1A /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210A37D1AFDF84900D9CA1A /* Group.m */; };
-		2210A3801AFE2B4500D9CA1A /* DemoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2210A37F1AFE2B4500D9CA1A /* DemoView.xib */; };
 		2210A3871AFE51BD00D9CA1A /* GroupDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210A3851AFE51BD00D9CA1A /* GroupDetailViewController.m */; };
 		2210A38B1AFEE1F800D9CA1A /* LXWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210A38A1AFEE1F800D9CA1A /* LXWebViewController.m */; };
 		2210A38E1AFEEEFF00D9CA1A /* www in Resources */ = {isa = PBXBuildFile; fileRef = 2210A38D1AFEEEFF00D9CA1A /* www */; };
@@ -35,7 +34,6 @@
 		22238C571AFBAE30000B4F95 /* ApiBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C561AFBAE30000B4F95 /* ApiBase.m */; };
 		223267C61AF2661B00431132 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 223267C51AF2661B00431132 /* main.m */; };
 		223267C91AF2661B00431132 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 223267C81AF2661B00431132 /* AppDelegate.m */; };
-		223267CC1AF2661B00431132 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223267CB1AF2661B00431132 /* HomeViewController.m */; };
 		223267D11AF2661B00431132 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 223267D01AF2661B00431132 /* Images.xcassets */; };
 		223267D41AF2661B00431132 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223267D21AF2661B00431132 /* LaunchScreen.xib */; };
 		225BA69C1AFF30D0000E6D79 /* LXWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 225BA69B1AFF30D0000E6D79 /* LXWebView.m */; };
@@ -87,11 +85,19 @@
 		22E7BBD71B230AF6009F0266 /* LXTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E7BBD61B230AF6009F0266 /* LXTabView.m */; };
 		22E7BBDA1B24435F009F0266 /* LXJSBridge+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E7BBD91B24435F009F0266 /* LXJSBridge+ViewController.m */; };
 		22F69A861AF31DF100DC295D /* SwitchBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F69A851AF31DF100DC295D /* SwitchBanner.m */; };
+		2D00002B1B258DED00106110 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D00002A1B258DED00106110 /* SystemConfiguration.framework */; };
+		2D00002D1B258DF900106110 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D00002C1B258DF900106110 /* libz.dylib */; };
+		2D00002F1B258E0200106110 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D00002E1B258E0200106110 /* libsqlite3.0.dylib */; };
+		2D0000311B258E7E00106110 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D0000301B258E7E00106110 /* libc++.dylib */; };
+		2D0000341B2595F600106110 /* ActivityParticipantCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0000331B2595F600106110 /* ActivityParticipantCell.m */; };
 		2D00FF831B20798B00106110 /* ActivityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF821B20798B00106110 /* ActivityDetailViewController.m */; };
 		2D00FF921B217D0200106110 /* LXRouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF911B217D0200106110 /* LXRouteManager.m */; };
 		2D00FF961B217F6F00106110 /* LXHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF951B217F6F00106110 /* LXHomeViewModel.m */; };
 		2D00FF991B21842200106110 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF981B21842200106110 /* ActivityViewController.m */; };
 		2D00FF9D1B218CBB00106110 /* LXNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF9C1B218CBB00106110 /* LXNetworkManager.m */; };
+		2D00FFCA1B25828600106110 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D00FFC71B25828600106110 /* libWeChatSDK.a */; };
+		2D00FFD71B2582D000106110 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D00FFCC1B2582D000106110 /* libWeiboSDK.a */; };
+		2D00FFD81B2582D000106110 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2D00FFD41B2582D000106110 /* WeiboSDK.bundle */; };
 		2D537DC81B18BD7A006BD35E /* LXBaseModelUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DC71B18BD7A006BD35E /* LXBaseModelUser.m */; };
 		2D537DCB1B18BE66006BD35E /* LXBaseModelPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DCA1B18BE66006BD35E /* LXBaseModelPost.m */; };
 		2D537DCE1B18BE83006BD35E /* LXBaseModelGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DCD1B18BE83006BD35E /* LXBaseModelGroup.m */; };
@@ -133,7 +139,6 @@
 		2210A37A1AFDF66800D9CA1A /* GroupApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupApi.m; sourceTree = "<group>"; };
 		2210A37C1AFDF84900D9CA1A /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
 		2210A37D1AFDF84900D9CA1A /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
-		2210A37F1AFE2B4500D9CA1A /* DemoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoView.xib; sourceTree = "<group>"; };
 		2210A3841AFE51BD00D9CA1A /* GroupDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDetailViewController.h; sourceTree = "<group>"; };
 		2210A3851AFE51BD00D9CA1A /* GroupDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDetailViewController.m; sourceTree = "<group>"; };
 		2210A3891AFEE1F800D9CA1A /* LXWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXWebViewController.h; sourceTree = "<group>"; };
@@ -185,8 +190,6 @@
 		223267C51AF2661B00431132 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		223267C71AF2661B00431132 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		223267C81AF2661B00431132 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		223267CA1AF2661B00431132 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		223267CB1AF2661B00431132 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		223267D01AF2661B00431132 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		223267D31AF2661B00431132 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		225BA69A1AFF30D0000E6D79 /* LXWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXWebView.h; sourceTree = "<group>"; };
@@ -278,6 +281,12 @@
 		22E7BBD91B24435F009F0266 /* LXJSBridge+ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LXJSBridge+ViewController.m"; sourceTree = "<group>"; };
 		22F69A841AF31DF100DC295D /* SwitchBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchBanner.h; sourceTree = "<group>"; };
 		22F69A851AF31DF100DC295D /* SwitchBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchBanner.m; sourceTree = "<group>"; };
+		2D00002A1B258DED00106110 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		2D00002C1B258DF900106110 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		2D00002E1B258E0200106110 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		2D0000301B258E7E00106110 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		2D0000321B2595F600106110 /* ActivityParticipantCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityParticipantCell.h; path = Liangxin/Activity/Views/ActivityParticipantCell.h; sourceTree = "<group>"; };
+		2D0000331B2595F600106110 /* ActivityParticipantCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityParticipantCell.m; path = Liangxin/Activity/Views/ActivityParticipantCell.m; sourceTree = "<group>"; };
 		2D00FF811B20798B00106110 /* ActivityDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityDetailViewController.h; path = Liangxin/Activity/ActivityDetailViewController.h; sourceTree = "<group>"; };
 		2D00FF821B20798B00106110 /* ActivityDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityDetailViewController.m; path = Liangxin/Activity/ActivityDetailViewController.m; sourceTree = "<group>"; };
 		2D00FF901B217D0200106110 /* LXRouteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXRouteManager.h; path = Routes/LXRouteManager.h; sourceTree = "<group>"; };
@@ -288,6 +297,20 @@
 		2D00FF981B21842200106110 /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityViewController.m; path = Liangxin/Activity/ActivityViewController.m; sourceTree = "<group>"; };
 		2D00FF9B1B218CBB00106110 /* LXNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXNetworkManager.h; path = Network/LXNetworkManager.h; sourceTree = "<group>"; };
 		2D00FF9C1B218CBB00106110 /* LXNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXNetworkManager.m; path = Network/LXNetworkManager.m; sourceTree = "<group>"; };
+		2D00FFC71B25828600106110 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWeChatSDK.a; path = Vender/WeChat/libWeChatSDK.a; sourceTree = "<group>"; };
+		2D00FFC81B25828600106110 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WXApi.h; path = Vender/WeChat/WXApi.h; sourceTree = "<group>"; };
+		2D00FFC91B25828600106110 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WXApiObject.h; path = Vender/WeChat/WXApiObject.h; sourceTree = "<group>"; };
+		2D00FFCC1B2582D000106110 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWeiboSDK.a; path = Vender/Weibo/libWeiboSDK.a; sourceTree = "<group>"; };
+		2D00FFCD1B2582D000106110 /* WBHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBHttpRequest.h; path = Vender/Weibo/WBHttpRequest.h; sourceTree = "<group>"; };
+		2D00FFCE1B2582D000106110 /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "WBHttpRequest+WeiboShare.h"; path = "Vender/Weibo/WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
+		2D00FFCF1B2582D000106110 /* WBHttpRequest+WeiboToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "WBHttpRequest+WeiboToken.h"; path = "Vender/Weibo/WBHttpRequest+WeiboToken.h"; sourceTree = "<group>"; };
+		2D00FFD01B2582D000106110 /* WBHttpRequest+WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "WBHttpRequest+WeiboUser.h"; path = "Vender/Weibo/WBHttpRequest+WeiboUser.h"; sourceTree = "<group>"; };
+		2D00FFD11B2582D000106110 /* WBSDKBasicButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBSDKBasicButton.h; path = Vender/Weibo/WBSDKBasicButton.h; sourceTree = "<group>"; };
+		2D00FFD21B2582D000106110 /* WBSDKCommentButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBSDKCommentButton.h; path = Vender/Weibo/WBSDKCommentButton.h; sourceTree = "<group>"; };
+		2D00FFD31B2582D000106110 /* WBSDKRelationshipButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBSDKRelationshipButton.h; path = Vender/Weibo/WBSDKRelationshipButton.h; sourceTree = "<group>"; };
+		2D00FFD41B2582D000106110 /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = WeiboSDK.bundle; path = Vender/Weibo/WeiboSDK.bundle; sourceTree = "<group>"; };
+		2D00FFD51B2582D000106110 /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeiboSDK.h; path = Vender/Weibo/WeiboSDK.h; sourceTree = "<group>"; };
+		2D00FFD61B2582D000106110 /* WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeiboUser.h; path = Vender/Weibo/WeiboUser.h; sourceTree = "<group>"; };
 		2D537DC61B18BD7A006BD35E /* LXBaseModelUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXBaseModelUser.h; path = Models/LXBaseModelUser.h; sourceTree = "<group>"; };
 		2D537DC71B18BD7A006BD35E /* LXBaseModelUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXBaseModelUser.m; path = Models/LXBaseModelUser.m; sourceTree = "<group>"; };
 		2D537DC91B18BE66006BD35E /* LXBaseModelPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXBaseModelPost.h; path = Models/LXBaseModelPost.h; sourceTree = "<group>"; };
@@ -368,6 +391,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D0000311B258E7E00106110 /* libc++.dylib in Frameworks */,
+				2D00002F1B258E0200106110 /* libsqlite3.0.dylib in Frameworks */,
+				2D00002D1B258DF900106110 /* libz.dylib in Frameworks */,
+				2D00002B1B258DED00106110 /* SystemConfiguration.framework in Frameworks */,
+				2D00FFCA1B25828600106110 /* libWeChatSDK.a in Frameworks */,
+				2D00FFD71B2582D000106110 /* libWeiboSDK.a in Frameworks */,
 				228587AA1B20AFC100CCA3A4 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,6 +407,10 @@
 		098BF1C8DD010D2BA28A633B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D0000301B258E7E00106110 /* libc++.dylib */,
+				2D00002E1B258E0200106110 /* libsqlite3.0.dylib */,
+				2D00002C1B258DF900106110 /* libz.dylib */,
+				2D00002A1B258DED00106110 /* SystemConfiguration.framework */,
 				228587A91B20AFC100CCA3A4 /* libPods.a */,
 				749E78FDB631FDC0769D75E2 /* libPods.a */,
 			);
@@ -517,6 +550,7 @@
 			isa = PBXGroup;
 			children = (
 				22E5E8D01B272A5A0004D1CA /* Feeds */,
+				2D00FFC11B25820F00106110 /* Vender */,
 				2D00FF9A1B218B6F00106110 /* Network */,
 				2D00FF8F1B217CBB00106110 /* Routes */,
 				2D6160C31B20A9BC001D01D8 /* Home */,
@@ -537,13 +571,10 @@
 				223267C81AF2661B00431132 /* AppDelegate.m */,
 				223267C71AF2661B00431132 /* AppDelegate.h */,
 				2210A38D1AFEEEFF00D9CA1A /* www */,
-				223267CA1AF2661B00431132 /* HomeViewController.h */,
-				223267CB1AF2661B00431132 /* HomeViewController.m */,
 				223267D01AF2661B00431132 /* Images.xcassets */,
 				223267D21AF2661B00431132 /* LaunchScreen.xib */,
 				223267C31AF2661B00431132 /* Supporting Files */,
 				2225EFFE1AF4591E007A6BB2 /* Definition.h */,
-				2210A37F1AFE2B4500D9CA1A /* DemoView.xib */,
 				2210A3891AFEE1F800D9CA1A /* LXWebViewController.h */,
 				2210A38A1AFEE1F800D9CA1A /* LXWebViewController.m */,
 				22E6E25A1B11C64B005E528E /* EntryBaseViewController.h */,
@@ -759,6 +790,43 @@
 			name = Network;
 			sourceTree = "<group>";
 		};
+		2D00FFC11B25820F00106110 /* Vender */ = {
+			isa = PBXGroup;
+			children = (
+				2D00FFCB1B2582C800106110 /* Weibo */,
+				2D00FFC61B25827C00106110 /* WeChat */,
+			);
+			name = Vender;
+			sourceTree = "<group>";
+		};
+		2D00FFC61B25827C00106110 /* WeChat */ = {
+			isa = PBXGroup;
+			children = (
+				2D00FFC71B25828600106110 /* libWeChatSDK.a */,
+				2D00FFC81B25828600106110 /* WXApi.h */,
+				2D00FFC91B25828600106110 /* WXApiObject.h */,
+			);
+			name = WeChat;
+			sourceTree = "<group>";
+		};
+		2D00FFCB1B2582C800106110 /* Weibo */ = {
+			isa = PBXGroup;
+			children = (
+				2D00FFCC1B2582D000106110 /* libWeiboSDK.a */,
+				2D00FFCD1B2582D000106110 /* WBHttpRequest.h */,
+				2D00FFCE1B2582D000106110 /* WBHttpRequest+WeiboShare.h */,
+				2D00FFCF1B2582D000106110 /* WBHttpRequest+WeiboToken.h */,
+				2D00FFD01B2582D000106110 /* WBHttpRequest+WeiboUser.h */,
+				2D00FFD11B2582D000106110 /* WBSDKBasicButton.h */,
+				2D00FFD21B2582D000106110 /* WBSDKCommentButton.h */,
+				2D00FFD31B2582D000106110 /* WBSDKRelationshipButton.h */,
+				2D00FFD41B2582D000106110 /* WeiboSDK.bundle */,
+				2D00FFD51B2582D000106110 /* WeiboSDK.h */,
+				2D00FFD61B2582D000106110 /* WeiboUser.h */,
+			);
+			name = Weibo;
+			sourceTree = "<group>";
+		};
 		2D537DCF1B1956AF006BD35E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -835,6 +903,8 @@
 		2DE2F49D1B203C9D00E3DA29 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2D0000321B2595F600106110 /* ActivityParticipantCell.h */,
+				2D0000331B2595F600106110 /* ActivityParticipantCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -931,7 +1001,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				223267D41AF2661B00431132 /* LaunchScreen.xib in Resources */,
-				2210A3801AFE2B4500D9CA1A /* DemoView.xib in Resources */,
 				22D649DE1B0A3314004045B8 /* PostItemCell.xib in Resources */,
 				2210A38E1AFEEEFF00D9CA1A /* www in Resources */,
 				22E6E28D1B1344C2005E528E /* VCodeInputViewController.xib in Resources */,
@@ -939,6 +1008,7 @@
 				223267D11AF2661B00431132 /* Images.xcassets in Resources */,
 				22E6E26D1B12AB09005E528E /* LoginViewController.xib in Resources */,
 				22E6E2791B12ADB4005E528E /* LoginViewCell.xib in Resources */,
+				2D00FFD81B2582D000106110 /* WeiboSDK.bundle in Resources */,
 				22E6E2881B1343F3005E528E /* AccountFieldCell.xib in Resources */,
 				22E6E2921B1344ED005E528E /* ModifyPasswordViewController.xib in Resources */,
 				22E6E2631B11F38B005E528E /* ActivityItemCell.xib in Resources */,
@@ -994,7 +1064,6 @@
 				2DFD651F1B15FE7800FAC662 /* LXCarouselView.m in Sources */,
 				2D6160BF1B208938001D01D8 /* ActivityListViewModel.m in Sources */,
 				22BE07BA1B1F35E500A1E91F /* AccountArticleViewController.m in Sources */,
-				223267CC1AF2661B00431132 /* HomeViewController.m in Sources */,
 				2D537DE11B1AA0AA006BD35E /* LXBaseViewController.m in Sources */,
 				225BA69C1AFF30D0000E6D79 /* LXWebView.m in Sources */,
 				2D537DCB1B18BE66006BD35E /* LXBaseModelPost.m in Sources */,
@@ -1018,6 +1087,7 @@
 				22D64A321B0ACB6A004045B8 /* ImageCell.m in Sources */,
 				2D537DE41B1ABA5B006BD35E /* ClassDetailDescCell.m in Sources */,
 				22E7BBD01B22A2B3009F0266 /* AccountCreditDetailViewController.m in Sources */,
+				2D0000341B2595F600106110 /* ActivityParticipantCell.m in Sources */,
 				22BE07B01B1D3C9200A1E91F /* AccountHomeViewController.m in Sources */,
 				22E6E2551B11C380005E528E /* EntryItemCell.m in Sources */,
 				2D537E021B1AF6D7006BD35E /* ClassListViewController.m in Sources */,
@@ -1163,6 +1233,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/",
+					"$(PROJECT_DIR)/Liangxin/Vender",
+					"$(PROJECT_DIR)/Liangxin/Vender/WeChat",
+					"$(PROJECT_DIR)/Liangxin/Vender/Weibo",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1267,6 +1340,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/",
+					"$(PROJECT_DIR)/Liangxin/Vender",
+					"$(PROJECT_DIR)/Liangxin/Vender/WeChat",
+					"$(PROJECT_DIR)/Liangxin/Vender/Weibo",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1291,6 +1367,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/",
+					"$(PROJECT_DIR)/Liangxin/Vender",
+					"$(PROJECT_DIR)/Liangxin/Vender/WeChat",
+					"$(PROJECT_DIR)/Liangxin/Vender/Weibo",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
