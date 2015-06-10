@@ -90,6 +90,10 @@
 		2D00002F1B258E0200106110 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D00002E1B258E0200106110 /* libsqlite3.0.dylib */; };
 		2D0000311B258E7E00106110 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D0000301B258E7E00106110 /* libc++.dylib */; };
 		2D0000341B2595F600106110 /* ActivityParticipantCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0000331B2595F600106110 /* ActivityParticipantCell.m */; };
+		2D0000741B28384000106110 /* LXImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0000731B28384000106110 /* LXImagePickerController.m */; };
+		2D0000771B28392F00106110 /* LXSendButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0000761B28392F00106110 /* LXSendButton.m */; };
+		2D00007A1B2839A000106110 /* LXAssetsCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0000791B2839A000106110 /* LXAssetsCollectionCell.m */; };
+		2D0000801B283C5900106110 /* UIBarButtonItem+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00007F1B283C5900106110 /* UIBarButtonItem+Custom.m */; };
 		2D00FF831B20798B00106110 /* ActivityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF821B20798B00106110 /* ActivityDetailViewController.m */; };
 		2D00FF921B217D0200106110 /* LXRouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF911B217D0200106110 /* LXRouteManager.m */; };
 		2D00FF961B217F6F00106110 /* LXHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF951B217F6F00106110 /* LXHomeViewModel.m */; };
@@ -287,6 +291,14 @@
 		2D0000301B258E7E00106110 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		2D0000321B2595F600106110 /* ActivityParticipantCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityParticipantCell.h; path = Liangxin/Activity/Views/ActivityParticipantCell.h; sourceTree = "<group>"; };
 		2D0000331B2595F600106110 /* ActivityParticipantCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityParticipantCell.m; path = Liangxin/Activity/Views/ActivityParticipantCell.m; sourceTree = "<group>"; };
+		2D0000721B28384000106110 /* LXImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXImagePickerController.h; path = Widgets/LXImagePickerController.h; sourceTree = "<group>"; };
+		2D0000731B28384000106110 /* LXImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXImagePickerController.m; path = Widgets/LXImagePickerController.m; sourceTree = "<group>"; };
+		2D0000751B28392F00106110 /* LXSendButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXSendButton.h; path = Widgets/LXSendButton.h; sourceTree = "<group>"; };
+		2D0000761B28392F00106110 /* LXSendButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXSendButton.m; path = Widgets/LXSendButton.m; sourceTree = "<group>"; };
+		2D0000781B2839A000106110 /* LXAssetsCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXAssetsCollectionCell.h; path = Widgets/LXAssetsCollectionCell.h; sourceTree = "<group>"; };
+		2D0000791B2839A000106110 /* LXAssetsCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXAssetsCollectionCell.m; path = Widgets/LXAssetsCollectionCell.m; sourceTree = "<group>"; };
+		2D00007E1B283C5900106110 /* UIBarButtonItem+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+Custom.h"; path = "Utils/UIBarButtonItem+Custom.h"; sourceTree = "<group>"; };
+		2D00007F1B283C5900106110 /* UIBarButtonItem+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+Custom.m"; path = "Utils/UIBarButtonItem+Custom.m"; sourceTree = "<group>"; };
 		2D00FF811B20798B00106110 /* ActivityDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityDetailViewController.h; path = Liangxin/Activity/ActivityDetailViewController.h; sourceTree = "<group>"; };
 		2D00FF821B20798B00106110 /* ActivityDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityDetailViewController.m; path = Liangxin/Activity/ActivityDetailViewController.m; sourceTree = "<group>"; };
 		2D00FF901B217D0200106110 /* LXRouteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXRouteManager.h; path = Routes/LXRouteManager.h; sourceTree = "<group>"; };
@@ -758,6 +770,12 @@
 				22E7BBD61B230AF6009F0266 /* LXTabView.m */,
 				2DB6C2B91B24367300A94E6E /* LXSearchBar.h */,
 				2DB6C2BA1B24367300A94E6E /* LXSearchBar.m */,
+				2D0000721B28384000106110 /* LXImagePickerController.h */,
+				2D0000731B28384000106110 /* LXImagePickerController.m */,
+				2D0000751B28392F00106110 /* LXSendButton.h */,
+				2D0000761B28392F00106110 /* LXSendButton.m */,
+				2D0000781B2839A000106110 /* LXAssetsCollectionCell.h */,
+				2D0000791B2839A000106110 /* LXAssetsCollectionCell.m */,
 			);
 			name = Widgets;
 			sourceTree = "<group>";
@@ -835,6 +853,8 @@
 				2D537DDA1B19A2ED006BD35E /* LXMacroDefinition.h */,
 				2215CB4B1B07820C00D0359A /* NSDictionary+Encoding.h */,
 				2215CB4C1B07820C00D0359A /* NSDictionary+Encoding.m */,
+				2D00007E1B283C5900106110 /* UIBarButtonItem+Custom.h */,
+				2D00007F1B283C5900106110 /* UIBarButtonItem+Custom.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -1058,6 +1078,7 @@
 				22E6E2871B1343F3005E528E /* AccountFieldCell.m in Sources */,
 				2D537DD21B1956F9006BD35E /* NSDictionary+Utils.m in Sources */,
 				2215CB651B0837C400D0359A /* User.m in Sources */,
+				2D0000801B283C5900106110 /* UIBarButtonItem+Custom.m in Sources */,
 				2D537DCE1B18BE83006BD35E /* LXBaseModelGroup.m in Sources */,
 				2DFD65261B1603D200FAC662 /* LXBannerView.m in Sources */,
 				2D537DFC1B1AF572006BD35E /* ClassVideoViewController.m in Sources */,
@@ -1118,6 +1139,7 @@
 				2215CB771B09675E00D0359A /* UserApi.m in Sources */,
 				2D6160C21B208AB3001D01D8 /* ActivityParticipantsViewController.m in Sources */,
 				22BE07C91B1F363000A1E91F /* AccountCollectionViewController.m in Sources */,
+				2D0000771B28392F00106110 /* LXSendButton.m in Sources */,
 				22E6E2471B115E41005E528E /* LXJSBridge+PickImage.m in Sources */,
 				22E6E2781B12ADB4005E528E /* LoginViewCell.m in Sources */,
 				22BE07D51B1FCC5500A1E91F /* LXJSBridge+Open.m in Sources */,
@@ -1127,6 +1149,7 @@
 				22E6E25C1B11C64B005E528E /* EntryBaseViewController.m in Sources */,
 				2D537DDE1B19C024006BD35E /* ClassDetailTitleCell.m in Sources */,
 				22BE07D81B1FCC6D00A1E91F /* LXJSBridge+Tint.m in Sources */,
+				2D0000741B28384000106110 /* LXImagePickerController.m in Sources */,
 				2210A37B1AFDF66800D9CA1A /* GroupApi.m in Sources */,
 				2D6160B91B2087DE001D01D8 /* ActivityListViewController.m in Sources */,
 				2215D96D1B10D08A00D96C46 /* TADotView.m in Sources */,
@@ -1136,6 +1159,7 @@
 				22E7BBCD1B22A2A0009F0266 /* AccountCreditViewController.m in Sources */,
 				2D6160AD1B1C9661001D01D8 /* LXFilterView.m in Sources */,
 				2D00FF831B20798B00106110 /* ActivityDetailViewController.m in Sources */,
+				2D00007A1B2839A000106110 /* LXAssetsCollectionCell.m in Sources */,
 				22BE07C31B1F360700A1E91F /* AccountRecordViewController.m in Sources */,
 				22E6E28C1B1344C2005E528E /* VCodeInputViewController.m in Sources */,
 				2D00FF991B21842200106110 /* ActivityViewController.m in Sources */,
