@@ -43,15 +43,13 @@
         make.height.mas_equalTo(44);
     }];
     
-//    NSArray *bottomImages = @[];
-    NSArray *bottomTitles = @[@"返回", @"分享", @"收藏", @"赞", @"消息"];
+    NSArray *bottomImages = @[@"TB_Back", @"TB_Share", @"TB_Fav", @"TB_Like", @"TB_Comment"];
     CGFloat width = CGRectGetWidth([UIScreen mainScreen].bounds)/5;
     for (NSInteger i = 0; i < 5; i++) {
         UIButton *bottomButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [bottomButton setTitle:bottomTitles[i] forState:UIControlStateNormal];
         [bottomButton addTarget:self action:@selector(doClickBottomBar:) forControlEvents:UIControlEventTouchUpInside];
         bottomButton.tag = i;
-//        [bottomButton setImage:[UIImage imageNamed:bottomImages[i]] forState:UIControlStateNormal];
+        [bottomButton setImage:[UIImage imageNamed:bottomImages[i]] forState:UIControlStateNormal];
         [self.bottomBar addSubview:bottomButton];
         [bottomButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(i * width);

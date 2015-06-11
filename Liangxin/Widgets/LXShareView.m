@@ -14,6 +14,7 @@
 @property (nonatomic, strong) UIButton *cancelSection;
 @property (nonatomic, strong) UIView *shareSection;
 @property (nonatomic, weak) UIView *targetView;
+@property (nonatomic, strong) MASConstraint *contentTopConstraint;
 
 @end
 
@@ -31,12 +32,14 @@
         [_contentView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(0);
             make.right.mas_equalTo(0);
-            make.top.equalTo(self.mas_bottom);
+            self.contentTopConstraint = make.top.equalTo(self.mas_bottom);
             make.height.mas_equalTo(100);
         }];
         _cancelSection = [UIButton buttonWithType:UIButtonTypeCustom];
         _cancelSection.backgroundColor = [UIColor whiteColor];
         [_cancelSection setTitle:@"取消" forState:UIControlStateNormal];
+        _cancelSection.titleLabel.font = [UIFont systemFontOfSize:15.0];
+        [_cancelSection setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [_contentView addSubview:_cancelSection];
         [_cancelSection mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(0);
@@ -56,6 +59,8 @@
         
         UILabel *shareLabel = [UILabel new];
         shareLabel.text = @"分享到";
+        shareLabel.textColor = [UIColor lightGrayColor];
+        shareLabel.font = [UIFont systemFontOfSize:15.0];
         shareLabel.textAlignment = NSTextAlignmentCenter;
         [_shareSection addSubview:shareLabel];
         [shareLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -71,13 +76,20 @@
         for (NSInteger i = 0; i < 3; i++) {
             UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
             [shareButton setImage:[UIImage imageNamed:shareImages[i]] forState:UIControlStateNormal];
+            shareButton.titleLabel.font = [UIFont systemFontOfSize:10];
+            [shareButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
             [shareButton setTitle:shareNames[i] forState:UIControlStateNormal];
+            CGFloat spacing = 0;
+            CGSize imageSize = shareButton.imageView.image.size;
+            shareButton.titleEdgeInsets = UIEdgeInsetsMake(0.0, - imageSize.width, - (imageSize.height + spacing), 0.0);
+            CGSize titleSize = [shareButton.titleLabel.text sizeWithAttributes:@{NSFontAttributeName: shareButton.titleLabel.font}];
+            shareButton.imageEdgeInsets = UIEdgeInsetsMake(- (titleSize.height + spacing), 0.0, 0.0, - titleSize.width);
             [self.shareSection addSubview:shareButton];
             [shareButton mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.bottom.equalTo(self.shareSection.mas_bottom);
                 make.top.equalTo(shareLabel.mas_bottom);
-                make.width.mas_equalTo(30);
-                make.centerX.equalTo(self.shareSection.mas_centerX).offset(30 - i*30);
+                make.width.mas_equalTo(40);
+                make.centerX.equalTo(self.shareSection.mas_centerX).offset(i*50 - 50);
             }];
         }
     }
@@ -93,10 +105,22 @@
         make.top.mas_equalTo(0);
         make.bottom.mas_equalTo(0);
     }];
+    [self layoutIfNeeded];
+    self.contentTopConstraint.offset(-100);
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.contentView layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        
+    }];
 }
 
 - (void)hideShareView {
-    [self removeFromSuperview];
+    self.contentTopConstraint.offset(0);
+    [UIView animateWithDuration:0.3 animations:^{
+        [self layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        [self removeFromSuperview];
+    }];
 }
 
 @end
