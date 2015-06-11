@@ -199,6 +199,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     ClassDetailViewController *detailViewController = [ClassDetailViewController new];
+    detailViewController.hidesBottomBarWhenPushed = YES;
     detailViewController.postData = [self.viewModel.classData objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
