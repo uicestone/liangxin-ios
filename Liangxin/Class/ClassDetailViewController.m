@@ -13,6 +13,7 @@
 #import "ClassDetailAlbumCell.h"
 #import "ClassDetailVideoCell.h"
 #import "ClassDetailDocumentCell.h"
+#import "LXShareView.h"
 
 @interface ClassDetailViewController() <UITableViewDataSource, UITableViewDelegate>
 
@@ -33,6 +34,7 @@
     
     self.bottomBar = [[UIToolbar alloc] init];
     self.bottomBar.barTintColor = UIColorFromRGB(0xf1f1f2);
+    self.bottomBar.translucent = NO;
     [self.view addSubview:self.bottomBar];
     [self.bottomBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(0);
@@ -41,10 +43,14 @@
         make.height.mas_equalTo(44);
     }];
     
-    NSArray *bottomImages = @[];
+//    NSArray *bottomImages = @[];
+    NSArray *bottomTitles = @[@"返回", @"分享", @"收藏", @"赞", @"消息"];
     CGFloat width = CGRectGetWidth([UIScreen mainScreen].bounds)/5;
     for (NSInteger i = 0; i < 5; i++) {
         UIButton *bottomButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [bottomButton setTitle:bottomTitles[i] forState:UIControlStateNormal];
+        [bottomButton addTarget:self action:@selector(doClickBottomBar:) forControlEvents:UIControlEventTouchUpInside];
+        bottomButton.tag = i;
 //        [bottomButton setImage:[UIImage imageNamed:bottomImages[i]] forState:UIControlStateNormal];
         [self.bottomBar addSubview:bottomButton];
         [bottomButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -79,6 +85,33 @@
     self.navigationController.navigationBarHidden = NO;
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     self.navigationController.toolbar.hidden = NO;
+}
+
+- (void)doClickBottomBar:(UIButton *)sender {
+    switch (sender.tag) {
+        case 0: {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+            break;
+        case 1: {
+            LXShareView *shareView = [LXShareView new];
+            [shareView showInView:self.view];
+        }
+            break;
+        case 2: {
+            
+        }
+            break;
+        case 3: {
+            
+        }
+            break;
+        case 4: {
+            
+        }
+        default:
+            break;
+    }
 }
 
 #pragma mark - UITableViewDataSource && UITableViewDelegate

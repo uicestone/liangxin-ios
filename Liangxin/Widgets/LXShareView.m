@@ -24,6 +24,8 @@
     self = [super init];
     if (self) {
         self.backgroundColor = [UIColor colorWithWhite:0.3 alpha:0.5];
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideShareView)];
+        [self addGestureRecognizer:tapGestureRecognizer];
         _contentView = [UIView new];
         [self addSubview:_contentView];
         [_contentView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -84,6 +86,17 @@
 
 - (void)showInView:(UIView *)targetView {
     self.targetView = targetView;
+    [self.targetView addSubview:self];
+    [self mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        make.top.mas_equalTo(0);
+        make.bottom.mas_equalTo(0);
+    }];
+}
+
+- (void)hideShareView {
+    [self removeFromSuperview];
 }
 
 @end
