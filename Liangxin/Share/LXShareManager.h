@@ -7,9 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LXShareObject.h"
 
 @interface LXShareManager : NSObject
 
 + (instancetype)sharedManager;
+
+- (void)shareWithObject:(LXShareObject *)shareObject;
+
+- (void)registerApp;
 
 @end

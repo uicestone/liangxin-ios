@@ -7,6 +7,8 @@
 //
 
 #import "LXShareManager.h"
+#import "WXApi.h"
+#import "WeiboSDK.h"
 
 @implementation LXShareManager
 
@@ -26,6 +28,45 @@
         
     }
     return self;
+}
+
+- (void)shareWithObject:(LXShareObject *)shareObject {
+    switch (shareObject.shareType) {
+        case LXShareTypeWeChatTimeline: {
+            WXMediaMessage *mediaMessage = [[WXMediaMessage alloc] init];
+            mediaMessage.title = shareObject.shareTitle;
+            mediaMessage.description = shareObject.shareDescription;
+            mediaMessage.thumbData = UIImageJPEGRepresentation(shareObject.shareThumbImage, 0.8);
+            
+            WXWebpageObject *extObject = [WXWebpageObject object];
+            extObject.webpageUrl = shareObject.shareURL;
+            mediaMessage.mediaObject = extObject;
+            
+            SendMessageToWXReq *wxRequest = [[SendMessageToWXReq alloc] init];
+            wxRequest.bText = NO;
+            wxRequest.message = mediaMessage;
+            wxRequest.scene = shareObject.shareType == WXSceneTimeline;
+            [WXApi sendReq:wxRequest];
+        }
+            break;
+        case LXShareTypeSinaWeibo: {
+            WBMessageObject *messageObject = [[WBMessageObject alloc] init];
+            WBImageObject *imageObject = [[WBImageObject alloc] init];
+            imageObject.imageData = UIImageJPEGRepresentation(shareObject.shareThumbImage, 0.8);
+            messageObject.text = [NSString stringWithFormat:@"%@：%@ 分享链接：%@", shareObject.shareTitle, shareObject.shareDescription, shareObject.shareURL];
+            messageObject.imageObject = imageObject;
+            WBSendMessageToWeiboRequest *wbRequest = [WBSendMessageToWeiboRequest requestWithMessage:messageObject];
+            [WeiboSDK sendRequest:wbRequest];
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)registerApp {
+    [WXApi registerApp:@""];
+    [WeiboSDK registerApp:@""];
 }
 
 @end
