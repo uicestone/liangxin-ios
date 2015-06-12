@@ -10,4 +10,6 @@
 
 @interface LXShareManager : NSObject
 
++ (instancetype)sharedManager;
+
 @end

@@ -95,6 +95,7 @@
 		2D00007A1B2839A000106110 /* LXAssetsCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0000791B2839A000106110 /* LXAssetsCollectionCell.m */; };
 		2D0000801B283C5900106110 /* UIBarButtonItem+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00007F1B283C5900106110 /* UIBarButtonItem+Custom.m */; };
 		2D0000841B2A82C600106110 /* LXShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0000831B2A82C600106110 /* LXShareManager.m */; };
+		2D0000871B2A852000106110 /* LXShareObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0000861B2A852000106110 /* LXShareObject.m */; };
 		2D00FF831B20798B00106110 /* ActivityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF821B20798B00106110 /* ActivityDetailViewController.m */; };
 		2D00FF921B217D0200106110 /* LXRouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF911B217D0200106110 /* LXRouteManager.m */; };
 		2D00FF961B217F6F00106110 /* LXHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF951B217F6F00106110 /* LXHomeViewModel.m */; };
@@ -303,6 +304,8 @@
 		2D00007F1B283C5900106110 /* UIBarButtonItem+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+Custom.m"; path = "Utils/UIBarButtonItem+Custom.m"; sourceTree = "<group>"; };
 		2D0000821B2A82C600106110 /* LXShareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXShareManager.h; path = Share/LXShareManager.h; sourceTree = "<group>"; };
 		2D0000831B2A82C600106110 /* LXShareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXShareManager.m; path = Share/LXShareManager.m; sourceTree = "<group>"; };
+		2D0000851B2A852000106110 /* LXShareObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXShareObject.h; path = Share/LXShareObject.h; sourceTree = "<group>"; };
+		2D0000861B2A852000106110 /* LXShareObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXShareObject.m; path = Share/LXShareObject.m; sourceTree = "<group>"; };
 		2D00FF811B20798B00106110 /* ActivityDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityDetailViewController.h; path = Liangxin/Activity/ActivityDetailViewController.h; sourceTree = "<group>"; };
 		2D00FF821B20798B00106110 /* ActivityDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityDetailViewController.m; path = Liangxin/Activity/ActivityDetailViewController.m; sourceTree = "<group>"; };
 		2D00FF901B217D0200106110 /* LXRouteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXRouteManager.h; path = Routes/LXRouteManager.h; sourceTree = "<group>"; };
@@ -794,6 +797,8 @@
 			children = (
 				2D0000821B2A82C600106110 /* LXShareManager.h */,
 				2D0000831B2A82C600106110 /* LXShareManager.m */,
+				2D0000851B2A852000106110 /* LXShareObject.h */,
+				2D0000861B2A852000106110 /* LXShareObject.m */,
 			);
 			name = Share;
 			sourceTree = "<group>";
@@ -1095,6 +1100,7 @@
 			files = (
 				22E6E2871B1343F3005E528E /* AccountFieldCell.m in Sources */,
 				2D537DD21B1956F9006BD35E /* NSDictionary+Utils.m in Sources */,
+				2D0000871B2A852000106110 /* LXShareObject.m in Sources */,
 				2215CB651B0837C400D0359A /* User.m in Sources */,
 				2D0000801B283C5900106110 /* UIBarButtonItem+Custom.m in Sources */,
 				2D537DCE1B18BE83006BD35E /* LXBaseModelGroup.m in Sources */,

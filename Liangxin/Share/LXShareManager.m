@@ -10,4 +10,22 @@
 
 @implementation LXShareManager
 
++ (instancetype)sharedManager {
+    static LXShareManager *sharedManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedManager = [LXShareManager new];
+    });
+    return sharedManager;
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
 @end
