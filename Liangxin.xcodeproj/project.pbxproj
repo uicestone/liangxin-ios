@@ -94,6 +94,7 @@
 		2D0000771B28392F00106110 /* LXSendButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0000761B28392F00106110 /* LXSendButton.m */; };
 		2D00007A1B2839A000106110 /* LXAssetsCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0000791B2839A000106110 /* LXAssetsCollectionCell.m */; };
 		2D0000801B283C5900106110 /* UIBarButtonItem+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00007F1B283C5900106110 /* UIBarButtonItem+Custom.m */; };
+		2D0000841B2A82C600106110 /* LXShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0000831B2A82C600106110 /* LXShareManager.m */; };
 		2D00FF831B20798B00106110 /* ActivityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF821B20798B00106110 /* ActivityDetailViewController.m */; };
 		2D00FF921B217D0200106110 /* LXRouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF911B217D0200106110 /* LXRouteManager.m */; };
 		2D00FF961B217F6F00106110 /* LXHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00FF951B217F6F00106110 /* LXHomeViewModel.m */; };
@@ -300,6 +301,8 @@
 		2D0000791B2839A000106110 /* LXAssetsCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXAssetsCollectionCell.m; path = Widgets/LXAssetsCollectionCell.m; sourceTree = "<group>"; };
 		2D00007E1B283C5900106110 /* UIBarButtonItem+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+Custom.h"; path = "Utils/UIBarButtonItem+Custom.h"; sourceTree = "<group>"; };
 		2D00007F1B283C5900106110 /* UIBarButtonItem+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+Custom.m"; path = "Utils/UIBarButtonItem+Custom.m"; sourceTree = "<group>"; };
+		2D0000821B2A82C600106110 /* LXShareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXShareManager.h; path = Share/LXShareManager.h; sourceTree = "<group>"; };
+		2D0000831B2A82C600106110 /* LXShareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXShareManager.m; path = Share/LXShareManager.m; sourceTree = "<group>"; };
 		2D00FF811B20798B00106110 /* ActivityDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityDetailViewController.h; path = Liangxin/Activity/ActivityDetailViewController.h; sourceTree = "<group>"; };
 		2D00FF821B20798B00106110 /* ActivityDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityDetailViewController.m; path = Liangxin/Activity/ActivityDetailViewController.m; sourceTree = "<group>"; };
 		2D00FF901B217D0200106110 /* LXRouteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXRouteManager.h; path = Routes/LXRouteManager.h; sourceTree = "<group>"; };
@@ -564,6 +567,7 @@
 		223267C21AF2661B00431132 /* Liangxin */ = {
 			isa = PBXGroup;
 			children = (
+				2D0000811B2A828800106110 /* Share */,
 				22E5E8D01B272A5A0004D1CA /* Feeds */,
 				2D00FFC11B25820F00106110 /* Vender */,
 				2D00FF9A1B218B6F00106110 /* Network */,
@@ -783,6 +787,15 @@
 				2DB6C2BD1B2865CF00A94E6E /* LXShareView.m */,
 			);
 			name = Widgets;
+			sourceTree = "<group>";
+		};
+		2D0000811B2A828800106110 /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				2D0000821B2A82C600106110 /* LXShareManager.h */,
+				2D0000831B2A82C600106110 /* LXShareManager.m */,
+			);
+			name = Share;
 			sourceTree = "<group>";
 		};
 		2D00FF8F1B217CBB00106110 /* Routes */ = {
@@ -1173,6 +1186,7 @@
 				22E6E2591B11C582005E528E /* ClassViewController.m in Sources */,
 				2D537DE71B1ABB8F006BD35E /* ClassDetailBaseCell.m in Sources */,
 				2215CB4D1B07820C00D0359A /* NSDictionary+Encoding.m in Sources */,
+				2D0000841B2A82C600106110 /* LXShareManager.m in Sources */,
 				22B51AA81B196A76000CF4A8 /* LXNavigationController.m in Sources */,
 				2DB6C2BE1B2865CF00A94E6E /* LXShareView.m in Sources */,
 				2293FA091AF5DBF20012CD10 /* GroupViewController.m in Sources */,
