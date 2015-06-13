@@ -65,8 +65,8 @@
 }
 
 - (void)registerApp {
-    [WXApi registerApp:@""];
-    [WeiboSDK registerApp:@""];
+    [WXApi registerApp:@"wxe66c716e0981e5d1"];
+    [WeiboSDK registerApp:@"2758264475"];
 }
 
 @end

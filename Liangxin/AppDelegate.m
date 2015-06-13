@@ -7,48 +7,12 @@
 //
 
 #import "AppDelegate.h"
-// Group ViewControllers
-
-#import "ArticleViewController.h"
-
-#import "GroupViewController.h"
-#import "GroupDetailViewController.h"
-#import "GroupPostViewController.h"
-#import "GroupIntroViewController.h"
-#import "GroupMembersViewController.h"
-#import "GroupAlbumViewController.h"
-#import "PublishViewController.h"
-#import "ActivityViewController.h"
-#import "ClassViewController.h"
-#import "LoginViewController.h"
-#import "PhoneInputViewController.h"
-#import "VCodeInputViewController.h"
-#import "ModifyPasswordViewController.h"
-#import "LXNavigationController.h"
-#import "ServiceHomeViewController.h"
-
-// 党群动态
-#import "FeedsViewController.h"
-
-// 个人中心
-#import "AccountHomeViewController.h"
-#import "AccountArticleViewController.h"
-#import "AccountAlbumViewController.h"
-#import "AccountFollowViewController.h"
-#import "AccountRecordViewController.h"
-#import "AccountAboutViewController.h"
-#import "AccountCollectionViewController.h"
-#import "AccountCreditViewController.h"
-#import "AccountCreditDetailViewController.h"
-#import "AccountGroupViewController.h"
-#import "AccountActivityViewController.h"
-
-
 #import "Channels.h"
 #import "UserApi.h"
 #import "LXNavigationController.h"
 #import "Definition.h"
 #import "LXRouteManager.h"
+#import "LXShareManager.h"
 
 
 @interface AppDelegate ()
@@ -66,6 +30,7 @@
     
     window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [[LXRouteManager sharedManager] initRoutes];
+    [[LXShareManager sharedManager] registerApp];
     
     // 更改默认userAgent
     
