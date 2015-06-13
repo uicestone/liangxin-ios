@@ -9,7 +9,8 @@ var entries = {};
     'groupdetail',
     'groupintro',
     'publish',
-    'account-album'
+    'account-album',
+    'comments'
 ].forEach(function(key){
     entries[key] = __dirname + '/entries/' + key + '.js';
 });

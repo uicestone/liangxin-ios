@@ -1,153 +1,21 @@
-webpackJsonp([1],[
-/* 0 */
+webpackJsonp([2],{
+
+/***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(riot) {var $ = __webpack_require__(2);
 	var bridge = __webpack_require__(3);
 	var query = __webpack_require__(4).parse();
 
-	__webpack_require__(8);
-	__webpack_require__(9);
+	__webpack_require__(17);
+	var type = query.type;
 
-	var fetch = bridge.fetch;
-
-
-	var bus = riot.observable();
-	var all = false;
-
-	$('.pull-left').on('touchend', function(){
-		all = !all;
-		bus.trigger('toggle-all', all);
-	});
-
-	$('.pull-right').on('touchend', function(){
-		bus.trigger('remove');
-	});
-
-	riot.mount('*', bus);
+	riot.mount('*');
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
 
 /***/ },
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */
-/***/ function(module, exports, __webpack_require__) {
 
-	var riot = __webpack_require__(10);
-
-	riot.tag('myalbum', '<mypic each="{ items }" title="{ this.title }" pic="{ this.pic }" likes="{ this.likes }" comments="{ this.comments }"></mypic>', 'class="album"', function(opts) {
-
-		var self = this;
-		
-		this.loadData = function() {
-			var data = [{
-				id: 1,
-				title: "希望城党建",
-				selected: true,
-				likes: 41,
-				comments: 14,
-				pic: "http://ww4.sinaimg.cn/bmiddle/894a033agw1et1evvh6jmj21hc0u017v.jpg"
-			},{
-				id: 2,
-				title: "希望城党建",
-				selected: true,
-				likes: 41,
-				comments: 14,
-				pic: "http://ww4.sinaimg.cn/bmiddle/894a033agw1et1evvh6jmj21hc0u017v.jpg"
-			},{
-				id: 3,
-				title: "希望城党建",
-				selected: false,
-				likes: 41,
-				comments: 14,
-				pic: "http://ww4.sinaimg.cn/bmiddle/894a033agw1et1evvh6jmj21hc0u017v.jpg"
-			},{
-				id: 4,
-				title: "希望城党建",
-				selected: true,
-				likes: 41,
-				comments: 14,
-				pic: "http://ww4.sinaimg.cn/bmiddle/894a033agw1et1evvh6jmj21hc0u017v.jpg"
-			},{
-				id: 5,
-				title: "希望城党建",
-				selected: true,
-				likes: 41,
-				comments: 14,
-				pic: "http://ww4.sinaimg.cn/bmiddle/894a033agw1et1evvh6jmj21hc0u017v.jpg"
-			},{
-				id: 6,
-				title: "希望城党建",
-				selected: true,
-				likes: 41,
-				comments: 14,
-				pic: "http://ww4.sinaimg.cn/bmiddle/894a033agw1et1evvh6jmj21hc0u017v.jpg"
-			}];
-			opts.trigger('data', data);
-		}.bind(this);
-
-
-		opts.on('toggle-all', function(selected){
-			self.items.forEach(function(el, i){
-				el.selected = selected;
-			});
-			self.update();
-		});
-
-		opts.on('data', function(pics){
-			self.items = pics;
-			self.update();
-		});
-
-		opts.on('remove', function(){
-
-			var ids = self.items.filter(function(el){
-				return el.selected;
-			}).map(function(el){
-				return el.id;
-			}).join(',');
-
-			console.log(ids);
-
-			setTimeout(function(){
-
-				self.items = self.items.filter(function(el){
-					return !el.selected;
-				});
-				self.update();
-				self.loadData();
-			});
-		});
-
-		this.loadData();
-
-	});
-
-/***/ },
-/* 9 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var riot = __webpack_require__(10);
-
-	riot.tag('mypic', '<div class="inner" riot-style="background-image:url({opts.pic})" ontouchend="{toggle}"> <div class="select {selected?\'selected\':\'\'}"></div> <div class="title">{opts.title}</div> <div class="like"> <i class="icon-like"></i> <span class="count">{opts.likes}</span> </div> <div class="comment"> <i class="icon-comment"></i> <span class="count">{opts.comments}</span> </div> </div>', function(opts) {
-		
-		var self = this;
-		this.selected = opts.selected;
-		this.toggle = function() {
-			this.selected = !this.selected;
-		}.bind(this);
-
-	});
-
-
-
-/***/ },
-/* 10 */
+/***/ 10:
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Riot v2.1.0, @license MIT, (c) 2015 Muut Inc. + contributors */
@@ -1433,5 +1301,58 @@ webpackJsonp([1],[
 	})(typeof window != 'undefined' ? window : undefined);
 
 
+/***/ },
+
+/***/ 17:
+/***/ function(module, exports, __webpack_require__) {
+
+	var riot = __webpack_require__(10);
+
+	__webpack_require__(18)
+	riot.tag('comments', '<comment each="{items}" data="{this}">', function(opts) {
+
+	  var self = this;
+	  this.load = function() {
+	    self.items = [];
+	    for(var i = 0; i < 10; i++){
+	      self.items.push({
+	       "id":0,
+	        "content":"lalalalala",
+	        "author": {
+	          "id":0,
+	          "name":"王大锤",
+	          "avatar":"http://avatar.fanfou.com/s0/00/43/3s.jpg"
+	        },
+	        "created_at":"2015-03-03 12:21",
+	        "likes": 46,
+	        "liked": false
+	      });
+	      self.update();
+	    }
+	  }.bind(this);
+
+	  this.load();
+
+	});
+
+/***/ },
+
+/***/ 18:
+/***/ function(module, exports, __webpack_require__) {
+
+	var riot = __webpack_require__(10);
+
+	riot.tag('comment', '<div class="inner"> <img class="avatar" riot-src="{opts.data.author.avatar}"> <div class="main"> <div class="author">{opts.data.author.name}</div> <div class="content">{opts.data.content}</div> <div class="time">{opts.data.created_at}</div> </div> <div class="likes {liked?\'liked\':\'\'}" onclick="{togglelike}"> <i class="icon-likes"></i> <span class="count">{likes}</span> </div> </div>', function(opts) {
+
+		var self = this;
+		this.likes = opts.data.likes;
+		this.liked = opts.data.liked;
+		this.togglelike = function() {
+			self.liked = !self.liked;
+		}.bind(this);
+
+	});
+
 /***/ }
-]);
+
+});

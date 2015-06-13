@@ -17,6 +17,14 @@
 @implementation ApiBase
 
 
++(void)addAuthority:(AFHTTPRequestOperationManager *)manager{
+    LXBaseModelUser* user= [UserApi getCurrentUser];
+    if(user && user.token){
+        NSLog(@"Authorization %@", user.token);
+        [manager.requestSerializer setValue:user.token forHTTPHeaderField:@"Authorization"];
+    }
+}
+
 +(NSString *)getUrlByPath:(NSString *)path{
     NSString* urlbase = [LXApiHost stringByAppendingString:@"/api/v1"];
     NSString* url = [urlbase stringByAppendingString:path];
@@ -27,6 +35,37 @@
 //    }
     
     return url;
+}
+
++(void)postMultipartWithPath:(NSString *)path data:(NSDictionary *)data files:(NSArray *)files success:(void (^)(id responseObject))successCallback error:(void (^)(NSError *error))errorCallback{
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [self addAuthority:manager];
+    
+    
+    NSString *url = [self getUrlByPath:path];
+    [manager POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+        
+        for(NSString* key in data){
+            [formData appendPartWithFormData:[data[key] dataUsingEncoding:NSUTF8StringEncoding]
+                                        name:key];
+        }
+        
+        for(NSDictionary* file in files){
+            [formData appendPartWithFileData: file[@"data"]
+                                        name: file[@"name"]
+                                    fileName:@"default-file-name" mimeType:@"image/jpeg"];
+        }
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        successCallback(responseObject);
+        NSLog(@"Response: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorCallback(error);
+        NSLog(@"Error: %@", error);
+    }];
+
 }
 
 
@@ -44,12 +83,7 @@
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-    
-    LXBaseModelUser* user= [UserApi getCurrentUser];
-    if(user && user.token){
-        NSLog(@"Authorization %@", user.token);
-        [manager.requestSerializer setValue:user.token forHTTPHeaderField:@"Authorization"];
-    }
+//    [self addAuthority:manager];
     
     [manager GET:url parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
         successCallback(responseObject);
@@ -67,12 +101,7 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     
-    
-    LXBaseModelUser* user= [UserApi getCurrentUser];
-    if(user && user.token){
-        NSLog(@"Authorization %@", user.token);
-        [manager.requestSerializer setValue:user.token forHTTPHeaderField:@"Authorization"];
-    }
+    [self addAuthority:manager];
     
     [manager DELETE:url parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
         successCallback(responseObject, operation);
@@ -92,13 +121,7 @@
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     
-    
-    LXBaseModelUser* user= [UserApi getCurrentUser];
-    if(user && user.token){
-        NSLog(@"Authorization %@", user.token);
-        [manager.requestSerializer setValue:user.token forHTTPHeaderField:@"Authorization"];
-    }
-    
+    [self addAuthority:manager];
     
     [manager POST:url parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
         successCallback(responseObject, operation);

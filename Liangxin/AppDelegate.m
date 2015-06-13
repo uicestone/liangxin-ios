@@ -50,6 +50,7 @@
 #import "Definition.h"
 #import "LXRouteManager.h"
 
+
 @interface AppDelegate ()
 
 @end
@@ -58,7 +59,10 @@
 @synthesize navigationController;
 @synthesize window;
 
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     
     window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [[LXRouteManager sharedManager] initRoutes];
@@ -101,14 +105,19 @@
     return YES;
 }
 
+
+-(void)popLoginWithFinishHandler:(LoginFinishBlock)loginFinish{
+    LoginViewController* loginViewController = [[LoginViewController alloc] init];
+    UINavigationController* loginNavigationController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+    
+    loginNavigationController.navigationItem.rightBarButtonItem.title = @"取消";
+    loginViewController.finishBlock = loginFinish;
+    [self.navigationController presentViewController:loginNavigationController animated:YES completion:nil];
+}
+
 -(void)assureLoginWithViewController:(LXBaseViewController*)viewController finish:(LoginFinishBlock)loginFinish{
     if([viewController needLogin] && ![UserApi getCurrentUser]){
-        LoginViewController* loginViewController = [[LoginViewController alloc] init];
-        UINavigationController* loginNavigationController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
-        
-        loginNavigationController.navigationItem.rightBarButtonItem.title = @"取消";
-        loginViewController.finishBlock = loginFinish;
-        [self.navigationController presentViewController:loginNavigationController animated:YES completion:nil];
+        [self popLoginWithFinishHandler:loginFinish];
     }else{
         NSString* path = viewController.params[@"route"];
         NSArray* components = [path componentsSeparatedByString:@"/"];

@@ -9,7 +9,8 @@
 			title: "希望城党建",
 			selected: true,
 			likes: 41,
-			comments: 14
+			comments: 14,
+			pic: "http://ww4.sinaimg.cn/bmiddle/894a033agw1et1evvh6jmj21hc0u017v.jpg"
 		},{
 			id: 2,
 			title: "希望城党建",

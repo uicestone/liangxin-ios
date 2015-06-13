@@ -36,7 +36,7 @@
                                   UIColorFromRGB(0xf7931d),
                                   UIColorFromRGB(0xee2a7b),
                                   UIColorFromRGB(0x0f75bc),
-                                  UIColorFromRGB(0xa97b50)
+                                  UIColorFromRGB(0xc99967)
                                   ];
             channels.titles = @[@"党群组织",@"精彩活动",@"党群课堂",@"党群动态",@"党群服务",@"我的账户"];
             channels.links = @[@"group",@"activity",@"class",@"feeds",@"service",@"account"];

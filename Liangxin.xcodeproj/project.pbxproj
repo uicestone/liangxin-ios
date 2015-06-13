@@ -201,6 +201,7 @@
 		223267D31AF2661B00431132 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		225BA69A1AFF30D0000E6D79 /* LXWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXWebView.h; sourceTree = "<group>"; };
 		225BA69B1AFF30D0000E6D79 /* LXWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXWebView.m; sourceTree = "<group>"; };
+		226341BD1B2C01D8001743DE /* NSStrinAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSStrinAdditions.h; sourceTree = "<group>"; };
 		227CA1C71B1D21D80094E7A7 /* ServiceHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceHomeViewController.h; sourceTree = "<group>"; };
 		227CA1C81B1D21D80094E7A7 /* ServiceHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceHomeViewController.m; sourceTree = "<group>"; };
 		228587A91B20AFC100CCA3A4 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
@@ -871,6 +872,7 @@
 		2D537DCF1B1956AF006BD35E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				226341BD1B2C01D8001743DE /* NSStrinAdditions.h */,
 				2D537DD01B1956F9006BD35E /* NSDictionary+Utils.h */,
 				2D537DD11B1956F9006BD35E /* NSDictionary+Utils.m */,
 				2D537DDA1B19A2ED006BD35E /* LXMacroDefinition.h */,

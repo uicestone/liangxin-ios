@@ -70,7 +70,7 @@ require('./selectctrl.tag')
 		"article": ["title", "content", "images"],
 		"image": ["title", "images"],
 		"event": ["poster", ""],
-		"class": ["poster","title","describe","content","title","files","images","videos"]
+		"class": ["poster","title","describe","content","title","attachments","images","videos"]
 	})[opts.type];
 
 	edit(field){
@@ -87,11 +87,29 @@ require('./selectctrl.tag')
 
 		bridge.showProgress();
 		data['type'] = type;
-		fetch({
+
+		var config = {
 			url: "/post",
 			method:"post",
 			data: data
-		}).then(function(){
+		};
+
+		var files = [];
+		["attachments", "images"].forEach(function(key){
+			if(data[key]){
+				data[key].forEach(function(data){
+					files.push({
+						name: key + "[]",
+						data: data.split("base64,")[1]
+					});
+				});
+				delete data[key];
+			}
+		});
+
+		config.files = files;
+		console.log(config);
+		fetch(config).then(function(){
 			bridge.hideProgress();
 			bridge.dismiss();
 		}).catch(function(err){

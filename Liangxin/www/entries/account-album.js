@@ -11,12 +11,12 @@ var fetch = bridge.fetch;
 var bus = riot.observable();
 var all = false;
 
-$('.pull-left').on('click', function(){
+$('.pull-left').on('touchend', function(){
 	all = !all;
 	bus.trigger('toggle-all', all);
 });
 
-$('.pull-right').on('click', function(){
+$('.pull-right').on('touchend', function(){
 	bus.trigger('remove');
 });
 
