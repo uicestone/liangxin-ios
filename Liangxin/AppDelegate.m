@@ -128,6 +128,7 @@
         NSLog(@"Navigate to %@", path);
         if(index != -1){
             Channels* channels = [Channels shared];
+            channels.currentIndex = index;
             [self.navigationController.navigationItem setTitle:[channels titleAtIndex:index]];
             // 执行动画
             [UIView animateWithDuration:0.3 animations:^{

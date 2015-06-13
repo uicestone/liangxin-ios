@@ -37,6 +37,7 @@
 		223267D11AF2661B00431132 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 223267D01AF2661B00431132 /* Images.xcassets */; };
 		223267D41AF2661B00431132 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223267D21AF2661B00431132 /* LaunchScreen.xib */; };
 		225BA69C1AFF30D0000E6D79 /* LXWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 225BA69B1AFF30D0000E6D79 /* LXWebView.m */; };
+		226341C01B2C3192001743DE /* LXJSBridge+User.m in Sources */ = {isa = PBXBuildFile; fileRef = 226341BF1B2C3192001743DE /* LXJSBridge+User.m */; };
 		227CA1C91B1D21D80094E7A7 /* ServiceHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227CA1C81B1D21D80094E7A7 /* ServiceHomeViewController.m */; };
 		228587AA1B20AFC100CCA3A4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 228587A91B20AFC100CCA3A4 /* libPods.a */; };
 		2293FA061AF50B550012CD10 /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2293FA051AF50B550012CD10 /* BannerModel.m */; };
@@ -202,6 +203,8 @@
 		225BA69A1AFF30D0000E6D79 /* LXWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXWebView.h; sourceTree = "<group>"; };
 		225BA69B1AFF30D0000E6D79 /* LXWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXWebView.m; sourceTree = "<group>"; };
 		226341BD1B2C01D8001743DE /* NSStrinAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSStrinAdditions.h; sourceTree = "<group>"; };
+		226341BE1B2C3192001743DE /* LXJSBridge+User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LXJSBridge+User.h"; sourceTree = "<group>"; };
+		226341BF1B2C3192001743DE /* LXJSBridge+User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LXJSBridge+User.m"; sourceTree = "<group>"; };
 		227CA1C71B1D21D80094E7A7 /* ServiceHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceHomeViewController.h; sourceTree = "<group>"; };
 		227CA1C81B1D21D80094E7A7 /* ServiceHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceHomeViewController.m; sourceTree = "<group>"; };
 		228587A91B20AFC100CCA3A4 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
@@ -456,6 +459,8 @@
 				22BE07D71B1FCC6D00A1E91F /* LXJSBridge+Tint.m */,
 				22E7BBD81B24435F009F0266 /* LXJSBridge+ViewController.h */,
 				22E7BBD91B24435F009F0266 /* LXJSBridge+ViewController.m */,
+				226341BE1B2C3192001743DE /* LXJSBridge+User.h */,
+				226341BF1B2C3192001743DE /* LXJSBridge+User.m */,
 			);
 			name = JSBridges;
 			sourceTree = "<group>";
@@ -1192,6 +1197,7 @@
 				2293FA061AF50B550012CD10 /* BannerModel.m in Sources */,
 				2D537DC81B18BD7A006BD35E /* LXBaseModelUser.m in Sources */,
 				22E6E2591B11C582005E528E /* ClassViewController.m in Sources */,
+				226341C01B2C3192001743DE /* LXJSBridge+User.m in Sources */,
 				2D537DE71B1ABB8F006BD35E /* ClassDetailBaseCell.m in Sources */,
 				2215CB4D1B07820C00D0359A /* NSDictionary+Encoding.m in Sources */,
 				2D0000841B2A82C600106110 /* LXShareManager.m in Sources */,

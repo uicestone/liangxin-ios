@@ -10,6 +10,7 @@
 
 @interface Channels : NSObject
 +(instancetype)shared;
+@property NSUInteger currentIndex;
 -(UIColor *) colorAtIndex:(int) index;
 -(NSString *) linkAtIndex:(int) index;
 -(NSString *) titleAtIndex:(int) index;

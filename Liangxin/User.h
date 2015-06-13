@@ -14,5 +14,6 @@
 @property NSString* contact;
 @property NSDictionary* group;
 @property NSString* groupPosition;
+@property NSString* avatar;
 +userFromJSONObject:(NSDictionary *)json;
 @end

@@ -6,8 +6,8 @@ webpackJsonp([1],[
 	var bridge = __webpack_require__(3);
 	var query = __webpack_require__(4).parse();
 
-	__webpack_require__(8);
-	__webpack_require__(9);
+	__webpack_require__(6);
+	__webpack_require__(7);
 
 	var fetch = bridge.fetch;
 
@@ -25,7 +25,7 @@ webpackJsonp([1],[
 	});
 
 	riot.mount('*', bus);
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ },
 /* 1 */,
@@ -33,12 +33,10 @@ webpackJsonp([1],[
 /* 3 */,
 /* 4 */,
 /* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var riot = __webpack_require__(10);
+	var riot = __webpack_require__(8);
 
 	riot.tag('myalbum', '<mypic each="{ items }" title="{ this.title }" pic="{ this.pic }" likes="{ this.likes }" comments="{ this.comments }"></mypic>', 'class="album"', function(opts) {
 
@@ -129,10 +127,10 @@ webpackJsonp([1],[
 	});
 
 /***/ },
-/* 9 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var riot = __webpack_require__(10);
+	var riot = __webpack_require__(8);
 
 	riot.tag('mypic', '<div class="inner" riot-style="background-image:url({opts.pic})" ontouchend="{toggle}"> <div class="select {selected?\'selected\':\'\'}"></div> <div class="title">{opts.title}</div> <div class="like"> <i class="icon-like"></i> <span class="count">{opts.likes}</span> </div> <div class="comment"> <i class="icon-comment"></i> <span class="count">{opts.comments}</span> </div> </div>', function(opts) {
 		
@@ -147,7 +145,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 10 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Riot v2.1.0, @license MIT, (c) 2015 Muut Inc. + contributors */

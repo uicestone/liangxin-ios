@@ -7,18 +7,94 @@ comment{
 }
 
 comment .inner{
-	height: 105px;
+	min-height: 105px;
 	border-bottom: 1px solid #ddd;
 	margin: 0 10px;
 	padding: 10px 5px;
 	overflow: hidden;
 	box-sizing: border-box;
+	position: relative;
 }
 
-
-comment .inner .avatar{
+comment .avatar{
+	float: left;
 	width: 35px;
 	height: 35px;
 	display: block;
 	margin: 0;
+}
+
+comment .main{
+	margin-left: 55px;
+}
+
+comment .main .author{
+	font-size: 16px;
+	line-height: 18px;
+	margin-bottom: 5px
+}
+
+comment .main .time{
+	font-size: 14px;
+	margin-bottom: 3px
+}
+
+comment .main .content{
+	font-size: 16px;
+	line-height: 1.5
+}
+
+comment .likes{
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	width: 38px;
+}
+
+comment .icon-likes{
+	float: left;
+	background-image: url('../icons/like_grey.png');
+	background-size: 18px 16px;
+	width: 18px;
+	height: 16px;
+	display: block;
+}
+
+comment .count{
+  float: left;
+  margin-left: 5px;
+  color: #999;
+  font-size: 9px;
+  position: relative;
+  top: 5px;
+}
+
+comments .write .icon-pencil{
+	width: 17px;
+	height: 16px;
+	position: relative;
+	top: 2px;
+	display: inline-block;
+	background-image: url('../icons/pencil.png');
+}
+
+comments .close{
+	right: 5px;
+	top: 5px;
+	width: 19px;
+	height: 20px;
+	position: absolute;
+	background-image: url('../icons/close.png')
+}
+
+comments .write{
+	border-top: 1px solid #dedfe0;
+	height: 32px;
+	position: fixed;
+	bottom: 0;
+	text-align: center;
+	width: 100%;
+	background-color: #f1f1f2;
+	color: #939597;
+	line-height: 32px
 }

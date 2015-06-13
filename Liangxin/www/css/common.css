@@ -126,3 +126,47 @@ li{
 	font-size: 12px;
 	overflow: hidden;
 }
+
+.mbox{
+	position: fixed;
+	top: 142px;
+	width: 100%;
+}
+
+.mbox .inner{
+	position: relative;
+	margin: 0 10px;
+	background-color: #fff;
+	border: 1px solid #9d9fa1;
+}
+
+.mbox .inner .title{
+	height: 30px;
+	line-height: 30px;
+	font-size: 16px;
+	text-align: center;
+	color: #999;
+	border-bottom: #d2d3d5;
+	background-color: #f1f1f2
+}
+
+.mbox .content{
+	padding: 10px;
+}
+
+.mbox textarea{
+	border: 1px solid #b4b6b8;
+	width: 100%;
+	box-sizing: border-box;
+	resize: none;
+}
+
+.mbox .btn{
+	width: auto;
+	color: #fff;
+	text-align: center;
+	margin: 0 10px 10px 10px;
+}
+
+
+

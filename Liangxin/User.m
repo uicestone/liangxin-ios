@@ -13,7 +13,8 @@
 +userFromJSONObject:(NSDictionary *)json{
     return [json toModel:[User class] withKeyMapping:@{
                                                        @"name":@"name",
-                                                       @"contact":@"contact"
+                                                       @"contact":@"contact",
+                                                       @"avatar":@"avatar"
                                                        }];
 }
 @end

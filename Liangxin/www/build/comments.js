@@ -1,21 +1,96 @@
-webpackJsonp([2],{
-
-/***/ 0:
+webpackJsonp([3],[
+/* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(riot) {var $ = __webpack_require__(2);
 	var bridge = __webpack_require__(3);
 	var query = __webpack_require__(4).parse();
 
-	__webpack_require__(17);
+	__webpack_require__(1);
 	var type = query.type;
 
 	riot.mount('*');
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ },
+/* 1 */
+/***/ function(module, exports, __webpack_require__) {
 
-/***/ 10:
+	var riot = __webpack_require__(8);
+
+	__webpack_require__(11)
+	var bridge = __webpack_require__(3);
+	var fetch = bridge.fetch;
+	var query = __webpack_require__(4).parse();
+	var $ = __webpack_require__(2);
+
+
+	riot.tag('comments', '<div riot-style="display:{items.length?\'block\':\'none\'}"> <comment each="{items}" data="{this}"></comment> </div> <div riot-style="display:{items.length?\'none\':\'block\'};text-align:center;margin-top:90px"> <img src="./image/nocomments.png" height="136" width="91"> </div> <div class="mbox" riot-style="display:{writing?\'block\':\'none\'}"> <div class="inner"> <div class="close" onclick="{closepopup}"></div> <div class="title">评论</div> <div class="content"> <textarea name="" id="input" cols="30" rows="10"></textarea> </div> <div class="btn" onclick="{submit}">提交</div> </div> </div> <div class="write" onclick="{showpopup}"> <i class="icon-pencil"></i> <span>写评论</span> </div>', function(opts) {
+
+
+
+	  var self = this;
+	  var id = query.id;
+	  this.writing = false;
+
+	  this.showpopup = function() {
+	    self.update({writing:true})
+	  }.bind(this);
+
+	  this.closepopup = function() {
+	    self.update({writing:false})
+	  }.bind(this);
+
+	  var posting = false;
+	  this.submit = function() {
+	    posting = true;
+	    bridge.showProgress();
+	    fetch({
+	      method:"post",
+	      url:"/post",
+	      data:{
+	        type:"评论",
+	        parent_id:id,
+	        content:$('#input').val()
+	      }
+	    }).then(function(){
+	      posting = false;
+	      self.update({writing:false});
+	      bridge.popMessage('回应成功');
+	    });
+	  }.bind(this);
+
+	  this.load = function() {
+	    self.items = [];
+	    for(var i = 0; i < 0; i++){
+	      self.items.push({
+	       "id":0,
+	        "content":"参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖",
+	        "author": {
+	          "id":0,
+	          "name":"王大锤",
+	          "avatar":"http://avatar.fanfou.com/s0/00/43/3s.jpg"
+	        },
+	        "created_at":"2015-03-03 12:21",
+	        "likes": 46,
+	        "liked": false
+	      });
+	      self.update();
+	    }
+	  }.bind(this);
+
+	  this.load();
+
+	});
+
+/***/ },
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Riot v2.1.0, @license MIT, (c) 2015 Muut Inc. + contributors */
@@ -1302,57 +1377,43 @@ webpackJsonp([2],{
 
 
 /***/ },
-
-/***/ 17:
+/* 9 */,
+/* 10 */,
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var riot = __webpack_require__(10);
+	var riot = __webpack_require__(8);
 
-	__webpack_require__(18)
-	riot.tag('comments', '<comment each="{items}" data="{this}">', function(opts) {
+	var bridge = __webpack_require__(3);
+	var fetch = bridge.fetch;
 
-	  var self = this;
-	  this.load = function() {
-	    self.items = [];
-	    for(var i = 0; i < 10; i++){
-	      self.items.push({
-	       "id":0,
-	        "content":"lalalalala",
-	        "author": {
-	          "id":0,
-	          "name":"王大锤",
-	          "avatar":"http://avatar.fanfou.com/s0/00/43/3s.jpg"
-	        },
-	        "created_at":"2015-03-03 12:21",
-	        "likes": 46,
-	        "liked": false
-	      });
-	      self.update();
-	    }
-	  }.bind(this);
-
-	  this.load();
-
-	});
-
-/***/ },
-
-/***/ 18:
-/***/ function(module, exports, __webpack_require__) {
-
-	var riot = __webpack_require__(10);
-
-	riot.tag('comment', '<div class="inner"> <img class="avatar" riot-src="{opts.data.author.avatar}"> <div class="main"> <div class="author">{opts.data.author.name}</div> <div class="content">{opts.data.content}</div> <div class="time">{opts.data.created_at}</div> </div> <div class="likes {liked?\'liked\':\'\'}" onclick="{togglelike}"> <i class="icon-likes"></i> <span class="count">{likes}</span> </div> </div>', function(opts) {
+	riot.tag('comment', '<div class="inner"> <img class="avatar" riot-src="{opts.data.author.avatar}"> <div class="main"> <div class="author">{opts.data.author.name}</div> <div class="time">{opts.data.created_at}</div> <div class="content">{opts.data.content}</div> </div> <div class="likes {liked?\'liked\':\'\'}" onclick="{togglelike}"> <i class="icon-likes"></i> <span class="count">{likes}</span> </div> </div>', function(opts) {
 
 		var self = this;
 		this.likes = opts.data.likes;
 		this.liked = opts.data.liked;
+		this.id = opts.data.id;
+		var posting = false;
 		this.togglelike = function() {
-			self.liked = !self.liked;
+			var posting = true;
+			fetch({
+				method: self.liked ? "delete" : "post",
+				url: "/like/" + self.id
+			}).then(function(result){
+				self.liked = !self.liked;
+				if(self.liked){
+					self.likes++;
+				}else{
+					self.likes--;
+				}
+				posting = false;
+				self.update();
+			}).catch(function(){
+				posting = false;
+			});
 		}.bind(this);
 
 	});
 
 /***/ }
-
-});
+]);

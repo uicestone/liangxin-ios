@@ -11,6 +11,7 @@
 #import "UserApi.h"
 #import "LXBaseModelUser.h"
 #import "PublishViewController.h"
+#import "Channels.h"
 #import <HHRouter.h>
 #import <MBProgressHUD/MBProgressHUD.h>
 
@@ -150,8 +151,15 @@ static BOOL toolbarInited = NO;
 - (void)popModalToPath:(NSString *)path complete:(ModalCompleteBlock)complete{
     LXBaseViewController *viewController = (LXBaseViewController *)[[HHRouter shared] matchController:path];
     
+    Channels* channels = [Channels shared];
+    NSInteger index = [channels currentIndex];
     UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
     navigationController.navigationItem.rightBarButtonItem.title = @"取消";
+    NSDictionary* textAttr = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    [navigationController.navigationItem.rightBarButtonItem setTitleTextAttributes:textAttr forState:UIControlStateNormal];
+    [navigationController.navigationBar setBarTintColor: [channels colorAtIndex:(int)index]];
+    
+    [navigationController.navigationBar setTitleTextAttributes:textAttr];
     
     @weakify(self);
     [self presentViewController:navigationController animated:YES completion:^{

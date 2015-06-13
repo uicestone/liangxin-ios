@@ -1,5 +1,6 @@
-webpackJsonp([3],[
-/* 0 */
+webpackJsonp([2],{
+
+/***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
 	var $ = __webpack_require__(2);
@@ -7,8 +8,8 @@ webpackJsonp([3],[
 	var query = __webpack_require__(4).parse();
 
 	var fetch = bridge.fetch;
-	var itemTemplate = __webpack_require__(5);
-	var imageTemplate = __webpack_require__(6);
+	var itemTemplate = __webpack_require__(9);
+	var imageTemplate = __webpack_require__(10);
 
 	bridge.onerror = function(err){
 		alert(err);
@@ -87,11 +88,8 @@ webpackJsonp([3],[
 	});
 
 /***/ },
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */
+
+/***/ 9:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = function (obj) {
@@ -111,7 +109,8 @@ webpackJsonp([3],[
 	}
 
 /***/ },
-/* 6 */
+
+/***/ 10:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = function (obj) {
@@ -129,4 +128,5 @@ webpackJsonp([3],[
 	}
 
 /***/ }
-]);
+
+});
