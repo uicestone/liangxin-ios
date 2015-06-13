@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"关于";
+    [self loadPage:@"about"];
     // Do any additional setup after loading the view.
 }
 

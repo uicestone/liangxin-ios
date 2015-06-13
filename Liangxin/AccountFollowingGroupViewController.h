@@ -1,5 +1,5 @@
 //
-//  AccountFollowViewController.h
+//  AccountGroupViewController.h
 //  Liangxin
 //
 //  Created by Hsu Spud on 15/6/3.
@@ -8,6 +8,6 @@
 
 #import "LXWebViewController.h"
 
-@interface AccountFollowViewController : LXBaseViewController
+@interface AccountFollowingGroupViewController : LXWebViewController
 
 @end

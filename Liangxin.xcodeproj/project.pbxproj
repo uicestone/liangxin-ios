@@ -46,11 +46,10 @@
 		22BE07B01B1D3C9200A1E91F /* AccountHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BE07AF1B1D3C9200A1E91F /* AccountHomeViewController.m */; };
 		22BE07BA1B1F35E500A1E91F /* AccountArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BE07B91B1F35E500A1E91F /* AccountArticleViewController.m */; };
 		22BE07BD1B1F35F200A1E91F /* AccountAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BE07BC1B1F35F200A1E91F /* AccountAlbumViewController.m */; };
-		22BE07C01B1F35FD00A1E91F /* AccountFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BE07BF1B1F35FD00A1E91F /* AccountFollowViewController.m */; };
 		22BE07C31B1F360700A1E91F /* AccountRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BE07C21B1F360700A1E91F /* AccountRecordViewController.m */; };
 		22BE07C61B1F361B00A1E91F /* AccountAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BE07C51B1F361B00A1E91F /* AccountAboutViewController.m */; };
 		22BE07C91B1F363000A1E91F /* AccountCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BE07C81B1F363000A1E91F /* AccountCollectionViewController.m */; };
-		22BE07CF1B1F367100A1E91F /* AccountGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BE07CE1B1F367100A1E91F /* AccountGroupViewController.m */; };
+		22BE07CF1B1F367100A1E91F /* AccountFollowingGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BE07CE1B1F367100A1E91F /* AccountFollowingGroupViewController.m */; };
 		22BE07D21B1F384C00A1E91F /* AccountActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BE07D11B1F384C00A1E91F /* AccountActivityViewController.m */; };
 		22BE07D51B1FCC5500A1E91F /* LXJSBridge+Open.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BE07D41B1FCC5400A1E91F /* LXJSBridge+Open.m */; };
 		22BE07D81B1FCC6D00A1E91F /* LXJSBridge+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BE07D71B1FCC6D00A1E91F /* LXJSBridge+Tint.m */; };
@@ -220,16 +219,14 @@
 		22BE07B91B1F35E500A1E91F /* AccountArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountArticleViewController.m; sourceTree = "<group>"; };
 		22BE07BB1B1F35F200A1E91F /* AccountAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountAlbumViewController.h; sourceTree = "<group>"; };
 		22BE07BC1B1F35F200A1E91F /* AccountAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountAlbumViewController.m; sourceTree = "<group>"; };
-		22BE07BE1B1F35FD00A1E91F /* AccountFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountFollowViewController.h; sourceTree = "<group>"; };
-		22BE07BF1B1F35FD00A1E91F /* AccountFollowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountFollowViewController.m; sourceTree = "<group>"; };
 		22BE07C11B1F360700A1E91F /* AccountRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountRecordViewController.h; sourceTree = "<group>"; };
 		22BE07C21B1F360700A1E91F /* AccountRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountRecordViewController.m; sourceTree = "<group>"; };
 		22BE07C41B1F361B00A1E91F /* AccountAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountAboutViewController.h; sourceTree = "<group>"; };
 		22BE07C51B1F361B00A1E91F /* AccountAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountAboutViewController.m; sourceTree = "<group>"; };
 		22BE07C71B1F363000A1E91F /* AccountCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountCollectionViewController.h; sourceTree = "<group>"; };
 		22BE07C81B1F363000A1E91F /* AccountCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountCollectionViewController.m; sourceTree = "<group>"; };
-		22BE07CD1B1F367100A1E91F /* AccountGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountGroupViewController.h; sourceTree = "<group>"; };
-		22BE07CE1B1F367100A1E91F /* AccountGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountGroupViewController.m; sourceTree = "<group>"; };
+		22BE07CD1B1F367100A1E91F /* AccountFollowingGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountFollowingGroupViewController.h; sourceTree = "<group>"; };
+		22BE07CE1B1F367100A1E91F /* AccountFollowingGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountFollowingGroupViewController.m; sourceTree = "<group>"; };
 		22BE07D01B1F384C00A1E91F /* AccountActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountActivityViewController.h; sourceTree = "<group>"; };
 		22BE07D11B1F384C00A1E91F /* AccountActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountActivityViewController.m; sourceTree = "<group>"; };
 		22BE07D31B1FCC5400A1E91F /* LXJSBridge+Open.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LXJSBridge+Open.h"; sourceTree = "<group>"; };
@@ -734,16 +731,14 @@
 				22BE07B91B1F35E500A1E91F /* AccountArticleViewController.m */,
 				22BE07BB1B1F35F200A1E91F /* AccountAlbumViewController.h */,
 				22BE07BC1B1F35F200A1E91F /* AccountAlbumViewController.m */,
-				22BE07BE1B1F35FD00A1E91F /* AccountFollowViewController.h */,
-				22BE07BF1B1F35FD00A1E91F /* AccountFollowViewController.m */,
 				22BE07C11B1F360700A1E91F /* AccountRecordViewController.h */,
 				22BE07C21B1F360700A1E91F /* AccountRecordViewController.m */,
 				22BE07C41B1F361B00A1E91F /* AccountAboutViewController.h */,
 				22BE07C51B1F361B00A1E91F /* AccountAboutViewController.m */,
 				22BE07C71B1F363000A1E91F /* AccountCollectionViewController.h */,
 				22BE07C81B1F363000A1E91F /* AccountCollectionViewController.m */,
-				22BE07CD1B1F367100A1E91F /* AccountGroupViewController.h */,
-				22BE07CE1B1F367100A1E91F /* AccountGroupViewController.m */,
+				22BE07CD1B1F367100A1E91F /* AccountFollowingGroupViewController.h */,
+				22BE07CE1B1F367100A1E91F /* AccountFollowingGroupViewController.m */,
 				22BE07D01B1F384C00A1E91F /* AccountActivityViewController.h */,
 				22BE07D11B1F384C00A1E91F /* AccountActivityViewController.m */,
 				22E7BBCB1B22A2A0009F0266 /* AccountCreditViewController.h */,
@@ -1120,7 +1115,7 @@
 				225BA69C1AFF30D0000E6D79 /* LXWebView.m in Sources */,
 				2D537DCB1B18BE66006BD35E /* LXBaseModelPost.m in Sources */,
 				2215CB461B075E0900D0359A /* LXJSBridge.m in Sources */,
-				22BE07CF1B1F367100A1E91F /* AccountGroupViewController.m in Sources */,
+				22BE07CF1B1F367100A1E91F /* AccountFollowingGroupViewController.m in Sources */,
 				2215CB6E1B08D3A900D0359A /* GroupArticleViewController.m in Sources */,
 				2215CB6B1B08D31E00D0359A /* GroupAlbumViewController.m in Sources */,
 				2215CB491B075E3900D0359A /* LXJSBridge+Fetch.m in Sources */,
@@ -1206,7 +1201,6 @@
 				2293FA091AF5DBF20012CD10 /* GroupViewController.m in Sources */,
 				2D75A2DB1B1B4A0700A8FA95 /* LXClassListViewModel.m in Sources */,
 				22E6E2911B1344ED005E528E /* ModifyPasswordViewController.m in Sources */,
-				22BE07C01B1F35FD00A1E91F /* AccountFollowViewController.m in Sources */,
 				2215D96E1B10D08A00D96C46 /* TAPageControl.m in Sources */,
 				2D00FF9D1B218CBB00106110 /* LXNetworkManager.m in Sources */,
 				22BE07C61B1F361B00A1E91F /* AccountAboutViewController.m in Sources */,

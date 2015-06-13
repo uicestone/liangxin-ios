@@ -6,17 +6,19 @@
 //  Copyright (c) 2015年 Hsu Spud. All rights reserved.
 //
 
-#import "AccountGroupViewController.h"
+#import "AccountFollowingGroupViewController.h"
 
-@interface AccountGroupViewController ()
+@interface AccountFollowingGroupViewController ()
 
 @end
 
-@implementation AccountGroupViewController
+@implementation AccountFollowingGroupViewController
 
 - (void)viewDidLoad {
-    self.title = @"我的支部";
+    self.title = @"我关注的支部";
     [super viewDidLoad];
+    
+    [self loadPage:@"followinggroups"];
     // Do any additional setup after loading the view.
 }
 

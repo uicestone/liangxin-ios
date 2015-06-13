@@ -93,13 +93,13 @@
         channels.currentIndex = index;
         [self.navigationController.navigationItem setTitle:[channels titleAtIndex:index]];
         // 执行动画
-//        [UIView animateWithDuration:0.3 animations:^{
-//            [self.navigationController.navigationItem setTitle:[channels titleAtIndex:index]];
-//            [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-//            [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
-//            [self.navigationController.navigationBar setBarTintColor: [channels colorAtIndex:index]];
-//        }];
-//        
+        [UIView animateWithDuration:0.3 animations:^{
+            [self.navigationController.navigationItem setTitle:[channels titleAtIndex:index]];
+            [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+            [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+            [self.navigationController.navigationBar setBarTintColor: [channels colorAtIndex:index]];
+        }];
+        
         [self.navigationController.navigationBar setBarTintColor: [channels colorAtIndex:index]];
     }
 }

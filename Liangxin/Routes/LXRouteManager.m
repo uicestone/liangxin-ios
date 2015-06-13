@@ -28,13 +28,13 @@
 #import "AccountArticleViewController.h"
 #import "AccountAlbumViewController.h"
 #import "AccountActivityViewController.h"
-#import "AccountFollowViewController.h"
 #import "AccountRecordViewController.h"
 #import "AccountAboutViewController.h"
 #import "AccountCollectionViewController.h"
 #import "AccountCreditViewController.h"
 #import "AccountCreditDetailViewController.h"
-#import "AccountGroupViewController.h"
+#import "AccountAboutViewController.h"
+#import "AccountFollowingGroupViewController.h"
 
 @implementation LXRouteManager
 
@@ -100,13 +100,19 @@
     [[HHRouter shared] map:@"/account/article" toControllerClass:[AccountArticleViewController class]];
     [[HHRouter shared] map:@"/account/album" toControllerClass:[AccountAlbumViewController class]];
     [[HHRouter shared] map:@"/account/activity" toControllerClass:[AccountActivityViewController class]];
-    [[HHRouter shared] map:@"/account/follow" toControllerClass:[AccountFollowViewController class]];
+    [[HHRouter shared] map:@"/account/follow" toControllerClass:[AccountFollowingGroupViewController class]];
     [[HHRouter shared] map:@"/account/record" toControllerClass:[AccountRecordViewController class]];
     [[HHRouter shared] map:@"/account/about" toControllerClass:[AccountAboutViewController class]];
+    // 我的收藏
     [[HHRouter shared] map:@"/account/collection" toControllerClass:[AccountCollectionViewController class]];
+    // 关于
+    [[HHRouter shared] map:@"/account/about" toControllerClass:[AccountAboutViewController class]];
+    
+    
+    // 积分
     [[HHRouter shared] map:@"/account/credit" toControllerClass:[AccountCreditViewController class]];
+    // 积分详情
     [[HHRouter shared] map:@"/account/credit-detail" toControllerClass:[AccountCreditDetailViewController class]];
-    [[HHRouter shared] map:@"/account/group" toControllerClass:[AccountGroupViewController class]];
 }
 
 @end
