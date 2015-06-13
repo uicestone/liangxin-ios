@@ -1,0 +1,111 @@
+.sub-title-bar{
+	background-color: rgb(201,153,103);
+	color: #fff;
+	overflow: hidden;
+	line-height: 13px;
+	font-size: 13px;
+	padding: 8px 10px;
+}
+
+.sub-title-bar .pull-left{
+	float: left;
+}
+
+.sub-title-bar .pull-right{
+	float: right;
+}
+
+.icon-del{
+	background-image: url('../icons/del.png');
+	height: 23px;
+	width: 17px;
+	display: block;
+}
+
+.album{
+	padding: 5px;
+	display: block;
+}
+
+.album mypic{
+	float: left;
+	width: 50%;
+}
+
+
+.album mypic .select{
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	border-radius: 3px;
+	background-color: rgba(255,255,255,0.2);
+	border: 1px solid #fff;
+	top: 5px;
+	right: 5px;
+}
+
+
+.album mypic .select.selected{
+	background-color: #fff;
+}
+
+.album mypic .inner{
+	position: relative;
+	background-size: cover;
+	background-position: center center;
+	margin: 5px;
+	background-color: #000;
+	height: 124px;
+}
+
+.album mypic .inner .title{
+	color: #fff;
+	position: absolute;
+	bottom: 5px;
+	left: 5px;
+	font-size: 11px
+}
+
+
+.album mypic .inner .comment,
+.album mypic .inner .like{
+	height:14px;
+	position: absolute;
+	bottom: 5px;
+	width: 32px
+}
+
+.album mypic .inner i{
+	display: block;
+	height: 14px;
+	float: left;
+}
+
+.album mypic .inner .count{
+	color: #fff;
+	font-size: 12px;
+	float: left;
+	position: relative;
+	top: 4px;
+	left: 2px;
+}
+
+.album mypic .inner .like{
+	right: 40px;
+}
+
+.album mypic .inner .comment{
+	right: 5px;
+}
+
+.album mypic .inner .icon-like{
+	width:14px;
+	background-image: url('../icons/like.png');
+}
+
+
+.album mypic .inner .icon-comment{
+	width:17px;
+	background-image: url('../icons/comment.png');
+}
+

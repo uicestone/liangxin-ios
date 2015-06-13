@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我的相册";
+    [self loadPage:@"account/album"];
     // Do any additional setup after loading the view.
 }
 

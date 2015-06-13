@@ -8,7 +8,8 @@ var entries = {};
 [
     'groupdetail',
     'groupintro',
-    'publish'
+    'publish',
+    'account-album'
 ].forEach(function(key){
     entries[key] = __dirname + '/entries/' + key + '.js';
 });

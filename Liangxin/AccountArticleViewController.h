@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 Hsu Spud. All rights reserved.
 //
 
-#import "LXWebViewController.h"
+#import "LXBaseViewController.h"
 
 @interface AccountArticleViewController : LXBaseViewController
 
