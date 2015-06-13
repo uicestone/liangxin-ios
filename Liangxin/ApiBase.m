@@ -82,7 +82,7 @@
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-//    [self addAuthority:manager];
+    [self addAuthority:manager];
     
     [manager GET:url parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
         successCallback(responseObject);

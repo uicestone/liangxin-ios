@@ -22,6 +22,6 @@ fetch({
 	$(".item-leader .value").html(result.leader);
 	$(".section-intro .content").html(result.description);
 	$(".item-members").click(function(){
-		location.href = "liangxin://groupmembers/" + group_id;
+		location.href = "liangxin://group/members/" + group_id;
 	});
 });

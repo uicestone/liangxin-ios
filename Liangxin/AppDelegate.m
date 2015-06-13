@@ -80,30 +80,34 @@
     [self.navigationController presentViewController:loginNavigationController animated:YES completion:nil];
 }
 
+-(void)setNavigationColor:(UIViewController *)viewController{
+    NSString* path = viewController.params[@"route"];
+    NSArray* components = [path componentsSeparatedByString:@"/"];
+    NSString* host = [components objectAtIndex:1];
+    Channels* channels = [Channels shared];
+    int index = (int)[channels indexOfChannel: host];
+    
+    NSLog(@"Navigate to %@", path);
+    if(index != -1){
+        Channels* channels = [Channels shared];
+        channels.currentIndex = index;
+        [self.navigationController.navigationItem setTitle:[channels titleAtIndex:index]];
+        // 执行动画
+//        [UIView animateWithDuration:0.3 animations:^{
+//            [self.navigationController.navigationItem setTitle:[channels titleAtIndex:index]];
+//            [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+//            [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+//            [self.navigationController.navigationBar setBarTintColor: [channels colorAtIndex:index]];
+//        }];
+//        
+        [self.navigationController.navigationBar setBarTintColor: [channels colorAtIndex:index]];
+    }
+}
+
 -(void)assureLoginWithViewController:(LXBaseViewController*)viewController finish:(LoginFinishBlock)loginFinish{
     if([viewController needLogin] && ![UserApi getCurrentUser]){
         [self popLoginWithFinishHandler:loginFinish];
     }else{
-        NSString* path = viewController.params[@"route"];
-        NSArray* components = [path componentsSeparatedByString:@"/"];
-        NSString* host = [components objectAtIndex:1];
-        Channels* channels = [Channels shared];
-        int index = (int)[channels indexOfChannel: host];
-        
-        NSLog(@"Navigate to %@", path);
-        if(index != -1){
-            Channels* channels = [Channels shared];
-            channels.currentIndex = index;
-            [self.navigationController.navigationItem setTitle:[channels titleAtIndex:index]];
-            // 执行动画
-            [UIView animateWithDuration:0.3 animations:^{
-                [self.navigationController.navigationItem setTitle:[channels titleAtIndex:index]];
-                [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-                [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
-                [self.navigationController.navigationBar setBarTintColor: [channels colorAtIndex:index]];
-            }];
-        }
-        
         loginFinish();
     }
 }
@@ -111,6 +115,7 @@
 -(void)pushViewController:(LXBaseViewController *)viewController{
     if(navigationController){
         [self assureLoginWithViewController:viewController finish:^{
+            [self setNavigationColor:viewController];
             [navigationController pushViewController:viewController animated:YES];
         }];
     }

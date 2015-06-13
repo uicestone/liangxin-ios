@@ -80,7 +80,7 @@
         @strongify(self);
         make.top.equalTo(self.view);
         make.left.equalTo(self.view);
-        make.height.mas_equalTo(33);
+        make.height.mas_equalTo(43);
         make.width.equalTo(self.view);
     }];
     
@@ -91,8 +91,8 @@
     searchFieldContainer.backgroundColor = [UIColor whiteColor];
     [searchFieldContainer mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(searchBar).with.offset(10);
-        make.top.equalTo(searchBar).with.offset(6);
-        make.bottom.equalTo(searchBar).with.offset(-6);
+        make.top.equalTo(searchBar).with.offset(8);
+        make.bottom.equalTo(searchBar).with.offset(-8);
         make.right.equalTo(searchBar).with.offset(-10);
     }];
     
@@ -100,17 +100,17 @@
     [searchFieldContainer addSubview:searchIcon];
     searchIcon.image = [UIImage imageNamed:@"Group_SearchIcon"];
     [searchIcon mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(searchFieldContainer).with.offset(9);
-        make.top.equalTo(searchFieldContainer).with.offset(3);
-        make.width.mas_equalTo(15);
-        make.height.mas_equalTo(15);
+        make.left.equalTo(searchFieldContainer).with.offset(10);
+        make.top.equalTo(searchFieldContainer).with.offset(5);
+        make.width.mas_equalTo(18);
+        make.height.mas_equalTo(18);
     }];
     
     searchInput = [UITextField new];
     searchInput.delegate = self;
     [searchFieldContainer addSubview:searchInput];
     searchInput.placeholder = @"请输入要查找的支部";
-    searchInput.font = [UIFont systemFontOfSize:10];
+    searchInput.font = [UIFont systemFontOfSize:13];
     [searchInput mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(searchIcon.mas_right).with.offset(10);
         make.top.equalTo(searchFieldContainer);
@@ -121,19 +121,19 @@
     cancelButton = [UIButton new];
     [searchFieldContainer addSubview:cancelButton];
     [cancelButton setTitle:@"取消" forState:UIControlStateNormal];
-    cancelButton.titleLabel.font = [UIFont systemFontOfSize:10];
+    cancelButton.titleLabel.font = [UIFont systemFontOfSize:14];
     cancelButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     cancelButton.backgroundColor = [UIColor redColor];
     [cancelButton addTarget:self action:@selector(clearSearchResults) forControlEvents:UIControlEventTouchUpInside];
     [cancelButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(searchInput.mas_right);
-        make.width.mas_equalTo(38);
+        make.width.mas_equalTo(50);
         make.right.equalTo(searchFieldContainer);
         make.top.equalTo(searchFieldContainer);
         make.bottom.equalTo(searchFieldContainer);
     }];
     
-    searchFieldContainer.layer.cornerRadius = 5;
+    searchFieldContainer.layer.cornerRadius = 8;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
@@ -227,7 +227,7 @@
     if([newGroupItems count]){
         urlPath = @"group";
     }else{
-        urlPath = @"groupdetail";
+        urlPath = @"group/detail";
     }
     
     NSString* urlString = [NSString stringWithFormat:@"liangxin://%@/%d", urlPath, group.groupid];

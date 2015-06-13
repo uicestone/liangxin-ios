@@ -13,15 +13,15 @@ bridge.onerror = function(err){
 var group_id = query.id;
 
 $(".section-intro .title").on("click", function(){
-	location.href = "liangxin://groupintro/" + group_id;
+	location.href = "liangxin://group/intro/" + group_id;
 });
 
 $(".section-activity .title").on("click", function(){
-	location.href = "liangxin://groupactivity/" + group_id;
+	location.href = "liangxin://group/activity/" + group_id;
 });
 
 $(".section-album .title").on("click", function(){
-	location.href = "liangxin://groupalbum/" + group_id;
+	location.href = "liangxin://group/album/" + group_id;
 });
 
 bridge.showProgress();

@@ -142,18 +142,20 @@
     UIView* lastTab;
     UIView* currentTab;
     BOOL isFirst, isLast;
+    
+    
     tabitems = @[@{
                  @"name":@"我的支部",
                  @"icon":@"我的支部",
-                 @"link":@"group"
+                 @"link": [NSString stringWithFormat:@"/group/detail/%d", self.currentUser.group_id]
                  },@{
                  @"name":@"我的积分",
                  @"icon":@"我的积分",
-                 @"link":@"credit"
+                 @"link":@"/account/credit"
                  },@{
                  @"name":@"我的收藏",
                  @"icon":@"我的收藏",
-                 @"link":@"collection"
+                 @"link":@"/account/collection"
                  }];
     
     for(int i = 0; i < 3; i++){
@@ -246,7 +248,7 @@
     NSInteger index = [(UIButton *)sender tag];
     NSDictionary* item = [tabitems objectAtIndex:index];
     NSString* link = [item objectForKey:@"link"];
-    [self navigateToPath:[@"account/" stringByAppendingString:link]];
+    [self navigateToPath:link];
 }
 
 -(void) initTableView{

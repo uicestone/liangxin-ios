@@ -64,11 +64,11 @@
     [[HHRouter shared] map:@"/home" toControllerClass:[LXHomeViewController class]];
     [[HHRouter shared] map:@"/group" toControllerClass:[GroupViewController class]];
     [[HHRouter shared] map:@"/group/:id" toControllerClass:[GroupViewController class]];
-    [[HHRouter shared] map:@"/groupdetail/:id" toControllerClass:[GroupDetailViewController class]];
-    [[HHRouter shared] map:@"/groupintro/:id" toControllerClass:[GroupIntroViewController class]];
-    [[HHRouter shared] map:@"/groupactivity/:id" toControllerClass:[GroupPostViewController class]];
-    [[HHRouter shared] map:@"/groupalbum/:id" toControllerClass:[GroupAlbumViewController class]];
-    [[HHRouter shared] map:@"/groupmembers/:id" toControllerClass:[GroupMembersViewController class]];
+    [[HHRouter shared] map:@"/group/detail/:id" toControllerClass:[GroupDetailViewController class]];
+    [[HHRouter shared] map:@"/group/intro/:id" toControllerClass:[GroupIntroViewController class]];
+    [[HHRouter shared] map:@"/group/activity/:id" toControllerClass:[GroupPostViewController class]];
+    [[HHRouter shared] map:@"/group/album/:id" toControllerClass:[GroupAlbumViewController class]];
+    [[HHRouter shared] map:@"/group/members/:id" toControllerClass:[GroupMembersViewController class]];
     
     // 活动
     [[HHRouter shared] map:@"/activity" toControllerClass:[ActivityViewController class]];

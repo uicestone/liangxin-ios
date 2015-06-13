@@ -106,7 +106,13 @@
     [ApiBase postJSONWithPath:@"/auth/login" data:data success:^(NSDictionary* responseObject, AFHTTPRequestOperation* operation) {
         @strongify(self);
         processing = NO;
-        LXBaseModelUser* user = [LXBaseModelUser modelWithDictionary:responseObject error:nil];
+        LXBaseModelUser* user = [LXBaseModelUser modelWithDictionary:@{
+                                                                       @"id": responseObject[@"id"],
+                                                                       @"contact": responseObject[@"contact"],
+                                                                       @"name": responseObject[@"name"],
+                                                                       @"token": responseObject[@"token"],
+                                                                       @"group_id": responseObject[@"group_id"]
+                                                                       } error:nil];
         [UserApi setCurrentUser: user];
         [self hideProgress];
         [self dismissViewController];
