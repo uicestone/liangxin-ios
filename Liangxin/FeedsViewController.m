@@ -22,6 +22,10 @@
 @implementation FeedsViewController
 @synthesize tabview, tableview;
 
+
+- (BOOL)hasToolBar{
+    return YES;}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -35,7 +39,7 @@
                initWithContainer:self.view
                firstTab:@"公告"
                secondTab:@"文章"
-               tabColor:UIColorFromRGB(0xc39a6b)];
+               tabColor:UIColorFromRGB(0xee2a7b)];
     tabview.delegate = self;
     
     // init tableview

@@ -21,7 +21,7 @@ li{
 }
 
 .input-textarea{
-	height: 70px;
+	height: 200px;
 	resize: none;
 }
 
@@ -35,13 +35,13 @@ li{
 	border-radius: 4px;
 	border: 0;
 	font-size: 13px;
-	height: 25px;
-	line-height: 25px;
+	height: 27px;
+	line-height: 27px;
 }
 
 .input.input-text{
-	height: 25px;
-	line-height: 25px
+	height: 26px;
+	line-height: 26px
 }
 
 .input.input-select{

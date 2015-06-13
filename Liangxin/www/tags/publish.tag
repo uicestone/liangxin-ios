@@ -11,18 +11,18 @@ require('./selectctrl.tag')
 <publish class="input-container">
 	<!-- 发布课堂 -->
 	<div show={ opts.type=='class' }>
-		<imgctrl icon='plus' placeholder='为你的课堂上传海报' model='poster' />
+		<imgctrl icon='plus' size='small' placeholder='为你的课堂上传海报' model='poster' />
 		<inputctrl title='请输入课堂标题（字数限制50字）' limit='50' model='title' />
 		<textareactrl title='添加课堂文字描述（字数限制500字）' limit='500' model='describe'></textareactrl>
 		<textareactrl title='添加课堂文字资料' model='content'></textareactrl>
-		<imgctrl icon='upload' model='files' placeholder='添加课堂文件' />
-		<imgctrl icon='plus' model='images' placeholder='添加课堂图片资料' />
-		<imgctrl icon='link' model='videos' placeholder='添加课堂视频链接' />
+		<imgctrl icon='upload'size='small' model='files' placeholder='添加课堂文件' />
+		<imgctrl icon='plus' size='small' model='images' placeholder='添加课堂图片资料' />
+		<imgctrl icon='link' size='small' model='videos' placeholder='添加课堂视频链接' />
 	</div>
 
 	<!-- 发布活动 -->
 	<div show={ opts.type=='activity' }>
-		<imgctrl icon='plus' placeholder='为你的活动上传海报' model='poster' />
+		<imgctrl icon='plus' size='small' placeholder='为你的活动上传海报' model='poster' />
 		<datepicker title='请输入活动时间' model='event_date' />
 		<inputctrl title='请输入活动地点' limit='50' model='event_address' />
 		<textareactrl title='添加活动文字详情（字数限制1000字）' limit='500' model='describe'></textareactrl>
@@ -46,7 +46,7 @@ require('./selectctrl.tag')
 	<!-- 发布照片 -->
 	<div show={ opts.type=='image' }>
 		<inputctrl title='请输入图片标题（字数限制50字）' limit='50' model='title' />
-		<imgctrl icon='plus' model='images' placeholder='上传图片' />
+		<imgctrl icon='plus' size='big' model='images' placeholder='上传图片' />
 	</div>
 
 	
