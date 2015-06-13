@@ -1,6 +1,6 @@
 <mypic>
-	<div class="inner" style="background-image:url({opts.pic})">
-	<div class="select {selected?'selected':''}" onclick="{toggle}"></div>
+	<div class="inner" style="background-image:url({opts.pic})" onclick="{toggle}">
+	<div class="select {selected?'selected':''}"></div>
 	<div class="title">{opts.title}</div>
 	<div class="like">
 		<i class="icon-like"></i>

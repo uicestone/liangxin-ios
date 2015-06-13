@@ -1,5 +1,5 @@
 <myalbum class="album">
-	<mypic each={ items } title="{ this.title }" likes="{ this.likes }" comments="{ this.comments }"></mypic>
+	<mypic each={ items } title="{ this.title }" pic="{ this.pic }" likes="{ this.likes }" comments="{ this.comments }"></mypic>
 
 	var self = this;
 	
