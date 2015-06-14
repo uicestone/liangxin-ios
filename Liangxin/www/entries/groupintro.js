@@ -14,8 +14,8 @@ fetch({
 	url: "/group/" + group_id
 }).then(function(result){
 	// 头像
-	$(".avatar").attr("src", result.avatar);
-
+	$(".avatar").attr("src", result.avatar + "?imageView2/1/w/100/h/100");
+	$(".meta .title").html(result.name);
 	$(".item-members .value").html(result.members + "人");
 	$(".item-address .value").html(result.address);
 	$(".item-contact .value").html(result.contact);

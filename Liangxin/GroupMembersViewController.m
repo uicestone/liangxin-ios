@@ -24,7 +24,7 @@
     [super viewDidLoad];
     
     
-    [self.navigationItem setTitle:@"支部动态"];
+    [self.navigationItem setTitle:@"支部成员"];
     
     tableview = [[UITableView alloc] initWithFrame:[self view].bounds];
     [self.view addSubview:tableview];

@@ -1,5 +1,5 @@
 <mypic>
-	<div class="inner" style="background-image:url({opts.pic})" ontouchend="{toggle}">
+	<div class="inner" style="background-image:url({opts.url})" ontouchend="{toggle}">
 	<div class="select {selected?'selected':''}"></div>
 	<div class="title">{opts.title}</div>
 	<div class="like">

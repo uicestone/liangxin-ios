@@ -14,6 +14,8 @@
         self.group_id = 0;
     } else if ([key isEqualToString:@"credits"]) {
         self.credits = 0;
+    } else if ([key isEqualToString:@"department_id"]){
+        self.department_id = 0;
     } else {
         [super setNilValueForKey:key];
     }

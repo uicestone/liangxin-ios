@@ -116,15 +116,28 @@
     }
 }
 
+
+
 - (void)showPublishActionSheet{
+    LXBaseModelUser* user = [UserApi getCurrentUser];
+    UIActionSheet* actionSheet;
     
+    if([user.role isEqualToString:@"user"]){
+        actionSheet = [[UIActionSheet alloc]
+                                      initWithTitle:nil
+                                      delegate:self
+                                      cancelButtonTitle:@"取消"
+                                      destructiveButtonTitle:nil
+                                      otherButtonTitles:@"公告", @"文章", @"相片", nil];
+    }else{
+        actionSheet = [[UIActionSheet alloc]
+                                      initWithTitle:nil
+                                      delegate:self
+                                      cancelButtonTitle:@"取消"
+                                      destructiveButtonTitle:nil
+                       otherButtonTitles:@"公告", @"文章", @"相片", @"活动", @"课堂", nil];
+    }
     
-    UIActionSheet* actionSheet = [[UIActionSheet alloc]
-                                  initWithTitle:nil
-                                  delegate:self
-                                  cancelButtonTitle:@"取消"
-                                  destructiveButtonTitle:nil
-                                  otherButtonTitles:@"公告", @"文章", @"相片", nil];
     actionSheet.delegate = self;
     [actionSheet showInView:self.view];
 }

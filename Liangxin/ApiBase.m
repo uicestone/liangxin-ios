@@ -53,10 +53,11 @@
                                         name:key];
         }
         
+        
         for(NSDictionary* file in files){
             [formData appendPartWithFileData: file[@"data"]
                                         name: file[@"name"]
-                                    fileName:@"default-file-name" mimeType:@"image/jpeg"];
+                                    fileName: file[@"title"] ? file[@"title"] : @"未命名"  mimeType:@"image/jpeg"];
         }
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         successCallback(responseObject);

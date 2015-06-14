@@ -3,7 +3,7 @@ var fetch = bridge.fetch;
 
 
 <myalbum class="album">
-	<mypic each={ items } title="{ this.title }" pic="{ this.pic }" likes="{ this.likes }" comments="{ this.comments }"></mypic>
+	<mypic each={ items } title="{ this.title }" url="{ this.url }" likes="{ this.likes }" comments="{ this.comments }"></mypic>
 
 	var self = this;
 		
@@ -15,7 +15,7 @@ var fetch = bridge.fetch;
 					url: "/post",
 					data: {
 						author_id: user.id,
-						type: "照片"
+						type: "图片"
 					}
 				}).then(function(data){
 					opts.trigger('data', data);

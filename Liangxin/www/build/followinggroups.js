@@ -1346,7 +1346,7 @@ webpackJsonp([1],{
 	var bridge = __webpack_require__(3);
 	var fetch = bridge.fetch;
 
-	riot.tag('followinggroup', '<div class="inner" ontouchend="{togroup}"> <img class="avatar" riot-src="{opts.data.avatar}?imageView2/1/w/50/h/50"> <div class="main"> <div class="name">{opts.data.name}</div> <div class="follow-btn" onclick="{toggleFollowing}">已关注</div> </div> </div>', function(opts) {
+	riot.tag('followinggroup', '<div class="inner" ontouchend="{togroup}"> <img class="avatar" riot-src="{opts.data.avatar}?imageView2/1/w/100/h/100"> <div class="main"> <div class="name">{opts.data.name}</div> <div class="follow-btn" onclick="{toggleFollowing}">已关注</div> </div> </div>', function(opts) {
 		
 		var self = this;
 		var id = opts.data.id;
