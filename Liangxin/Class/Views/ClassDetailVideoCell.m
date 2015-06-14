@@ -14,6 +14,8 @@
 @property (nonatomic, strong) NSMutableArray *videoButtons;
 @property (nonatomic, strong) NSMutableArray *videoLabels;
 
+@property (nonatomic, strong) NSMutableArray *videos;
+
 @end
 
 @implementation ClassDetailVideoCell
@@ -27,6 +29,8 @@
             UIButton *videoButton = [UIButton buttonWithType:UIButtonTypeCustom];
             videoButton.hidden = YES;
             videoButton.backgroundColor = [UIColor colorWithRed:169/255.0 green:171.0/255.0 blue:174.0/255.0 alpha:1.0];
+            [videoButton addTarget:self action:@selector(playVideo:) forControlEvents:UIControlEventTouchUpInside];
+            videoButton.tag = i;
             [self.baseView addSubview:videoButton];
             [_videoButtons addObject:videoButton];
             if (i == 0) {
@@ -89,6 +93,7 @@
             _defaultLabel.hidden = NO;
         }
         else {
+            _videos = [NSMutableArray arrayWithArray:data.videos];
             for (NSInteger i = 0; i < data.videos.count; i++) {
                 UILabel *videoLabel = [self.videoLabels objectAtIndex:i];
                 UIButton *videoButton = [self.videoButtons objectAtIndex:i];
@@ -97,6 +102,10 @@
             }
         }
     }
+}
+
+- (void)playVideo:(UIButton *)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://video/?url=%@&title=%@", [[[self.videos objectAtIndex:sender.tag] objectForKey:@"url"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], [[[self.videos objectAtIndex:sender.tag] objectForKey:@"title"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
 }
 
 @end

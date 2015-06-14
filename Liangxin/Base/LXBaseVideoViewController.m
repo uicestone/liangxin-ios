@@ -10,28 +10,33 @@
 
 @interface LXBaseVideoViewController ()
 
+@property (nonatomic, strong) UIWebView *webView;
+
 @end
 
 @implementation LXBaseVideoViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self commonInit];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (BOOL)needLogin {
+    return NO;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)commonInit {
+    self.title = [[self.params objectForKey:@"title"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    self.webView = [UIWebView new];
+    [self.view addSubview:self.webView];
+    [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        make.top.mas_equalTo(0);
+        make.bottom.mas_equalTo(0);
+    }];
+    NSURL *URL = [NSURL URLWithString:[self.params objectForKey:@"url"]];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:URL]];
 }
-*/
 
 @end
