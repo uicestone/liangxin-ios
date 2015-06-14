@@ -26,6 +26,5 @@
 @property (nonatomic, copy) NSString *group_name;
 @property (nonatomic, copy) NSString *contact;
 @property (nonatomic, copy) NSString *token;
-@property (nonatomic, copy) NSString *role;
 
 @end
