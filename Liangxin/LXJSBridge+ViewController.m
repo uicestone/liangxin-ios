@@ -11,7 +11,7 @@
 @implementation LXJSBridge (ViewController)
 
 -(void)dismiss:(NSDictionary *)params{
-    [self.viewController dismissViewController];
+    [self.viewController dismissViewControllerWithData:params];
 }
 
 @end

@@ -39,6 +39,10 @@
     return UIStatusBarStyleLightContent;
 }
 
+-(BOOL) hasToolBar{
+    return YES;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

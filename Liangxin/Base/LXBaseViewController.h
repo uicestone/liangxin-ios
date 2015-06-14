@@ -8,10 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "LXBaseModelUser.h"
+
+@protocol LXViewControllerDelegate
+-(void)handleDismissData:(NSDictionary*)data;
+@end
+
+
 @interface LXBaseViewController : UIViewController
 
 @property (nonatomic, strong) LXBaseModelUser* currentUser;
 @property (nonatomic, strong) UIButton *backButton;
+@property (nonatomic, weak) id<LXViewControllerDelegate> delegate;
 
 - (BOOL)needLogin;
 - (BOOL)hasToolBar;
@@ -19,6 +26,7 @@
 - (void)navigateToPath:(NSString *)path;
 - (void)popMessage:(NSString *)message;
 - (void)dismissViewController;
+- (void)dismissViewControllerWithData:(NSDictionary *)data;
 - (void)showProgress;
 - (void)hideProgress;
 @end

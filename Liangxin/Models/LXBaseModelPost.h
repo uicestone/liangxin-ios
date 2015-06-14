@@ -20,7 +20,7 @@
 @property (nonatomic, copy) NSString *updated_at;
 @property (nonatomic, strong) NSArray *comments;
 @property (nonatomic, strong) NSArray *images;
-@property (nonatomic, strong) NSArray *articles;
+@property (nonatomic, copy) NSString *articles;
 @property (nonatomic, strong) NSArray *videos;
 @property (nonatomic, strong) NSArray *attachments;
 @property (nonatomic, copy) NSString *attend_status;
@@ -37,7 +37,7 @@
 @property (nonatomic, strong) NSDictionary *group;
 @property (nonatomic, strong) NSDictionary *poster;
 @property (nonatomic, copy) NSString *liked;
-@property (nonatomic, copy) NSString *likes;
+@property (nonatomic, assign) NSInteger likes;
 @property (nonatomic, copy) NSString *group_id;
 @property (nonatomic, copy) NSString *poster_id;
 @property (nonatomic, copy) NSString *author_id;

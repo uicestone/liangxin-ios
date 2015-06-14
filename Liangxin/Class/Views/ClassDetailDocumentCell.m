@@ -10,6 +10,7 @@
 
 @interface ClassDetailDocumentCell()
 
+@property (nonatomic, strong) UILabel *defaultLabel;
 @property (nonatomic, strong) NSMutableArray *documentButtons;
 @property (nonatomic, strong) NSMutableArray *documentLabels;
 
@@ -57,12 +58,33 @@
                 make.height.mas_equalTo(12);
             }];
         }
+        _defaultLabel = [UILabel new];
+        _defaultLabel.text = @"暂无文件";
+        _defaultLabel.textColor = [UIColor lightGrayColor];
+        _defaultLabel.font = [UIFont systemFontOfSize:15.0];
+        _defaultLabel.hidden = YES;
+        [self.baseView addSubview:_defaultLabel];
+        [_defaultLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(20);
+            make.top.mas_equalTo(0);
+            make.right.mas_equalTo(0);
+            make.bottom.mas_equalTo(0);
+        }];
     }
     return self;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+}
+
+- (void)reloadViewWithData:(LXBaseModelPost *)data {
+    if (data.attachments.count == 0) {
+        for (UIButton *documentButton in self.documentButtons) {
+            documentButton.hidden = YES;
+        }
+        self.defaultLabel.hidden = NO;
+    }
 }
 
 @end

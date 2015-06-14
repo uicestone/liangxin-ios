@@ -40,12 +40,9 @@
     AccountFieldCell* cell = (AccountFieldCell*)[tableview cellForRowAtIndexPath:index];
     
     
+    NSString* url = [NSString stringWithFormat:@"/auth/user?contact=%@", cell.text.text];
     
-    NSDictionary* data = @{
-                           @"contact": cell.text.text
-                           };
-    
-    [ApiBase postJSONWithPath:@"/auth/user" data:data success:^(id responseObject, AFHTTPRequestOperation* operation) {
+    [ApiBase postJSONWithPath:url data:nil success:^(id responseObject, AFHTTPRequestOperation* operation) {
         // send a request
         [self navigateToPath:@"/login/vcodeinput"];
     } error:^(AFHTTPRequestOperation *operation, NSError *error) {
