@@ -37,6 +37,7 @@
 #import "AccountCreditDetailViewController.h"
 #import "AccountAboutViewController.h"
 #import "AccountFollowingGroupViewController.h"
+#import "LXBaseVideoViewController.h"
 
 @implementation LXRouteManager
 
@@ -116,6 +117,9 @@
     [[HHRouter shared] map:@"/account/credit" toControllerClass:[AccountCreditViewController class]];
     // 积分详情
     [[HHRouter shared] map:@"/account/credit-detail" toControllerClass:[AccountCreditDetailViewController class]];
+    
+    // 视频
+    [[HHRouter shared] map:@"/video" toControllerClass:[LXBaseVideoViewController class]];
 }
 
 @end
