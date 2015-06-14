@@ -36,6 +36,9 @@ static BOOL toolbarInited = NO;
     self.backButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [self.backButton addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
     if (!self.params[@"route"]) {
+        UIImage *backImage = [UIImage imageNamed:@"Back"];
+        backImage = [backImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        [self.backButton setImage:backImage forState:UIControlStateNormal];
         self.backButton.imageView.tintColor = [UIColor blueColor];
     }
     
