@@ -26,7 +26,7 @@
         _documentLabels = [NSMutableArray array];
         for (NSInteger i = 0; i < 3; i++) {
             UIButton *documentButton = [UIButton buttonWithType:UIButtonTypeCustom];
-            documentButton.backgroundColor = [UIColor colorWithRed:169/255.0 green:171.0/255.0 blue:174.0/255.0 alpha:1.0];
+            [documentButton setBackgroundImage:[UIImage imageNamed:@"Article_BG"] forState:UIControlStateNormal];
             [documentButton addTarget:self action:@selector(openPDF:) forControlEvents:UIControlEventTouchUpInside];
             documentButton.hidden = YES;
             [self.baseView addSubview:documentButton];
