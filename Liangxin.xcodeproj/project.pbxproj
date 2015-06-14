@@ -122,6 +122,8 @@
 		2D537DFC1B1AF572006BD35E /* ClassVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DFB1B1AF572006BD35E /* ClassVideoViewController.m */; };
 		2D537DFF1B1AF588006BD35E /* ClassDocumentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DFE1B1AF588006BD35E /* ClassDocumentViewController.m */; };
 		2D537E021B1AF6D7006BD35E /* ClassListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537E011B1AF6D7006BD35E /* ClassListViewController.m */; };
+		2D589A6B1B2D5EAD00F91385 /* LXClassDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D589A6A1B2D5EAD00F91385 /* LXClassDetailViewModel.m */; };
+		2D589A6E1B2D67C300F91385 /* ClassDetailArticleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D589A6D1B2D67C300F91385 /* ClassDetailArticleView.m */; };
 		2D6160AD1B1C9661001D01D8 /* LXFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160AC1B1C9661001D01D8 /* LXFilterView.m */; };
 		2D6160B01B1C9EB7001D01D8 /* LXFilterViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160AF1B1C9EB7001D01D8 /* LXFilterViewCell.m */; };
 		2D6160B91B2087DE001D01D8 /* ActivityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160B81B2087DE001D01D8 /* ActivityListViewController.m */; };
@@ -368,6 +370,10 @@
 		2D537DFE1B1AF588006BD35E /* ClassDocumentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassDocumentViewController.m; path = Class/ClassDocumentViewController.m; sourceTree = "<group>"; };
 		2D537E001B1AF6D7006BD35E /* ClassListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassListViewController.h; path = Class/ClassListViewController.h; sourceTree = "<group>"; };
 		2D537E011B1AF6D7006BD35E /* ClassListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassListViewController.m; path = Class/ClassListViewController.m; sourceTree = "<group>"; };
+		2D589A691B2D5EAD00F91385 /* LXClassDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXClassDetailViewModel.h; path = Class/ViewModel/LXClassDetailViewModel.h; sourceTree = "<group>"; };
+		2D589A6A1B2D5EAD00F91385 /* LXClassDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXClassDetailViewModel.m; path = Class/ViewModel/LXClassDetailViewModel.m; sourceTree = "<group>"; };
+		2D589A6C1B2D67C300F91385 /* ClassDetailArticleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassDetailArticleView.h; path = Class/Views/ClassDetailArticleView.h; sourceTree = "<group>"; };
+		2D589A6D1B2D67C300F91385 /* ClassDetailArticleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassDetailArticleView.m; path = Class/Views/ClassDetailArticleView.m; sourceTree = "<group>"; };
 		2D6160AB1B1C9661001D01D8 /* LXFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXFilterView.h; path = Widgets/LXFilterView.h; sourceTree = "<group>"; };
 		2D6160AC1B1C9661001D01D8 /* LXFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXFilterView.m; path = Widgets/LXFilterView.m; sourceTree = "<group>"; };
 		2D6160AE1B1C9EB7001D01D8 /* LXFilterViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXFilterViewCell.h; path = Widgets/LXFilterViewCell.h; sourceTree = "<group>"; };
@@ -912,6 +918,8 @@
 				2D537DEF1B1AEB38006BD35E /* ClassDetailVideoCell.m */,
 				2D537DF11B1AED21006BD35E /* ClassDetailDocumentCell.h */,
 				2D537DF21B1AED21006BD35E /* ClassDetailDocumentCell.m */,
+				2D589A6C1B2D67C300F91385 /* ClassDetailArticleView.h */,
+				2D589A6D1B2D67C300F91385 /* ClassDetailArticleView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -972,6 +980,8 @@
 				2DFD652E1B175EAE00FAC662 /* LXClassViewModel.m */,
 				2D75A2D91B1B4A0700A8FA95 /* LXClassListViewModel.h */,
 				2D75A2DA1B1B4A0700A8FA95 /* LXClassListViewModel.m */,
+				2D589A691B2D5EAD00F91385 /* LXClassDetailViewModel.h */,
+				2D589A6A1B2D5EAD00F91385 /* LXClassDetailViewModel.m */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -1138,6 +1148,7 @@
 				22BE07B01B1D3C9200A1E91F /* AccountHomeViewController.m in Sources */,
 				22E6E2551B11C380005E528E /* EntryItemCell.m in Sources */,
 				2D537E021B1AF6D7006BD35E /* ClassListViewController.m in Sources */,
+				2D589A6E1B2D67C300F91385 /* ClassDetailArticleView.m in Sources */,
 				2D6160CA1B20B26B001D01D8 /* LXHomeCollectionViewCell.m in Sources */,
 				2215CB741B08EA0C00D0359A /* GroupMembersViewController.m in Sources */,
 				22E5E8D31B272A700004D1CA /* FeedsViewController.m in Sources */,
@@ -1168,6 +1179,7 @@
 				2D0000771B28392F00106110 /* LXSendButton.m in Sources */,
 				22E6E2471B115E41005E528E /* LXJSBridge+PickImage.m in Sources */,
 				22E6E2781B12ADB4005E528E /* LoginViewCell.m in Sources */,
+				2D589A6B1B2D5EAD00F91385 /* LXClassDetailViewModel.m in Sources */,
 				22BE07D51B1FCC5500A1E91F /* LXJSBridge+Open.m in Sources */,
 				2DB6C2BB1B24367300A94E6E /* LXSearchBar.m in Sources */,
 				2D537DEA1B1AEA61006BD35E /* ClassDetailDetailCell.m in Sources */,

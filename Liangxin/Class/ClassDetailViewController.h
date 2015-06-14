@@ -11,6 +11,6 @@
 
 @interface ClassDetailViewController : LXBaseViewController
 
-@property (nonatomic, strong) LXBaseModelPost *postData;
+@property (nonatomic, copy) NSString *postId;
 
 @end

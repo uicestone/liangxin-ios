@@ -150,4 +150,32 @@
     }];
 }
 
+- (RACSignal *)getPostDetailById:(NSString *)postId {
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        NSURLSessionDataTask *task = [self.sessionManager GET:[NSString stringWithFormat:@"/api/v1/post/%@", postId] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+            [subscriber sendNext:[LXBaseModelPost modelWithDictionary:responseObject error:nil]];
+            [subscriber sendCompleted];
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            [subscriber sendError:error];
+        }];
+        return [RACDisposable disposableWithBlock:^{
+            [task cancel];
+        }];
+    }];
+}
+
+- (RACSignal *)getUserById:(NSString *)userId {
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        NSURLSessionDataTask *task = [self.sessionManager GET:[NSString stringWithFormat:@"/api/v1/user/%@", userId] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+            [subscriber sendNext:[LXBaseModelUser modelWithDictionary:responseObject error:nil]];
+            [subscriber sendCompleted];
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            [subscriber sendError:error];
+        }];
+        return [RACDisposable disposableWithBlock:^{
+            [task cancel];
+        }];
+    }];
+}
+
 @end

@@ -20,7 +20,7 @@
 @property (nonatomic, copy) NSString *updated_at;
 @property (nonatomic, strong) NSArray *comments;
 @property (nonatomic, strong) NSArray *images;
-@property (nonatomic, copy) NSString *articles;
+@property (nonatomic, strong) NSArray *articles;
 @property (nonatomic, strong) NSArray *videos;
 @property (nonatomic, strong) NSArray *attachments;
 @property (nonatomic, copy) NSString *attend_status;
@@ -43,5 +43,7 @@
 @property (nonatomic, copy) NSString *author_id;
 @property (nonatomic, copy) NSString *is_favorite;
 @property (nonatomic, strong) NSArray *favored_users;
+@property (nonatomic, copy) NSString *liked_users;
+@property (nonatomic, copy) NSString *parent;
 
 @end

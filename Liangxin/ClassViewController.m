@@ -196,9 +196,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    LXBaseModelPost *data = [self.viewModel.classData objectAtIndex:indexPath.row];
     ClassDetailViewController *detailViewController = [ClassDetailViewController new];
     detailViewController.hidesBottomBarWhenPushed = YES;
-    detailViewController.postData = [self.viewModel.classData objectAtIndex:indexPath.row];
+    detailViewController.postId = data.id;
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
