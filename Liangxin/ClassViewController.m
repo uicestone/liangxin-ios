@@ -83,11 +83,9 @@
             make.width.mas_equalTo(width);
             make.height.mas_equalTo(50);
         }];
-        @weakify(self)
         channelView.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
             return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-                @strongify(self)
-                [self.navigationController pushViewController:[ClassListViewController new] animated:YES];
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"liangxin://class/list"]];
                 [subscriber sendCompleted];
                 return nil;
             }];
@@ -151,7 +149,7 @@
 #pragma mark - LXBannerViewDelegate
 
 - (void)bannerView:(LXBannerView *)bannerView didSelectItemAtIndex:(NSInteger)index {
-    [self.navigationController pushViewController:[ClassListViewController new] animated:YES];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"liangxin://class/list"]];
 }
 
 #pragma mark - UITableViewDataSource  && UITableViewDelegate

@@ -16,7 +16,9 @@
 #import "GroupAlbumViewController.h"
 #import "GroupMembersViewController.h"
 #import "ClassViewController.h"
+#import "ClassListViewController.h"
 #import "ActivityViewController.h"
+#import "ActivityListViewController.h"
 #import "PublishViewController.h"
 #import "LoginViewController.h"
 #import "FeedsViewController.h"
@@ -75,6 +77,7 @@
     
     // 课堂
     [[HHRouter shared] map:@"/class" toControllerClass:[ClassViewController class]];
+    [[HHRouter shared] map:@"/class/list" toControllerClass:[ClassListViewController class]];
     
     // 发布
     [[HHRouter shared] map:@"/publish/" toControllerClass:[PublishViewController class]];
