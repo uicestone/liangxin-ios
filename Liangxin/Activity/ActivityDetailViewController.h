@@ -10,4 +10,6 @@
 
 @interface ActivityDetailViewController : LXBaseViewController
 
+@property (nonatomic, strong) LXBaseModelPost *postData;
+
 @end
