@@ -79,11 +79,19 @@
 }
 
 - (void)reloadViewWithData:(LXBaseModelPost *)data {
-    if (data.videos.count == 0) {
-        for (UIButton *videoButton in self.videoButtons) {
-            videoButton.hidden = YES;
+    if (data) {
+        if (data.videos.count == 0) {
+            for (UIButton *videoButton in self.videoButtons) {
+                videoButton.hidden = YES;
+            }
+            _defaultLabel.hidden = NO;
         }
-        _defaultLabel.hidden = NO;
+        else {
+            for (NSInteger i = 0; i < data.videos.count; i++) {
+                UILabel *videoLabel = [self.videoLabels objectAtIndex:i];
+                videoLabel.text = [[data.videos objectAtIndex:i] objectForKey:@"title"];
+            }
+        }
     }
 }
 

@@ -79,11 +79,16 @@
 }
 
 - (void)reloadViewWithData:(LXBaseModelPost *)data {
-    if (data.images.count == 0) {
-        for (UIButton *albumButton in self.albumButtons) {
-            albumButton.hidden = YES;
+    if (data) {
+        if (data.images.count == 0) {
+            for (UIButton *albumButton in self.albumButtons) {
+                albumButton.hidden = YES;
+            }
+            self.defaultLabel.hidden = NO;
         }
-        self.defaultLabel.hidden = NO;
+        else {
+            
+        }
     }
 }
 
