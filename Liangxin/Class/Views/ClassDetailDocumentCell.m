@@ -13,6 +13,7 @@
 @property (nonatomic, strong) UILabel *defaultLabel;
 @property (nonatomic, strong) NSMutableArray *documentButtons;
 @property (nonatomic, strong) NSMutableArray *documentLabels;
+@property (nonatomic, strong) NSMutableArray *attachments;
 
 @end
 
@@ -26,6 +27,7 @@
         for (NSInteger i = 0; i < 3; i++) {
             UIButton *documentButton = [UIButton buttonWithType:UIButtonTypeCustom];
             documentButton.backgroundColor = [UIColor colorWithRed:169/255.0 green:171.0/255.0 blue:174.0/255.0 alpha:1.0];
+            [documentButton addTarget:self action:@selector(openPDF:) forControlEvents:UIControlEventTouchUpInside];
             documentButton.hidden = YES;
             [self.baseView addSubview:documentButton];
             [_documentButtons addObject:documentButton];
@@ -89,6 +91,7 @@
             self.defaultLabel.hidden = NO;
         }
         else {
+            self.attachments = [NSMutableArray arrayWithArray:data.attachments];
             for (NSInteger i = 0; i < data.attachments.count; i++) {
                 UILabel *documentLabel = [self.documentLabels objectAtIndex:i];
                 UIButton *documentButton = [self.documentButtons objectAtIndex:i];
@@ -97,6 +100,10 @@
             }
         }
     }
+}
+
+- (void)openPDF:(UIButton *)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://pdf/?url=%@&title=%@", [[[self.attachments objectAtIndex:sender.tag] objectForKey:@"url"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], [[[self.attachments objectAtIndex:sender.tag] objectForKey:@"title"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
 }
 
 @end

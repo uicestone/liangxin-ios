@@ -38,6 +38,7 @@
 #import "AccountAboutViewController.h"
 #import "AccountFollowingGroupViewController.h"
 #import "LXBaseVideoViewController.h"
+#import "LXBasePDFViewController.h"
 
 @implementation LXRouteManager
 
@@ -120,6 +121,8 @@
     
     // 视频
     [[HHRouter shared] map:@"/video" toControllerClass:[LXBaseVideoViewController class]];
+    // PDF
+    [[HHRouter shared] map:@"/pdf" toControllerClass:[LXBasePDFViewController class]];
 }
 
 @end
