@@ -37,4 +37,8 @@
     [super setSelected:selected animated:animated];
 }
 
+- (void)reloadViewWithData:(LXBaseModelPost *)data {
+    _descLabel.text = data.content;
+}
+
 @end

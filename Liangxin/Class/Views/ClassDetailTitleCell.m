@@ -72,7 +72,11 @@
 }
 
 - (void)reloadViewWithData:(LXBaseModelPost *)data {
-    
+    self.titleLabel.text = data.title;
+    if (data.author) {
+        _authorLabel.text = [NSString stringWithFormat:@"发起人：%@", [data.author objectForKey:@"name"]];
+        _groupLabel.text = [NSString stringWithFormat:@"所属支部：%@", [data.author objectForKey:@"_group"]];
+    }
 }
 
 @end

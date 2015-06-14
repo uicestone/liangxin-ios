@@ -190,7 +190,7 @@
         self.titleLabel.text = data.title;
     }
     if (data.excerpt.length > 0) {
-        self.summaryLabel.text = data.excerpt;
+        self.summaryLabel.text = data.content;
     }
     switch (self.style) {
         case LXTableViewCellStyleClass: {

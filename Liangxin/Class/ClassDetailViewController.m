@@ -14,6 +14,7 @@
 #import "ClassDetailVideoCell.h"
 #import "ClassDetailDocumentCell.h"
 #import "LXShareView.h"
+#import "UserApi.h"
 
 @interface ClassDetailViewController() <UITableViewDataSource, UITableViewDelegate>
 
@@ -101,7 +102,16 @@
         }
             break;
         case 3: {
-            
+            if ([UserApi getCurrentUser]) {
+                [[[LXNetworkManager sharedManager] likePostById:self.postData.id] subscribeNext:^(id x) {
+                    
+                } error:^(NSError *error) {
+                    
+                }];
+            }
+            else {
+                
+            }
         }
             break;
         case 4: {
