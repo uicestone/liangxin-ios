@@ -13,7 +13,7 @@
 @property (nonatomic, copy) NSString *id;
 @property (nonatomic, copy) NSString *type;
 @property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *author;
+@property (nonatomic, strong) NSDictionary *author;
 @property (nonatomic, copy) NSString *excerpt;
 @property (nonatomic, copy) NSString *content;
 @property (nonatomic, copy) NSString *created_at;
