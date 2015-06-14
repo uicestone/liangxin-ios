@@ -22,6 +22,8 @@ typedef NS_ENUM(NSInteger, LXBannerType){
 - (RACSignal *)getBannersByType:(LXBannerType)bannerType;
 - (RACSignal *)getPostByParameters:(LXNetworkPostParameters *)parameters;
 - (RACSignal *)likePostById:(NSString *)postId;
-- (RACSignal *)dislikePostByid:(NSString *)postId;
+- (RACSignal *)deleteLikePostByid:(NSString *)postId;
+- (RACSignal *)favoritePostById:(NSString *)postId;
+- (RACSignal *)deleteFavoritePostById:(NSString *)postId;
 
 @end
