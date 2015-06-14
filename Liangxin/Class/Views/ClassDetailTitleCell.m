@@ -32,7 +32,6 @@
             make.width.mas_equalTo(63);
         }];
         _titleLabel = [UILabel new];
-        _titleLabel.text = @"发现最美的“你”——奉贤“两新”风采秀";
         _titleLabel.textColor = UIColorFromRGB(0xf7941c);
         [self.contentView addSubview:_titleLabel];
         [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -42,7 +41,6 @@
             make.height.mas_equalTo(28);
         }];
         _authorLabel = [UILabel new];
-        _authorLabel.text = @"发起人：某某某";
         _authorLabel.font = [UIFont systemFontOfSize:13.0];
         _authorLabel.textColor = [UIColor darkGrayColor];
         [self.contentView addSubview:_authorLabel];
@@ -53,7 +51,6 @@
             make.height.mas_equalTo(7.5);
         }];
         _groupLabel = [UILabel new];
-        _groupLabel.text = @"所属支部：中共上海市嘉定区社会工作委员会";
         _groupLabel.font = [UIFont systemFontOfSize:13.0];
         _groupLabel.textColor = [UIColor darkGrayColor];
         [self.contentView addSubview:_groupLabel];
