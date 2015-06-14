@@ -15,9 +15,10 @@
 #import <HHRouter.h>
 #import <MBProgressHUD/MBProgressHUD.h>
 
-static BOOL toolbarInited = NO;
 
-@interface LXBaseViewController () <UIActionSheetDelegate>
+
+
+@interface LXBaseViewController () <UIActionSheetDelegate, LXViewControllerDelegate>
 @property (nonatomic, strong) MBProgressHUD* progress;
 @property (nonatomic, strong) AppDelegate* appDelegate;
 @end
@@ -35,27 +36,32 @@ static BOOL toolbarInited = NO;
     [self.backButton setImage:[UIImage imageNamed:@"Back"] forState:UIControlStateNormal];
     self.backButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [self.backButton addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
-    if (!self.params[@"route"]) {
+    if (!self.params[@"route"] || [self.params[@"route"] hasPrefix:@"/login"]) {
         UIImage *backImage = [UIImage imageNamed:@"Back"];
         backImage = [backImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         [self.backButton setImage:backImage forState:UIControlStateNormal];
-        self.backButton.imageView.tintColor = [UIColor blueColor];
     }
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.backButton];
+    if(self.navigationController.viewControllers.count > 1){
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.backButton];
+    }
     self.currentUser = [UserApi getCurrentUser];
     
+    [self initToolBar];
+    
+    
+    
+    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+}
+
+
+-(void)viewDidAppear:(BOOL)animated{
     if([self hasToolBar]){
-        if(!toolbarInited){
-            [self initToolBar];
-        }
         [self showToolBar];
     }else{
         [self hideToolBar];
     }
-    
-    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
 }
 
 -(void)showToolBar{
@@ -89,8 +95,6 @@ static BOOL toolbarInited = NO;
     
     self.navigationController.toolbar.backgroundColor = UIColorFromRGB(0xf1f1f2);
     [self.navigationController setToolbarHidden:NO animated:NO];
-    
-    toolbarInited = YES;
 }
 
 -(void)toolbarItemsPressed:(UIButton *)sender{
@@ -113,6 +117,8 @@ static BOOL toolbarInited = NO;
 }
 
 - (void)showPublishActionSheet{
+    
+    
     UIActionSheet* actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:nil
                                   delegate:self
@@ -164,12 +170,8 @@ static BOOL toolbarInited = NO;
     
     [navigationController.navigationBar setTitleTextAttributes:textAttr];
     
-    @weakify(self);
-    [self presentViewController:navigationController animated:YES completion:^{
-        @strongify(self);
-        [self popMessage:@"Oh Yeah"];
-        complete();
-    }];
+    viewController.delegate = self;
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 - (void)navigateToPath:(NSString *)path{
@@ -179,6 +181,19 @@ static BOOL toolbarInited = NO;
 
 -(void)dismissViewController{
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)dismissViewControllerWithData:(NSDictionary *)data{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    if(self.delegate){
+        [self.delegate handleDismissData:data];
+    }
+}
+
+-(void)handleDismissData:(NSDictionary *)data{
+    if([data[@"type"] isEqualToString:@"publish"]){
+        [self popMessage: data[@"message"]];
+    }
 }
 
 -(void)showProgress{

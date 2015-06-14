@@ -1701,13 +1701,12 @@ webpackJsonp([4],[
 
 			config.files = files;
 			console.log(config);
-			fetch(config).then(function(){
+			fetch(config).then(function(data){
 				bridge.hideProgress();
-				bridge.dismiss();
+				bridge.dismiss({type:"publish",message:"发布成功"});
 			}).catch(function(err){
 				bridge.hideProgress();
 				bridge.showMessage(err.message);
-				bridge.dismiss();
 			});
 		}.bind(this);
 
