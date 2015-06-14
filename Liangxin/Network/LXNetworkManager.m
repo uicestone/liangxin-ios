@@ -8,6 +8,7 @@
 
 #import "LXNetworkManager.h"
 #import "LXBaseModelPost.h"
+#import "UserApi.h"
 
 @interface LXNetworkManager()
 
@@ -23,6 +24,10 @@
     if (self) {
         _sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:LXNetworkBaseURL]];
         _sessionManager.responseSerializer = [[AFJSONResponseSerializer alloc] init];
+        LXBaseModelUser *user = [UserApi getCurrentUser];
+        if (user && user.token.length > 0) {
+             [_sessionManager.requestSerializer setValue:user.token forHTTPHeaderField:@"Authorization"];
+        }
     }
     return self;
 }
@@ -79,6 +84,34 @@
                 [posts addObject:[LXBaseModelPost modelWithDictionary:post error:nil]];
             }
             [subscriber sendNext:posts];
+            [subscriber sendCompleted];
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            [subscriber sendError:error];
+        }];
+        return [RACDisposable disposableWithBlock:^{
+            [task cancel];
+        }];
+    }];
+}
+
+- (RACSignal *)likePostById:(NSString *)postId {
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        NSURLSessionDataTask *task = [self.sessionManager POST:[NSString stringWithFormat:@"/api/v1/post/%@", postId] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+            [subscriber sendNext:responseObject];
+            [subscriber sendCompleted];
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            [subscriber sendError:error];
+        }];
+        return [RACDisposable disposableWithBlock:^{
+            [task cancel];
+        }];
+    }];
+}
+
+- (RACSignal *)dislikePostByid:(NSString *)postId {
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        NSURLSessionDataTask *task = [self.sessionManager DELETE:[NSString stringWithFormat:@"/api/v1/post/%@", postId] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+            [subscriber sendNext:responseObject];
             [subscriber sendCompleted];
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             [subscriber sendError:error];
