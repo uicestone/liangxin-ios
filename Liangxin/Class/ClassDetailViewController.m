@@ -15,11 +15,13 @@
 #import "ClassDetailDocumentCell.h"
 #import "LXShareView.h"
 #import "UserApi.h"
+#import "LXClassDetailViewModel.h"
 
 @interface ClassDetailViewController() <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIToolbar *bottomBar;
+@property (nonatomic, strong) LXClassDetailViewModel *viewModel;
 
 @end
 
@@ -32,7 +34,7 @@
 
 - (void)commonInit {
     self.view.backgroundColor = UIColorFromRGB(0xe6e7e8);
-    
+    self.viewModel = [LXClassDetailViewModel new];
     self.bottomBar = [[UIToolbar alloc] init];
     self.bottomBar.barTintColor = UIColorFromRGB(0xf1f1f2);
     self.bottomBar.translucent = NO;
@@ -103,7 +105,7 @@
             break;
         case 3: {
             if ([UserApi getCurrentUser]) {
-                [[[LXNetworkManager sharedManager] likePostById:self.postData.id] subscribeNext:^(id x) {
+                [[[LXNetworkManager sharedManager] likePostById:self.postId] subscribeNext:^(id x) {
                     
                 } error:^(NSError *error) {
                     
@@ -164,7 +166,7 @@
         if (!cell) {
             cell = [[ClassDetailTitleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ClassDetailTitleCell"];
         }
-        [cell reloadViewWithData:self.postData];
+        [cell reloadViewWithData:self.viewModel.postData];
         return cell;
     }
     else if (indexPath.section == 1) {
@@ -172,7 +174,7 @@
         if (!cell) {
             cell = [[ClassDetailDescCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ClassDetailDescCell"];
         }
-        [cell reloadViewWithData:self.postData];
+        [cell reloadViewWithData:self.viewModel.postData];
         cell.title = @"课堂描述";
         return cell;
     }
@@ -181,7 +183,7 @@
         if (!cell) {
             cell = [[ClassDetailDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ClassDetailDetailCell"];
         }
-        [cell reloadViewWithData:self.postData];
+        [cell reloadViewWithData:self.viewModel.postData];
         cell.title = @"课堂详情";
         return cell;
     }
@@ -190,7 +192,7 @@
         if (!cell) {
             cell = [[ClassDetailAlbumCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ClassDetailAlbumCell"];
         }
-        [cell reloadViewWithData:self.postData];
+        [cell reloadViewWithData:self.viewModel.postData];
         cell.title = @"课堂相册";
         return cell;
     }
@@ -199,7 +201,7 @@
         if (!cell) {
             cell = [[ClassDetailVideoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ClassDetailVideoCell"];
         }
-        [cell reloadViewWithData:self.postData];
+        [cell reloadViewWithData:self.viewModel.postData];
         cell.title = @"课堂视频";
         return cell;
     }
@@ -208,7 +210,7 @@
         if (!cell) {
             cell = [[ClassDetailDocumentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ClassDetailDocumentCell"];
         }
-        [cell reloadViewWithData:self.postData];
+        [cell reloadViewWithData:self.viewModel.postData];
         cell.title = @"课堂文件";
         return cell;
     }
