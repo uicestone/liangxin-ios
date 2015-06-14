@@ -41,5 +41,6 @@
 @property (nonatomic, copy) NSString *group_id;
 @property (nonatomic, copy) NSString *poster_id;
 @property (nonatomic, copy) NSString *author_id;
+@property (nonatomic, copy) NSString *is_favorite;
 
 @end
