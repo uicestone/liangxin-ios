@@ -37,7 +37,7 @@
 @property (nonatomic, strong) NSDictionary *group;
 @property (nonatomic, strong) NSDictionary *poster;
 @property (nonatomic, copy) NSString *liked;
-@property (nonatomic, copy) NSString *likes;
+@property (nonatomic, assign) NSInteger likes;
 @property (nonatomic, copy) NSString *group_id;
 @property (nonatomic, copy) NSString *poster_id;
 @property (nonatomic, copy) NSString *author_id;

@@ -194,8 +194,8 @@
     }
     switch (self.style) {
         case LXTableViewCellStyleClass: {
-            if (data.likes.length > 0) {
-                self.likeCountLabel.text = data.likes;
+            if (data.likes > 0) {
+                self.likeCountLabel.text = [NSString stringWithFormat:@"%@", @(data.likes)];
             }
             else {
                 self.likeCountLabel.text = @"0";

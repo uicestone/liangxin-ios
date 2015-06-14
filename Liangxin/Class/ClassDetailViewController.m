@@ -190,6 +190,7 @@
         if (!cell) {
             cell = [[ClassDetailAlbumCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ClassDetailAlbumCell"];
         }
+        [cell reloadViewWithData:self.postData];
         cell.title = @"课堂相册";
         return cell;
     }

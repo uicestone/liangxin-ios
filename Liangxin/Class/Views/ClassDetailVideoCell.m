@@ -62,6 +62,7 @@
         _defaultLabel.text = @"暂无视频";
         _defaultLabel.textColor = [UIColor lightGrayColor];
         _defaultLabel.font = [UIFont systemFontOfSize:15.0];
+        _defaultLabel.hidden = YES;
         [self.baseView addSubview:_defaultLabel];
         [_defaultLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(20);
@@ -82,6 +83,7 @@
         for (UIButton *videoButton in self.videoButtons) {
             videoButton.hidden = YES;
         }
+        _defaultLabel.hidden = NO;
     }
 }
 
