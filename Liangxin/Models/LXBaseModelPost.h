@@ -20,7 +20,7 @@
 @property (nonatomic, copy) NSString *updated_at;
 @property (nonatomic, strong) NSArray *comments;
 @property (nonatomic, strong) NSArray *images;
-@property (nonatomic, strong) NSArray *articles;
+@property (nonatomic, copy) NSString *articles;
 @property (nonatomic, strong) NSArray *videos;
 @property (nonatomic, strong) NSArray *attachments;
 @property (nonatomic, copy) NSString *attend_status;
