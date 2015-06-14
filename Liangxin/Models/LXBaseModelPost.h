@@ -43,5 +43,7 @@
 @property (nonatomic, copy) NSString *author_id;
 @property (nonatomic, copy) NSString *is_favorite;
 @property (nonatomic, strong) NSArray *favored_users;
+@property (nonatomic, copy) NSString *liked_users;
+@property (nonatomic, copy) NSString *parent;
 
 @end

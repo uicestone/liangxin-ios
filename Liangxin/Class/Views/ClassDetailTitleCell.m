@@ -24,6 +24,8 @@
     if (self) {
         self.contentView.backgroundColor = UIColorFromRGB(0xe6e7e8);
         _mainImageView = [UIImageView new];
+        _mainImageView.layer.borderWidth = 1.0;
+        _mainImageView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         [self.contentView addSubview:_mainImageView];
         [_mainImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(14);
@@ -70,9 +72,15 @@
 
 - (void)reloadViewWithData:(LXBaseModelPost *)data {
     self.titleLabel.text = data.title;
-    if (data.author) {
-        _authorLabel.text = [NSString stringWithFormat:@"发起人：%@", [data.author objectForKey:@"name"]];
-        _groupLabel.text = [NSString stringWithFormat:@"所属支部：%@", [data.author objectForKey:@"_group"]];
+    if (data.author_id.length > 0) {
+        @weakify(self)
+        [[[LXNetworkManager sharedManager] getUserById:data.author_id] subscribeNext:^(LXBaseModelUser *user) {
+            @strongify(self)
+            self.authorLabel.text = [NSString stringWithFormat:@"发起人：%@", user.name];
+            self.groupLabel.text = [NSString stringWithFormat:@"所属支部：%@", user.group_name];
+        } error:^(NSError *error) {
+            
+        }];
     }
 }
 

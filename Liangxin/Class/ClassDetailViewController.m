@@ -73,6 +73,15 @@
         make.top.mas_equalTo(20);
         make.bottom.equalTo(self.bottomBar.mas_top);
     }];
+    
+    @weakify(self)
+    [[[LXNetworkManager sharedManager] getPostDetailById:self.postId] subscribeNext:^(id x) {
+        @strongify(self)
+        self.viewModel.postData = x;
+        [self.tableView reloadData];
+    } error:^(NSError *error) {
+        
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
