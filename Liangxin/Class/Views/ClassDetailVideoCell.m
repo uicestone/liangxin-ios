@@ -25,6 +25,7 @@
         _videoLabels = [NSMutableArray array];
         for (NSInteger i = 0; i < 3; i++) {
             UIButton *videoButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            videoButton.hidden = YES;
             videoButton.backgroundColor = [UIColor colorWithRed:169/255.0 green:171.0/255.0 blue:174.0/255.0 alpha:1.0];
             [self.baseView addSubview:videoButton];
             [_videoButtons addObject:videoButton];
@@ -48,6 +49,7 @@
             UILabel *videoLabel = [UILabel new];
             videoLabel.textAlignment = NSTextAlignmentCenter;
             videoLabel.font = [UIFont systemFontOfSize:13.0];
+            videoLabel.textColor = [UIColor whiteColor];
             videoLabel.backgroundColor = [UIColor colorWithRed:80/255.0 green:80/255.0 blue:80/255.0 alpha:1.0];
             [videoButton addSubview:videoLabel];
             [_videoLabels addObject:videoLabel];
@@ -79,11 +81,21 @@
 }
 
 - (void)reloadViewWithData:(LXBaseModelPost *)data {
-    if (data.videos.count == 0) {
-        for (UIButton *videoButton in self.videoButtons) {
-            videoButton.hidden = YES;
+    if (data) {
+        if (data.videos.count == 0) {
+            for (UIButton *videoButton in self.videoButtons) {
+                videoButton.hidden = YES;
+            }
+            _defaultLabel.hidden = NO;
         }
-        _defaultLabel.hidden = NO;
+        else {
+            for (NSInteger i = 0; i < data.videos.count; i++) {
+                UILabel *videoLabel = [self.videoLabels objectAtIndex:i];
+                UIButton *videoButton = [self.videoButtons objectAtIndex:i];
+                videoButton.hidden = NO;
+                videoLabel.text = [[data.videos objectAtIndex:i] objectForKey:@"title"];
+            }
+        }
     }
 }
 

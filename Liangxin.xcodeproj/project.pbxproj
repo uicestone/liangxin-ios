@@ -135,6 +135,7 @@
 		2DB6C2B31B2280CB00A94E6E /* LXNetworkParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB6C2B21B2280CB00A94E6E /* LXNetworkParameters.m */; };
 		2DB6C2BB1B24367300A94E6E /* LXSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB6C2BA1B24367300A94E6E /* LXSearchBar.m */; };
 		2DB6C2BE1B2865CF00A94E6E /* LXShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB6C2BD1B2865CF00A94E6E /* LXShareView.m */; };
+		2DD8A0BA1B2D9B3300856E23 /* LXBaseVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD8A0B91B2D9B3300856E23 /* LXBaseVideoViewController.m */; };
 		2DE2F4A11B2041C600E3DA29 /* ActivityViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE2F4A01B2041C600E3DA29 /* ActivityViewModel.m */; };
 		2DFD651F1B15FE7800FAC662 /* LXCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD651E1B15FE7800FAC662 /* LXCarouselView.m */; };
 		2DFD65221B16001200FAC662 /* LXCarouselViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD65211B16001200FAC662 /* LXCarouselViewCell.m */; };
@@ -396,6 +397,8 @@
 		2DB6C2BA1B24367300A94E6E /* LXSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXSearchBar.m; path = Widgets/LXSearchBar.m; sourceTree = "<group>"; };
 		2DB6C2BC1B2865CF00A94E6E /* LXShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXShareView.h; path = Widgets/LXShareView.h; sourceTree = "<group>"; };
 		2DB6C2BD1B2865CF00A94E6E /* LXShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXShareView.m; path = Widgets/LXShareView.m; sourceTree = "<group>"; };
+		2DD8A0B81B2D9B3300856E23 /* LXBaseVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXBaseVideoViewController.h; path = Base/LXBaseVideoViewController.h; sourceTree = "<group>"; };
+		2DD8A0B91B2D9B3300856E23 /* LXBaseVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXBaseVideoViewController.m; path = Base/LXBaseVideoViewController.m; sourceTree = "<group>"; };
 		2DE2F49F1B2041C600E3DA29 /* ActivityViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityViewModel.h; path = Liangxin/Activity/ViewModel/ActivityViewModel.h; sourceTree = "<group>"; };
 		2DE2F4A01B2041C600E3DA29 /* ActivityViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityViewModel.m; path = Liangxin/Activity/ViewModel/ActivityViewModel.m; sourceTree = "<group>"; };
 		2DFD651D1B15FE7800FAC662 /* LXCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXCarouselView.h; path = Widgets/LXCarouselView.h; sourceTree = "<group>"; };
@@ -897,6 +900,8 @@
 				2D537DE01B1AA0AA006BD35E /* LXBaseViewController.m */,
 				2D537DF41B1AF4CE006BD35E /* LXBaseCollectionViewController.h */,
 				2D537DF51B1AF4CE006BD35E /* LXBaseCollectionViewController.m */,
+				2DD8A0B81B2D9B3300856E23 /* LXBaseVideoViewController.h */,
+				2DD8A0B91B2D9B3300856E23 /* LXBaseVideoViewController.m */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -1213,6 +1218,7 @@
 				2293FA091AF5DBF20012CD10 /* GroupViewController.m in Sources */,
 				2D75A2DB1B1B4A0700A8FA95 /* LXClassListViewModel.m in Sources */,
 				22E6E2911B1344ED005E528E /* ModifyPasswordViewController.m in Sources */,
+				2DD8A0BA1B2D9B3300856E23 /* LXBaseVideoViewController.m in Sources */,
 				2215D96E1B10D08A00D96C46 /* TAPageControl.m in Sources */,
 				2D00FF9D1B218CBB00106110 /* LXNetworkManager.m in Sources */,
 				22BE07C61B1F361B00A1E91F /* AccountAboutViewController.m in Sources */,
