@@ -35,11 +35,13 @@ static BOOL toolbarInited = NO;
     [self.backButton setImage:[UIImage imageNamed:@"Back"] forState:UIControlStateNormal];
     self.backButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [self.backButton addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
-    if (!self.params[@"route"]) {
+    if (!self.params[@"route"] || [self.params[@"route"] hasPrefix:@"/login"]) {
         self.backButton.imageView.tintColor = [UIColor blueColor];
     }
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.backButton];
+    if(self.navigationController.viewControllers.count > 1){
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.backButton];
+    }
     self.currentUser = [UserApi getCurrentUser];
     
     if([self hasToolBar]){

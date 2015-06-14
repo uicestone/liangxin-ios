@@ -16,11 +16,12 @@
 
 
 @interface AppDelegate ()
-
+@property (nonatomic, strong) UINavigationController* loginNavigationController;
 @end
 
 @implementation AppDelegate
 @synthesize navigationController;
+@synthesize loginNavigationController;
 @synthesize window;
 
 
@@ -73,7 +74,7 @@
 
 -(void)popLoginWithFinishHandler:(LoginFinishBlock)loginFinish{
     LoginViewController* loginViewController = [[LoginViewController alloc] init];
-    UINavigationController* loginNavigationController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+    loginNavigationController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
     
     loginNavigationController.navigationItem.rightBarButtonItem.title = @"取消";
     loginViewController.finishBlock = loginFinish;
@@ -113,11 +114,19 @@
 }
 
 -(void)pushViewController:(LXBaseViewController *)viewController{
-    if(navigationController){
-        [self assureLoginWithViewController:viewController finish:^{
-            [self setNavigationColor:viewController];
-            [navigationController pushViewController:viewController animated:YES];
-        }];
+    
+    NSString *route = viewController.params[@"route"];
+    if([route hasPrefix:@"/login"]){
+        if(loginNavigationController){
+            [loginNavigationController pushViewController:viewController animated:YES];
+        }
+    }else{
+        if(navigationController){
+            [self assureLoginWithViewController:viewController finish:^{
+                [self setNavigationColor:viewController];
+                [navigationController pushViewController:viewController animated:YES];
+            }];
+        }
     }
 }
 

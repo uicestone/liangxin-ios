@@ -78,7 +78,7 @@
 }
 
 - (IBAction)forgetBtnTouched:(id)sender {
-    [self navigateToPath:@"/phoneinput"];
+    [self navigateToPath:@"/login/phoneinput"];
 }
 
 - (IBAction)submitBtnTouched:(id)sender {

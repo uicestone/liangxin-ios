@@ -20,6 +20,7 @@
 @property (nonatomic, assign) NSArray* following_groups;
 @property (nonatomic, assign) int credits;
 @property (nonatomic, copy) NSString *group_position;
+@property (nonatomic, copy) NSString *position;
 @property (nonatomic, copy) NSString *group_name;
 @property (nonatomic, copy) NSString *contact;
 @property (nonatomic, copy) NSString *token;

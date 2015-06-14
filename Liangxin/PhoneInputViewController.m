@@ -47,7 +47,7 @@
     
     [ApiBase postJSONWithPath:@"/auth/user" data:data success:^(id responseObject, AFHTTPRequestOperation* operation) {
         // send a request
-        [self navigateToPath:@"/vcodeinput"];
+        [self navigateToPath:@"/login/vcodeinput"];
     } error:^(AFHTTPRequestOperation *operation, NSError *error) {
         // pop error
     }];

@@ -82,11 +82,11 @@
     // 登录
     [[HHRouter shared] map:@"/login" toControllerClass:[LoginViewController class]];
     // 输入手机号
-    [[HHRouter shared] map:@"/phoneinput" toControllerClass:[PhoneInputViewController class]];
+    [[HHRouter shared] map:@"/login/phoneinput" toControllerClass:[PhoneInputViewController class]];
     // 输入验证码
-    [[HHRouter shared] map:@"/vcodeinput" toControllerClass:[VCodeInputViewController class]];
+    [[HHRouter shared] map:@"/login/vcodeinput" toControllerClass:[VCodeInputViewController class]];
     // 更改密码
-    [[HHRouter shared] map:@"/modifypassword" toControllerClass:[ModifyPasswordViewController class]];
+    [[HHRouter shared] map:@"/login/modifypassword" toControllerClass:[ModifyPasswordViewController class]];
     
     // 党群动态
     [[HHRouter shared] map:@"/feeds" toControllerClass:[FeedsViewController class]];

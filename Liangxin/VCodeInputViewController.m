@@ -49,7 +49,7 @@
         
         NSString* token = responseObject[@"token"];
         
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://modifypassword?token=%@", token]]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://login/modifypassword?token=%@", token]]];
         
     } error:^(AFHTTPRequestOperation *operation, NSError *error) {
         // pop error
