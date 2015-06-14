@@ -1651,7 +1651,7 @@ webpackJsonp([3],[
 		var type = ({
 			"notice": "公告",
 			"article": "文章",
-			"image": "照片",
+			"image": "图片",
 			"event": "活动",
 			"class": "课程"
 		})[opts.type];

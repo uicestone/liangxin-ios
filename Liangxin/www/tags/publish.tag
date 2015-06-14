@@ -43,7 +43,7 @@ require('./selectctrl.tag')
 		<imgctrl icon='plus' size='big' model='images' placeholder='上传图片' />
 	</div>
 
-	<!-- 发布照片 -->
+	<!-- 发布图片 -->
 	<div show={ opts.type=='image' }>
 		<inputctrl title='请输入图片标题（字数限制50字）' limit='50' model='title' />
 		<imgctrl icon='plus' size='big' model='images' placeholder='上传图片' />
@@ -61,7 +61,7 @@ require('./selectctrl.tag')
 	var type = ({
 		"notice": "公告",
 		"article": "文章",
-		"image": "照片",
+		"image": "图片",
 		"event": "活动",
 		"class": "课程"
 	})[opts.type];
