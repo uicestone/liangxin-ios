@@ -97,10 +97,11 @@ require('./selectctrl.tag')
 		var files = [];
 		["attachments", "images"].forEach(function(key){
 			if(data[key]){
-				data[key].forEach(function(data){
+				data[key].forEach(function(d){
 					files.push({
 						name: key + "[]",
-						data: data.split("base64,")[1]
+						title: data.title,
+						data: d.split("base64,")[1]
 					});
 				});
 				delete data[key];

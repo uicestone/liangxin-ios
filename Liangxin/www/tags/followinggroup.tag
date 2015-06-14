@@ -3,7 +3,7 @@ var fetch = bridge.fetch;
 
 <followinggroup>
 	<div class="inner" ontouchend='{togroup}'>
-		<img class="avatar" src="{opts.data.avatar}?imageView2/1/w/50/h/50" />
+		<img class="avatar" src="{opts.data.avatar}?imageView2/1/w/100/h/100" />
 		<div class="main">
 			<div class="name">{opts.data.name}</div>
 			<div class="follow-btn" onclick={toggleFollowing}>已关注</div>	

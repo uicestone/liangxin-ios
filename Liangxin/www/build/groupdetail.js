@@ -37,7 +37,7 @@ webpackJsonp([3],[
 		bridge.hideProgress();
 
 		// 头像
-		$(".avatar").attr("src", result.avatar + "?imageView2/1/w/50/h/50");
+		$(".avatar").attr("src", result.avatar + "?imageView2/1/w/100/h/100");
 
 		var $followBtn = $(".btn-follow");
 		var following = result.following;

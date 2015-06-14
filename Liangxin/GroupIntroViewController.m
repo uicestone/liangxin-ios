@@ -19,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setTitle:@"支部详情"];
     int _id = [self.params[@"id"] intValue];
     
     [self loadPage:[NSString stringWithFormat:@"groupintro?id=%d", _id]];

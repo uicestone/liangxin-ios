@@ -15,6 +15,7 @@
 @property (nonatomic, copy) NSString *avatar;
 @property (nonatomic, assign) int group_id;
 @property (nonatomic, assign) int department_id;
+@property (nonatomic, copy) NSString *role;
 @property (nonatomic, assign) NSDictionary* group;
 @property (nonatomic, assign) NSArray* liked_posts;
 @property (nonatomic, assign) NSArray* attending_events;

@@ -16,6 +16,6 @@
 #import "LXBaseViewController.h"
 
 @interface LXWebViewController : LXBaseViewController
-@property LXJSBridge* jsbridge;
+@property (nonatomic, strong) LXJSBridge* jsbridge;
 - (void)loadPage:(NSString *)url;
 @end
