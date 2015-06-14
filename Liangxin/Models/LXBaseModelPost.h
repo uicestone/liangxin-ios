@@ -31,7 +31,7 @@
 @property (nonatomic, copy) NSString *banner_position;
 @property (nonatomic, copy) NSString *has_due_date;
 @property (nonatomic, copy) NSString *due_date;
-@property (nonatomic, strong) NSString *attendees;
+@property (nonatomic, strong) NSArray *attendees;
 @property (nonatomic, copy) NSString *parent_id;
 @property (nonatomic, copy) NSString *url;
 @property (nonatomic, strong) NSDictionary *group;

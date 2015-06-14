@@ -209,7 +209,23 @@
             }
         }
             break;
+        case LXTableViewCellStyleActivity: {
+            if (data.likes > 0) {
+                self.likeCountLabel.text = [NSString stringWithFormat:@"%@", @(data.likes)];
+            }
+            else {
+                self.likeCountLabel.text = @"0";
+            }
             
+            if (data.comments != nil) {
+                self.reviewCountLabel.text = [NSString stringWithFormat:@"%@", @(data.comments.count)];
+            }
+            else {
+                self.reviewCountLabel.text = @"0";
+            }
+            self.attendCountLabel.text = [NSString stringWithFormat:@"%@人已经报名", @(data.attendees.count)];
+        }
+            break;
         default:
             break;
     }
