@@ -34,6 +34,8 @@
     [super viewDidLoad];
     
     
+    self.viewModel = [FeedsViewModel new];
+    
     // init tabs
     tabview = [[LXTabView alloc]
                initWithContainer:self.view

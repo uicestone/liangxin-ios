@@ -65,7 +65,7 @@ fetch({
 	$(".section-intro .content").html(result.description);
 
 	// 动态
-	result.posts.forEach(function(post){
+	result.news.forEach(function(post){
 		var html = itemTemplate(post);
 		var li = $(html);
 		li.on("click", function(){
