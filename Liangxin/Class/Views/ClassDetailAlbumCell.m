@@ -26,6 +26,7 @@
         for (NSInteger i = 0; i < 3; i++) {
             UIButton *albumButton = [UIButton buttonWithType:UIButtonTypeCustom];
             albumButton.backgroundColor = [UIColor colorWithRed:169/255.0 green:171.0/255.0 blue:174.0/255.0 alpha:1.0];
+            albumButton.hidden = YES;
             [self.baseView addSubview:albumButton];
             [_albumButtons addObject:albumButton];
             if (i == 0) {

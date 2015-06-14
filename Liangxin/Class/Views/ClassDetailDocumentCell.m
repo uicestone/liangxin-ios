@@ -26,6 +26,7 @@
         for (NSInteger i = 0; i < 3; i++) {
             UIButton *documentButton = [UIButton buttonWithType:UIButtonTypeCustom];
             documentButton.backgroundColor = [UIColor colorWithRed:169/255.0 green:171.0/255.0 blue:174.0/255.0 alpha:1.0];
+            documentButton.hidden = YES;
             [self.baseView addSubview:documentButton];
             [_documentButtons addObject:documentButton];
             if (i == 0) {
@@ -48,6 +49,7 @@
             UILabel *documentLabel = [UILabel new];
             documentLabel.textAlignment = NSTextAlignmentCenter;
             documentLabel.font = [UIFont systemFontOfSize:13.0];
+            documentLabel.textColor = [UIColor whiteColor];
             documentLabel.backgroundColor = [UIColor colorWithRed:80/255.0 green:80/255.0 blue:80/255.0 alpha:1.0];
             [documentButton addSubview:documentLabel];
             [_documentLabels addObject:documentLabel];
@@ -79,11 +81,21 @@
 }
 
 - (void)reloadViewWithData:(LXBaseModelPost *)data {
-    if (data.attachments.count == 0) {
-        for (UIButton *documentButton in self.documentButtons) {
-            documentButton.hidden = YES;
+    if (data) {
+        if (data.attachments.count == 0) {
+            for (UIButton *documentButton in self.documentButtons) {
+                documentButton.hidden = YES;
+            }
+            self.defaultLabel.hidden = NO;
         }
-        self.defaultLabel.hidden = NO;
+        else {
+            for (NSInteger i = 0; i < data.attachments.count; i++) {
+                UILabel *documentLabel = [self.documentLabels objectAtIndex:i];
+                UIButton *documentButton = [self.documentButtons objectAtIndex:i];
+                documentButton.hidden = NO;
+                documentLabel.text = [[data.attachments objectAtIndex:i] objectForKey:@"title"];
+            }
+        }
     }
 }
 
