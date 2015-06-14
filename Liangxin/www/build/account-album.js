@@ -1,4 +1,4 @@
-webpackJsonp([1],[
+webpackJsonp([2],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -6,8 +6,8 @@ webpackJsonp([1],[
 	var bridge = __webpack_require__(3);
 	var query = __webpack_require__(4).parse();
 
+	__webpack_require__(5);
 	__webpack_require__(6);
-	__webpack_require__(7);
 
 	var fetch = bridge.fetch;
 
@@ -25,7 +25,7 @@ webpackJsonp([1],[
 	});
 
 	riot.mount('*', bus);
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
 
 /***/ },
 /* 1 */,
@@ -1638,61 +1638,33 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 5 */,
-/* 6 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var riot = __webpack_require__(9);
+	var riot = __webpack_require__(11);
+
+	var bridge = __webpack_require__(3);
+	var fetch = bridge.fetch;
+
 
 	riot.tag('myalbum', '<mypic each="{ items }" title="{ this.title }" pic="{ this.pic }" likes="{ this.likes }" comments="{ this.comments }"></mypic>', 'class="album"', function(opts) {
 
 		var self = this;
-		
+			
 		this.loadData = function() {
-			var data = [{
-				id: 1,
-				title: "希望城党建",
-				selected: true,
-				likes: 41,
-				comments: 14,
-				pic: "http://ww4.sinaimg.cn/bmiddle/894a033agw1et1evvh6jmj21hc0u017v.jpg"
-			},{
-				id: 2,
-				title: "希望城党建",
-				selected: true,
-				likes: 41,
-				comments: 14,
-				pic: "http://ww4.sinaimg.cn/bmiddle/894a033agw1et1evvh6jmj21hc0u017v.jpg"
-			},{
-				id: 3,
-				title: "希望城党建",
-				selected: false,
-				likes: 41,
-				comments: 14,
-				pic: "http://ww4.sinaimg.cn/bmiddle/894a033agw1et1evvh6jmj21hc0u017v.jpg"
-			},{
-				id: 4,
-				title: "希望城党建",
-				selected: true,
-				likes: 41,
-				comments: 14,
-				pic: "http://ww4.sinaimg.cn/bmiddle/894a033agw1et1evvh6jmj21hc0u017v.jpg"
-			},{
-				id: 5,
-				title: "希望城党建",
-				selected: true,
-				likes: 41,
-				comments: 14,
-				pic: "http://ww4.sinaimg.cn/bmiddle/894a033agw1et1evvh6jmj21hc0u017v.jpg"
-			},{
-				id: 6,
-				title: "希望城党建",
-				selected: true,
-				likes: 41,
-				comments: 14,
-				pic: "http://ww4.sinaimg.cn/bmiddle/894a033agw1et1evvh6jmj21hc0u017v.jpg"
-			}];
-			opts.trigger('data', data);
+			bridge
+				.getUser()
+				.then(function(user){
+					fetch({
+						url: "/post",
+						data: {
+							author_id: user.id,
+							type: "照片"
+						}
+					}).then(function(data){
+						opts.trigger('data', data);
+					});
+				});
 		}.bind(this);
 
 
@@ -1733,10 +1705,10 @@ webpackJsonp([1],[
 	});
 
 /***/ },
-/* 7 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var riot = __webpack_require__(9);
+	var riot = __webpack_require__(11);
 
 	riot.tag('mypic', '<div class="inner" riot-style="background-image:url({opts.pic})" ontouchend="{toggle}"> <div class="select {selected?\'selected\':\'\'}"></div> <div class="title">{opts.title}</div> <div class="like"> <i class="icon-like"></i> <span class="count">{opts.likes}</span> </div> <div class="comment"> <i class="icon-comment"></i> <span class="count">{opts.comments}</span> </div> </div>', function(opts) {
 		
@@ -1751,8 +1723,11 @@ webpackJsonp([1],[
 
 
 /***/ },
+/* 7 */,
 /* 8 */,
-/* 9 */
+/* 9 */,
+/* 10 */,
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Riot v2.1.0, @license MIT, (c) 2015 Muut Inc. + contributors */

@@ -15,9 +15,10 @@
     LXBaseModelUser* user = [UserApi getCurrentUser];
     if(user){
         [self completeWithResult: @{
+                                    @"id": user.id,
                                     @"name": user.name,
                                     @"contact": user.contact,
-                                    @"avatar": user.avatar
+                                    @"avatar": user.avatar ? user.avatar : @""
                                     }];
     }else{
         [self completeWithResult:@{}];

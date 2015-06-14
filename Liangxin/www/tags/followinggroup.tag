@@ -1,19 +1,21 @@
-var fetch = require('bridge').fetch;
+var bridge = require('bridge');
+var fetch = bridge.fetch;
 
 <followinggroup>
-	<div class="inner">
-		<img class="avatar" src="{opts.data.avatar}" />
+	<div class="inner" ontouchend='{togroup}'>
+		<img class="avatar" src="{opts.data.avatar}?imageView2/1/w/50/h/50" />
 		<div class="main">
-			<div class="author">{opts.data.name}</div>
-			<div class="follow-btn" onclick={toggleFollowing}>{following?"已关注":"未关注"}</div>	
+			<div class="name">{opts.data.name}</div>
+			<div class="follow-btn" onclick={toggleFollowing}>已关注</div>	
 		</div>
 	</div>
 	
 	var self = this;
 	var id = opts.data.id;
-	self.following = opts.data.following;
+	self.following = false;
 	self.postFollowing = false;
-	toggleFollowing(){
+	toggleFollowing(e){
+		e.stopPropagation();
 		if(self.postFollowing){return;}
 		self.postFollowing = true;
 		fetch({
@@ -27,6 +29,11 @@ var fetch = require('bridge').fetch;
 			self.postFollowing = false;
 		});
 	}
+
+	togroup(){
+		bridge.open("liangxin://group/detail/" + id);
+	}
+
 
 	
 </followinggroup>

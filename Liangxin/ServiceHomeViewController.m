@@ -20,6 +20,10 @@
 @implementation ServiceHomeViewController
 @synthesize posts;
 
+- (BOOL) hasToolBar{
+    return YES;
+}
+
 - (void)viewDidLoad {
     
     self.bannerType = @"党群服务";

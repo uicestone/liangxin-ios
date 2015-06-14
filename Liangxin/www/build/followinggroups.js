@@ -1,64 +1,45 @@
-webpackJsonp([3],{
+webpackJsonp([1],{
 
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(riot) {__webpack_require__(8);
+	/* WEBPACK VAR INJECTION */(function(riot) {__webpack_require__(1);
 
 
 	riot.mount('*');
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
 
 /***/ },
 
-/***/ 8:
+/***/ 1:
 /***/ function(module, exports, __webpack_require__) {
 
-	var riot = __webpack_require__(9);
+	var riot = __webpack_require__(11);
 
 	__webpack_require__(19)
-	var fetch = __webpack_require__(3).fetch;
+	var bridge = __webpack_require__(3);
+	var fetch = bridge.fetch;
 	riot.tag('followinggroups', '<followinggroup each="{items}" data="{this}"></followinggroup>', function(opts) {
 		
 		var self = this;
+		var loading = false;
 		this.loadData = function() {
-			self.items = [{
-				id: "3",
-				name: "樊家村党总支",
-				members: "0",
-				avatar: "http://dangqun.malu.gov.cn/images/樊家村党总支-1.jpg",
-				leader: "赵静",
-				contact: "39906095",
-				address: "东宝路86号",
-				parent_id: "54",
-				has_children: false,
-				following: true
-			},
-			{
-				id: "4",
-				name: "彭赵村党总支",
-				members: "0",
-				avatar: "http://dangqun.malu.gov.cn/images/彭赵村党总支-1.jpg",
-				leader: "彭蓓蓉",
-				contact: "59106653",
-				address: "嘉新公路1109号",
-				parent_id: "54",
-				has_children: false,
-				following: true
-			},
-			{
-				id: "5",
-				name: "包桥村党总支",
-				members: "0",
-				avatar: "http://dangqun.malu.gov.cn/images/包桥村党总支-1.jpg",
-				leader: "孙晨燕",
-				contact: "69155326",
-				address: "宝安公路2888弄369号",
-				parent_id: "54",
-				has_children: false,
-				following: false
-			}];
-			self.update();
+			if(loading){return;}
+			loading = true;
+			bridge.showProgress();
+			bridge.getUser()
+				.then(function(user){
+					fetch({
+						url:"/user/" + user.id
+					}).then(function(user){
+						self.items = user.following_groups;
+						bridge.hideProgress();
+						self.update();
+						loading = false;
+					}).catch(function(){
+						loading = false;
+					});
+				});
 		}.bind(this);
 
 		this.loadData();
@@ -69,7 +50,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 9:
+/***/ 11:
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Riot v2.1.0, @license MIT, (c) 2015 Muut Inc. + contributors */
@@ -1360,17 +1341,19 @@ webpackJsonp([3],{
 /***/ 19:
 /***/ function(module, exports, __webpack_require__) {
 
-	var riot = __webpack_require__(9);
+	var riot = __webpack_require__(11);
 
-	var fetch = __webpack_require__(3).fetch;
+	var bridge = __webpack_require__(3);
+	var fetch = bridge.fetch;
 
-	riot.tag('followinggroup', '<div class="inner"> <img class="avatar" riot-src="{opts.data.avatar}"> <div class="main"> <div class="author">{opts.data.name}</div> <div class="follow-btn" onclick="{toggleFollowing}">{following?"已关注":"未关注"}</div> </div> </div>', function(opts) {
+	riot.tag('followinggroup', '<div class="inner" ontouchend="{togroup}"> <img class="avatar" riot-src="{opts.data.avatar}?imageView2/1/w/50/h/50"> <div class="main"> <div class="name">{opts.data.name}</div> <div class="follow-btn" onclick="{toggleFollowing}">已关注</div> </div> </div>', function(opts) {
 		
 		var self = this;
 		var id = opts.data.id;
-		self.following = opts.data.following;
+		self.following = false;
 		self.postFollowing = false;
-		this.toggleFollowing = function() {
+		this.toggleFollowing = function(e) {
+			e.stopPropagation();
 			if(self.postFollowing){return;}
 			self.postFollowing = true;
 			fetch({
@@ -1384,6 +1367,11 @@ webpackJsonp([3],{
 				self.postFollowing = false;
 			});
 		}.bind(this);
+
+		this.togroup = function() {
+			bridge.open("liangxin://group/detail/" + id);
+		}.bind(this);
+
 
 		
 

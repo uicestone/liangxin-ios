@@ -110,6 +110,8 @@
                                                                        @"id": responseObject[@"id"],
                                                                        @"contact": responseObject[@"contact"],
                                                                        @"name": responseObject[@"name"],
+                                                                       @"avatar": responseObject[@"avatar"] == nil
+                                                                       ? @"" : responseObject[@"avatar"],
                                                                        @"token": responseObject[@"token"],
                                                                        @"group_id": responseObject[@"group_id"]
                                                                        } error:nil];

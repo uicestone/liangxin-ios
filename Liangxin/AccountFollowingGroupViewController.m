@@ -18,9 +18,13 @@
     self.title = @"我关注的支部";
     [super viewDidLoad];
     
-    [self loadPage:@"followinggroups"];
     // Do any additional setup after loading the view.
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    [self loadPage:@"followinggroups"];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -18,6 +18,21 @@ static NSString *urlEncode(id object) {
     return [string stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
 }
 
+@implementation NSArray(Encoding)
+-(NSString *)toJSON{
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self
+                                                       options:0
+                                                         error:&error];
+    
+    if (!jsonData) {
+        NSLog(@"<JSON Encoding Error>: %@", error.localizedDescription);
+        return @"{}";
+    } else {
+        return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    }
+}
+@end
 
 @implementation NSDictionary(Encoding)
 -(NSString *)toJSON{

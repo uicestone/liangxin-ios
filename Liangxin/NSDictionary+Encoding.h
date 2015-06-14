@@ -8,8 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSDictionary (Encoding)
+@interface NSArray (Encoding)
+-(NSString *)toJSON;
+@end
 
+
+@interface NSDictionary (Encoding)
 -(NSString *)toJSON;
 -(NSString *)toQueryString;
 -(id)toModel:(Class)ModelClass withKeyMapping:(NSDictionary *)map;
