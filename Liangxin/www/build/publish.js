@@ -1,4 +1,4 @@
-webpackJsonp([5],[
+webpackJsonp([4],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -10,10 +10,10 @@ webpackJsonp([5],[
 
 	var type = query.type;
 
-	__webpack_require__(5);
+	__webpack_require__(7);
 
 	riot.mount('*', {type:type});
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
 
 /***/ },
 /* 1 */,
@@ -1626,10 +1626,12 @@ webpackJsonp([5],[
 	}
 
 /***/ },
-/* 5 */
+/* 5 */,
+/* 6 */,
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var riot = __webpack_require__(9);
+	var riot = __webpack_require__(11);
 
 	var $ = __webpack_require__(2);
 	var bridge = __webpack_require__(3);
@@ -1712,10 +1714,10 @@ webpackJsonp([5],[
 	});
 
 /***/ },
-/* 6 */,
-/* 7 */,
 /* 8 */,
-/* 9 */
+/* 9 */,
+/* 10 */,
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Riot v2.1.0, @license MIT, (c) 2015 Muut Inc. + contributors */
@@ -3002,12 +3004,10 @@ webpackJsonp([5],[
 
 
 /***/ },
-/* 10 */,
-/* 11 */,
 /* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var riot = __webpack_require__(9);
+	var riot = __webpack_require__(11);
 
 	riot.tag('inputctrl', '<div class="input-row"> <input id="title" type="text" placeholder="{ opts.title }" maxlength="{opts.limit}" class="input input-text" onkeyup="{edit}" data-model="{opts.model}"> </div>', function(opts) {
 
@@ -3032,7 +3032,7 @@ webpackJsonp([5],[
 /* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var riot = __webpack_require__(9);
+	var riot = __webpack_require__(11);
 
 	riot.tag('textareactrl', '<div class="input-row"> <textarea id="title" type="text" placeholder="{opts.title}" maxlength="{opts.limit}" class="input input-textarea" onkeyup="{edit}"></textarea> </div>', function(opts) {
 		
@@ -3057,7 +3057,7 @@ webpackJsonp([5],[
 /* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var riot = __webpack_require__(9);
+	var riot = __webpack_require__(11);
 
 	var bridge = __webpack_require__(3);
 	var pickImage = bridge.pickImage;
@@ -3089,7 +3089,7 @@ webpackJsonp([5],[
 /* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var riot = __webpack_require__(9);
+	var riot = __webpack_require__(11);
 
 	riot.tag('btn', '<input type="button" class="btn" value="{opts.title}">', function(opts) {
 
@@ -3099,7 +3099,7 @@ webpackJsonp([5],[
 /* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var riot = __webpack_require__(9);
+	var riot = __webpack_require__(11);
 
 	riot.tag('datepicker', '<div class="input-row"> <input id="title" type="date" placeholder="{ opts.title }" maxlength="{opts.limit}" class="input input-text" onkeyup="{edit}" data-model="{opts.model}"> </div>', function(opts) {
 
@@ -3124,7 +3124,7 @@ webpackJsonp([5],[
 /* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var riot = __webpack_require__(9);
+	var riot = __webpack_require__(11);
 
 	riot.tag('selectctrl', '<div class="input-row"> <div class="input input-select">{this.value || opts.title} <select onchange="{edit}"> <option each="{sel in opts.choices}">{sel}</option> </select> </div> </div>', function(opts) {
 

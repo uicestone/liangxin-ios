@@ -17,7 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self loadPage:@"http://127.0.0.1:8000/"];
+    NSString* pageURL = [NSString
+        stringWithFormat:@"http://dangqun.malu.gov.cn/post/%@",
+        self.params[@"id"]];
+    
+    [self loadPage:pageURL];
     // Do any additional setup after loading the view.
 }
 
