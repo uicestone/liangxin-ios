@@ -78,6 +78,7 @@
 
 - (void)setStyle:(LXTableViewCellStyle)style {
     _style = style;
+    CGFloat width = (CGRectGetWidth([UIScreen mainScreen].bounds) - 82)/3;
     switch (_style) {
         case LXTableViewCellStyleClass: {
             self.likeButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -95,7 +96,7 @@
             [self.contentView addSubview:self.likeCountLabel];
             [self.likeCountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(self.likeButton.mas_right).offset(5);
-                make.width.mas_equalTo(50);
+                make.width.mas_equalTo(width - 22);
                 make.height.mas_equalTo(self.likeButton.mas_height);
                 make.centerY.equalTo(self.likeButton.mas_centerY);
             }];
@@ -103,7 +104,7 @@
             [self.reviewButton setImage:[UIImage imageNamed:@"Review"] forState:UIControlStateNormal];
             [self.contentView addSubview:self.reviewButton];
             [self.reviewButton mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self.likeButton.mas_right).offset(60);
+                make.left.equalTo(self.likeCountLabel.mas_right);
                 make.bottom.equalTo(_mainImageView.mas_bottom);
                 make.width.mas_equalTo(15);
                 make.height.mas_equalTo(12.5);
@@ -114,7 +115,7 @@
             [self.contentView addSubview:self.reviewCountLabel];
             [self.reviewCountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(self.reviewButton.mas_right).offset(5);
-                make.width.mas_equalTo(50);
+                make.width.mas_equalTo(width - 21);
                 make.height.mas_equalTo(self.reviewButton.mas_height);
                 make.centerY.equalTo(self.reviewButton.mas_centerY);
             }];
@@ -136,7 +137,7 @@
             [self.contentView addSubview:self.attendCountLabel];
             [self.attendCountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(self.attendButton.mas_right).offset(5);
-                make.width.mas_equalTo(50);
+                make.width.mas_equalTo(width - 22);
                 make.height.mas_equalTo(self.attendButton.mas_height);
                 make.centerY.equalTo(self.attendButton.mas_centerY);
             }];
@@ -144,18 +145,18 @@
             [self.likeButton setImage:[UIImage imageNamed:@"Like"] forState:UIControlStateNormal];
             [self.contentView addSubview:self.likeButton];
             [self.likeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(_attendCountLabel.mas_right).offset(60);
+                make.left.equalTo(_attendCountLabel.mas_right);
                 make.bottom.equalTo(_mainImageView.mas_bottom);
                 make.width.mas_equalTo(14);
                 make.height.mas_equalTo(12.5);
             }];
             self.likeCountLabel = [UILabel new];
-            self.likeCountLabel.textColor = UIColorFromRGB(0x939597);
+            self.likeCountLabel.textColor = UIColorFromRGB(0x939597);   
             self.likeCountLabel.font = [UIFont systemFontOfSize:13.0];
             [self.contentView addSubview:self.likeCountLabel];
             [self.likeCountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(self.likeButton.mas_right).offset(5);
-                make.width.mas_equalTo(50);
+                make.width.mas_equalTo(width - 22);
                 make.height.mas_equalTo(self.likeButton.mas_height);
                 make.centerY.equalTo(self.likeButton.mas_centerY);
             }];
@@ -163,7 +164,7 @@
             [self.reviewButton setImage:[UIImage imageNamed:@"Review"] forState:UIControlStateNormal];
             [self.contentView addSubview:self.reviewButton];
             [self.reviewButton mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self.likeButton.mas_right).offset(60);
+                make.left.equalTo(self.likeCountLabel.mas_right);
                 make.bottom.equalTo(_mainImageView.mas_bottom);
                 make.width.mas_equalTo(15);
                 make.height.mas_equalTo(12.5);
@@ -174,7 +175,7 @@
             [self.contentView addSubview:self.reviewCountLabel];
             [self.reviewCountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(self.reviewButton.mas_right).offset(5);
-                make.width.mas_equalTo(50);
+                make.width.mas_equalTo(width - 21);
                 make.height.mas_equalTo(self.reviewButton.mas_height);
                 make.centerY.equalTo(self.reviewButton.mas_centerY);
             }];
@@ -209,7 +210,23 @@
             }
         }
             break;
+        case LXTableViewCellStyleActivity: {
+            if (data.likes > 0) {
+                self.likeCountLabel.text = [NSString stringWithFormat:@"%@", @(data.likes)];
+            }
+            else {
+                self.likeCountLabel.text = @"0";
+            }
             
+            if (data.comments != nil) {
+                self.reviewCountLabel.text = [NSString stringWithFormat:@"%@", @(data.comments.count)];
+            }
+            else {
+                self.reviewCountLabel.text = @"0";
+            }
+            self.attendCountLabel.text = [NSString stringWithFormat:@"%@人已经报名", @(data.attendees.count)];
+        }
+            break;
         default:
             break;
     }
