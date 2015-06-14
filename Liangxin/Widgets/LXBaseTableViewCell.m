@@ -144,7 +144,7 @@
             [self.likeButton setImage:[UIImage imageNamed:@"Like"] forState:UIControlStateNormal];
             [self.contentView addSubview:self.likeButton];
             [self.likeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(_attendCountLabel.mas_right).offset(60);
+                make.left.equalTo(_attendButton.mas_right).offset(60);
                 make.bottom.equalTo(_mainImageView.mas_bottom);
                 make.width.mas_equalTo(14);
                 make.height.mas_equalTo(12.5);
