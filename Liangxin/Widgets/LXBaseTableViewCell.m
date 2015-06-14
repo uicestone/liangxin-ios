@@ -137,8 +137,8 @@
             [self.attendCountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(self.attendButton.mas_right).offset(5);
                 make.width.mas_equalTo(50);
-                make.height.mas_equalTo(self.likeButton.mas_height);
-                make.centerY.equalTo(self.likeButton.mas_centerY);
+                make.height.mas_equalTo(self.attendButton.mas_height);
+                make.centerY.equalTo(self.attendButton.mas_centerY);
             }];
             self.likeButton = [UIButton buttonWithType:UIButtonTypeCustom];
             [self.likeButton setImage:[UIImage imageNamed:@"Like"] forState:UIControlStateNormal];
