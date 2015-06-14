@@ -7,11 +7,14 @@
 //
 
 #import "ClassDetailDetailCell.h"
+#import "ClassDetailArticleView.h"
 
 @interface ClassDetailDetailCell()
 
 @property (nonatomic, strong) UIView *seperatorLine;
 @property (nonatomic, strong) UILabel *defaultLabel;
+@property (nonatomic, strong) ClassDetailArticleView *article1View;
+@property (nonatomic, strong) ClassDetailArticleView *article2View;
 
 @end
 
@@ -28,6 +31,22 @@
             make.right.mas_equalTo(0);
             make.centerY.equalTo(self.baseView.mas_centerY);
             make.height.mas_equalTo(1);
+        }];
+        _article1View = [ClassDetailArticleView new];
+        [self.baseView addSubview:_article1View];
+        [_article1View mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(0);
+            make.bottom.equalTo(self.seperatorLine.mas_top);
+            make.left.mas_equalTo(0);
+            make.right.mas_equalTo(0);
+        }];
+        _article2View = [ClassDetailArticleView new];
+        [self.baseView addSubview:_article2View];
+        [_article2View mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.seperatorLine.mas_bottom);
+            make.bottom.mas_equalTo(0);
+            make.left.mas_equalTo(0);
+            make.right.mas_equalTo(0);
         }];
         _defaultLabel = [UILabel new];
         _defaultLabel.text = @"暂无详情";
@@ -53,9 +72,16 @@
     if (data) {
         if (data.articles) {
             NSDictionary *article1 = [data.articles objectAtIndex:0];
-            
-            if (data.articles.count == 1) {
-                
+            self.article1View.titleLabel.text = [article1 objectForKey:@"title"];
+            if ([article1 objectForKey:@"created_at"]) {
+                self.article1View.createDateLabel.text = [[article1 objectForKey:@"created_at"] substringToIndex:10];
+            }
+            if (data.articles.count >= 2) {
+                NSDictionary *article2 = [data.articles objectAtIndex:1];
+                self.article2View.titleLabel.text = [article2 objectForKey:@"title"];
+                if ([article2 objectForKey:@"created_at"]) {
+                    self.article2View.createDateLabel.text = [[article2 objectForKey:@"created_at"] substringToIndex:10];
+                }
             }
         }
         else {
