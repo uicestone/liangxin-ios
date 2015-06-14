@@ -21,10 +21,11 @@
 @interface LXBaseViewController () <UIActionSheetDelegate, LXViewControllerDelegate>
 @property (nonatomic, strong) MBProgressHUD* progress;
 @property (nonatomic, strong) AppDelegate* appDelegate;
+@property (nonatomic, strong) UIToolbar* toolbar;
 @end
 
 @implementation LXBaseViewController
-@synthesize currentUser, appDelegate;
+@synthesize currentUser, appDelegate, toolbar;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -55,8 +56,13 @@
     
 }
 
+-(void)dealloc{
+    NSLog(@"dealloc view");
+    
+}
 
--(void)viewDidAppear:(BOOL)animated{
+
+-(void)viewWillAppear:(BOOL)animated{
     if([self hasToolBar]){
         [self showToolBar];
     }else{
@@ -65,18 +71,24 @@
 }
 
 -(void)showToolBar{
-    self.navigationController.toolbar.hidden = NO;
+    self.toolbar.hidden = NO;
+    [self.view bringSubviewToFront:self.toolbar];
 }
 
 -(void)hideToolBar{
-    self.navigationController.toolbar.hidden = YES;
+    self.toolbar.hidden = YES;
 }
 
 -(void)initToolBar{
     
     NSArray* tabTitles = @[@"我的账号",@"我要发起",@"返回首页"];
     NSArray* tabIcons = @[@"tab-account", @"tab-plus", @"tab-home"];
-    CGFloat width = CGRectGetWidth([UIScreen mainScreen].bounds) / 3;
+    CGFloat win_width = CGRectGetWidth([UIScreen mainScreen].bounds);
+    CGFloat width = win_width / 3;
+    CGFloat toolbar_y = CGRectGetHeight(self.view.frame) - 44.0f - 66.0f;
+    toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, toolbar_y, win_width, 44)];
+    
+    [self.view addSubview:toolbar];
     for (NSInteger i = 0; i < 3; i++) {
         UIButton *tabButton = [[UIButton alloc] initWithFrame:CGRectMake(i * width, 0, width, 44)];
         [tabButton setImage:[UIImage imageNamed:[tabIcons objectAtIndex:i]] forState:UIControlStateNormal];
@@ -90,18 +102,21 @@
         tabButton.tag = i;
         [tabButton addTarget:self action:@selector(toolbarItemsPressed:) forControlEvents:UIControlEventTouchUpInside];
         tabButton.imageEdgeInsets = UIEdgeInsetsMake(- (titleSize.height + spacing), 0.0, 0.0, - titleSize.width);
-        [self.navigationController.toolbar addSubview:tabButton];
+        
+        
+        [toolbar addSubview:tabButton];
     }
     
-    self.navigationController.toolbar.backgroundColor = UIColorFromRGB(0xf1f1f2);
-    [self.navigationController setToolbarHidden:NO animated:NO];
+    toolbar.backgroundColor = UIColorFromRGB(0xf1f1f2);
 }
 
 -(void)toolbarItemsPressed:(UIButton *)sender{
     NSInteger index = sender.tag;
     
     if(index == 0){
-        [self navigateToPath:@"/account"];
+        if(![self.params[@"route"] hasPrefix:@"/account"]){
+            [self navigateToPath:@"/account"];
+        }
     }else if(index == 1){
         
         if(!self.currentUser){

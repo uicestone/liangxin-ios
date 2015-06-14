@@ -36,23 +36,28 @@ var fetch = bridge.fetch;
 		self.update();
 	});
 
+	var removing = false;
 	opts.on('remove', function(){
-
+		if(removing){return};
+		removing = true;
 		var ids = self.items.filter(function(el){
 			return el.selected;
 		}).map(function(el){
 			return el.id;
 		}).join(',');
-
-		console.log(ids);
-
-		setTimeout(function(){
-
-			self.items = self.items.filter(function(el){
-				return !el.selected;
-			});
-			self.update();
+		bridge.showProgress();
+		fetch({
+			url:"/post",
+			method:"delete",
+			data: {
+				ids: ids
+			}
+		}).then(function(){
+			removing = false;
 			self.loadData();
+		}).catch(function(){
+			removing = false;
+			bridge.popMessage("删除失败");
 		});
 	});
 
