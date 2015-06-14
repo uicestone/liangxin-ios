@@ -1,5 +1,5 @@
 <mypic>
-	<div class="inner" style="background-image:url({opts.url})" ontouchend="{toggle}">
+	<div class="inner" style="background-image:url({opts.url})" ontouchend="{parent.parent.toggle}">
 	<div class="select {selected?'selected':''}"></div>
 	<div class="title">{opts.title}</div>
 	<div class="like">
@@ -11,11 +11,9 @@
 		<span class="count">{opts.comments}</span>
 	</div>
 	</div>
-	
-	var self = this;
+
+
+	// ontouched: parent.parent.toggle，第一层parent为looping tag
 	this.selected = opts.selected;
-	toggle(){
-		this.selected = !this.selected;
-	}
 </mypic>
 

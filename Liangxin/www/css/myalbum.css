@@ -27,13 +27,13 @@
 	display: block;
 }
 
-.album mypic{
+.album .mypic{
 	float: left;
 	width: 50%;
 }
 
 
-.album mypic .select{
+.album .mypic .select{
 	position: absolute;
 	width: 16px;
 	height: 16px;
@@ -45,11 +45,11 @@
 }
 
 
-.album mypic .select.selected{
+.album .mypic .select.selected{
 	background-color: #fff;
 }
 
-.album mypic .inner{
+.album .mypic .inner{
 	position: relative;
 	background-size: cover;
 	background-position: center center;
@@ -58,30 +58,37 @@
 	height: 124px;
 }
 
-.album mypic .inner .title{
-	color: #fff;
-	position: absolute;
-	bottom: 5px;
-	left: 5px;
-	font-size: 11px
+.album .mypic .inner .title{
+  color: #fff;
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  font-size: 11px;
+  width: 50px;
+  text-overflow: ellipsis;
+  height: 12px;
+  word-wrap: break-word;
+  white-space: nowrap;
+  word-break: break-all;
+  overflow: hidden;
 }
 
 
-.album mypic .inner .comment,
-.album mypic .inner .like{
+.album .mypic .inner .comment,
+.album .mypic .inner .like{
 	height:14px;
 	position: absolute;
 	bottom: 5px;
 	width: 32px
 }
 
-.album mypic .inner i{
+.album .mypic .inner i{
 	display: block;
 	height: 14px;
 	float: left;
 }
 
-.album mypic .inner .count{
+.album .mypic .inner .count{
 	color: #fff;
 	font-size: 12px;
 	float: left;
@@ -90,21 +97,21 @@
 	left: 2px;
 }
 
-.album mypic .inner .like{
+.album .mypic .inner .like{
 	right: 40px;
 }
 
-.album mypic .inner .comment{
+.album .mypic .inner .comment{
 	right: 5px;
 }
 
-.album mypic .inner .icon-like{
+.album .mypic .inner .icon-like{
 	width:14px;
 	background-image: url('../icons/like.png');
 }
 
 
-.album mypic .inner .icon-comment{
+.album .mypic .inner .icon-comment{
 	width:17px;
 	background-image: url('../icons/comment.png');
 }

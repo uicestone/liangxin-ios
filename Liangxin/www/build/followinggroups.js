@@ -1,20 +1,20 @@
-webpackJsonp([1],{
+webpackJsonp([5],{
 
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(riot) {__webpack_require__(1);
+	/* WEBPACK VAR INJECTION */(function(riot) {__webpack_require__(8);
 
 
 	riot.mount('*');
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
 
 /***/ },
 
-/***/ 1:
+/***/ 8:
 /***/ function(module, exports, __webpack_require__) {
 
-	var riot = __webpack_require__(11);
+	var riot = __webpack_require__(9);
 
 	__webpack_require__(19)
 	var bridge = __webpack_require__(3);
@@ -50,7 +50,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 11:
+/***/ 9:
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Riot v2.1.0, @license MIT, (c) 2015 Muut Inc. + contributors */
@@ -1341,7 +1341,7 @@ webpackJsonp([1],{
 /***/ 19:
 /***/ function(module, exports, __webpack_require__) {
 
-	var riot = __webpack_require__(11);
+	var riot = __webpack_require__(9);
 
 	var bridge = __webpack_require__(3);
 	var fetch = bridge.fetch;

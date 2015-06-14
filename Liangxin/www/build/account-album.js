@@ -1,4 +1,4 @@
-webpackJsonp([2],[
+webpackJsonp([1],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -6,7 +6,6 @@ webpackJsonp([2],[
 	var bridge = __webpack_require__(3);
 	var query = __webpack_require__(4).parse();
 
-	__webpack_require__(5);
 	__webpack_require__(6);
 
 	var fetch = bridge.fetch;
@@ -25,7 +24,7 @@ webpackJsonp([2],[
 	});
 
 	riot.mount('*', bus);
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
 
 /***/ },
 /* 1 */,
@@ -1638,20 +1637,22 @@ webpackJsonp([2],[
 	}
 
 /***/ },
-/* 5 */
+/* 5 */,
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var riot = __webpack_require__(11);
+	var riot = __webpack_require__(9);
 
 	var bridge = __webpack_require__(3);
 	var fetch = bridge.fetch;
 
 
-	riot.tag('myalbum', '<mypic each="{ items }" title="{ this.title }" url="{ this.url }" likes="{ this.likes }" comments="{ this.comments }"></mypic>', 'class="album"', function(opts) {
+	riot.tag('myalbum', '<div class="mypic" each="{items}"> <div class="inner" riot-style="background-image:url({this.url})" ontouchend="{parent.toggle}"> <div class="select {selected?\'selected\':\'\'}"></div> <div class="title">{opts.title}</div> <div class="like"> <i class="icon-like"></i> <span class="count">{opts.likes}</span> </div> <div class="comment"> <i class="icon-comment"></i> <span class="count">{opts.comments}</span> </div> </div> </div>', 'class="album"', function(opts) {
 
 		var self = this;
 			
 		this.loadData = function() {
+			bridge.showProgress();
 			bridge
 				.getUser()
 				.then(function(user){
@@ -1663,10 +1664,19 @@ webpackJsonp([2],[
 						}
 					}).then(function(data){
 						opts.trigger('data', data);
+						bridge.hideProgress();
+					}).catch(function(){
+						bridge.popMessage("发生错误");
 					});
 				});
 		}.bind(this);
 
+		this.toggle = function(e) {
+			var item = e.item
+			item.selected = !item.selected
+			return true;
+			self.update();
+		}.bind(this);
 
 		opts.on('toggle-all', function(selected){
 			self.items.forEach(function(el, i){
@@ -1689,15 +1699,15 @@ webpackJsonp([2],[
 			}).map(function(el){
 				return el.id;
 			}).join(',');
+			if(!ids){return;}
+			console.log(ids);
 			bridge.showProgress();
 			fetch({
-				url:"/post",
-				method:"delete",
-				data: {
-					ids: ids
-				}
+				url:"/post?id=" + ids,
+				method:"delete"
 			}).then(function(){
 				removing = false;
+				bridge.hideProgress();
 				self.loadData();
 			}).catch(function(){
 				removing = false;
@@ -1710,29 +1720,9 @@ webpackJsonp([2],[
 	});
 
 /***/ },
-/* 6 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var riot = __webpack_require__(11);
-
-	riot.tag('mypic', '<div class="inner" riot-style="background-image:url({opts.url})" ontouchend="{toggle}"> <div class="select {selected?\'selected\':\'\'}"></div> <div class="title">{opts.title}</div> <div class="like"> <i class="icon-like"></i> <span class="count">{opts.likes}</span> </div> <div class="comment"> <i class="icon-comment"></i> <span class="count">{opts.comments}</span> </div> </div>', function(opts) {
-		
-		var self = this;
-		this.selected = opts.selected;
-		this.toggle = function() {
-			this.selected = !this.selected;
-		}.bind(this);
-
-	});
-
-
-
-/***/ },
 /* 7 */,
 /* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Riot v2.1.0, @license MIT, (c) 2015 Muut Inc. + contributors */

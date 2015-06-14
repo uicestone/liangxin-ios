@@ -3,11 +3,25 @@ var fetch = bridge.fetch;
 
 
 <myalbum class="album">
-	<mypic each={ items } title="{ this.title }" url="{ this.url }" likes="{ this.likes }" comments="{ this.comments }"></mypic>
+	<div class="mypic" each={items}>
+	<div class="inner" style="background-image:url({this.url})" ontouchend="{parent.toggle}">
+		<div class="select {selected?'selected':''}"></div>
+		<div class="title">{opts.title}</div>
+		<div class="like">
+			<i class="icon-like"></i>
+			<span class="count">{opts.likes}</span>
+		</div>
+		<div class="comment">
+			<i class="icon-comment"></i>
+			<span class="count">{opts.comments}</span>
+		</div>
+	</div>
+	</div>
 
 	var self = this;
 		
 	loadData(){
+		bridge.showProgress();
 		bridge
 			.getUser()
 			.then(function(user){
@@ -19,10 +33,19 @@ var fetch = bridge.fetch;
 					}
 				}).then(function(data){
 					opts.trigger('data', data);
+					bridge.hideProgress();
+				}).catch(function(){
+					bridge.popMessage("发生错误");
 				});
 			});
 	}
 
+	toggle(e){
+		var item = e.item
+		item.selected = !item.selected
+		return true;
+		self.update();
+	}
 
 	opts.on('toggle-all', function(selected){
 		self.items.forEach(function(el, i){
@@ -45,15 +68,15 @@ var fetch = bridge.fetch;
 		}).map(function(el){
 			return el.id;
 		}).join(',');
+		if(!ids){return;}
+		console.log(ids);
 		bridge.showProgress();
 		fetch({
-			url:"/post",
-			method:"delete",
-			data: {
-				ids: ids
-			}
+			url:"/post?id=" + ids,
+			method:"delete"
 		}).then(function(){
 			removing = false;
+			bridge.hideProgress();
 			self.loadData();
 		}).catch(function(){
 			removing = false;

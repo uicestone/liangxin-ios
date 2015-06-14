@@ -3,7 +3,6 @@ var bridge = require('bridge');
 var query = require('query').parse();
 
 require('../tags/myalbum.tag');
-require('../tags/mypic.tag');
 
 var fetch = bridge.fetch;
 
