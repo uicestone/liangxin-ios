@@ -164,7 +164,7 @@
             [self.reviewButton setImage:[UIImage imageNamed:@"Review"] forState:UIControlStateNormal];
             [self.contentView addSubview:self.reviewButton];
             [self.reviewButton mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self.likeButton.mas_right).offset(60);
+                make.left.equalTo(self.likeCountLabel.mas_right);
                 make.bottom.equalTo(_mainImageView.mas_bottom);
                 make.width.mas_equalTo(15);
                 make.height.mas_equalTo(12.5);
