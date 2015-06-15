@@ -124,7 +124,7 @@
             return 85;
             break;
         case 1:
-            return 70;
+            return 40;
             break;
         case 2:
             return 93.5;
