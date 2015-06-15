@@ -37,6 +37,15 @@
     self.viewModel = [ActivityViewModel new];
     self.view.backgroundColor = [UIColor whiteColor];
     
+    UIImage *searchImage = [UIImage imageNamed:@"search"];
+    searchImage = [searchImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    searchButton.frame = CGRectMake(0, 0, 30, 30);
+    [searchButton setImage:searchImage forState:UIControlStateNormal];
+    searchButton.tintColor = [UIColor whiteColor];
+    [searchButton addTarget:self action:@selector(doSearch:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:searchButton];
+    
     UIView *searchView = [UIView new];
     searchView.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
     [self.view addSubview:searchView];
@@ -173,6 +182,10 @@
     } error:^(NSError *error) {
         
     }];
+}
+
+- (void)doSearch:(id)sender {
+    
 }
 
 #pragma mark - LXBannerViewDelegate
