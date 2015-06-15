@@ -70,7 +70,7 @@
 
 - (void)reloadViewWithData:(LXBaseModelPost *)data {
     if (data) {
-        if (data.articles) {
+        if (data.articles.count > 0) {
             NSDictionary *article1 = [data.articles objectAtIndex:0];
             self.article1View.titleLabel.text = [article1 objectForKey:@"title"];
             if ([article1 objectForKey:@"created_at"]) {
