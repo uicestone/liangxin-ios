@@ -6,8 +6,10 @@
 //  Copyright (c) 2015 Hsu Spud. All rights reserved.
 //
 
-#import "ClassDetailBaseCell.h"
+#import <UIKit/UIKit.h>
 
-@interface ActivityDetailSummaryCell : ClassDetailBaseCell
+@interface ActivityDetailSummaryCell : UITableViewCell
+
+- (void)reloadViewWithData:(LXBaseModelPost *)data;
 
 @end
