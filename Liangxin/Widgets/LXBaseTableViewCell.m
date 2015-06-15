@@ -87,7 +87,7 @@
             [self.likeButton mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(_mainImageView.mas_right).offset(12);
                 make.bottom.equalTo(_mainImageView.mas_bottom);
-                make.width.mas_equalTo(14);
+                make.width.mas_equalTo(15.5);
                 make.height.mas_equalTo(15);
             }];
             self.likeCountLabel = [UILabel new];
@@ -106,7 +106,7 @@
             [self.reviewButton mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(self.likeCountLabel.mas_right);
                 make.bottom.equalTo(_mainImageView.mas_bottom);
-                make.width.mas_equalTo(15);
+                make.width.mas_equalTo(18);
                 make.height.mas_equalTo(15);
             }];
             self.reviewCountLabel = [UILabel new];
@@ -128,7 +128,7 @@
             [self.attendButton mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(_mainImageView.mas_right).offset(12);
                 make.bottom.equalTo(_mainImageView.mas_bottom);
-                make.width.mas_equalTo(10);
+                make.width.mas_equalTo(15.5);
                 make.height.mas_equalTo(15);
             }];
             self.attendCountLabel = [UILabel new];
@@ -147,7 +147,7 @@
             [self.likeButton mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(_attendCountLabel.mas_right);
                 make.bottom.equalTo(_mainImageView.mas_bottom);
-                make.width.mas_equalTo(14);
+                make.width.mas_equalTo(15.5);
                 make.height.mas_equalTo(15);
             }];
             self.likeCountLabel = [UILabel new];
@@ -166,7 +166,7 @@
             [self.reviewButton mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(self.likeCountLabel.mas_right);
                 make.bottom.equalTo(_mainImageView.mas_bottom);
-                make.width.mas_equalTo(15);
+                make.width.mas_equalTo(18);
                 make.height.mas_equalTo(15);
             }];
             self.reviewCountLabel = [UILabel new];
