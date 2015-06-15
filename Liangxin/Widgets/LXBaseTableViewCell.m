@@ -33,10 +33,10 @@
         _mainImageView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         [self.contentView addSubview:_mainImageView];
         [_mainImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(9);
-            make.top.mas_equalTo(6.5);
-            make.bottom.mas_equalTo(-6.5);
-            make.width.mas_equalTo(65);
+            make.left.mas_equalTo(12);
+            make.top.mas_equalTo(8);
+            make.bottom.mas_equalTo(-8);
+            make.width.mas_equalTo(85);
         }];
         
         _titleLabel = [UILabel new];
@@ -44,19 +44,19 @@
         _titleLabel.textColor = [UIColor darkGrayColor];
         [self.contentView addSubview:_titleLabel];
         [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.mas_equalTo(-9);
-            make.left.equalTo(_mainImageView.mas_right).offset(8);
-            make.top.mas_equalTo(6.5);
-            make.height.mas_equalTo(12);
+            make.right.mas_equalTo(-15);
+            make.left.equalTo(_mainImageView.mas_right).offset(12);
+            make.top.mas_equalTo(8);
+            make.height.mas_equalTo(17);
         }];
         
         _summaryLabel = [UILabel new];
         [self.contentView addSubview:_summaryLabel];
         [_summaryLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.mas_equalTo(-9);
-            make.left.equalTo(_mainImageView.mas_right).offset(8);
-            make.top.mas_equalTo(25);
-            make.height.mas_equalTo(33);
+            make.right.mas_equalTo(-15);
+            make.left.equalTo(_mainImageView.mas_right).offset(12);
+            make.top.mas_equalTo(30);
+            make.height.mas_equalTo(35);
         }];
         
         UIView *bottomLine = [UIView new];
@@ -85,10 +85,10 @@
             [self.likeButton setImage:[UIImage imageNamed:@"Like"] forState:UIControlStateNormal];
             [self.contentView addSubview:self.likeButton];
             [self.likeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(_mainImageView.mas_right).offset(8);
+                make.left.equalTo(_mainImageView.mas_right).offset(12);
                 make.bottom.equalTo(_mainImageView.mas_bottom);
                 make.width.mas_equalTo(14);
-                make.height.mas_equalTo(12.5);
+                make.height.mas_equalTo(15);
             }];
             self.likeCountLabel = [UILabel new];
             self.likeCountLabel.textColor = UIColorFromRGB(0x939597);
@@ -107,7 +107,7 @@
                 make.left.equalTo(self.likeCountLabel.mas_right);
                 make.bottom.equalTo(_mainImageView.mas_bottom);
                 make.width.mas_equalTo(15);
-                make.height.mas_equalTo(12.5);
+                make.height.mas_equalTo(15);
             }];
             self.reviewCountLabel = [UILabel new];
             self.reviewCountLabel.textColor = UIColorFromRGB(0x939597);
@@ -126,10 +126,10 @@
             [self.attendButton setImage:[UIImage imageNamed:@"Activity_Attend"] forState:UIControlStateNormal];
             [self.contentView addSubview:self.attendButton];
             [self.attendButton mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(_mainImageView.mas_right).offset(8);
+                make.left.equalTo(_mainImageView.mas_right).offset(12);
                 make.bottom.equalTo(_mainImageView.mas_bottom);
                 make.width.mas_equalTo(10);
-                make.height.mas_equalTo(10);
+                make.height.mas_equalTo(15);
             }];
             self.attendCountLabel = [UILabel new];
             self.attendCountLabel.textColor = UIColorFromRGB(0x939597);
@@ -148,7 +148,7 @@
                 make.left.equalTo(_attendCountLabel.mas_right);
                 make.bottom.equalTo(_mainImageView.mas_bottom);
                 make.width.mas_equalTo(14);
-                make.height.mas_equalTo(12.5);
+                make.height.mas_equalTo(15);
             }];
             self.likeCountLabel = [UILabel new];
             self.likeCountLabel.textColor = UIColorFromRGB(0x939597);   
@@ -167,7 +167,7 @@
                 make.left.equalTo(self.likeCountLabel.mas_right);
                 make.bottom.equalTo(_mainImageView.mas_bottom);
                 make.width.mas_equalTo(15);
-                make.height.mas_equalTo(12.5);
+                make.height.mas_equalTo(15);
             }];
             self.reviewCountLabel = [UILabel new];
             self.reviewCountLabel.textColor = UIColorFromRGB(0x939597);
