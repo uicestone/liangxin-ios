@@ -37,6 +37,15 @@
     self.title = @"党群课堂";
     self.view.backgroundColor = [UIColor whiteColor];
     
+    UIImage *searchImage = [UIImage imageNamed:@"search"];
+    searchImage = [searchImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    searchButton.frame = CGRectMake(0, 0, 30, 30);
+    [searchButton setImage:searchImage forState:UIControlStateNormal];
+    searchButton.tintColor = [UIColor whiteColor];
+    [searchButton addTarget:self action:@selector(doSearch:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:searchButton];
+    
     self.carouselView = [LXCarouselView carouselViewWithFrame:CGRectMake(0, 0, 320, 200) imageURLsGroup:nil];
     self.carouselView.pageControl.currentPageIndicatorTintColor = UIColorFromRGB(0xf99d33);
     self.carouselView.pageControl.pageIndicatorTintColor = UIColorFromRGB(0xbbbdc0);
@@ -140,6 +149,10 @@
     } error:^(NSError *error) {
         
     }];
+}
+
+- (void)doSearch:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"liangxin://class/list/"]];
 }
 
 - (void)showClassList:(UIButton *)sender {
