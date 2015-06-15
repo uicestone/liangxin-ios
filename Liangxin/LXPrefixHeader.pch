@@ -18,5 +18,6 @@
 #import "LXBaseModelUser.h"
 #import "LXNetworkManager.h"
 #import <HHRouter/HHRouter.h>
+#import "UIButton+WebCache.h"
 
 #endif

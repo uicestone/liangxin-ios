@@ -20,6 +20,7 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) LXCarouselView *carouselView;
 @property (nonatomic, strong) UIView *titleView;
+@property (nonatomic, strong) LXBannerView *bannerView;
 
 @property (nonatomic, strong) LXClassViewModel *viewModel;
 
@@ -35,6 +36,15 @@
 - (void)commonInit {
     self.title = @"党群课堂";
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    UIImage *searchImage = [UIImage imageNamed:@"search"];
+    searchImage = [searchImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    searchButton.frame = CGRectMake(0, 0, 30, 30);
+    [searchButton setImage:searchImage forState:UIControlStateNormal];
+    searchButton.tintColor = [UIColor whiteColor];
+    [searchButton addTarget:self action:@selector(doSearch:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:searchButton];
     
     self.carouselView = [LXCarouselView carouselViewWithFrame:CGRectMake(0, 0, 320, 200) imageURLsGroup:nil];
     self.carouselView.pageControl.currentPageIndicatorTintColor = UIColorFromRGB(0xf99d33);
@@ -76,6 +86,7 @@
         channelView.titleEdgeInsets = UIEdgeInsetsMake(0.0, - imageSize.width, - (imageSize.height + spacing), 0.0);
         CGSize titleSize = [channelView.titleLabel.text sizeWithAttributes:@{NSFontAttributeName: channelView.titleLabel.font}];
         channelView.imageEdgeInsets = UIEdgeInsetsMake(- (titleSize.height + spacing), 0.0, 0.0, - titleSize.width);
+        channelView.tag = i;
         [self.titleView addSubview:channelView];
         [channelView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(0);
@@ -83,22 +94,16 @@
             make.width.mas_equalTo(width);
             make.height.mas_equalTo(67);
         }];
-        channelView.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-            return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"liangxin://class/list"]];
-                [subscriber sendCompleted];
-                return nil;
-            }];
-        }];
+        [channelView addTarget:self action:@selector(showClassList:) forControlEvents:UIControlEventTouchUpInside];
     }
     
-    LXBannerView *bannerView = [LXBannerView new];
-    bannerView.titles = @[@"党建", @"青年", @"宣传", @"妇女", @"工会", @"廉政"];
-    bannerView.images = @[@"Banner_DJ", @"Banner_QN", @"Banner_XC", @"Banner_FN", @"Banner_GH", @"Banner_LZ"];
-    bannerView.backgroundColor = UIColorFromRGB(0xf99d33);
-    bannerView.delegate = self;
-    [self.titleView addSubview:bannerView];
-    [bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
+    _bannerView = [LXBannerView new];
+    _bannerView.titles = @[@"党建", @"青年", @"宣传", @"妇女", @"工会", @"廉政"];
+    _bannerView.images = @[@"Banner_DJ", @"Banner_QN", @"Banner_XC", @"Banner_FN", @"Banner_GH", @"Banner_LZ"];
+    _bannerView.backgroundColor = UIColorFromRGB(0xf99d33);
+    _bannerView.delegate = self;
+    [self.titleView addSubview:_bannerView];
+    [_bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.top.mas_equalTo(70);
@@ -146,10 +151,34 @@
     }];
 }
 
+- (void)doSearch:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"liangxin://class/list/"]];
+}
+
+- (void)showClassList:(UIButton *)sender {
+    NSString *orderBy = @"";
+    switch (sender.tag) {
+        case 0: {
+            orderBy = @"likes";
+        }
+            break;
+        case 1: {
+            orderBy = @"updated_at";
+        }
+            break;
+        case 2:
+            break;
+        default:
+            break;
+    }
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://class/list/?order_by=%@", orderBy]]];
+}
+
 #pragma mark - LXBannerViewDelegate
 
 - (void)bannerView:(LXBannerView *)bannerView didSelectItemAtIndex:(NSInteger)index {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"liangxin://class/list"]];
+    NSString *classType = [self.bannerView.titles objectAtIndex:index];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://class/list/?class_type=%@", [classType stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
 }
 
 #pragma mark - UITableViewDataSource  && UITableViewDelegate

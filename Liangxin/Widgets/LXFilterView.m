@@ -205,4 +205,11 @@ typedef NS_ENUM(NSInteger, LXFilterViewType){
     return 0;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(filterView:didSelectItemAtIndexPath:)]) {
+        [self.delegate filterView:self didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row inSection:self.currentType]];
+    }
+}
+
 @end

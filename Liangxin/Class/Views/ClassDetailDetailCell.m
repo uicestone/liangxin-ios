@@ -73,6 +73,7 @@
         if (data.articles.count > 0) {
             NSDictionary *article1 = [data.articles objectAtIndex:0];
             self.article1View.titleLabel.text = [article1 objectForKey:@"title"];
+            self.article1View.nameLabel.text = [[article1 objectForKey:@"author"] objectForKey:@"name"]?:@"";
             if ([article1 objectForKey:@"created_at"]) {
                 self.article1View.createDateLabel.text = [[article1 objectForKey:@"created_at"] substringToIndex:10];
             }

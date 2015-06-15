@@ -178,4 +178,40 @@
     }];
 }
 
+- (RACSignal *)getVideosByPostId:(NSString *)postId {
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        NSURLSessionDataTask *task = [self.sessionManager GET:@"/api/v1/post" parameters:@{@"type":@"视频", @"parent_id":postId} success:^(NSURLSessionDataTask *task, id responseObject) {
+            NSMutableArray *posts = [NSMutableArray array];
+            for (NSDictionary *post in responseObject) {
+                [posts addObject:[LXBaseModelPost modelWithDictionary:post error:nil]];
+            }
+            [subscriber sendNext:posts];
+            [subscriber sendCompleted];
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            [subscriber sendError:error];
+        }];
+        return [RACDisposable disposableWithBlock:^{
+            [task cancel];
+        }];
+    }];
+}
+
+- (RACSignal *)getDocumentsByPostId:(NSString *)postId {
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        NSURLSessionDataTask *task = [self.sessionManager GET:@"/api/v1/post" parameters:@{@"type":@"附件", @"parent_id":postId} success:^(NSURLSessionDataTask *task, id responseObject) {
+            NSMutableArray *posts = [NSMutableArray array];
+            for (NSDictionary *post in responseObject) {
+                [posts addObject:[LXBaseModelPost modelWithDictionary:post error:nil]];
+            }
+            [subscriber sendNext:posts];
+            [subscriber sendCompleted];
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            [subscriber sendError:error];
+        }];
+        return [RACDisposable disposableWithBlock:^{
+            [task cancel];
+        }];
+    }];
+}
+
 @end

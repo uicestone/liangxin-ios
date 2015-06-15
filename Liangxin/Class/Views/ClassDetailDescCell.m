@@ -51,8 +51,8 @@
 }
 
 - (void)reloadViewWithData:(LXBaseModelPost *)data {
-    if (data.content.length > 0) {
-        _descLabel.text = data.content;
+    if (data.excerpt.length > 0) {
+        _descLabel.text = data.excerpt;
     }
     else {
         _defaultLabel.hidden = NO;

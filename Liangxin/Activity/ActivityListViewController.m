@@ -67,7 +67,7 @@
     if (!cell) {
         cell = [[LXBaseTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ActivityCell"];
     }
-    cell.style = LXTableViewCellStyleClass;
+    cell.style = LXTableViewCellStyleActivity;
     return cell;
 }
 

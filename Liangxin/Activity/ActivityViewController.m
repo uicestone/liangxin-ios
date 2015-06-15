@@ -14,6 +14,7 @@
 #import "LXNetworkManager.h"
 #import "LXSearchBar.h"
 #import "ActivityListViewController.h"
+#import "ActivityDetailViewController.h"
 
 @interface ActivityViewController() <UITableViewDataSource, UITableViewDelegate, LXBannerViewDelegate>
 
@@ -36,6 +37,15 @@
     self.title = @"精彩活动";
     self.viewModel = [ActivityViewModel new];
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    UIImage *searchImage = [UIImage imageNamed:@"search"];
+    searchImage = [searchImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    searchButton.frame = CGRectMake(0, 0, 30, 30);
+    [searchButton setImage:searchImage forState:UIControlStateNormal];
+    searchButton.tintColor = [UIColor whiteColor];
+    [searchButton addTarget:self action:@selector(doSearch:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:searchButton];
     
     UIView *searchView = [UIView new];
     searchView.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
@@ -76,7 +86,7 @@
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.top.mas_equalTo(self.carouselView.mas_bottom);
-        make.height.mas_equalTo(135);
+        make.height.mas_equalTo(178);
     }];
     
     NSArray *channelTitles = @[@"最受欢迎", @"最新活动", @"即将下线", @"全部活动"];
@@ -104,23 +114,19 @@
                 make.top.mas_equalTo(0);
                 make.left.mas_equalTo(i * width);
                 make.width.mas_equalTo(width);
-                make.height.mas_equalTo(50);
+                make.height.mas_equalTo(68);
             }];
         }
         else {
             [channelView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.mas_equalTo(50);
+                make.top.mas_equalTo(68);
                 make.left.mas_equalTo((i - 2) * width);
                 make.width.mas_equalTo(width);
-                make.height.mas_equalTo(50);
+                make.height.mas_equalTo(68);
             }];
         }
-        channelView.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-            return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-                [subscriber sendCompleted];
-                return nil;
-            }];
-        }];
+        channelView.tag = i;
+        [channelView addTarget:self action:@selector(showActivityList:) forControlEvents:UIControlEventTouchUpInside];
     }
     
     LXBannerView *bannerView = [LXBannerView new];
@@ -132,12 +138,12 @@
     [bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
-        make.top.mas_equalTo(105);
-        make.height.mas_equalTo(25);
+        make.top.mas_equalTo(138);
+        make.height.mas_equalTo(33);
     }];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-    self.tableView.rowHeight = 75;
+    self.tableView.rowHeight = 100;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 1)];
@@ -175,11 +181,36 @@
     }];
 }
 
+- (void)doSearch:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"liangxin://activity/list/"]];
+}
+
+- (void)showActivityList:(UIButton *)sender {
+    NSString *orderBy = @"";
+    switch (sender.tag) {
+        case 0: {
+            orderBy = @"likes";
+        }
+            break;
+        case 1: {
+            orderBy = @"updated_at";
+        }
+            break;
+        case 2: {
+            orderBy = @"due_date";
+        }
+            break;
+        default:
+            break;
+    }
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://activity/list/?order_by=%@", orderBy]]];
+}
+
 #pragma mark - LXBannerViewDelegate
 
 - (void)bannerView:(LXBannerView *)bannerView didSelectItemAtIndex:(NSInteger)index {
-    ActivityListViewController *listViewController = [ActivityListViewController new];
-    [self.navigationController pushViewController:listViewController animated:YES];
+    NSString *eventType = [bannerView.titles objectAtIndex:index];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://activity/list/?event_type=%@", [eventType stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
 }
 
 #pragma mark - UITableViewDataSource && UITableViewDelegate
@@ -222,6 +253,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.viewModel.activityData.count;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    LXBaseModelPost *data = [self.viewModel.activityData objectAtIndex:indexPath.row];
+    ActivityDetailViewController *detailViewController = [ActivityDetailViewController new];
+    detailViewController.hidesBottomBarWhenPushed = YES;
+    detailViewController.postId = data.id;
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 @end
