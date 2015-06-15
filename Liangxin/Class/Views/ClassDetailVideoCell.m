@@ -31,6 +31,7 @@
             videoButton.backgroundColor = [UIColor colorWithRed:169/255.0 green:171.0/255.0 blue:174.0/255.0 alpha:1.0];
             [videoButton addTarget:self action:@selector(playVideo:) forControlEvents:UIControlEventTouchUpInside];
             videoButton.tag = i;
+            [videoButton setImage:[UIImage imageNamed:@"Video"] forState:UIControlStateNormal];
             [self.baseView addSubview:videoButton];
             [_videoButtons addObject:videoButton];
             if (i == 0) {
