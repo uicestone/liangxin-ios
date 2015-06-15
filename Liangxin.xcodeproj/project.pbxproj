@@ -145,6 +145,7 @@
 		2DD8A0D51B2EB1FE00856E23 /* ActivityDetailAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD8A0D41B2EB1FE00856E23 /* ActivityDetailAlbumCell.m */; };
 		2DDE601A1B2F0710003757FD /* ClassVideoCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDE60191B2F0710003757FD /* ClassVideoCollectionCell.m */; };
 		2DDE601D1B2F0D5A003757FD /* ClassDocumentCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDE601C1B2F0D5A003757FD /* ClassDocumentCollectionCell.m */; };
+		2DDE60201B2F0EF6003757FD /* ClassAlbumCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDE601F1B2F0EF6003757FD /* ClassAlbumCollectionCell.m */; };
 		2DE2F4A11B2041C600E3DA29 /* ActivityViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE2F4A01B2041C600E3DA29 /* ActivityViewModel.m */; };
 		2DFD651F1B15FE7800FAC662 /* LXCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD651E1B15FE7800FAC662 /* LXCarouselView.m */; };
 		2DFD65221B16001200FAC662 /* LXCarouselViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD65211B16001200FAC662 /* LXCarouselViewCell.m */; };
@@ -426,6 +427,8 @@
 		2DDE60191B2F0710003757FD /* ClassVideoCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassVideoCollectionCell.m; path = Class/Views/ClassVideoCollectionCell.m; sourceTree = "<group>"; };
 		2DDE601B1B2F0D5A003757FD /* ClassDocumentCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassDocumentCollectionCell.h; path = Class/Views/ClassDocumentCollectionCell.h; sourceTree = "<group>"; };
 		2DDE601C1B2F0D5A003757FD /* ClassDocumentCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassDocumentCollectionCell.m; path = Class/Views/ClassDocumentCollectionCell.m; sourceTree = "<group>"; };
+		2DDE601E1B2F0EF6003757FD /* ClassAlbumCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassAlbumCollectionCell.h; path = Class/Views/ClassAlbumCollectionCell.h; sourceTree = "<group>"; };
+		2DDE601F1B2F0EF6003757FD /* ClassAlbumCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassAlbumCollectionCell.m; path = Class/Views/ClassAlbumCollectionCell.m; sourceTree = "<group>"; };
 		2DE2F49F1B2041C600E3DA29 /* ActivityViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityViewModel.h; path = Liangxin/Activity/ViewModel/ActivityViewModel.h; sourceTree = "<group>"; };
 		2DE2F4A01B2041C600E3DA29 /* ActivityViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityViewModel.m; path = Liangxin/Activity/ViewModel/ActivityViewModel.m; sourceTree = "<group>"; };
 		2DFD651D1B15FE7800FAC662 /* LXCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXCarouselView.h; path = Widgets/LXCarouselView.h; sourceTree = "<group>"; };
@@ -958,6 +961,8 @@
 				2DDE60191B2F0710003757FD /* ClassVideoCollectionCell.m */,
 				2DDE601B1B2F0D5A003757FD /* ClassDocumentCollectionCell.h */,
 				2DDE601C1B2F0D5A003757FD /* ClassDocumentCollectionCell.m */,
+				2DDE601E1B2F0EF6003757FD /* ClassAlbumCollectionCell.h */,
+				2DDE601F1B2F0EF6003757FD /* ClassAlbumCollectionCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1220,6 +1225,7 @@
 				22F69A861AF31DF100DC295D /* SwitchBanner.m in Sources */,
 				22E7BBD41B22CA8C009F0266 /* AccountArticleCell.m in Sources */,
 				22E6E24A1B119445005E528E /* EntryListView.m in Sources */,
+				2DDE60201B2F0EF6003757FD /* ClassAlbumCollectionCell.m in Sources */,
 				2DFD652F1B175EAE00FAC662 /* LXClassViewModel.m in Sources */,
 				227CA1C91B1D21D80094E7A7 /* ServiceHomeViewController.m in Sources */,
 				22BE07DB1B1FDE7400A1E91F /* ArticleViewController.m in Sources */,

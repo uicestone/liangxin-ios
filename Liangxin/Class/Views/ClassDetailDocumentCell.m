@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSMutableArray *documentButtons;
 @property (nonatomic, strong) NSMutableArray *documentLabels;
 @property (nonatomic, strong) NSMutableArray *attachments;
+@property (nonatomic, copy) NSString *postId;
 
 @end
 
@@ -84,6 +85,7 @@
 
 - (void)reloadViewWithData:(LXBaseModelPost *)data {
     if (data) {
+        self.postId = data.id;
         if (data.attachments.count == 0) {
             for (UIButton *documentButton in self.documentButtons) {
                 documentButton.hidden = YES;
@@ -107,7 +109,9 @@
 }
 
 - (void)showMore:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://class/documents"]]];
+    if (self.postId.length > 0) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://class/documents/?id=%@", self.postId]]];
+    }
 }
 
 @end
