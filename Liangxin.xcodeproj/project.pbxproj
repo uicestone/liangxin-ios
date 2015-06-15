@@ -141,6 +141,7 @@
 		2DD8A0C91B2EA4BB00856E23 /* ActivityDetailSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD8A0C81B2EA4BB00856E23 /* ActivityDetailSummaryCell.m */; };
 		2DD8A0CC1B2EAF5400856E23 /* ActivityDetailDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD8A0CB1B2EAF5300856E23 /* ActivityDetailDetailCell.m */; };
 		2DD8A0CF1B2EAF9700856E23 /* ActivityDetailDescCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD8A0CE1B2EAF9700856E23 /* ActivityDetailDescCell.m */; };
+		2DD8A0D21B2EB1CB00856E23 /* ActivityDetailApplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD8A0D11B2EB1CB00856E23 /* ActivityDetailApplyCell.m */; };
 		2DE2F4A11B2041C600E3DA29 /* ActivityViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE2F4A01B2041C600E3DA29 /* ActivityViewModel.m */; };
 		2DFD651F1B15FE7800FAC662 /* LXCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD651E1B15FE7800FAC662 /* LXCarouselView.m */; };
 		2DFD65221B16001200FAC662 /* LXCarouselViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD65211B16001200FAC662 /* LXCarouselViewCell.m */; };
@@ -414,6 +415,8 @@
 		2DD8A0CB1B2EAF5300856E23 /* ActivityDetailDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityDetailDetailCell.m; path = Liangxin/Activity/Views/ActivityDetailDetailCell.m; sourceTree = "<group>"; };
 		2DD8A0CD1B2EAF9700856E23 /* ActivityDetailDescCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityDetailDescCell.h; path = Liangxin/Activity/Views/ActivityDetailDescCell.h; sourceTree = "<group>"; };
 		2DD8A0CE1B2EAF9700856E23 /* ActivityDetailDescCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityDetailDescCell.m; path = Liangxin/Activity/Views/ActivityDetailDescCell.m; sourceTree = "<group>"; };
+		2DD8A0D01B2EB1CB00856E23 /* ActivityDetailApplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityDetailApplyCell.h; path = Liangxin/Activity/Views/ActivityDetailApplyCell.h; sourceTree = "<group>"; };
+		2DD8A0D11B2EB1CB00856E23 /* ActivityDetailApplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityDetailApplyCell.m; path = Liangxin/Activity/Views/ActivityDetailApplyCell.m; sourceTree = "<group>"; };
 		2DE2F49F1B2041C600E3DA29 /* ActivityViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityViewModel.h; path = Liangxin/Activity/ViewModel/ActivityViewModel.h; sourceTree = "<group>"; };
 		2DE2F4A01B2041C600E3DA29 /* ActivityViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityViewModel.m; path = Liangxin/Activity/ViewModel/ActivityViewModel.m; sourceTree = "<group>"; };
 		2DFD651D1B15FE7800FAC662 /* LXCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXCarouselView.h; path = Widgets/LXCarouselView.h; sourceTree = "<group>"; };
@@ -988,6 +991,8 @@
 				2DD8A0CB1B2EAF5300856E23 /* ActivityDetailDetailCell.m */,
 				2DD8A0CD1B2EAF9700856E23 /* ActivityDetailDescCell.h */,
 				2DD8A0CE1B2EAF9700856E23 /* ActivityDetailDescCell.m */,
+				2DD8A0D01B2EB1CB00856E23 /* ActivityDetailApplyCell.h */,
+				2DD8A0D11B2EB1CB00856E23 /* ActivityDetailApplyCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1168,6 +1173,7 @@
 				22238C1B1AF64F02000B4F95 /* Channels.m in Sources */,
 				2D537DF91B1AF55F006BD35E /* ClassAlbumViewController.m in Sources */,
 				2D537DD51B196555006BD35E /* ClassDetailViewController.m in Sources */,
+				2DD8A0D21B2EB1CB00856E23 /* ActivityDetailApplyCell.m in Sources */,
 				2215CB5C1B082B1E00D0359A /* GroupPostViewController.m in Sources */,
 				22D649D91B0A29FF004045B8 /* PostItemCell.m in Sources */,
 				2DD8A0C91B2EA4BB00856E23 /* ActivityDetailSummaryCell.m in Sources */,
