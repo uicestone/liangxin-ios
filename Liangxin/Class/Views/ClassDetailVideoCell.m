@@ -113,7 +113,7 @@
 
 - (void)showMore:(id)sender {
     if (self.postId.length > 0) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://class/videos/id=%@", self.postId]]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://class/videos/?id=%@", self.postId]]];
     }
 }
 

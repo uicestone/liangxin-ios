@@ -46,4 +46,11 @@
     return self;
 }
 
+- (void)reloadViewWithData:(LXBaseModelPost *)data {
+    self.titleLabel.text = data.title?:@"";
+    if (data.url.length > 0) {
+        [self.videoButton sd_setBackgroundImageWithURL:[NSURL URLWithString:data.url] forState:UIControlStateNormal];
+    }
+}
+
 @end

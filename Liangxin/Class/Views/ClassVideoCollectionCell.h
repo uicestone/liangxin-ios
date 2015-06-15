@@ -10,4 +10,6 @@
 
 @interface ClassVideoCollectionCell : UICollectionViewCell
 
+- (void)reloadViewWithData:(LXBaseModelPost *)data;
+
 @end
