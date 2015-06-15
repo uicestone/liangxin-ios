@@ -13,4 +13,6 @@
 @property (nonatomic, strong) UIColor *mainColor;
 @property (nonatomic, strong) UILabel *titleLabel;
 
+- (void)reset;
+
 @end

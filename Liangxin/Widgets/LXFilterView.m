@@ -163,12 +163,18 @@ typedef NS_ENUM(NSInteger, LXFilterViewType){
             if (indexPath.row == 0) {
                 cell.mainColor = self.tintColor;
             }
+            else {
+                [cell reset];
+            }
         }
             break;
         case LXFilterViewType2: {
             cell.titleLabel.text = self.category2[indexPath.row];
             if (indexPath.row == 0) {
                 cell.mainColor = self.tintColor;
+            }
+            else {
+                [cell reset];
             }
         }
             break;
