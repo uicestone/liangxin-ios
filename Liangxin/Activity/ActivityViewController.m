@@ -124,12 +124,8 @@
                 make.height.mas_equalTo(68);
             }];
         }
-        channelView.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-            return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-                [subscriber sendCompleted];
-                return nil;
-            }];
-        }];
+        channelView.tag = i;
+        [channelView addTarget:self action:@selector(showActivityList:) forControlEvents:UIControlEventTouchUpInside];
     }
     
     LXBannerView *bannerView = [LXBannerView new];
@@ -188,11 +184,32 @@
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"liangxin://activity/list/"]];
 }
 
+- (void)showActivityList:(UIButton *)sender {
+    NSString *orderBy = @"";
+    switch (sender.tag) {
+        case 0: {
+            orderBy = @"likes";
+        }
+            break;
+        case 1: {
+            orderBy = @"updated_at";
+        }
+            break;
+        case 2: {
+            orderBy = @"due_date";
+        }
+            break;
+        default:
+            break;
+    }
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://activity/list/?order_by=%@", orderBy]]];
+}
+
 #pragma mark - LXBannerViewDelegate
 
 - (void)bannerView:(LXBannerView *)bannerView didSelectItemAtIndex:(NSInteger)index {
-    ActivityListViewController *listViewController = [ActivityListViewController new];
-    [self.navigationController pushViewController:listViewController animated:YES];
+    NSString *eventType = [bannerView.titles objectAtIndex:index];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://activity/list/?event_type=%@", [eventType stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
 }
 
 #pragma mark - UITableViewDataSource && UITableViewDelegate
