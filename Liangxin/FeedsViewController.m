@@ -9,19 +9,23 @@
 #import "FeedsViewController.h"
 #import "LXTabView.h"
 #import "PostApi.h"
-#import "FeedsViewModel.h"
 #import "LXBaseTableViewCell.h"
+#import "PostItemCell.h"
+#import "Post.h"
+
+
+#define kReuseIdentifier @"postItemCell"
 
 
 @interface FeedsViewController () <LXTabViewDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (retain, strong) LXTabView* tabview;
 @property (retain, strong) UITableView* tableview;
-@property (nonatomic, strong) FeedsViewModel* viewModel;
+@property (nonatomic, strong) NSArray* viewPosts;
 @end
 
 @implementation FeedsViewController
 @synthesize tabview, tableview;
-
+@synthesize viewPosts;
 
 - (BOOL)hasToolBar{
     return YES;}
@@ -33,9 +37,7 @@
     self.title = @"党群动态";
     [super viewDidLoad];
     
-    
-    self.viewModel = [FeedsViewModel new];
-    
+    viewPosts = [NSArray new];
     // init tabs
     tabview = [[LXTabView alloc]
                initWithContainer:self.view
@@ -43,7 +45,7 @@
                secondTab:@"文章"
                tabColor:UIColorFromRGB(0xee2a7b)];
     tabview.delegate = self;
-    
+    [self tabview:tabview tappedAtIndex:0];
     // init tableview
     @weakify(self)
     tableview = [UITableView new];
@@ -59,6 +61,8 @@
     tableview.dataSource = self;
 
     
+    
+    
     // Do any additional setup after loading the view.
 }
 
@@ -70,7 +74,7 @@
                                @"type": index == 0 ? @"公告" : @"文章"
                                } successHandler:^(NSArray *posts) {
                                    [self hideProgress];
-                                   [self.viewModel.feedsData addObjectsFromArray:posts];
+                                   viewPosts = posts;
                                    [self.tableview reloadData];
                                } errorHandler:^(NSError *error) {
                                    [self hideProgress];
@@ -80,18 +84,22 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.viewModel.feedsData count];
+    return [viewPosts count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    Post *post = [viewPosts objectAtIndex:[indexPath row]];
+    PostItemCell *cell = [tableview dequeueReusableCellWithIdentifier:kReuseIdentifier];
     
-    LXBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FeedCell"];
-    if (!cell) {
-        cell = [[LXBaseTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FeedCell"];
+    if(!cell){
+        [tableview registerNib:[UINib nibWithNibName:@"PostItemCell" bundle:nil] forCellReuseIdentifier:kReuseIdentifier];
+        cell = [tableview dequeueReusableCellWithIdentifier:kReuseIdentifier];
     }
-    cell.style = LXTableViewCellStyleActivity;
-    LXBaseModelPost *data = [self.viewModel.feedsData objectAtIndex:indexPath.row];
-    [cell reloadViewWithData:data];
+    
+    cell.title.text = post.title;
+    cell.author.text = post.author.name;
+    cell.date.text = post.createTime;
+    
     return cell;
 }
 
