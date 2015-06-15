@@ -63,7 +63,7 @@ typedef NS_ENUM(NSInteger, LXFilterViewType){
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.rowHeight = 18;
+        _tableView.rowHeight = 22;
         [self insertSubview:_tableView belowSubview:self.filterView];
         
         _currentType = LXFilterViewTypeDefault;
