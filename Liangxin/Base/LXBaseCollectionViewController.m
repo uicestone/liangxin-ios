@@ -10,8 +10,6 @@
 
 @interface LXBaseCollectionViewController ()
 
-@property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
-
 @end
 
 @implementation LXBaseCollectionViewController

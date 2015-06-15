@@ -11,6 +11,7 @@
 @interface LXBaseCollectionViewController : LXBaseViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
 
 - (void)commonInit;
 
