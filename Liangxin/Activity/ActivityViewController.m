@@ -14,6 +14,7 @@
 #import "LXNetworkManager.h"
 #import "LXSearchBar.h"
 #import "ActivityListViewController.h"
+#import "ActivityDetailViewController.h"
 
 @interface ActivityViewController() <UITableViewDataSource, UITableViewDelegate, LXBannerViewDelegate>
 
@@ -252,6 +253,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.viewModel.activityData.count;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    LXBaseModelPost *data = [self.viewModel.activityData objectAtIndex:indexPath.row];
+    ActivityDetailViewController *detailViewController = [ActivityDetailViewController new];
+    detailViewController.hidesBottomBarWhenPushed = YES;
+    detailViewController.postId = data.id;
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 @end

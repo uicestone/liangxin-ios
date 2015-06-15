@@ -9,6 +9,12 @@
 #import "ActivityDetailViewController.h"
 #import "LXShareView.h"
 #import "UserApi.h"
+#import "ActivityDetailTitleCell.h"
+#import "ActivityDetailSummaryCell.h"
+#import "ActivityDetailDetailCell.h"
+#import "ActivityDetailDescCell.h"
+#import "ActivityDetailApplyCell.h"
+#import "ActivityDetailAlbumCell.h"
 
 @interface ActivityDetailViewController() <UITableViewDataSource, UITableViewDelegate>
 
@@ -97,7 +103,7 @@
             break;
         case 3: {
             if ([UserApi getCurrentUser]) {
-                [[[LXNetworkManager sharedManager] likePostById:self.postData.id] subscribeNext:^(id x) {
+                [[[LXNetworkManager sharedManager] likePostById:self.postId] subscribeNext:^(id x) {
                     
                 } error:^(NSError *error) {
                     
@@ -153,6 +159,58 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.section) {
+        case 0: {
+            ActivityDetailTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityDetailTitleCell"];
+            if (!cell) {
+                cell = [[ActivityDetailTitleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ActivityDetailTitleCell"];
+            }
+            return cell;
+        }
+            break;
+        case 1: {
+            ActivityDetailSummaryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityDetailSummaryCell"];
+            if (!cell) {
+                cell = [[ActivityDetailSummaryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ActivityDetailSummaryCell"];
+            }
+            return cell;
+        }
+            break;
+        case 2: {
+            ActivityDetailDescCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityDetailDescCell"];
+            if (!cell) {
+                cell = [[ActivityDetailDescCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ActivityDetailDescCell"];
+            }
+            return cell;
+        }
+            break;
+        case 3: {
+            ActivityDetailApplyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityDetailApplyCell"];
+            if (!cell) {
+                cell = [[ActivityDetailApplyCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ActivityDetailApplyCell"];
+            }
+            return cell;
+        }
+            break;
+        case 4: {
+            ActivityDetailDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityDetailDetailCell"];
+            if (!cell) {
+                cell = [[ActivityDetailDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ActivityDetailDetailCell"];
+            }
+            return cell;
+        }
+            break;
+        case 5: {
+            ActivityDetailAlbumCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityDetailAlbumCell"];
+            if (!cell) {
+                cell = [[ActivityDetailAlbumCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ActivityDetailAlbumCell"];
+            }
+            return cell;
+        }
+            break;
+        default:
+            break;
+    }
     return nil;
 }
 
