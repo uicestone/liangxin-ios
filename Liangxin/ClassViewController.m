@@ -44,7 +44,7 @@
         make.top.mas_equalTo(0);
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
-        make.height.mas_equalTo(125);
+        make.height.mas_equalTo(165);
     }];
     
     self.titleView = [UIView new];
@@ -54,7 +54,7 @@
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.top.mas_equalTo(self.carouselView.mas_bottom);
-        make.height.mas_equalTo(85);
+        make.height.mas_equalTo(105);
     }];
     
     NSArray *channelTitles = @[@"最受欢迎课堂", @"最新课堂", @"全部课堂"];
@@ -81,7 +81,7 @@
             make.top.mas_equalTo(0);
             make.left.mas_equalTo(i * width);
             make.width.mas_equalTo(width);
-            make.height.mas_equalTo(50);
+            make.height.mas_equalTo(67);
         }];
         channelView.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
             return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
@@ -101,12 +101,12 @@
     [bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
-        make.top.mas_equalTo(55);
-        make.height.mas_equalTo(25);
+        make.top.mas_equalTo(70);
+        make.height.mas_equalTo(33);
     }];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-    self.tableView.rowHeight = 75;
+    self.tableView.rowHeight = 100;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 1)];
