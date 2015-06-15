@@ -59,7 +59,7 @@
         _moreButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
         [self.titleView addSubview:_moreButton];
         [_moreButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.mas_equalTo(-15);
+            make.right.mas_equalTo(-20);
             make.top.mas_equalTo(1);
             make.bottom.mas_equalTo(-1);
             make.width.mas_equalTo(44);

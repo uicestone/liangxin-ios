@@ -35,19 +35,19 @@
             [_videoButtons addObject:videoButton];
             if (i == 0) {
                 [videoButton mas_makeConstraints:^(MASConstraintMaker *make) {
-                    make.left.mas_equalTo(12.5);
+                    make.left.mas_equalTo(20);
                     make.top.mas_equalTo(5);
                     make.bottom.mas_equalTo(-5);
-                    make.width.mas_equalTo((CGRectGetWidth([UIScreen mainScreen].bounds) - 54)/3);
+                    make.width.mas_equalTo((CGRectGetWidth([UIScreen mainScreen].bounds) - 80)/3);
                 }];
             }
             else {
                 UIButton *prevButton = [self.videoButtons objectAtIndex:i - 1];
                 [videoButton mas_makeConstraints:^(MASConstraintMaker *make) {
-                    make.left.equalTo(prevButton.mas_right).offset(12.5);
+                    make.left.equalTo(prevButton.mas_right).offset(20);
                     make.top.mas_equalTo(5);
                     make.bottom.mas_equalTo(-5);
-                    make.width.mas_equalTo((CGRectGetWidth([UIScreen mainScreen].bounds) - 54)/3);
+                    make.width.mas_equalTo((CGRectGetWidth([UIScreen mainScreen].bounds) - 80)/3);
                 }];
             }
             UILabel *videoLabel = [UILabel new];
@@ -61,7 +61,7 @@
                 make.left.mas_equalTo(0);
                 make.right.mas_equalTo(0);
                 make.bottom.mas_equalTo(0);
-                make.height.mas_equalTo(12);
+                make.height.mas_equalTo(15);
             }];
         }
         _defaultLabel = [UILabel new];
