@@ -39,7 +39,7 @@
         [_titleView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(0);
             make.right.mas_equalTo(0);
-            make.height.mas_equalTo(15);
+            make.height.mas_equalTo(20);
             make.top.mas_equalTo(5);
         }];
         _titleLabel = [UILabel new];

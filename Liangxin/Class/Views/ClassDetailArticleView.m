@@ -20,7 +20,7 @@
         [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(20);
             make.right.mas_equalTo(0);
-            make.top.mas_equalTo(0);
+            make.top.mas_equalTo(2);
             make.height.mas_equalTo(20);
         }];
         _nameLabel = [UILabel new];
@@ -31,7 +31,7 @@
             make.left.mas_equalTo(20);
             make.width.mas_equalTo(100);
             make.top.equalTo(_titleLabel.mas_bottom);
-            make.bottom.mas_equalTo(0);
+            make.height.mas_equalTo(20);
         }];
         _createDateLabel = [UILabel new];
         _createDateLabel.font = [UIFont systemFontOfSize:13.0];
@@ -42,7 +42,7 @@
             make.right.mas_equalTo(-15);
             make.width.mas_equalTo(100);
             make.top.equalTo(_titleLabel.mas_bottom);
-            make.bottom.mas_equalTo(0);
+            make.height.mas_equalTo(20);
         }];
     }
     return self;

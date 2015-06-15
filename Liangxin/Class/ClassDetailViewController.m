@@ -141,19 +141,19 @@
             return 113;
             break;
         case 1:
-            return 70;
+            return 80;
             break;
         case 2:
-            return 93.5;
+            return 115;
             break;
         case 3:
-            return 85;
+            return 115;
             break;
         case 4:
-            return 85;
+            return 115;
             break;
         case 5:
-            return 85;
+            return 115;
             break;
         default:
             break;
