@@ -13,16 +13,17 @@ require('./selectctrl.tag')
 	<div show={ opts.type=='class' }>
 		<imgctrl icon='plus' size='small' placeholder='为你的课堂上传海报' model='poster' />
 		<inputctrl title='请输入课堂标题（字数限制50字）' limit='50' model='title' />
-		<textareactrl title='添加课堂文字描述（字数限制500字）' limit='500' model='describe'></textareactrl>
-		<textareactrl title='添加课堂文字资料' model='content'></textareactrl>
-		<imgctrl icon='upload'size='small' model='files' placeholder='添加课堂文件' />
+		<textareactrl title='添加课堂文字描述（字数限制500字）' limit='500' model='content'></textareactrl>
+		<!--textareactrl title='添加课堂文字资料' model='content'></textareactrl -->
+		<!--imgctrl icon='upload'size='small' model='files' placeholder='添加课堂文件' /-->
 		<imgctrl icon='plus' size='small' model='images' placeholder='添加课堂图片资料' />
-		<imgctrl icon='link' size='small' model='videos' placeholder='添加课堂视频链接' />
+		<!--imgctrl icon='link' size='small' model='videos' placeholder='添加课堂视频链接' /-->
 	</div>
 
 	<!-- 发布活动 -->
 	<div show={ opts.type=='activity' }>
 		<imgctrl icon='plus' size='small' placeholder='为你的活动上传海报' model='poster' />
+		<inputctrl title='请输入活动标题（字数限制50字）' limit='50' model='title' />
 		<datepicker title='请输入活动时间' model='event_date' />
 		<inputctrl title='请输入活动地点' limit='50' model='event_address' />
 		<textareactrl title='添加活动文字详情（字数限制1000字）' limit='500' model='describe'></textareactrl>
@@ -54,7 +55,7 @@ require('./selectctrl.tag')
 	<btn title='发布' onclick='{submit}' />
 	
 	this.choices = ({
-		"event": ['爱摄影','做公益','文艺迷','体育狂','长知识','学环保'],
+		"activity": ['爱摄影','做公益','文艺迷','体育狂','长知识','学环保'],
 		"class": ['党建', '青年', '宣传', '妇女', '工会', '廉政']
 	})[opts.type];
 
@@ -62,20 +63,24 @@ require('./selectctrl.tag')
 		"notice": "公告",
 		"article": "文章",
 		"image": "图片",
-		"event": "活动",
+		"activity": "活动",
 		"class": "课程"
 	})[opts.type];
 	var keys = ({
 		"notice": ["title", "content"],
 		"article": ["title", "content", "images"],
 		"image": ["title", "images"],
-		"event": ["poster", ""],
-		"class": ["poster","title","describe","content","title","attachments","images","videos"]
+		"activity": ["poster", "title", "event_date", "event_address", "describe", "event_type", "due_date"],
+		"class": ["poster", "title", "describe","content","title","attachments","images","videos"]
 	})[opts.type];
 
 	edit(field){
 		this[field.model] = field.val();
 	}
+
+	this.on('mount', function(){
+		$('publish').height($('publish').height() + 50);
+	});
 
 	submit(){
 		var self = this;
@@ -88,11 +93,6 @@ require('./selectctrl.tag')
 		bridge.showProgress();
 		data['type'] = type;
 
-		var config = {
-			url: "/post",
-			method:"post",
-			data: data
-		};
 
 		var files = [];
 		["attachments", "images"].forEach(function(key){
@@ -107,6 +107,23 @@ require('./selectctrl.tag')
 				delete data[key];
 			}
 		});
+
+		if(opts.type == 'class' || opts.type == 'activity'){
+			if(data.poster.length){
+				files.push({
+					name: 'poster',
+					title: data.title,
+					data: data.poster[0].split("base64,")[1]
+				});
+			}
+			delete data.poster;
+		}
+
+		var config = {
+			url: "/post",
+			method:"post",
+			data: data
+		};
 
 		config.files = files;
 		console.log(config);

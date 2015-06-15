@@ -8,7 +8,7 @@
 
 #import "ApiBase.h"
 #import "PostApi.h"
-#import "Post.h"
+#import "LXBaseModelPost.h"
 #import "User.h"
 
 @implementation PostApi
@@ -30,14 +30,8 @@
         
         for(int i = 0 ; i < [responseObject count]; i ++){
             NSDictionary * jsonObj = [responseObject objectAtIndex:i];
-            Post * post = [jsonObj toModel:[Post class] withKeyMapping:keyMapping];
-            post.author = [User userFromJSONObject:[jsonObj objectForKey:@"author"]];
             
-            if(![[jsonObj objectForKey:@"poster"] isEqual:[NSNull null]]){
-                post.poster = [[jsonObj objectForKey:@"poster"] toModel:[Post class] withKeyMapping:keyMapping];
-            }
-            post.reviewCount = [self lengthOf:[jsonObj objectForKey:@"comments"]];
-            post.attendeeCount = [self lengthOf:[jsonObj objectForKey:@"attendees"]];
+            LXBaseModelPost* post = [LXBaseModelPost modelWithDictionary:jsonObj error:nil];
             [posts addObject:post];
         }
         

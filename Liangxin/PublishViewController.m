@@ -15,6 +15,9 @@
 
 @implementation PublishViewController
 
+-(BOOL)hasToolBar{
+    return NO;
+}
 
 - (BOOL)needLogin{
     return YES;
@@ -33,7 +36,7 @@
         @"article": @"文章",
         @"image": @"照片",
         @"class": @"课堂",
-        @"event": @"活动"
+        @"activity": @"活动"
     };
     
     NSString* title = titles[type];

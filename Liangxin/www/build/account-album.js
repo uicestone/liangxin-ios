@@ -24,7 +24,7 @@ webpackJsonp([1],[
 	});
 
 	riot.mount('*', bus);
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ },
 /* 1 */,
@@ -1641,7 +1641,7 @@ webpackJsonp([1],[
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var riot = __webpack_require__(9);
+	var riot = __webpack_require__(8);
 
 	var bridge = __webpack_require__(3);
 	var fetch = bridge.fetch;
@@ -1721,8 +1721,7 @@ webpackJsonp([1],[
 
 /***/ },
 /* 7 */,
-/* 8 */,
-/* 9 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Riot v2.1.0, @license MIT, (c) 2015 Muut Inc. + contributors */

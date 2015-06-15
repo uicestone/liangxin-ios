@@ -72,17 +72,17 @@
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    Post *post = [posts objectAtIndex:[indexPath row]];
+    LXBaseModelPost *post = [posts objectAtIndex:[indexPath row]];
     AccountArticleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AccountArticleCell"];
     if (!cell) {
         cell = [[AccountArticleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"AccountArticleCell"];
     }
     
-    cell.likeCount.text = [NSString stringWithFormat:@"%d", post.likeCount];
-    cell.commentCount.text = [NSString stringWithFormat:@"%d", post.reviewCount];
+    cell.likeCount.text = [NSString stringWithFormat:@"%d", (int)post.likes];
+    cell.commentCount.text = [NSString stringWithFormat:@"%d", (int)post.comments.count];
     
     cell.title.text = post.title;
-    cell.date.text = post.createTime;
+    cell.date.text = post.created_at;
     
     return cell;
 }

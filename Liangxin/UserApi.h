@@ -13,8 +13,8 @@
 
 
 +(LXBaseModelUser *)getCurrentUser;
-+(void)setCurrentUser:(LXBaseModelUser *)user;
-
++(void) setCurrentUser:(LXBaseModelUser *)user;
++(void) getUserById:(int) userId successHandler:(void (^)(NSArray *user))successHandler errorHandler:(void (^)(NSError *error))errorHandler;
 +(void) getUsersByGroupId:(int) groupId successHandler:(void (^)(NSArray *users))successHandler errorHandler:(void (^)(NSError *error))errorHandler;
 
 @end

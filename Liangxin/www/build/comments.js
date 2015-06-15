@@ -1,93 +1,20 @@
-webpackJsonp([4],{
-
-/***/ 0:
+webpackJsonp([3],[
+/* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(riot) {var $ = __webpack_require__(2);
 	var bridge = __webpack_require__(3);
 	var query = __webpack_require__(4).parse();
 
-	__webpack_require__(1);
+	__webpack_require__(7);
 	var type = query.type;
 
 	riot.mount('*');
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ },
-
-/***/ 1:
-/***/ function(module, exports, __webpack_require__) {
-
-	var riot = __webpack_require__(9);
-
-	__webpack_require__(18)
-	var bridge = __webpack_require__(3);
-	var fetch = bridge.fetch;
-	var query = __webpack_require__(4).parse();
-	var $ = __webpack_require__(2);
-
-
-	riot.tag('comments', '<div riot-style="display:{items.length?\'block\':\'none\'}"> <comment each="{items}" data="{this}"></comment> </div> <div riot-style="display:{items.length?\'none\':\'block\'};text-align:center;margin-top:90px"> <img src="./image/nocomments.png" height="136" width="91"> </div> <div class="mbox" riot-style="display:{writing?\'block\':\'none\'}"> <div class="inner"> <div class="close" onclick="{closepopup}"></div> <div class="title">评论</div> <div class="content"> <textarea name="" id="input" cols="30" rows="10"></textarea> </div> <div class="btn" onclick="{submit}">提交</div> </div> </div> <div class="write" onclick="{showpopup}"> <i class="icon-pencil"></i> <span>写评论</span> </div>', function(opts) {
-
-
-
-	  var self = this;
-	  var id = query.id;
-	  this.writing = false;
-
-	  this.showpopup = function() {
-	    self.update({writing:true})
-	  }.bind(this);
-
-	  this.closepopup = function() {
-	    self.update({writing:false})
-	  }.bind(this);
-
-	  var posting = false;
-	  this.submit = function() {
-	    posting = true;
-	    bridge.showProgress();
-	    fetch({
-	      method:"post",
-	      url:"/post",
-	      data:{
-	        type:"评论",
-	        parent_id:id,
-	        content:$('#input').val()
-	      }
-	    }).then(function(){
-	      posting = false;
-	      self.update({writing:false});
-	      bridge.popMessage('回应成功');
-	    });
-	  }.bind(this);
-
-	  this.load = function() {
-	    self.items = [];
-	    for(var i = 0; i < 0; i++){
-	      self.items.push({
-	       "id":0,
-	        "content":"参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖",
-	        "author": {
-	          "id":0,
-	          "name":"王大锤",
-	          "avatar":"http://avatar.fanfou.com/s0/00/43/3s.jpg"
-	        },
-	        "created_at":"2015-03-03 12:21",
-	        "likes": 46,
-	        "liked": false
-	      });
-	      self.update();
-	    }
-	  }.bind(this);
-
-	  this.load();
-
-	});
-
-/***/ },
-
-/***/ 2:
+/* 1 */,
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Zepto v1.1.6 - zepto event ajax form ie - zeptojs.com/license */
@@ -1681,8 +1608,8 @@ webpackJsonp([4],{
 	module.exports = Zepto;
 
 /***/ },
-
-/***/ 4:
+/* 3 */,
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports.parse = function(){
@@ -1696,8 +1623,80 @@ webpackJsonp([4],{
 	}
 
 /***/ },
+/* 5 */,
+/* 6 */,
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
 
-/***/ 9:
+	var riot = __webpack_require__(8);
+
+	__webpack_require__(11)
+	var bridge = __webpack_require__(3);
+	var fetch = bridge.fetch;
+	var query = __webpack_require__(4).parse();
+	var $ = __webpack_require__(2);
+
+
+	riot.tag('comments', '<div riot-style="display:{items.length?\'block\':\'none\'}"> <comment each="{items}" data="{this}"></comment> </div> <div riot-style="display:{items.length?\'none\':\'block\'};text-align:center;margin-top:90px"> <img src="./image/nocomments.png" height="136" width="91"> </div> <div class="mbox" riot-style="display:{writing?\'block\':\'none\'}"> <div class="inner"> <div class="close" onclick="{closepopup}"></div> <div class="title">评论</div> <div class="content"> <textarea name="" id="input" cols="30" rows="10"></textarea> </div> <div class="btn" onclick="{submit}">提交</div> </div> </div> <div class="write" onclick="{showpopup}"> <i class="icon-pencil"></i> <span>写评论</span> </div>', function(opts) {
+
+
+
+	  var self = this;
+	  var id = query.id;
+	  this.writing = false;
+
+	  this.showpopup = function() {
+	    self.update({writing:true})
+	  }.bind(this);
+
+	  this.closepopup = function() {
+	    self.update({writing:false})
+	  }.bind(this);
+
+	  var posting = false;
+	  this.submit = function() {
+	    posting = true;
+	    bridge.showProgress();
+	    fetch({
+	      method:"post",
+	      url:"/post",
+	      data:{
+	        type:"评论",
+	        parent_id:id,
+	        content:$('#input').val()
+	      }
+	    }).then(function(){
+	      posting = false;
+	      self.update({writing:false});
+	      bridge.popMessage('回应成功');
+	    });
+	  }.bind(this);
+
+	  this.load = function() {
+	    self.items = [];
+	    for(var i = 0; i < 0; i++){
+	      self.items.push({
+	       "id":0,
+	        "content":"参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖",
+	        "author": {
+	          "id":0,
+	          "name":"王大锤",
+	          "avatar":"http://avatar.fanfou.com/s0/00/43/3s.jpg"
+	        },
+	        "created_at":"2015-03-03 12:21",
+	        "likes": 46,
+	        "liked": false
+	      });
+	      self.update();
+	    }
+	  }.bind(this);
+
+	  this.load();
+
+	});
+
+/***/ },
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Riot v2.1.0, @license MIT, (c) 2015 Muut Inc. + contributors */
@@ -2984,11 +2983,12 @@ webpackJsonp([4],{
 
 
 /***/ },
-
-/***/ 18:
+/* 9 */,
+/* 10 */,
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var riot = __webpack_require__(9);
+	var riot = __webpack_require__(8);
 
 	var bridge = __webpack_require__(3);
 	var fetch = bridge.fetch;
@@ -3022,5 +3022,4 @@ webpackJsonp([4],{
 	});
 
 /***/ }
-
-});
+]);

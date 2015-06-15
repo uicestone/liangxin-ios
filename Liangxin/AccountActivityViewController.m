@@ -9,6 +9,7 @@
 #import "AccountActivityViewController.h"
 #import "LXTabView.h"
 #import "PostApi.h"
+#import "UserApi.h"
 #import "Post.h"
 #import "LXBaseModelPost.h"
 #import "LXBaseTableViewCell.h"
@@ -38,6 +39,8 @@
                tabColor:UIColorFromRGB(0xc39a6b)];
     tabview.delegate = self;
     
+    self.viewModel = [ActivityViewModel new];
+    
     // init tableview
     @weakify(self)
     tableview = [UITableView new];
@@ -56,8 +59,9 @@
 }
 
 -(void)tabview:(LXTabView *)tabview tappedAtIndex:(int)index{
-    
+    [self.viewModel.activityData removeAllObjects];
     [self showProgress];
+    
     [PostApi getPostsByQuery:@{
                                @"author_id": self.currentUser.id,
                                @"type": @"活动"

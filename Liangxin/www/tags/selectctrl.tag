@@ -8,6 +8,8 @@
 	</div>
 
 	this.value = '';
+	this.model = opts.model;
+	
 	edit(e){
 		this.value = e.target.value;
 		this.parent.edit(this);

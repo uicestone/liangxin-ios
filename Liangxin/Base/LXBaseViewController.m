@@ -159,7 +159,13 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
 //    NSArray* publishTypes = @[@"class",@"activity",@"notice",@"article",@"image"];
-    NSArray* publishTypes = @[@"notice",@"article",@"image"];
+    NSArray* publishTypes;
+    LXBaseModelUser* user = [UserApi getCurrentUser];
+    if([user.role isEqualToString:@"user"]){
+        publishTypes = @[@"notice",@"article",@"image"];
+    }else{
+        publishTypes = @[@"notice",@"article",@"image",@"activity",@"class"];
+    }
     
     if(buttonIndex < publishTypes.count){
         [actionSheet dismissWithClickedButtonIndex:buttonIndex animated:YES];
