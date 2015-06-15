@@ -71,10 +71,10 @@
             make.height.mas_equalTo(22);
         }];
         
-        NSArray *shareImages = @[@"Share_DangQun", @"Share_WeChat", @"Share_Weibo"];
-        NSArray *shareNames = @[@"我的支部", @"微信", @"微博"];
+        NSArray *shareImages = @[@"Share_DangQun", @"Share_WeChat_Timeline", @"Share_WeChat_Session", @"Share_Weibo"];
+        NSArray *shareNames = @[@"我的支部", @"微信朋友圈", @"微信好友", @"微博"];
         
-        for (NSInteger i = 0; i < 3; i++) {
+        for (NSInteger i = 0; i < 4; i++) {
             UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
             [shareButton setImage:[UIImage imageNamed:shareImages[i]] forState:UIControlStateNormal];
             shareButton.titleLabel.font = [UIFont systemFontOfSize:10];
@@ -89,8 +89,8 @@
             [shareButton mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.bottom.equalTo(self.shareSection.mas_bottom);
                 make.top.equalTo(shareLabel.mas_bottom);
-                make.width.mas_equalTo(42);
-                make.centerX.equalTo(self.shareSection.mas_centerX).offset(i*60 - 60);
+                make.width.mas_equalTo(50);
+                make.centerX.equalTo(self.shareSection.mas_centerX).offset(i*70 - 105);
             }];
         }
     }
