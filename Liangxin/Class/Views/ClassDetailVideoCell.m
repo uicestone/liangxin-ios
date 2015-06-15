@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSMutableArray *videoButtons;
 @property (nonatomic, strong) NSMutableArray *videoLabels;
 
+@property (nonatomic, copy) NSString *postId;
 @property (nonatomic, strong) NSMutableArray *videos;
 
 @end
@@ -87,6 +88,7 @@
 
 - (void)reloadViewWithData:(LXBaseModelPost *)data {
     if (data) {
+        self.postId = data.id;
         if (data.videos.count == 0) {
             for (UIButton *videoButton in self.videoButtons) {
                 videoButton.hidden = YES;
@@ -110,7 +112,9 @@
 }
 
 - (void)showMore:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://class/videos"]]];
+    if (self.postId.length > 0) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://class/videos/id=%@", self.postId]]];
+    }
 }
 
 @end

@@ -7,8 +7,11 @@
 //
 
 #import "ClassVideoViewController.h"
+#import "ClassVideoCollectionCell.h"
 
 @interface ClassVideoViewController ()
+
+@property (nonatomic, strong) NSMutableArray *videos;
 
 @end
 
@@ -24,6 +27,30 @@
     self.flowLayout.itemSize = CGSizeMake((CGRectGetWidth([UIScreen mainScreen].bounds) - 20)/3, 85);
     self.flowLayout.minimumInteritemSpacing = 5;
     self.flowLayout.minimumLineSpacing = 5;
+    [self.collectionView registerClass:[ClassVideoCollectionCell class] forCellWithReuseIdentifier:@"ClassVideoCollectionCell"];
+    @weakify(self)
+    [[[LXNetworkManager sharedManager] getVideosByPostId:[self.params objectForKey:@"id"]] subscribeNext:^(NSArray *posts) {
+        @strongify(self)
+        self.videos = [NSMutableArray arrayWithArray:posts];
+        [self.collectionView reloadData];
+    } error:^(NSError *error) {
+        
+    }];
+}
+
+#pragma mark - UICollectionViewDataSource && UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.videos.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    ClassVideoCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ClassVideoCollectionCell" forIndexPath:indexPath];
+    return cell;
 }
 
 @end
