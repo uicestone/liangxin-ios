@@ -15,5 +15,6 @@
 @property (nonatomic, strong) UIView *baseView;
 
 - (void)reloadViewWithData:(LXBaseModelPost *)data;
+- (void)showMore:(id)sender;
 
 @end

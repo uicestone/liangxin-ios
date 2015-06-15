@@ -93,4 +93,8 @@
     }
 }
 
+- (void)showMore:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://class/albums"]]];
+}
+
 @end

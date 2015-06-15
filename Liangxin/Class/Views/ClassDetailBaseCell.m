@@ -57,6 +57,7 @@
         [_moreButton setTitle:@"MORE" forState:UIControlStateNormal];
         [_moreButton setTitleColor:UIColorFromRGB(0xf99d33) forState:UIControlStateNormal];
         _moreButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+        [_moreButton addTarget:self action:@selector(showMore:) forControlEvents:UIControlEventTouchUpInside];
         [self.titleView addSubview:_moreButton];
         [_moreButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.mas_equalTo(-20);
@@ -94,6 +95,10 @@
 }
 
 - (void)reloadViewWithData:(LXBaseModelPost *)data {
+    
+}
+
+- (void)showMore:(id)sender {
     
 }
 

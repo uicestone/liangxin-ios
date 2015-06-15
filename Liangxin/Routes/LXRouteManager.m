@@ -39,6 +39,9 @@
 #import "AccountFollowingGroupViewController.h"
 #import "LXBaseVideoViewController.h"
 #import "LXBasePDFViewController.h"
+#import "ClassVideoViewController.h"
+#import "ClassDocumentViewController.h"
+#import "ClassAlbumViewController.h"
 
 @implementation LXRouteManager
 
@@ -80,6 +83,9 @@
     // 课堂
     [[HHRouter shared] map:@"/class" toControllerClass:[ClassViewController class]];
     [[HHRouter shared] map:@"/class/list" toControllerClass:[ClassListViewController class]];
+    [[HHRouter shared] map:@"/class/videos" toControllerClass:[ClassVideoViewController class]];
+    [[HHRouter shared] map:@"/class/documents" toControllerClass:[ClassDocumentViewController class]];
+    [[HHRouter shared] map:@"/class/albums" toControllerClass:[ClassAlbumViewController class]];
     
     // 发布
     [[HHRouter shared] map:@"/publish/" toControllerClass:[PublishViewController class]];
