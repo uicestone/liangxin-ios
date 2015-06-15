@@ -144,6 +144,7 @@
 		2DD8A0D21B2EB1CB00856E23 /* ActivityDetailApplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD8A0D11B2EB1CB00856E23 /* ActivityDetailApplyCell.m */; };
 		2DD8A0D51B2EB1FE00856E23 /* ActivityDetailAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD8A0D41B2EB1FE00856E23 /* ActivityDetailAlbumCell.m */; };
 		2DDE601A1B2F0710003757FD /* ClassVideoCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDE60191B2F0710003757FD /* ClassVideoCollectionCell.m */; };
+		2DDE601D1B2F0D5A003757FD /* ClassDocumentCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDE601C1B2F0D5A003757FD /* ClassDocumentCollectionCell.m */; };
 		2DE2F4A11B2041C600E3DA29 /* ActivityViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE2F4A01B2041C600E3DA29 /* ActivityViewModel.m */; };
 		2DFD651F1B15FE7800FAC662 /* LXCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD651E1B15FE7800FAC662 /* LXCarouselView.m */; };
 		2DFD65221B16001200FAC662 /* LXCarouselViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD65211B16001200FAC662 /* LXCarouselViewCell.m */; };
@@ -423,6 +424,8 @@
 		2DD8A0D41B2EB1FE00856E23 /* ActivityDetailAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityDetailAlbumCell.m; path = Liangxin/Activity/Views/ActivityDetailAlbumCell.m; sourceTree = "<group>"; };
 		2DDE60181B2F0710003757FD /* ClassVideoCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassVideoCollectionCell.h; path = Class/Views/ClassVideoCollectionCell.h; sourceTree = "<group>"; };
 		2DDE60191B2F0710003757FD /* ClassVideoCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassVideoCollectionCell.m; path = Class/Views/ClassVideoCollectionCell.m; sourceTree = "<group>"; };
+		2DDE601B1B2F0D5A003757FD /* ClassDocumentCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassDocumentCollectionCell.h; path = Class/Views/ClassDocumentCollectionCell.h; sourceTree = "<group>"; };
+		2DDE601C1B2F0D5A003757FD /* ClassDocumentCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassDocumentCollectionCell.m; path = Class/Views/ClassDocumentCollectionCell.m; sourceTree = "<group>"; };
 		2DE2F49F1B2041C600E3DA29 /* ActivityViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityViewModel.h; path = Liangxin/Activity/ViewModel/ActivityViewModel.h; sourceTree = "<group>"; };
 		2DE2F4A01B2041C600E3DA29 /* ActivityViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityViewModel.m; path = Liangxin/Activity/ViewModel/ActivityViewModel.m; sourceTree = "<group>"; };
 		2DFD651D1B15FE7800FAC662 /* LXCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXCarouselView.h; path = Widgets/LXCarouselView.h; sourceTree = "<group>"; };
@@ -953,6 +956,8 @@
 				2D589A6D1B2D67C300F91385 /* ClassDetailArticleView.m */,
 				2DDE60181B2F0710003757FD /* ClassVideoCollectionCell.h */,
 				2DDE60191B2F0710003757FD /* ClassVideoCollectionCell.m */,
+				2DDE601B1B2F0D5A003757FD /* ClassDocumentCollectionCell.h */,
+				2DDE601C1B2F0D5A003757FD /* ClassDocumentCollectionCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1227,6 +1232,7 @@
 				2D6160C21B208AB3001D01D8 /* ActivityParticipantsViewController.m in Sources */,
 				22BE07C91B1F363000A1E91F /* AccountCollectionViewController.m in Sources */,
 				2D0000771B28392F00106110 /* LXSendButton.m in Sources */,
+				2DDE601D1B2F0D5A003757FD /* ClassDocumentCollectionCell.m in Sources */,
 				22E6E2471B115E41005E528E /* LXJSBridge+PickImage.m in Sources */,
 				22E6E2781B12ADB4005E528E /* LoginViewCell.m in Sources */,
 				2D589A6B1B2D5EAD00F91385 /* LXClassDetailViewModel.m in Sources */,
