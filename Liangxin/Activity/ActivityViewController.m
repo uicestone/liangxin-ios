@@ -185,7 +185,7 @@
 }
 
 - (void)doSearch:(id)sender {
-    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"liangxin://activity/list/"]];
 }
 
 #pragma mark - LXBannerViewDelegate
