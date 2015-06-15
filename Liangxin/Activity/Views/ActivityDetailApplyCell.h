@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Hsu Spud. All rights reserved.
 //
 
-#import "ClassDetailBaseCell.h"
+#import <UIKit/UIKit.h>
 
-@interface ActivityDetailApplyCell : ClassDetailBaseCell
+@interface ActivityDetailApplyCell : UITableViewCell
 
 @end

@@ -127,16 +127,16 @@
             return 40;
             break;
         case 2:
-            return 93.5;
+            return 90;
             break;
         case 3:
-            return 85;
+            return 25;
             break;
         case 4:
-            return 85;
+            return 225;
             break;
         case 5:
-            return 85;
+            return 115;
             break;
         default:
             break;
