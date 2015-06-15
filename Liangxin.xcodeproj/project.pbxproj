@@ -139,6 +139,7 @@
 		2DD8A0C01B2DDEB900856E23 /* LXBasePDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD8A0BF1B2DDEB900856E23 /* LXBasePDFViewController.m */; };
 		2DD8A0C61B2EA0FE00856E23 /* ActivityDetailTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD8A0C51B2EA0FE00856E23 /* ActivityDetailTitleCell.m */; };
 		2DD8A0C91B2EA4BB00856E23 /* ActivityDetailSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD8A0C81B2EA4BB00856E23 /* ActivityDetailSummaryCell.m */; };
+		2DD8A0CC1B2EAF5400856E23 /* ActivityDetailDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD8A0CB1B2EAF5300856E23 /* ActivityDetailDetailCell.m */; };
 		2DE2F4A11B2041C600E3DA29 /* ActivityViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE2F4A01B2041C600E3DA29 /* ActivityViewModel.m */; };
 		2DFD651F1B15FE7800FAC662 /* LXCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD651E1B15FE7800FAC662 /* LXCarouselView.m */; };
 		2DFD65221B16001200FAC662 /* LXCarouselViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD65211B16001200FAC662 /* LXCarouselViewCell.m */; };
@@ -408,6 +409,8 @@
 		2DD8A0C51B2EA0FE00856E23 /* ActivityDetailTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityDetailTitleCell.m; path = Liangxin/Activity/Views/ActivityDetailTitleCell.m; sourceTree = "<group>"; };
 		2DD8A0C71B2EA4BB00856E23 /* ActivityDetailSummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityDetailSummaryCell.h; path = Liangxin/Activity/Views/ActivityDetailSummaryCell.h; sourceTree = "<group>"; };
 		2DD8A0C81B2EA4BB00856E23 /* ActivityDetailSummaryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityDetailSummaryCell.m; path = Liangxin/Activity/Views/ActivityDetailSummaryCell.m; sourceTree = "<group>"; };
+		2DD8A0CA1B2EAF5300856E23 /* ActivityDetailDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityDetailDetailCell.h; path = Liangxin/Activity/Views/ActivityDetailDetailCell.h; sourceTree = "<group>"; };
+		2DD8A0CB1B2EAF5300856E23 /* ActivityDetailDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityDetailDetailCell.m; path = Liangxin/Activity/Views/ActivityDetailDetailCell.m; sourceTree = "<group>"; };
 		2DE2F49F1B2041C600E3DA29 /* ActivityViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityViewModel.h; path = Liangxin/Activity/ViewModel/ActivityViewModel.h; sourceTree = "<group>"; };
 		2DE2F4A01B2041C600E3DA29 /* ActivityViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityViewModel.m; path = Liangxin/Activity/ViewModel/ActivityViewModel.m; sourceTree = "<group>"; };
 		2DFD651D1B15FE7800FAC662 /* LXCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXCarouselView.h; path = Widgets/LXCarouselView.h; sourceTree = "<group>"; };
@@ -978,6 +981,8 @@
 				2DD8A0C51B2EA0FE00856E23 /* ActivityDetailTitleCell.m */,
 				2DD8A0C71B2EA4BB00856E23 /* ActivityDetailSummaryCell.h */,
 				2DD8A0C81B2EA4BB00856E23 /* ActivityDetailSummaryCell.m */,
+				2DD8A0CA1B2EAF5300856E23 /* ActivityDetailDetailCell.h */,
+				2DD8A0CB1B2EAF5300856E23 /* ActivityDetailDetailCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1210,6 +1215,7 @@
 				22E6E25C1B11C64B005E528E /* EntryBaseViewController.m in Sources */,
 				2D537DDE1B19C024006BD35E /* ClassDetailTitleCell.m in Sources */,
 				22BE07D81B1FCC6D00A1E91F /* LXJSBridge+Tint.m in Sources */,
+				2DD8A0CC1B2EAF5400856E23 /* ActivityDetailDetailCell.m in Sources */,
 				2D0000741B28384000106110 /* LXImagePickerController.m in Sources */,
 				2210A37B1AFDF66800D9CA1A /* GroupApi.m in Sources */,
 				2D6160B91B2087DE001D01D8 /* ActivityListViewController.m in Sources */,
