@@ -86,11 +86,11 @@
             [[[LXNetworkManager sharedManager] getUserById:data.author_id] subscribeNext:^(LXBaseModelUser *user) {
                 @strongify(self)
                 self.authorLabel.text = [NSString stringWithFormat:@"发起人：%@", user.name?:@""];
-                self.groupLabel.text = [NSString stringWithFormat:@"所属支部：%@", user.group_name?:@""];
             } error:^(NSError *error) {
                 
             }];
         }
+        self.groupLabel.text = [NSString stringWithFormat:@"所属支部：%@", [data.group objectForKey:@"name"]?:@""];
     }
 }
 
