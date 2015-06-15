@@ -1647,7 +1647,7 @@ webpackJsonp([1],[
 	var fetch = bridge.fetch;
 
 
-	riot.tag('myalbum', '<div class="mypic" each="{items}"> <div class="inner" riot-style="background-image:url({this.url})" ontouchend="{parent.toggle}"> <div class="select {selected?\'selected\':\'\'}"></div> <div class="title">{opts.title}</div> <div class="like"> <i class="icon-like"></i> <span class="count">{opts.likes}</span> </div> <div class="comment"> <i class="icon-comment"></i> <span class="count">{opts.comments}</span> </div> </div> </div>', 'class="album"', function(opts) {
+	riot.tag('myalbum', '<div class="mypic" each="{items}"> <div class="inner" riot-style="background-image:url({this.url})" ontouchend="{parent.toggle}"> <div class="select {selected?\'selected\':\'\'}"></div> <div class="title">{this.title}</div> <div class="like"> <i class="icon-like"></i> <span class="count">{this.likes}</span> </div> <div class="comment"> <i class="icon-comment"></i> <span class="count">{this.comments}</span> </div> </div> </div>', 'class="album"', function(opts) {
 
 		var self = this;
 			

@@ -6,14 +6,14 @@ var fetch = bridge.fetch;
 	<div class="mypic" each={items}>
 	<div class="inner" style="background-image:url({this.url})" ontouchend="{parent.toggle}">
 		<div class="select {selected?'selected':''}"></div>
-		<div class="title">{opts.title}</div>
+		<div class="title">{this.title}</div>
 		<div class="like">
 			<i class="icon-like"></i>
-			<span class="count">{opts.likes}</span>
+			<span class="count">{this.likes}</span>
 		</div>
 		<div class="comment">
 			<i class="icon-comment"></i>
-			<span class="count">{opts.comments}</span>
+			<span class="count">{this.comments}</span>
 		</div>
 	</div>
 	</div>
