@@ -76,7 +76,7 @@
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.top.mas_equalTo(self.carouselView.mas_bottom);
-        make.height.mas_equalTo(135);
+        make.height.mas_equalTo(178);
     }];
     
     NSArray *channelTitles = @[@"最受欢迎", @"最新活动", @"即将下线", @"全部活动"];
@@ -104,15 +104,15 @@
                 make.top.mas_equalTo(0);
                 make.left.mas_equalTo(i * width);
                 make.width.mas_equalTo(width);
-                make.height.mas_equalTo(50);
+                make.height.mas_equalTo(68);
             }];
         }
         else {
             [channelView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.mas_equalTo(50);
+                make.top.mas_equalTo(68);
                 make.left.mas_equalTo((i - 2) * width);
                 make.width.mas_equalTo(width);
-                make.height.mas_equalTo(50);
+                make.height.mas_equalTo(68);
             }];
         }
         channelView.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
@@ -132,12 +132,12 @@
     [bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
-        make.top.mas_equalTo(105);
-        make.height.mas_equalTo(25);
+        make.top.mas_equalTo(138);
+        make.height.mas_equalTo(33);
     }];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-    self.tableView.rowHeight = 75;
+    self.tableView.rowHeight = 100;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 1)];
