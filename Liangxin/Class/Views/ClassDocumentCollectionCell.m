@@ -21,7 +21,9 @@
     self = [super initWithFrame:frame];
     if (self) {
         _documentButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _documentButton.backgroundColor = [UIColor colorWithRed:169/255.0 green:171.0/255.0 blue:174.0/255.0 alpha:1.0];
+        _documentButton.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+        _documentButton.layer.borderWidth = 1.0;
+        [_documentButton setBackgroundImage:[UIImage imageNamed:@"Article_BG"] forState:UIControlStateNormal];
         [self addSubview:_documentButton];
         [_documentButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(0);
@@ -47,9 +49,6 @@
 
 - (void)reloadViewWithData:(LXBaseModelPost *)data {
     self.titleLabel.text = data.title?:@"";
-    if (data.url.length > 0) {
-        [self.documentButton sd_setBackgroundImageWithURL:[NSURL URLWithString:data.url] forState:UIControlStateNormal];
-    }
 }
 
 @end

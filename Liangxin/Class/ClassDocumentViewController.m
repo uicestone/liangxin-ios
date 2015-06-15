@@ -28,7 +28,7 @@
     self.flowLayout.itemSize = CGSizeMake((CGRectGetWidth([UIScreen mainScreen].bounds) - 70)/3, 75);
     self.flowLayout.minimumInteritemSpacing = 20;
     self.flowLayout.minimumLineSpacing = 20;
-    self.flowLayout.sectionInset = UIEdgeInsetsMake(20, 20, 20, 20);
+    self.flowLayout.sectionInset = UIEdgeInsetsMake(20, 15, 20, 15);
     [self.collectionView registerClass:[ClassDocumentCollectionCell class] forCellWithReuseIdentifier:@"ClassDocumentCollectionCell"];
     @weakify(self)
     [[[LXNetworkManager sharedManager] getDocumentsByPostId:[self.params objectForKey:@"id"]] subscribeNext:^(NSArray *posts) {
