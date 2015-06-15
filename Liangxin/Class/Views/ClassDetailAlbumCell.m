@@ -13,6 +13,7 @@
 @property (nonatomic, strong) UILabel *defaultLabel;
 @property (nonatomic, strong) NSMutableArray *albumButtons;
 @property (nonatomic, strong) NSMutableArray *albumLabels;
+@property (nonatomic, strong) NSMutableArray *albums;
 
 @end
 
@@ -49,6 +50,7 @@
             UILabel *albumLabel = [UILabel new];
             albumLabel.textAlignment = NSTextAlignmentCenter;
             albumLabel.font = [UIFont systemFontOfSize:13.0];
+            albumLabel.textColor = [UIColor whiteColor];
             albumLabel.backgroundColor = [UIColor colorWithRed:80/255.0 green:80/255.0 blue:80/255.0 alpha:1.0];
             [albumButton addSubview:albumLabel];
             [_albumLabels addObject:albumLabel];
@@ -88,7 +90,14 @@
             self.defaultLabel.hidden = NO;
         }
         else {
-            
+            _albums = [NSMutableArray arrayWithArray:data.images];
+            for (NSInteger i = 0; i < data.images.count; i++) {
+                UILabel *albumLabel = [self.albumLabels objectAtIndex:i];
+                UIButton *albumButton = [self.albumButtons objectAtIndex:i];
+                albumButton.hidden = NO;
+                [albumButton sd_setBackgroundImageWithURL:[NSURL URLWithString:[[data.images objectAtIndex:i] objectForKey:@"url"]] forState:UIControlStateNormal];
+                albumLabel.text = [[data.images objectAtIndex:i] objectForKey:@"title"];
+            }
         }
     }
 }
