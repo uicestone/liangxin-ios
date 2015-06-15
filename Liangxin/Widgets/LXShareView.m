@@ -33,11 +33,12 @@
             make.left.mas_equalTo(0);
             make.right.mas_equalTo(0);
             self.contentTopConstraint = make.top.equalTo(self.mas_bottom);
-            make.height.mas_equalTo(100);
+            make.height.mas_equalTo(132);
         }];
         _cancelSection = [UIButton buttonWithType:UIButtonTypeCustom];
         _cancelSection.backgroundColor = [UIColor whiteColor];
         [_cancelSection setTitle:@"取消" forState:UIControlStateNormal];
+        [_cancelSection addTarget:self action:@selector(hideShareView) forControlEvents:UIControlEventTouchUpInside];
         _cancelSection.titleLabel.font = [UIFont systemFontOfSize:15.0];
         [_cancelSection setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [_contentView addSubview:_cancelSection];
@@ -45,7 +46,7 @@
             make.left.mas_equalTo(0);
             make.right.mas_equalTo(0);
             make.bottom.equalTo(_contentView.mas_bottom);
-            make.height.mas_equalTo(32);
+            make.height.mas_equalTo(44);
         }];
         _shareSection = [UIView new];
         _shareSection.backgroundColor = [UIColor whiteColor];
@@ -66,8 +67,8 @@
         [shareLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(0);
             make.right.mas_equalTo(0);
-            make.top.mas_equalTo(0);
-            make.height.mas_equalTo(18);
+            make.top.mas_equalTo(3);
+            make.height.mas_equalTo(22);
         }];
         
         NSArray *shareImages = @[@"Share_DangQun", @"Share_WeChat", @"Share_Weibo"];
@@ -88,8 +89,8 @@
             [shareButton mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.bottom.equalTo(self.shareSection.mas_bottom);
                 make.top.equalTo(shareLabel.mas_bottom);
-                make.width.mas_equalTo(40);
-                make.centerX.equalTo(self.shareSection.mas_centerX).offset(i*50 - 50);
+                make.width.mas_equalTo(42);
+                make.centerX.equalTo(self.shareSection.mas_centerX).offset(i*60 - 60);
             }];
         }
     }
@@ -106,7 +107,7 @@
         make.bottom.mas_equalTo(0);
     }];
     [self layoutIfNeeded];
-    self.contentTopConstraint.offset(-100);
+    self.contentTopConstraint.offset(-132);
     [UIView animateWithDuration:0.3 animations:^{
         [self.contentView layoutIfNeeded];
     } completion:^(BOOL finished) {
