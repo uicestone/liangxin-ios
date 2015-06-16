@@ -10,4 +10,6 @@
 
 @interface ActivityParticipantCell : UITableViewCell
 
+- (void)reloadViewWithData:(NSDictionary *)data;
+
 @end
