@@ -19,10 +19,10 @@
 
 +(void)addAuthority:(AFHTTPRequestOperationManager *)manager{
     LXBaseModelUser* user= [UserApi getCurrentUser];
-    if(user && user.token){
-        NSLog(@"Authorization %@", user.token);
-        [manager.requestSerializer setValue:user.token forHTTPHeaderField:@"Authorization"];
-    }
+//    if(user && user.token){
+//        NSLog(@"Authorization %@", user.token);
+//        [manager.requestSerializer setValue:user.token forHTTPHeaderField:@"Authorization"];
+//    }
 }
 
 +(NSString *)getUrlByPath:(NSString *)path{

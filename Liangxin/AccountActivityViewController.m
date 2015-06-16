@@ -14,6 +14,7 @@
 #import "LXBaseModelPost.h"
 #import "LXBaseTableViewCell.h"
 #import "ActivityViewModel.h"
+#import "ActivityDetailViewController.h"
 #import "PostApi.h"
 
 
@@ -76,6 +77,10 @@
 }
 
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 100;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.viewModel.activityData.count;
 }
@@ -91,6 +96,15 @@
     LXBaseModelPost *data = [self.viewModel.activityData objectAtIndex:indexPath.row];
     [cell reloadViewWithData:data];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    LXBaseModelPost *data = [self.viewModel.activityData objectAtIndex:indexPath.row];
+    ActivityDetailViewController *detailViewController = [ActivityDetailViewController new];
+    detailViewController.hidesBottomBarWhenPushed = YES;
+    detailViewController.postId = data.id;
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
