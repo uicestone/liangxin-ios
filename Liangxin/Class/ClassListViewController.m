@@ -44,7 +44,7 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
-        make.top.mas_equalTo(22);
+        make.top.mas_equalTo(30);
         make.bottom.mas_equalTo(-44);
     }];
     self.filterView = [[LXFilterView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 30)];
@@ -67,7 +67,15 @@
         @strongify(self)
         [self.viewModel.listData addObjectsFromArray:posts];
         [self.tableView reloadData];
-        [self initFooterView];
+        if (posts.count != 10) {
+            self.tableView.tableFooterView = nil;
+        }
+        else {
+            self.pageNumber++;
+            [self.viewModel.listData addObjectsFromArray:posts];
+            [self.tableView reloadData];
+            [self initFooterView];
+        }
     } error:^(NSError *error) {
         
     }];
@@ -167,7 +175,6 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     LXBaseModelPost *data = [self.viewModel.listData objectAtIndex:indexPath.row];
     ClassDetailViewController *detailViewController = [ClassDetailViewController new];
-    detailViewController.hidesBottomBarWhenPushed = YES;
     detailViewController.postId = data.id;
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
