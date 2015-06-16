@@ -25,6 +25,7 @@
     if (self) {
         _seperatorLine = [UIView new];
         _seperatorLine.backgroundColor = UIColorFromRGB(0xe6e7e8);
+        _seperatorLine.hidden = YES;
         [self.contentView addSubview:_seperatorLine];
         [_seperatorLine mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(0);
@@ -71,6 +72,7 @@
 - (void)reloadViewWithData:(LXBaseModelPost *)data {
     if (data) {
         if (data.articles.count > 0) {
+            self.seperatorLine.hidden = NO;
             NSDictionary *article1 = [data.articles objectAtIndex:0];
             self.article1View.titleLabel.text = [article1 objectForKey:@"title"];
             self.article1View.nameLabel.text = [[article1 objectForKey:@"author"] objectForKey:@"name"]?:@"";
