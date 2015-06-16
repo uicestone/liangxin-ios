@@ -21,6 +21,10 @@
     [super viewDidLoad];
 }
 
+- (BOOL)hasToolBar {
+    return NO;
+}
+
 - (void)commonInit {
     [super commonInit];
     self.title = @"课堂文件";
