@@ -60,10 +60,18 @@
     tableview.delegate = self;
     tableview.dataSource = self;
 
-    
+//    [self tabview:tabview tappedAtIndex:0];
     
     
     // Do any additional setup after loading the view.
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    int row = (int)[indexPath row];
+    LXBaseModelPost* post = viewPosts[row];
+    
+    [self navigateToPath:[NSString stringWithFormat:@"/article/%@", post.id]];
 }
 
 -(void)tabview:(LXTabView *)tabview tappedAtIndex:(int)index{
@@ -88,7 +96,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    Post *post = [viewPosts objectAtIndex:[indexPath row]];
+    LXBaseModelPost *post = [viewPosts objectAtIndex:[indexPath row]];
     PostItemCell *cell = [tableview dequeueReusableCellWithIdentifier:kReuseIdentifier];
     
     if(!cell){
@@ -97,8 +105,8 @@
     }
     
     cell.title.text = post.title;
-    cell.author.text = post.author.name;
-    cell.date.text = post.createTime;
+    cell.author.text = post.author[@"name"];
+    cell.date.text = post.created_at;
     
     return cell;
 }

@@ -18,16 +18,7 @@
     
     [ApiBase getJSONWithPath:@"/post" data:query success:^(id responseObject) {
         NSMutableArray* posts = [NSMutableArray new];
-        
-        NSDictionary* keyMapping = @{
-                                     @"title": @"title",
-                                     @"id": @"postId",
-                                     @"url":@"url",
-                                     @"excerpt":@"desc",
-                                     @"likes":@"likeCount",
-                                     @"created_at": @"createTime"
-                                     };
-        
+                
         for(int i = 0 ; i < [responseObject count]; i ++){
             NSDictionary * jsonObj = [responseObject objectAtIndex:i];
             

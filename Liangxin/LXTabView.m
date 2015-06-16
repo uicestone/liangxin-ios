@@ -75,7 +75,7 @@
     }];
     
     self.selectedColor = tabColor;
-    [self tabTouched:tab1];
+    [self selectTab:tab1];
     return self;
 }
 

@@ -14,6 +14,7 @@
 
 @implementation AccountAboutViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"关于";

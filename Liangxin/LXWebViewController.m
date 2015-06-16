@@ -18,6 +18,10 @@
 @synthesize webview;
 @synthesize jsbridge;
 
+-(BOOL) hasToolBar{
+    return NO;
+}
+
 -(void) loadView{
     CGRect frame = [UIScreen mainScreen].applicationFrame;
     self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 0,  CGRectGetWidth(frame), CGRectGetHeight(frame))];
