@@ -13,6 +13,7 @@
 @property (nonatomic, strong) UILabel *defaultLabel;
 @property (nonatomic, strong) NSMutableArray *albumButtons;
 @property (nonatomic, strong) NSMutableArray *albumLabels;
+@property (nonatomic, strong) NSMutableArray *albums;
 
 @end
 
@@ -88,13 +89,15 @@
             self.defaultLabel.hidden = NO;
         }
         else {
-            
+            self.albums = [NSMutableArray arrayWithArray:data.images];
         }
     }
 }
 
 - (void)showMore:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://class/albums"]]];
+    if (self.albums.count > 0) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://class/albums"]]];
+    }
 }
 
 @end
