@@ -18,6 +18,7 @@
 
 @property (nonatomic, strong) LXBaseModelUser* currentUser;
 @property (nonatomic, strong) UIButton *backButton;
+@property (nonatomic, strong) UIToolbar* toolbar;
 @property (nonatomic, weak) id<LXViewControllerDelegate> delegate;
 
 - (BOOL)needLogin;

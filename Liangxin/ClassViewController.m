@@ -120,7 +120,7 @@
         make.top.mas_equalTo(self.titleView.mas_bottom);
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
-        make.bottom.mas_equalTo(0);
+        make.bottom.mas_equalTo(-44);
     }];
     
     self.viewModel = [LXClassViewModel new];

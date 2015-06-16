@@ -21,7 +21,6 @@
 @interface LXBaseViewController () <UIActionSheetDelegate, LXViewControllerDelegate>
 @property (nonatomic, strong) MBProgressHUD* progress;
 @property (nonatomic, strong) AppDelegate* appDelegate;
-@property (nonatomic, strong) UIToolbar* toolbar;
 @end
 
 @implementation LXBaseViewController
@@ -108,7 +107,12 @@
         
         [toolbar addSubview:tabButton];
     }
-    
+    [toolbar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        make.bottom.mas_equalTo(0);
+        make.height.mas_equalTo(44);
+    }];
     toolbar.backgroundColor = UIColorFromRGB(0xf1f1f2);
 }
 
