@@ -94,7 +94,7 @@
         }
         else {
             self.attachments = [NSMutableArray arrayWithArray:data.attachments];
-            for (NSInteger i = 0; i < data.attachments.count; i++) {
+            for (NSInteger i = 0; i < (data.attachments.count > 3?3:data.attachments.count); i++) {
                 UILabel *documentLabel = [self.documentLabels objectAtIndex:i];
                 UIButton *documentButton = [self.documentButtons objectAtIndex:i];
                 documentButton.hidden = NO;

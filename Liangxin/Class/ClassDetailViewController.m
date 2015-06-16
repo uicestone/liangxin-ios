@@ -118,10 +118,21 @@
             break;
         case 2: {
             if ([UserApi getCurrentUser]) {
+                @weakify(self)
                 [[[LXNetworkManager sharedManager] favoritePostById:self.postId] subscribeNext:^(id x) {
-                    
+                    @strongify(self)
+                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                    hud.animationType = MBProgressHUDAnimationFade;
+                    hud.mode = MBProgressHUDModeText;
+                    hud.labelText = @"收藏成功";
+                    [hud hide:YES afterDelay:1];
                 } error:^(NSError *error) {
-                    
+                    @strongify(self)
+                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                    hud.animationType = MBProgressHUDAnimationFade;
+                    hud.mode = MBProgressHUDModeText;
+                    hud.labelText = @"收藏失败";
+                    [hud hide:YES afterDelay:1];
                 }];
             }
             else {
@@ -136,10 +147,21 @@
             break;
         case 3: {
             if ([UserApi getCurrentUser]) {
+                @weakify(self)
                 [[[LXNetworkManager sharedManager] likePostById:self.postId] subscribeNext:^(id x) {
-                    
+                    @strongify(self)
+                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                    hud.animationType = MBProgressHUDAnimationFade;
+                    hud.mode = MBProgressHUDModeText;
+                    hud.labelText = @"点赞成功";
+                    [hud hide:YES afterDelay:1];
                 } error:^(NSError *error) {
-                    
+                    @strongify(self)
+                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                    hud.animationType = MBProgressHUDAnimationFade;
+                    hud.mode = MBProgressHUDModeText;
+                    hud.labelText = @"点赞失败";
+                    [hud hide:YES afterDelay:1];
                 }];
             }
             else {
