@@ -27,8 +27,8 @@
         [_descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.titleView.mas_bottom);
             make.bottom.mas_equalTo(0);
-            make.left.mas_equalTo(15);
-            make.right.mas_equalTo(-15);
+            make.left.mas_equalTo(20);
+            make.right.mas_equalTo(-20);
         }];
         _defaultLabel = [UILabel new];
         _defaultLabel.text = @"暂无描述";
@@ -51,11 +51,13 @@
 }
 
 - (void)reloadViewWithData:(LXBaseModelPost *)data {
-    if (data.excerpt.length > 0) {
-        _descLabel.text = data.excerpt;
-    }
-    else {
-        _defaultLabel.hidden = NO;
+    if (data) {
+        if (data.excerpt.length > 0) {
+            _descLabel.text = data.excerpt;
+        }
+        else {
+            _defaultLabel.hidden = NO;
+        }
     }
 }
 

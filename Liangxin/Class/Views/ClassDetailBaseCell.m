@@ -98,6 +98,11 @@
     
 }
 
+- (void)setTintColor:(UIColor *)tintColor {
+    [self.moreButton setTitleColor:tintColor forState:UIControlStateNormal];
+    self.titleLabel.textColor = tintColor;
+}
+
 - (void)showMore:(id)sender {
     
 }

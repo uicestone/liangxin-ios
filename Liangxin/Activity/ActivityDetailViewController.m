@@ -193,6 +193,8 @@
             if (!cell) {
                 cell = [[ActivityDetailDescCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ActivityDetailDescCell"];
             }
+            cell.title = @"活动详情";
+            cell.tintColor = [UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0];
             [cell reloadViewWithData:self.postData];
             return cell;
         }
@@ -211,6 +213,8 @@
             if (!cell) {
                 cell = [[ActivityDetailDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ActivityDetailDetailCell"];
             }
+            cell.title = @"参赛内容";
+            cell.tintColor = [UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0];
             return cell;
         }
             break;
@@ -219,6 +223,8 @@
             if (!cell) {
                 cell = [[ActivityDetailAlbumCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ActivityDetailAlbumCell"];
             }
+            cell.title = @"活动相册";
+            cell.tintColor = [UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0];
             [cell reloadViewWithData:self.postData];
             return cell;
         }
