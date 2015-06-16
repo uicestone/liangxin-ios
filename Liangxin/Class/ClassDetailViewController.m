@@ -20,9 +20,7 @@
 @interface ClassDetailViewController() <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) UIToolbar *bottomBar;
 @property (nonatomic, strong) LXClassDetailViewModel *viewModel;
-@property (nonatomic, assign) BOOL isModel;
 
 @end
 
@@ -36,32 +34,6 @@
 - (void)commonInit {
     self.view.backgroundColor = UIColorFromRGB(0xe6e7e8);
     self.viewModel = [LXClassDetailViewModel new];
-    self.bottomBar = [[UIToolbar alloc] init];
-    self.bottomBar.barTintColor = UIColorFromRGB(0xf1f1f2);
-    self.bottomBar.translucent = NO;
-    [self.view addSubview:self.bottomBar];
-    [self.bottomBar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(0);
-        make.right.mas_equalTo(0);
-        make.bottom.mas_equalTo(0);
-        make.height.mas_equalTo(44);
-    }];
-    
-    NSArray *bottomImages = @[@"TB_Back", @"TB_Share", @"TB_Fav", @"TB_Like", @"TB_Comment"];
-    CGFloat width = CGRectGetWidth([UIScreen mainScreen].bounds)/5;
-    for (NSInteger i = 0; i < 5; i++) {
-        UIButton *bottomButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [bottomButton addTarget:self action:@selector(doClickBottomBar:) forControlEvents:UIControlEventTouchUpInside];
-        bottomButton.tag = i;
-        [bottomButton setImage:[UIImage imageNamed:bottomImages[i]] forState:UIControlStateNormal];
-        [self.bottomBar addSubview:bottomButton];
-        [bottomButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(i * width);
-            make.top.mas_equalTo(0);
-            make.bottom.mas_equalTo(0);
-            make.width.mas_equalTo(width);
-        }];
-    }
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView.delegate = self;
@@ -72,7 +44,7 @@
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.top.mas_equalTo(20);
-        make.bottom.equalTo(self.bottomBar.mas_top);
+        make.bottom.mas_equalTo(-44);
     }];
     
     @weakify(self)
@@ -85,8 +57,8 @@
     }];
 }
 
-- (BOOL)hasToolBar {
-    return NO;
+- (LXBaseToolbarType)toolbarType {
+    return LXBaseToolbarTypeDetail;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -102,83 +74,6 @@
     if (!self.isModel) {
         self.navigationController.navigationBarHidden = NO;
         [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    }
-}
-
-- (void)doClickBottomBar:(UIButton *)sender {
-    switch (sender.tag) {
-        case 0: {
-            [self.navigationController popViewControllerAnimated:YES];
-        }
-            break;
-        case 1: {
-            LXShareView *shareView = [LXShareView new];
-            [shareView showInView:self.view];
-        }
-            break;
-        case 2: {
-            if ([UserApi getCurrentUser]) {
-                @weakify(self)
-                [[[LXNetworkManager sharedManager] favoritePostById:self.postId] subscribeNext:^(id x) {
-                    @strongify(self)
-                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                    hud.animationType = MBProgressHUDAnimationFade;
-                    hud.mode = MBProgressHUDModeText;
-                    hud.labelText = @"收藏成功";
-                    [hud hide:YES afterDelay:1];
-                } error:^(NSError *error) {
-                    @strongify(self)
-                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                    hud.animationType = MBProgressHUDAnimationFade;
-                    hud.mode = MBProgressHUDModeText;
-                    hud.labelText = @"收藏失败";
-                    [hud hide:YES afterDelay:1];
-                }];
-            }
-            else {
-                self.isModel = YES;
-                @weakify(self)
-                [self popLoginWithFinishHandler:^{
-                    @strongify(self)
-                    self.isModel = NO;
-                }];
-            }
-        }
-            break;
-        case 3: {
-            if ([UserApi getCurrentUser]) {
-                @weakify(self)
-                [[[LXNetworkManager sharedManager] likePostById:self.postId] subscribeNext:^(id x) {
-                    @strongify(self)
-                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                    hud.animationType = MBProgressHUDAnimationFade;
-                    hud.mode = MBProgressHUDModeText;
-                    hud.labelText = @"点赞成功";
-                    [hud hide:YES afterDelay:1];
-                } error:^(NSError *error) {
-                    @strongify(self)
-                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                    hud.animationType = MBProgressHUDAnimationFade;
-                    hud.mode = MBProgressHUDModeText;
-                    hud.labelText = @"点赞失败";
-                    [hud hide:YES afterDelay:1];
-                }];
-            }
-            else {
-                self.isModel = YES;
-                @weakify(self)
-                [self popLoginWithFinishHandler:^{
-                    @strongify(self)
-                    self.isModel = NO;
-                }];
-            }
-        }
-            break;
-        case 4: {
-            
-        }
-        default:
-            break;
     }
 }
 

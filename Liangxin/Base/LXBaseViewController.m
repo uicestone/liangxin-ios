@@ -14,6 +14,7 @@
 #import "Channels.h"
 #import <HHRouter.h>
 #import <MBProgressHUD/MBProgressHUD.h>
+#import "LXShareView.h"
 
 
 
@@ -49,13 +50,19 @@
     
     
     if([self hasToolBar]){
-        [self initToolBar];
+        if (self.toolbarType == LXBaseToolbarTypeNormal) {
+            [self initToolBar];
+        }
+        else {
+            [self initDetailBar];
+        }
     }
     
     
     
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
+    self.toolbarType = LXBaseToolbarTypeNormal;
 }
 
 -(void)dealloc{
@@ -114,6 +121,111 @@
         make.height.mas_equalTo(44);
     }];
     toolbar.backgroundColor = UIColorFromRGB(0xf1f1f2);
+}
+
+- (void)initDetailBar {
+    NSArray *bottomImages = @[@"TB_Back", @"TB_Share", @"TB_Fav", @"TB_Like", @"TB_Comment"];
+    CGFloat width = CGRectGetWidth([UIScreen mainScreen].bounds)/5;
+    self.toolbar = [UIToolbar new];
+    self.toolbar.translucent = NO;
+    [self.view addSubview:self.toolbar];
+    [toolbar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        make.bottom.mas_equalTo(0);
+        make.height.mas_equalTo(44);
+    }];
+    toolbar.backgroundColor = UIColorFromRGB(0xf1f1f2);
+    for (NSInteger i = 0; i < 5; i++) {
+        UIButton *bottomButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [bottomButton addTarget:self action:@selector(doClickDetailBar:) forControlEvents:UIControlEventTouchUpInside];
+        bottomButton.tag = i;
+        [bottomButton setImage:[UIImage imageNamed:bottomImages[i]] forState:UIControlStateNormal];
+        [self.toolbar addSubview:bottomButton];
+        [bottomButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(i * width);
+            make.top.mas_equalTo(0);
+            make.bottom.mas_equalTo(0);
+            make.width.mas_equalTo(width);
+        }];
+    }
+}
+
+- (void)doClickDetailBar:(UIButton *)sender {
+    switch (sender.tag) {
+        case 0: {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+            break;
+        case 1: {
+            LXShareView *shareView = [LXShareView new];
+            [shareView showInView:self.view];
+        }
+            break;
+        case 2: {
+            if ([UserApi getCurrentUser]) {
+                @weakify(self)
+                [[[LXNetworkManager sharedManager] favoritePostById:self.postId] subscribeNext:^(id x) {
+                    @strongify(self)
+                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                    hud.animationType = MBProgressHUDAnimationFade;
+                    hud.mode = MBProgressHUDModeText;
+                    hud.labelText = @"收藏成功";
+                    [hud hide:YES afterDelay:1];
+                } error:^(NSError *error) {
+                    @strongify(self)
+                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                    hud.animationType = MBProgressHUDAnimationFade;
+                    hud.mode = MBProgressHUDModeText;
+                    hud.labelText = @"收藏失败";
+                    [hud hide:YES afterDelay:1];
+                }];
+            }
+            else {
+                self.isModel = YES;
+                @weakify(self)
+                [self popLoginWithFinishHandler:^{
+                    @strongify(self)
+                    self.isModel = NO;
+                }];
+            }
+        }
+            break;
+        case 3: {
+            if ([UserApi getCurrentUser]) {
+                @weakify(self)
+                [[[LXNetworkManager sharedManager] likePostById:self.postId] subscribeNext:^(id x) {
+                    @strongify(self)
+                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                    hud.animationType = MBProgressHUDAnimationFade;
+                    hud.mode = MBProgressHUDModeText;
+                    hud.labelText = @"点赞成功";
+                    [hud hide:YES afterDelay:1];
+                } error:^(NSError *error) {
+                    @strongify(self)
+                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                    hud.animationType = MBProgressHUDAnimationFade;
+                    hud.mode = MBProgressHUDModeText;
+                    hud.labelText = @"点赞失败";
+                    [hud hide:YES afterDelay:1];
+                }];
+            }
+            else {
+                self.isModel = YES;
+                @weakify(self)
+                [self popLoginWithFinishHandler:^{
+                    @strongify(self)
+                    self.isModel = NO;
+                }];
+            }
+        }
+            break;
+        case 4: {
+            
+        }
+        default:
+            break;
+    }
 }
 
 -(void)toolbarItemsPressed:(UIButton *)sender{

@@ -10,6 +10,4 @@
 
 @interface ActivityDetailViewController : LXBaseViewController
 
-@property (nonatomic, copy) NSString *postId;
-
 @end
