@@ -48,7 +48,10 @@
     }
     self.currentUser = [UserApi getCurrentUser];
     
-    [self initToolBar];
+    
+    if([self hasToolBar]){
+        [self initToolBar];
+    }
     
     
     
@@ -60,7 +63,6 @@
     NSLog(@"dealloc view");
     
 }
-
 
 -(void)viewWillAppear:(BOOL)animated{
     if([self hasToolBar]){

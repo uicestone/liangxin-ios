@@ -21,6 +21,10 @@
     // Do any additional setup after loading the view.
 }
 
+-(BOOL) hasToolBar{
+    return NO;
+}
+
 -(void)viewWillAppear:(BOOL)animated{
     [self loadPage:@"followinggroups"];
 }
