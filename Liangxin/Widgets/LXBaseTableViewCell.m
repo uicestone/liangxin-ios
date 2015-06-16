@@ -41,7 +41,6 @@
         
         _titleLabel = [UILabel new];
         _titleLabel.font = [UIFont systemFontOfSize:15.0];
-        _titleLabel.textColor = [UIColor darkGrayColor];
         [self.contentView addSubview:_titleLabel];
         [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.mas_equalTo(-15);
@@ -51,6 +50,9 @@
         }];
         
         _summaryLabel = [UILabel new];
+        _summaryLabel.font = [UIFont systemFontOfSize:12.0];
+        _summaryLabel.textColor = [UIColor darkGrayColor];
+        _summaryLabel.numberOfLines = 2;
         [self.contentView addSubview:_summaryLabel];
         [_summaryLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.mas_equalTo(-15);
@@ -191,7 +193,7 @@
         self.titleLabel.text = data.title;
     }
     if (data.excerpt.length > 0) {
-        self.summaryLabel.text = data.content;
+        self.summaryLabel.text = data.excerpt;
     }
     switch (self.style) {
         case LXTableViewCellStyleClass: {
@@ -225,6 +227,9 @@
                 self.reviewCountLabel.text = @"0";
             }
             self.attendCountLabel.text = [NSString stringWithFormat:@"%@人已经报名", @(data.attendees.count)];
+            NSMutableAttributedString *attendText = [[NSMutableAttributedString alloc] initWithAttributedString:self.attendCountLabel.attributedText];
+            [attendText addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, 1)];
+            [self.attendCountLabel setAttributedText:attendText];
         }
             break;
         default:
