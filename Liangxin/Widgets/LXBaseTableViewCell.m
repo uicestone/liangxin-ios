@@ -186,7 +186,7 @@
         case LXTableViewCellStyleActivity: {
             self.attendButton.hidden = NO;
             self.attendCountLabel.hidden = NO;
-            self.attendCountLabel.text = [NSString stringWithFormat:@"%@人已经报名", @(data.attendees.count)];
+            self.attendCountLabel.text = [NSString stringWithFormat:@"%@人已经报名", data.attendee_count?:@"0"];
             NSMutableAttributedString *attendText = [[NSMutableAttributedString alloc] initWithAttributedString:self.attendCountLabel.attributedText];
             [attendText addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, 1)];
             [self.attendCountLabel setAttributedText:attendText];

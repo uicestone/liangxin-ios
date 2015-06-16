@@ -56,13 +56,14 @@
             make.width.mas_equalTo(100);
         }];
         _groupLabel = [UILabel new];
-        _groupLabel.textColor = [UIColor lightGrayColor];
+        _groupLabel.textColor = [UIColor darkGrayColor];
+        _groupLabel.font = [UIFont systemFontOfSize:13.0];
         [self.contentView addSubview:_groupLabel];
         [_groupLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(_avatarImageView.mas_right).offset(10);
             make.top.equalTo(_nameLabel.mas_bottom);
             make.height.mas_equalTo(20);
-            make.width.mas_equalTo(100);
+            make.width.mas_equalTo(200);
         }];
         _agreeButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _agreeButton.titleLabel.font = [UIFont systemFontOfSize:10];
@@ -115,6 +116,11 @@
     
     if ([data objectForKey:@"name"] && ![[data objectForKey:@"name"] isEqual:[NSNull null]]) {
         self.nameLabel.text = [data objectForKey:@"name"];
+    }
+    
+    NSString *groupName = [[data objectForKey:@"group"] objectForKey:@"name"];
+    if (![groupName isEqual:[NSNull null]]) {
+        self.groupLabel.text = groupName;
     }
 }
 

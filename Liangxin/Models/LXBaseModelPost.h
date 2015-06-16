@@ -47,4 +47,5 @@
 @property (nonatomic, copy) NSString *liked_users;
 @property (nonatomic, copy) NSString *parent;
 @property (nonatomic, assign) BOOL attended;
+@property (nonatomic, copy) NSString *attendee_count;
 @end
