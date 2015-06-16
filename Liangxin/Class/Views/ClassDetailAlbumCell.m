@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSMutableArray *albumButtons;
 @property (nonatomic, strong) NSMutableArray *albumLabels;
 @property (nonatomic, strong) NSMutableArray *albums;
+@property (nonatomic, copy) NSString *postId;
 
 @end
 
@@ -90,6 +91,7 @@
             self.defaultLabel.hidden = NO;
         }
         else {
+            self.postId = data.id;
             _albums = [NSMutableArray arrayWithArray:data.images];
             for (NSInteger i = 0; i < data.images.count; i++) {
                 UILabel *albumLabel = [self.albumLabels objectAtIndex:i];
@@ -103,7 +105,9 @@
 }
 
 - (void)showMore:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://class/albums"]]];
+    if (self.postId.length > 0) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://class/albums/?id=%@", self.postId]]];
+    }
 }
 
 @end

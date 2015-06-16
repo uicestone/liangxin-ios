@@ -19,5 +19,6 @@
 #import "LXNetworkManager.h"
 #import <HHRouter/HHRouter.h>
 #import "UIButton+WebCache.h"
+#import "UIImageView+WebCache.h"
 
 #endif

@@ -7,8 +7,11 @@
 //
 
 #import "ClassAlbumViewController.h"
+#import "ClassAlbumCollectionCell.h"
 
 @interface ClassAlbumViewController ()
+
+@property (nonatomic, strong) NSMutableArray *albums;
 
 @end
 
@@ -21,9 +24,37 @@
 - (void)commonInit {
     [super commonInit];
     self.title = @"课堂相册";
+    self.view.backgroundColor = [UIColor whiteColor];
     self.flowLayout.itemSize = CGSizeMake((CGRectGetWidth([UIScreen mainScreen].bounds) - 20)/3, 85);
     self.flowLayout.minimumInteritemSpacing = 5;
     self.flowLayout.minimumLineSpacing = 5;
+    self.flowLayout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
+    [self.collectionView registerClass:[ClassAlbumCollectionCell class] forCellWithReuseIdentifier:@"ClassAlbumCollectionCell"];
+    @weakify(self)
+    [[[LXNetworkManager sharedManager] getAlbumsByPostId:[self.params objectForKey:@"id"]] subscribeNext:^(NSArray *posts) {
+        @strongify(self)
+        self.albums = [NSMutableArray arrayWithArray:posts];
+        [self.collectionView reloadData];
+    } error:^(NSError *error) {
+        
+    }];
+}
+
+#pragma mark - UICollectionViewDataSource && UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.albums.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    ClassAlbumCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ClassAlbumCollectionCell" forIndexPath:indexPath];
+    LXBaseModelPost *post = [self.albums objectAtIndex:indexPath.row];
+    [cell reloadViewWithData:post];
+    return cell;
 }
 
 @end

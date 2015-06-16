@@ -10,4 +10,6 @@
 
 @interface ClassAlbumCollectionCell : UICollectionViewCell
 
+- (void)reloadViewWithData:(LXBaseModelPost *)data;
+
 @end
