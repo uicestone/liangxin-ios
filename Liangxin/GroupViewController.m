@@ -67,10 +67,6 @@
 }
 
 
--(void)viewWillAppear:(BOOL)animated{
-    self.navigationController.tabBarController.tabBar.hidden = NO;
-}
-
 
 #pragma 搜索框相关
 
