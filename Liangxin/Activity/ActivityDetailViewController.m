@@ -20,6 +20,7 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIToolbar *bottomBar;
+@property (nonatomic, strong) LXBaseModelPost *postData;
 
 @end
 
@@ -70,6 +71,15 @@
         make.right.mas_equalTo(0);
         make.top.mas_equalTo(20);
         make.bottom.equalTo(self.bottomBar.mas_top);
+    }];
+    
+    @weakify(self)
+    [[[LXNetworkManager sharedManager] getPostDetailById:self.postId] subscribeNext:^(id x) {
+        @strongify(self)
+        self.postData = x;
+        [self.tableView reloadData];
+    } error:^(NSError *error) {
+        
     }];
 }
 
@@ -127,7 +137,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case 0:
-            return 85;
+            return 130;
             break;
         case 1:
             return 40;
@@ -165,6 +175,7 @@
             if (!cell) {
                 cell = [[ActivityDetailTitleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ActivityDetailTitleCell"];
             }
+            [cell reloadViewWithData:self.postData];
             return cell;
         }
             break;
@@ -173,6 +184,7 @@
             if (!cell) {
                 cell = [[ActivityDetailSummaryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ActivityDetailSummaryCell"];
             }
+            [cell reloadViewWithData:self.postData];
             return cell;
         }
             break;
@@ -181,6 +193,7 @@
             if (!cell) {
                 cell = [[ActivityDetailDescCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ActivityDetailDescCell"];
             }
+            [cell reloadViewWithData:self.postData];
             return cell;
         }
             break;
@@ -189,6 +202,7 @@
             if (!cell) {
                 cell = [[ActivityDetailApplyCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ActivityDetailApplyCell"];
             }
+            [cell reloadViewWithData:self.postData];
             return cell;
         }
             break;
@@ -205,6 +219,7 @@
             if (!cell) {
                 cell = [[ActivityDetailAlbumCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ActivityDetailAlbumCell"];
             }
+            [cell reloadViewWithData:self.postData];
             return cell;
         }
             break;

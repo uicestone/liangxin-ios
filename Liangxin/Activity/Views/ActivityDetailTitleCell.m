@@ -39,7 +39,7 @@
             make.width.mas_equalTo(85);
         }];
         _titleLabel = [UILabel new];
-        _titleLabel.textColor = UIColorFromRGB(0xf7941c);
+        _titleLabel.textColor = [UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0];
         _titleLabel.numberOfLines = 0;
         [self.contentView addSubview:_titleLabel];
         [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -70,6 +70,7 @@
         }];
         _applyStatusButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_applyStatusButton setTitle:@"已报名" forState:UIControlStateNormal];
+        _applyStatusButton.titleLabel.font = [UIFont systemFontOfSize:10];
         [_applyStatusButton setTitleColor:[UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0] forState:UIControlStateNormal];
         _applyStatusButton.layer.cornerRadius = 2.0;
         _applyStatusButton.layer.borderWidth = 1.0;
@@ -95,16 +96,8 @@
             make.right.mas_equalTo(-15);
             make.height.mas_equalTo(titleSize.height);
         }];
-        if (data.author_id.length > 0) {
-            @weakify(self)
-            [[[LXNetworkManager sharedManager] getUserById:data.author_id] subscribeNext:^(LXBaseModelUser *user) {
-                @strongify(self)
-                self.authorLabel.text = [NSString stringWithFormat:@"发起人：%@", user.name?:@""];
-                self.groupLabel.text = [NSString stringWithFormat:@"所属支部：%@", user.group_name?:@""];
-            } error:^(NSError *error) {
-                
-            }];
-        }
+        self.groupLabel.text = [NSString stringWithFormat:@"所属支部：%@", [data.group objectForKey:@"name"]?:@""];
+        self.authorLabel.text = [NSString stringWithFormat:@"发起人：%@", [data.author objectForKey:@"name"]?:@""];
     }
 }
 

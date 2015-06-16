@@ -10,4 +10,6 @@
 
 @interface ActivityDetailApplyCell : UITableViewCell
 
+- (void)reloadViewWithData:(LXBaseModelPost *)data;
+
 @end
