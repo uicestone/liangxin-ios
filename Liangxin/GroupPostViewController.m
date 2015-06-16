@@ -88,7 +88,7 @@
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    Post *post = [posts objectAtIndex:[indexPath row]];
+    LXBaseModelPost *post = [posts objectAtIndex:[indexPath row]];
     PostItemCell *cell = [tableview dequeueReusableCellWithIdentifier:kReuseIdentifier];
     
     if(!cell){
@@ -97,8 +97,8 @@
     }
     
     cell.title.text = post.title;
-    cell.author.text = post.author.name;
-    cell.date.text = post.createTime;
+    cell.author.text = post.author[@"name"];
+    cell.date.text = post.created_at;
     
     return cell;
 }

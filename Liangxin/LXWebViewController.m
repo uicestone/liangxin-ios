@@ -49,7 +49,7 @@
 
 - (void)viewDidLoad {
     
-    webview = [[LXWebView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds))];
+    webview = [[LXWebView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - 44)];
     webview.delegate = self;
     jsbridge = [LXJSBridge initWithWebView:webview];
     jsbridge.viewController = self;
@@ -141,6 +141,7 @@
     if(title.length){
         [self.navigationItem setTitle:title];
     }
+    
 }
 
 
