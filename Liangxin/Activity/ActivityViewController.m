@@ -190,9 +190,12 @@
 }
 
 - (void)initFooterView {
+    UIImage *arrowImage = [UIImage imageNamed:@"Table_Arrow"];
+    arrowImage = [arrowImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.footerView = [UIButton buttonWithType:UIButtonTypeCustom];
     self.footerView.frame = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 30);
-    [self.footerView setImage:[UIImage imageNamed:@"Table_Arrow"] forState:UIControlStateNormal];
+    [self.footerView setImage:arrowImage forState:UIControlStateNormal];
+    self.footerView.tintColor = [UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0];
     [self.footerView addTarget:self action:@selector(requestMoreData:) forControlEvents:UIControlEventTouchUpInside];
     self.tableView.tableFooterView = self.footerView;
 }

@@ -56,6 +56,7 @@
     [self addSubview:_collectionView];
     
     _pageControl = [[UIPageControl alloc] init];
+    _pageControl.hidden = YES;
     [self addSubview:_pageControl];
     
     [self setupTimer];
@@ -79,6 +80,14 @@
             make.bottom.mas_equalTo(self.mas_bottom);
         }];
         [self.collectionView reloadData];
+    }
+    
+    if (imageURLsGroup.count == 1) {
+        [self.timer invalidate];
+    }
+    
+    if (imageURLsGroup.count > 1) {
+        self.pageControl.hidden = NO;
     }
 }
 
@@ -128,7 +137,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     LXCarouselViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"LXCarouselViewCell" forIndexPath:indexPath];
     NSInteger itemIndex = indexPath.item % self.imageURLsGroup.count;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:[self.imageURLsGroup objectAtIndex:itemIndex]]];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:[[self.imageURLsGroup objectAtIndex:itemIndex] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
     return cell;
 }
 
