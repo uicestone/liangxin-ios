@@ -47,6 +47,5 @@
 @property (nonatomic, strong) NSArray *favored_users;
 @property (nonatomic, copy) NSString *liked_users;
 @property (nonatomic, copy) NSString *parent;
-@property (nonatomic, copy) NSString *attended;
 
 @end
