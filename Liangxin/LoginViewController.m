@@ -31,13 +31,20 @@
     [super viewDidLoad];
     
     processing = NO;
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(dismissViewController)];
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(dismissLoginViewController:)];
     self.navigationItem.rightBarButtonItem = cancelButton;
     
     self.navigationItem.title = @"用户登录";
     
     tableview.scrollEnabled = NO;
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)dismissLoginViewController:(id)sender {
+    if (self.finishBlock) {
+        self.finishBlock();
+    }
+    [self dismissViewController];
 }
 
 - (void)didReceiveMemoryWarning {
