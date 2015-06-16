@@ -78,7 +78,7 @@
     
     [self showProgress];
     [PostApi getPostsByQuery:@{
-                               @"group_id": [NSString stringWithFormat:@"%d", self.currentUser.group_id],
+                               @"group_id": [NSString stringWithFormat:@"%@", self.currentUser.group[@"id"]],
                                @"type": index == 0 ? @"公告" : @"文章"
                                } successHandler:^(NSArray *posts) {
                                    [self hideProgress];
