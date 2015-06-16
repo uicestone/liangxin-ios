@@ -21,6 +21,10 @@
 @property (nonatomic, strong) LXCarouselView *carouselView;
 @property (nonatomic, strong) UIView *titleView;
 @property (nonatomic, strong) LXBannerView *bannerView;
+@property (nonatomic, strong) UIButton *footerView;
+@property (nonatomic, assign) NSInteger pageNumber;
+@property (nonatomic, assign) BOOL isLoading;
+@property (nonatomic, strong) LXNetworkPostParameters *parameters;
 
 @property (nonatomic, strong) LXClassViewModel *viewModel;
 
@@ -36,6 +40,7 @@
 - (void)commonInit {
     self.title = @"党群课堂";
     self.view.backgroundColor = [UIColor whiteColor];
+    self.pageNumber = 1;
     
     UIImage *searchImage = [UIImage imageNamed:@"search"];
     searchImage = [searchImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
@@ -123,6 +128,12 @@
         make.bottom.mas_equalTo(-44);
     }];
     
+    self.footerView = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.footerView.frame = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 30);
+    [self.footerView setImage:[UIImage imageNamed:@"Table_Arrow"] forState:UIControlStateNormal];
+    [self.footerView addTarget:self action:@selector(requestMoreData:) forControlEvents:UIControlEventTouchUpInside];
+    self.tableView.tableFooterView = self.footerView;
+    
     self.viewModel = [LXClassViewModel new];
     
     @weakify(self)
@@ -139,16 +150,41 @@
         
     }];
     
-    LXNetworkPostParameters *parameters = [LXNetworkPostParameters new];
-    parameters.page = @(1);
-    parameters.type = @"课堂";
-    [[[LXNetworkManager sharedManager] getPostByParameters:parameters] subscribeNext:^(NSArray *x) {
+    self.parameters = [LXNetworkPostParameters new];
+    self.parameters.page = @(self.pageNumber);
+    self.parameters.type = @"课堂";
+    [[[LXNetworkManager sharedManager] getPostByParameters:self.parameters] subscribeNext:^(NSArray *x) {
         @strongify(self)
         [self.viewModel.classData addObjectsFromArray:x];
         [self.tableView reloadData];
     } error:^(NSError *error) {
         
     }];
+}
+
+- (void)requestMoreData:(id)sender {
+    if (!self.isLoading) {
+        NSInteger nextPageNumber = self.pageNumber + 1;
+        self.parameters.page = @(nextPageNumber);
+        self.isLoading = YES;
+        @weakify(self)
+        [[[LXNetworkManager sharedManager] getPostByParameters:self.parameters] subscribeNext:^(NSArray *x) {
+            @strongify(self)
+            if (x.count == 0) {
+                self.tableView.tableFooterView = nil;
+            }
+            else {
+                self.pageNumber++;
+                [self.viewModel.classData addObjectsFromArray:x];
+                [self.tableView reloadData];
+            }
+        } error:^(NSError *error) {
+            
+        } completed:^{
+            @strongify(self)
+            self.isLoading = NO;
+        }];
+    }
 }
 
 - (void)doSearch:(id)sender {
