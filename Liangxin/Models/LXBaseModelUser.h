@@ -13,7 +13,6 @@
 @property (nonatomic, copy) NSString *id;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *avatar;
-@property (nonatomic, assign) int group_id;
 @property (nonatomic, assign) int department_id;
 @property (nonatomic, copy) NSString *role;
 @property (nonatomic, assign) NSDictionary* group;

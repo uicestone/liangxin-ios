@@ -29,6 +29,7 @@
 		2215D96C1B10D08A00D96C46 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215D9661B10D08A00D96C46 /* TAAnimatedDotView.m */; };
 		2215D96D1B10D08A00D96C46 /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215D9681B10D08A00D96C46 /* TADotView.m */; };
 		2215D96E1B10D08A00D96C46 /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215D96A1B10D08A00D96C46 /* TAPageControl.m */; };
+		221DF3421B306772002FF7DE /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 221DF3411B306772002FF7DE /* CommentViewController.m */; };
 		22238C1B1AF64F02000B4F95 /* Channels.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C1A1AF64F02000B4F95 /* Channels.m */; };
 		22238C541AFBACA5000B4F95 /* BannerApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C531AFBACA5000B4F95 /* BannerApi.m */; };
 		22238C571AFBAE30000B4F95 /* ApiBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C561AFBAE30000B4F95 /* ApiBase.m */; };
@@ -198,6 +199,8 @@
 		2215D9681B10D08A00D96C46 /* TADotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TADotView.m; sourceTree = "<group>"; };
 		2215D9691B10D08A00D96C46 /* TAPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAPageControl.h; sourceTree = "<group>"; };
 		2215D96A1B10D08A00D96C46 /* TAPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAPageControl.m; sourceTree = "<group>"; };
+		221DF3401B306772002FF7DE /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
+		221DF3411B306772002FF7DE /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
 		22238C191AF64F02000B4F95 /* Channels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Channels.h; sourceTree = "<group>"; };
 		22238C1A1AF64F02000B4F95 /* Channels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Channels.m; sourceTree = "<group>"; };
 		22238C521AFBACA5000B4F95 /* BannerApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerApi.h; sourceTree = "<group>"; };
@@ -698,6 +701,8 @@
 				2215CB791B0972A900D0359A /* PublishViewController.m */,
 				22BE07D91B1FDE7400A1E91F /* ArticleViewController.h */,
 				22BE07DA1B1FDE7400A1E91F /* ArticleViewController.m */,
+				221DF3401B306772002FF7DE /* CommentViewController.h */,
+				221DF3411B306772002FF7DE /* CommentViewController.m */,
 			);
 			name = Post;
 			sourceTree = "<group>";
@@ -1212,6 +1217,7 @@
 				2215CB741B08EA0C00D0359A /* GroupMembersViewController.m in Sources */,
 				22E5E8D31B272A700004D1CA /* FeedsViewController.m in Sources */,
 				22D649DC1B0A2CDC004045B8 /* PostApi.m in Sources */,
+				221DF3421B306772002FF7DE /* CommentViewController.m in Sources */,
 				2D537DED1B1AEAD3006BD35E /* ClassDetailAlbumCell.m in Sources */,
 				2215CB621B08379100D0359A /* Post.m in Sources */,
 				2210A38B1AFEE1F800D9CA1A /* LXWebViewController.m in Sources */,

@@ -44,6 +44,7 @@
 #import "ClassAlbumViewController.h"
 #import "ActivityListViewController.h"
 #import "ActivityParticipantsViewController.h"
+#import "CommentViewController.h"
 
 @implementation LXRouteManager
 
@@ -83,6 +84,8 @@
     [[HHRouter shared] map:@"/activity" toControllerClass:[ActivityViewController class]];
     [[HHRouter shared] map:@"/activity/list" toControllerClass:[ActivityListViewController class]];
     [[HHRouter shared] map:@"/activity/attends" toControllerClass:[ActivityParticipantsViewController class]];
+    
+    [[HHRouter shared] map:@"/comment/:id" toControllerClass:[CommentViewController class]];
     
     // 课堂
     [[HHRouter shared] map:@"/class" toControllerClass:[ClassViewController class]];

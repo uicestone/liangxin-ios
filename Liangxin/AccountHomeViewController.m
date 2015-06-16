@@ -30,6 +30,23 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = UIColorFromRGB(0xf1f1f2);
+    
+    
+    
+    tabitems = @[@{
+                     @"name":@"我的支部",
+                     @"icon":@"我的支部",
+                     @"link": [NSString stringWithFormat:@"/group/detail/%@", self.currentUser.group[@"id"]]
+                     },@{
+                     @"name":@"我的积分",
+                     @"icon":@"我的积分",
+                     @"link":@"/account/credit"
+                     },@{
+                     @"name":@"我的收藏",
+                     @"icon":@"我的收藏",
+                     @"link":@"/account/collection"
+                     }];
+    
     [self initHead];
     [self initTabs];
     [self initTableView];
@@ -142,21 +159,6 @@
     UIView* lastTab;
     UIView* currentTab;
     BOOL isFirst, isLast;
-    
-    
-    tabitems = @[@{
-                 @"name":@"我的支部",
-                 @"icon":@"我的支部",
-                 @"link": [NSString stringWithFormat:@"/group/detail/%d", self.currentUser.group_id]
-                 },@{
-                 @"name":@"我的积分",
-                 @"icon":@"我的积分",
-                 @"link":@"/account/credit"
-                 },@{
-                 @"name":@"我的收藏",
-                 @"icon":@"我的收藏",
-                 @"link":@"/account/collection"
-                 }];
     
     for(int i = 0; i < 3; i++){
         isFirst = i == 0;
