@@ -78,10 +78,6 @@ require('./selectctrl.tag')
 		this[field.model] = field.val();
 	}
 
-	this.on('mount', function(){
-		$('publish').height($('publish').height() + 50);
-	});
-
 	submit(){
 		var self = this;
 		var data = {};

@@ -1,4 +1,4 @@
-webpackJsonp([5],[
+webpackJsonp([3],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -1634,12 +1634,12 @@ webpackJsonp([5],[
 	var $ = __webpack_require__(2);
 	var bridge = __webpack_require__(3);
 	var fetch = bridge.fetch;
+	__webpack_require__(11)
 	__webpack_require__(12)
 	__webpack_require__(13)
 	__webpack_require__(14)
 	__webpack_require__(15)
 	__webpack_require__(16)
-	__webpack_require__(17)
 
 	riot.tag('publish', ' <div show="{ opts.type==\'class\' }"> <imgctrl icon="plus" size="small" placeholder="为你的课堂上传海报" model="poster"></imgctrl> <inputctrl title="请输入课堂标题（字数限制50字）" limit="50" model="title"></inputctrl> <textareactrl title="添加课堂文字描述（字数限制500字）" limit="500" model="content"></textareactrl>   <imgctrl icon="plus" size="small" model="images" placeholder="添加课堂图片资料"></imgctrl>  </div>  <div show="{ opts.type==\'activity\' }"> <imgctrl icon="plus" size="small" placeholder="为你的活动上传海报" model="poster"></imgctrl> <inputctrl title="请输入活动标题（字数限制50字）" limit="50" model="title"></inputctrl> <datepicker title="请输入活动时间" model="event_date"></datepicker> <inputctrl title="请输入活动地点" limit="50" model="event_address"></inputctrl> <textareactrl title="添加活动文字详情（字数限制1000字）" limit="500" model="describe"></textareactrl> <selectctrl title="请选择活动类型" choices="{choices}" model="event_type"></selectctrl> <datepicker title="请输入报名截止日期" model="due_date"></datepicker> </div>  <div show="{ opts.type==\'notice\' }"> <inputctrl title="请输入公告标题（字数限制50字）" limit="50" model="title"></inputctrl> <textareactrl title="添加公告内容（字数限制1000字）" limit="1000" model="content"></textareactrl> </div>  <div show="{ opts.type==\'article\' }"> <inputctrl title="请输入文章标题（字数限制50字）" limit="50" model="title"></inputctrl> <textareactrl title="添加文章内容（字数限制1000字）" limit="1000" model="content"></textareactrl> <imgctrl icon="plus" size="big" model="images" placeholder="上传图片"></imgctrl> </div>  <div show="{ opts.type==\'image\' }"> <inputctrl title="请输入图片标题（字数限制50字）" limit="50" model="title"></inputctrl> <imgctrl icon="plus" size="big" model="images" placeholder="上传图片"></imgctrl> </div> <btn title="发布" onclick="{submit}"></btn>', 'class="input-container"', function(opts) {
 		
@@ -1666,10 +1666,6 @@ webpackJsonp([5],[
 		this.edit = function(field) {
 			this[field.model] = field.val();
 		}.bind(this);
-
-		this.on('mount', function(){
-			$('publish').height($('publish').height() + 50);
-		});
 
 		this.submit = function() {
 			var self = this;
@@ -3019,8 +3015,7 @@ webpackJsonp([5],[
 /***/ },
 /* 9 */,
 /* 10 */,
-/* 11 */,
-/* 12 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var riot = __webpack_require__(8);
@@ -3045,7 +3040,7 @@ webpackJsonp([5],[
 
 
 /***/ },
-/* 13 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var riot = __webpack_require__(8);
@@ -3070,7 +3065,7 @@ webpackJsonp([5],[
 
 
 /***/ },
-/* 14 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var riot = __webpack_require__(8);
@@ -3102,7 +3097,7 @@ webpackJsonp([5],[
 
 
 /***/ },
-/* 15 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var riot = __webpack_require__(8);
@@ -3112,7 +3107,7 @@ webpackJsonp([5],[
 	});
 
 /***/ },
-/* 16 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var riot = __webpack_require__(8);
@@ -3138,7 +3133,7 @@ webpackJsonp([5],[
 
 
 /***/ },
-/* 17 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var riot = __webpack_require__(8);
