@@ -42,9 +42,9 @@
         [self.contentView addSubview:_userStateLabel];
         [_userStateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(_avatarImageView.mas_left);
-            make.top.equalTo(_avatarImageView.mas_bottom).offset(3);
+            make.top.equalTo(_avatarImageView.mas_bottom).offset(5);
             make.width.equalTo(_avatarImageView.mas_width);
-            make.bottom.mas_equalTo(-3);
+            make.bottom.mas_equalTo(-5);
         }];
         _nameLabel = [UILabel new];
         _nameLabel.font = [UIFont systemFontOfSize:15.0];
@@ -58,13 +58,17 @@
         _groupLabel = [UILabel new];
         _groupLabel.textColor = [UIColor lightGrayColor];
         [self.contentView addSubview:_groupLabel];
-        [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        [_groupLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(_avatarImageView.mas_right).offset(10);
             make.top.equalTo(_nameLabel.mas_bottom);
             make.height.mas_equalTo(20);
             make.width.mas_equalTo(100);
         }];
         _agreeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _agreeButton.titleLabel.font = [UIFont systemFontOfSize:10];
+        _agreeButton.layer.cornerRadius = 2.0;
+        _agreeButton.clipsToBounds = YES;
+        _agreeButton.backgroundColor = [UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0];
         [_agreeButton setTitle:@"同意" forState:UIControlStateNormal];
         [self.contentView addSubview:_agreeButton];
         [_agreeButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -74,9 +78,16 @@
             make.height.mas_equalTo(17);
         }];
         _disagreeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _disagreeButton.titleLabel.font = [UIFont systemFontOfSize:10];
+        _disagreeButton.layer.cornerRadius = 2.0;
+        _disagreeButton.clipsToBounds = YES;
+        _disagreeButton.layer.borderColor = [[UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0] CGColor];
+        _disagreeButton.layer.borderWidth = 1.0;
+        [_disagreeButton setTitleColor:[UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0] forState:UIControlStateNormal];
+        _disagreeButton.backgroundColor = [UIColor whiteColor];
         [_disagreeButton setTitle:@"拒绝" forState:UIControlStateNormal];
         [self.contentView addSubview:_disagreeButton];
-        [_agreeButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        [_disagreeButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.mas_equalTo(-32);
             make.bottom.mas_equalTo(-8);
             make.width.mas_equalTo(35);
