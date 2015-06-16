@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loadPage:@"http://www.baidu.com"];
+    [self loadPage:@"http://dangqun.malu.gov.cn/credit-policy"];
     // Do any additional setup after loading the view.
 }
 

@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "LXBaseModelUser.h"
 
+typedef NS_ENUM(NSInteger, LXBaseToolbarType){
+    LXBaseToolbarTypeNormal,
+    LXBaseToolbarTypeDetail
+};
+
 typedef void(^ LoginFinishBlock)();
 
 @protocol LXViewControllerDelegate
@@ -20,8 +25,11 @@ typedef void(^ LoginFinishBlock)();
 
 @property (nonatomic, strong) LXBaseModelUser* currentUser;
 @property (nonatomic, strong) UIButton *backButton;
+@property (nonatomic, assign) LXBaseToolbarType toolbarType;
 @property (nonatomic, strong) UIToolbar* toolbar;
 @property (nonatomic, weak) id<LXViewControllerDelegate> delegate;
+@property (nonatomic, assign) BOOL isModel;
+@property (nonatomic, copy) NSString *postId;
 
 - (BOOL)needLogin;
 - (BOOL)hasToolBar;
@@ -32,6 +40,7 @@ typedef void(^ LoginFinishBlock)();
 - (void)dismissViewControllerWithData:(NSDictionary *)data;
 - (void)showProgress;
 - (void)hideProgress;
+- (void)doClickDetailBar:(UIButton *)sender;
 
 // 登录
 -(void)popLoginWithFinishHandler:(LoginFinishBlock)loginFinish;

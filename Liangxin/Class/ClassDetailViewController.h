@@ -11,6 +11,4 @@
 
 @interface ClassDetailViewController : LXBaseViewController
 
-@property (nonatomic, copy) NSString *postId;
-
 @end
