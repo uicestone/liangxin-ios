@@ -128,12 +128,6 @@
         make.bottom.mas_equalTo(-44);
     }];
     
-    self.footerView = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.footerView.frame = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 30);
-    [self.footerView setImage:[UIImage imageNamed:@"Table_Arrow"] forState:UIControlStateNormal];
-    [self.footerView addTarget:self action:@selector(requestMoreData:) forControlEvents:UIControlEventTouchUpInside];
-    self.tableView.tableFooterView = self.footerView;
-    
     self.viewModel = [LXClassViewModel new];
     
     @weakify(self)
@@ -157,9 +151,18 @@
         @strongify(self)
         [self.viewModel.classData addObjectsFromArray:x];
         [self.tableView reloadData];
+        [self initFooterView];
     } error:^(NSError *error) {
         
     }];
+}
+
+- (void)initFooterView {
+    self.footerView = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.footerView.frame = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 30);
+    [self.footerView setImage:[UIImage imageNamed:@"Table_Arrow"] forState:UIControlStateNormal];
+    [self.footerView addTarget:self action:@selector(requestMoreData:) forControlEvents:UIControlEventTouchUpInside];
+    self.tableView.tableFooterView = self.footerView;
 }
 
 - (void)requestMoreData:(id)sender {
