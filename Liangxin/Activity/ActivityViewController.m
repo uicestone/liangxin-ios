@@ -24,6 +24,11 @@
 @property (nonatomic, strong) ActivityViewModel *viewModel;
 @property (nonatomic, strong) LXSearchBar *searchBar;
 
+@property (nonatomic, strong) UIButton *footerView;
+@property (nonatomic, assign) NSInteger pageNumber;
+@property (nonatomic, assign) BOOL isLoading;
+@property (nonatomic, strong) LXNetworkPostParameters *parameters;
+
 @end
 
 @implementation ActivityViewController
@@ -37,6 +42,8 @@
     self.title = @"精彩活动";
     self.viewModel = [ActivityViewModel new];
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    self.pageNumber = 1;
     
     UIImage *searchImage = [UIImage imageNamed:@"search"];
     searchImage = [searchImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
@@ -152,7 +159,7 @@
         make.top.mas_equalTo(self.titleView.mas_bottom);
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
-        make.bottom.mas_equalTo(0);
+        make.bottom.mas_equalTo(-44);
     }];
 
     @weakify(self)
@@ -169,16 +176,50 @@
         
     }];
     
-    LXNetworkPostParameters *parameters = [LXNetworkPostParameters new];
-    parameters.page = @(1);
-    parameters.type = @"活动";
-    [[[LXNetworkManager sharedManager] getPostByParameters:parameters] subscribeNext:^(NSArray *x) {
+    self.parameters = [LXNetworkPostParameters new];
+    self.parameters.page = @(self.pageNumber);
+    self.parameters.type = @"活动";
+    [[[LXNetworkManager sharedManager] getPostByParameters:self.parameters] subscribeNext:^(NSArray *x) {
         @strongify(self)
         [self.viewModel.activityData addObjectsFromArray:x];
         [self.tableView reloadData];
+        [self initFooterView];
     } error:^(NSError *error) {
         
     }];
+}
+
+- (void)initFooterView {
+    self.footerView = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.footerView.frame = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 30);
+    [self.footerView setImage:[UIImage imageNamed:@"Table_Arrow"] forState:UIControlStateNormal];
+    [self.footerView addTarget:self action:@selector(requestMoreData:) forControlEvents:UIControlEventTouchUpInside];
+    self.tableView.tableFooterView = self.footerView;
+}
+
+- (void)requestMoreData:(id)sender {
+    if (!self.isLoading) {
+        NSInteger nextPageNumber = self.pageNumber + 1;
+        self.parameters.page = @(nextPageNumber);
+        self.isLoading = YES;
+        @weakify(self)
+        [[[LXNetworkManager sharedManager] getPostByParameters:self.parameters] subscribeNext:^(NSArray *x) {
+            @strongify(self)
+            if (x.count == 0) {
+                self.tableView.tableFooterView = nil;
+            }
+            else {
+                self.pageNumber++;
+                [self.viewModel.activityData addObjectsFromArray:x];
+                [self.tableView reloadData];
+            }
+        } error:^(NSError *error) {
+            
+        } completed:^{
+            @strongify(self)
+            self.isLoading = NO;
+        }];
+    }
 }
 
 - (void)doSearch:(id)sender {
