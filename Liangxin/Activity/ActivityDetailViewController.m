@@ -21,6 +21,7 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIToolbar *bottomBar;
 @property (nonatomic, strong) LXBaseModelPost *postData;
+@property (nonatomic, assign) BOOL isModel;
 
 @end
 
@@ -89,15 +90,18 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    if (!self.isModel) {
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    self.navigationController.navigationBarHidden = NO;
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    self.navigationController.toolbar.hidden = NO;
+    if (!self.isModel) {
+        self.navigationController.navigationBarHidden = NO;
+        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    }
 }
 
 - (void)doClickBottomBar:(UIButton *)sender {
@@ -112,19 +116,60 @@
         }
             break;
         case 2: {
-            
+            if ([UserApi getCurrentUser]) {
+                @weakify(self)
+                [[[LXNetworkManager sharedManager] favoritePostById:self.postId] subscribeNext:^(id x) {
+                    @strongify(self)
+                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                    hud.animationType = MBProgressHUDAnimationFade;
+                    hud.mode = MBProgressHUDModeText;
+                    hud.labelText = @"收藏成功";
+                    [hud hide:YES afterDelay:1];
+                } error:^(NSError *error) {
+                    @strongify(self)
+                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                    hud.animationType = MBProgressHUDAnimationFade;
+                    hud.mode = MBProgressHUDModeText;
+                    hud.labelText = @"收藏失败";
+                    [hud hide:YES afterDelay:1];
+                }];
+            }
+            else {
+                self.isModel = YES;
+                @weakify(self)
+                [self popLoginWithFinishHandler:^{
+                    @strongify(self)
+                    self.isModel = NO;
+                }];
+            }
         }
             break;
         case 3: {
             if ([UserApi getCurrentUser]) {
+                @weakify(self)
                 [[[LXNetworkManager sharedManager] likePostById:self.postId] subscribeNext:^(id x) {
-                    
+                    @strongify(self)
+                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                    hud.animationType = MBProgressHUDAnimationFade;
+                    hud.mode = MBProgressHUDModeText;
+                    hud.labelText = @"点赞成功";
+                    [hud hide:YES afterDelay:1];
                 } error:^(NSError *error) {
-                    
+                    @strongify(self)
+                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                    hud.animationType = MBProgressHUDAnimationFade;
+                    hud.mode = MBProgressHUDModeText;
+                    hud.labelText = @"点赞失败";
+                    [hud hide:YES afterDelay:1];
                 }];
             }
             else {
-                
+                self.isModel = YES;
+                @weakify(self)
+                [self popLoginWithFinishHandler:^{
+                    @strongify(self)
+                    self.isModel = NO;
+                }];
             }
         }
             break;
@@ -241,6 +286,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 3) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://activity/attends/?id=%@", self.postId]]];
+    }
 }
 
 @end

@@ -96,7 +96,7 @@
 
 - (RACSignal *)likePostById:(NSString *)postId {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        NSURLSessionDataTask *task = [self.sessionManager POST:[NSString stringWithFormat:@"/api/v1/post/%@", postId] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSURLSessionDataTask *task = [self.sessionManager POST:[NSString stringWithFormat:@"/api/v1/like/%@", postId] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
             [subscriber sendNext:responseObject];
             [subscriber sendCompleted];
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -110,7 +110,7 @@
 
 - (RACSignal *)deleteLikePostByid:(NSString *)postId {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        NSURLSessionDataTask *task = [self.sessionManager DELETE:[NSString stringWithFormat:@"/api/v1/post/%@", postId] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSURLSessionDataTask *task = [self.sessionManager DELETE:[NSString stringWithFormat:@"/api/v1/like/%@", postId] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
             [subscriber sendNext:responseObject];
             [subscriber sendCompleted];
         } failure:^(NSURLSessionDataTask *task, NSError *error) {

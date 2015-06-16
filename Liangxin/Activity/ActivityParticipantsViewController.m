@@ -7,10 +7,13 @@
 //
 
 #import "ActivityParticipantsViewController.h"
+#import "ActivityParticipantCell.h"
 
 @interface ActivityParticipantsViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, strong) NSMutableArray *attends;
 
 @end
 
@@ -46,11 +49,15 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    ActivityParticipantCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityParticipantCell"];
+    if (!cell) {
+        cell = [[ActivityParticipantCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ActivityParticipantCell"];
+    }
+    return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return self.attends.count;
 }
 
 @end
