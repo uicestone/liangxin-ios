@@ -95,8 +95,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger row = [indexPath row];
-    Post* post = [posts objectAtIndex:row];
-    NSString* path = [NSString stringWithFormat:@"/article/%d", post.postId];
+    LXBaseModelPost* post = [posts objectAtIndex:row];
+    NSString* path = [NSString stringWithFormat:@"/article/%@", post.id];
     [self navigateToPath:path];
 }
 

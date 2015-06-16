@@ -24,6 +24,7 @@
 @property (nonatomic, strong) NSArray *videos;
 @property (nonatomic, strong) NSArray *attachments;
 @property (nonatomic, copy) NSString *attend_status;
+@property (nonatomic, assign) BOOL attended;
 @property (nonatomic, copy) NSString *event_date;
 @property (nonatomic, copy) NSString *event_address;
 @property (nonatomic, copy) NSString *event_type;

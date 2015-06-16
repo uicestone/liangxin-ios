@@ -10,4 +10,11 @@
 
 @implementation LXBaseModelPost
 
+- (void)setNilValueForKey:(NSString *)key {
+    if([key isEqualToString:@"attended"]){
+        self.attended = NO;
+    }else{
+        return [super setNilValueForKey:key];
+    }
+}
 @end

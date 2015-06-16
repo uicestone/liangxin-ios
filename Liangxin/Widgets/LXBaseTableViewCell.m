@@ -169,6 +169,8 @@
         self.reviewCountLabel.text = @"0";
     }
     
+    [self.mainImageView setImageWithURL:data.poster[@"url"]];
+    
     switch (self.style) {
         case LXTableViewCellStyleClass: {
             self.attendButton.hidden = YES;
