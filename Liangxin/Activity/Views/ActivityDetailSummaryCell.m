@@ -48,7 +48,7 @@
         [_middleLine mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(0);
             make.right.mas_equalTo(0);
-            make.centerY.equalTo(self.contentView.mas_centerY).offset(10);
+            make.centerY.equalTo(self.contentView.mas_centerY).offset(5);
             make.height.mas_equalTo(1);
         }];
         _bottomLine = [UIView new];
@@ -61,6 +61,9 @@
             make.height.mas_equalTo(1);
         }];
         UILabel *dateTitleLabel = [UILabel new];
+        dateTitleLabel.text = @"活动时间";
+        dateTitleLabel.font = [UIFont systemFontOfSize:12];
+        dateTitleLabel.textColor = [UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0];
         [self.contentView addSubview:dateTitleLabel];
         [dateTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(20);
@@ -69,6 +72,8 @@
             make.bottom.equalTo(self.middleLine.mas_top);
         }];
         _dateLabel = [UILabel new];
+        _dateLabel.font = [UIFont systemFontOfSize:12.0];
+        _dateLabel.textColor = [UIColor lightGrayColor];
         [self.contentView addSubview:_dateLabel];
         [_dateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(75);
@@ -77,6 +82,9 @@
             make.bottom.equalTo(self.middleLine.mas_top);
         }];
         UILabel *locationTitleLabel = [UILabel new];
+        locationTitleLabel.text = @"活动地点";
+        locationTitleLabel.font = [UIFont systemFontOfSize:12];
+        locationTitleLabel.textColor = [UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0];
         [self.contentView addSubview:locationTitleLabel];
         [locationTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(20);
@@ -85,6 +93,8 @@
             make.bottom.equalTo(self.bottomLine.mas_top);
         }];
         _locationLabel = [UILabel new];
+        _locationLabel.font = [UIFont systemFontOfSize:12.0];
+        _locationLabel.textColor = [UIColor lightGrayColor];
         [self.contentView addSubview:_locationLabel];
         [_locationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(75);
@@ -101,7 +111,14 @@
 }
 
 - (void)reloadViewWithData:(LXBaseModelPost *)data {
-    
+    if (data) {
+        self.locationLabel.text = data.event_address?:@"";
+        NSString *createdDate;
+        if (data.created_at.length >= 10) {
+            createdDate = [data.created_at substringToIndex:10];
+        }
+        self.dateLabel.text = [NSString stringWithFormat:@"%@-%@", createdDate?:@"", data.due_date?:@""];
+    }
 }
 
 @end
