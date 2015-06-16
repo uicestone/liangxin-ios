@@ -67,6 +67,7 @@
     self.searchBar = [[LXSearchBar alloc] initWithFrame:CGRectZero];
     self.searchBar.placeholder = @"请输入要查找的活动";
     self.searchBar.searchTintColor = [UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0];
+    [self.searchBar.searchButton addTarget:self action:@selector(doKeywordSearch:) forControlEvents:UIControlEventTouchUpInside];
     [searchView addSubview:self.searchBar];
     [self.searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(5);
@@ -222,6 +223,12 @@
             @strongify(self)
             self.isLoading = NO;
         }];
+    }
+}
+
+- (void)doKeywordSearch:(id)sender {
+    if (self.searchBar.searchField.text.length > 0) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://activity/list/?keyword=%@", [self.searchBar.searchField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
     }
 }
 

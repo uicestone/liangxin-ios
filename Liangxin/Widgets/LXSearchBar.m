@@ -11,7 +11,6 @@
 @interface LXSearchBar()
 
 @property (nonatomic, strong) UIImageView *searchIcon;
-@property (nonatomic, strong) UIButton *searchButton;
 
 @end
 

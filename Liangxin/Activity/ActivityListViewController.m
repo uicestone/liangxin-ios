@@ -21,6 +21,7 @@
 @property (nonatomic, strong) UIButton *footerView;
 @property (nonatomic, assign) NSInteger pageNumber;
 @property (nonatomic, assign) BOOL isLoading;
+@property (nonatomic, copy) NSString *keyword;
 
 @end
 
@@ -60,6 +61,9 @@
     }
     if ([self.params objectForKey:@"order_by"]) {
         self.parameters.class_type = [[self.params objectForKey:@"order_by"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    }
+    if ([self.params objectForKey:@"keyword"]) {
+        self.parameters.keyword = [[self.params objectForKey:@"keyword"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     }
     @weakify(self)
     [[[LXNetworkManager sharedManager] getPostByParameters:self.parameters] subscribeNext:^(NSArray *posts) {
@@ -120,7 +124,9 @@
 
 - (void)filterView:(LXFilterView *)filterView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     self.pageNumber = 1;
+    self.keyword = @"";
     self.parameters.page = @(self.pageNumber);
+    self.parameters.keyword = @"";
     if (indexPath.section == 1) {
         self.parameters.order_by = @"";
         self.parameters.event_type = [filterView.category1 objectAtIndex:indexPath.row - 1];
