@@ -139,6 +139,15 @@
 }
 
 - (void)reloadViewWithData:(LXBaseModelPost *)data {
+    
+    if (data.url.length > 0) {
+        [self.mainImageView sd_setImageWithURL:[NSURL URLWithString:data.url]];
+        _mainImageView.layer.borderWidth = 0;
+    }
+    else {
+        _mainImageView.layer.borderWidth = 1.0;
+    }
+    
     if (data.title.length > 0) {
         self.titleLabel.text = data.title;
     }
