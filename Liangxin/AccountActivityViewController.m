@@ -55,6 +55,7 @@
     }];
     tableview.delegate = self;
     tableview.dataSource = self;
+    [self tabview:tabview tappedAtIndex:0];
     
     // Do any additional setup after loading the view.
 }
@@ -63,10 +64,21 @@
     [self.viewModel.activityData removeAllObjects];
     [self showProgress];
     
-    [PostApi getPostsByQuery:@{
-                               @"author_id": self.currentUser.id,
-                               @"type": @"活动"
-                               } successHandler:^(NSArray *posts) {
+    NSDictionary* query;
+    
+    if(index == 0){
+        query = @{
+                  @"attended_user_id": self.currentUser.id
+                  };
+    }else{
+        query = @{
+                  @"author_id": self.currentUser.id,
+                  @"type": @"活动"
+                  };
+    }
+    
+    
+    [PostApi getPostsByQuery:query successHandler:^(NSArray *posts) {
                                    [self hideProgress];
                                    [self.viewModel.activityData addObjectsFromArray:posts];
                                    [self.tableview reloadData];

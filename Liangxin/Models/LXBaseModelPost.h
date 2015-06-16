@@ -24,7 +24,6 @@
 @property (nonatomic, strong) NSArray *videos;
 @property (nonatomic, strong) NSArray *attachments;
 @property (nonatomic, copy) NSString *attend_status;
-@property (nonatomic, assign) BOOL attended;
 @property (nonatomic, copy) NSString *event_date;
 @property (nonatomic, copy) NSString *event_address;
 @property (nonatomic, copy) NSString *event_type;
@@ -47,5 +46,5 @@
 @property (nonatomic, strong) NSArray *favored_users;
 @property (nonatomic, copy) NSString *liked_users;
 @property (nonatomic, copy) NSString *parent;
-
+@property (nonatomic, assign) BOOL attended;
 @end
