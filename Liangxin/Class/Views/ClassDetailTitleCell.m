@@ -81,16 +81,8 @@
             make.right.mas_equalTo(-15);
             make.height.mas_equalTo(titleSize.height);
         }];
-        if (data.author_id.length > 0) {
-            @weakify(self)
-            [[[LXNetworkManager sharedManager] getUserById:data.author_id] subscribeNext:^(LXBaseModelUser *user) {
-                @strongify(self)
-                self.authorLabel.text = [NSString stringWithFormat:@"发起人：%@", user.name?:@""];
-            } error:^(NSError *error) {
-                
-            }];
-        }
         self.groupLabel.text = [NSString stringWithFormat:@"所属支部：%@", [data.group objectForKey:@"name"]?:@""];
+        self.authorLabel.text = [NSString stringWithFormat:@"发起人：%@", [data.author objectForKey:@"name"]?:@""];
     }
 }
 
