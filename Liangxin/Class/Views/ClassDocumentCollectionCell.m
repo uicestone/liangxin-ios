@@ -23,7 +23,7 @@
         _documentView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Article_BG"]];
         [self.contentView addSubview:_documentView];
         _documentView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-        _documentView.layer.borderWidth = 1.0;
+        _documentView.layer.borderWidth = 1/[UIScreen mainScreen].scale;
         [_documentView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(0);
             make.right.mas_equalTo(0);

@@ -26,7 +26,7 @@
     self.title = @"课堂文件";
     self.view.backgroundColor = [UIColor whiteColor];
     self.flowLayout.itemSize = CGSizeMake((CGRectGetWidth([UIScreen mainScreen].bounds) - 70)/3, 75);
-    self.flowLayout.minimumInteritemSpacing = 20;
+    self.flowLayout.minimumInteritemSpacing = 19;
     self.flowLayout.minimumLineSpacing = 20;
     self.flowLayout.sectionInset = UIEdgeInsetsMake(20, 15, 20, 15);
     [self.collectionView registerClass:[ClassDocumentCollectionCell class] forCellWithReuseIdentifier:@"ClassDocumentCollectionCell"];
