@@ -22,7 +22,7 @@
     if (self) {
         _videoView = [UIView new];
         _videoView.backgroundColor = [UIColor colorWithRed:169/255.0 green:171.0/255.0 blue:174.0/255.0 alpha:1.0];
-        [self addSubview:_videoView];
+        [self.contentView addSubview:_videoView];
         [_videoView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(0);
             make.right.mas_equalTo(0);
