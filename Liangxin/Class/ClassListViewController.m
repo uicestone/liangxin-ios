@@ -17,6 +17,10 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) LXClassListViewModel *viewModel;
 @property (nonatomic, strong) LXFilterView *filterView;
+@property (nonatomic, strong) LXNetworkPostParameters *parameters;
+@property (nonatomic, strong) UIButton *footerView;
+@property (nonatomic, assign) NSInteger pageNumber;
+@property (nonatomic, assign) BOOL isLoading;
 
 @end
 
@@ -30,6 +34,7 @@
 - (void)commonInit {
     self.title = @"课堂列表";
     self.tabBarController.tabBar.hidden = YES;
+    self.pageNumber = 1;
     self.viewModel = [LXClassListViewModel new];
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView.dataSource = self;
@@ -40,7 +45,7 @@
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.top.mas_equalTo(22);
-        make.bottom.mas_equalTo(0);
+        make.bottom.mas_equalTo(-44);
     }];
     self.filterView = [[LXFilterView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 30)];
     self.filterView.tintColor = UIColorFromRGB(0xf99d33);
@@ -48,42 +53,79 @@
     self.filterView.category2 = @[@"类别", @"最受欢迎课堂", @"最新课堂", @"全部课堂"];
     self.filterView.delegate = self;
     [self.view addSubview:self.filterView];
-    LXNetworkPostParameters *parameters = [LXNetworkPostParameters new];
-    parameters.type = @"课堂";
+    self.parameters = [LXNetworkPostParameters new];
+    self.parameters.type = @"课堂";
+    self.parameters.page = @(self.pageNumber);
     if ([self.params objectForKey:@"class_type"]) {
-        parameters.class_type = [[self.params objectForKey:@"class_type"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        self.parameters.class_type = [[self.params objectForKey:@"class_type"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     }
     if ([self.params objectForKey:@"order_by"]) {
-        parameters.class_type = [[self.params objectForKey:@"order_by"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        self.parameters.class_type = [[self.params objectForKey:@"order_by"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     }
     @weakify(self)
-    [[[LXNetworkManager sharedManager] getPostByParameters:parameters] subscribeNext:^(NSArray *posts) {
+    [[[LXNetworkManager sharedManager] getPostByParameters:self.parameters] subscribeNext:^(NSArray *posts) {
         @strongify(self)
         [self.viewModel.listData addObjectsFromArray:posts];
         [self.tableView reloadData];
+        [self initFooterView];
     } error:^(NSError *error) {
         
     }];
 }
 
+- (void)initFooterView {
+    self.footerView = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.footerView.frame = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 30);
+    [self.footerView setImage:[UIImage imageNamed:@"Table_Arrow"] forState:UIControlStateNormal];
+    [self.footerView addTarget:self action:@selector(requestMoreData:) forControlEvents:UIControlEventTouchUpInside];
+    self.tableView.tableFooterView = self.footerView;
+}
+
+- (void)requestMoreData:(id)sender {
+    if (!self.isLoading) {
+        NSInteger nextPageNumber = self.pageNumber + 1;
+        self.parameters.page = @(nextPageNumber);
+        self.isLoading = YES;
+        @weakify(self)
+        [[[LXNetworkManager sharedManager] getPostByParameters:self.parameters] subscribeNext:^(NSArray *x) {
+            @strongify(self)
+            if (x.count != 0) {
+                self.tableView.tableFooterView = nil;
+            }
+            else {
+                self.pageNumber++;
+                [self.viewModel.listData addObjectsFromArray:x];
+                [self.tableView reloadData];
+            }
+        } error:^(NSError *error) {
+            
+        } completed:^{
+            @strongify(self)
+            self.isLoading = NO;
+        }];
+    }
+}
+
 #pragma mark - LXFilterViewDelegate
 
 - (void)filterView:(LXFilterView *)filterView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    LXNetworkPostParameters *parameters = [LXNetworkPostParameters new];
-    parameters.type = @"课堂";
+    self.pageNumber = 1;
+    self.parameters.page = @(self.pageNumber);
     if (indexPath.section == 1) {
-        parameters.class_type = [filterView.category1 objectAtIndex:indexPath.row - 1];
+        self.parameters.order_by = @"";
+        self.parameters.class_type = [filterView.category1 objectAtIndex:indexPath.row - 1];
     }
     else if (indexPath.section == 2) {
+        self.parameters.class_type = @"";
         switch (indexPath.row) {
             case 0:
                 break;
             case 1: {
-                parameters.order_by = @"likes";
+                self.parameters.order_by = @"likes";
             }
                 break;
             case 2: {
-                parameters.order_by = @"updated_at";
+                self.parameters.order_by = @"updated_at";
             }
                 break;
             case 3: {
@@ -95,10 +137,17 @@
         }
     }
     @weakify(self)
-    [[[LXNetworkManager sharedManager] getPostByParameters:parameters] subscribeNext:^(NSArray *posts) {
+    [[[LXNetworkManager sharedManager] getPostByParameters:self.parameters] subscribeNext:^(NSArray *posts) {
         @strongify(self)
+        [self.viewModel.listData removeAllObjects];
         [self.viewModel.listData addObjectsFromArray:posts];
         [self.tableView reloadData];
+        if (posts.count == 10) {
+            [self initFooterView];
+        }
+        else {
+            self.tableView.tableFooterView = nil;
+        }
     } error:^(NSError *error) {
         
     }];

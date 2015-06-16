@@ -104,6 +104,17 @@ typedef NS_ENUM(NSInteger, LXFilterViewType){
     }
 }
 
+- (void)hideFilterView {
+    CGFloat height = CGRectGetHeight(self.tableView.bounds);
+    [UIView animateWithDuration:0.3 animations:^{
+        self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds) - height, CGRectGetWidth(self.bounds), height);
+    } completion:^(BOOL finished) {
+        self.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.filterView.bounds));
+        _currentType = LXFilterViewTypeDefault;
+        [self.tableView reloadData];
+    }];
+}
+
 - (void)setCurrentType:(LXFilterViewType)currentType {
     if (currentType == LXFilterViewTypeDefault) {
         CGFloat height = CGRectGetHeight(self.tableView.bounds);
@@ -117,7 +128,7 @@ typedef NS_ENUM(NSInteger, LXFilterViewType){
     }
     else {
         if (currentType == LXFilterViewType1 && _currentType == LXFilterViewTypeDefault) {
-            CGFloat height = self.category1.count >= 6?108:self.category1.count * 18;
+            CGFloat height = self.category1.count >= 6?132:self.category1.count * 22;
             self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds) - height, CGRectGetWidth(self.bounds), height);
             [UIView animateWithDuration:0.5 animations:^{
                 self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds), CGRectGetWidth(self.bounds), height);
@@ -126,7 +137,7 @@ typedef NS_ENUM(NSInteger, LXFilterViewType){
             }];
         }
         else if (currentType == LXFilterViewType2 && _currentType == LXFilterViewTypeDefault) {
-            CGFloat height = self.category2.count >= 6?108:self.category2.count * 18;
+            CGFloat height = self.category2.count >= 6?132:self.category2.count * 22;
             self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds) - height, CGRectGetWidth(self.bounds), height);
             [UIView animateWithDuration:0.5 animations:^{
                 self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds), CGRectGetWidth(self.bounds), height);
@@ -135,12 +146,12 @@ typedef NS_ENUM(NSInteger, LXFilterViewType){
             }];
         }
         else if (currentType == LXFilterViewType1 && _currentType == LXFilterViewType2){
-            CGFloat height = self.category1.count >= 6?108:self.category1.count * 18;
+            CGFloat height = self.category1.count >= 6?132:self.category1.count * 22;
             self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds), CGRectGetWidth(self.bounds), height);
             self.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.filterView.bounds) + CGRectGetHeight(self.tableView.bounds));
         }
         else if (currentType == LXFilterViewType2 && _currentType == LXFilterViewType1) {
-            CGFloat height = self.category2.count >= 6?108:self.category2.count * 18;
+            CGFloat height = self.category2.count >= 6?132:self.category2.count * 22;
             self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.filterView.bounds), CGRectGetWidth(self.bounds), height);
             self.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.filterView.bounds) + CGRectGetHeight(self.tableView.bounds));
         }
@@ -207,9 +218,12 @@ typedef NS_ENUM(NSInteger, LXFilterViewType){
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (self.delegate && [self.delegate respondsToSelector:@selector(filterView:didSelectItemAtIndexPath:)]) {
-        [self.delegate filterView:self didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row inSection:self.currentType]];
+    if (indexPath.row != 0) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(filterView:didSelectItemAtIndexPath:)]) {
+            [self.delegate filterView:self didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row inSection:self.currentType]];
+        }
     }
+    [self hideFilterView];
 }
 
 @end
