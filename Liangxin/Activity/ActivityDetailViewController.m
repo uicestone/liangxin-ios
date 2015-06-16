@@ -55,6 +55,10 @@
     }];
 }
 
+- (LXBaseToolbarType)toolbarType {
+    return LXBaseToolbarTypeDetail;
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if (!self.isModel) {

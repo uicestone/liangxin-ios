@@ -13,7 +13,7 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 
-@property (nonatomic, strong) NSMutableArray *attends;
+@property (nonatomic, strong) NSMutableArray *attendees;
 
 @end
 
@@ -29,12 +29,21 @@
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.rowHeight = 70;
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.top.mas_equalTo(0);
         make.bottom.mas_equalTo(0);
+    }];
+    @weakify(self)
+    [[[LXNetworkManager sharedManager] getPostDetailById:[self.params objectForKey:@"id"]] subscribeNext:^(LXBaseModelPost *x) {
+        @strongify(self)
+        self.attendees = [NSMutableArray arrayWithArray:x.attendees];
+        [self.tableView reloadData];
+    } error:^(NSError *error) {
+        
     }];
 }
 
@@ -53,11 +62,13 @@
     if (!cell) {
         cell = [[ActivityParticipantCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ActivityParticipantCell"];
     }
+    NSDictionary *data = [self.attendees objectAtIndex:indexPath.row];
+    [cell reloadViewWithData:data];
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.attends.count;
+    return self.attendees.count;
 }
 
 @end
