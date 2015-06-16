@@ -84,6 +84,10 @@
     }];
 }
 
+- (BOOL)hasToolBar {
+    return NO;
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
@@ -94,7 +98,6 @@
     [super viewWillDisappear:animated];
     self.navigationController.navigationBarHidden = NO;
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    self.navigationController.toolbar.hidden = NO;
 }
 
 - (void)doClickBottomBar:(UIButton *)sender {
