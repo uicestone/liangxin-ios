@@ -29,7 +29,7 @@
             make.left.mas_equalTo(0);
             make.right.mas_equalTo(0);
             make.top.mas_equalTo(0);
-            make.height.mas_equalTo(10);
+            make.height.mas_equalTo(5);
         }];
         _topLine = [UIView new];
         _topLine.backgroundColor = UIColorFromRGB(0xe6e7e8);
