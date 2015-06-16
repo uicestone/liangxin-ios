@@ -22,6 +22,7 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIToolbar *bottomBar;
 @property (nonatomic, strong) LXClassDetailViewModel *viewModel;
+@property (nonatomic, assign) BOOL isModel;
 
 @end
 
@@ -90,14 +91,18 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    if (!self.isModel) {
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    self.navigationController.navigationBarHidden = NO;
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    if (!self.isModel) {
+        self.navigationController.navigationBarHidden = NO;
+        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    }
 }
 
 - (void)doClickBottomBar:(UIButton *)sender {
@@ -112,7 +117,21 @@
         }
             break;
         case 2: {
-            
+            if ([UserApi getCurrentUser]) {
+                [[[LXNetworkManager sharedManager] favoritePostById:self.postId] subscribeNext:^(id x) {
+                    
+                } error:^(NSError *error) {
+                    
+                }];
+            }
+            else {
+                self.isModel = YES;
+                @weakify(self)
+                [self popLoginWithFinishHandler:^{
+                    @strongify(self)
+                    self.isModel = NO;
+                }];
+            }
         }
             break;
         case 3: {
@@ -124,7 +143,12 @@
                 }];
             }
             else {
-                
+                self.isModel = YES;
+                @weakify(self)
+                [self popLoginWithFinishHandler:^{
+                    @strongify(self)
+                    self.isModel = NO;
+                }];
             }
         }
             break;

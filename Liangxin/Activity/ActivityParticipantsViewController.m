@@ -35,6 +35,10 @@
     }];
 }
 
+- (BOOL)hasToolBar {
+    return NO;
+}
+
 #pragma mark - UITableViewDataSource && UITableViewDelegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

@@ -89,12 +89,6 @@
 - (void)reloadViewWithData:(LXBaseModelPost *)data {
     if (data) {
         self.titleLabel.text = data.title;
-        if (data.attend_status.length > 0) {
-            [self.applyStatusButton setTitle:data.attend_status forState:UIControlStateNormal];
-        }
-        else {
-            self.applyStatusButton.hidden = YES;
-        }
         CGSize titleSize = [data.title boundingRectWithSize:self.titleLabel.bounds.size options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:self.titleLabel.font} context:nil].size;
         [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(_mainImageView.mas_right).offset(15);

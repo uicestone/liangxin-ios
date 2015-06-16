@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "LXBaseModelUser.h"
 
+typedef void(^ LoginFinishBlock)();
+
 @protocol LXViewControllerDelegate
 -(void)handleDismissData:(NSDictionary*)data;
 @end
@@ -30,4 +32,8 @@
 - (void)dismissViewControllerWithData:(NSDictionary *)data;
 - (void)showProgress;
 - (void)hideProgress;
+
+// 登录
+-(void)popLoginWithFinishHandler:(LoginFinishBlock)loginFinish;
+
 @end

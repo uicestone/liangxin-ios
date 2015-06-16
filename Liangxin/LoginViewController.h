@@ -9,12 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "LXBaseViewController.h"
 
-typedef void(^ LoginFinishBlock)();
-
 @interface LoginViewController : LXBaseViewController <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (weak, nonatomic) IBOutlet UIButton *forget;
 @property (weak, nonatomic) IBOutlet UIButton *submit;
-@property (strong, nonatomic) LoginFinishBlock finishBlock;
+@property (copy, nonatomic) LoginFinishBlock finishBlock;
 @property (strong, nonatomic) LXBaseViewController* nextViewController;
 @end
