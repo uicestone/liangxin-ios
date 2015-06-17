@@ -49,6 +49,10 @@
     [[[LXNetworkManager sharedManager] getPostDetailById:self.postId] subscribeNext:^(id x) {
         @strongify(self)
         self.postData = x;
+        self.shareObject.shareTitle = self.postData.title;
+        self.shareObject.shareThumbImage = [UIImage imageNamed:@"ShareIcon"];
+        self.shareObject.shareDescription = self.postData.excerpt;
+        self.shareObject.shareURL = [NSString stringWithFormat:@"http://dangqun.malu.gov.cn/post/%@", self.postData.id];
         [self.tableView reloadData];
     } error:^(NSError *error) {
         
