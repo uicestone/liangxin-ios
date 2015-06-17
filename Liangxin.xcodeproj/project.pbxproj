@@ -1369,7 +1369,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jiayi Xu (9B5M2V5PYT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jiayi Xu (LJWWUZH366)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1387,7 +1387,7 @@
 					"$(PROJECT_DIR)/Liangxin/Vender/Weibo",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "2135ed6f-fda9-4df2-bf18-ed657aa4f9aa";
 			};
 			name = "ad hoc distribution";
 		};
@@ -1477,7 +1477,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jiayi Xu (9B5M2V5PYT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1495,7 +1495,7 @@
 					"$(PROJECT_DIR)/Liangxin/Vender/Weibo",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "2135ed6f-fda9-4df2-bf18-ed657aa4f9aa";
 			};
 			name = Debug;
 		};
@@ -1505,7 +1505,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jiayi Xu (9B5M2V5PYT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1523,7 +1523,7 @@
 					"$(PROJECT_DIR)/Liangxin/Vender/Weibo",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "2135ed6f-fda9-4df2-bf18-ed657aa4f9aa";
 			};
 			name = Release;
 		};
