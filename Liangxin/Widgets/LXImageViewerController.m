@@ -27,7 +27,7 @@
 - (void)commonInit {
     self.view.backgroundColor = [UIColor blackColor];
     _flowLayout = [UICollectionViewFlowLayout new];
-    _flowLayout.itemSize = [UIScreen mainScreen].bounds.size;
+    _flowLayout.itemSize = CGSizeMake(CGRectGetWidth([UIScreen mainScreen].bounds), CGRectGetHeight([UIScreen mainScreen].bounds) - 64);
     _flowLayout.minimumInteritemSpacing = 0;
     _flowLayout.minimumLineSpacing = 0;
     _flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
