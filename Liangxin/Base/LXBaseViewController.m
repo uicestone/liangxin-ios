@@ -58,7 +58,7 @@
         }
     }
     
-    
+    self.shareObject = [LXShareObject new];
     
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
