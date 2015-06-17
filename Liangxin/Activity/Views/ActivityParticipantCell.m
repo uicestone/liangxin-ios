@@ -17,6 +17,8 @@
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) UILabel *groupLabel;
 
+@property (nonatomic, strong) NSDictionary *attendee;
+
 @end
 
 @implementation ActivityParticipantCell
@@ -95,24 +97,33 @@
             make.width.mas_equalTo(35);
             make.height.mas_equalTo(17);
         }];
+        [self.agreeButton addTarget:self action:@selector(doAgree:) forControlEvents:UIControlEventTouchUpInside];
+        [self.disagreeButton addTarget:self action:@selector(disagreeButton) forControlEvents:UIControlEventTouchUpInside];
     }
     return self;
 }
 
 - (void)reloadViewWithData:(NSDictionary *)data {
+    
+    self.attendee = data;
+    
     if ([data objectForKey:@"avatar"] && ![[data objectForKey:@"avatar"] isEqual:[NSNull null]]) {
         [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:[data objectForKey:@"avatar"]]];
     }
     
-    if ([[[data objectForKey:@"pivot"] objectForKey:@"status"] isEqualToString:@"pending"]) {
+    if ([[data objectForKey:@"attend_status"] isEqualToString:@"pending"]) {
         self.userStateLabel.text = @"待审核";
         self.userStateLabel.textColor = [UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0];
         self.userStateLabel.backgroundColor = [UIColor whiteColor];
+        self.agreeButton.hidden = NO;
+        self.disagreeButton.hidden = NO;
     }
     else {
         self.userStateLabel.text = @"已通过";
         self.userStateLabel.backgroundColor = [UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0];
         self.userStateLabel.textColor = [UIColor whiteColor];
+        self.agreeButton.hidden = YES;
+        self.disagreeButton.hidden = YES;
     }
     
     if ([data objectForKey:@"name"] && ![[data objectForKey:@"name"] isEqual:[NSNull null]]) {
@@ -123,6 +134,14 @@
     if (![groupName isEqual:[NSNull null]]) {
         self.groupLabel.text = groupName;
     }
+}
+
+- (void)doAgree:(id)sender {
+    
+}
+
+- (void)doDisagree:(id)sender{
+    
 }
 
 @end
