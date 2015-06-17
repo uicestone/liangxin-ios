@@ -25,6 +25,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         _avatarImageView = [UIImageView new];
+        _avatarImageView.image = [UIImage imageNamed:@"default-avatar"];
         [self.contentView addSubview:_avatarImageView];
         [_avatarImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(6);
