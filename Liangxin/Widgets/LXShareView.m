@@ -129,23 +129,28 @@
 
 - (void)doShare:(UIButton *)sender {
     switch (sender.tag) {
-        case 0:
-            break;
-        case 1: {
+        case 0: {
             
         }
             break;
+        case 1: {
+            self.shareObject.shareType = LXShareTypeWeChatTimeline;
+        }
+            break;
         case 2: {
-            LXShareObject *shareObject = [LXShareObject new];
-            shareObject.shareTitle = @"高大上客户端";
-            shareObject.shareThumbImage = [UIImage imageNamed:@"ShareIcon"];
-            shareObject.shareType = LXShareTypeWeChatSession;
-            shareObject.shareURL = @"http://www.baidu.com";
-            [[LXShareManager sharedManager] shareWithObject:shareObject];
+            self.shareObject.shareType = LXShareTypeWeChatSession;
+        }
+            break;
+        case 3: {
+            self.shareObject.shareType = LXShareTypeSinaWeibo;
         }
             break;
         default:
             break;
+    }
+    
+    if (self.shareObject) {
+        [[LXShareManager sharedManager] shareWithObject:self.shareObject];
     }
 }
 
