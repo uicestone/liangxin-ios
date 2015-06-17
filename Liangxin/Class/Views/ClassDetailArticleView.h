@@ -13,5 +13,6 @@
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) UILabel *createDateLabel;
+@property (nonatomic, strong) UIButton *maskButton;
 
 @end

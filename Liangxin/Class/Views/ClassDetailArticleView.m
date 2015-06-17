@@ -44,6 +44,14 @@
             make.top.equalTo(_titleLabel.mas_bottom);
             make.height.mas_equalTo(20);
         }];
+        _maskButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self addSubview:_maskButton];
+        [_maskButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(0);
+            make.right.mas_equalTo(0);
+            make.top.mas_equalTo(0);
+            make.bottom.mas_equalTo(0);
+        }];
     }
     return self;
 }
