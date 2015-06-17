@@ -158,6 +158,7 @@
             }
             cell.title = @"参赛内容";
             cell.tintColor = [UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0];
+            [cell reloadViewWithData:self.postData];
             return cell;
         }
             break;

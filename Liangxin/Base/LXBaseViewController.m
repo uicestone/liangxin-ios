@@ -159,6 +159,7 @@
             break;
         case 1: {
             LXShareView *shareView = [LXShareView new];
+            shareView.shareObject = self.shareObject;
             [shareView showInView:self.view];
         }
             break;

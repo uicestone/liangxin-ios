@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "LXBaseModelUser.h"
+#import "LXShareObject.h"
 
 typedef NS_ENUM(NSInteger, LXBaseToolbarType){
     LXBaseToolbarTypeNormal,
@@ -30,6 +31,7 @@ typedef void(^ LoginFinishBlock)();
 @property (nonatomic, weak) id<LXViewControllerDelegate> delegate;
 @property (nonatomic, assign) BOOL isModel;
 @property (nonatomic, copy) NSString *postId;
+@property (nonatomic, strong) LXShareObject *shareObject;
 
 - (BOOL)needLogin;
 - (BOOL)hasToolBar;

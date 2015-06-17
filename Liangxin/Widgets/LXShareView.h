@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class LXShareObject;
 @interface LXShareView : UIView
+
+@property (nonatomic, strong) LXShareObject *shareObject;
 
 - (void)showInView:(UIView *)targetView;
 
