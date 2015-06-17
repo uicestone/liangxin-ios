@@ -45,6 +45,7 @@
 #import "ActivityListViewController.h"
 #import "ActivityParticipantsViewController.h"
 #import "CommentViewController.h"
+#import "LXImageViewerController.h"
 
 @implementation LXRouteManager
 
@@ -136,6 +137,8 @@
     [[HHRouter shared] map:@"/video" toControllerClass:[LXBaseVideoViewController class]];
     // PDF
     [[HHRouter shared] map:@"/pdf" toControllerClass:[LXBasePDFViewController class]];
+    // 图片预览
+    [[HHRouter shared] map:@"/imageviewer" toControllerClass:[LXImageViewerController class]];
 }
 
 @end
