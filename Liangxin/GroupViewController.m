@@ -222,7 +222,7 @@
     [tv deselectRowAtIndexPath:indexPath animated:NO];
     
     Group* group = [items objectAtIndex:[indexPath row]];
-    NSArray* newGroupItems = [GroupApi getGroupsWithParentId:group.groupid];
+    NSArray* newGroupItems = [GroupApi getGroupsWithParentId:group.id];
     NSString* urlPath;
     if([newGroupItems count]){
         urlPath = @"group";
@@ -230,7 +230,7 @@
         urlPath = @"group/detail";
     }
     
-    NSString* urlString = [NSString stringWithFormat:@"liangxin://%@/%d", urlPath, group.groupid];
+    NSString* urlString = [NSString stringWithFormat:@"liangxin://%@/%d", urlPath, group.id];
     NSURL* url = [NSURL URLWithString:urlString];
     [[UIApplication sharedApplication] openURL: url];
     
