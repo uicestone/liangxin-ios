@@ -7,6 +7,8 @@
 //
 
 #import "ClassDetailAlbumCell.h"
+#import "LXImageViewerController.h"
+#import "AppDelegate.h"
 
 @interface ClassDetailAlbumCell()
 
@@ -28,6 +30,7 @@
         for (NSInteger i = 0; i < 3; i++) {
             UIButton *albumButton = [UIButton buttonWithType:UIButtonTypeCustom];
             albumButton.backgroundColor = [UIColor colorWithRed:169/255.0 green:171.0/255.0 blue:174.0/255.0 alpha:1.0];
+            [albumButton addTarget:self action:@selector(showImageViewer:) forControlEvents:UIControlEventTouchUpInside];
             albumButton.hidden = YES;
             [self.baseView addSubview:albumButton];
             [_albumButtons addObject:albumButton];
@@ -102,6 +105,12 @@
             }
         }
     }
+}
+
+- (void)showImageViewer:(id)sender {
+    LXImageViewerController *imageViewerController = [LXImageViewerController new];
+    imageViewerController.images = self.albums;
+    [((AppDelegate *)[UIApplication sharedApplication].delegate).navigationController pushViewController:imageViewerController animated:YES];
 }
 
 - (void)showMore:(id)sender {

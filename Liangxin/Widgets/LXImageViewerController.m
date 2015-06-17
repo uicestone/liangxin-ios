@@ -14,7 +14,6 @@
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
 @property (nonatomic, strong) UIPageControl *pageControl;
-@property (nonatomic, strong) NSArray *imageURLs;
 
 @end
 
@@ -27,7 +26,6 @@
 
 - (void)commonInit {
     self.view.backgroundColor = [UIColor blackColor];
-    self.imageURLs = [[[self.params objectForKey:@"images"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] componentsSeparatedByString:@","];
     _flowLayout = [UICollectionViewFlowLayout new];
     _flowLayout.itemSize = [UIScreen mainScreen].bounds.size;
     _flowLayout.minimumInteritemSpacing = 0;
@@ -51,24 +49,15 @@
     }];
     
     self.pageControl = [UIPageControl new];
-    _pageControl.numberOfPages = _imageURLs.count;
-    CGSize pageControlSize = [_pageControl sizeForNumberOfPages:_imageURLs.count];
+    _pageControl.numberOfPages = _images.count;
+    CGSize pageControlSize = [_pageControl sizeForNumberOfPages:_images.count];
+    [self.view addSubview:self.pageControl];
     [_pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self.view.mas_centerX);
         make.height.mas_equalTo(pageControlSize.height);
         make.width.mas_equalTo(pageControlSize.width);
-        make.bottom.mas_equalTo(self.view.mas_bottom);
+        make.bottom.mas_equalTo(self.view.mas_bottom).offset(-10);
     }];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [UIApplication sharedApplication].statusBarHidden = YES;
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [UIApplication sharedApplication].statusBarHidden = NO;
 }
 
 - (BOOL)hasToolBar {
@@ -77,17 +66,16 @@
 
 #pragma mark - UICollectionViewDataSource && UICollectionViewDelegate
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-}
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.imageURLs.count;
+    return self.images.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     LXImageViewerCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"LXImageViewerCell" forIndexPath:indexPath];
-    [cell reloadViewWithData:[self.imageURLs objectAtIndex:indexPath.row]];
+    NSString *imageURL = [[self.images objectAtIndex:indexPath.row] objectForKey:@"url"];
+    if (![imageURL isEqual:[NSNull null]]) {
+        [cell reloadViewWithData:imageURL];
+    }
     return cell;
 }
 

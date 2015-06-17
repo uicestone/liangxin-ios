@@ -10,4 +10,6 @@
 
 @interface LXImageViewerController : LXBaseViewController
 
+@property (nonatomic, strong) NSArray *images;
+
 @end
