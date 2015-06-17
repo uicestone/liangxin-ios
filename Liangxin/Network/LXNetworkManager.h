@@ -30,5 +30,6 @@ typedef NS_ENUM(NSInteger, LXBannerType){
 - (RACSignal *)getVideosByPostId:(NSString *)postId;
 - (RACSignal *)getDocumentsByPostId:(NSString *)postId;
 - (RACSignal *)getAlbumsByPostId:(NSString *)postId;
+- (RACSignal *)getArticlesByPostId:(NSString *)postId;
 
 @end

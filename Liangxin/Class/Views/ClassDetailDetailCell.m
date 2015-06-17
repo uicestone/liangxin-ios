@@ -15,6 +15,8 @@
 @property (nonatomic, strong) UILabel *defaultLabel;
 @property (nonatomic, strong) ClassDetailArticleView *article1View;
 @property (nonatomic, strong) ClassDetailArticleView *article2View;
+@property (nonatomic, strong) NSArray *articles;
+@property (nonatomic, copy) NSString *postId;
 
 @end
 
@@ -72,6 +74,8 @@
 - (void)reloadViewWithData:(LXBaseModelPost *)data {
     if (data) {
         if (data.articles.count > 0) {
+            self.articles = data.articles;
+            self.postId = data.id;
             self.seperatorLine.hidden = NO;
             NSDictionary *article1 = [data.articles objectAtIndex:0];
             self.article1View.titleLabel.text = [article1 objectForKey:@"title"];
@@ -82,6 +86,7 @@
             if (data.articles.count >= 2) {
                 NSDictionary *article2 = [data.articles objectAtIndex:1];
                 self.article2View.titleLabel.text = [article2 objectForKey:@"title"];
+                self.article2View.nameLabel.text = [[article1 objectForKey:@"author"] objectForKey:@"name"]?:@"";
                 if ([article2 objectForKey:@"created_at"]) {
                     self.article2View.createDateLabel.text = [[article2 objectForKey:@"created_at"] substringToIndex:10];
                 }
@@ -90,6 +95,12 @@
         else {
             _defaultLabel.hidden = NO;
         }
+    }
+}
+
+- (void)showMore:(id)sender {
+    if (self.postId.length > 0 && self.articles.count > 0) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://class/articles/?id=%@", self.postId]]];
     }
 }
 
