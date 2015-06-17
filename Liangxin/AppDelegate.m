@@ -14,9 +14,10 @@
 #import "LXRouteManager.h"
 #import "LXShareManager.h"
 #import "WXApi.h"
+#import "WeiboSDK.h"
 
 
-@interface AppDelegate () <WXApiDelegate>
+@interface AppDelegate () <WXApiDelegate, WeiboSDKDelegate>
 @property (nonatomic, strong) UINavigationController* loginNavigationController;
 @end
 
@@ -65,10 +66,29 @@
     return YES;
 }
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    if ([url.scheme hasPrefix:@"wx"]) {
+        return [WXApi handleOpenURL:url delegate:self];
+    }
+    
+    if ([url.scheme hasPrefix:@"wb"]) {
+        return [WeiboSDK handleOpenURL:url delegate:self];
+    }
+    
+    LXBaseViewController *viewController = (LXBaseViewController *)[[HHRouter shared] matchController:[url absoluteString]];
+    [self pushViewController:viewController];
+    
+    return NO;
+}
+
 -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
     
     if ([url.scheme hasPrefix:@"wx"]) {
         return [WXApi handleOpenURL:url delegate:self];
+    }
+    
+    if ([url.scheme hasPrefix:@"wb"]) {
+        return [WeiboSDK handleOpenURL:url delegate:self];
     }
     
     LXBaseViewController *viewController = (LXBaseViewController *)[[HHRouter shared] matchController:[url absoluteString]];
@@ -158,6 +178,16 @@
 }
 
 - (void)onResp:(BaseResp *)resp {
+    
+}
+
+#pragma mark - 微博分享
+
+- (void)didReceiveWeiboRequest:(WBBaseRequest *)request {
+    
+}
+
+- (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
     
 }
 

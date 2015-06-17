@@ -10,6 +10,8 @@
 
 @interface ActivityParticipantCell : UITableViewCell
 
+@property (nonatomic, copy) NSString *postId;
+
 - (void)reloadViewWithData:(NSDictionary *)data;
 
 @end

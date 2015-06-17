@@ -185,7 +185,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.section == 3) {
+    if (indexPath.section == 3 && ![[self.postData.author objectForKey:@"id"] isEqualToString:[[UserApi shared] getCurrentUser].id]) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://activity/attends/?id=%@", self.postId]]];
     }
 }

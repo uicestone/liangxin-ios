@@ -71,6 +71,8 @@
         [self.navigationController setNavigationBarHidden:YES animated:YES];
         [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     }
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(doLikeSuccess:) name:LXNotificationLikeSuccess object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(doFavSuccess:) name:LXNotificationFavSuccess object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -79,6 +81,35 @@
         self.navigationController.navigationBarHidden = NO;
         [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     }
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)doClickDetailBar:(UIButton *)sender {
+    if (sender.tag == 2 && self.viewModel.postData.is_favorite) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.animationType = MBProgressHUDAnimationFade;
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = @"您已经收藏该课堂";
+        [hud hide:YES afterDelay:1];
+    }
+    else if (sender.tag == 3 && self.viewModel.postData.liked) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.animationType = MBProgressHUDAnimationFade;
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = @"您已经赞了该课堂";
+        [hud hide:YES afterDelay:1];
+    }
+    else {
+        [super doClickDetailBar:sender];
+    }
+}
+
+- (void)doLikeSuccess:(NSNotification *)notification {
+    self.viewModel.postData.liked = YES;
+}
+
+- (void)doFavSuccess:(NSNotification *)notification {
+    self.viewModel.postData.is_favorite = YES;
 }
 
 #pragma mark - UITableViewDataSource && UITableViewDelegate

@@ -71,6 +71,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    LXBaseModelPost *article = [self.articles objectAtIndex:indexPath.row];
+    if (article.id.length > 0) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://article/%@", article.id]]];
+    }
 }
 
 @end
