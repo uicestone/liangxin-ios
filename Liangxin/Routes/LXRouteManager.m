@@ -47,6 +47,7 @@
 #import "CommentViewController.h"
 #import "LXImageViewerController.h"
 #import "ClassArticleViewController.h"
+#import "ActivityArticleViewController.h"
 
 @implementation LXRouteManager
 
@@ -141,6 +142,7 @@
     // 图片预览
     [[HHRouter shared] map:@"/imageviewer" toControllerClass:[LXImageViewerController class]];
     [[HHRouter shared] map:@"/class/articles" toControllerClass:[ClassArticleViewController class]];
+    [[HHRouter shared] map:@"/activity/articles" toControllerClass:[ActivityArticleViewController class]];
 }
 
 @end

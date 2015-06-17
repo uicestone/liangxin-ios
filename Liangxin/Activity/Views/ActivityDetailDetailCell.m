@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UILabel *defaultLabel;
 
 @property (nonatomic, strong) NSMutableArray *articles;
+@property (nonatomic, copy) NSString *postId;
 
 @end
 
@@ -116,6 +117,7 @@
 
 - (void)reloadViewWithData:(LXBaseModelPost *)data {
     if (data.articles.count > 0) {
+        self.postId = data.id;
         self.seperatorLine1.hidden = NO;
         self.seperatorLine2.hidden = NO;
         self.seperatorLine3.hidden = NO;
@@ -132,6 +134,12 @@
     }
     else {
         _defaultLabel.hidden = NO;
+    }
+}
+
+- (void)showMore:(id)sender {
+    if (self.postId.length > 0) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://activity/articles/?id=%@", self.postId]]];
     }
 }
 
