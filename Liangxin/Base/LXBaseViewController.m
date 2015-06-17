@@ -173,6 +173,7 @@
                     hud.mode = MBProgressHUDModeText;
                     hud.labelText = @"收藏成功";
                     [hud hide:YES afterDelay:1];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:LXNotificationFavSuccess object:nil userInfo:@{@"id":self.postId}];
                 } error:^(NSError *error) {
                     @strongify(self)
                     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -202,6 +203,7 @@
                     hud.mode = MBProgressHUDModeText;
                     hud.labelText = @"点赞成功";
                     [hud hide:YES afterDelay:1];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:LXNotificationLikeSuccess object:nil userInfo:@{@"id":self.postId}];
                 } error:^(NSError *error) {
                     @strongify(self)
                     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];

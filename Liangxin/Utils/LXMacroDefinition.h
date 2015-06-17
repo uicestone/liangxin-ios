@@ -20,4 +20,10 @@
  */
 #define LXNetworkBaseURL            @"http://dangqun.malu.gov.cn/"
 
+/**
+ *  通知
+ */
+#define LXNotificationLikeSuccess   @"LXNotificationLikeSuccess"
+#define LXNotificationFavSuccess    @"LXNotificationFavSuccess"
+
 #endif

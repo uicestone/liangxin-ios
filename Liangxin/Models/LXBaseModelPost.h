@@ -37,12 +37,12 @@
 @property (nonatomic, copy) NSString *url;
 @property (nonatomic, strong) NSDictionary *group;
 @property (nonatomic, strong) NSDictionary *poster;
-@property (nonatomic, copy) NSString *liked;
+@property (nonatomic, assign) BOOL liked;
 @property (nonatomic, assign) NSInteger likes;
 @property (nonatomic, copy) NSString *group_id;
 @property (nonatomic, copy) NSString *poster_id;
 @property (nonatomic, copy) NSString *author_id;
-@property (nonatomic, copy) NSString *is_favorite;
+@property (nonatomic, assign) BOOL is_favorite;
 @property (nonatomic, strong) NSArray *favored_users;
 @property (nonatomic, copy) NSString *liked_users;
 @property (nonatomic, copy) NSString *parent;
