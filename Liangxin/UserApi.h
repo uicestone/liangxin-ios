@@ -11,7 +11,6 @@
 
 @interface UserApi : NSObject
 
-
 +(LXBaseModelUser *)getCurrentUser;
 +(void) setCurrentUser:(LXBaseModelUser *)user;
 +(void) getUsersByGroupId:(int) groupId successHandler:(void (^)(NSArray *users))successHandler errorHandler:(void (^)(NSError *error))errorHandler;

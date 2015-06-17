@@ -18,6 +18,7 @@
 @property (nonatomic, strong) UITableView* tableview;
 @property (nonatomic, strong) NSArray* items;
 @property (nonatomic, strong) NSArray* tabitems;
+@property (nonatomic, strong) UserApi* userApi;
 @end
 
 @implementation AccountHomeViewController
@@ -31,21 +32,6 @@
     
     self.view.backgroundColor = UIColorFromRGB(0xf1f1f2);
     
-    
-    
-    tabitems = @[@{
-                     @"name":@"我的支部",
-                     @"icon":@"我的支部",
-                     @"link": [NSString stringWithFormat:@"/group/detail/%@", self.currentUser.group[@"id"]]
-                     },@{
-                     @"name":@"我的积分",
-                     @"icon":@"我的积分",
-                     @"link":@"/account/credit"
-                     },@{
-                     @"name":@"我的收藏",
-                     @"icon":@"我的收藏",
-                     @"link":@"/account/collection"
-                     }];
     
     [self initHead];
     [self initTabs];
@@ -65,6 +51,8 @@
 
 -(void)initHead{
     self.title = @"我的账号";
+    
+    [[_userApi class] getCurrentUser];
     
     @weakify(self)
     headerContainer = [UIView new];
@@ -154,6 +142,25 @@
         make.width.equalTo(self.view);
         make.height.mas_equalTo(51);
     }];
+    
+    
+    NSLog(@"UserApi %@", [[_userApi class] getCurrentUser] );
+    
+//    [UserApi getCurrentUser].group[@"id"];
+    
+    tabitems = @[@{
+                     @"name":@"我的支部",
+                     @"icon":@"我的支部",
+                     @"link": [NSString stringWithFormat:@"/group/detail/%@", @"2"]
+                     },@{
+                     @"name":@"我的积分",
+                     @"icon":@"我的积分",
+                     @"link":@"/account/credit"
+                     },@{
+                     @"name":@"我的收藏",
+                     @"icon":@"我的收藏",
+                     @"link":@"/account/collection"
+                     }];
     
     NSMutableArray* tabs = [@[] mutableCopy];
     UIView* lastTab;

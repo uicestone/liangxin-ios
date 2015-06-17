@@ -3,7 +3,7 @@ webpackJsonp([5],{
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(riot) {__webpack_require__(1);
+	/* WEBPACK VAR INJECTION */(function(riot) {__webpack_require__(7);
 
 
 	riot.mount('*');
@@ -11,12 +11,12 @@ webpackJsonp([5],{
 
 /***/ },
 
-/***/ 1:
+/***/ 7:
 /***/ function(module, exports, __webpack_require__) {
 
 	var riot = __webpack_require__(8);
 
-	__webpack_require__(18)
+	__webpack_require__(17)
 	var bridge = __webpack_require__(3);
 	var fetch = bridge.fetch;
 	riot.tag('followinggroups', '<followinggroup each="{items}" data="{this}"></followinggroup>', function(opts) {
@@ -1338,7 +1338,7 @@ webpackJsonp([5],{
 
 /***/ },
 
-/***/ 18:
+/***/ 17:
 /***/ function(module, exports, __webpack_require__) {
 
 	var riot = __webpack_require__(8);

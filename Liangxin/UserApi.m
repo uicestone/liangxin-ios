@@ -13,7 +13,8 @@
 
 @implementation UserApi 
 
-static LXBaseModelUser* currentUser;
+
+__strong static LXBaseModelUser* currentUser;
 
 +(LXBaseModelUser *)getCurrentUser{
     if(!currentUser){

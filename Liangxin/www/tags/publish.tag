@@ -15,6 +15,7 @@ require('./selectctrl.tag')
 		<inputctrl title='请输入课堂标题（字数限制50字）' limit='50' model='title' />
 		<textareactrl title='添加课堂文字描述（字数限制500字）' limit='500' model='content'></textareactrl>
 		<!--textareactrl title='添加课堂文字资料' model='content'></textareactrl -->
+		<selectctrl title='请选择课堂类型' choices={choices} model='class_type' />
 		<!--imgctrl icon='upload'size='small' model='files' placeholder='添加课堂文件' /-->
 		<imgctrl icon='plus' size='small' model='images' placeholder='添加课堂图片资料' />
 		<!--imgctrl icon='link' size='small' model='videos' placeholder='添加课堂视频链接' /-->
@@ -64,14 +65,14 @@ require('./selectctrl.tag')
 		"article": "文章",
 		"image": "图片",
 		"activity": "活动",
-		"class": "课程"
+		"class": "课堂"
 	})[opts.type];
 	var keys = ({
 		"notice": ["title", "content"],
 		"article": ["title", "content", "images"],
 		"image": ["title", "images"],
 		"activity": ["poster", "title", "event_date", "event_address", "describe", "event_type", "due_date"],
-		"class": ["poster", "title", "describe","content","title","attachments","images","videos"]
+		"class": ["poster", "title", "describe","content","title","class_type", "attachments","images","videos"]
 	})[opts.type];
 
 	edit(field){
