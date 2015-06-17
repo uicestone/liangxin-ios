@@ -14,6 +14,7 @@
 @property (nonatomic, strong) UITableView *tableView;
 
 @property (nonatomic, strong) NSMutableArray *attendees;
+@property (nonatomic, copy) NSString *postId;
 
 @end
 
@@ -37,6 +38,7 @@
         make.top.mas_equalTo(0);
         make.bottom.mas_equalTo(0);
     }];
+    self.postId = [self.params objectForKey:@"id"];
     @weakify(self)
     [[[LXNetworkManager sharedManager] getPostDetailById:[self.params objectForKey:@"id"]] subscribeNext:^(LXBaseModelPost *x) {
         @strongify(self)
@@ -63,6 +65,7 @@
         cell = [[ActivityParticipantCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ActivityParticipantCell"];
     }
     NSDictionary *data = [self.attendees objectAtIndex:indexPath.row];
+    cell.postId = self.postId;
     [cell reloadViewWithData:data];
     return cell;
 }

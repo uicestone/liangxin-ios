@@ -137,11 +137,19 @@
 }
 
 - (void)doAgree:(id)sender {
-    
+    [[[LXNetworkManager sharedManager] agreeAttendeeByPostId:self.postId userId:[self.attendee objectForKey:@"id"]] subscribeNext:^(id x) {
+        
+    } error:^(NSError *error) {
+        
+    }];
 }
 
 - (void)doDisagree:(id)sender{
-    
+    [[[LXNetworkManager sharedManager] disagreeAttendeeByPostId:self.postId userId:[self.attendee objectForKey:@"id"]] subscribeNext:^(id x) {
+        
+    } error:^(NSError *error) {
+        
+    }];
 }
 
 @end
