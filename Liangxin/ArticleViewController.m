@@ -14,12 +14,25 @@
 
 @implementation ArticleViewController
 
+
+-(NSString *)postId{
+    return self.params[@"id"];
+}
+
+- (LXBaseToolbarType)toolbarType {
+    return LXBaseToolbarTypeDetail;
+}
+
+-(BOOL) hasToolBar{
+    return YES;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     NSString* pageURL = [NSString
         stringWithFormat:@"http://dangqun.malu.gov.cn/post/%@",
-        self.params[@"id"]];
+        self.postId];
     
     [self loadPage:pageURL];
     // Do any additional setup after loading the view.

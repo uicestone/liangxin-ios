@@ -41,7 +41,7 @@
 }
 
 - (void)dismissLoginViewController:(id)sender {
-    if (self.finishBlock) {
+    if (self.finishBlock && [UserApi getCurrentUser]) {
         self.finishBlock();
     }
     [self dismissViewController];
