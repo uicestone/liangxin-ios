@@ -37,6 +37,8 @@
         }];
         _article1View = [ClassDetailArticleView new];
         [self.baseView addSubview:_article1View];
+        [_article1View.maskButton addTarget:self action:@selector(showArticle:) forControlEvents:UIControlEventTouchUpInside];
+        _article1View.maskButton.tag = 0;
         [_article1View mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(0);
             make.bottom.equalTo(self.seperatorLine.mas_top);
@@ -45,6 +47,8 @@
         }];
         _article2View = [ClassDetailArticleView new];
         [self.baseView addSubview:_article2View];
+        _article2View.maskButton.tag = 1;
+        [_article2View.maskButton addTarget:self action:@selector(showArticle:) forControlEvents:UIControlEventTouchUpInside];
         [_article2View mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.seperatorLine.mas_bottom);
             make.bottom.mas_equalTo(0);
@@ -101,6 +105,13 @@
 - (void)showMore:(id)sender {
     if (self.postId.length > 0 && self.articles.count > 0) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://class/articles/?id=%@", self.postId]]];
+    }
+}
+
+- (void)showArticle:(UIButton *)sender {
+    NSDictionary *article = [self.articles objectAtIndex:sender.tag];
+    if ([article objectForKey:@"id"]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://article/%@", [article objectForKey:@"id"]]]];
     }
 }
 

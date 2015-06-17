@@ -147,6 +147,7 @@
 		2DDBF05E1B3194C30051E0BC /* ClassArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDBF05D1B3194C30051E0BC /* ClassArticleViewController.m */; };
 		2DDBF0611B3197EE0051E0BC /* ClassArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDBF0601B3197EE0051E0BC /* ClassArticleCell.m */; };
 		2DDBF0641B319E180051E0BC /* ActivityArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDBF0631B319E180051E0BC /* ActivityArticleViewController.m */; };
+		2DDBF0671B319FF40051E0BC /* ActivityAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDBF0661B319FF40051E0BC /* ActivityAlbumViewController.m */; };
 		2DDE601A1B2F0710003757FD /* ClassVideoCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDE60191B2F0710003757FD /* ClassVideoCollectionCell.m */; };
 		2DDE601D1B2F0D5A003757FD /* ClassDocumentCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDE601C1B2F0D5A003757FD /* ClassDocumentCollectionCell.m */; };
 		2DDE60201B2F0EF6003757FD /* ClassAlbumCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDE601F1B2F0EF6003757FD /* ClassAlbumCollectionCell.m */; };
@@ -437,6 +438,8 @@
 		2DDBF0601B3197EE0051E0BC /* ClassArticleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassArticleCell.m; path = Class/Views/ClassArticleCell.m; sourceTree = "<group>"; };
 		2DDBF0621B319E180051E0BC /* ActivityArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityArticleViewController.h; path = Liangxin/Activity/ActivityArticleViewController.h; sourceTree = "<group>"; };
 		2DDBF0631B319E180051E0BC /* ActivityArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityArticleViewController.m; path = Liangxin/Activity/ActivityArticleViewController.m; sourceTree = "<group>"; };
+		2DDBF0651B319FF40051E0BC /* ActivityAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityAlbumViewController.h; path = Liangxin/Activity/ActivityAlbumViewController.h; sourceTree = "<group>"; };
+		2DDBF0661B319FF40051E0BC /* ActivityAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityAlbumViewController.m; path = Liangxin/Activity/ActivityAlbumViewController.m; sourceTree = "<group>"; };
 		2DDE60181B2F0710003757FD /* ClassVideoCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassVideoCollectionCell.h; path = Class/Views/ClassVideoCollectionCell.h; sourceTree = "<group>"; };
 		2DDE60191B2F0710003757FD /* ClassVideoCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassVideoCollectionCell.m; path = Class/Views/ClassVideoCollectionCell.m; sourceTree = "<group>"; };
 		2DDE601B1B2F0D5A003757FD /* ClassDocumentCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassDocumentCollectionCell.h; path = Class/Views/ClassDocumentCollectionCell.h; sourceTree = "<group>"; };
@@ -574,6 +577,8 @@
 				2D00FF981B21842200106110 /* ActivityViewController.m */,
 				2DDBF0621B319E180051E0BC /* ActivityArticleViewController.h */,
 				2DDBF0631B319E180051E0BC /* ActivityArticleViewController.m */,
+				2DDBF0651B319FF40051E0BC /* ActivityAlbumViewController.h */,
+				2DDBF0661B319FF40051E0BC /* ActivityAlbumViewController.m */,
 			);
 			name = Activity;
 			path = ..;
@@ -1324,6 +1329,7 @@
 				22BE07D21B1F384C00A1E91F /* AccountActivityViewController.m in Sources */,
 				2DB6C2B31B2280CB00A94E6E /* LXNetworkParameters.m in Sources */,
 				2210A37E1AFDF84900D9CA1A /* Group.m in Sources */,
+				2DDBF0671B319FF40051E0BC /* ActivityAlbumViewController.m in Sources */,
 				2D537DF01B1AEB38006BD35E /* ClassDetailVideoCell.m in Sources */,
 				2D6160B01B1C9EB7001D01D8 /* LXFilterViewCell.m in Sources */,
 				2215D9611B10CF3600D96C46 /* LXJSBridge+SetTitle.m in Sources */,

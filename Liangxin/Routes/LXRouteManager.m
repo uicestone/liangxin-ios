@@ -48,6 +48,7 @@
 #import "LXImageViewerController.h"
 #import "ClassArticleViewController.h"
 #import "ActivityArticleViewController.h"
+#import "ActivityAlbumViewController.h"
 
 @implementation LXRouteManager
 
@@ -143,6 +144,7 @@
     [[HHRouter shared] map:@"/imageviewer" toControllerClass:[LXImageViewerController class]];
     [[HHRouter shared] map:@"/class/articles" toControllerClass:[ClassArticleViewController class]];
     [[HHRouter shared] map:@"/activity/articles" toControllerClass:[ActivityArticleViewController class]];
+    [[HHRouter shared] map:@"/activity/albums" toControllerClass:[ActivityAlbumViewController class]];
 }
 
 @end
