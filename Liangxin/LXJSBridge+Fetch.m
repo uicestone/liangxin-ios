@@ -33,7 +33,7 @@
         }];
     }else if([method isEqual:@"post"]){
         
-        if(files != nil){
+        if(files != nil && [files count]){
             if(origin_files && [origin_files count]){
                 for(NSDictionary* origin_file in origin_files){
                     if(origin_file[@"data"] == nil){

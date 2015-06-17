@@ -35,7 +35,7 @@ var fetch = bridge.fetch;
 					opts.trigger('data', data);
 					bridge.hideProgress();
 				}).catch(function(){
-					bridge.popMessage("发生错误");
+					bridge.showMessage("发生错误");
 				});
 			});
 	}
@@ -80,7 +80,7 @@ var fetch = bridge.fetch;
 			self.loadData();
 		}).catch(function(){
 			removing = false;
-			bridge.popMessage("删除失败");
+			bridge.showMessage("删除失败");
 		});
 	});
 

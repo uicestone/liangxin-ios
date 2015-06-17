@@ -280,10 +280,10 @@
 //    NSArray* publishTypes = @[@"class",@"activity",@"notice",@"article",@"image"];
     NSArray* publishTypes;
     LXBaseModelUser* user = [[UserApi shared] getCurrentUser];
-    if([user.role isEqualToString:@"user"]){
-        publishTypes = @[@"notice",@"article",@"image"];
-    }else{
+    if([user.role isEqualToString:@"group_admin"] || [user.role isEqualToString:@"app_admin"]){
         publishTypes = @[@"notice",@"article",@"image",@"activity",@"class"];
+    }else{
+        publishTypes = @[@"notice",@"article",@"image"];
     }
     
     if(buttonIndex < publishTypes.count){

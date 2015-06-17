@@ -167,7 +167,7 @@
 }
 
 -(void)initTableView{
-    tableView = [[UITableView alloc] initWithFrame:self.view.frame];
+    tableView = [UITableView new];
     tableView.delegate = self;
     tableView.dataSource = self;
     [self.view addSubview:tableView];
@@ -176,7 +176,7 @@
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
         make.top.equalTo(searchBar.mas_bottom);
-        make.bottom.equalTo(self.view);
+        make.bottom.equalTo(self.view).with.offset(-43);
         make.width.equalTo(self.view);
     }];
     

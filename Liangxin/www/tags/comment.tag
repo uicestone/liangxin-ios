@@ -3,11 +3,11 @@ var fetch = bridge.fetch;
 
 <comment>
 	<div class="inner">
-		<img class="avatar" src="{opts.data.author.avatar}" />
+		<img class="avatar" src="{opts.data.author.avatar || './image/default-avatar.png'}" />
 		<div class="main">
 			<div class="author">{opts.data.author.name}</div>
 			<div class="time">{opts.data.created_at}</div>
-			<div class="content">{opts.data.content}</div>
+			<div class="content">{opts.data.title}</div>
 		</div>
 		<div class="likes {liked?'liked':''}" onclick='{togglelike}'>
 			<i class="icon-likes"></i>

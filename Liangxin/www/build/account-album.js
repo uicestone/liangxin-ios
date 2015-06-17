@@ -6,7 +6,7 @@ webpackJsonp([1],[
 	var bridge = __webpack_require__(3);
 	var query = __webpack_require__(4).parse();
 
-	__webpack_require__(6);
+	__webpack_require__(7);
 
 	var fetch = bridge.fetch;
 
@@ -24,7 +24,7 @@ webpackJsonp([1],[
 	});
 
 	riot.mount('*', bus);
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
 
 /***/ },
 /* 1 */,
@@ -1638,10 +1638,11 @@ webpackJsonp([1],[
 
 /***/ },
 /* 5 */,
-/* 6 */
+/* 6 */,
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var riot = __webpack_require__(8);
+	var riot = __webpack_require__(10);
 
 	var bridge = __webpack_require__(3);
 	var fetch = bridge.fetch;
@@ -1666,7 +1667,7 @@ webpackJsonp([1],[
 						opts.trigger('data', data);
 						bridge.hideProgress();
 					}).catch(function(){
-						bridge.popMessage("发生错误");
+						bridge.showMessage("发生错误");
 					});
 				});
 		}.bind(this);
@@ -1711,7 +1712,7 @@ webpackJsonp([1],[
 				self.loadData();
 			}).catch(function(){
 				removing = false;
-				bridge.popMessage("删除失败");
+				bridge.showMessage("删除失败");
 			});
 		});
 
@@ -1720,8 +1721,9 @@ webpackJsonp([1],[
 	});
 
 /***/ },
-/* 7 */,
-/* 8 */
+/* 8 */,
+/* 9 */,
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Riot v2.1.0, @license MIT, (c) 2015 Muut Inc. + contributors */

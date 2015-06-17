@@ -26,7 +26,8 @@
     
     [self.navigationItem setTitle:@"支部成员"];
     
-    tableview = [[UITableView alloc] initWithFrame:[self view].bounds];
+    CGRect frame = CGRectMake(0,0,self.view.bounds.size.width,self.view.bounds.size.height - 44 - 44 - 20);
+    tableview = [[UITableView alloc] initWithFrame:frame];
     [self.view addSubview:tableview];
     tableview.delegate = self;
     tableview.dataSource = self;

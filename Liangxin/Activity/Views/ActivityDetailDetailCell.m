@@ -121,7 +121,7 @@
         self.seperatorLine1.hidden = NO;
         self.seperatorLine2.hidden = NO;
         self.seperatorLine3.hidden = NO;
-        for (NSInteger i = 0; i < (data.articles.count > 4)?4:data.articles.count; i++) {
+        for (NSInteger i = 0; i < ((data.articles.count > 4)?4:data.articles.count); i++) {
             ClassDetailArticleView *articleView = [self.articles objectAtIndex:i];
             articleView.hidden = NO;
             NSDictionary *article = [data.articles objectAtIndex:0];

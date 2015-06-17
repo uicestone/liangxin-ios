@@ -6,11 +6,11 @@ var $ = require('zepto');
 
 
 <comments>
-  <div style="display:{items.length?'block':'none'}">
+  <div style="display:{(loaded && items.length)?'block':'none'}; margin-bottom: 20px;">
   <comment each={items} data={this}></comment>
   </div>
 
-  <div style="display:{items.length?'none':'block'};text-align:center;margin-top:90px">
+  <div style="display:{(loaded && !items.length)?'block':'none'};text-align:center;margin-top:90px">
     <img src="./image/nocomments.png" height="136" width="91" />
   </div>
 
@@ -35,6 +35,7 @@ var $ = require('zepto');
   var self = this;
   var id = query.id;
   this.writing = false;
+  this.loaded = false;
 
   showpopup(){
     self.update({writing:true})
@@ -54,32 +55,37 @@ var $ = require('zepto');
       data:{
         type:"评论",
         parent_id:id,
-        content:$('#input').val()
+        title:$('#input').val()
       }
-    }).then(function(){
+    }).then(function(review){
       posting = false;
-      self.update({writing:false});
-      bridge.popMessage('回应成功');
+      // self.items.unshift(review);
+      // window.scrollTo(0,0);
+      bridge.hideProgress().then(function(){
+        setTimeout(function(){
+          location.reload();
+        }, 200);
+      });
+      //bridge.showMessage('回应成功');
+      //self.writing = false;
+      //self.update();
     });
   }
 
   load(){
     self.items = [];
-    for(var i = 0; i < 0; i++){
-      self.items.push({
-       "id":0,
-        "content":"参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖参加学雷锋爱心义卖",
-        "author": {
-          "id":0,
-          "name":"王大锤",
-          "avatar":"http://avatar.fanfou.com/s0/00/43/3s.jpg"
-        },
-        "created_at":"2015-03-03 12:21",
-        "likes": 46,
-        "liked": false
-      });
+
+    fetch({
+      url:"/post",
+      data:{
+        type:"评论",
+        parent_id:id
+      }
+    }).then(function(items){
+      self.loaded = true;
+      self.items = items;
       self.update();
-    }
+    });
   }
 
   this.load();
