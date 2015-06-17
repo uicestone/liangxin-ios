@@ -34,7 +34,6 @@ PODS:
   - Mantle/extobjc (1.5.4)
   - Masonry (0.6.1)
   - MBProgressHUD (0.9.1)
-  - MJRefresh (1.4.7)
   - ReactiveCocoa (2.4.7):
     - ReactiveCocoa/UI (= 2.4.7)
   - ReactiveCocoa/Core (2.4.7):
@@ -53,7 +52,6 @@ DEPENDENCIES:
   - Mantle (~> 1.5.4)
   - Masonry (~> 0.6.0)
   - MBProgressHUD (~> 0.9.1)
-  - MJRefresh (~> 1.4.7)
   - ReactiveCocoa (~> 2.4.7)
   - SDWebImage (~> 3.7.1)
 
@@ -64,7 +62,6 @@ SPEC CHECKSUMS:
   Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
   Masonry: 4972309f2f134de9dd312f4dc4a21359b50e6caa
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
-  MJRefresh: 6b140993028fa30f1fcb88e82925a7c7911415cf
   ReactiveCocoa: eb38dee0a0e698f73a9b25e5c1faea2bb4c79240
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
 
