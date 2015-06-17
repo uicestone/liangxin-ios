@@ -40,6 +40,16 @@
 				<string>wxe66c716e0981e5d1</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>Weibo</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wb2758264475</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
