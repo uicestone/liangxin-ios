@@ -30,7 +30,7 @@
         _seperatorLine1 = [UIView new];
         _seperatorLine1.backgroundColor = UIColorFromRGB(0xe6e7e8);
         _seperatorLine1.hidden = YES;
-        [self.contentView addSubview:_seperatorLine1];
+        [self.baseView addSubview:_seperatorLine1];
         [_seperatorLine1 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(0);
             make.right.mas_equalTo(0);
@@ -40,7 +40,7 @@
         _seperatorLine2 = [UIView new];
         _seperatorLine2.backgroundColor = UIColorFromRGB(0xe6e7e8);
         _seperatorLine2.hidden = YES;
-        [self.contentView addSubview:_seperatorLine2];
+        [self.baseView addSubview:_seperatorLine2];
         [_seperatorLine2 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(0);
             make.right.mas_equalTo(0);
@@ -50,7 +50,7 @@
         _seperatorLine3 = [UIView new];
         _seperatorLine3.backgroundColor = UIColorFromRGB(0xe6e7e8);
         _seperatorLine3.hidden = YES;
-        [self.contentView addSubview:_seperatorLine3];
+        [self.baseView addSubview:_seperatorLine3];
         [_seperatorLine3 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(0);
             make.right.mas_equalTo(0);
@@ -116,24 +116,26 @@
 }
 
 - (void)reloadViewWithData:(LXBaseModelPost *)data {
-    if (data.articles.count > 0) {
-        self.postId = data.id;
-        self.seperatorLine1.hidden = NO;
-        self.seperatorLine2.hidden = NO;
-        self.seperatorLine3.hidden = NO;
-        for (NSInteger i = 0; i < (data.articles.count > 4)?4:data.articles.count; i++) {
-            ClassDetailArticleView *articleView = [self.articles objectAtIndex:i];
-            articleView.hidden = NO;
-            NSDictionary *article = [data.articles objectAtIndex:0];
-            articleView.titleLabel.text = [article objectForKey:@"title"];
-            articleView.nameLabel.text = [[article objectForKey:@"author"] objectForKey:@"name"]?:@"";
-            if ([article objectForKey:@"created_at"]) {
-                articleView.createDateLabel.text = [[article objectForKey:@"created_at"] substringToIndex:10];
+    if (data) {
+        if (data.articles.count > 0) {
+            self.postId = data.id;
+            self.seperatorLine1.hidden = NO;
+            self.seperatorLine2.hidden = NO;
+            self.seperatorLine3.hidden = NO;
+            for (NSInteger i = 0; i < ((data.articles.count > 4)?4:data.articles.count); i++) {
+                ClassDetailArticleView *articleView = [self.articles objectAtIndex:i];
+                articleView.hidden = NO;
+                NSDictionary *article = [data.articles objectAtIndex:0];
+                articleView.titleLabel.text = [article objectForKey:@"title"];
+                articleView.nameLabel.text = [[article objectForKey:@"author"] objectForKey:@"name"]?:@"";
+                if ([article objectForKey:@"created_at"]) {
+                    articleView.createDateLabel.text = [[article objectForKey:@"created_at"] substringToIndex:10];
+                }
             }
         }
-    }
-    else {
-        _defaultLabel.hidden = NO;
+        else {
+            _defaultLabel.hidden = NO;
+        }
     }
 }
 
