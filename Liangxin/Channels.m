@@ -30,6 +30,7 @@
     dispatch_once(&onceToken, ^{
         if (!channels) {
             channels = [[self alloc] init];
+            channels.currentIndex = -1;
             channels.colors =  @[
                                   [UIColor redColor],
                                   UIColorFromRGB(0x00B0A2),

@@ -221,7 +221,7 @@
         }
             break;
         case 4: {
-            
+            [self popModalToPath:[@"/comment/" stringByAppendingString:self.postId]];
         }
         default:
             break;
@@ -288,9 +288,7 @@
     if(buttonIndex < publishTypes.count){
         [actionSheet dismissWithClickedButtonIndex:buttonIndex animated:YES];
         NSString* path = [@"/publish/?type=" stringByAppendingString: [publishTypes objectAtIndex:buttonIndex]];
-        [self popModalToPath:path complete:^{
-            NSLog(@"oh yeah");
-        }];
+        [self popModalToPath:path];
     }
 }
 
@@ -309,18 +307,27 @@
     return NO;
 }
 
-- (void)popModalToPath:(NSString *)path complete:(ModalCompleteBlock)complete{
+- (void)popModalToPath:(NSString *)path{
     LXBaseViewController *viewController = (LXBaseViewController *)[[HHRouter shared] matchController:path];
     
     Channels* channels = [Channels shared];
     NSInteger index = [channels currentIndex];
     UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
-    navigationController.navigationItem.rightBarButtonItem.title = @"取消";
-    NSDictionary* textAttr = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
-    [navigationController.navigationItem.rightBarButtonItem setTitleTextAttributes:textAttr forState:UIControlStateNormal];
-    [navigationController.navigationBar setBarTintColor: [channels colorAtIndex:(int)index]];
     
-    [navigationController.navigationBar setTitleTextAttributes:textAttr];
+    
+    
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(dismissViewController)];
+    viewController.navigationItem.rightBarButtonItem = cancelButton;
+    
+    
+    if(index >= 0){
+        NSDictionary* textAttr = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+        [viewController.navigationController.navigationItem.rightBarButtonItem setTitleTextAttributes:textAttr forState:UIControlStateNormal];
+        [viewController.navigationController.navigationBar setBarTintColor: [channels colorAtIndex:(int)index]];
+        [viewController.navigationController.navigationBar setTitleTextAttributes:textAttr];
+    }
+    
+    
     
     viewController.delegate = self;
     [self presentViewController:navigationController animated:YES completion:nil];

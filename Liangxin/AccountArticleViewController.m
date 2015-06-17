@@ -51,6 +51,7 @@
         }
     } errorHandler:^(NSError *error) {
         NSLog(@"%@", error);
+        [self hideProgress];
         [self popMessage:@"加载失败"];
     }];
 }
