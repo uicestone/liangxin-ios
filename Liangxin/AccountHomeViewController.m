@@ -126,7 +126,7 @@
 }
 
 -(void)logout{
-    [UserApi setCurrentUser:nil];
+    [[UserApi shared] setCurrentUser:nil];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

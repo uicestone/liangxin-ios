@@ -24,7 +24,7 @@
     if (self) {
         _sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:LXNetworkBaseURL]];
         _sessionManager.responseSerializer = [[AFJSONResponseSerializer alloc] init];
-        LXBaseModelUser *user = [UserApi getCurrentUser];
+        LXBaseModelUser *user = [[UserApi shared] getCurrentUser];
         if (user && user.token.length > 0) {
              [_sessionManager.requestSerializer setValue:user.token forHTTPHeaderField:@"Authorization"];
         }

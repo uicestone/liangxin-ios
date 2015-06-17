@@ -10,9 +10,10 @@
 #import "LXBaseModelUser.h"
 
 @interface UserApi : NSObject
-
-+(LXBaseModelUser *)getCurrentUser;
-+(void) setCurrentUser:(LXBaseModelUser *)user;
-+(void) getUsersByGroupId:(int) groupId successHandler:(void (^)(NSArray *users))successHandler errorHandler:(void (^)(NSError *error))errorHandler;
+@property (strong, nonatomic) LXBaseModelUser* currentUser;
++(instancetype)shared;
+-(LXBaseModelUser *)getCurrentUser;
+-(void) setCurrentUser:(LXBaseModelUser *)user;
+-(void) getUsersByGroupId:(int) groupId successHandler:(void (^)(NSArray *users))successHandler errorHandler:(void (^)(NSError *error))errorHandler;
 
 @end

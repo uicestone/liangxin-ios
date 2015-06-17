@@ -33,7 +33,7 @@
     
     int groupId = [self.params[@"id"] intValue];
     
-    [UserApi getUsersByGroupId:groupId successHandler:^(NSArray *users) {
+    [[UserApi shared] getUsersByGroupId:groupId successHandler:^(NSArray *users) {
         members = users;
         [tableview reloadData];
     } errorHandler:^(NSError *error) {
