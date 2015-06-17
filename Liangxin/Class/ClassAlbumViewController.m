@@ -8,6 +8,7 @@
 
 #import "ClassAlbumViewController.h"
 #import "ClassAlbumCollectionCell.h"
+#import "LXImageViewerController.h"
 
 @interface ClassAlbumViewController ()
 
@@ -47,7 +48,13 @@
 #pragma mark - UICollectionViewDataSource && UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    LXImageViewerController *imageViewerController = [LXImageViewerController new];
+    NSMutableArray *images = [NSMutableArray array];
+    for (LXBaseModelPost *post in self.albums) {
+        [images addObject:[post dictionaryValue]];
+    }
+    imageViewerController.images = images;
+    [self.navigationController pushViewController:imageViewerController animated:YES];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
