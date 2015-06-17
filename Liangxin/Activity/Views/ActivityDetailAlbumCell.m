@@ -15,6 +15,8 @@
 @property (nonatomic, strong) NSMutableArray *albumLabels;
 @property (nonatomic, strong) NSMutableArray *albums;
 
+@property (nonatomic, copy) NSString *postId;
+
 @end
 
 @implementation ActivityDetailAlbumCell
@@ -82,6 +84,7 @@
 
 - (void)reloadViewWithData:(LXBaseModelPost *)data {
     if (data) {
+        self.postId = data.id;
         if (data.images.count == 0) {
             for (UIButton *albumButton in self.albumButtons) {
                 albumButton.hidden = YES;
@@ -96,7 +99,7 @@
 
 - (void)showMore:(id)sender {
     if (self.albums.count > 0) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://class/albums"]]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://activity/albums/?id=%@", self.postId]]];
     }
 }
 
