@@ -7,12 +7,14 @@
 //
 
 #import "LXImageViewerController.h"
+#import "LXImageViewerCell.h"
 
 @interface LXImageViewerController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
 @property (nonatomic, strong) UIPageControl *pageControl;
+@property (nonatomic, strong) NSArray *imageURLs;
 
 @end
 
@@ -25,6 +27,7 @@
 
 - (void)commonInit {
     self.view.backgroundColor = [UIColor blackColor];
+    self.imageURLs = [[[self.params objectForKey:@"images"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] componentsSeparatedByString:@","];
     _flowLayout = [UICollectionViewFlowLayout new];
     _flowLayout.itemSize = [UIScreen mainScreen].bounds.size;
     _flowLayout.minimumInteritemSpacing = 0;
@@ -32,6 +35,7 @@
     _flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
     _collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:self.flowLayout];
+    [_collectionView registerClass:[LXImageViewerCell class] forCellWithReuseIdentifier:@"LXImageViewerCell"];
     _collectionView.backgroundColor = [UIColor clearColor];
     _collectionView.pagingEnabled = YES;
     _collectionView.showsHorizontalScrollIndicator = NO;
@@ -44,6 +48,16 @@
         make.right.mas_equalTo(0);
         make.top.mas_equalTo(0);
         make.bottom.mas_equalTo(0);
+    }];
+    
+    self.pageControl = [UIPageControl new];
+    _pageControl.numberOfPages = _imageURLs.count;
+    CGSize pageControlSize = [_pageControl sizeForNumberOfPages:_imageURLs.count];
+    [_pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(self.view.mas_centerX);
+        make.height.mas_equalTo(pageControlSize.height);
+        make.width.mas_equalTo(pageControlSize.width);
+        make.bottom.mas_equalTo(self.view.mas_bottom);
     }];
 }
 
@@ -68,11 +82,13 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 0;
+    return self.imageURLs.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    LXImageViewerCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"LXImageViewerCell" forIndexPath:indexPath];
+    [cell reloadViewWithData:[self.imageURLs objectAtIndex:indexPath.row]];
+    return cell;
 }
 
 @end

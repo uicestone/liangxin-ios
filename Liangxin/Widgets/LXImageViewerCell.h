@@ -10,4 +10,6 @@
 
 @interface LXImageViewerCell : UICollectionViewCell
 
+- (void)reloadViewWithData:(NSString *)imageURL;
+
 @end
