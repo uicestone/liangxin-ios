@@ -114,7 +114,7 @@
 }
 
 - (void)showMore:(id)sender {
-    if (self.postId.length > 0) {
+    if (self.postId.length > 0 && self.albums.count > 0) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://class/albums/?id=%@", self.postId]]];
     }
 }

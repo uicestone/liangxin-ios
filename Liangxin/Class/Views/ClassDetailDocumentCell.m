@@ -109,7 +109,7 @@
 }
 
 - (void)showMore:(id)sender {
-    if (self.postId.length > 0) {
+    if (self.postId.length > 0 && self.attachments.count > 0) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://class/documents/?id=%@", self.postId]]];
     }
 }
