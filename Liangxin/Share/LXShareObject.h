@@ -10,6 +10,7 @@
 #import "MTLJSONAdapter.h"
 
 typedef NS_ENUM(NSInteger, LXShareType){
+    LXShareTypeWeChatSession,
     LXShareTypeWeChatTimeline,
     LXShareTypeSinaWeibo,
 };

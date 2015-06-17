@@ -13,9 +13,10 @@
 #import "Definition.h"
 #import "LXRouteManager.h"
 #import "LXShareManager.h"
+#import "WXApi.h"
 
 
-@interface AppDelegate ()
+@interface AppDelegate () <WXApiDelegate>
 @property (nonatomic, strong) UINavigationController* loginNavigationController;
 @end
 
@@ -65,6 +66,11 @@
 }
 
 -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+    
+    if ([url.scheme hasPrefix:@"wx"]) {
+        return [WXApi handleOpenURL:url delegate:self];
+    }
+    
     LXBaseViewController *viewController = (LXBaseViewController *)[[HHRouter shared] matchController:[url absoluteString]];
     [self pushViewController:viewController];
     
@@ -143,6 +149,16 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
+}
+
+#pragma mark - 微信分享
+
+- (void)onReq:(BaseReq *)req {
+    
+}
+
+- (void)onResp:(BaseResp *)resp {
+    
 }
 
 @end

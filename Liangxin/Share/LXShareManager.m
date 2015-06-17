@@ -32,6 +32,7 @@
 
 - (void)shareWithObject:(LXShareObject *)shareObject {
     switch (shareObject.shareType) {
+        case LXShareTypeWeChatSession:
         case LXShareTypeWeChatTimeline: {
             WXMediaMessage *mediaMessage = [[WXMediaMessage alloc] init];
             mediaMessage.title = shareObject.shareTitle;
@@ -45,7 +46,7 @@
             SendMessageToWXReq *wxRequest = [[SendMessageToWXReq alloc] init];
             wxRequest.bText = NO;
             wxRequest.message = mediaMessage;
-            wxRequest.scene = shareObject.shareType == WXSceneTimeline;
+            wxRequest.scene = (shareObject.shareType == LXShareTypeWeChatTimeline?WXSceneTimeline:WXSceneSession);
             [WXApi sendReq:wxRequest];
         }
             break;

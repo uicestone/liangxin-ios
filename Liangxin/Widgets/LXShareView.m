@@ -7,6 +7,7 @@
 //
 
 #import "LXShareView.h"
+#import "LXShareManager.h"
 
 @interface LXShareView()
 
@@ -80,6 +81,8 @@
             shareButton.titleLabel.font = [UIFont systemFontOfSize:10];
             [shareButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
             [shareButton setTitle:shareNames[i] forState:UIControlStateNormal];
+            shareButton.tag = i;
+            [shareButton addTarget:self action:@selector(doShare:) forControlEvents:UIControlEventTouchUpInside];
             CGFloat spacing = 0;
             CGSize imageSize = shareButton.imageView.image.size;
             shareButton.titleEdgeInsets = UIEdgeInsetsMake(0.0, - imageSize.width, - (imageSize.height + spacing), 0.0);
@@ -122,6 +125,28 @@
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];
+}
+
+- (void)doShare:(UIButton *)sender {
+    switch (sender.tag) {
+        case 0:
+            break;
+        case 1: {
+            
+        }
+            break;
+        case 2: {
+            LXShareObject *shareObject = [LXShareObject new];
+            shareObject.shareTitle = @"高大上客户端";
+            shareObject.shareThumbImage = [UIImage imageNamed:@"ShareIcon"];
+            shareObject.shareType = LXShareTypeWeChatSession;
+            shareObject.shareURL = @"http://www.baidu.com";
+            [[LXShareManager sharedManager] shareWithObject:shareObject];
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 @end
