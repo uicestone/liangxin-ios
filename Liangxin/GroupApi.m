@@ -11,6 +11,7 @@
 #import "Group.h"
 #import "Post.h"
 
+
 static NSArray *groups = nil;
 
 @implementation GroupApi
@@ -21,10 +22,11 @@ static NSArray *groups = nil;
     [ApiBase getJSONWithPath:@"/group" data:nil success:^(id responseObject) {
         for(int i = 0 ; i < [responseObject count]; i ++){
             NSDictionary * jsonObj = [responseObject objectAtIndex:i];
+            
             Group * g = [Group new];
-            g.groupid = [[jsonObj objectForKey:@"id"] intValue];
-            if([NSNull null] != [jsonObj objectForKey:@"parent"]) {
-                g.parentid = [[jsonObj objectForKey:@"parent"] intValue];
+            g.id = [[jsonObj objectForKey:@"id"] intValue];
+            if([NSNull null] != [jsonObj objectForKey:@"parent_id"]) {
+                g.parent_id = [[jsonObj objectForKey:@"parent_id"] intValue];
             }
             g.name = [jsonObj objectForKey:@"name"];
             g.isLeaf = [jsonObj objectForKey:@"children"] == nil || [NSNull null] == [jsonObj objectForKey:@"children"];
@@ -48,6 +50,7 @@ static NSArray *groups = nil;
 }
 
 
+
 +(NSArray *)getGroupsWithParentId:(int) parentId{
     if(!groups){
         return nil;
@@ -55,7 +58,7 @@ static NSArray *groups = nil;
     
     // 这里可以加一个缓存
     return [groups objectsAtIndexes:[groups indexesOfObjectsPassingTest:^BOOL(Group* obj, NSUInteger idx, BOOL *stop) {
-        return [obj parentid] == parentId;
+        return [obj parent_id] == parentId;
     }]];
 }
 
@@ -64,7 +67,7 @@ static NSArray *groups = nil;
         return nil;
     }
     NSArray* matches = [groups objectsAtIndexes:[groups indexesOfObjectsPassingTest:^BOOL(Group* obj, NSUInteger idx, BOOL *stop) {
-        return obj.groupid == groupId;
+        return obj.id == groupId;
     }]];
     
     return [matches objectAtIndex:0];

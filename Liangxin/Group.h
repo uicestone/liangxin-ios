@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface Group : NSObject
-@property int groupid;
-@property int parentid;
+@property int id;
+@property int parent_id;
 @property NSString *name;
 @property BOOL isLeaf;
 @end
