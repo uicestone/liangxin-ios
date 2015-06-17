@@ -1,18 +1,18 @@
 //
-//  ClassDetalViewController.m
+//  ClassArticleViewController.m
 //  Liangxin
 //
 //  Created by xiebohui on 6/17/15.
 //  Copyright (c) 2015 Hsu Spud. All rights reserved.
 //
 
-#import "ClassDetalViewController.h"
+#import "ClassArticleViewController.h"
 
-@interface ClassDetalViewController ()
+@interface ClassArticleViewController ()
 
 @end
 
-@implementation ClassDetalViewController
+@implementation ClassArticleViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

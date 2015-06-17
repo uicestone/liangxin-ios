@@ -1,5 +1,5 @@
 //
-//  ClassDetalViewController.h
+//  ClassArticleViewController.h
 //  Liangxin
 //
 //  Created by xiebohui on 6/17/15.
@@ -8,6 +8,6 @@
 
 #import "LXBaseViewController.h"
 
-@interface ClassDetalViewController : LXBaseViewController
+@interface ClassArticleViewController : LXBaseViewController
 
 @end
