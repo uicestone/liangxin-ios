@@ -12,7 +12,7 @@
 
 @implementation LXJSBridge (User)
 -(void)getUser:(NSDictionary *)params{
-    LXBaseModelUser* user = [UserApi getCurrentUser];
+    LXBaseModelUser* user = [[UserApi shared] getCurrentUser];
     if(user){
         [self completeWithResult: @{
                                     @"id": user.id,

@@ -41,7 +41,7 @@
 }
 
 - (void)dismissLoginViewController:(id)sender {
-    if (self.finishBlock && [UserApi getCurrentUser]) {
+    if (self.finishBlock && [[UserApi shared] getCurrentUser]) {
         self.finishBlock();
     }
     [self dismissViewController];
@@ -114,7 +114,7 @@
         @strongify(self);
         processing = NO;
         LXBaseModelUser* user = [LXBaseModelUser modelWithDictionary: responseObject error:nil];
-        [UserApi setCurrentUser: user];
+        [[UserApi shared] setCurrentUser: user];
         [self hideProgress];
         [self dismissViewController];
         self.finishBlock();

@@ -112,7 +112,7 @@
 }
 
 -(void)assureLoginWithViewController:(LXBaseViewController*)viewController finish:(LoginFinishBlock)loginFinish{
-    if([viewController needLogin] && ![UserApi getCurrentUser]){
+    if([viewController needLogin] && ![[UserApi shared] getCurrentUser]){
         [self popLoginWithFinishHandler:loginFinish];
     }else{
         loginFinish();

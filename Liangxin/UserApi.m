@@ -12,11 +12,21 @@
 
 
 @implementation UserApi 
+@synthesize currentUser;
++ (instancetype)shared
+{
+    static UserApi* api = nil;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        if (!api) {
+            api = [[self alloc] init];
+        }
+    });
+    return api;
+}
 
-
-__strong static LXBaseModelUser* currentUser;
-
-+(LXBaseModelUser *)getCurrentUser{
+-(LXBaseModelUser *)getCurrentUser{
     if(!currentUser){
         NSData* userData = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
         currentUser = [NSKeyedUnarchiver unarchiveObjectWithData:userData];
@@ -25,7 +35,7 @@ __strong static LXBaseModelUser* currentUser;
     return currentUser;
 }
 
-+(void)setCurrentUser:(LXBaseModelUser *)user{
+-(void)setCurrentUser:(LXBaseModelUser *)user{
     NSData *serialized = [NSKeyedArchiver archivedDataWithRootObject:user];
     [[NSUserDefaults standardUserDefaults] setObject:serialized forKey:@"user"];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -33,7 +43,7 @@ __strong static LXBaseModelUser* currentUser;
     currentUser = user;
 }
 
-+(void) getUsersByGroupId:(int) groupId successHandler:(void (^)(NSArray *users))successHandler errorHandler:(void (^)(NSError *error))errorHandler{
+-(void) getUsersByGroupId:(int) groupId successHandler:(void (^)(NSArray *users))successHandler errorHandler:(void (^)(NSError *error))errorHandler{
 
     NSDictionary* data = @{@"group_id":[NSNumber numberWithInt:groupId]};
     [ApiBase getJSONWithPath:@"/user" data:data success:^(id responseObject) {

@@ -12,6 +12,8 @@
 #import "LXBaseTableViewCell.h"
 #import "PostItemCell.h"
 #import "Post.h"
+#import "LXNetworkManager.h"
+#import "UserApi.h"
 
 
 #define kReuseIdentifier @"postItemCell"
@@ -77,17 +79,34 @@
 -(void)tabview:(LXTabView *)tabview tappedAtIndex:(int)index{
     
     [self showProgress];
-    [PostApi getPostsByQuery:@{
-                               @"group_id": [NSString stringWithFormat:@"%@", self.currentUser.group[@"id"]],
-                               @"type": index == 0 ? @"公告" : @"文章"
-                               } successHandler:^(NSArray *posts) {
-                                   [self hideProgress];
-                                   viewPosts = posts;
-                                   [self.tableview reloadData];
-                               } errorHandler:^(NSError *error) {
-                                   [self hideProgress];
-                                   // <#code#>
-                               }];
+    @weakify(self)
+    LXNetworkPostParameters* parameters = [LXNetworkPostParameters new];
+    
+    parameters.group_id = [[UserApi shared] getCurrentUser].group[@"id"];
+    parameters.type = index == 0 ? @"公告" : @"文章";
+    
+    [[[LXNetworkManager sharedManager] getPostByParameters:parameters] subscribeNext:^(NSArray *posts) {
+        @strongify(self)
+        [self hideProgress];
+        self.viewPosts = posts;
+        [self.tableview reloadData];
+    } error:^(NSError *error) {
+        
+    } completed:^{
+        @strongify(self)
+        [self hideProgress];
+    }];
+    
+//    
+//    [PostApi getPostsByQuery:@{
+//                               } successHandler:^(NSArray *posts) {
+//                                   [self hideProgress];
+//                                   viewPosts = posts;
+//                                   [self.tableview reloadData];
+//                               } errorHandler:^(NSError *error) {
+//                                   [self hideProgress];
+//                                   // <#code#>
+//                               }];
 }
 
 

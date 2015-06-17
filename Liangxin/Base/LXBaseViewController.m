@@ -46,7 +46,7 @@
     if(self.navigationController.viewControllers.count > 1){
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.backButton];
     }
-    self.currentUser = [UserApi getCurrentUser];
+    self.currentUser = [[UserApi shared] getCurrentUser];
     
     
     if([self hasToolBar]){
@@ -164,7 +164,7 @@
         }
             break;
         case 2: {
-            if ([UserApi getCurrentUser]) {
+            if ([[UserApi shared] getCurrentUser]) {
                 @weakify(self)
                 [[[LXNetworkManager sharedManager] favoritePostById:self.postId] subscribeNext:^(id x) {
                     @strongify(self)
@@ -193,7 +193,7 @@
         }
             break;
         case 3: {
-            if ([UserApi getCurrentUser]) {
+            if ([[UserApi shared] getCurrentUser]) {
                 @weakify(self)
                 [[[LXNetworkManager sharedManager] likePostById:self.postId] subscribeNext:^(id x) {
                     @strongify(self)
@@ -253,7 +253,7 @@
 
 
 - (void)showPublishActionSheet{
-    LXBaseModelUser* user = [UserApi getCurrentUser];
+    LXBaseModelUser* user = [[UserApi shared] getCurrentUser];
     UIActionSheet* actionSheet;
     
     if([user.role isEqualToString:@"user"]){
@@ -279,7 +279,7 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
 //    NSArray* publishTypes = @[@"class",@"activity",@"notice",@"article",@"image"];
     NSArray* publishTypes;
-    LXBaseModelUser* user = [UserApi getCurrentUser];
+    LXBaseModelUser* user = [[UserApi shared] getCurrentUser];
     if([user.role isEqualToString:@"user"]){
         publishTypes = @[@"notice",@"article",@"image"];
     }else{

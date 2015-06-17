@@ -10,6 +10,7 @@
 
 @interface PostApi : NSObject
 
+
 +(void)getPostsByQuery:(NSDictionary*)query successHandler:(void (^)(NSArray * posts))successHandler errorHandler:(void (^)(NSError *error))errorHandler;
 
 + (void)getPostsByGroupId:(int) groupId andType:(NSString *)type successHandler:(void (^)(NSArray * posts))successHandler errorHandler:(void (^)(NSError *error))errorHandler;
