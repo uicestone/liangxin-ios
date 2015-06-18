@@ -14,7 +14,6 @@
 @property (nonatomic, strong) UITableView *tableView;
 
 @property (nonatomic, strong) NSMutableArray *attendees;
-@property (nonatomic, copy) NSString *postId;
 
 @end
 
@@ -39,6 +38,7 @@
         make.bottom.mas_equalTo(0);
     }];
     self.postId = [self.params objectForKey:@"id"];
+    [self showProgress];
     @weakify(self)
     [[[LXNetworkManager sharedManager] getPostDetailById:[self.params objectForKey:@"id"]] subscribeNext:^(LXBaseModelPost *x) {
         @strongify(self)
@@ -46,6 +46,9 @@
         [self.tableView reloadData];
     } error:^(NSError *error) {
         
+    } completed:^{
+        @strongify(self)
+        [self hideProgress];
     }];
 }
 

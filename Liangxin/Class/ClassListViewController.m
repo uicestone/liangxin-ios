@@ -62,6 +62,7 @@
     if ([self.params objectForKey:@"order_by"]) {
         self.parameters.class_type = [[self.params objectForKey:@"order_by"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     }
+    [self showProgress];
     @weakify(self)
     [[[LXNetworkManager sharedManager] getPostByParameters:self.parameters] subscribeNext:^(NSArray *posts) {
         @strongify(self)
@@ -78,6 +79,9 @@
         }
     } error:^(NSError *error) {
         
+    } completed:^{
+        @strongify(self)
+        [self hideProgress];
     }];
 }
 
@@ -94,6 +98,7 @@
         NSInteger nextPageNumber = self.pageNumber + 1;
         self.parameters.page = @(nextPageNumber);
         self.isLoading = YES;
+        [self showProgress];
         @weakify(self)
         [[[LXNetworkManager sharedManager] getPostByParameters:self.parameters] subscribeNext:^(NSArray *x) {
             @strongify(self)
@@ -110,6 +115,7 @@
         } completed:^{
             @strongify(self)
             self.isLoading = NO;
+            [self hideProgress];
         }];
     }
 }

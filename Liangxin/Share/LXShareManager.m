@@ -54,7 +54,7 @@
             WBMessageObject *messageObject = [[WBMessageObject alloc] init];
             WBImageObject *imageObject = [[WBImageObject alloc] init];
             imageObject.imageData = UIImageJPEGRepresentation(shareObject.shareThumbImage, 0.8);
-            messageObject.text = [NSString stringWithFormat:@"%@：%@ 分享链接：%@", shareObject.shareTitle, shareObject.shareDescription, shareObject.shareURL];
+            messageObject.text = [NSString stringWithFormat:@"%@：%@ 分享链接：%@", shareObject.shareTitle?:@"", shareObject.shareDescription?:@"", shareObject.shareURL?:@""];
             messageObject.imageObject = imageObject;
             WBSendMessageToWeiboRequest *wbRequest = [WBSendMessageToWeiboRequest requestWithMessage:messageObject];
             [WeiboSDK sendRequest:wbRequest];

@@ -224,7 +224,12 @@
         }
             break;
         case 4: {
-            [self popModalToPath:[@"/comment/" stringByAppendingString:self.postId]];
+            self.isModel = YES;
+            @weakify(self)
+            [self popModalToPath:[@"/comment/" stringByAppendingString:self.postId] completion:^{
+                @strongify(self)
+                self.isModel = NO;
+            }];
         }
         default:
             break;
@@ -291,7 +296,7 @@
     if(buttonIndex < publishTypes.count){
         [actionSheet dismissWithClickedButtonIndex:buttonIndex animated:YES];
         NSString* path = [@"/publish/?type=" stringByAppendingString: [publishTypes objectAtIndex:buttonIndex]];
-        [self popModalToPath:path];
+        [self popModalToPath:path completion:NULL];
     }
 }
 
@@ -310,7 +315,7 @@
     return NO;
 }
 
-- (void)popModalToPath:(NSString *)path{
+- (void)popModalToPath:(NSString *)path completion:(void (^)(void))completion {
     LXBaseViewController *viewController = (LXBaseViewController *)[[HHRouter shared] matchController:path];
     
     Channels* channels = [Channels shared];
@@ -333,7 +338,7 @@
     
     
     viewController.delegate = self;
-    [self presentViewController:navigationController animated:YES completion:nil];
+    [self presentViewController:navigationController animated:YES completion:completion];
 }
 
 - (void)navigateToPath:(NSString *)path{
@@ -364,7 +369,7 @@
 
 -(void)hideProgress{
     if(_progress){
-        _progress.hidden = YES;
+        [_progress hide:YES];
     }
 }
 

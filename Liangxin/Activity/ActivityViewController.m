@@ -162,7 +162,8 @@
         make.right.mas_equalTo(0);
         make.bottom.mas_equalTo(-44);
     }];
-
+    
+    [self showProgress];
     @weakify(self)
     [[[LXNetworkManager sharedManager] getBannersByType:LXBannerTypeClass] subscribeNext:^(id x) {
         @strongify(self)
@@ -175,6 +176,9 @@
         self.carouselView.imageURLsGroup = bannerURLs;
     } error:^(NSError *error) {
         
+    } completed:^{
+        @strongify(self)
+        [self hideProgress];
     }];
     
     self.parameters = [LXNetworkPostParameters new];
@@ -206,6 +210,7 @@
         NSInteger nextPageNumber = self.pageNumber + 1;
         self.parameters.page = @(nextPageNumber);
         self.isLoading = YES;
+        [self showProgress];
         @weakify(self)
         [[[LXNetworkManager sharedManager] getPostByParameters:self.parameters] subscribeNext:^(NSArray *x) {
             @strongify(self)
@@ -222,6 +227,7 @@
         } completed:^{
             @strongify(self)
             self.isLoading = NO;
+            [self hideProgress];
         }];
     }
 }
