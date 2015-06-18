@@ -115,6 +115,7 @@
         processing = NO;
         LXBaseModelUser* user = [LXBaseModelUser modelWithDictionary: responseObject error:nil];
         [[UserApi shared] setCurrentUser: user];
+        [[NSNotificationCenter defaultCenter] postNotificationName:LXNotificationLoginSuccess object:nil];
         [self hideProgress];
         [self dismissViewController];
         self.finishBlock();

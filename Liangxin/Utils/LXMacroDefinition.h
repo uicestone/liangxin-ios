@@ -25,5 +25,6 @@
  */
 #define LXNotificationLikeSuccess   @"LXNotificationLikeSuccess"
 #define LXNotificationFavSuccess    @"LXNotificationFavSuccess"
+#define LXNotificationLoginSuccess  @"LXNotificationLoginSuccess"
 
 #endif
