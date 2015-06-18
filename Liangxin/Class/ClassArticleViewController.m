@@ -36,6 +36,7 @@
         make.top.mas_equalTo(0);
         make.bottom.mas_equalTo(0);
     }];
+    [self showProgress];
     @weakify(self)
     [[[LXNetworkManager sharedManager] getArticlesByPostId:[self.params objectForKey:@"id"]] subscribeNext:^(id x) {
         @strongify(self)
@@ -43,6 +44,9 @@
         [self.tableView reloadData];
     } error:^(NSError *error) {
         
+    } completed:^{
+        @strongify(self)
+        [self hideProgress];
     }];
 }
 
