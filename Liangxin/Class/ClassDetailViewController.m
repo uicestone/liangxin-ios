@@ -100,7 +100,7 @@
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.animationType = MBProgressHUDAnimationFade;
         hud.mode = MBProgressHUDModeText;
-        hud.labelText = @"您已经赞了该课堂";
+        hud.labelText = @"您已经点赞该课堂";
         [hud hide:YES afterDelay:1];
     }
     else {
