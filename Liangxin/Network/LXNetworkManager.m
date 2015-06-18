@@ -300,4 +300,18 @@
     }];
 }
 
+- (RACSignal *)shareByShareTitle:(NSString *)shareTitle shareURL:(NSString *)shareURL {
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        NSURLSessionDataTask *task = [self.sessionManager POST:@"/api/v1/post" parameters:@{@"type":@"分享", @"title":shareTitle?:@"", @"url":shareURL?:@""} success:^(NSURLSessionDataTask *task, id responseObject) {
+            [subscriber sendNext:responseObject];
+            [subscriber sendCompleted];
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            [subscriber sendError:error];
+        }];
+        return [RACDisposable disposableWithBlock:^{
+            [task cancel];
+        }];
+    }];
+}
+
 @end

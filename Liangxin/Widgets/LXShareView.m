@@ -130,7 +130,22 @@
 - (void)doShare:(UIButton *)sender {
     switch (sender.tag) {
         case 0: {
-            
+            @weakify(self)
+            [[[LXNetworkManager sharedManager] shareByShareTitle:self.shareObject.shareTitle shareURL:self.shareObject.shareURL] subscribeNext:^(id x) {
+                @strongify(self)
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.targetView animated:YES];
+                hud.animationType = MBProgressHUDAnimationFade;
+                hud.mode = MBProgressHUDModeText;
+                hud.labelText = @"分享成功";
+                [hud hide:YES afterDelay:1];
+            } error:^(NSError *error) {
+                @strongify(self)
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.targetView animated:YES];
+                hud.animationType = MBProgressHUDAnimationFade;
+                hud.mode = MBProgressHUDModeText;
+                hud.labelText = @"分享失败";
+                [hud hide:YES afterDelay:1];
+            }];
         }
             break;
         case 1: {
