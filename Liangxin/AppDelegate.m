@@ -15,6 +15,8 @@
 #import "LXShareManager.h"
 #import "WXApi.h"
 #import "WeiboSDK.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 
 
 @interface AppDelegate () <WXApiDelegate, WeiboSDKDelegate>
@@ -29,6 +31,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [Fabric with:@[CrashlyticsKit]];
+
     
     
     window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
