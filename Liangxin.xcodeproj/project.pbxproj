@@ -30,6 +30,8 @@
 		2215D96D1B10D08A00D96C46 /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215D9681B10D08A00D96C46 /* TADotView.m */; };
 		2215D96E1B10D08A00D96C46 /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215D96A1B10D08A00D96C46 /* TAPageControl.m */; };
 		221DF3421B306772002FF7DE /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 221DF3411B306772002FF7DE /* CommentViewController.m */; };
+		221DF34E1B327388002FF7DE /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 221DF34C1B327388002FF7DE /* Fabric.framework */; };
+		221DF34F1B327388002FF7DE /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 221DF34D1B327388002FF7DE /* Crashlytics.framework */; };
 		22238C1B1AF64F02000B4F95 /* Channels.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C1A1AF64F02000B4F95 /* Channels.m */; };
 		22238C541AFBACA5000B4F95 /* BannerApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C531AFBACA5000B4F95 /* BannerApi.m */; };
 		22238C571AFBAE30000B4F95 /* ApiBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C561AFBAE30000B4F95 /* ApiBase.m */; };
@@ -207,6 +209,8 @@
 		2215D96A1B10D08A00D96C46 /* TAPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAPageControl.m; sourceTree = "<group>"; };
 		221DF3401B306772002FF7DE /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
 		221DF3411B306772002FF7DE /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
+		221DF34C1B327388002FF7DE /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		221DF34D1B327388002FF7DE /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		22238C191AF64F02000B4F95 /* Channels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Channels.h; sourceTree = "<group>"; };
 		22238C1A1AF64F02000B4F95 /* Channels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Channels.m; sourceTree = "<group>"; };
 		22238C521AFBACA5000B4F95 /* BannerApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerApi.h; sourceTree = "<group>"; };
@@ -474,8 +478,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D0000311B258E7E00106110 /* libc++.dylib in Frameworks */,
+				221DF34F1B327388002FF7DE /* Crashlytics.framework in Frameworks */,
 				2D00002F1B258E0200106110 /* libsqlite3.0.dylib in Frameworks */,
 				2D00002D1B258DF900106110 /* libz.dylib in Frameworks */,
+				221DF34E1B327388002FF7DE /* Fabric.framework in Frameworks */,
 				2D00002B1B258DED00106110 /* SystemConfiguration.framework in Frameworks */,
 				2D00FFCA1B25828600106110 /* libWeChatSDK.a in Frameworks */,
 				2D00FFD71B2582D000106110 /* libWeiboSDK.a in Frameworks */,
@@ -619,6 +625,8 @@
 		223267B71AF2661B00431132 = {
 			isa = PBXGroup;
 			children = (
+				221DF34C1B327388002FF7DE /* Fabric.framework */,
+				221DF34D1B327388002FF7DE /* Crashlytics.framework */,
 				223267C21AF2661B00431132 /* Liangxin */,
 				223267C11AF2661B00431132 /* Products */,
 				F41337B7084173F8F4E37747 /* Pods */,
@@ -1097,6 +1105,7 @@
 				223267BD1AF2661B00431132 /* Frameworks */,
 				223267BE1AF2661B00431132 /* Resources */,
 				CEF473974E9EF0D15F8374E9 /* Copy Pods Resources */,
+				221DF3431B326C2D002FF7DE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1163,6 +1172,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		221DF3431B326C2D002FF7DE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 57d8c822db1b42cfd61ce592c38eab9734e55a9e 4e857269de15b4cc81ecc2552400f80454b51bf3ae180583875ec1bb62de6c6d";
+		};
 		6BF833AB3896044568595B59 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1393,11 +1415,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jiayi Xu (9B5M2V5PYT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jiayi Xu (LJWWUZH366)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREFIX_HEADER = Liangxin/LXPrefixHeader.pch;
 				INFOPLIST_FILE = Liangxin/Info.plist;
@@ -1411,7 +1434,7 @@
 					"$(PROJECT_DIR)/Liangxin/Vender/Weibo",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2135ed6f-fda9-4df2-bf18-ed657aa4f9aa";
+				PROVISIONING_PROFILE = "";
 			};
 			name = "ad hoc distribution";
 		};
@@ -1501,11 +1524,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jiayi Xu (9B5M2V5PYT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREFIX_HEADER = Liangxin/LXPrefixHeader.pch;
 				INFOPLIST_FILE = Liangxin/Info.plist;
@@ -1519,7 +1543,7 @@
 					"$(PROJECT_DIR)/Liangxin/Vender/Weibo",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2135ed6f-fda9-4df2-bf18-ed657aa4f9aa";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1529,11 +1553,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jiayi Xu (9B5M2V5PYT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREFIX_HEADER = Liangxin/LXPrefixHeader.pch;
 				INFOPLIST_FILE = Liangxin/Info.plist;
@@ -1547,7 +1572,7 @@
 					"$(PROJECT_DIR)/Liangxin/Vender/Weibo",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2135ed6f-fda9-4df2-bf18-ed657aa4f9aa";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
