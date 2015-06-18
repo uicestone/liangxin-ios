@@ -364,7 +364,7 @@
 
 -(void)hideProgress{
     if(_progress){
-        _progress.hidden = YES;
+        [_progress hide:YES];
     }
 }
 
