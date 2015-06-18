@@ -35,6 +35,7 @@
     self.flowLayout.minimumLineSpacing = 5;
     self.flowLayout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
     [self.collectionView registerClass:[ClassAlbumCollectionCell class] forCellWithReuseIdentifier:@"ClassAlbumCollectionCell"];
+    [self showProgress];
     @weakify(self)
     [[[LXNetworkManager sharedManager] getAlbumsByPostId:[self.params objectForKey:@"id"]] subscribeNext:^(NSArray *posts) {
         @strongify(self)
@@ -42,6 +43,9 @@
         [self.collectionView reloadData];
     } error:^(NSError *error) {
         
+    } completed:^{
+        @strongify(self)
+        [self hideProgress];
     }];
 }
 
