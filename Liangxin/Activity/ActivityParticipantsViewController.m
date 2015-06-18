@@ -14,7 +14,6 @@
 @property (nonatomic, strong) UITableView *tableView;
 
 @property (nonatomic, strong) NSMutableArray *attendees;
-@property (nonatomic, copy) NSString *postId;
 
 @end
 
