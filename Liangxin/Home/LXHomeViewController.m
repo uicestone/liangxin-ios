@@ -11,6 +11,7 @@
 #import "LXNetworkManager.h"
 #import "LXCarouselView.h"
 #import "LXBaseModelPost.h"
+#import "UserApi.h"
 
 @interface LXHomeViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -115,7 +116,14 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://%@", self.channelSchemes[indexPath.row]]]];
+    if (![[UserApi shared] getCurrentUser] && (indexPath.row == 2 || indexPath.row == 3)) {
+        [self popLoginWithFinishHandler:^{
+            
+        }];
+    }
+    else {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://%@", self.channelSchemes[indexPath.row]]]];
+    }
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
