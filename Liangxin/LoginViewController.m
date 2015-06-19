@@ -41,10 +41,10 @@
 }
 
 - (void)dismissLoginViewController:(id)sender {
+    [self dismissViewController];
     if (self.finishBlock && [[UserApi shared] getCurrentUser]) {
         self.finishBlock();
     }
-    [self dismissViewController];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -117,8 +117,7 @@
         [[UserApi shared] setCurrentUser: user];
         [[NSNotificationCenter defaultCenter] postNotificationName:LXNotificationLoginSuccess object:nil];
         [self hideProgress];
-        [self dismissViewController];
-        self.finishBlock();
+        [self dismissLoginViewController:nil];
     } error:^(AFHTTPRequestOperation *operation, NSError* error) {
         @strongify(self);
         NSLog(@"err %@", error);

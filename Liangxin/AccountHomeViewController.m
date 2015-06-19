@@ -9,6 +9,7 @@
 #import "AccountHomeViewController.h"
 #import "Definition.h"
 #import "UserApi.h"
+#import "Channels.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 
 
@@ -32,6 +33,8 @@
     
     self.view.backgroundColor = UIColorFromRGB(0xf1f1f2);
     
+    Channels* channels = [Channels shared];
+    [self.navigationController.navigationBar setBarTintColor: [channels colorAtIndex:5]];
     
     [self initHead];
     [self initTabs];
@@ -51,8 +54,6 @@
 
 -(void)initHead{
     self.title = @"我的账号";
-    
-    [[_userApi class] getCurrentUser];
     
     @weakify(self)
     headerContainer = [UIView new];

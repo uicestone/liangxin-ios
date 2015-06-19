@@ -14,6 +14,7 @@
 #import "ClassDetailViewController.h"
 #import "ClassListViewController.h"
 #import "LXNetworkManager.h"
+#import "Channels.h"
 
 @interface ClassViewController () <UITableViewDataSource, UITableViewDelegate, LXBannerViewDelegate>
 
@@ -32,8 +33,17 @@
 
 @implementation ClassViewController
 
+- (BOOL)needLogin{
+    return YES;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    Channels* channels = [Channels shared];
+    [self.navigationController.navigationBar setBarTintColor: [channels colorAtIndex:2]];
+    
     [self commonInit];
 }
 

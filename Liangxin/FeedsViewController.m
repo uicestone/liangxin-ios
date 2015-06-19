@@ -14,7 +14,7 @@
 #import "Post.h"
 #import "LXNetworkManager.h"
 #import "UserApi.h"
-
+#import "Channels.h"
 
 #define kReuseIdentifier @"postItemCell"
 
@@ -29,15 +29,18 @@
 @synthesize tabview, tableview;
 @synthesize viewPosts;
 
+- (BOOL)needLogin{
+    return YES;
+}
+
 - (BOOL)hasToolBar{
     return YES;}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
+    Channels* channels = [Channels shared];
+    [self.navigationController.navigationBar setBarTintColor: [channels colorAtIndex:3]];
     self.title = @"党群动态";
-    [super viewDidLoad];
     
     viewPosts = [NSArray new];
     // init tabs
