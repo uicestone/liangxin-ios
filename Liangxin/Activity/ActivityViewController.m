@@ -138,7 +138,7 @@
     }
     
     LXBannerView *bannerView = [LXBannerView new];
-    bannerView.titles = @[@"爱摄影", @"做公益", @"文艺迷", @"体育狂", @"张知识", @"学环保"];
+    bannerView.titles = @[@"爱摄影", @"做公益", @"文艺迷", @"体育狂", @"长知识", @"学环保"];
     bannerView.images = @[@"Banner_ISY", @"Banner_ZGY", @"Banner_WYM", @"Banner_TYK", @"Banner_ZZS", @"Banner_XHB"];
     bannerView.backgroundColor = [UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0];
     bannerView.delegate = self;

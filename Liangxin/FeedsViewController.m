@@ -85,7 +85,6 @@
     @weakify(self)
     LXNetworkPostParameters* parameters = [LXNetworkPostParameters new];
     
-    parameters.group_id = [[UserApi shared] getCurrentUser].group[@"id"];
     parameters.type = index == 0 ? @"公告" : @"文章";
     
     [[[LXNetworkManager sharedManager] getPostByParameters:parameters] subscribeNext:^(NSArray *posts) {
