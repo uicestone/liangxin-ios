@@ -11,9 +11,16 @@
 @implementation LXBaseModelPost
 
 - (void)setNilValueForKey:(NSString *)key {
-    if([key isEqualToString:@"attended"]){
+    if ([key isEqualToString:@"liked"]) {
+        self.liked = NO;
+    }
+    else if ([key isEqualToString:@"attended"]) {
         self.attended = NO;
-    }else{
+    }
+    else if ([key isEqualToString:@"is_favorite"]) {
+        self.is_favorite = NO;
+    }
+    else {
         return [super setNilValueForKey:key];
     }
 }
