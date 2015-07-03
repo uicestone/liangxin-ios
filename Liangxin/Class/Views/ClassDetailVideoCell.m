@@ -97,7 +97,8 @@
         }
         else {
             _videos = [NSMutableArray arrayWithArray:data.videos];
-            for (NSInteger i = 0; i < data.videos.count; i++) {
+            NSInteger count = data.videos.count > 3?3:data.videos.count;
+            for (NSInteger i = 0; i < count; i++) {
                 UILabel *videoLabel = [self.videoLabels objectAtIndex:i];
                 UIButton *videoButton = [self.videoButtons objectAtIndex:i];
                 videoButton.hidden = NO;
