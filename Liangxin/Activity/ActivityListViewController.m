@@ -57,10 +57,10 @@
     self.parameters.type = @"活动";
     self.parameters.page = @(self.pageNumber);
     if ([self.params objectForKey:@"event_type"]) {
-        self.parameters.class_type = [[self.params objectForKey:@"event_type"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        self.parameters.event_type = [[self.params objectForKey:@"event_type"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     }
     if ([self.params objectForKey:@"order_by"]) {
-        self.parameters.class_type = [[self.params objectForKey:@"order_by"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        self.parameters.order_by = [[self.params objectForKey:@"order_by"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     }
     if ([self.params objectForKey:@"keyword"]) {
         self.parameters.keyword = [[self.params objectForKey:@"keyword"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];

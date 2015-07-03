@@ -24,4 +24,5 @@
         return [super setNilValueForKey:key];
     }
 }
+
 @end
