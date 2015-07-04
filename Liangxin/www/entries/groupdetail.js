@@ -38,7 +38,11 @@ fetch({
 	bridge.hideProgress();
 
 	// 头像
-	$(".avatar").attr("src", result.avatar + "?imageView2/1/w/100/h/100");
+	$(".avatar").attr("src", 
+		result.avatar 
+		? (result.avatar + "?imageView2/1/w/100/h/100") 
+		: "./image/default-avatar.png"
+		);
 
 	var $followBtn = $(".btn-follow");
 	var following = result.following;
