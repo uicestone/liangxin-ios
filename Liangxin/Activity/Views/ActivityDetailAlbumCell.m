@@ -10,7 +10,6 @@
 
 @interface ActivityDetailAlbumCell()
 
-@property (nonatomic, strong) UILabel *defaultLabel;
 @property (nonatomic, strong) NSMutableArray *albumButtons;
 @property (nonatomic, strong) NSMutableArray *albumLabels;
 @property (nonatomic, strong) NSMutableArray *albums;
@@ -24,62 +23,38 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        _albumButtons = [NSMutableArray array];
-        _albumLabels = [NSMutableArray array];
-        for (NSInteger i = 0; i < 2; i++) {
-            UIButton *albumButton = [UIButton buttonWithType:UIButtonTypeCustom];
-            albumButton.backgroundColor = [UIColor colorWithRed:169/255.0 green:171.0/255.0 blue:174.0/255.0 alpha:1.0];
-            albumButton.hidden = YES;
-            [self.baseView addSubview:albumButton];
-            [_albumButtons addObject:albumButton];
-            if (i == 0) {
-                [albumButton mas_makeConstraints:^(MASConstraintMaker *make) {
-                    make.left.mas_equalTo(20);
-                    make.top.mas_equalTo(5);
-                    make.bottom.mas_equalTo(-5);
-                    make.width.mas_equalTo((CGRectGetWidth([UIScreen mainScreen].bounds) - 55)/3);
-                }];
-            }
-            else {
-                UIButton *prevButton = [_albumButtons objectAtIndex:i - 1];
-                [albumButton mas_makeConstraints:^(MASConstraintMaker *make) {
-                    make.left.equalTo(prevButton.mas_right).offset(15);
-                    make.top.mas_equalTo(5);
-                    make.bottom.mas_equalTo(-5);
-                    make.width.mas_equalTo((CGRectGetWidth([UIScreen mainScreen].bounds) - 55)/3);
-                }];
-            }
-            UILabel *albumLabel = [UILabel new];
-            albumLabel.textAlignment = NSTextAlignmentCenter;
-            albumLabel.font = [UIFont systemFontOfSize:13.0];
-            albumLabel.backgroundColor = [UIColor colorWithRed:80/255.0 green:80/255.0 blue:80/255.0 alpha:1.0];
-            [albumButton addSubview:albumLabel];
-            [_albumLabels addObject:albumLabel];
-            [albumLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.mas_equalTo(0);
-                make.right.mas_equalTo(0);
-                make.bottom.mas_equalTo(0);
-                make.height.mas_equalTo(15);
-            }];
-        }
-        _defaultLabel = [UILabel new];
-        _defaultLabel.text = @"暂无相册";
-        _defaultLabel.textColor = [UIColor lightGrayColor];
-        _defaultLabel.font = [UIFont systemFontOfSize:15.0];
-        _defaultLabel.hidden = YES;
-        [self.baseView addSubview:_defaultLabel];
-        [_defaultLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(20);
-            make.top.mas_equalTo(0);
-            make.right.mas_equalTo(0);
-            make.bottom.mas_equalTo(0);
-        }];
+
     }
     return self;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+}
+
+- (void)commonInit {
+    _albumButtons = [NSMutableArray array];
+    _albumLabels = [NSMutableArray array];
+    for (NSInteger i = 0; i < 2; i++) {
+        UIButton *albumButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        albumButton.backgroundColor = [UIColor colorWithRed:169/255.0 green:171.0/255.0 blue:174.0/255.0 alpha:1.0];
+        albumButton.hidden = YES;
+        [self.baseView addSubview:albumButton];
+        [_albumButtons addObject:albumButton];
+        albumButton.frame = CGRectMake(20 * (i + 1) + i * (CGRectGetWidth([UIScreen mainScreen].bounds) - 80)/3, 5, (CGRectGetWidth([UIScreen mainScreen].bounds) - 80)/3, 80);
+        UILabel *albumLabel = [UILabel new];
+        albumLabel.textAlignment = NSTextAlignmentCenter;
+        albumLabel.font = [UIFont systemFontOfSize:13.0];
+        albumLabel.backgroundColor = [UIColor colorWithRed:80/255.0 green:80/255.0 blue:80/255.0 alpha:1.0];
+        [albumButton addSubview:albumLabel];
+        [_albumLabels addObject:albumLabel];
+        [albumLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(0);
+            make.right.mas_equalTo(0);
+            make.bottom.mas_equalTo(0);
+            make.height.mas_equalTo(15);
+        }];
+    }
 }
 
 - (void)reloadViewWithData:(LXBaseModelPost *)data {
@@ -89,10 +64,17 @@
             for (UIButton *albumButton in self.albumButtons) {
                 albumButton.hidden = YES;
             }
-            self.defaultLabel.hidden = NO;
         }
         else {
+            [self commonInit];
             self.albums = [NSMutableArray arrayWithArray:data.images];
+            for (NSInteger i = 0; i < data.images.count; i++) {
+                UILabel *albumLabel = [self.albumLabels objectAtIndex:i];
+                UIButton *albumButton = [self.albumButtons objectAtIndex:i];
+                albumButton.hidden = NO;
+                [albumButton sd_setBackgroundImageWithURL:[NSURL URLWithString:[[data.images objectAtIndex:i] objectForKey:@"url"]] forState:UIControlStateNormal];
+                albumLabel.text = [[data.images objectAtIndex:i] objectForKey:@"title"];
+            }
         }
     }
 }
@@ -100,6 +82,15 @@
 - (void)showMore:(id)sender {
     if (self.albums.count > 0) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://activity/albums/?id=%@", self.postId]]];
+    }
+}
+
++ (CGFloat)cellHeightWithData:(LXBaseModelPost *)data {
+    if (data && data.images.count > 0) {
+        return 115;
+    }
+    else {
+        return 26;
     }
 }
 
