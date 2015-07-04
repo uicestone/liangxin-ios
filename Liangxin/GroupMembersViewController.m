@@ -62,6 +62,9 @@
     int index = (int)[indexPath row];
     
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    
+    cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"phone.png"]];
+    
     User* member = [members objectAtIndex:index];
     cell.textLabel.text = member.name;
     return cell;
@@ -72,13 +75,23 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    User* user = [members objectAtIndex:[indexPath row]];
-    NSURL* phoneURL = [NSURL URLWithString:[@"tel://" stringByAppendingString:user.contact]];
-    [[UIApplication sharedApplication] openURL:phoneURL];
-    
+    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拨打电话", nil];
+    actionSheet.tag = [indexPath row];
+    [actionSheet showInView:self.view];
     
 //    [actionSheet showInView:self.view];
     
+}
+
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if(buttonIndex == 0){
+        User* user = [members objectAtIndex:actionSheet.tag];
+        
+        NSURL* phoneURL = [NSURL URLWithString:[@"tel://" stringByAppendingString:user.contact]];
+        [[UIApplication sharedApplication] openURL:phoneURL];
+    }
 }
 
 

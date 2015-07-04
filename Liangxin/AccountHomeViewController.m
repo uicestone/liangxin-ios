@@ -79,7 +79,7 @@
     if(self.currentUser.avatar){
         [avatar setImageWithURL:[NSURL URLWithString:self.currentUser.avatar]];
     }else{
-        avatar.image = [UIImage imageNamed:@"defaultAvatar"];
+        avatar.image = [UIImage imageNamed:@"default-avatar"];
     }
     
     
@@ -103,14 +103,14 @@
     }];
     
     
-    UIButton* message = [UIButton new];
-    [headerContainer addSubview:message];
-    [message setBackgroundImage:[UIImage imageNamed:@"account-message"] forState:UIControlStateNormal];
-    [message mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(headerContainer).with.offset(-20);
-        make.top.equalTo(headerContainer).with.offset(14);
-        make.size.mas_equalTo(CGSizeMake(14, 10));
-    }];
+//    UIButton* message = [UIButton new];
+//    [headerContainer addSubview:message];
+//    [message setBackgroundImage:[UIImage imageNamed:@"account-message"] forState:UIControlStateNormal];
+//    [message mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.right.equalTo(headerContainer).with.offset(-20);
+//        make.top.equalTo(headerContainer).with.offset(14);
+//        make.size.mas_equalTo(CGSizeMake(14, 10));
+//    }];
     
     UIButton* logout = [UIButton new];
     [headerContainer addSubview:logout];
