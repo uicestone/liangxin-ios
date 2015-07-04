@@ -107,6 +107,7 @@
     }];
     
     searchInput = [UITextField new];
+    searchInput.returnKeyType = UIReturnKeySearch;
     searchInput.delegate = self;
     [searchFieldContainer addSubview:searchInput];
     searchInput.placeholder = @"请输入要查找的支部";
