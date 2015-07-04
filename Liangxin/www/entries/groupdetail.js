@@ -26,6 +26,11 @@ $(".section-album .title").on("click", function(){
 
 bridge.showProgress();
 
+var popbox = $('.popbox');
+popbox.find('.btn').on('touchend', function(){
+	popbox.hide();
+});
+
 fetch({
 	url: "/group/" + group_id
 }).then(function(result){
@@ -51,6 +56,8 @@ fetch({
 		}).then(function(result){
 			following = !following;
 			postFollowing = false;
+			popbox.show();
+			popbox.find('.msg').html(following ? '您已关注成功' : '取消关注成功');
 			$btn.html(following ? "已关注" : "关注");
 		}).catch(function(){
 			postFollowing = false;

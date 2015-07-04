@@ -2,9 +2,9 @@ webpackJsonp([0],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(2);
-	var bridge = __webpack_require__(3);
-	var query = __webpack_require__(4).parse();
+	var $ = __webpack_require__(1);
+	var bridge = __webpack_require__(2);
+	var query = __webpack_require__(3).parse();
 
 	var fetch = bridge.fetch;
 
@@ -31,8 +31,7 @@ webpackJsonp([0],[
 	});
 
 /***/ },
-/* 1 */,
-/* 2 */
+/* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Zepto v1.1.6 - zepto event ajax form ie - zeptojs.com/license */
@@ -1626,8 +1625,8 @@ webpackJsonp([0],[
 	module.exports = Zepto;
 
 /***/ },
-/* 3 */,
-/* 4 */
+/* 2 */,
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports.parse = function(){

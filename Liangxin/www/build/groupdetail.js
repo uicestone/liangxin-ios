@@ -1,10 +1,10 @@
-webpackJsonp([2],[
+webpackJsonp([1],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(2);
-	var bridge = __webpack_require__(3);
-	var query = __webpack_require__(4).parse();
+	var $ = __webpack_require__(1);
+	var bridge = __webpack_require__(2);
+	var query = __webpack_require__(3).parse();
 
 	var fetch = bridge.fetch;
 	var itemTemplate = __webpack_require__(8);
@@ -29,6 +29,11 @@ webpackJsonp([2],[
 	});
 
 	bridge.showProgress();
+
+	var popbox = $('.popbox');
+	popbox.find('.btn').on('touchend', function(){
+		popbox.hide();
+	});
 
 	fetch({
 		url: "/group/" + group_id
@@ -55,6 +60,8 @@ webpackJsonp([2],[
 			}).then(function(result){
 				following = !following;
 				postFollowing = false;
+				popbox.show();
+				popbox.find('.msg').html(following ? '您已关注成功' : '取消关注成功');
 				$btn.html(following ? "已关注" : "关注");
 			}).catch(function(){
 				postFollowing = false;
@@ -87,8 +94,7 @@ webpackJsonp([2],[
 	});
 
 /***/ },
-/* 1 */,
-/* 2 */
+/* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Zepto v1.1.6 - zepto event ajax form ie - zeptojs.com/license */
@@ -1682,8 +1688,8 @@ webpackJsonp([2],[
 	module.exports = Zepto;
 
 /***/ },
-/* 3 */,
-/* 4 */
+/* 2 */,
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports.parse = function(){
@@ -1697,6 +1703,7 @@ webpackJsonp([2],[
 	}
 
 /***/ },
+/* 4 */,
 /* 5 */,
 /* 6 */,
 /* 7 */,
