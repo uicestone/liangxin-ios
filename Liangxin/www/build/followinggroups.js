@@ -859,7 +859,7 @@ webpackJsonp([5],{
 	    // cross browser event fix
 	    e = e || window.event
 
-	    if (!e.which) e.which = e.charCode || e.keyCode
+	    if (e.which == undefined) e.which = e.charCode || e.keyCode
 	    if (!e.target) e.target = e.srcElement
 
 	    // ignore error on some browsers

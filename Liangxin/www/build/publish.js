@@ -10,7 +10,7 @@ webpackJsonp([3],[
 
 	var type = query.type;
 
-	__webpack_require__(4);
+	__webpack_require__(5);
 
 	riot.mount('*', {type:type});
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
@@ -1625,7 +1625,8 @@ webpackJsonp([3],[
 	}
 
 /***/ },
-/* 4 */
+/* 4 */,
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var riot = __webpack_require__(10);
@@ -1723,7 +1724,6 @@ webpackJsonp([3],[
 	});
 
 /***/ },
-/* 5 */,
 /* 6 */,
 /* 7 */,
 /* 8 */,
@@ -2537,7 +2537,7 @@ webpackJsonp([3],[
 	    // cross browser event fix
 	    e = e || window.event
 
-	    if (!e.which) e.which = e.charCode || e.keyCode
+	    if (e.which == undefined) e.which = e.charCode || e.keyCode
 	    if (!e.target) e.target = e.srcElement
 
 	    // ignore error on some browsers

@@ -1,4 +1,4 @@
-webpackJsonp([2],[
+webpackJsonp([1],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -6,7 +6,7 @@ webpackJsonp([2],[
 	var bridge = __webpack_require__(2);
 	var query = __webpack_require__(3).parse();
 
-	__webpack_require__(5);
+	__webpack_require__(4);
 
 	var fetch = bridge.fetch;
 
@@ -1636,8 +1636,7 @@ webpackJsonp([2],[
 	}
 
 /***/ },
-/* 4 */,
-/* 5 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var riot = __webpack_require__(10);
@@ -1719,6 +1718,7 @@ webpackJsonp([2],[
 	});
 
 /***/ },
+/* 5 */,
 /* 6 */,
 /* 7 */,
 /* 8 */,
@@ -2532,7 +2532,7 @@ webpackJsonp([2],[
 	    // cross browser event fix
 	    e = e || window.event
 
-	    if (!e.which) e.which = e.charCode || e.keyCode
+	    if (e.which == undefined) e.which = e.charCode || e.keyCode
 	    if (!e.target) e.target = e.srcElement
 
 	    // ignore error on some browsers
