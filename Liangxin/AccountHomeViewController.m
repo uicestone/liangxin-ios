@@ -135,6 +135,7 @@
     @weakify(self)
     tabContainer = [UIView new];
     
+    
     [self.view addSubview:tabContainer];
     [tabContainer mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self)
@@ -145,9 +146,6 @@
     }];
     
     
-    NSLog(@"UserApi %@", [[_userApi class] getCurrentUser] );
-    
-//    [UserApi getCurrentUser].group[@"id"];
     
     tabitems = @[@{
                      @"name":@"我的支部",
@@ -246,11 +244,23 @@
     
     UIView* bottomSpliter = [UIView new];
     [tabContainer addSubview:bottomSpliter];
-    bottomSpliter.backgroundColor = [UIColor blackColor];
+    bottomSpliter.backgroundColor = UIColorFromRGB(0xb2b4b7);
     [bottomSpliter mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(tabContainer.mas_bottom);
+        make.top.equalTo(tabContainer.mas_bottom).with.offset(-1);
+        make.left.equalTo(tabContainer);
         make.width.equalTo(tabContainer);
         make.height.mas_equalTo(1);
+    }];
+    
+    
+    UIView* topSpliter = [UIView new];
+    topSpliter.backgroundColor = UIColorFromRGB(0xb2b4b7);
+    [tabContainer addSubview:topSpliter];
+    [topSpliter mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(1);
+        make.top.equalTo(tabContainer.mas_top);
+        make.width.equalTo(self.view);
+        make.left.equalTo(self.view);
     }];
 }
 
