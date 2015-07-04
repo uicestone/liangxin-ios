@@ -94,16 +94,16 @@
             return 40;
             break;
         case 2:
-            return 90;
+            return [ActivityDetailDescCell cellHeightWithData:self.postData];
             break;
         case 3:
             return 25;
             break;
         case 4:
-            return 225;
+            return [ActivityDetailDetailCell cellHeightWithData:self.postData];
             break;
         case 5:
-            return 115;
+            return [ActivityDetailAlbumCell cellHeightWithData:self.postData];
             break;
         default:
             break;
