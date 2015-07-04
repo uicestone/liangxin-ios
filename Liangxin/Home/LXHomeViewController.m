@@ -37,6 +37,15 @@
 - (void)commonInit {
     self.navigationItem.leftBarButtonItem = nil;
     
+    CGFloat itemWidth = CGRectGetWidth([UIScreen mainScreen].bounds)/2;
+    CGFloat itemHeight = itemWidth * 233 / 310;
+    CGFloat minBannerWidth = CGRectGetWidth([UIScreen mainScreen].bounds)/2.48;
+    CGFloat bannerHeight = self.view.frame.size.height - 20 - 44 - itemHeight * 3;
+    
+    if(bannerHeight < minBannerWidth){
+        bannerHeight = minBannerWidth;
+    }
+    
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
     titleLabel.textColor = [UIColor redColor];
     titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -46,6 +55,7 @@
     self.navigationItem.titleView = titleLabel;
     
     
+    
     self.carouselView = [LXCarouselView carouselViewWithFrame:CGRectMake(0, 0, 320, 200) imageURLsGroup:nil];
     self.carouselView.pageControl.hidden = YES;
     [self.view addSubview:self.carouselView];
@@ -53,15 +63,14 @@
         make.top.mas_equalTo(0);
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
-        make.height.mas_equalTo(CGRectGetWidth([UIScreen mainScreen].bounds)/2.48);
+        make.height.mas_equalTo(bannerHeight);
     }];
     
     self.channelImages = @[@"Home_Group", @"Home_Activity", @"Home_Class", @"Home_Post", @"Home_Service", @"Home_Account"];
     self.channelSchemes = @[@"group", @"activity", @"class", @"feeds", @"service", @"account"];
     self.view.backgroundColor = [UIColor whiteColor];
     self.flowLayout = [UICollectionViewFlowLayout new];
-    CGFloat width = CGRectGetWidth([UIScreen mainScreen].bounds)/2;
-    self.flowLayout.itemSize = CGSizeMake(width, width * 233 / 310);
+    self.flowLayout.itemSize = CGSizeMake(itemWidth, itemHeight);
     self.flowLayout.minimumInteritemSpacing = 0;
     self.flowLayout.minimumLineSpacing = 0;
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.flowLayout];
