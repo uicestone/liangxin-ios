@@ -12,7 +12,6 @@
 @interface ClassDetailDetailCell()
 
 @property (nonatomic, strong) UIView *seperatorLine;
-@property (nonatomic, strong) UILabel *defaultLabel;
 @property (nonatomic, strong) ClassDetailArticleView *article1View;
 @property (nonatomic, strong) ClassDetailArticleView *article2View;
 @property (nonatomic, strong) NSArray *articles;
@@ -25,48 +24,7 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        _seperatorLine = [UIView new];
-        _seperatorLine.backgroundColor = UIColorFromRGB(0xe6e7e8);
-        _seperatorLine.hidden = YES;
-        [self.contentView addSubview:_seperatorLine];
-        [_seperatorLine mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(0);
-            make.right.mas_equalTo(0);
-            make.centerY.equalTo(self.baseView.mas_centerY);
-            make.height.mas_equalTo(1);
-        }];
-        _article1View = [ClassDetailArticleView new];
-        [self.baseView addSubview:_article1View];
-        [_article1View.maskButton addTarget:self action:@selector(showArticle:) forControlEvents:UIControlEventTouchUpInside];
-        _article1View.maskButton.tag = 0;
-        [_article1View mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(0);
-            make.bottom.equalTo(self.seperatorLine.mas_top);
-            make.left.mas_equalTo(0);
-            make.right.mas_equalTo(0);
-        }];
-        _article2View = [ClassDetailArticleView new];
-        [self.baseView addSubview:_article2View];
-        _article2View.maskButton.tag = 1;
-        [_article2View.maskButton addTarget:self action:@selector(showArticle:) forControlEvents:UIControlEventTouchUpInside];
-        [_article2View mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.seperatorLine.mas_bottom);
-            make.bottom.mas_equalTo(0);
-            make.left.mas_equalTo(0);
-            make.right.mas_equalTo(0);
-        }];
-        _defaultLabel = [UILabel new];
-        _defaultLabel.text = @"暂无详情";
-        _defaultLabel.textColor = [UIColor lightGrayColor];
-        _defaultLabel.font = [UIFont systemFontOfSize:15.0];
-        _defaultLabel.hidden = YES;
-        [self.baseView addSubview:_defaultLabel];
-        [_defaultLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(20);
-            make.top.mas_equalTo(0);
-            make.right.mas_equalTo(0);
-            make.bottom.mas_equalTo(0);
-        }];
+    
     }
     return self;
 }
@@ -75,9 +33,43 @@
     [super setSelected:selected animated:animated];
 }
 
+- (void)commonInit {
+    _seperatorLine = [UIView new];
+    _seperatorLine.backgroundColor = UIColorFromRGB(0xe6e7e8);
+    _seperatorLine.hidden = YES;
+    [self.contentView addSubview:_seperatorLine];
+    [_seperatorLine mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        make.centerY.equalTo(self.baseView.mas_centerY);
+        make.height.mas_equalTo(1);
+    }];
+    _article1View = [ClassDetailArticleView new];
+    [self.baseView addSubview:_article1View];
+    [_article1View.maskButton addTarget:self action:@selector(showArticle:) forControlEvents:UIControlEventTouchUpInside];
+    _article1View.maskButton.tag = 0;
+    [_article1View mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(0);
+        make.bottom.equalTo(self.seperatorLine.mas_top);
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+    }];
+    _article2View = [ClassDetailArticleView new];
+    [self.baseView addSubview:_article2View];
+    _article2View.maskButton.tag = 1;
+    [_article2View.maskButton addTarget:self action:@selector(showArticle:) forControlEvents:UIControlEventTouchUpInside];
+    [_article2View mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.seperatorLine.mas_bottom);
+        make.bottom.mas_equalTo(0);
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+    }];
+}
+
 - (void)reloadViewWithData:(LXBaseModelPost *)data {
     if (data) {
         if (data.articles.count > 0) {
+            [self commonInit];
             self.articles = data.articles;
             self.postId = data.id;
             self.seperatorLine.hidden = NO;
@@ -96,9 +88,6 @@
                 }
             }
         }
-        else {
-            _defaultLabel.hidden = NO;
-        }
     }
 }
 
@@ -112,6 +101,15 @@
     NSDictionary *article = [self.articles objectAtIndex:sender.tag];
     if ([article objectForKey:@"id"]) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://article/%@", [article objectForKey:@"id"]]]];
+    }
+}
+
++ (CGFloat)cellHeightWithData:(LXBaseModelPost *)data {
+    if (data && data.articles.count > 0) {
+        return 115;
+    }
+    else {
+        return 26;
     }
 }
 

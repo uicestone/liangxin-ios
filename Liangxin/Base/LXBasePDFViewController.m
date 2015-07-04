@@ -34,7 +34,7 @@
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.top.mas_equalTo(0);
-        make.bottom.mas_equalTo(0);
+        make.bottom.mas_equalTo(-44);
     }];
     NSURL *URL = [NSURL URLWithString:[self.params objectForKey:@"url"]];
     [self.webView loadRequest:[NSURLRequest requestWithURL:URL]];

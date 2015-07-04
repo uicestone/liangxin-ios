@@ -10,7 +10,6 @@
 
 @interface ClassDetailDescCell()
 
-@property (nonatomic, strong) UILabel *defaultLabel;
 @property (nonatomic, strong) UILabel *descLabel;
 
 @end
@@ -30,18 +29,6 @@
             make.left.mas_equalTo(20);
             make.right.mas_equalTo(-20);
         }];
-        _defaultLabel = [UILabel new];
-        _defaultLabel.text = @"暂无描述";
-        _defaultLabel.textColor = [UIColor lightGrayColor];
-        _defaultLabel.font = [UIFont systemFontOfSize:15.0];
-        _defaultLabel.hidden = YES;
-        [self.baseView addSubview:_defaultLabel];
-        [_defaultLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(20);
-            make.top.mas_equalTo(0);
-            make.right.mas_equalTo(0);
-            make.bottom.mas_equalTo(0);
-        }];
     }
     return self;
 }
@@ -55,9 +42,15 @@
         if (data.excerpt.length > 0) {
             _descLabel.text = data.excerpt;
         }
-        else {
-            _defaultLabel.hidden = NO;
-        }
+    }
+}
+
++ (CGFloat)cellHeightWithData:(LXBaseModelPost *)data {
+    if (data && data.excerpt.length > 0) {
+        return 80;
+    }
+    else {
+        return 26;
     }
 }
 

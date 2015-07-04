@@ -16,5 +16,6 @@
 
 - (void)reloadViewWithData:(LXBaseModelPost *)data;
 - (void)showMore:(id)sender;
++ (CGFloat)cellHeightWithData:(LXBaseModelPost *)data;
 
 @end
