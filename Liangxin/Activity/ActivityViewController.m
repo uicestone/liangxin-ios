@@ -64,8 +64,17 @@
         make.height.mas_equalTo(44);
     }];
 
+    UIView *inputView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 44)];
+    inputView.backgroundColor = [UIColor whiteColor];
+    UIButton *inputButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    inputButton.frame = CGRectMake(CGRectGetWidth(inputView.bounds) - 60, 0, 60, 44);
+    [inputButton setTitle:@"确定" forState:UIControlStateNormal];
+    [inputButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    [inputButton addTarget:self action:@selector(resignSearch:) forControlEvents:UIControlEventTouchUpInside];
+    [inputView addSubview:inputButton];
     self.searchBar = [[LXSearchBar alloc] initWithFrame:CGRectZero];
     self.searchBar.placeholder = @"请输入要查找的活动";
+    self.searchBar.searchField.inputView = inputView;
     self.searchBar.searchTintColor = [UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0];
     [self.searchBar.searchButton addTarget:self action:@selector(doKeywordSearch:) forControlEvents:UIControlEventTouchUpInside];
     [searchView addSubview:self.searchBar];
@@ -192,6 +201,10 @@
     } error:^(NSError *error) {
         
     }];
+}
+
+- (void)resignSearch:(id)sender {
+    [self.searchBar.searchField resignFirstResponder];
 }
 
 - (void)initFooterView {

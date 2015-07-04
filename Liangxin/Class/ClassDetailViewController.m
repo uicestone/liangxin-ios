@@ -124,19 +124,19 @@
             return 113;
             break;
         case 1:
-            return 80;
+            return [ClassDetailDescCell cellHeightWithData:self.viewModel.postData];
             break;
         case 2:
-            return 115;
+            return [ClassDetailDetailCell cellHeightWithData:self.viewModel.postData];
             break;
         case 3:
-            return 115;
+            return [ClassDetailAlbumCell cellHeightWithData:self.viewModel.postData];
             break;
         case 4:
-            return 115;
+            return [ClassDetailVideoCell cellHeightWithData:self.viewModel.postData];
             break;
         case 5:
-            return 115;
+            return [ClassDetailDocumentCell cellHeightWithData:self.viewModel.postData];
             break;
         default:
             break;

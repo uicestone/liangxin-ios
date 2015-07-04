@@ -107,4 +107,8 @@
     
 }
 
++ (CGFloat)cellHeightWithData:(LXBaseModelPost *)data {
+    return 0.0;
+}
+
 @end
