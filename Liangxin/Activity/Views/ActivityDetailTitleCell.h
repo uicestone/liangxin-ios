@@ -10,6 +10,8 @@
 
 @interface ActivityDetailTitleCell : UITableViewCell
 
+@property (nonatomic, strong) UIButton *applyStatusButton;
+
 - (void)reloadViewWithData:(LXBaseModelPost *)data;
 
 @end

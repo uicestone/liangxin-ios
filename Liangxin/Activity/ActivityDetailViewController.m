@@ -83,6 +83,28 @@
     }
 }
 
+- (void)doAttend:(UIButton *)sender {
+    if (!self.postData.attended) {
+        @weakify(self)
+        [[[LXNetworkManager sharedManager] attendByPostId:self.postData.id] subscribeNext:^(id x) {
+            @strongify(self)
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            hud.animationType = MBProgressHUDAnimationFade;
+            hud.mode = MBProgressHUDModeText;
+            hud.labelText = @"报名成功";
+            [hud hide:YES afterDelay:1];
+            [sender setTitle:@"已报名" forState:UIControlStateNormal];
+            self.postData.attended = YES;
+        } error:^(NSError *error) {
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            hud.animationType = MBProgressHUDAnimationFade;
+            hud.mode = MBProgressHUDModeText;
+            hud.labelText = @"报名失败";
+            [hud hide:YES afterDelay:1];
+        }];
+    }
+}
+
 #pragma mark - UITableViewDataSource && UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -126,6 +148,7 @@
             if (!cell) {
                 cell = [[ActivityDetailTitleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ActivityDetailTitleCell"];
             }
+            [cell.applyStatusButton addTarget:self action:@selector(doAttend:) forControlEvents:UIControlEventTouchUpInside];
             [cell reloadViewWithData:self.postData];
             return cell;
         }

@@ -14,7 +14,6 @@
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *authorLabel;
 @property (nonatomic, strong) UILabel *groupLabel;
-@property (nonatomic, strong) UIButton *applyStatusButton;
 @property (nonatomic, strong) LXBaseModelPost *postData;
 
 @end
@@ -70,7 +69,7 @@
             make.height.mas_equalTo(17);
         }];
         _applyStatusButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_applyStatusButton addTarget:self action:@selector(doAttend:) forControlEvents:UIControlEventTouchUpInside];
+        _applyStatusButton.hidden = YES;
         [_applyStatusButton setTitle:@"已报名" forState:UIControlStateNormal];
         _applyStatusButton.titleLabel.font = [UIFont systemFontOfSize:10];
         [_applyStatusButton setTitleColor:[UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0] forState:UIControlStateNormal];
@@ -91,6 +90,7 @@
 - (void)reloadViewWithData:(LXBaseModelPost *)data {
     if (data) {
         self.postData = data;
+        _applyStatusButton.hidden = NO;
         if (!data.attended) {
             [_applyStatusButton setTitle:@"未报名" forState:UIControlStateNormal];
         }
@@ -104,24 +104,6 @@
         }];
         self.groupLabel.text = [NSString stringWithFormat:@"所属支部：%@", [data.group objectForKey:@"name"]?:@""];
         self.authorLabel.text = [NSString stringWithFormat:@"发起人：%@", [data.author objectForKey:@"name"]?:@""];
-    }
-}
-
-- (void)doAttend:(id)sender {
-    if (!self.postData.attended) {
-        @weakify(self)
-        [[[LXNetworkManager sharedManager] attendByPostId:self.postData.id] subscribeNext:^(id x) {
-            @strongify(self)
-            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
-            hud.animationType = MBProgressHUDAnimationFade;
-            hud.mode = MBProgressHUDModeText;
-            hud.labelText = @"报名成功";
-            [hud hide:YES afterDelay:1];
-            [self.applyStatusButton setTitle:@"已报名" forState:UIControlStateNormal];
-            self.postData.attended = YES;
-        } error:^(NSError *error) {
-            
-        }];
     }
 }
 
