@@ -26,6 +26,7 @@
 #import "VCodeInputViewController.h"
 #import "ModifyPasswordViewController.h"
 #import "ServiceHomeViewController.h"
+#import "ServiceDetailViewController.h"
 #import "AccountHomeViewController.h"
 #import "AccountArticleViewController.h"
 #import "AccountAlbumViewController.h"
@@ -116,6 +117,7 @@
 
     // 党群服务
     [[HHRouter shared] map:@"/service" toControllerClass:[ServiceHomeViewController class]];
+    [[HHRouter shared] map:@"/service/:id" toControllerClass:[ServiceDetailViewController class]];
     
     // 个人中心
     [[HHRouter shared] map:@"/account" toControllerClass:[AccountHomeViewController class]];

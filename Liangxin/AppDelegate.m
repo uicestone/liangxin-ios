@@ -64,7 +64,7 @@
     #endif
     
     // 初始化Navigation Controller
-    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/home"];
+    UIViewController *homeViewController = [[HHRouter shared] matchController:@"/service/2"];
     navigationController= [[LXNavigationController alloc] initWithRootViewController:homeViewController];
     window.rootViewController = navigationController;
     [window makeKeyAndVisible];

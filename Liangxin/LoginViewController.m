@@ -26,6 +26,9 @@
 @implementation LoginViewController
 @synthesize forget, tableview, submit, processing;
 
+- (BOOL)hasToolBar{
+    return NO;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

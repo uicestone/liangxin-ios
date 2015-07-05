@@ -1,0 +1,98 @@
+.section .title{
+	color: #1a75bc;
+	padding-left: 53px;
+	height: 21px;
+	line-height: 21px;
+	border-bottom: 1px solid #e6e7e8;
+	position: relative;
+}
+.section .title:before{
+	content: '';
+	display: block;
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	background-repeat: no-repeat;
+	top: 5px;
+	left: 24px;
+}
+.section .title:after{
+	content:"MORE";
+	float: right;
+	font-weight: normal;
+}
+
+.section ul li{
+	padding-left: 10px;
+}
+
+.section ul li .detail .author{
+	float: left;
+}
+
+.section ul li .detail .date{
+	float: right;
+}
+
+.section-album .content{
+	overflow: hidden;
+}
+.section-album .content ul{
+	display: flex;
+	display: -webkit-flex;
+}
+.section-album .content li{
+	margin: 0 5px 0 0;
+	padding: 0;
+	position: relative;
+	float: left;
+	height: 114px;
+	overflow: hidden;
+	background-color: #fff;
+	flex: 1;
+}
+
+.section-album .content li:last-child{
+	margin-right: 0;
+}
+
+.section-album .content li .pic-title{
+	padding: 0;
+	background-color: rgba(0,0,0,0.5);
+	width: 100%;
+	bottom: 0;
+	color: #fff;
+	text-align: center;
+	position: absolute;
+}
+
+.section-album img{
+	width: 100%;
+	display: block;
+}
+
+
+.section-album .title:before{
+	background-image:url('../image/service-album.png');
+	background-size: 21px 15px;
+}
+
+.section-intro .title:before{
+	background-image:url('../image/service-desc.png');
+	background-size: 21px 15px;
+}
+
+.section-item .title:before{
+	background-image:url('../image/service-item.png');
+	background-size: 21px 15px;
+}
+
+.section-pay .title:before{
+	background-image:url('../image/service-pay.png');
+	background-size: 21px 15px;
+}
+
+.section-pay .title:after{
+	content: "";
+}
+

@@ -18,6 +18,10 @@
 @synthesize tableview;
 @synthesize switcher;
 
+- (BOOL)hasToolBar{
+    return NO;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

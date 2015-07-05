@@ -12,7 +12,8 @@ var entries = {};
     'account-album',
     'comments',
     'followinggroups',
-    'collections'
+    'collections',
+    'service'
 ].forEach(function(key){
     entries[key] = __dirname + '/entries/' + key + '.js';
 });
