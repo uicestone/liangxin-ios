@@ -137,16 +137,22 @@
 }
 
 - (void)doAgree:(id)sender {
+    @weakify(self)
     [[[LXNetworkManager sharedManager] agreeAttendeeByPostId:self.postId userId:[self.attendee objectForKey:@"id"]] subscribeNext:^(id x) {
-        
+        @strongify(self)
+        self.agreeButton.hidden = YES;
+        self.disagreeButton.hidden = YES;
     } error:^(NSError *error) {
         
     }];
 }
 
 - (void)doDisagree:(id)sender{
+    @weakify(self)
     [[[LXNetworkManager sharedManager] disagreeAttendeeByPostId:self.postId userId:[self.attendee objectForKey:@"id"]] subscribeNext:^(id x) {
-        
+         @strongify(self)
+        self.agreeButton.hidden = YES;
+        self.disagreeButton.hidden = YES;
     } error:^(NSError *error) {
         
     }];
