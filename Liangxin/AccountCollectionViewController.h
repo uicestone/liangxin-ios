@@ -8,6 +8,6 @@
 
 #import "LXWebViewController.h"
 
-@interface AccountCollectionViewController : LXBaseViewController
+@interface AccountCollectionViewController : LXWebViewController
 
 @end

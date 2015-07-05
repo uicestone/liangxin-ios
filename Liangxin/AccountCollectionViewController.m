@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我的收藏";
+    [self loadPage:@"collections"];
     // Do any additional setup after loading the view.
 }
 

@@ -11,7 +11,8 @@ var entries = {};
     'publish',
     'account-album',
     'comments',
-    'followinggroups'
+    'followinggroups',
+    'collections'
 ].forEach(function(key){
     entries[key] = __dirname + '/entries/' + key + '.js';
 });
