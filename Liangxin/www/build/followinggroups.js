@@ -1,16 +1,17 @@
-webpackJsonp([5,8],[
-/* 0 */
+webpackJsonp([7,8],{
+
+/***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(riot) {__webpack_require__(6);
+	/* WEBPACK VAR INJECTION */(function(riot) {__webpack_require__(7);
 
 
 	riot.mount('*');
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
 
 /***/ },
-/* 1 */,
-/* 2 */
+
+/***/ 2:
 /***/ function(module, exports, __webpack_require__) {
 
 	var Bridge = {
@@ -72,15 +73,13 @@ webpackJsonp([5,8],[
 	module.exports = Bridge;
 
 /***/ },
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */
+
+/***/ 7:
 /***/ function(module, exports, __webpack_require__) {
 
 	var riot = __webpack_require__(10);
 
-	__webpack_require__(11)
+	__webpack_require__(18)
 	var bridge = __webpack_require__(2);
 	var fetch = bridge.fetch;
 	riot.tag('followinggroups', '<followinggroup each="{items}" data="{this}"></followinggroup>', function(opts) {
@@ -113,10 +112,8 @@ webpackJsonp([5,8],[
 
 
 /***/ },
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */
+
+/***/ 10:
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Riot v2.2.1, @license MIT, (c) 2015 Muut Inc. + contributors */
@@ -1442,7 +1439,8 @@ webpackJsonp([5,8],[
 
 
 /***/ },
-/* 11 */
+
+/***/ 18:
 /***/ function(module, exports, __webpack_require__) {
 
 	var riot = __webpack_require__(10);
@@ -1482,4 +1480,5 @@ webpackJsonp([5,8],[
 	});
 
 /***/ }
-]);
+
+});

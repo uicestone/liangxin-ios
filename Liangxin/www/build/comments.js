@@ -6,7 +6,7 @@ webpackJsonp([6,8],[
 	var bridge = __webpack_require__(2);
 	var query = __webpack_require__(3).parse();
 
-	__webpack_require__(5);
+	__webpack_require__(6);
 	var type = query.type;
 
 	riot.mount('*');
@@ -1684,12 +1684,13 @@ webpackJsonp([6,8],[
 
 /***/ },
 /* 4 */,
-/* 5 */
+/* 5 */,
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var riot = __webpack_require__(10);
 
-	__webpack_require__(12)
+	__webpack_require__(17)
 	var bridge = __webpack_require__(2);
 	var fetch = bridge.fetch;
 	var query = __webpack_require__(3).parse();
@@ -1761,7 +1762,6 @@ webpackJsonp([6,8],[
 	});
 
 /***/ },
-/* 6 */,
 /* 7 */,
 /* 8 */,
 /* 9 */,
@@ -3092,7 +3092,12 @@ webpackJsonp([6,8],[
 
 /***/ },
 /* 11 */,
-/* 12 */
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */,
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var riot = __webpack_require__(10);
