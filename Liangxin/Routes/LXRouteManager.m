@@ -108,7 +108,7 @@
     // 输入验证码
     [[HHRouter shared] map:@"/login/vcodeinput" toControllerClass:[VCodeInputViewController class]];
     // 更改密码
-    [[HHRouter shared] map:@"/login/modifypassword" toControllerClass:[ModifyPasswordViewController class]];
+    [[HHRouter shared] map:@"/login/modifypassword/" toControllerClass:[ModifyPasswordViewController class]];
     
     // 党群动态
     [[HHRouter shared] map:@"/feeds" toControllerClass:[FeedsViewController class]];

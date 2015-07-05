@@ -12,5 +12,6 @@
 @interface ModifyPasswordViewController : LXBaseViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (weak, nonatomic) IBOutlet UIButton *submit;
+@property (weak, nonatomic) IBOutlet UISwitch *switcher;
 
 @end

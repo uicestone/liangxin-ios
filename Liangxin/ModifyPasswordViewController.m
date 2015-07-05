@@ -16,18 +16,33 @@
 
 @implementation ModifyPasswordViewController
 @synthesize tableview;
+@synthesize switcher;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.navigationItem.title = @"修改密码";
     tableview.scrollEnabled = NO;
+    switcher.on = NO;
     // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (IBAction)switcherChanged:(id)sender {
+    UISwitch* switcher = (UISwitch*)sender;
+    for(int i = 0 ; i < 2; i++){
+        NSIndexPath* index = [NSIndexPath indexPathForRow:i inSection:0];
+        AccountFieldCell* cell = (AccountFieldCell*)[tableview cellForRowAtIndexPath:index];
+        
+        cell.text.secureTextEntry = !switcher.on;
+    }
+    
+    
 }
 
 - (IBAction)submitTouched:(id)sender {
@@ -44,11 +59,10 @@
         }
     }
     
-    
-    
-    
-    NSLog(@"%@", password);
-    NSLog(@"%@", assurePassword);
+    if(password != assurePassword){
+        [self popMessage:@"两次输入不同"];
+        return;
+    }
 
 }
 

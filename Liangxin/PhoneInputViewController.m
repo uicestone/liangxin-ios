@@ -13,20 +13,30 @@
 
 #define kReuseIdentifier @"AccountFieldCell"
 
-@interface PhoneInputViewController ()
-
+@interface PhoneInputViewController () <UITextFieldDelegate>
+@property (nonatomic, strong) UITextField* inputText;
 @end
 
 @implementation PhoneInputViewController
 @synthesize tableview;
-
+@synthesize inputText;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.navigationItem.title = @"忘记密码";
     
+    
     // Do any additional setup after loading the view from its nib.
+}
+
+- (BOOL)hasToolBar{
+    return NO;
+}
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,17 +46,17 @@
 
 - (IBAction)submitTouched:(id)sender {
     
-    NSIndexPath* index = [NSIndexPath indexPathForRow:0 inSection:0];
-    AccountFieldCell* cell = (AccountFieldCell*)[tableview cellForRowAtIndexPath:index];
     
     
-    NSString* url = [NSString stringWithFormat:@"/auth/user?contact=%@", cell.text.text];
+    NSString* url = [NSString stringWithFormat:@"/auth/user?contact=%@", inputText.text];
     
     [ApiBase postJSONWithPath:url data:nil success:^(id responseObject, AFHTTPRequestOperation* operation) {
         // send a request
         [self navigateToPath:@"/login/vcodeinput"];
     } error:^(AFHTTPRequestOperation *operation, NSError *error) {
-        // pop error
+        NSDictionary* obj = operation.responseObject;
+        NSString* err = [obj objectForKey:@"message"];
+        [self popMessage:err];
     }];
     
 }
@@ -63,10 +73,12 @@
     if(!cell){
         [tableView registerNib:[UINib nibWithNibName:@"AccountFieldCell" bundle:nil] forCellReuseIdentifier:kReuseIdentifier];
         cell = [tableView dequeueReusableCellWithIdentifier:kReuseIdentifier];
+        
     }
     
     cell.text.placeholder = @"请输入您的手机号";
-    
+    inputText = cell.text;
+    inputText.delegate = self;
     
     return cell;
 }

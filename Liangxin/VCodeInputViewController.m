@@ -12,12 +12,17 @@
 
 #define kReuseIdentifier @"AccountFieldCell"
 
-@interface VCodeInputViewController ()
-
+@interface VCodeInputViewController () <UITextFieldDelegate>
+@property (nonatomic, strong) UITextField* textInput;
 @end
 
 @implementation VCodeInputViewController
 @synthesize tableview;
+@synthesize textInput;
+
+- (BOOL)hasToolBar{
+    return NO;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,17 +46,20 @@
     AccountFieldCell* cell = (AccountFieldCell*)[tableview cellForRowAtIndexPath:index];
     
     
-    NSDictionary* data = @{
-                           @"contact": cell.text.text
-                           };
+    NSString* url = [NSString stringWithFormat:@"/auth/user?verification_code=%@", cell.text.text];
     
-    [ApiBase postJSONWithPath:@"/auth/user" data:data success:^(id responseObject, AFHTTPRequestOperation* operation) {
+    [ApiBase postJSONWithPath:url data:nil success:^(id responseObject, AFHTTPRequestOperation* operation) {
         
-        NSString* token = responseObject[@"token"];
+        NSString* token = @"";
         
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://login/modifypassword?token=%@", token]]];
+        if(responseObject[@"token"] != nil){
+            token = responseObject[@"token"];
+        }
         
+        NSString* path = [NSString stringWithFormat:@"/login/modifypassword/?token=%@", token];
+        [self navigateToPath:path];
     } error:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self popMessage:@"发生错误"];
         // pop error
     }];
     
@@ -73,10 +81,16 @@
     }
     
     cell.text.placeholder = @"输入验证码";
+    textInput = cell.text;
+    textInput.delegate = self;
     
     return cell;
 }
 
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
 
 
 /*
