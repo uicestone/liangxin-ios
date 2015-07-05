@@ -190,7 +190,8 @@
             items = originItems = [GroupApi getGroupsWithParentId:0];
             [tableView reloadData];
         } errorHandler:^(NSError *err){
-            NSLog(@"err %@", err);
+            [self hideProgress];
+            [self popMessage:@"加载发生错误"];
         }];
     }else{
         originItems = items;
