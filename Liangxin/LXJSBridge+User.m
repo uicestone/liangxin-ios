@@ -24,4 +24,13 @@
         [self completeWithResult:@{}];
     }
 }
+
+-(void)login:(NSDictionary *)params{
+    
+    [self.viewController popLoginWithFinishHandler:^{
+        [self completeWithResult:@{}];
+    }];
+    
+}
+
 @end

@@ -55,21 +55,42 @@ webpackJsonp([3,8],[
 		// 关注状态
 		$followBtn.html(following ? "已关注" : "关注");
 		$followBtn.on("touchend", function(){
-			if(postFollowing){return;}
 			var $btn = $(this);
-			postFollowing = true;
-			fetch({
-				method: following ? "delete" : "post",
-				url: "/follow/" + group_id
-			}).then(function(result){
-				following = !following;
-				postFollowing = false;
-				popbox.show();
-				popbox.find('.msg').html(following ? '您已关注成功' : '取消关注成功');
-				$btn.html(following ? "已关注" : "关注");
-			}).catch(function(){
-				postFollowing = false;
-			});
+
+			function send(){		
+				if(postFollowing){return;}
+				postFollowing = true;
+
+				fetch({
+					method: following ? "delete" : "post",
+					url: "/follow/" + group_id
+				}).then(function(result){
+					following = !following;
+					postFollowing = false;
+					popbox.show();
+					popbox.find('.msg').html(following ? '您已关注成功' : '取消关注成功');
+					$btn.html(following ? "已关注" : "关注");
+				}).catch(function(){
+					postFollowing = false;
+				});
+			}
+			bridge.getUser()
+				.then(function(user){
+					if(!user.id){
+						bridge.login().then(function(){
+							fetch({
+								url: "/group/" + group_id
+							}).then(function(result){
+								following = result.following;
+								if(!following){
+									send();
+								}
+							});
+						});
+					}else{
+						send();
+					}
+				});
 		});
 
 		$activityList = $(".section-activity ul");
@@ -1732,7 +1753,7 @@ webpackJsonp([3,8],[
 		}
 	};
 
-	["fetch", "pickImage", "showProgress", "hideProgress", "close", "dismiss", "getUser"].forEach(function(method){
+	["fetch", "pickImage", "showProgress", "hideProgress", "close", "dismiss", "getUser", "login"].forEach(function(method){
 		Bridge[method] = function(params){
 			params = params || {};
 			return Bridge.exec(method, params);

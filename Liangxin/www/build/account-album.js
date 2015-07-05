@@ -1661,7 +1661,7 @@ webpackJsonp([4,8],[
 		}
 	};
 
-	["fetch", "pickImage", "showProgress", "hideProgress", "close", "dismiss", "getUser"].forEach(function(method){
+	["fetch", "pickImage", "showProgress", "hideProgress", "close", "dismiss", "getUser", "login"].forEach(function(method){
 		Bridge[method] = function(params){
 			params = params || {};
 			return Bridge.exec(method, params);

@@ -10,4 +10,5 @@
 
 @interface LXJSBridge (User)
 -(void)getUser:(NSDictionary *)params;
+-(void)login:(NSDictionary *)params;
 @end
