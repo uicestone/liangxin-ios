@@ -46,25 +46,8 @@
     AccountFieldCell* cell = (AccountFieldCell*)[tableview cellForRowAtIndexPath:index];
     
     
-    NSString* url = [NSString stringWithFormat:@"/auth/user?verification_code=%@", cell.text.text];
-    
-    [ApiBase postJSONWithPath:url data:nil success:^(id responseObject, AFHTTPRequestOperation* operation) {
-        
-        NSString* token = @"";
-        
-        if(responseObject[@"token"] != nil){
-            token = responseObject[@"token"];
-        }
-        
-        NSString* path = [NSString stringWithFormat:@"/login/modifypassword/?token=%@", token];
-        [self navigateToPath:path];
-    } error:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [self popMessage:@"发生错误"];
-        // pop error
-    }];
-    
-    
-    
+    NSString* path = [NSString stringWithFormat:@"/login/modifypassword/?vcode=%@&contact=%@", cell.text.text, self.params[@"contact"]];
+    [self navigateToPath:path];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

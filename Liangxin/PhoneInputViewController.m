@@ -47,12 +47,13 @@
 - (IBAction)submitTouched:(id)sender {
     
     
-    
-    NSString* url = [NSString stringWithFormat:@"/auth/user?contact=%@", inputText.text];
-    
+    NSString* contact = inputText.text;
+    NSString* url = [NSString stringWithFormat:@"/auth/user?contact=%@", contact];
+    [self showProgress];
     [ApiBase postJSONWithPath:url data:nil success:^(id responseObject, AFHTTPRequestOperation* operation) {
+        [self hideProgress];
         // send a request
-        [self navigateToPath:@"/login/vcodeinput"];
+        [self navigateToPath:[@"/login/vcodeinput/?contact=" stringByAppendingString:contact]];
     } error:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSDictionary* obj = operation.responseObject;
         NSString* err = [obj objectForKey:@"message"];

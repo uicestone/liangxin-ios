@@ -8,15 +8,17 @@
 
 #import "ModifyPasswordViewController.h"
 #import "AccountFieldCell.h"
+#import "ApiBase.h"
 #define kReuseIdentifier @"AccountFieldCell"
 
 @interface ModifyPasswordViewController ()
-
+@property (nonatomic, copy) NSString* vcode;
 @end
 
 @implementation ModifyPasswordViewController
 @synthesize tableview;
 @synthesize switcher;
+@synthesize vcode;
 
 - (BOOL)hasToolBar{
     return NO;
@@ -28,6 +30,7 @@
     self.navigationItem.title = @"修改密码";
     tableview.scrollEnabled = NO;
     switcher.on = NO;
+    vcode = self.params[@"vcode"];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -63,10 +66,29 @@
         }
     }
     
-    if(password != assurePassword){
+    if(![password isEqualToString:assurePassword]){
         [self popMessage:@"两次输入不同"];
         return;
     }
+    
+    NSString* url = [NSString stringWithFormat:@"/auth/user?contact=%@&verification_code=%@", self.params[@"contact"], self.params[@"vcode"]];
+    
+    NSLog(@"request url %@", url);
+    [ApiBase postJSONWithPath:url data:@{
+                                         @"password": password
+                                         } success:^(id responseObject, AFHTTPRequestOperation* operation) {
+        [self popMessage:@"更改成功"];
+        double delayInSeconds = 1.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+         //code to be executed on the main queue after delay
+            [self navigateToPath:@"/login"];
+        });
+    } error:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSDictionary* obj = operation.responseObject;
+        NSString* err = [obj objectForKey:@"message"];
+        [self popMessage:err];
+    }];
 
 }
 

@@ -107,7 +107,7 @@
     // 输入手机号
     [[HHRouter shared] map:@"/login/phoneinput" toControllerClass:[PhoneInputViewController class]];
     // 输入验证码
-    [[HHRouter shared] map:@"/login/vcodeinput" toControllerClass:[VCodeInputViewController class]];
+    [[HHRouter shared] map:@"/login/vcodeinput/" toControllerClass:[VCodeInputViewController class]];
     // 更改密码
     [[HHRouter shared] map:@"/login/modifypassword/" toControllerClass:[ModifyPasswordViewController class]];
     
