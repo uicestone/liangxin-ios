@@ -146,6 +146,7 @@
                 hud.labelText = @"分享失败";
                 [hud hide:YES afterDelay:1];
             }];
+            return;
         }
             break;
         case 1: {

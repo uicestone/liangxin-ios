@@ -1415,7 +1415,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jiayi Xu (LJWWUZH366)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jiayi Xu (9B5M2V5PYT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jiayi Xu (LJWWUZH366)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1524,7 +1524,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jiayi Xu (LJWWUZH366)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jiayi Xu (9B5M2V5PYT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jiayi Xu (LJWWUZH366)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1553,7 +1553,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jiayi Xu (LJWWUZH366)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jiayi Xu (9B5M2V5PYT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jiayi Xu (LJWWUZH366)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
