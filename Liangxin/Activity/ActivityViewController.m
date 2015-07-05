@@ -74,7 +74,7 @@
     [inputView addSubview:inputButton];
     self.searchBar = [[LXSearchBar alloc] initWithFrame:CGRectZero];
     self.searchBar.placeholder = @"请输入要查找的活动";
-    self.searchBar.searchField.inputView = inputView;
+    self.searchBar.searchField.inputAccessoryView = inputView;
     self.searchBar.searchTintColor = [UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0];
     [self.searchBar.searchButton addTarget:self action:@selector(doKeywordSearch:) forControlEvents:UIControlEventTouchUpInside];
     [searchView addSubview:self.searchBar];
