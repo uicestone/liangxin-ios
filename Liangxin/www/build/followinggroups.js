@@ -1,9 +1,9 @@
-webpackJsonp([7,8],{
+webpackJsonp([6,8],{
 
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(riot) {__webpack_require__(7);
+	/* WEBPACK VAR INJECTION */(function(riot) {__webpack_require__(6);
 
 
 	riot.mount('*');
@@ -74,7 +74,7 @@ webpackJsonp([7,8],{
 
 /***/ },
 
-/***/ 7:
+/***/ 6:
 /***/ function(module, exports, __webpack_require__) {
 
 	var riot = __webpack_require__(10);

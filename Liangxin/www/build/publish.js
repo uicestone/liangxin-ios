@@ -1,4 +1,4 @@
-webpackJsonp([5,8],[
+webpackJsonp([7,8],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -3120,7 +3120,7 @@ webpackJsonp([5,8],[
 
 	var riot = __webpack_require__(10);
 
-	riot.tag('inputctrl', '<div class="input-row"> <input id="title" type="text" placeholder="{ opts.title }" maxlength="{opts.limit}" class="input input-text" onkeyup="{edit}" data-model="{opts.model}"> </div>', function(opts) {
+	riot.tag('inputctrl', '<div class="input-row"> <input id="title" type="text" placeholder="{ opts.title }" maxlength="{opts.limit}" class="input input-text" onkeyup="{edit}" onblur="{edit}" data-model="{opts.model}"> </div>', function(opts) {
 
 		this.value = "";
 		this.model = opts.model;
