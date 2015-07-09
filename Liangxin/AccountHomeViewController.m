@@ -150,7 +150,7 @@
     tabitems = @[@{
                      @"name":@"我的支部",
                      @"icon":@"我的支部",
-                     @"link": [NSString stringWithFormat:@"/group/detail/%@", @"2"]
+                     @"link": [NSString stringWithFormat:@"/group/detail/%@", [self currentUser].group[@"id"]]
                      },@{
                      @"name":@"我的积分",
                      @"icon":@"我的积分",
