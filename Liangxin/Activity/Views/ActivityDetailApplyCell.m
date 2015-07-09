@@ -51,12 +51,12 @@
         }];
         UILabel *applyTitleLabel = [UILabel new];
         applyTitleLabel.text = @"已报名人数";
-        applyTitleLabel.font = [UIFont systemFontOfSize:12.0];
+        applyTitleLabel.font = [UIFont systemFontOfSize:13.0];
         applyTitleLabel.textColor = [UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0];
         [self.contentView addSubview:applyTitleLabel];
         [applyTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(20);
-            make.width.mas_equalTo(60);
+            make.width.mas_equalTo(65);
             make.top.equalTo(_topLine.mas_bottom);
             make.bottom.equalTo(_bottomLine.mas_top);
         }];
@@ -65,7 +65,7 @@
         _applyNumberLabel.textColor = [UIColor lightGrayColor];
         [self.contentView addSubview:_applyNumberLabel];
         [_applyNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(75);
+            make.left.mas_equalTo(80);
             make.width.mas_equalTo(100);
             make.top.equalTo(_topLine.mas_bottom);
             make.bottom.equalTo(_bottomLine.mas_top);
