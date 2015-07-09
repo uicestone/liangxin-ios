@@ -25,6 +25,10 @@
     return NO;
 }
 
+- (BOOL)hasToolBar {
+    return NO;
+}
+
 - (void)commonInit {
     self.title = [[self.params objectForKey:@"title"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     self.webView = [UIWebView new];
@@ -34,7 +38,7 @@
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.top.mas_equalTo(0);
-        make.bottom.mas_equalTo(-44);
+        make.bottom.mas_equalTo(0);
     }];
     NSURL *URL = [NSURL URLWithString:[self.params objectForKey:@"url"]];
     [self.webView loadRequest:[NSURLRequest requestWithURL:URL]];

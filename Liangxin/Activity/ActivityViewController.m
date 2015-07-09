@@ -160,6 +160,7 @@
     }];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.rowHeight = 100;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
