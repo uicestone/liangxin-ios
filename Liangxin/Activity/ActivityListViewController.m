@@ -108,7 +108,7 @@
         @weakify(self)
         [[[LXNetworkManager sharedManager] getPostByParameters:self.parameters] subscribeNext:^(NSArray *x) {
             @strongify(self)
-            if (x.count != 0) {
+            if (x.count == 0) {
                 self.tableView.tableFooterView = nil;
             }
             else {
