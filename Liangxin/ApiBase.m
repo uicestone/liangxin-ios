@@ -79,10 +79,10 @@
     
     NSLog(@"<Request> GET:%@ %@", url, data);
     
-    
-    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    
     [self addAuthority:manager];
     
     [manager GET:url parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {

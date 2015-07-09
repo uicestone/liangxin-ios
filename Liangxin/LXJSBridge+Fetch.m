@@ -18,7 +18,7 @@
     NSString* method = [params objectForKey:@"method"];
     NSArray* origin_files = [params objectForKey:@"files"];
     
-    NSMutableArray* files = [@[] mutableCopy];
+    NSMutableArray* files = [origin_files mutableCopy];
     
     if(!method){
         method = @"get";
