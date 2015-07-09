@@ -33,7 +33,7 @@
 }
 
 - (void)commonInit {
-    self.title = @"课堂列表";
+    self.title = @"活动列表";
     self.viewModel = [ActivityListViewModel new];
     self.pageNumber = 1;
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
