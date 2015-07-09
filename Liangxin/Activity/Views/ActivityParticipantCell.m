@@ -12,8 +12,6 @@
 
 @property (nonatomic, strong) UIImageView *avatarImageView;
 @property (nonatomic, strong) UILabel *userStateLabel;
-@property (nonatomic, strong) UIButton *agreeButton;
-@property (nonatomic, strong) UIButton *disagreeButton;
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) UILabel *groupLabel;
 
@@ -134,6 +132,7 @@
     if (![groupName isEqual:[NSNull null]]) {
         self.groupLabel.text = groupName;
     }
+    
 }
 
 - (void)doAgree:(id)sender {

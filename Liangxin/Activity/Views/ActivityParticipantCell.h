@@ -10,6 +10,9 @@
 
 @interface ActivityParticipantCell : UITableViewCell
 
+@property (nonatomic, strong) UIButton *agreeButton;
+@property (nonatomic, strong) UIButton *disagreeButton;
+
 @property (nonatomic, copy) NSString *postId;
 
 - (void)reloadViewWithData:(NSDictionary *)data;
