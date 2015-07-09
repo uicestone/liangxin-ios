@@ -8,12 +8,14 @@
 
 #import "ActivityParticipantsViewController.h"
 #import "ActivityParticipantCell.h"
+#import "UserApi.h"
 
 @interface ActivityParticipantsViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 
 @property (nonatomic, strong) NSMutableArray *attendees;
+@property (nonatomic, copy) NSString *authorId;
 
 @end
 
@@ -43,6 +45,7 @@
     [[[LXNetworkManager sharedManager] getPostDetailById:[self.params objectForKey:@"id"]] subscribeNext:^(LXBaseModelPost *x) {
         @strongify(self)
         self.attendees = [NSMutableArray arrayWithArray:x.attendees];
+        self.authorId = [x.author objectForKey:@"id"];
         [self.tableView reloadData];
     } error:^(NSError *error) {
         
@@ -70,11 +73,19 @@
     NSDictionary *data = [self.attendees objectAtIndex:indexPath.row];
     cell.postId = self.postId;
     [cell reloadViewWithData:data];
+    if (![[[UserApi shared] getCurrentUser].id isEqualToString:self.authorId]) {
+        cell.agreeButton.hidden = YES;
+        cell.disagreeButton.hidden = YES;
+    }
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.attendees.count;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end
