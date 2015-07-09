@@ -62,17 +62,17 @@
         }];
         UILabel *dateTitleLabel = [UILabel new];
         dateTitleLabel.text = @"活动时间";
-        dateTitleLabel.font = [UIFont systemFontOfSize:12];
+        dateTitleLabel.font = [UIFont systemFontOfSize:13.0];
         dateTitleLabel.textColor = [UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0];
         [self.contentView addSubview:dateTitleLabel];
         [dateTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(20);
-            make.width.mas_equalTo(50);
+            make.width.mas_equalTo(60);
             make.top.equalTo(self.topLine.mas_bottom);
             make.bottom.equalTo(self.middleLine.mas_top);
         }];
         _dateLabel = [UILabel new];
-        _dateLabel.font = [UIFont systemFontOfSize:12.0];
+        _dateLabel.font = [UIFont systemFontOfSize:12];
         _dateLabel.textColor = [UIColor lightGrayColor];
         [self.contentView addSubview:_dateLabel];
         [_dateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -83,12 +83,12 @@
         }];
         UILabel *locationTitleLabel = [UILabel new];
         locationTitleLabel.text = @"活动地点";
-        locationTitleLabel.font = [UIFont systemFontOfSize:12];
+        locationTitleLabel.font = [UIFont systemFontOfSize:13.0];
         locationTitleLabel.textColor = [UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0];
         [self.contentView addSubview:locationTitleLabel];
         [locationTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(20);
-            make.width.mas_equalTo(50);
+            make.width.mas_equalTo(60);
             make.top.equalTo(self.middleLine.mas_bottom);
             make.bottom.equalTo(self.bottomLine.mas_top);
         }];
