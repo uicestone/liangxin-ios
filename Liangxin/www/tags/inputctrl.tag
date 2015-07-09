@@ -1,6 +1,6 @@
 <inputctrl>
 	<div class="input-row">	
-		<input id="title" type="text" placeholder="{ opts.title }"  maxlength="{opts.limit}" class="input input-text" onkeyup={edit} data-model={opts.model} />
+		<input id="title" type="text" placeholder="{ opts.title }"  maxlength="{opts.limit}" class="input input-text" onkeyup={edit} onblur={edit} data-model={opts.model} />
 	</div>
 
 	this.value = "";

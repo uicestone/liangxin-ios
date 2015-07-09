@@ -1,4 +1,4 @@
-webpackJsonp([4,8],[
+webpackJsonp([3,8],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -6,7 +6,7 @@ webpackJsonp([4,8],[
 	var bridge = __webpack_require__(2);
 	var query = __webpack_require__(3).parse();
 
-	__webpack_require__(5);
+	__webpack_require__(7);
 
 	var fetch = bridge.fetch;
 
@@ -1698,7 +1698,9 @@ webpackJsonp([4,8],[
 
 /***/ },
 /* 4 */,
-/* 5 */
+/* 5 */,
+/* 6 */,
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var riot = __webpack_require__(10);
@@ -1780,8 +1782,6 @@ webpackJsonp([4,8],[
 	});
 
 /***/ },
-/* 6 */,
-/* 7 */,
 /* 8 */,
 /* 9 */,
 /* 10 */
