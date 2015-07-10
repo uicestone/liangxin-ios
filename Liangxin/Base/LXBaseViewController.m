@@ -76,6 +76,12 @@
     }else{
         [self hideToolBar];
     }
+    if ([[self channel] isEqualToString:@"class"]) {
+        self.navigationController.navigationBar.barTintColor = UIColorFromRGB(0xf7931d);
+    }
+    else if ([[self channel] isEqualToString:@"activity"]) {
+        self.navigationController.navigationBar.barTintColor = UIColorFromRGB(0x00B0A2);
+    }
 }
 
 -(void)showToolBar{
@@ -85,6 +91,10 @@
 
 -(void)hideToolBar{
     self.toolbar.hidden = YES;
+}
+
+- (NSString *)channel {
+    return @"";
 }
 
 -(void)initToolBar{

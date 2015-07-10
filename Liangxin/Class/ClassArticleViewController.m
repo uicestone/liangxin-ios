@@ -23,6 +23,10 @@
     [self commonInit];
 }
 
+- (NSString *)channel {
+    return @"class";
+}
+
 - (void)commonInit {
     self.title = @"课堂详情";
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];

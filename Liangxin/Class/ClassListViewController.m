@@ -31,6 +31,10 @@
     [self commonInit];
 }
 
+- (NSString *)channel {
+    return @"class";
+}
+
 - (void)commonInit {
     self.title = @"课堂列表";
     self.tabBarController.tabBar.hidden = YES;

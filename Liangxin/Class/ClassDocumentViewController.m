@@ -25,6 +25,10 @@
     return NO;
 }
 
+- (NSString *)channel {
+    return @"class";
+}
+
 - (void)commonInit {
     [super commonInit];
     self.title = @"课堂文件";

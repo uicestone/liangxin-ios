@@ -25,6 +25,10 @@
 
 @implementation ActivityDetailViewController
 
+- (NSString *)channel {
+    return @"activity";
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self commonInit];

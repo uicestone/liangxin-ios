@@ -26,6 +26,10 @@
 
 @implementation ClassDetailViewController
 
+- (NSString *)channel {
+    return @"class";
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self commonInit];

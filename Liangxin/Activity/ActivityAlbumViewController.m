@@ -18,6 +18,10 @@
 
 @implementation ActivityAlbumViewController
 
+- (NSString *)channel {
+    return @"activity";
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 }

@@ -18,6 +18,10 @@
 
 @implementation ActivityArticleViewController
 
+- (NSString *)channel {
+    return @"activity";
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self commonInit];

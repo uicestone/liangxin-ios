@@ -37,6 +37,10 @@
     return YES;
 }
 
+- (NSString *)channel {
+    return @"class";
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

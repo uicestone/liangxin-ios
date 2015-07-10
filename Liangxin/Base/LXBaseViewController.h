@@ -44,6 +44,9 @@ typedef void(^ LoginFinishBlock)();
 - (void)hideProgress;
 - (void)doClickDetailBar:(UIButton *)sender;
 
+// 频道
+- (NSString *)channel;
+
 // 登录
 -(void)popLoginWithFinishHandler:(LoginFinishBlock)loginFinish;
 

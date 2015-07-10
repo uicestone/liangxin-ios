@@ -18,6 +18,10 @@
 
 @implementation ClassAlbumViewController
 
+- (NSString *)channel {
+    return @"class";
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 }
