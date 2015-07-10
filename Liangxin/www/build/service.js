@@ -1,13 +1,19 @@
-webpackJsonp([2,8],[
+webpackJsonp([2],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var $ = __webpack_require__(2);
 	var query = __webpack_require__(3).parse();
-
+	var bridge = __webpack_require__(1);
+	var fetch = bridge.fetch;
 	var id = query.id;
 
-	alert(id);
+	fetch({
+	    url:"/post/" + id
+	}).then(function(post){
+	    bridge.setTitle(post.title);
+	    $('.section-intro .content').html(post.content);
+	});
 
 /***/ },
 /* 1 */,

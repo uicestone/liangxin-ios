@@ -18,8 +18,6 @@
     separatorLineView.backgroundColor = UIColorFromRGB(0xececec);
     [self.contentView addSubview:separatorLineView];
     
-    self.desc.userInteractionEnabled = NO;
-    self.desc.textContainerInset = UIEdgeInsetsMake(0, 0, 0, 0);
     
     // Initialization code
 }

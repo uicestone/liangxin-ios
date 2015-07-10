@@ -9,16 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ActivityItemCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *attendee_image;
-@property (weak, nonatomic) IBOutlet UILabel *attendee_label;
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UILabel *title;
-@property (weak, nonatomic) IBOutlet UITextView *desc;
-@property (weak, nonatomic) IBOutlet UILabel *attendcount;
-@property (weak, nonatomic) IBOutlet UILabel *likecount;
-@property (weak, nonatomic) IBOutlet UILabel *reviewcount;
-@property (weak, nonatomic) IBOutlet UIButton *likebtn;
-@property (weak, nonatomic) IBOutlet UIButton *reviewbtn;
-@property (weak, nonatomic) IBOutlet UIButton *attendeebtn;
-@property (weak, nonatomic) IBOutlet UIButton *postbtn;
 @end

@@ -17,7 +17,7 @@
 	left: 24px;
 }
 .section .title:after{
-	content:"MORE";
+	content:"";
 	float: right;
 	font-weight: normal;
 }

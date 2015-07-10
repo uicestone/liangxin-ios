@@ -99,13 +99,6 @@
                   cell.title.frame.origin.y,
                                   cell.title.frame.size.width, cell.title.frame.size.height);
     
-    [cell.desc removeFromSuperview];
-    [cell.attendcount removeFromSuperview];
-    [cell.reviewcount removeFromSuperview];
-    [cell.likecount removeFromSuperview];
-    [cell.attendee_image removeFromSuperview];
-    [cell.attendee_label removeFromSuperview];
-    
     
     [cell.image setImageWithURL:[NSURL URLWithString:activity.poster.url]];
     

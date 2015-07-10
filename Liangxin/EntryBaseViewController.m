@@ -107,12 +107,12 @@
     label.font = [UIFont systemFontOfSize:13.f];
     [view addSubview:label];
     
-    
-    UILabel* more = [[UILabel alloc] initWithFrame:CGRectMake(self.winWidth - 50, 0, self.winWidth, 22)];
-    more.text = @"MORE";
-    more.textColor = UIColorFromRGB(0x58595b);
-    more.font = [UIFont systemFontOfSize:13.f];
-    [view addSubview:more];
+//    
+//    UILabel* more = [[UILabel alloc] initWithFrame:CGRectMake(self.winWidth - 50, 0, self.winWidth, 22)];
+//    more.text = @"MORE";
+//    more.textColor = UIColorFromRGB(0x58595b);
+//    more.font = [UIFont systemFontOfSize:13.f];
+//    [view addSubview:more];
     
     
     
@@ -166,18 +166,9 @@
     
     cell.selectionStyle = UITableViewCellAccessoryNone;
 
-    
-    cell.desc.text = activity.desc;
-    cell.title.text = activity.title;
-    cell.attendcount.text = [NSString stringWithFormat:@"%d", activity.attendeeCount];
-    cell.reviewcount.text = [NSString stringWithFormat:@"%d", activity.reviewCount];
-    cell.likecount.text = [NSString stringWithFormat:@"%d", activity.likeCount];
+    cell.title.numberOfLines = 3;
     [cell.image setImageWithURL:[NSURL URLWithString:activity.poster.url]];
     
-//    [cell.attendeebtn addTarget:self action:@selector(attendeeBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-//    [cell.likebtn addTarget:self action:@selector(likeBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-//    [cell.reviewbtn addTarget:self action:@selector(reviewBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-//    [cell.postbtn addTarget:self action:@selector(postBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     cell.separatorInset = UIEdgeInsetsZero;
     
     return cell;
@@ -204,7 +195,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-
+    int row = (int)[indexPath row];
+    LXBaseModelPost* post = [self.posts objectAtIndex:row];
+    NSString* path = [NSString stringWithFormat:@"/service/%@", post.id];
+    
+    [self navigateToPath:path];
 }
 
 - (void)didReceiveMemoryWarning {
