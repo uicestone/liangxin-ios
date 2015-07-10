@@ -94,6 +94,13 @@
         if (!data.attended) {
             [_applyStatusButton setTitle:@"未报名" forState:UIControlStateNormal];
         }
+        if (data.url.length > 0) {
+            [self.mainImageView sd_setImageWithURL:[NSURL URLWithString:data.url]];
+            self.mainImageView.layer.borderWidth = 0.0;
+        }
+        else {
+            self.mainImageView.layer.borderWidth = 1.0;
+        }
         self.titleLabel.text = data.title;
         CGSize titleSize = [data.title boundingRectWithSize:self.titleLabel.bounds.size options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:self.titleLabel.font} context:nil].size;
         [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {

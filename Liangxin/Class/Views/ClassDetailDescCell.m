@@ -45,6 +45,10 @@
     }
 }
 
+- (void)showMore:(id)sender {
+    
+}
+
 + (CGFloat)cellHeightWithData:(LXBaseModelPost *)data {
     if (data && data.excerpt.length > 0) {
         return 80;

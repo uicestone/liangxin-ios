@@ -10,4 +10,6 @@
 
 @interface ActivityDetailDescCell : ClassDetailBaseCell
 
+@property (nonatomic, weak) UIViewController *parentViewController;
+
 @end

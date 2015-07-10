@@ -137,6 +137,8 @@
 		2D6160CA1B20B26B001D01D8 /* LXHomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160C91B20B26B001D01D8 /* LXHomeCollectionViewCell.m */; };
 		2D75A2DB1B1B4A0700A8FA95 /* LXClassListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D75A2DA1B1B4A0700A8FA95 /* LXClassListViewModel.m */; };
 		2DA7DB3A1B4F8D6C00A15F74 /* LXIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA7DB391B4F8D6C00A15F74 /* LXIntroView.m */; };
+		2DA7DB3D1B4F9A0A00A15F74 /* ClassDetailDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA7DB3C1B4F9A0A00A15F74 /* ClassDetailDetailViewController.m */; };
+		2DA7DB401B4F9FA500A15F74 /* ActivityDetailDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA7DB3F1B4F9FA500A15F74 /* ActivityDetailDetailViewController.m */; };
 		2DB6C2B31B2280CB00A94E6E /* LXNetworkParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB6C2B21B2280CB00A94E6E /* LXNetworkParameters.m */; };
 		2DB6C2BB1B24367300A94E6E /* LXSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB6C2BA1B24367300A94E6E /* LXSearchBar.m */; };
 		2DB6C2BE1B2865CF00A94E6E /* LXShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB6C2BD1B2865CF00A94E6E /* LXShareView.m */; };
@@ -420,6 +422,10 @@
 		2D75A2DA1B1B4A0700A8FA95 /* LXClassListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXClassListViewModel.m; path = Class/ViewModel/LXClassListViewModel.m; sourceTree = "<group>"; };
 		2DA7DB381B4F8D6C00A15F74 /* LXIntroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXIntroView.h; sourceTree = "<group>"; };
 		2DA7DB391B4F8D6C00A15F74 /* LXIntroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXIntroView.m; sourceTree = "<group>"; };
+		2DA7DB3B1B4F9A0A00A15F74 /* ClassDetailDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassDetailDetailViewController.h; path = Class/ClassDetailDetailViewController.h; sourceTree = "<group>"; };
+		2DA7DB3C1B4F9A0A00A15F74 /* ClassDetailDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassDetailDetailViewController.m; path = Class/ClassDetailDetailViewController.m; sourceTree = "<group>"; };
+		2DA7DB3E1B4F9FA500A15F74 /* ActivityDetailDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityDetailDetailViewController.h; path = Liangxin/Activity/ActivityDetailDetailViewController.h; sourceTree = "<group>"; };
+		2DA7DB3F1B4F9FA500A15F74 /* ActivityDetailDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityDetailDetailViewController.m; path = Liangxin/Activity/ActivityDetailDetailViewController.m; sourceTree = "<group>"; };
 		2DB6C2B11B2280CB00A94E6E /* LXNetworkParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXNetworkParameters.h; path = Network/Parameters/LXNetworkParameters.h; sourceTree = "<group>"; };
 		2DB6C2B21B2280CB00A94E6E /* LXNetworkParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXNetworkParameters.m; path = Network/Parameters/LXNetworkParameters.m; sourceTree = "<group>"; };
 		2DB6C2B91B24367300A94E6E /* LXSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXSearchBar.h; path = Widgets/LXSearchBar.h; sourceTree = "<group>"; };
@@ -591,6 +597,8 @@
 				2DDBF0631B319E180051E0BC /* ActivityArticleViewController.m */,
 				2DDBF0651B319FF40051E0BC /* ActivityAlbumViewController.h */,
 				2DDBF0661B319FF40051E0BC /* ActivityAlbumViewController.m */,
+				2DA7DB3E1B4F9FA500A15F74 /* ActivityDetailDetailViewController.h */,
+				2DA7DB3F1B4F9FA500A15F74 /* ActivityDetailDetailViewController.m */,
 			);
 			name = Activity;
 			path = ..;
@@ -785,6 +793,8 @@
 				2D537E011B1AF6D7006BD35E /* ClassListViewController.m */,
 				2DDBF05C1B3194C30051E0BC /* ClassArticleViewController.h */,
 				2DDBF05D1B3194C30051E0BC /* ClassArticleViewController.m */,
+				2DA7DB3B1B4F9A0A00A15F74 /* ClassDetailDetailViewController.h */,
+				2DA7DB3C1B4F9A0A00A15F74 /* ClassDetailDetailViewController.m */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -1267,6 +1277,7 @@
 				2DD8A0D21B2EB1CB00856E23 /* ActivityDetailApplyCell.m in Sources */,
 				2215CB5C1B082B1E00D0359A /* GroupPostViewController.m in Sources */,
 				22D649D91B0A29FF004045B8 /* PostItemCell.m in Sources */,
+				2DA7DB401B4F9FA500A15F74 /* ActivityDetailDetailViewController.m in Sources */,
 				2DDBF0611B3197EE0051E0BC /* ClassArticleCell.m in Sources */,
 				2DD8A0C91B2EA4BB00856E23 /* ActivityDetailSummaryCell.m in Sources */,
 				22E6E2821B13416B005E528E /* PhoneInputViewController.m in Sources */,
@@ -1349,6 +1360,7 @@
 				22B51AA81B196A76000CF4A8 /* LXNavigationController.m in Sources */,
 				2DB6C2BE1B2865CF00A94E6E /* LXShareView.m in Sources */,
 				2293FA091AF5DBF20012CD10 /* GroupViewController.m in Sources */,
+				2DA7DB3D1B4F9A0A00A15F74 /* ClassDetailDetailViewController.m in Sources */,
 				2D75A2DB1B1B4A0700A8FA95 /* LXClassListViewModel.m in Sources */,
 				22E6E2911B1344ED005E528E /* ModifyPasswordViewController.m in Sources */,
 				2DD8A0BA1B2D9B3300856E23 /* LXBaseVideoViewController.m in Sources */,

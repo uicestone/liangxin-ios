@@ -7,10 +7,12 @@
 //
 
 #import "ActivityDetailDescCell.h"
+#import "ActivityDetailDetailViewController.h"
 
 @interface ActivityDetailDescCell()
 
 @property (nonatomic, strong) UILabel *descLabel;
+@property (nonatomic, strong) LXBaseModelPost *data;
 
 @end
 
@@ -37,8 +39,17 @@
     [super setSelected:selected animated:animated];
 }
 
+- (void)showMore:(id)sender {
+    if (self.data) {
+        ActivityDetailDetailViewController *detailViewController = [ActivityDetailDetailViewController new];
+        detailViewController.data = self.data;
+        [self.parentViewController.navigationController pushViewController:detailViewController animated:YES];
+    }
+}
+
 - (void)reloadViewWithData:(LXBaseModelPost *)data {
     if (data) {
+        _data = data;
         if (data.excerpt.length > 0) {
             _descLabel.text = data.excerpt;
         }
