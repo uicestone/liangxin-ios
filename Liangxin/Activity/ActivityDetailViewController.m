@@ -15,6 +15,7 @@
 #import "ActivityDetailDescCell.h"
 #import "ActivityDetailApplyCell.h"
 #import "ActivityDetailAlbumCell.h"
+#import "ActivityDetailDetailViewController.h"
 
 @interface ActivityDetailViewController() <UITableViewDataSource, UITableViewDelegate>
 
@@ -171,6 +172,7 @@
             if (!cell) {
                 cell = [[ActivityDetailDescCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ActivityDetailDescCell"];
             }
+            cell.parentViewController = self;
             cell.title = @"活动详情";
             cell.tintColor = [UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0];
             [cell reloadViewWithData:self.postData];
@@ -216,6 +218,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 2) {
+        if (self.postData) {
+            ActivityDetailDetailViewController *detailViewController = [ActivityDetailDetailViewController new];
+            detailViewController.data = self.postData;
+            [self.navigationController pushViewController:detailViewController animated:YES];
+        }
+    }
     if (indexPath.section == 3 && ![[self.postData.author objectForKey:@"id"] isEqualToString:[[UserApi shared] getCurrentUser].id]) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://activity/attends/?id=%@", self.postId]]];
     }
