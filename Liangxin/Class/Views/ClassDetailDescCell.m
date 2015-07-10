@@ -7,10 +7,12 @@
 //
 
 #import "ClassDetailDescCell.h"
+#import "ClassDetailDetailViewController.h"
 
 @interface ClassDetailDescCell()
 
 @property (nonatomic, strong) UILabel *descLabel;
+@property (nonatomic, strong) LXBaseModelPost *data;
 
 @end
 
@@ -39,6 +41,7 @@
 
 - (void)reloadViewWithData:(LXBaseModelPost *)data {
     if (data) {
+        self.data = data;
         if (data.excerpt.length > 0) {
             _descLabel.text = data.excerpt;
         }
@@ -46,7 +49,11 @@
 }
 
 - (void)showMore:(id)sender {
-    
+    if (self.data) {
+        ClassDetailDetailViewController *detailViewController = [ClassDetailDetailViewController new];
+        detailViewController.data = self.data;
+        [self.parentViewController.navigationController pushViewController:detailViewController animated:YES];
+    }
 }
 
 + (CGFloat)cellHeightWithData:(LXBaseModelPost *)data {

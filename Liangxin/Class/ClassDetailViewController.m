@@ -16,6 +16,7 @@
 #import "LXShareView.h"
 #import "UserApi.h"
 #import "LXClassDetailViewModel.h"
+#import "ClassDetailDetailViewController.h"
 
 @interface ClassDetailViewController() <UITableViewDataSource, UITableViewDelegate>
 
@@ -172,6 +173,7 @@
         }
         [cell reloadViewWithData:self.viewModel.postData];
         cell.title = @"课堂描述";
+        cell.parentViewController = self;
         return cell;
     }
     else if (indexPath.section == 2) {
@@ -215,6 +217,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 1) {
+        ClassDetailDetailViewController *detailViewController = [ClassDetailDetailViewController new];
+        detailViewController.data = self.viewModel.postData;
+        [self.parentViewController.navigationController pushViewController:detailViewController animated:YES];
+    }
 }
 
 @end
