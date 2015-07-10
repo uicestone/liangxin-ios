@@ -12,14 +12,16 @@
 #import "LXCarouselView.h"
 #import "LXBaseModelPost.h"
 #import "UserApi.h"
+#import "LXIntroView.h"
 
-@interface LXHomeViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface LXHomeViewController () <UICollectionViewDataSource, UICollectionViewDelegate, LXIntroViewDelegate>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) LXCarouselView *carouselView;
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
 @property (nonatomic, strong) NSArray *channelImages;
 @property (nonatomic, strong) NSArray *channelSchemes;
+@property (nonatomic, strong) LXIntroView *introView;
 
 @end
 
@@ -102,6 +104,13 @@
     } error:^(NSError *error) {
         
     }];
+    
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"Intro"]) {
+        self.introView = [[LXIntroView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        self.introView.introImages = @[@"Guide1", @"Guide2", @"Guide3"];
+        self.introView.delegate = self;
+        [self.navigationController.view addSubview:self.introView];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -114,6 +123,17 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+}
+
+#pragma mark - LXIntroViewDelegate
+
+- (void)dismissIntroView {
+    [UIView animateWithDuration:1.0 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.introView.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self.introView removeFromSuperview];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"Intro"];
+    }];
 }
 
 #pragma mark - UICollectionViewDataSource && UICollectionViewDelegate

@@ -136,6 +136,7 @@
 		2D6160C61B20AA1B001D01D8 /* LXHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160C51B20AA1B001D01D8 /* LXHomeViewController.m */; };
 		2D6160CA1B20B26B001D01D8 /* LXHomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160C91B20B26B001D01D8 /* LXHomeCollectionViewCell.m */; };
 		2D75A2DB1B1B4A0700A8FA95 /* LXClassListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D75A2DA1B1B4A0700A8FA95 /* LXClassListViewModel.m */; };
+		2DA7DB3A1B4F8D6C00A15F74 /* LXIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA7DB391B4F8D6C00A15F74 /* LXIntroView.m */; };
 		2DB6C2B31B2280CB00A94E6E /* LXNetworkParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB6C2B21B2280CB00A94E6E /* LXNetworkParameters.m */; };
 		2DB6C2BB1B24367300A94E6E /* LXSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB6C2BA1B24367300A94E6E /* LXSearchBar.m */; };
 		2DB6C2BE1B2865CF00A94E6E /* LXShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB6C2BD1B2865CF00A94E6E /* LXShareView.m */; };
@@ -417,6 +418,8 @@
 		2D6160C91B20B26B001D01D8 /* LXHomeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXHomeCollectionViewCell.m; path = Home/Views/LXHomeCollectionViewCell.m; sourceTree = "<group>"; };
 		2D75A2D91B1B4A0700A8FA95 /* LXClassListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXClassListViewModel.h; path = Class/ViewModel/LXClassListViewModel.h; sourceTree = "<group>"; };
 		2D75A2DA1B1B4A0700A8FA95 /* LXClassListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXClassListViewModel.m; path = Class/ViewModel/LXClassListViewModel.m; sourceTree = "<group>"; };
+		2DA7DB381B4F8D6C00A15F74 /* LXIntroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXIntroView.h; sourceTree = "<group>"; };
+		2DA7DB391B4F8D6C00A15F74 /* LXIntroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXIntroView.m; sourceTree = "<group>"; };
 		2DB6C2B11B2280CB00A94E6E /* LXNetworkParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXNetworkParameters.h; path = Network/Parameters/LXNetworkParameters.h; sourceTree = "<group>"; };
 		2DB6C2B21B2280CB00A94E6E /* LXNetworkParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXNetworkParameters.m; path = Network/Parameters/LXNetworkParameters.m; sourceTree = "<group>"; };
 		2DB6C2B91B24367300A94E6E /* LXSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXSearchBar.h; path = Widgets/LXSearchBar.h; sourceTree = "<group>"; };
@@ -681,6 +684,8 @@
 				22E6E25B1B11C64B005E528E /* EntryBaseViewController.m */,
 				22B51AA61B196A76000CF4A8 /* LXNavigationController.h */,
 				22B51AA71B196A76000CF4A8 /* LXNavigationController.m */,
+				2DA7DB381B4F8D6C00A15F74 /* LXIntroView.h */,
+				2DA7DB391B4F8D6C00A15F74 /* LXIntroView.m */,
 			);
 			path = Liangxin;
 			sourceTree = "<group>";
@@ -1252,6 +1257,7 @@
 				22E7BBD71B230AF6009F0266 /* LXTabView.m in Sources */,
 				2DE2F4A11B2041C600E3DA29 /* ActivityViewModel.m in Sources */,
 				22E6E2621B11F38B005E528E /* ActivityItemCell.m in Sources */,
+				2DA7DB3A1B4F8D6C00A15F74 /* LXIntroView.m in Sources */,
 				2D537DFF1B1AF588006BD35E /* ClassDocumentViewController.m in Sources */,
 				2D00FF961B217F6F00106110 /* LXHomeViewModel.m in Sources */,
 				2D537DF31B1AED21006BD35E /* ClassDetailDocumentCell.m in Sources */,
