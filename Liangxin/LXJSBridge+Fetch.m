@@ -18,7 +18,7 @@
     NSString* method = [params objectForKey:@"method"];
     NSArray* origin_files = [params objectForKey:@"files"];
     
-    NSMutableArray* files = [origin_files mutableCopy];
+    NSMutableArray* files = [@[] mutableCopy];
     
     if(!method){
         method = @"get";
@@ -33,19 +33,17 @@
         }];
     }else if([method isEqual:@"post"]){
         
-        if(files != nil && [files count]){
-            if(origin_files && [origin_files count]){
-                for(NSDictionary* origin_file in origin_files){
-                    if(origin_file[@"data"] == nil){
-                        continue;
-                    }
-                    
-                    NSMutableDictionary* file = [origin_file mutableCopy];
-                    
-                    NSData *data = [NSData base64DataFromString:file[@"data"]];
-                    [file setObject:data forKey:@"data"];
-                    [files addObject:file];
+        if(origin_files != nil && origin_files.count){
+            for(NSDictionary* origin_file in origin_files){
+                if(origin_file[@"data"] == nil){
+                    continue;
                 }
+                
+                NSMutableDictionary* file = [origin_file mutableCopy];
+                
+                NSData *data = [NSData base64DataFromString:file[@"data"]];
+                [file setObject:data forKey:@"data"];
+                [files addObject:file];
             }
             
             [ApiBase postMultipartWithPath:url data:[data copy] files:[files copy] success:^(id responseObject) {

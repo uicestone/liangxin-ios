@@ -55,9 +55,10 @@
         
         
         for(NSDictionary* file in files){
+            NSString* fileName = file[@"title"] ? file[@"title"] : @"未命名";
             [formData appendPartWithFileData: file[@"data"]
                                         name: file[@"name"]
-                                    fileName: file[@"title"] ? file[@"title"] : @"未命名"  mimeType:@"image/jpeg"];
+                                    fileName: [fileName stringByAppendingString:@".jpg"]  mimeType:@"image/jpeg"];
         }
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         successCallback(responseObject);

@@ -11,7 +11,7 @@ webpackJsonp([6,8],{
 
 /***/ },
 
-/***/ 2:
+/***/ 1:
 /***/ function(module, exports, __webpack_require__) {
 
 	var Bridge = {
@@ -79,8 +79,8 @@ webpackJsonp([6,8],{
 
 	var riot = __webpack_require__(10);
 
-	__webpack_require__(18)
-	var bridge = __webpack_require__(2);
+	__webpack_require__(17)
+	var bridge = __webpack_require__(1);
 	var fetch = bridge.fetch;
 	riot.tag('followinggroups', '<followinggroup each="{items}" data="{this}"></followinggroup>', function(opts) {
 		
@@ -1440,12 +1440,12 @@ webpackJsonp([6,8],{
 
 /***/ },
 
-/***/ 18:
+/***/ 17:
 /***/ function(module, exports, __webpack_require__) {
 
 	var riot = __webpack_require__(10);
 
-	var bridge = __webpack_require__(2);
+	var bridge = __webpack_require__(1);
 	var fetch = bridge.fetch;
 
 	riot.tag('followinggroup', '<div class="inner" ontouchend="{togroup}"> <img class="avatar" riot-src="{opts.data.avatar}?imageView2/1/w/100/h/100"> <div class="main"> <div class="name">{opts.data.name}</div> <div class="follow-btn" onclick="{toggleFollowing}">已关注</div> </div> </div>', function(opts) {

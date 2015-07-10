@@ -1,12 +1,12 @@
-webpackJsonp([5,8],[
+webpackJsonp([7,8],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(riot) {var $ = __webpack_require__(1);
-	var bridge = __webpack_require__(2);
+	/* WEBPACK VAR INJECTION */(function(riot) {var $ = __webpack_require__(2);
+	var bridge = __webpack_require__(1);
 	var query = __webpack_require__(3).parse();
 
-	__webpack_require__(5);
+	__webpack_require__(7);
 	var type = query.type;
 
 	riot.mount('*');
@@ -14,6 +14,68 @@ webpackJsonp([5,8],[
 
 /***/ },
 /* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Bridge = {
+
+		_exec: function(method, params, callback){
+			var callbackName = "LiangxinJSCallback_" + (+new Date()) + "_" + Math.floor(Math.random() * 50);
+			var iframe = document.createElement('iframe');
+			window[callbackName] = callback;
+	    iframe.src = "js://_?method=" + method + "&params=" + encodeURIComponent(JSON.stringify(params)) + "&callback=" + callbackName;
+			console.log("iframe src", iframe.src);
+			document.body.appendChild(iframe);
+			iframe.style.display = "none";
+			function removeNode(){
+	      iframe.onload = iframe.onerror = null;
+	      iframe.parentNode && iframe.parentNode.removeChild(iframe);
+	    }
+	    iframe.onload = iframe.onerror = removeNode;
+			setTimeout(removeNode, 1000);
+		},
+		exec: function(method, params){
+			return new Promise(function(resolve, reject){
+					Bridge._exec(method, params, function(result){
+						var error = result && result.error;
+						var fail = params.fail;
+						var success = params.success;
+						if(error){
+							error = new Error(error);
+							fail && fail(error);
+							reject(error);
+							Bridge.onerror && Bridge.onerror(error);
+						}else{
+							success && success(result);
+							resolve(result);
+						}
+					});
+				});
+		}
+	};
+
+	["fetch", "pickImage", "showProgress", "hideProgress", "close", "dismiss", "getUser", "login"].forEach(function(method){
+		Bridge[method] = function(params){
+			params = params || {};
+			return Bridge.exec(method, params);
+		};
+	});
+
+	Bridge.setTitle = function(title){
+		return Bridge.exec("setTitle", {title: title});
+	};
+
+	Bridge.open = function(url){
+		return Bridge.exec("open", {url: url});
+	};
+
+	Bridge.showMessage = function(message){
+		return Bridge.exec("showMessage", {message:message});
+	};
+
+	module.exports = Bridge;
+
+/***/ },
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Zepto v1.1.6 - zepto event ajax form ie - zeptojs.com/license */
@@ -1607,68 +1669,6 @@ webpackJsonp([5,8],[
 	module.exports = Zepto;
 
 /***/ },
-/* 2 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Bridge = {
-
-		_exec: function(method, params, callback){
-			var callbackName = "LiangxinJSCallback_" + (+new Date()) + "_" + Math.floor(Math.random() * 50);
-			var iframe = document.createElement('iframe');
-			window[callbackName] = callback;
-	    iframe.src = "js://_?method=" + method + "&params=" + encodeURIComponent(JSON.stringify(params)) + "&callback=" + callbackName;
-			console.log("iframe src", iframe.src);
-			document.body.appendChild(iframe);
-			iframe.style.display = "none";
-			function removeNode(){
-	      iframe.onload = iframe.onerror = null;
-	      iframe.parentNode && iframe.parentNode.removeChild(iframe);
-	    }
-	    iframe.onload = iframe.onerror = removeNode;
-			setTimeout(removeNode, 1000);
-		},
-		exec: function(method, params){
-			return new Promise(function(resolve, reject){
-					Bridge._exec(method, params, function(result){
-						var error = result && result.error;
-						var fail = params.fail;
-						var success = params.success;
-						if(error){
-							error = new Error(error);
-							fail && fail(error);
-							reject(error);
-							Bridge.onerror && Bridge.onerror(error);
-						}else{
-							success && success(result);
-							resolve(result);
-						}
-					});
-				});
-		}
-	};
-
-	["fetch", "pickImage", "showProgress", "hideProgress", "close", "dismiss", "getUser", "login"].forEach(function(method){
-		Bridge[method] = function(params){
-			params = params || {};
-			return Bridge.exec(method, params);
-		};
-	});
-
-	Bridge.setTitle = function(title){
-		return Bridge.exec("setTitle", {title: title});
-	};
-
-	Bridge.open = function(url){
-		return Bridge.exec("open", {url: url});
-	};
-
-	Bridge.showMessage = function(message){
-		return Bridge.exec("showMessage", {message:message});
-	};
-
-	module.exports = Bridge;
-
-/***/ },
 /* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -1684,16 +1684,18 @@ webpackJsonp([5,8],[
 
 /***/ },
 /* 4 */,
-/* 5 */
+/* 5 */,
+/* 6 */,
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var riot = __webpack_require__(10);
 
-	__webpack_require__(17)
-	var bridge = __webpack_require__(2);
+	__webpack_require__(18)
+	var bridge = __webpack_require__(1);
 	var fetch = bridge.fetch;
 	var query = __webpack_require__(3).parse();
-	var $ = __webpack_require__(1);
+	var $ = __webpack_require__(2);
 
 
 	riot.tag('comments', '<div riot-style="display:{(loaded && items.length)?\'block\':\'none\'}; margin-bottom: 20px;"> <comment each="{items}" data="{this}"></comment> </div> <div riot-style="display:{(loaded && !items.length)?\'block\':\'none\'};text-align:center;margin-top:90px"> <img src="./image/nocomments.png" height="136" width="91"> </div> <div class="mbox" riot-style="display:{writing?\'block\':\'none\'}"> <div class="inner"> <div class="close" onclick="{closepopup}"></div> <div class="title">评论</div> <div class="content"> <textarea name="" id="input" cols="30" rows="10"></textarea> </div> <div class="btn" onclick="{submit}">提交</div> </div> </div> <div class="write" onclick="{showpopup}"> <i class="icon-pencil"></i> <span>写评论</span> </div>', function(opts) {
@@ -1761,8 +1763,6 @@ webpackJsonp([5,8],[
 	});
 
 /***/ },
-/* 6 */,
-/* 7 */,
 /* 8 */,
 /* 9 */,
 /* 10 */
@@ -3097,12 +3097,13 @@ webpackJsonp([5,8],[
 /* 14 */,
 /* 15 */,
 /* 16 */,
-/* 17 */
+/* 17 */,
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var riot = __webpack_require__(10);
 
-	var bridge = __webpack_require__(2);
+	var bridge = __webpack_require__(1);
 	var fetch = bridge.fetch;
 
 	riot.tag('comment', '<div class="inner"> <img class="avatar" riot-src="{opts.data.author.avatar || \'./image/default-avatar.png\'}"> <div class="main"> <div class="author">{opts.data.author.name}</div> <div class="time">{opts.data.created_at}</div> <div class="content">{opts.data.title}</div> </div> <div class="likes {liked?\'liked\':\'\'}" onclick="{togglelike}"> <i class="icon-likes"></i> <span class="count">{likes}</span> </div> </div>', function(opts) {
