@@ -137,6 +137,13 @@
     }];
     
     [self.view addSubview:self.tableView];
+    
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(offset);
+        make.width.equalTo(self.view);
+        make.bottom.equalTo(self.view).with.offset(-44);
+    }];
+
 }
 
 
@@ -167,10 +174,10 @@
     cell.likecount.text = [NSString stringWithFormat:@"%d", activity.likeCount];
     [cell.image setImageWithURL:[NSURL URLWithString:activity.poster.url]];
     
-    [cell.attendeebtn addTarget:self action:@selector(attendeeBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [cell.likebtn addTarget:self action:@selector(likeBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [cell.reviewbtn addTarget:self action:@selector(reviewBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [cell.postbtn addTarget:self action:@selector(postBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+//    [cell.attendeebtn addTarget:self action:@selector(attendeeBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+//    [cell.likebtn addTarget:self action:@selector(likeBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+//    [cell.reviewbtn addTarget:self action:@selector(reviewBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+//    [cell.postbtn addTarget:self action:@selector(postBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     cell.separatorInset = UIEdgeInsetsZero;
     
     return cell;
@@ -179,18 +186,6 @@
 - (void)postBtnClicked:(id)sender{
     Post* activity = [self activityFromSender:sender];
     NSLog(@"%d post touched", activity.postId);
-}
-
-- (void)attendeeBtnClicked:(id)sender{
-    Post* activity = [self activityFromSender:sender];
-}
-
-- (void)likeBtnClicked:(id)sender{
-    Post* activity = [self activityFromSender:sender];
-}
-
-- (void)reviewBtnClicked:(id)sender{
-    Post* activity = [self activityFromSender:sender];
 }
 
 

@@ -93,7 +93,7 @@
                                  );
         
         UIButton* button = [[UIButton alloc] initWithFrame:rect];
-        NSURL * url = [NSURL URLWithString:bm.image];
+        NSURL * url = [NSURL URLWithString:[bm.image stringByAppendingString:@"?imageView2/0/w/640"]];
         
         [button setTag:i];
         
@@ -116,7 +116,10 @@
     UIButton* img = (UIButton*) sender;
     NSInteger index = img.tag;
     BannerModel* model = [self.picList objectAtIndex:index];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:model.link]];
+    
+    if(![[NSNull null] isEqual:model.link] && model.link != nil){
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:model.link]];
+    }
 }
 
 @end

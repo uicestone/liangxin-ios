@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -108,6 +109,8 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="attendcount" destination="lgn-ar-kW2" id="kV8-cg-Td2"/>
+                <outlet property="attendee_image" destination="V63-oM-D7d" id="2I4-lW-zyg"/>
+                <outlet property="attendee_label" destination="nWE-GF-hpM" id="NEb-sd-HLB"/>
                 <outlet property="attendeebtn" destination="rVO-9e-LjP" id="vS5-KQ-sTm"/>
                 <outlet property="desc" destination="iYa-Oz-2Xf" id="Nui-9u-eHm"/>
                 <outlet property="image" destination="3Nr-T6-ddO" id="dn8-Hd-DEo"/>

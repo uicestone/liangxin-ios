@@ -13,7 +13,7 @@
 
 #define kReuseIdentifier @"ActivityItemCell"
 
-@interface ServiceHomeViewController ()
+@interface ServiceHomeViewController () <UITableViewDataSource>
 @property (nonatomic, strong) NSArray* services;
 @end
 
@@ -26,11 +26,11 @@
 
 - (void)viewDidLoad {
     
-    self.bannerType = @"党群服务";
+    self.bannerType = @"服务";
     
     self.tableViewTitle = @"服务中心列表";
     
-    self.postType = @"services";
+    self.postType = @"服务";
     self.filterColumns = 2;
     self.filterRows = 3;
     self.filterList = @[
@@ -66,8 +66,16 @@
                     ];
     
     [self setTitle:[[Channels shared] titleAtIndex:4]];
+    
     [super viewDidLoad];
+    
+    self.tableView.dataSource = self;
+    
     // Do any additional setup after loading the view.
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [posts count];
 }
 
 
@@ -83,11 +91,22 @@
     cell.selectionStyle = UITableViewCellAccessoryNone;
     
     
-    cell.desc.text = activity.desc;
+//    cell.desc.text = activity.desc;
     cell.title.text = activity.title;
-    cell.attendcount.text = [NSString stringWithFormat:@"%d", activity.attendeeCount];
-    cell.reviewcount.text = [NSString stringWithFormat:@"%d", activity.reviewCount];
-    cell.likecount.text = [NSString stringWithFormat:@"%d", activity.likeCount];
+    
+    cell.title.frame = CGRectMake(
+                  cell.title.frame.origin.x + 50,
+                  cell.title.frame.origin.y,
+                                  cell.title.frame.size.width, cell.title.frame.size.height);
+    
+    [cell.desc removeFromSuperview];
+    [cell.attendcount removeFromSuperview];
+    [cell.reviewcount removeFromSuperview];
+    [cell.likecount removeFromSuperview];
+    [cell.attendee_image removeFromSuperview];
+    [cell.attendee_label removeFromSuperview];
+    
+    
     [cell.image setImageWithURL:[NSURL URLWithString:activity.poster.url]];
     
     cell.separatorInset = UIEdgeInsetsZero;
