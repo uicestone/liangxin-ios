@@ -2,8 +2,8 @@ webpackJsonp([0],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(2);
-	var bridge = __webpack_require__(1);
+	var $ = __webpack_require__(1);
+	var bridge = __webpack_require__(2);
 	var fetch = bridge.fetch;
 	$('.item .head').on('touchend', function(){
 		$(this).parent().toggleClass('expand');	
@@ -14,9 +14,9 @@ webpackJsonp([0],[
 		var articles = [];
 		var events = [];
 		var classes = [];
-		function renderInContainer(posts, container){
+		function renderInContainer(posts, container, prefix){
 			posts.forEach(function(post){
-				container.append($('<li class="post"><a href="liangxin://article/' + post.id + '">' + post.title + '</a></li>'));
+				container.append($('<li class="post"><a href="liangxin://' + prefix + '/' + post.id + '">' + post.title + '</a></li>'));
 			});
 		}
 		posts.forEach(function(post){
@@ -29,9 +29,9 @@ webpackJsonp([0],[
 			}
 		});
 
-		renderInContainer(articles, $("#item-articles ul"));
-		renderInContainer(events, $("#item-events ul"));
-		renderInContainer(classes, $("#item-classes ul"));
+		renderInContainer(articles, $("#item-articles ul"), "article");
+		renderInContainer(events, $("#item-events ul"), "activity");
+		renderInContainer(classes, $("#item-classes ul"), "class");
 	}
 
 
@@ -46,8 +46,7 @@ webpackJsonp([0],[
 	});
 
 /***/ },
-/* 1 */,
-/* 2 */
+/* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Zepto v1.1.6 - zepto event ajax form ie - zeptojs.com/license */

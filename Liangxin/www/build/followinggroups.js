@@ -1,6 +1,5 @@
-webpackJsonp([6],{
-
-/***/ 0:
+webpackJsonp([5],[
+/* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(riot) {__webpack_require__(6);
@@ -10,14 +9,18 @@ webpackJsonp([6],{
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
 
 /***/ },
-
-/***/ 6:
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var riot = __webpack_require__(10);
 
-	__webpack_require__(17)
-	var bridge = __webpack_require__(1);
+	__webpack_require__(11)
+	var bridge = __webpack_require__(2);
 	var fetch = bridge.fetch;
 	riot.tag('followinggroups', '<followinggroup each="{items}" data="{this}"></followinggroup>', function(opts) {
 		
@@ -49,8 +52,10 @@ webpackJsonp([6],{
 
 
 /***/ },
-
-/***/ 10:
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Riot v2.2.1, @license MIT, (c) 2015 Muut Inc. + contributors */
@@ -1376,13 +1381,12 @@ webpackJsonp([6],{
 
 
 /***/ },
-
-/***/ 17:
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var riot = __webpack_require__(10);
 
-	var bridge = __webpack_require__(1);
+	var bridge = __webpack_require__(2);
 	var fetch = bridge.fetch;
 
 	riot.tag('followinggroup', '<div class="inner" ontouchend="{togroup}"> <img class="avatar" riot-src="{opts.data.avatar}?imageView2/1/w/100/h/100"> <div class="main"> <div class="name">{opts.data.name}</div> <div class="follow-btn" onclick="{toggleFollowing}">已关注</div> </div> </div>', function(opts) {
@@ -1417,5 +1421,4 @@ webpackJsonp([6],{
 	});
 
 /***/ }
-
-});
+]);

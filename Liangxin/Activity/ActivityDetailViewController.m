@@ -51,8 +51,14 @@
     }];
     
     [self showProgress];
+    
+    NSString* postId = self.postId;
+    if(postId == nil){
+        postId = self.params[@"id"];
+    }
+    
     @weakify(self)
-    [[[LXNetworkManager sharedManager] getPostDetailById:self.postId] subscribeNext:^(id x) {
+    [[[LXNetworkManager sharedManager] getPostDetailById:postId] subscribeNext:^(id x) {
         @strongify(self)
         self.postData = x;
         self.shareObject.shareTitle = self.postData.title;

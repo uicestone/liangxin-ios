@@ -36,10 +36,11 @@
     [self commonInit];
 }
 
+
+
 - (void)commonInit {
     self.view.backgroundColor = UIColorFromRGB(0xe6e7e8);
     self.viewModel = [LXClassDetailViewModel new];
-    
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -52,9 +53,15 @@
         make.bottom.mas_equalTo(-44);
     }];
     
+    NSString* postId = self.postId;
+    
+    if(postId == nil){
+        postId = self.params[@"id"];
+    }
+    
     [self showProgress];
     @weakify(self)
-    [[[LXNetworkManager sharedManager] getPostDetailById:self.postId] subscribeNext:^(id x) {
+    [[[LXNetworkManager sharedManager] getPostDetailById:postId] subscribeNext:^(id x) {
         @strongify(self)
         self.viewModel.postData = x;
         self.shareObject.shareTitle = self.viewModel.postData.title;
@@ -63,7 +70,8 @@
         self.shareObject.shareURL = [NSString stringWithFormat:@"http://dangqun.malu.gov.cn/post/%@", self.viewModel.postData.id];
         [self.tableView reloadData];
     } error:^(NSError *error) {
-        
+        [self hideProgress];
+        [self popMessage:error.description];
     } completed:^{
         @strongify(self)
         [self hideProgress];
