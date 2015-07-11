@@ -160,6 +160,7 @@
 		2DDE60231B3112D7003757FD /* LXImageViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDE60221B3112D7003757FD /* LXImageViewerController.m */; };
 		2DDE60261B311595003757FD /* LXImageViewerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDE60251B311595003757FD /* LXImageViewerCell.m */; };
 		2DE2F4A11B2041C600E3DA29 /* ActivityViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE2F4A01B2041C600E3DA29 /* ActivityViewModel.m */; };
+		2DF850F31B50C24E006547F4 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF850F21B50C24E006547F4 /* MediaPlayer.framework */; };
 		2DFD651F1B15FE7800FAC662 /* LXCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD651E1B15FE7800FAC662 /* LXCarouselView.m */; };
 		2DFD65221B16001200FAC662 /* LXCarouselViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD65211B16001200FAC662 /* LXCarouselViewCell.m */; };
 		2DFD65261B1603D200FAC662 /* LXBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD65251B1603D200FAC662 /* LXBannerView.m */; };
@@ -468,6 +469,8 @@
 		2DDE60251B311595003757FD /* LXImageViewerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXImageViewerCell.m; path = Widgets/LXImageViewerCell.m; sourceTree = "<group>"; };
 		2DE2F49F1B2041C600E3DA29 /* ActivityViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityViewModel.h; path = Liangxin/Activity/ViewModel/ActivityViewModel.h; sourceTree = "<group>"; };
 		2DE2F4A01B2041C600E3DA29 /* ActivityViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityViewModel.m; path = Liangxin/Activity/ViewModel/ActivityViewModel.m; sourceTree = "<group>"; };
+		2DF850F01B50C202006547F4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		2DF850F21B50C24E006547F4 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		2DFD651D1B15FE7800FAC662 /* LXCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXCarouselView.h; path = Widgets/LXCarouselView.h; sourceTree = "<group>"; };
 		2DFD651E1B15FE7800FAC662 /* LXCarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXCarouselView.m; path = Widgets/LXCarouselView.m; sourceTree = "<group>"; };
 		2DFD65201B16001200FAC662 /* LXCarouselViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXCarouselViewCell.h; path = Widgets/LXCarouselViewCell.h; sourceTree = "<group>"; };
@@ -489,6 +492,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DF850F31B50C24E006547F4 /* MediaPlayer.framework in Frameworks */,
 				2D0000311B258E7E00106110 /* libc++.dylib in Frameworks */,
 				221DF34F1B327388002FF7DE /* Crashlytics.framework in Frameworks */,
 				2D00002F1B258E0200106110 /* libsqlite3.0.dylib in Frameworks */,
@@ -507,6 +511,8 @@
 		098BF1C8DD010D2BA28A633B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2DF850F21B50C24E006547F4 /* MediaPlayer.framework */,
+				2DF850F01B50C202006547F4 /* AVFoundation.framework */,
 				2D0000301B258E7E00106110 /* libc++.dylib */,
 				2D00002E1B258E0200106110 /* libsqlite3.0.dylib */,
 				2D00002C1B258DF900106110 /* libz.dylib */,
