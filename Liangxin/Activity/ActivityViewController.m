@@ -222,15 +222,15 @@
         @weakify(self)
         [[[LXNetworkManager sharedManager] getPostByParameters:self.parameters] subscribeNext:^(NSArray *x) {
             @strongify(self)
-            if (x.count == 0) {
+            if (x.count != 10) {
                 self.hasMore = NO;
             }
             else {
                 self.hasMore = YES;
                 self.pageNumber++;
-                [self.viewModel.activityData addObjectsFromArray:x];
-                [self.tableView reloadData];
             }
+            [self.viewModel.activityData addObjectsFromArray:x];
+            [self.tableView reloadData];
         } error:^(NSError *error) {
             
         } completed:^{

@@ -15,6 +15,7 @@
 #import "ClassListViewController.h"
 #import "LXNetworkManager.h"
 #import "Channels.h"
+#import "LXMoreTableViewCell.h"
 
 @interface ClassViewController () <UITableViewDataSource, UITableViewDelegate, LXBannerViewDelegate>
 
@@ -28,6 +29,8 @@
 @property (nonatomic, strong) LXNetworkPostParameters *parameters;
 
 @property (nonatomic, strong) LXClassViewModel *viewModel;
+
+@property (nonatomic, assign) BOOL hasMore;
 
 @end
 
@@ -165,22 +168,15 @@
     self.parameters = [LXNetworkPostParameters new];
     self.parameters.page = @(self.pageNumber);
     self.parameters.type = @"课堂";
+    self.parameters.per_page = @(10);
     [[[LXNetworkManager sharedManager] getPostByParameters:self.parameters] subscribeNext:^(NSArray *x) {
         @strongify(self)
+        self.hasMore = YES;
         [self.viewModel.classData addObjectsFromArray:x];
         [self.tableView reloadData];
-        [self initFooterView];
     } error:^(NSError *error) {
         
     }];
-}
-
-- (void)initFooterView {
-    self.footerView = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.footerView.frame = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 30);
-    [self.footerView setImage:[UIImage imageNamed:@"Table_Arrow"] forState:UIControlStateNormal];
-    [self.footerView addTarget:self action:@selector(requestMoreData:) forControlEvents:UIControlEventTouchUpInside];
-    self.tableView.tableFooterView = self.footerView;
 }
 
 - (void)requestMoreData:(id)sender {
@@ -192,14 +188,15 @@
         @weakify(self)
         [[[LXNetworkManager sharedManager] getPostByParameters:self.parameters] subscribeNext:^(NSArray *x) {
             @strongify(self)
-            if (x.count == 0) {
-                self.tableView.tableFooterView = nil;
+            if (x.count != 10) {
+                self.hasMore = NO;
             }
             else {
+                self.hasMore = YES;
                 self.pageNumber++;
-                [self.viewModel.classData addObjectsFromArray:x];
-                [self.tableView reloadData];
             }
+            [self.viewModel.classData addObjectsFromArray:x];
+            [self.tableView reloadData];
         } error:^(NSError *error) {
             
         } completed:^{
@@ -242,6 +239,15 @@
 
 #pragma mark - UITableViewDataSource  && UITableViewDelegate
 
+- (CGFloat)tableView:(nonnull UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    if (self.hasMore && indexPath.row == self.viewModel.classData.count) {
+        return 44;
+    }
+    else {
+        return 100;
+    }
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 28;
 }
@@ -268,10 +274,14 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.viewModel.classData.count;
+    return self.hasMore?self.viewModel.classData.count+1:self.viewModel.classData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.hasMore && indexPath.row == self.viewModel.classData.count) {
+        [self requestMoreData:nil];
+        return [[LXMoreTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LXMoreTableViewCell"];
+    }
     LXBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ClassCell"];
     if (!cell) {
         cell = [[LXBaseTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ClassCell"];
