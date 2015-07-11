@@ -38,7 +38,7 @@
     [self showProgress];
     [PostApi getPostsByQuery:@{
                                @"author_id":self.currentUser.id,
-                               @"type":@"文章"
+                               @"type":@"文章,公告"
                                } successHandler:^(NSArray *_posts) {
                                    
                                
