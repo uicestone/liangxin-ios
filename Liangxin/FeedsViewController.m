@@ -43,6 +43,7 @@
     self.title = @"党群动态";
     
     viewPosts = [NSArray new];
+    
     // init tabs
     tabview = [[LXTabView alloc]
                initWithContainer:self.view
@@ -50,7 +51,7 @@
                secondTab:@"文章"
                tabColor:UIColorFromRGB(0xee2a7b)];
     tabview.delegate = self;
-    [self tabview:tabview tappedAtIndex:0];
+    
     // init tableview
     @weakify(self)
     tableview = [UITableView new];
@@ -64,6 +65,10 @@
     }];
     tableview.delegate = self;
     tableview.dataSource = self;
+    
+    
+    
+    [self tabview:tabview tappedAtIndex:0];
 
 //    [self tabview:tabview tappedAtIndex:0];
     
@@ -93,7 +98,8 @@
         self.viewPosts = posts;
         [self.tableview reloadData];
     } error:^(NSError *error) {
-        
+        [self hideProgress];
+        [self popMessage:error.description];
     } completed:^{
         @strongify(self)
         [self hideProgress];
