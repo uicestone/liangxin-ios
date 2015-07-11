@@ -9,10 +9,12 @@
 #import "LXNetworkManager.h"
 #import "LXBaseModelPost.h"
 #import "UserApi.h"
+#import <CommonCrypto/CommonDigest.h>
 
 @interface LXNetworkManager()
 
 @property (nonatomic, strong) AFHTTPSessionManager *sessionManager;
+@property (nonatomic, strong) NSOperationQueue *queue;
 
 @end
 
@@ -29,6 +31,7 @@
         if (user && user.token.length > 0) {
              [_sessionManager.requestSerializer setValue:user.token forHTTPHeaderField:@"Authorization"];
         }
+        self.queue = [[NSOperationQueue alloc] init];
     }
     return self;
 }
@@ -316,6 +319,46 @@
             [task cancel];
         }];
     }];
+}
+
+- (RACSignal *)downPDFByURL:(NSString *)pdfURL {
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        NSURL *documentsDirectoryURL = [NSURL URLWithString:[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]];
+        NSURL *_targetPath = [documentsDirectoryURL URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.pdf", [self cachedFileNameForKey:pdfURL]]];
+        NSString *_filePath = [_targetPath absoluteString];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:_filePath]) {
+            [subscriber sendNext:_filePath];
+            [subscriber sendCompleted];
+            return nil;
+        }
+        else {
+            [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:pdfURL]] queue:self.queue completionHandler:^(NSURLResponse * __nullable response, NSData * __nullable data, NSError * __nullable connectionError) {
+                if (connectionError) {
+                    [subscriber sendError:connectionError];
+                }
+                else {
+                    NSError *error;
+                    [data writeToFile:_filePath options:NSDataWritingAtomic error:&error];
+                    [subscriber sendNext:_filePath];
+                    [subscriber sendCompleted];
+                }
+            }];
+            return nil;
+        }
+    }];
+}
+
+- (NSString *)cachedFileNameForKey:(NSString *)key {
+    const char *str = [key UTF8String];
+    if (str == NULL) {
+        str = "";
+    }
+    unsigned char r[CC_MD5_DIGEST_LENGTH];
+    CC_MD5(str, (CC_LONG)strlen(str), r);
+    NSString *filename = [NSString stringWithFormat:@"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",
+                          r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7], r[8], r[9], r[10], r[11], r[12], r[13], r[14], r[15]];
+    
+    return filename;
 }
 
 @end

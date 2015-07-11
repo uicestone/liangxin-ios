@@ -357,6 +357,7 @@
 	CGRect toolbarRect = viewRect; toolbarRect.size.height = TOOLBAR_HEIGHT;
 	mainToolbar = [[ReaderMainToolbar alloc] initWithFrame:toolbarRect document:document]; // ReaderMainToolbar
 	mainToolbar.delegate = self; // ReaderMainToolbarDelegate
+    mainToolbar.hidden = YES;
 	[self.view addSubview:mainToolbar];
 
 	CGRect pagebarRect = self.view.bounds; pagebarRect.size.height = PAGEBAR_HEIGHT;
@@ -607,7 +608,7 @@
 				{
 					if ((mainToolbar.alpha < 1.0f) || (mainPagebar.alpha < 1.0f)) // Hidden
 					{
-						[mainToolbar showToolbar]; [mainPagebar showPagebar]; // Show
+                        [mainPagebar showPagebar]; // Show
 					}
 				}
 			}

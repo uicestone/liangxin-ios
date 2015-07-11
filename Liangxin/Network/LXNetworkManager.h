@@ -35,5 +35,6 @@ typedef NS_ENUM(NSInteger, LXBannerType){
 - (RACSignal *)agreeAttendeeByPostId:(NSString *)postId userId:(NSString *)userId;
 - (RACSignal *)disagreeAttendeeByPostId:(NSString *)postId userId:(NSString *)userId;
 - (RACSignal *)shareByShareTitle:(NSString *)shareTitle shareURL:(NSString *)shareURL;
+- (RACSignal *)downPDFByURL:(NSString *)pdfURL;
 
 @end

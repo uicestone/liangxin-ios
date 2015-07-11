@@ -148,6 +148,7 @@
 		2D06BB551B5153200064BDAC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D06BB541B5153200064BDAC /* QuartzCore.framework */; };
 		2D06BB571B5153280064BDAC /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D06BB561B5153280064BDAC /* ImageIO.framework */; };
 		2D06BB591B51532F0064BDAC /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D06BB581B51532F0064BDAC /* MessageUI.framework */; };
+		2D06BB5C1B5154790064BDAC /* LXPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D06BB5B1B5154790064BDAC /* LXPDFViewController.m */; };
 		2D537DC81B18BD7A006BD35E /* LXBaseModelUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DC71B18BD7A006BD35E /* LXBaseModelUser.m */; };
 		2D537DCB1B18BE66006BD35E /* LXBaseModelPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DCA1B18BE66006BD35E /* LXBaseModelPost.m */; };
 		2D537DCE1B18BE83006BD35E /* LXBaseModelGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DCD1B18BE83006BD35E /* LXBaseModelGroup.m */; };
@@ -465,6 +466,8 @@
 		2D06BB541B5153200064BDAC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2D06BB561B5153280064BDAC /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		2D06BB581B51532F0064BDAC /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		2D06BB5A1B5154790064BDAC /* LXPDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXPDFViewController.h; path = Base/LXPDFViewController.h; sourceTree = "<group>"; };
+		2D06BB5B1B5154790064BDAC /* LXPDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXPDFViewController.m; path = Base/LXPDFViewController.m; sourceTree = "<group>"; };
 		2D537DC61B18BD7A006BD35E /* LXBaseModelUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXBaseModelUser.h; path = Models/LXBaseModelUser.h; sourceTree = "<group>"; };
 		2D537DC71B18BD7A006BD35E /* LXBaseModelUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXBaseModelUser.m; path = Models/LXBaseModelUser.m; sourceTree = "<group>"; };
 		2D537DC91B18BE66006BD35E /* LXBaseModelPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXBaseModelPost.h; path = Models/LXBaseModelPost.h; sourceTree = "<group>"; };
@@ -1178,6 +1181,8 @@
 				2DD8A0BF1B2DDEB900856E23 /* LXBasePDFViewController.m */,
 				2D724CA01B50D1FE002266DA /* LXMoreTableViewCell.h */,
 				2D724CA11B50D1FE002266DA /* LXMoreTableViewCell.m */,
+				2D06BB5A1B5154790064BDAC /* LXPDFViewController.h */,
+				2D06BB5B1B5154790064BDAC /* LXPDFViewController.m */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -1502,6 +1507,7 @@
 				2D537DED1B1AEAD3006BD35E /* ClassDetailAlbumCell.m in Sources */,
 				2215CB621B08379100D0359A /* Post.m in Sources */,
 				2210A38B1AFEE1F800D9CA1A /* LXWebViewController.m in Sources */,
+				2D06BB5C1B5154790064BDAC /* LXPDFViewController.m in Sources */,
 				22238C541AFBACA5000B4F95 /* BannerApi.m in Sources */,
 				22E6E26C1B12AB09005E528E /* LoginViewController.m in Sources */,
 				2210A3871AFE51BD00D9CA1A /* GroupDetailViewController.m in Sources */,

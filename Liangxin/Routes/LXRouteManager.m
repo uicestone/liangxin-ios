@@ -50,6 +50,7 @@
 #import "ClassArticleViewController.h"
 #import "ActivityArticleViewController.h"
 #import "ActivityAlbumViewController.h"
+#import "LXPDFViewController.h"
 
 @implementation LXRouteManager
 
@@ -141,7 +142,7 @@
     // 视频
     [[HHRouter shared] map:@"/video" toControllerClass:[LXBaseVideoViewController class]];
     // PDF
-    [[HHRouter shared] map:@"/pdf" toControllerClass:[LXBasePDFViewController class]];
+    [[HHRouter shared] map:@"/pdf" toControllerClass:[LXPDFViewController class]];
     // 图片预览
     [[HHRouter shared] map:@"/imageviewer" toControllerClass:[LXImageViewerController class]];
     [[HHRouter shared] map:@"/class/articles" toControllerClass:[ClassArticleViewController class]];
