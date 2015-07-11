@@ -45,9 +45,11 @@
 #import "ClassAlbumViewController.h"
 #import "ActivityListViewController.h"
 #import "ActivityParticipantsViewController.h"
+#import "ActivityDetailViewController.h"
 #import "CommentViewController.h"
 #import "LXImageViewerController.h"
 #import "ClassArticleViewController.h"
+#import "ClassDetailViewController.h"
 #import "ActivityArticleViewController.h"
 #import "ActivityAlbumViewController.h"
 #import "LXPDFViewController.h"
@@ -96,6 +98,7 @@
     // 课堂
     [[HHRouter shared] map:@"/class" toControllerClass:[ClassViewController class]];
     [[HHRouter shared] map:@"/class/list" toControllerClass:[ClassListViewController class]];
+    [[HHRouter shared] map:@"/class/:id" toControllerClass:[ClassDetailViewController class]];
     [[HHRouter shared] map:@"/class/videos" toControllerClass:[ClassVideoViewController class]];
     [[HHRouter shared] map:@"/class/documents" toControllerClass:[ClassDocumentViewController class]];
     [[HHRouter shared] map:@"/class/albums" toControllerClass:[ClassAlbumViewController class]];
@@ -146,7 +149,11 @@
     // 图片预览
     [[HHRouter shared] map:@"/imageviewer" toControllerClass:[LXImageViewerController class]];
     [[HHRouter shared] map:@"/class/articles" toControllerClass:[ClassArticleViewController class]];
+    
     [[HHRouter shared] map:@"/activity/articles" toControllerClass:[ActivityArticleViewController class]];
+    
+    [[HHRouter shared] map:@"/activity/:id" toControllerClass:[ActivityDetailViewController class]];
+    
     [[HHRouter shared] map:@"/activity/albums" toControllerClass:[ActivityAlbumViewController class]];
 }
 

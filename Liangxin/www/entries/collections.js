@@ -10,9 +10,9 @@ function renderPosts(posts){
 	var articles = [];
 	var events = [];
 	var classes = [];
-	function renderInContainer(posts, container){
+	function renderInContainer(posts, container, prefix){
 		posts.forEach(function(post){
-			container.append($('<li class="post"><a href="liangxin://article/' + post.id + '">' + post.title + '</a></li>'));
+			container.append($('<li class="post"><a href="liangxin://' + prefix + '/' + post.id + '">' + post.title + '</a></li>'));
 		});
 	}
 	posts.forEach(function(post){
@@ -25,9 +25,9 @@ function renderPosts(posts){
 		}
 	});
 
-	renderInContainer(articles, $("#item-articles ul"));
-	renderInContainer(events, $("#item-events ul"));
-	renderInContainer(classes, $("#item-classes ul"));
+	renderInContainer(articles, $("#item-articles ul"), "article");
+	renderInContainer(events, $("#item-events ul"), "activity");
+	renderInContainer(classes, $("#item-classes ul"), "class");
 }
 
 

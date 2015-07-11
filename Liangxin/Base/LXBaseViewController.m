@@ -76,11 +76,26 @@
     }else{
         [self hideToolBar];
     }
+    
+    Channels* channels = [Channels shared];
+    
     if ([[self channel] isEqualToString:@"class"]) {
-        self.navigationController.navigationBar.barTintColor = UIColorFromRGB(0xf7931d);
+        self.navigationController.navigationBar.barTintColor = [channels colorAtIndex:2];
     }
     else if ([[self channel] isEqualToString:@"activity"]) {
-        self.navigationController.navigationBar.barTintColor = UIColorFromRGB(0x00B0A2);
+        self.navigationController.navigationBar.barTintColor = [channels colorAtIndex:1];
+    }
+    else if ([[self channel] isEqualToString:@"group"]){
+        self.navigationController.navigationBar.barTintColor = [channels colorAtIndex:0];
+    }
+    else if ([[self channel] isEqualToString:@"account"]){
+        self.navigationController.navigationBar.barTintColor = [channels colorAtIndex:5];
+    }
+    else if ([[self channel] isEqualToString:@"feeds"]){
+        self.navigationController.navigationBar.barTintColor = [channels colorAtIndex:3];
+    }
+    else if ([[self channel] isEqualToString:@"service"]){
+        self.navigationController.navigationBar.barTintColor = [channels colorAtIndex:4];
     }
 }
 
@@ -94,7 +109,8 @@
 }
 
 - (NSString *)channel {
-    return @"";
+    NSArray* arr = [self.params[@"route"] componentsSeparatedByString:@"/"];
+    return arr[1];
 }
 
 -(void)initToolBar{

@@ -1,12 +1,12 @@
-webpackJsonp([4],[
+webpackJsonp([3],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(riot) {var $ = __webpack_require__(2);
-	var bridge = __webpack_require__(1);
+	/* WEBPACK VAR INJECTION */(function(riot) {var $ = __webpack_require__(1);
+	var bridge = __webpack_require__(2);
 	var query = __webpack_require__(3).parse();
 
-	__webpack_require__(5);
+	__webpack_require__(7);
 
 	var fetch = bridge.fetch;
 
@@ -27,8 +27,7 @@ webpackJsonp([4],[
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
 
 /***/ },
-/* 1 */,
-/* 2 */
+/* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Zepto v1.1.6 - zepto event ajax form ie - zeptojs.com/license */
@@ -1622,6 +1621,7 @@ webpackJsonp([4],[
 	module.exports = Zepto;
 
 /***/ },
+/* 2 */,
 /* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -1637,12 +1637,14 @@ webpackJsonp([4],[
 
 /***/ },
 /* 4 */,
-/* 5 */
+/* 5 */,
+/* 6 */,
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var riot = __webpack_require__(10);
 
-	var bridge = __webpack_require__(1);
+	var bridge = __webpack_require__(2);
 	var fetch = bridge.fetch;
 
 
@@ -1719,8 +1721,6 @@ webpackJsonp([4],[
 	});
 
 /***/ },
-/* 6 */,
-/* 7 */,
 /* 8 */,
 /* 9 */,
 /* 10 */

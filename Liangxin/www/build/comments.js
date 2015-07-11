@@ -1,20 +1,19 @@
-webpackJsonp([7],[
+webpackJsonp([6],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(riot) {var $ = __webpack_require__(2);
-	var bridge = __webpack_require__(1);
+	/* WEBPACK VAR INJECTION */(function(riot) {var $ = __webpack_require__(1);
+	var bridge = __webpack_require__(2);
 	var query = __webpack_require__(3).parse();
 
-	__webpack_require__(7);
+	__webpack_require__(4);
 	var type = query.type;
 
 	riot.mount('*');
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
 
 /***/ },
-/* 1 */,
-/* 2 */
+/* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Zepto v1.1.6 - zepto event ajax form ie - zeptojs.com/license */
@@ -1608,6 +1607,7 @@ webpackJsonp([7],[
 	module.exports = Zepto;
 
 /***/ },
+/* 2 */,
 /* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -1622,19 +1622,16 @@ webpackJsonp([7],[
 	}
 
 /***/ },
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var riot = __webpack_require__(10);
 
-	__webpack_require__(18)
-	var bridge = __webpack_require__(1);
+	__webpack_require__(12)
+	var bridge = __webpack_require__(2);
 	var fetch = bridge.fetch;
 	var query = __webpack_require__(3).parse();
-	var $ = __webpack_require__(2);
+	var $ = __webpack_require__(1);
 
 
 	riot.tag('comments', '<div riot-style="display:{(loaded && items.length)?\'block\':\'none\'}; margin-bottom: 20px;"> <comment each="{items}" data="{this}"></comment> </div> <div riot-style="display:{(loaded && !items.length)?\'block\':\'none\'};text-align:center;margin-top:90px"> <img src="./image/nocomments.png" height="136" width="91"> </div> <div class="mbox" riot-style="display:{writing?\'block\':\'none\'}"> <div class="inner"> <div class="close" onclick="{closepopup}"></div> <div class="title">评论</div> <div class="content"> <textarea name="" id="input" cols="30" rows="10"></textarea> </div> <div class="btn" onclick="{submit}">提交</div> </div> </div> <div class="write" onclick="{showpopup}"> <i class="icon-pencil"></i> <span>写评论</span> </div>', function(opts) {
@@ -1702,6 +1699,9 @@ webpackJsonp([7],[
 	});
 
 /***/ },
+/* 5 */,
+/* 6 */,
+/* 7 */,
 /* 8 */,
 /* 9 */,
 /* 10 */
@@ -3031,18 +3031,12 @@ webpackJsonp([7],[
 
 /***/ },
 /* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */,
-/* 16 */,
-/* 17 */,
-/* 18 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var riot = __webpack_require__(10);
 
-	var bridge = __webpack_require__(1);
+	var bridge = __webpack_require__(2);
 	var fetch = bridge.fetch;
 
 	riot.tag('comment', '<div class="inner"> <img class="avatar" riot-src="{opts.data.author.avatar || \'./image/default-avatar.png\'}"> <div class="main"> <div class="author">{opts.data.author.name}</div> <div class="time">{opts.data.created_at}</div> <div class="content">{opts.data.title}</div> </div> <div class="likes {liked?\'liked\':\'\'}" onclick="{togglelike}"> <i class="icon-likes"></i> <span class="count">{likes}</span> </div> </div>', function(opts) {
