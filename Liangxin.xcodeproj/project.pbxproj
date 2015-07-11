@@ -108,6 +108,46 @@
 		2D00FFCA1B25828600106110 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D00FFC71B25828600106110 /* libWeChatSDK.a */; };
 		2D00FFD71B2582D000106110 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D00FFCC1B2582D000106110 /* libWeiboSDK.a */; };
 		2D00FFD81B2582D000106110 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2D00FFD41B2582D000106110 /* WeiboSDK.bundle */; };
+		2D06BB2E1B5152F60064BDAC /* CGPDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D06BAF71B5152F60064BDAC /* CGPDFDocument.m */; };
+		2D06BB2F1B5152F60064BDAC /* Reader-Button-H.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D06BAF81B5152F60064BDAC /* Reader-Button-H.png */; };
+		2D06BB301B5152F60064BDAC /* Reader-Button-H@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D06BAF91B5152F60064BDAC /* Reader-Button-H@2x.png */; };
+		2D06BB311B5152F60064BDAC /* Reader-Button-N.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D06BAFA1B5152F60064BDAC /* Reader-Button-N.png */; };
+		2D06BB321B5152F60064BDAC /* Reader-Button-N@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D06BAFB1B5152F60064BDAC /* Reader-Button-N@2x.png */; };
+		2D06BB331B5152F60064BDAC /* Reader-Email.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D06BAFC1B5152F60064BDAC /* Reader-Email.png */; };
+		2D06BB341B5152F60064BDAC /* Reader-Email@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D06BAFD1B5152F60064BDAC /* Reader-Email@2x.png */; };
+		2D06BB351B5152F60064BDAC /* Reader-Export.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D06BAFE1B5152F60064BDAC /* Reader-Export.png */; };
+		2D06BB361B5152F60064BDAC /* Reader-Export@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D06BAFF1B5152F60064BDAC /* Reader-Export@2x.png */; };
+		2D06BB371B5152F60064BDAC /* Reader-Mark-N.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D06BB001B5152F60064BDAC /* Reader-Mark-N.png */; };
+		2D06BB381B5152F60064BDAC /* Reader-Mark-N@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D06BB011B5152F60064BDAC /* Reader-Mark-N@2x.png */; };
+		2D06BB391B5152F60064BDAC /* Reader-Mark-Y.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D06BB021B5152F60064BDAC /* Reader-Mark-Y.png */; };
+		2D06BB3A1B5152F60064BDAC /* Reader-Mark-Y@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D06BB031B5152F60064BDAC /* Reader-Mark-Y@2x.png */; };
+		2D06BB3B1B5152F60064BDAC /* Reader-Print.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D06BB041B5152F60064BDAC /* Reader-Print.png */; };
+		2D06BB3C1B5152F60064BDAC /* Reader-Print@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D06BB051B5152F60064BDAC /* Reader-Print@2x.png */; };
+		2D06BB3D1B5152F60064BDAC /* Reader-Thumbs.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D06BB061B5152F60064BDAC /* Reader-Thumbs.png */; };
+		2D06BB3E1B5152F60064BDAC /* Reader-Thumbs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D06BB071B5152F60064BDAC /* Reader-Thumbs@2x.png */; };
+		2D06BB3F1B5152F60064BDAC /* ReaderConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D06BB091B5152F60064BDAC /* ReaderConstants.m */; };
+		2D06BB401B5152F60064BDAC /* ReaderContentPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D06BB0B1B5152F60064BDAC /* ReaderContentPage.m */; };
+		2D06BB411B5152F60064BDAC /* ReaderContentTile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D06BB0D1B5152F60064BDAC /* ReaderContentTile.m */; };
+		2D06BB421B5152F60064BDAC /* ReaderContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D06BB0F1B5152F60064BDAC /* ReaderContentView.m */; };
+		2D06BB431B5152F60064BDAC /* ReaderDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D06BB111B5152F60064BDAC /* ReaderDocument.m */; };
+		2D06BB441B5152F60064BDAC /* ReaderDocumentOutline.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D06BB131B5152F60064BDAC /* ReaderDocumentOutline.m */; };
+		2D06BB451B5152F60064BDAC /* ReaderMainPagebar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D06BB151B5152F60064BDAC /* ReaderMainPagebar.m */; };
+		2D06BB461B5152F60064BDAC /* ReaderMainToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D06BB171B5152F60064BDAC /* ReaderMainToolbar.m */; };
+		2D06BB471B5152F60064BDAC /* ReaderThumbCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D06BB191B5152F60064BDAC /* ReaderThumbCache.m */; };
+		2D06BB481B5152F60064BDAC /* ReaderThumbFetch.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D06BB1B1B5152F60064BDAC /* ReaderThumbFetch.m */; };
+		2D06BB491B5152F60064BDAC /* ReaderThumbQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D06BB1D1B5152F60064BDAC /* ReaderThumbQueue.m */; };
+		2D06BB4A1B5152F60064BDAC /* ReaderThumbRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D06BB1F1B5152F60064BDAC /* ReaderThumbRender.m */; };
+		2D06BB4B1B5152F60064BDAC /* ReaderThumbRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D06BB211B5152F60064BDAC /* ReaderThumbRequest.m */; };
+		2D06BB4C1B5152F60064BDAC /* ReaderThumbsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D06BB231B5152F60064BDAC /* ReaderThumbsView.m */; };
+		2D06BB4D1B5152F60064BDAC /* ReaderThumbView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D06BB251B5152F60064BDAC /* ReaderThumbView.m */; };
+		2D06BB4E1B5152F60064BDAC /* ReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D06BB271B5152F60064BDAC /* ReaderViewController.m */; };
+		2D06BB4F1B5152F60064BDAC /* ThumbsMainToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D06BB291B5152F60064BDAC /* ThumbsMainToolbar.m */; };
+		2D06BB501B5152F60064BDAC /* ThumbsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D06BB2B1B5152F60064BDAC /* ThumbsViewController.m */; };
+		2D06BB511B5152F60064BDAC /* UIXToolbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D06BB2D1B5152F60064BDAC /* UIXToolbarView.m */; };
+		2D06BB531B5153150064BDAC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D06BB521B5153150064BDAC /* CoreGraphics.framework */; };
+		2D06BB551B5153200064BDAC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D06BB541B5153200064BDAC /* QuartzCore.framework */; };
+		2D06BB571B5153280064BDAC /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D06BB561B5153280064BDAC /* ImageIO.framework */; };
+		2D06BB591B51532F0064BDAC /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D06BB581B51532F0064BDAC /* MessageUI.framework */; };
 		2D537DC81B18BD7A006BD35E /* LXBaseModelUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DC71B18BD7A006BD35E /* LXBaseModelUser.m */; };
 		2D537DCB1B18BE66006BD35E /* LXBaseModelPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DCA1B18BE66006BD35E /* LXBaseModelPost.m */; };
 		2D537DCE1B18BE83006BD35E /* LXBaseModelGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D537DCD1B18BE83006BD35E /* LXBaseModelGroup.m */; };
@@ -365,6 +405,66 @@
 		2D00FFD41B2582D000106110 /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = WeiboSDK.bundle; path = Vender/Weibo/WeiboSDK.bundle; sourceTree = "<group>"; };
 		2D00FFD51B2582D000106110 /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeiboSDK.h; path = Vender/Weibo/WeiboSDK.h; sourceTree = "<group>"; };
 		2D00FFD61B2582D000106110 /* WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeiboUser.h; path = Vender/Weibo/WeiboUser.h; sourceTree = "<group>"; };
+		2D06BAF61B5152F60064BDAC /* CGPDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGPDFDocument.h; path = Vender/Reader/CGPDFDocument.h; sourceTree = "<group>"; };
+		2D06BAF71B5152F60064BDAC /* CGPDFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CGPDFDocument.m; path = Vender/Reader/CGPDFDocument.m; sourceTree = "<group>"; };
+		2D06BAF81B5152F60064BDAC /* Reader-Button-H.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Button-H.png"; path = "Vender/Reader/Reader-Button-H.png"; sourceTree = "<group>"; };
+		2D06BAF91B5152F60064BDAC /* Reader-Button-H@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Button-H@2x.png"; path = "Vender/Reader/Reader-Button-H@2x.png"; sourceTree = "<group>"; };
+		2D06BAFA1B5152F60064BDAC /* Reader-Button-N.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Button-N.png"; path = "Vender/Reader/Reader-Button-N.png"; sourceTree = "<group>"; };
+		2D06BAFB1B5152F60064BDAC /* Reader-Button-N@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Button-N@2x.png"; path = "Vender/Reader/Reader-Button-N@2x.png"; sourceTree = "<group>"; };
+		2D06BAFC1B5152F60064BDAC /* Reader-Email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Email.png"; path = "Vender/Reader/Reader-Email.png"; sourceTree = "<group>"; };
+		2D06BAFD1B5152F60064BDAC /* Reader-Email@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Email@2x.png"; path = "Vender/Reader/Reader-Email@2x.png"; sourceTree = "<group>"; };
+		2D06BAFE1B5152F60064BDAC /* Reader-Export.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Export.png"; path = "Vender/Reader/Reader-Export.png"; sourceTree = "<group>"; };
+		2D06BAFF1B5152F60064BDAC /* Reader-Export@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Export@2x.png"; path = "Vender/Reader/Reader-Export@2x.png"; sourceTree = "<group>"; };
+		2D06BB001B5152F60064BDAC /* Reader-Mark-N.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Mark-N.png"; path = "Vender/Reader/Reader-Mark-N.png"; sourceTree = "<group>"; };
+		2D06BB011B5152F60064BDAC /* Reader-Mark-N@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Mark-N@2x.png"; path = "Vender/Reader/Reader-Mark-N@2x.png"; sourceTree = "<group>"; };
+		2D06BB021B5152F60064BDAC /* Reader-Mark-Y.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Mark-Y.png"; path = "Vender/Reader/Reader-Mark-Y.png"; sourceTree = "<group>"; };
+		2D06BB031B5152F60064BDAC /* Reader-Mark-Y@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Mark-Y@2x.png"; path = "Vender/Reader/Reader-Mark-Y@2x.png"; sourceTree = "<group>"; };
+		2D06BB041B5152F60064BDAC /* Reader-Print.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Print.png"; path = "Vender/Reader/Reader-Print.png"; sourceTree = "<group>"; };
+		2D06BB051B5152F60064BDAC /* Reader-Print@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Print@2x.png"; path = "Vender/Reader/Reader-Print@2x.png"; sourceTree = "<group>"; };
+		2D06BB061B5152F60064BDAC /* Reader-Thumbs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Thumbs.png"; path = "Vender/Reader/Reader-Thumbs.png"; sourceTree = "<group>"; };
+		2D06BB071B5152F60064BDAC /* Reader-Thumbs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Reader-Thumbs@2x.png"; path = "Vender/Reader/Reader-Thumbs@2x.png"; sourceTree = "<group>"; };
+		2D06BB081B5152F60064BDAC /* ReaderConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReaderConstants.h; path = Vender/Reader/ReaderConstants.h; sourceTree = "<group>"; };
+		2D06BB091B5152F60064BDAC /* ReaderConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReaderConstants.m; path = Vender/Reader/ReaderConstants.m; sourceTree = "<group>"; };
+		2D06BB0A1B5152F60064BDAC /* ReaderContentPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReaderContentPage.h; path = Vender/Reader/ReaderContentPage.h; sourceTree = "<group>"; };
+		2D06BB0B1B5152F60064BDAC /* ReaderContentPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReaderContentPage.m; path = Vender/Reader/ReaderContentPage.m; sourceTree = "<group>"; };
+		2D06BB0C1B5152F60064BDAC /* ReaderContentTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReaderContentTile.h; path = Vender/Reader/ReaderContentTile.h; sourceTree = "<group>"; };
+		2D06BB0D1B5152F60064BDAC /* ReaderContentTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReaderContentTile.m; path = Vender/Reader/ReaderContentTile.m; sourceTree = "<group>"; };
+		2D06BB0E1B5152F60064BDAC /* ReaderContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReaderContentView.h; path = Vender/Reader/ReaderContentView.h; sourceTree = "<group>"; };
+		2D06BB0F1B5152F60064BDAC /* ReaderContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReaderContentView.m; path = Vender/Reader/ReaderContentView.m; sourceTree = "<group>"; };
+		2D06BB101B5152F60064BDAC /* ReaderDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReaderDocument.h; path = Vender/Reader/ReaderDocument.h; sourceTree = "<group>"; };
+		2D06BB111B5152F60064BDAC /* ReaderDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReaderDocument.m; path = Vender/Reader/ReaderDocument.m; sourceTree = "<group>"; };
+		2D06BB121B5152F60064BDAC /* ReaderDocumentOutline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReaderDocumentOutline.h; path = Vender/Reader/ReaderDocumentOutline.h; sourceTree = "<group>"; };
+		2D06BB131B5152F60064BDAC /* ReaderDocumentOutline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReaderDocumentOutline.m; path = Vender/Reader/ReaderDocumentOutline.m; sourceTree = "<group>"; };
+		2D06BB141B5152F60064BDAC /* ReaderMainPagebar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReaderMainPagebar.h; path = Vender/Reader/ReaderMainPagebar.h; sourceTree = "<group>"; };
+		2D06BB151B5152F60064BDAC /* ReaderMainPagebar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReaderMainPagebar.m; path = Vender/Reader/ReaderMainPagebar.m; sourceTree = "<group>"; };
+		2D06BB161B5152F60064BDAC /* ReaderMainToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReaderMainToolbar.h; path = Vender/Reader/ReaderMainToolbar.h; sourceTree = "<group>"; };
+		2D06BB171B5152F60064BDAC /* ReaderMainToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReaderMainToolbar.m; path = Vender/Reader/ReaderMainToolbar.m; sourceTree = "<group>"; };
+		2D06BB181B5152F60064BDAC /* ReaderThumbCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReaderThumbCache.h; path = Vender/Reader/ReaderThumbCache.h; sourceTree = "<group>"; };
+		2D06BB191B5152F60064BDAC /* ReaderThumbCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReaderThumbCache.m; path = Vender/Reader/ReaderThumbCache.m; sourceTree = "<group>"; };
+		2D06BB1A1B5152F60064BDAC /* ReaderThumbFetch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReaderThumbFetch.h; path = Vender/Reader/ReaderThumbFetch.h; sourceTree = "<group>"; };
+		2D06BB1B1B5152F60064BDAC /* ReaderThumbFetch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReaderThumbFetch.m; path = Vender/Reader/ReaderThumbFetch.m; sourceTree = "<group>"; };
+		2D06BB1C1B5152F60064BDAC /* ReaderThumbQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReaderThumbQueue.h; path = Vender/Reader/ReaderThumbQueue.h; sourceTree = "<group>"; };
+		2D06BB1D1B5152F60064BDAC /* ReaderThumbQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReaderThumbQueue.m; path = Vender/Reader/ReaderThumbQueue.m; sourceTree = "<group>"; };
+		2D06BB1E1B5152F60064BDAC /* ReaderThumbRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReaderThumbRender.h; path = Vender/Reader/ReaderThumbRender.h; sourceTree = "<group>"; };
+		2D06BB1F1B5152F60064BDAC /* ReaderThumbRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReaderThumbRender.m; path = Vender/Reader/ReaderThumbRender.m; sourceTree = "<group>"; };
+		2D06BB201B5152F60064BDAC /* ReaderThumbRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReaderThumbRequest.h; path = Vender/Reader/ReaderThumbRequest.h; sourceTree = "<group>"; };
+		2D06BB211B5152F60064BDAC /* ReaderThumbRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReaderThumbRequest.m; path = Vender/Reader/ReaderThumbRequest.m; sourceTree = "<group>"; };
+		2D06BB221B5152F60064BDAC /* ReaderThumbsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReaderThumbsView.h; path = Vender/Reader/ReaderThumbsView.h; sourceTree = "<group>"; };
+		2D06BB231B5152F60064BDAC /* ReaderThumbsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReaderThumbsView.m; path = Vender/Reader/ReaderThumbsView.m; sourceTree = "<group>"; };
+		2D06BB241B5152F60064BDAC /* ReaderThumbView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReaderThumbView.h; path = Vender/Reader/ReaderThumbView.h; sourceTree = "<group>"; };
+		2D06BB251B5152F60064BDAC /* ReaderThumbView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReaderThumbView.m; path = Vender/Reader/ReaderThumbView.m; sourceTree = "<group>"; };
+		2D06BB261B5152F60064BDAC /* ReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReaderViewController.h; path = Vender/Reader/ReaderViewController.h; sourceTree = "<group>"; };
+		2D06BB271B5152F60064BDAC /* ReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReaderViewController.m; path = Vender/Reader/ReaderViewController.m; sourceTree = "<group>"; };
+		2D06BB281B5152F60064BDAC /* ThumbsMainToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThumbsMainToolbar.h; path = Vender/Reader/ThumbsMainToolbar.h; sourceTree = "<group>"; };
+		2D06BB291B5152F60064BDAC /* ThumbsMainToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThumbsMainToolbar.m; path = Vender/Reader/ThumbsMainToolbar.m; sourceTree = "<group>"; };
+		2D06BB2A1B5152F60064BDAC /* ThumbsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThumbsViewController.h; path = Vender/Reader/ThumbsViewController.h; sourceTree = "<group>"; };
+		2D06BB2B1B5152F60064BDAC /* ThumbsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThumbsViewController.m; path = Vender/Reader/ThumbsViewController.m; sourceTree = "<group>"; };
+		2D06BB2C1B5152F60064BDAC /* UIXToolbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIXToolbarView.h; path = Vender/Reader/UIXToolbarView.h; sourceTree = "<group>"; };
+		2D06BB2D1B5152F60064BDAC /* UIXToolbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIXToolbarView.m; path = Vender/Reader/UIXToolbarView.m; sourceTree = "<group>"; };
+		2D06BB521B5153150064BDAC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2D06BB541B5153200064BDAC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		2D06BB561B5153280064BDAC /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		2D06BB581B51532F0064BDAC /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		2D537DC61B18BD7A006BD35E /* LXBaseModelUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXBaseModelUser.h; path = Models/LXBaseModelUser.h; sourceTree = "<group>"; };
 		2D537DC71B18BD7A006BD35E /* LXBaseModelUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXBaseModelUser.m; path = Models/LXBaseModelUser.m; sourceTree = "<group>"; };
 		2D537DC91B18BE66006BD35E /* LXBaseModelPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXBaseModelPost.h; path = Models/LXBaseModelPost.h; sourceTree = "<group>"; };
@@ -495,6 +595,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D06BB591B51532F0064BDAC /* MessageUI.framework in Frameworks */,
+				2D06BB571B5153280064BDAC /* ImageIO.framework in Frameworks */,
+				2D06BB551B5153200064BDAC /* QuartzCore.framework in Frameworks */,
+				2D06BB531B5153150064BDAC /* CoreGraphics.framework in Frameworks */,
 				2DF850F31B50C24E006547F4 /* MediaPlayer.framework in Frameworks */,
 				2D0000311B258E7E00106110 /* libc++.dylib in Frameworks */,
 				221DF34F1B327388002FF7DE /* Crashlytics.framework in Frameworks */,
@@ -514,6 +618,10 @@
 		098BF1C8DD010D2BA28A633B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D06BB581B51532F0064BDAC /* MessageUI.framework */,
+				2D06BB561B5153280064BDAC /* ImageIO.framework */,
+				2D06BB541B5153200064BDAC /* QuartzCore.framework */,
+				2D06BB521B5153150064BDAC /* CoreGraphics.framework */,
 				2DF850F21B50C24E006547F4 /* MediaPlayer.framework */,
 				2DF850F01B50C202006547F4 /* AVFoundation.framework */,
 				2D0000301B258E7E00106110 /* libc++.dylib */,
@@ -944,6 +1052,7 @@
 		2D00FFC11B25820F00106110 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				2D06BAF51B5151EE0064BDAC /* Reader */,
 				2D00FFCB1B2582C800106110 /* Weibo */,
 				2D00FFC61B25827C00106110 /* WeChat */,
 			);
@@ -976,6 +1085,69 @@
 				2D00FFD61B2582D000106110 /* WeiboUser.h */,
 			);
 			name = Weibo;
+			sourceTree = "<group>";
+		};
+		2D06BAF51B5151EE0064BDAC /* Reader */ = {
+			isa = PBXGroup;
+			children = (
+				2D06BAF61B5152F60064BDAC /* CGPDFDocument.h */,
+				2D06BAF71B5152F60064BDAC /* CGPDFDocument.m */,
+				2D06BAF81B5152F60064BDAC /* Reader-Button-H.png */,
+				2D06BAF91B5152F60064BDAC /* Reader-Button-H@2x.png */,
+				2D06BAFA1B5152F60064BDAC /* Reader-Button-N.png */,
+				2D06BAFB1B5152F60064BDAC /* Reader-Button-N@2x.png */,
+				2D06BAFC1B5152F60064BDAC /* Reader-Email.png */,
+				2D06BAFD1B5152F60064BDAC /* Reader-Email@2x.png */,
+				2D06BAFE1B5152F60064BDAC /* Reader-Export.png */,
+				2D06BAFF1B5152F60064BDAC /* Reader-Export@2x.png */,
+				2D06BB001B5152F60064BDAC /* Reader-Mark-N.png */,
+				2D06BB011B5152F60064BDAC /* Reader-Mark-N@2x.png */,
+				2D06BB021B5152F60064BDAC /* Reader-Mark-Y.png */,
+				2D06BB031B5152F60064BDAC /* Reader-Mark-Y@2x.png */,
+				2D06BB041B5152F60064BDAC /* Reader-Print.png */,
+				2D06BB051B5152F60064BDAC /* Reader-Print@2x.png */,
+				2D06BB061B5152F60064BDAC /* Reader-Thumbs.png */,
+				2D06BB071B5152F60064BDAC /* Reader-Thumbs@2x.png */,
+				2D06BB081B5152F60064BDAC /* ReaderConstants.h */,
+				2D06BB091B5152F60064BDAC /* ReaderConstants.m */,
+				2D06BB0A1B5152F60064BDAC /* ReaderContentPage.h */,
+				2D06BB0B1B5152F60064BDAC /* ReaderContentPage.m */,
+				2D06BB0C1B5152F60064BDAC /* ReaderContentTile.h */,
+				2D06BB0D1B5152F60064BDAC /* ReaderContentTile.m */,
+				2D06BB0E1B5152F60064BDAC /* ReaderContentView.h */,
+				2D06BB0F1B5152F60064BDAC /* ReaderContentView.m */,
+				2D06BB101B5152F60064BDAC /* ReaderDocument.h */,
+				2D06BB111B5152F60064BDAC /* ReaderDocument.m */,
+				2D06BB121B5152F60064BDAC /* ReaderDocumentOutline.h */,
+				2D06BB131B5152F60064BDAC /* ReaderDocumentOutline.m */,
+				2D06BB141B5152F60064BDAC /* ReaderMainPagebar.h */,
+				2D06BB151B5152F60064BDAC /* ReaderMainPagebar.m */,
+				2D06BB161B5152F60064BDAC /* ReaderMainToolbar.h */,
+				2D06BB171B5152F60064BDAC /* ReaderMainToolbar.m */,
+				2D06BB181B5152F60064BDAC /* ReaderThumbCache.h */,
+				2D06BB191B5152F60064BDAC /* ReaderThumbCache.m */,
+				2D06BB1A1B5152F60064BDAC /* ReaderThumbFetch.h */,
+				2D06BB1B1B5152F60064BDAC /* ReaderThumbFetch.m */,
+				2D06BB1C1B5152F60064BDAC /* ReaderThumbQueue.h */,
+				2D06BB1D1B5152F60064BDAC /* ReaderThumbQueue.m */,
+				2D06BB1E1B5152F60064BDAC /* ReaderThumbRender.h */,
+				2D06BB1F1B5152F60064BDAC /* ReaderThumbRender.m */,
+				2D06BB201B5152F60064BDAC /* ReaderThumbRequest.h */,
+				2D06BB211B5152F60064BDAC /* ReaderThumbRequest.m */,
+				2D06BB221B5152F60064BDAC /* ReaderThumbsView.h */,
+				2D06BB231B5152F60064BDAC /* ReaderThumbsView.m */,
+				2D06BB241B5152F60064BDAC /* ReaderThumbView.h */,
+				2D06BB251B5152F60064BDAC /* ReaderThumbView.m */,
+				2D06BB261B5152F60064BDAC /* ReaderViewController.h */,
+				2D06BB271B5152F60064BDAC /* ReaderViewController.m */,
+				2D06BB281B5152F60064BDAC /* ThumbsMainToolbar.h */,
+				2D06BB291B5152F60064BDAC /* ThumbsMainToolbar.m */,
+				2D06BB2A1B5152F60064BDAC /* ThumbsViewController.h */,
+				2D06BB2B1B5152F60064BDAC /* ThumbsViewController.m */,
+				2D06BB2C1B5152F60064BDAC /* UIXToolbarView.h */,
+				2D06BB2D1B5152F60064BDAC /* UIXToolbarView.m */,
+			);
+			name = Reader;
 			sourceTree = "<group>";
 		};
 		2D537DCF1B1956AF006BD35E /* Utils */ = {
@@ -1187,16 +1359,32 @@
 			files = (
 				223267D41AF2661B00431132 /* LaunchScreen.xib in Resources */,
 				22D649DE1B0A3314004045B8 /* PostItemCell.xib in Resources */,
+				2D06BB391B5152F60064BDAC /* Reader-Mark-Y.png in Resources */,
+				2D06BB3B1B5152F60064BDAC /* Reader-Print.png in Resources */,
+				2D06BB371B5152F60064BDAC /* Reader-Mark-N.png in Resources */,
+				2D06BB381B5152F60064BDAC /* Reader-Mark-N@2x.png in Resources */,
 				2210A38E1AFEEEFF00D9CA1A /* www in Resources */,
+				2D06BB361B5152F60064BDAC /* Reader-Export@2x.png in Resources */,
+				2D06BB311B5152F60064BDAC /* Reader-Button-N.png in Resources */,
 				22E6E28D1B1344C2005E528E /* VCodeInputViewController.xib in Resources */,
+				2D06BB301B5152F60064BDAC /* Reader-Button-H@2x.png in Resources */,
+				2D06BB3D1B5152F60064BDAC /* Reader-Thumbs.png in Resources */,
+				2D06BB3E1B5152F60064BDAC /* Reader-Thumbs@2x.png in Resources */,
+				2D06BB341B5152F60064BDAC /* Reader-Email@2x.png in Resources */,
 				22E6E2831B13416B005E528E /* PhoneInputViewController.xib in Resources */,
 				223267D11AF2661B00431132 /* Images.xcassets in Resources */,
 				22E6E26D1B12AB09005E528E /* LoginViewController.xib in Resources */,
+				2D06BB351B5152F60064BDAC /* Reader-Export.png in Resources */,
 				22E6E2791B12ADB4005E528E /* LoginViewCell.xib in Resources */,
+				2D06BB321B5152F60064BDAC /* Reader-Button-N@2x.png in Resources */,
+				2D06BB331B5152F60064BDAC /* Reader-Email.png in Resources */,
+				2D06BB3A1B5152F60064BDAC /* Reader-Mark-Y@2x.png in Resources */,
 				2D00FFD81B2582D000106110 /* WeiboSDK.bundle in Resources */,
 				22E6E2881B1343F3005E528E /* AccountFieldCell.xib in Resources */,
 				22E6E2921B1344ED005E528E /* ModifyPasswordViewController.xib in Resources */,
+				2D06BB3C1B5152F60064BDAC /* Reader-Print@2x.png in Resources */,
 				22E6E2631B11F38B005E528E /* ActivityItemCell.xib in Resources */,
+				2D06BB2F1B5152F60064BDAC /* Reader-Button-H.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1264,6 +1452,7 @@
 				2DFD65261B1603D200FAC662 /* LXBannerView.m in Sources */,
 				2D537DFC1B1AF572006BD35E /* ClassVideoViewController.m in Sources */,
 				2DFD651F1B15FE7800FAC662 /* LXCarouselView.m in Sources */,
+				2D06BB4B1B5152F60064BDAC /* ReaderThumbRequest.m in Sources */,
 				2D6160BF1B208938001D01D8 /* ActivityListViewModel.m in Sources */,
 				22BE07BA1B1F35E500A1E91F /* AccountArticleViewController.m in Sources */,
 				2D537DE11B1AA0AA006BD35E /* LXBaseViewController.m in Sources */,
@@ -1282,6 +1471,7 @@
 				2D537DFF1B1AF588006BD35E /* ClassDocumentViewController.m in Sources */,
 				2D00FF961B217F6F00106110 /* LXHomeViewModel.m in Sources */,
 				2D537DF31B1AED21006BD35E /* ClassDetailDocumentCell.m in Sources */,
+				2D06BB431B5152F60064BDAC /* ReaderDocument.m in Sources */,
 				22238C1B1AF64F02000B4F95 /* Channels.m in Sources */,
 				2D537DF91B1AF55F006BD35E /* ClassAlbumViewController.m in Sources */,
 				2D537DD51B196555006BD35E /* ClassDetailViewController.m in Sources */,
@@ -1292,8 +1482,10 @@
 				2DDBF0611B3197EE0051E0BC /* ClassArticleCell.m in Sources */,
 				2DD8A0C91B2EA4BB00856E23 /* ActivityDetailSummaryCell.m in Sources */,
 				22E6E2821B13416B005E528E /* PhoneInputViewController.m in Sources */,
+				2D06BB451B5152F60064BDAC /* ReaderMainPagebar.m in Sources */,
 				225991631B490CD100EE42BF /* ServiceDetailViewController.m in Sources */,
 				22D64A321B0ACB6A004045B8 /* ImageCell.m in Sources */,
+				2D06BB4E1B5152F60064BDAC /* ReaderViewController.m in Sources */,
 				2D537DE41B1ABA5B006BD35E /* ClassDetailDescCell.m in Sources */,
 				22E7BBD01B22A2B3009F0266 /* AccountCreditDetailViewController.m in Sources */,
 				2D0000341B2595F600106110 /* ActivityParticipantCell.m in Sources */,
@@ -1304,6 +1496,7 @@
 				2D6160CA1B20B26B001D01D8 /* LXHomeCollectionViewCell.m in Sources */,
 				2215CB741B08EA0C00D0359A /* GroupMembersViewController.m in Sources */,
 				22E5E8D31B272A700004D1CA /* FeedsViewController.m in Sources */,
+				2D06BB2E1B5152F60064BDAC /* CGPDFDocument.m in Sources */,
 				22D649DC1B0A2CDC004045B8 /* PostApi.m in Sources */,
 				221DF3421B306772002FF7DE /* CommentViewController.m in Sources */,
 				2D537DED1B1AEAD3006BD35E /* ClassDetailAlbumCell.m in Sources */,
@@ -1313,9 +1506,11 @@
 				22E6E26C1B12AB09005E528E /* LoginViewController.m in Sources */,
 				2210A3871AFE51BD00D9CA1A /* GroupDetailViewController.m in Sources */,
 				22E5E8D71B27339B0004D1CA /* FeedsViewModel.m in Sources */,
+				2D06BB481B5152F60064BDAC /* ReaderThumbFetch.m in Sources */,
 				2DD8A0C61B2EA0FE00856E23 /* ActivityDetailTitleCell.m in Sources */,
 				2215CB7A1B0972A900D0359A /* PublishViewController.m in Sources */,
 				2215D96B1B10D08A00D96C46 /* TAAbstractDotView.m in Sources */,
+				2D06BB4C1B5152F60064BDAC /* ReaderThumbsView.m in Sources */,
 				22F69A861AF31DF100DC295D /* SwitchBanner.m in Sources */,
 				22E7BBD41B22CA8C009F0266 /* AccountArticleCell.m in Sources */,
 				22E6E24A1B119445005E528E /* EntryListView.m in Sources */,
@@ -1326,6 +1521,8 @@
 				2215CB711B08E59A00D0359A /* GroupIntroViewController.m in Sources */,
 				2D537DF61B1AF4CE006BD35E /* LXBaseCollectionViewController.m in Sources */,
 				2DFD65291B16143400FAC662 /* LXBaseTableViewCell.m in Sources */,
+				2D06BB501B5152F60064BDAC /* ThumbsViewController.m in Sources */,
+				2D06BB461B5152F60064BDAC /* ReaderMainToolbar.m in Sources */,
 				22BE07BD1B1F35F200A1E91F /* AccountAlbumViewController.m in Sources */,
 				2DFD65221B16001200FAC662 /* LXCarouselViewCell.m in Sources */,
 				2215CB771B09675E00D0359A /* UserApi.m in Sources */,
@@ -1347,7 +1544,9 @@
 				22BE07D81B1FCC6D00A1E91F /* LXJSBridge+Tint.m in Sources */,
 				2D724CA21B50D1FE002266DA /* LXMoreTableViewCell.m in Sources */,
 				2DD8A0CC1B2EAF5400856E23 /* ActivityDetailDetailCell.m in Sources */,
+				2D06BB511B5152F60064BDAC /* UIXToolbarView.m in Sources */,
 				2D0000741B28384000106110 /* LXImagePickerController.m in Sources */,
+				2D06BB411B5152F60064BDAC /* ReaderContentTile.m in Sources */,
 				2210A37B1AFDF66800D9CA1A /* GroupApi.m in Sources */,
 				2D6160B91B2087DE001D01D8 /* ActivityListViewController.m in Sources */,
 				2215D96D1B10D08A00D96C46 /* TADotView.m in Sources */,
@@ -1360,24 +1559,33 @@
 				2D00007A1B2839A000106110 /* LXAssetsCollectionCell.m in Sources */,
 				22BE07C31B1F360700A1E91F /* AccountRecordViewController.m in Sources */,
 				22E6E28C1B1344C2005E528E /* VCodeInputViewController.m in Sources */,
+				2D06BB471B5152F60064BDAC /* ReaderThumbCache.m in Sources */,
 				2DDBF05E1B3194C30051E0BC /* ClassArticleViewController.m in Sources */,
 				2D00FF991B21842200106110 /* ActivityViewController.m in Sources */,
 				2293FA061AF50B550012CD10 /* BannerModel.m in Sources */,
 				2D537DC81B18BD7A006BD35E /* LXBaseModelUser.m in Sources */,
+				2D06BB3F1B5152F60064BDAC /* ReaderConstants.m in Sources */,
 				22E6E2591B11C582005E528E /* ClassViewController.m in Sources */,
 				226341C01B2C3192001743DE /* LXJSBridge+User.m in Sources */,
 				2D537DE71B1ABB8F006BD35E /* ClassDetailBaseCell.m in Sources */,
 				2215CB4D1B07820C00D0359A /* NSDictionary+Encoding.m in Sources */,
 				2D0000841B2A82C600106110 /* LXShareManager.m in Sources */,
+				2D06BB441B5152F60064BDAC /* ReaderDocumentOutline.m in Sources */,
 				22B51AA81B196A76000CF4A8 /* LXNavigationController.m in Sources */,
+				2D06BB4A1B5152F60064BDAC /* ReaderThumbRender.m in Sources */,
 				2DB6C2BE1B2865CF00A94E6E /* LXShareView.m in Sources */,
 				2293FA091AF5DBF20012CD10 /* GroupViewController.m in Sources */,
 				2DA7DB3D1B4F9A0A00A15F74 /* ClassDetailDetailViewController.m in Sources */,
+				2D06BB4F1B5152F60064BDAC /* ThumbsMainToolbar.m in Sources */,
+				2D06BB491B5152F60064BDAC /* ReaderThumbQueue.m in Sources */,
 				2D75A2DB1B1B4A0700A8FA95 /* LXClassListViewModel.m in Sources */,
+				2D06BB421B5152F60064BDAC /* ReaderContentView.m in Sources */,
 				22E6E2911B1344ED005E528E /* ModifyPasswordViewController.m in Sources */,
 				2DD8A0BA1B2D9B3300856E23 /* LXBaseVideoViewController.m in Sources */,
 				2215D96E1B10D08A00D96C46 /* TAPageControl.m in Sources */,
 				2D00FF9D1B218CBB00106110 /* LXNetworkManager.m in Sources */,
+				2D06BB401B5152F60064BDAC /* ReaderContentPage.m in Sources */,
+				2D06BB4D1B5152F60064BDAC /* ReaderThumbView.m in Sources */,
 				22BE07C61B1F361B00A1E91F /* AccountAboutViewController.m in Sources */,
 				2DD8A0CF1B2EAF9700856E23 /* ActivityDetailDescCell.m in Sources */,
 				2DDBF0641B319E180051E0BC /* ActivityArticleViewController.m in Sources */,
