@@ -15,6 +15,7 @@
 #import "LXSearchBar.h"
 #import "ActivityListViewController.h"
 #import "ActivityDetailViewController.h"
+#import "LXMoreTableViewCell.h"
 
 @interface ActivityViewController() <UITableViewDataSource, UITableViewDelegate, LXBannerViewDelegate>
 
@@ -28,6 +29,7 @@
 @property (nonatomic, assign) NSInteger pageNumber;
 @property (nonatomic, assign) BOOL isLoading;
 @property (nonatomic, strong) LXNetworkPostParameters *parameters;
+@property (nonatomic, assign) BOOL hasMore;
 
 @end
 
@@ -100,15 +102,8 @@
         make.height.mas_equalTo(125);
     }];
     
-    self.titleView = [UIView new];
+    self.titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 178)];
     self.titleView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.titleView];
-    [self.titleView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(0);
-        make.right.mas_equalTo(0);
-        make.top.mas_equalTo(self.carouselView.mas_bottom);
-        make.height.mas_equalTo(178);
-    }];
     
     NSArray *channelTitles = @[@"最受欢迎", @"最新活动", @"即将下线", @"全部活动"];
     NSArray *channelImages = @[@"Banner_Favourite", @"Banner_New", @"Banner_All", @"Banner_Offline"];
@@ -165,13 +160,13 @@
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.rowHeight = 100;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.tableHeaderView = self.titleView;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 1)];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.titleView.mas_bottom);
+        make.top.mas_equalTo(self.carouselView.mas_bottom);
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.bottom.mas_equalTo(-44);
@@ -200,9 +195,9 @@
     self.parameters.type = @"活动";
     [[[LXNetworkManager sharedManager] getPostByParameters:self.parameters] subscribeNext:^(NSArray *x) {
         @strongify(self)
+        self.hasMore = YES;
         [self.viewModel.activityData addObjectsFromArray:x];
         [self.tableView reloadData];
-        [self initFooterView];
     } error:^(NSError *error) {
         
     }];
@@ -210,17 +205,6 @@
 
 - (void)resignSearch:(id)sender {
     [self.searchBar.searchField resignFirstResponder];
-}
-
-- (void)initFooterView {
-    UIImage *arrowImage = [UIImage imageNamed:@"Table_Arrow"];
-    arrowImage = [arrowImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    self.footerView = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.footerView.frame = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 30);
-    [self.footerView setImage:arrowImage forState:UIControlStateNormal];
-    self.footerView.tintColor = [UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0];
-    [self.footerView addTarget:self action:@selector(requestMoreData:) forControlEvents:UIControlEventTouchUpInside];
-    self.tableView.tableFooterView = self.footerView;
 }
 
 - (void)requestMoreData:(id)sender {
@@ -232,14 +216,15 @@
         @weakify(self)
         [[[LXNetworkManager sharedManager] getPostByParameters:self.parameters] subscribeNext:^(NSArray *x) {
             @strongify(self)
-            if (x.count == 0) {
-                self.tableView.tableFooterView = nil;
+            if (x.count != 10) {
+                self.hasMore = NO;
             }
             else {
+                self.hasMore = YES;
                 self.pageNumber++;
-                [self.viewModel.activityData addObjectsFromArray:x];
-                [self.tableView reloadData];
             }
+            [self.viewModel.activityData addObjectsFromArray:x];
+            [self.tableView reloadData];
         } error:^(NSError *error) {
             
         } completed:^{
@@ -290,6 +275,15 @@
 
 #pragma mark - UITableViewDataSource && UITableViewDelegate
 
+- (CGFloat)tableView:(nonnull UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    if (self.hasMore && indexPath.row == self.viewModel.activityData.count) {
+        return 44;
+    }
+    else {
+        return 100;
+    }
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 22;
 }
@@ -316,6 +310,10 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.hasMore && indexPath.row == self.viewModel.activityData.count) {
+        [self requestMoreData:nil];
+        return [[LXMoreTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LXMoreTableViewCell"];
+    }
     LXBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityCell"];
     if (!cell) {
         cell = [[LXBaseTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ActivityCell"];
@@ -327,7 +325,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.viewModel.activityData.count;
+    return self.hasMore?self.viewModel.activityData.count+1:self.viewModel.activityData.count;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

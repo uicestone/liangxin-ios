@@ -11,6 +11,7 @@
 #import "LXClassListViewModel.h"
 #import "LXFilterView.h"
 #import "ClassDetailViewController.h"
+#import "LXMoreTableViewCell.h"
 
 @interface ClassListViewController () <UITableViewDataSource, UITableViewDelegate, LXFilterViewDelegate>
 
@@ -21,6 +22,7 @@
 @property (nonatomic, strong) UIButton *footerView;
 @property (nonatomic, assign) NSInteger pageNumber;
 @property (nonatomic, assign) BOOL isLoading;
+@property (nonatomic, assign) BOOL hasMore;
 
 @end
 
@@ -43,7 +45,6 @@
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.rowHeight = 75;
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(0);
@@ -73,28 +74,20 @@
         [self.viewModel.listData addObjectsFromArray:posts];
         [self.tableView reloadData];
         if (posts.count != 10) {
-            self.tableView.tableFooterView = nil;
+            self.hasMore = NO;
         }
         else {
             self.pageNumber++;
-            [self.viewModel.listData addObjectsFromArray:posts];
-            [self.tableView reloadData];
-            [self initFooterView];
+            self.hasMore = YES;
         }
+        [self.viewModel.listData addObjectsFromArray:posts];
+        [self.tableView reloadData];
     } error:^(NSError *error) {
         
     } completed:^{
         @strongify(self)
         [self hideProgress];
     }];
-}
-
-- (void)initFooterView {
-    self.footerView = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.footerView.frame = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 30);
-    [self.footerView setImage:[UIImage imageNamed:@"Table_Arrow"] forState:UIControlStateNormal];
-    [self.footerView addTarget:self action:@selector(requestMoreData:) forControlEvents:UIControlEventTouchUpInside];
-    self.tableView.tableFooterView = self.footerView;
 }
 
 - (void)requestMoreData:(id)sender {
@@ -106,14 +99,15 @@
         @weakify(self)
         [[[LXNetworkManager sharedManager] getPostByParameters:self.parameters] subscribeNext:^(NSArray *x) {
             @strongify(self)
-            if (x.count == 0) {
-                self.tableView.tableFooterView = nil;
+            if (x.count != 10) {
+                self.hasMore = NO;
             }
             else {
                 self.pageNumber++;
-                [self.viewModel.listData addObjectsFromArray:x];
-                [self.tableView reloadData];
+                self.hasMore = YES;
             }
+            [self.viewModel.listData addObjectsFromArray:x];
+            [self.tableView reloadData];
         } error:^(NSError *error) {
             
         } completed:^{
@@ -157,15 +151,15 @@
     @weakify(self)
     [[[LXNetworkManager sharedManager] getPostByParameters:self.parameters] subscribeNext:^(NSArray *posts) {
         @strongify(self)
+        if (posts.count == 10) {
+            self.hasMore = YES;
+        }
+        else {
+            self.hasMore = NO;
+        }
         [self.viewModel.listData removeAllObjects];
         [self.viewModel.listData addObjectsFromArray:posts];
         [self.tableView reloadData];
-        if (posts.count == 10) {
-            [self initFooterView];
-        }
-        else {
-            self.tableView.tableFooterView = nil;
-        }
     } error:^(NSError *error) {
         
     }];
@@ -173,12 +167,21 @@
 
 #pragma mark - UITableViewDataSource && UITableViewDelegate
 
+- (CGFloat)tableView:(nonnull UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    if (self.hasMore && indexPath.row == self.viewModel.listData.count) {
+        return 44;
+    }
+    else {
+        return 75;
+    }
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.viewModel.listData.count;
+    return self.hasMore?self.viewModel.listData.count+1:self.viewModel.listData.count;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -190,6 +193,10 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.hasMore && indexPath.row == self.viewModel.listData.count) {
+        [self requestMoreData:nil];
+        return [[LXMoreTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LXMoreTableViewCell"];
+    }
     LXBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ClassCell"];
     if (!cell) {
         cell = [[LXBaseTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ClassCell"];
