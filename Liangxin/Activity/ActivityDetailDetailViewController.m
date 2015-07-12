@@ -142,7 +142,7 @@
             make.left.equalTo(_mainImageView.mas_right).offset(7.5);
             make.top.equalTo(_mainImageView.mas_top);
             make.right.mas_equalTo(-10);
-            make.height.mas_equalTo(titleSize.height+1);
+            make.height.mas_equalTo(titleSize.height > 21 ? 42 : titleSize.height);
         }];
     }
 }
