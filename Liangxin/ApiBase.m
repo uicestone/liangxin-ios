@@ -111,6 +111,24 @@
     }];
 }
 
+
++(void)putWithPath:(NSString *)path data:(NSDictionary *)data success:(void (^)(id responseObject, AFHTTPRequestOperation* operation))successCallback error:(void (^)(AFHTTPRequestOperation *operation, NSError *error))errorCallback{
+    NSString *url = [self getUrlByPath:path];
+    
+    NSLog(@"<Request> DELETE:%@ %@", url, data);
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    
+    [self addAuthority:manager];
+    
+    [manager PUT:url parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        successCallback(responseObject, operation);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorCallback(operation, error);
+    }];
+}
+
 +(void)postJSONWithPath:(NSString *)path data:(NSDictionary *)data  success:(void (^)(id responseObject, AFHTTPRequestOperation* operation))successCallback error:(void (^)(AFHTTPRequestOperation *operation, NSError *error))errorCallback{
     
     NSString *url = [self getUrlByPath:path];

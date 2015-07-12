@@ -18,7 +18,9 @@
                                     @"id": user.id,
                                     @"name": user.name,
                                     @"contact": user.contact,
-                                    @"avatar": user.avatar ? user.avatar : @""
+                                    @"avatar": user.avatar ? user.avatar : @"",
+                                    @"role": user.role,
+                                    @"group": user.group
                                     }];
     }else{
         [self completeWithResult:@{}];

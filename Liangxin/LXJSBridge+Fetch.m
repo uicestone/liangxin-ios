@@ -25,13 +25,13 @@
     }
     
     
-    if([method isEqual:@"get"]){
+    if([method isEqualToString:@"get"]){
         [ApiBase getJSONWithPath:url data:data success:^(id responseObject) {
             [self completeWithResult:responseObject];
         } error:^(NSError *error) {
             [self completeWithError:error];
         }];
-    }else if([method isEqual:@"post"]){
+    }else if([method isEqualToString:@"post"]){
         
         if(origin_files != nil && origin_files.count){
             for(NSDictionary* origin_file in origin_files){
@@ -59,8 +59,15 @@
                 [self completeWithError:error];
             }];
         }
-    }else if([method isEqual:@"delete"]){
+    }else if([method isEqualToString:@"delete"]){
         [ApiBase deleteWithPath:url data:nil success:^(id responseObject, AFHTTPRequestOperation* operation) {
+            [self completeWithResult:responseObject];
+        } error:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"%@", operation.responseObject);
+            [self completeWithError:error];
+        }];
+    }else if([method isEqualToString:@"put"]){
+        [ApiBase putWithPath:url data:nil success:^(id responseObject, AFHTTPRequestOperation* operation) {
             [self completeWithResult:responseObject];
         } error:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"%@", operation.responseObject);

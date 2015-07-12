@@ -12,15 +12,15 @@ bridge.onerror = function(err){
 
 var group_id = query.id;
 
-$(".section-intro .title").on("click", function(){
+$(".section-intro .title").on("tap", function(){
 	location.href = "liangxin://group/intro/" + group_id;
 });
 
-$(".section-activity .title").on("click", function(){
+$(".section-activity .title").on("tap", function(){
 	location.href = "liangxin://group/activity/" + group_id;
 });
 
-$(".section-album .title").on("click", function(){
+$(".section-album .title").on("tap", function(){
 	location.href = "liangxin://group/album/" + group_id;
 });
 
@@ -38,11 +38,56 @@ fetch({
 	bridge.hideProgress();
 
 	// 头像
-	$(".avatar").attr("src", 
+	var avatar = $(".avatar");
+
+	avatar.attr("src", 
 		result.avatar 
 		? (result.avatar + "?imageView2/1/w/100/h/100") 
 		: "./image/default-avatar.png"
 		);
+
+
+
+	bridge.getUser()
+	.then(function(user){
+		console.log(user, group_id);
+		if(user.role !== 'group_admin' || user.group.id !== group_id){
+			return;
+		}
+		avatar.on('click', function(){
+			var imageData;
+			var dataUrl;
+			bridge.pickImage()
+				.then(function(result){
+					dataUrl = result.url;
+					imageData = result.url.split("base64,")[1];
+					return bridge.showProgress();		
+				})
+				.then(function(){
+					return fetch({
+						url: "/group/" + group_id,
+						method: "post",
+						files: [{
+							name: "avatar",
+							title: "untitled",
+							data: imageData
+						}],
+						data: {
+							_method: "put"
+						}
+					});
+				})
+				.then(function(result){
+					bridge.hideProgress();
+					avatar.attr('src', dataUrl);
+				}).catch(function(err){
+					bridge.hideProgress();
+					alert(err);
+				});
+		});
+		return
+	});
+
 
 	var $followBtn = $(".btn-follow");
 	var following = result.following;
@@ -100,7 +145,7 @@ fetch({
 	result.news.forEach(function(post){
 		var html = itemTemplate(post);
 		var li = $(html);
-		li.on("click", function(){
+		li.on("tap", function(){
 			bridge.open("liangxin://article/" + post.id);
 		});
 		$activityList.append(li);

@@ -34,8 +34,11 @@
         UIImagePickerController* picker = [[UIImagePickerController alloc] init];
         
         picker.delegate = self;
-        //    picker.allowsEditing = YES;
-        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        if(buttonIndex == 0){
+            picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        }else{
+            picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        }
         
         [self.viewController presentViewController:picker animated:YES completion:NULL];
     }
