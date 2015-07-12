@@ -30,9 +30,20 @@
     return NO;
 }
 
+- (NSString *)decodeFromPercentEscapeString: (NSString *) input
+{
+    NSMutableString *outputStr = [NSMutableString stringWithString:input];
+    [outputStr replaceOccurrencesOfString:@"+"
+                               withString:@" "
+                                  options:NSLiteralSearch
+                                    range:NSMakeRange(0, [outputStr length])];
+    
+    return [outputStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+}
+
 - (void)commonInit {
     self.title = [[self.params objectForKey:@"title"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSURL *URL = [NSURL URLWithString:[self.params objectForKey:@"url"]];
+    NSURL *URL = [NSURL URLWithString:[self decodeFromPercentEscapeString:[self.params objectForKey:@"url"]]];
     self.playViewController = [[MPMoviePlayerViewController alloc] initWithContentURL:URL];
     [self.playViewController moviePlayer];
     [self.view addSubview:self.playViewController.view];
