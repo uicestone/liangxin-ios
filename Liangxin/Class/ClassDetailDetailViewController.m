@@ -56,7 +56,7 @@
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_mainImageView.mas_right).offset(7.5);
         make.top.equalTo(_mainImageView.mas_top);
-        make.right.mas_equalTo(-15);
+        make.right.mas_equalTo(-10);
         make.height.mas_equalTo(50);
     }];
     _groupLabel = [UILabel new];
@@ -125,7 +125,7 @@
     
     if (self.data) {
         if (self.data.excerpt.length > 0) {
-            self.contentView.text = self.data.excerpt;
+            self.contentView.text = [NSString stringWithFormat:@"%@\n%@", self.data.excerpt?:@"", self.data.content?:@""];
         }
         if (self.data.url.length > 0) {
             [self.mainImageView sd_setImageWithURL:[NSURL URLWithString:self.data.url]];
@@ -137,12 +137,12 @@
         self.groupLabel.text = [NSString stringWithFormat:@"所属支部：%@", [self.data.group objectForKey:@"name"]?:@""];
         self.authorLabel.text = [NSString stringWithFormat:@"发起人：%@", [self.data.author objectForKey:@"name"]?:@""];
         self.titleLabel.text = self.data.title;
-        CGSize titleSize = [self.data.title boundingRectWithSize:self.titleLabel.bounds.size options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:self.titleLabel.font} context:nil].size;
+        CGSize titleSize = [self.data.title boundingRectWithSize:CGSizeMake(CGRectGetWidth([UIScreen mainScreen].bounds) - 102.5, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:self.titleLabel.font} context:nil].size;
         [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(_mainImageView.mas_right).offset(7.5);
             make.top.equalTo(_mainImageView.mas_top);
-            make.right.mas_equalTo(-15);
-            make.height.mas_equalTo(titleSize.height);
+            make.right.mas_equalTo(-10);
+            make.height.mas_equalTo(titleSize.height+1);
         }];
     }
 }
