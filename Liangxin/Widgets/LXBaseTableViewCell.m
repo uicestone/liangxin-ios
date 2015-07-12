@@ -41,23 +41,25 @@
         
         _titleLabel = [UILabel new];
         _titleLabel.font = [UIFont systemFontOfSize:15.0];
+//        _titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        _titleLabel.numberOfLines = 2;
+        
         [self.contentView addSubview:_titleLabel];
         [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.mas_equalTo(-15);
             make.left.equalTo(_mainImageView.mas_right).offset(12);
             make.top.mas_equalTo(8);
-            make.height.mas_equalTo(17);
         }];
         
         _summaryLabel = [UILabel new];
         _summaryLabel.font = [UIFont systemFontOfSize:12.0];
         _summaryLabel.textColor = [UIColor darkGrayColor];
-        _summaryLabel.numberOfLines = 2;
+        _summaryLabel.numberOfLines = 1;
         [self.contentView addSubview:_summaryLabel];
         [_summaryLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.mas_equalTo(-15);
             make.left.equalTo(_mainImageView.mas_right).offset(12);
-            make.top.mas_equalTo(30);
+            make.top.equalTo(_titleLabel.mas_bottom).with.offset(-3);
             make.height.mas_equalTo(35);
         }];
         

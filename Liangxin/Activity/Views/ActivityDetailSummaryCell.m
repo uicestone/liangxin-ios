@@ -114,8 +114,8 @@
     if (data) {
         self.locationLabel.text = data.event_address?:@"";
         NSString *createdDate;
-        if (data.created_at.length >= 10) {
-            createdDate = [data.created_at substringToIndex:10];
+        if (data.event_date.length >= 10) {
+            createdDate = [data.event_date substringToIndex:10];
         }
         self.dateLabel.text = [NSString stringWithFormat:@"%@-%@", createdDate?:@"", data.due_date?:@""];
     }
