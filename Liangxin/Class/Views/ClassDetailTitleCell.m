@@ -35,7 +35,7 @@
         }];
         _titleLabel = [UILabel new];
         _titleLabel.textColor = UIColorFromRGB(0xf7941c);
-        _titleLabel.numberOfLines = 0;
+        _titleLabel.numberOfLines = 2;
         [self.contentView addSubview:_titleLabel];
         [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(_mainImageView.mas_right).offset(15);
