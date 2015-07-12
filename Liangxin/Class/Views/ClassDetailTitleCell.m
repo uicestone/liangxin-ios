@@ -81,7 +81,7 @@
             self.mainImageView.layer.borderWidth = 1.0;
         }
         self.titleLabel.text = data.title;
-        CGSize titleSize = [data.title boundingRectWithSize:self.titleLabel.bounds.size options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:self.titleLabel.font} context:nil].size;
+        CGSize titleSize = [data.title boundingRectWithSize:CGSizeMake(CGRectGetWidth([UIScreen mainScreen].bounds) - 135, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:self.titleLabel.font} context:nil].size;
         [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(_mainImageView.mas_right).offset(15);
             make.top.equalTo(_mainImageView.mas_top);
