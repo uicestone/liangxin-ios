@@ -174,7 +174,7 @@
     
     [self showProgress];
     @weakify(self)
-    [[[LXNetworkManager sharedManager] getBannersByType:LXBannerTypeClass] subscribeNext:^(id x) {
+    [[[LXNetworkManager sharedManager] getBannersByType:LXBannerTypeActivity] subscribeNext:^(id x) {
         @strongify(self)
         NSMutableArray *bannerURLs = [NSMutableArray array];
         for (LXBaseModelPost *post in x) {
