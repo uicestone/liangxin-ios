@@ -9,16 +9,18 @@
 #import "AccountHomeViewController.h"
 #import "Definition.h"
 #import "UserApi.h"
+#import "ApiBase.h"
 #import "Channels.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 
 
-@interface AccountHomeViewController ()
+@interface AccountHomeViewController () <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (nonatomic, strong) UIView* headerContainer;
 @property (nonatomic, strong) UIView* tabContainer;
 @property (nonatomic, strong) UITableView* tableview;
 @property (nonatomic, strong) NSArray* items;
 @property (nonatomic, strong) NSArray* tabitems;
+@property (nonatomic, strong) UIImageView* avatar;
 @property (nonatomic, strong) UserApi* userApi;
 @end
 
@@ -68,18 +70,23 @@
     }];
     
     
-    UIImageView* avatar = [UIImageView new];
-    [headerContainer addSubview:avatar];
-    [avatar mas_makeConstraints:^(MASConstraintMaker *make) {
+    _avatar = [UIImageView new];
+    UITapGestureRecognizer *newTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarTapped)];
+    [_avatar setUserInteractionEnabled:YES];
+    [_avatar addGestureRecognizer:newTap];
+    
+    [headerContainer addSubview:_avatar];
+    [_avatar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(headerContainer).with.offset(13);
         make.left.equalTo(headerContainer).with.offset(23);
         make.size.mas_equalTo(CGSizeMake(40, 40));
     }];
     
     if(self.currentUser.avatar){
-        [avatar setImageWithURL:[NSURL URLWithString:self.currentUser.avatar]];
+        NSString* url = [NSString stringWithFormat:@"%@?imageView2/0/w/40/h/40", self.currentUser.avatar];
+        [_avatar setImageWithURL:[NSURL URLWithString:url]];
     }else{
-        avatar.image = [UIImage imageNamed:@"default-avatar"];
+        _avatar.image = [UIImage imageNamed:@"default-avatar"];
     }
     
     
@@ -88,7 +95,7 @@
     [headerContainer addSubview:name];
     [name mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(headerContainer).with.offset(13);
-        make.left.equalTo(avatar.mas_right).with.offset(5);
+        make.left.equalTo(_avatar.mas_right).with.offset(5);
         make.size.mas_equalTo(CGSizeMake(120, 16));
     }];
     
@@ -97,7 +104,7 @@
     desc.text = self.currentUser.group_name;
     [headerContainer addSubview:desc];
     [desc mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(avatar.mas_right).with.offset(5);
+        make.left.equalTo(_avatar.mas_right).with.offset(5);
         make.bottom.equalTo(headerContainer).with.offset(-10);
         make.size.mas_equalTo(CGSizeMake(80, 10));
     }];
@@ -125,6 +132,54 @@
         make.size.mas_equalTo(CGSizeMake(31, 15));
     }];
 }
+
+-(void)avatarTapped{
+    UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle:@"更改头像" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍摄", @"从相册选取", nil];
+    [sheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(buttonIndex == 2){
+        [actionSheet dismissWithClickedButtonIndex:buttonIndex animated:YES];
+    }else{
+        UIImagePickerController* picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        
+        picker.sourceType = (buttonIndex == 0) ? UIImagePickerControllerSourceTypeCamera : UIImagePickerControllerSourceTypePhotoLibrary;
+        [self presentViewController:picker animated:YES completion:NULL];
+    }
+}
+
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.7);
+    
+    NSArray* files = @[@{
+                           @"title": @"头像",
+                           @"name": @"avatar",
+                           @"data": imageData
+                           }];
+    
+    [self showProgress];
+    [ApiBase postMultipartWithPath:@"/auth/user" data:nil files:files success:^(id responseObject) {
+        [self hideProgress];
+        [self popMessage:@"更新成功"];
+        [self currentUser].avatar = responseObject[@"avatar"];
+        _avatar.image = [UIImage imageWithData:imageData];
+    } error:^(NSError *error) {
+        [self hideProgress];
+        [self popMessage:error.description];
+    }];
+    
+    
+    
+    
+    
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 -(void)logout{
     [[UserApi shared] setCurrentUser:nil];
