@@ -51,7 +51,7 @@
         make.width.mas_equalTo(75);
     }];
     _titleLabel = [UILabel new];
-    _titleLabel.numberOfLines = 0;
+    _titleLabel.numberOfLines = 2;
     [titleView addSubview:_titleLabel];
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_mainImageView.mas_right).offset(7.5);
