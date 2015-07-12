@@ -16,6 +16,7 @@
 #import "LXNetworkManager.h"
 #import "Channels.h"
 #import "LXMoreTableViewCell.h"
+#import "LXSearchBar.h"
 
 @interface ClassViewController () <UITableViewDataSource, UITableViewDelegate, LXBannerViewDelegate>
 
@@ -31,6 +32,10 @@
 @property (nonatomic, strong) LXClassViewModel *viewModel;
 
 @property (nonatomic, assign) BOOL hasMore;
+@property (nonatomic, strong) UIView *searchView;
+@property (nonatomic, strong) LXSearchBar *searchBar;
+@property (nonatomic, assign) BOOL isSearch;
+@property (nonatomic, strong) MASConstraint *bannerTopConstraint;
 
 @end
 
@@ -68,12 +73,44 @@
     [searchButton addTarget:self action:@selector(doSearch:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:searchButton];
     
+    self.searchView = [UIView new];
+    self.searchView.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
+    [self.view addSubview:self.searchView];
+    self.searchView.alpha = 0.0;
+    [self.searchView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(0);
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        make.height.mas_equalTo(44);
+    }];
+    
+    UIView *inputView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 44)];
+    inputView.backgroundColor = [UIColor whiteColor];
+    UIButton *inputButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    inputButton.frame = CGRectMake(CGRectGetWidth(inputView.bounds) - 60, 0, 60, 44);
+    [inputButton setTitle:@"确定" forState:UIControlStateNormal];
+    [inputButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    [inputButton addTarget:self action:@selector(resignSearch:) forControlEvents:UIControlEventTouchUpInside];
+    [inputView addSubview:inputButton];
+    self.searchBar = [[LXSearchBar alloc] initWithFrame:CGRectZero];
+    self.searchBar.placeholder = @"请输入要查找的活动";
+    self.searchBar.searchField.inputAccessoryView = inputView;
+    self.searchBar.searchTintColor = UIColorFromRGB(0xf99d33);
+    [self.searchBar.searchButton addTarget:self action:@selector(doKeywordSearch:) forControlEvents:UIControlEventTouchUpInside];
+    [self.searchView addSubview:self.searchBar];
+    [self.searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(5);
+        make.right.mas_equalTo(-5);
+        make.top.mas_equalTo(10);
+        make.bottom.mas_equalTo(-10);
+    }];
+    
     self.carouselView = [LXCarouselView carouselViewWithFrame:CGRectMake(0, 0, 320, 200) imageURLsGroup:nil];
     self.carouselView.pageControl.currentPageIndicatorTintColor = UIColorFromRGB(0xf99d33);
     self.carouselView.pageControl.pageIndicatorTintColor = UIColorFromRGB(0xbbbdc0);
     [self.view addSubview:self.carouselView];
     [self.carouselView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(0);
+        self.bannerTopConstraint = make.top.mas_equalTo(0);
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.height.mas_equalTo(165);
@@ -201,8 +238,35 @@
     }
 }
 
+- (void)resignSearch:(id)sender {
+    self.isSearch = NO;
+    [self.searchBar.searchField resignFirstResponder];
+    [self.bannerTopConstraint setOffset:0];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.searchView.alpha = 0.0;
+        [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
+- (void)doKeywordSearch:(id)sender {
+    if (self.searchBar.searchField.text.length > 0) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://class/list/?keyword=%@", [self.searchBar.searchField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
+    }
+}
+
 - (void)doSearch:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"liangxin://class/list/"]];
+    if (!self.isSearch) {
+        self.isSearch = YES;
+        [self.bannerTopConstraint setOffset:44];
+        [UIView animateWithDuration:0.3 animations:^{
+            self.searchView.alpha = 1.0;
+            [self.view layoutIfNeeded];
+        } completion:^(BOOL finished) {
+            [self.searchBar.searchField becomeFirstResponder];
+        }];
+    }
 }
 
 - (void)showClassList:(UIButton *)sender {
