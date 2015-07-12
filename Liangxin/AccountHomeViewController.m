@@ -83,7 +83,7 @@
     }];
     
     if(self.currentUser.avatar){
-        NSString* url = [NSString stringWithFormat:@"%@?imageView2/0/w/40/h/40", self.currentUser.avatar];
+        NSString* url = [NSString stringWithFormat:@"%@?imageView2/0/w/80/h/80", self.currentUser.avatar];
         [_avatar setImageWithURL:[NSURL URLWithString:url]];
     }else{
         _avatar.image = [UIImage imageNamed:@"default-avatar"];

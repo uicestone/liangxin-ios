@@ -125,7 +125,7 @@
     
     if (self.data) {
         if (self.data.excerpt.length > 0) {
-            self.contentView.text = self.data.excerpt;
+            self.contentView.text = [NSString stringWithFormat:@"%@\n%@", self.data.excerpt, self.data.content];
         }
         if (self.data.url.length > 0) {
             [self.mainImageView sd_setImageWithURL:[NSURL URLWithString:self.data.url]];
