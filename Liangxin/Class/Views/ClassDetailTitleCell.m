@@ -35,7 +35,7 @@
         }];
         _titleLabel = [UILabel new];
         _titleLabel.textColor = UIColorFromRGB(0xf7941c);
-        _titleLabel.numberOfLines = 0;
+        _titleLabel.numberOfLines = 2;
         [self.contentView addSubview:_titleLabel];
         [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(_mainImageView.mas_right).offset(15);
@@ -86,7 +86,7 @@
             make.left.equalTo(_mainImageView.mas_right).offset(15);
             make.top.equalTo(_mainImageView.mas_top);
             make.right.mas_equalTo(-15);
-            make.height.mas_equalTo(titleSize.height+1);
+            make.height.mas_equalTo(titleSize.height > 21 ? 42 : titleSize.height);
         }];
         self.groupLabel.text = [NSString stringWithFormat:@"所属支部：%@", [data.group objectForKey:@"name"]?:@""];
         self.authorLabel.text = [NSString stringWithFormat:@"发起人：%@", [data.author objectForKey:@"name"]?:@""];

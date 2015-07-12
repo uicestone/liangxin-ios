@@ -24,12 +24,16 @@
 @property (nonatomic, strong) UIView *titleView;
 @property (nonatomic, strong) ActivityViewModel *viewModel;
 @property (nonatomic, strong) LXSearchBar *searchBar;
+@property (nonatomic, strong) UIView *searchView;
 
 @property (nonatomic, strong) UIButton *footerView;
 @property (nonatomic, assign) NSInteger pageNumber;
 @property (nonatomic, assign) BOOL isLoading;
 @property (nonatomic, strong) LXNetworkPostParameters *parameters;
 @property (nonatomic, assign) BOOL hasMore;
+@property (nonatomic, strong) MASConstraint *searchTopConstraint;
+@property (nonatomic, strong) MASConstraint *bannerTopConstraint;
+@property (nonatomic, assign) BOOL isSearch;
 
 @end
 
@@ -60,11 +64,12 @@
     [searchButton addTarget:self action:@selector(doSearch:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:searchButton];
     
-    UIView *searchView = [UIView new];
-    searchView.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
-    [self.view addSubview:searchView];
-    [searchView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(0);
+    self.searchView = [UIView new];
+    self.searchView.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
+    [self.view addSubview:self.searchView];
+    self.searchView.alpha = 0.0;
+    [self.searchView mas_makeConstraints:^(MASConstraintMaker *make) {
+        self.searchTopConstraint =  make.top.mas_equalTo(0);
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.height.mas_equalTo(44);
@@ -83,7 +88,7 @@
     self.searchBar.searchField.inputAccessoryView = inputView;
     self.searchBar.searchTintColor = [UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0];
     [self.searchBar.searchButton addTarget:self action:@selector(doKeywordSearch:) forControlEvents:UIControlEventTouchUpInside];
-    [searchView addSubview:self.searchBar];
+    [self.searchView addSubview:self.searchBar];
     [self.searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(5);
         make.right.mas_equalTo(-5);
@@ -96,7 +101,7 @@
     self.carouselView.pageControl.pageIndicatorTintColor = UIColorFromRGB(0xbbbdc0);
     [self.view addSubview:self.carouselView];
     [self.carouselView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(searchView.mas_bottom);
+        self.bannerTopConstraint = make.top.mas_equalTo(0);
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.height.mas_equalTo(125);
@@ -204,7 +209,15 @@
 }
 
 - (void)resignSearch:(id)sender {
+    self.isSearch = NO;
     [self.searchBar.searchField resignFirstResponder];
+    [self.bannerTopConstraint setOffset:0];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.searchView.alpha = 0.0;
+        [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        
+    }];
 }
 
 - (void)requestMoreData:(id)sender {
@@ -242,7 +255,16 @@
 }
 
 - (void)doSearch:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"liangxin://activity/list/"]];
+    if (!self.isSearch) {
+        self.isSearch = YES;
+        [self.bannerTopConstraint setOffset:44];
+        [UIView animateWithDuration:0.3 animations:^{
+            self.searchView.alpha = 1.0;
+            [self.view layoutIfNeeded];
+        } completion:^(BOOL finished) {
+            [self.searchBar.searchField becomeFirstResponder];
+        }];
+    }
 }
 
 - (void)showActivityList:(UIButton *)sender {
