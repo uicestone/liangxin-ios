@@ -126,6 +126,8 @@
     NSURL *url = [request URL];
     
     
+    self.shareObject.shareURL = [url absoluteString];
+    
     if ([[url scheme] isEqualToString:@"js"]) {
         [jsbridge handleMessage:[url query]];
     }
@@ -141,6 +143,11 @@
     if(title.length){
         [self.navigationItem setTitle:title];
     }
+    
+    self.shareObject.shareTitle = title;
+    self.shareObject.shareThumbImage = [UIImage imageNamed:@"ShareIcon"];
+    self.shareObject.shareDescription = title;
+    
     
 }
 

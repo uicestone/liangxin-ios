@@ -1,4 +1,4 @@
-webpackJsonp([1],[
+webpackJsonp([2],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -18,7 +18,7 @@ webpackJsonp([1],[
 		url: "/group/" + group_id
 	}).then(function(result){
 		// 头像
-		$(".avatar").attr("src", result.avatar + "?imageView2/1/w/100/h/100");
+		$(".avatar").attr("src", result.avatar ? (result.avatar + "?imageView2/1/w/100/h/100") : "./image/default-avatar.png");
 		$(".meta .title").html(result.name);
 		$(".item-members .value").html(result.members + "人");
 		$(".item-address .value").html(result.address);
