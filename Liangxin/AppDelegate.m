@@ -15,6 +15,7 @@
 #import "LXShareManager.h"
 #import "WXApi.h"
 #import "WeiboSDK.h"
+#import <FIR/FIR.h>
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 
@@ -33,8 +34,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [Fabric with:@[CrashlyticsKit]];
-
-    
+    [FIR handleCrashWithKey:@"b0f4446d46257d0a9d97fd4e330d4dff"];
     
     window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [[LXRouteManager sharedManager] initRoutes];
@@ -123,16 +123,16 @@
     if(index != NSNotFound){
         Channels* channels = [Channels shared];
         channels.currentIndex = index;
-        [self.navigationController.navigationItem setTitle:[channels titleAtIndex:index]];
+        [self.navigationController.navigationItem setTitle:[channels titleAtIndex:(int)index]];
         // 执行动画
         [UIView animateWithDuration:0.3 animations:^{
-            [self.navigationController.navigationItem setTitle:[channels titleAtIndex:index]];
+            [self.navigationController.navigationItem setTitle:[channels titleAtIndex:(int)index]];
             [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
             [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
-            [self.navigationController.navigationBar setBarTintColor: [channels colorAtIndex:index]];
+            [self.navigationController.navigationBar setBarTintColor: [channels colorAtIndex:(int)index]];
         }];
         
-        [self.navigationController.navigationBar setBarTintColor: [channels colorAtIndex:index]];
+        [self.navigationController.navigationBar setBarTintColor: [channels colorAtIndex:(int)index]];
     }
 }
 

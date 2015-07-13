@@ -72,6 +72,12 @@
 #define COCOAPODS_VERSION_MINOR_CocoaLumberjack_Extensions 0
 #define COCOAPODS_VERSION_PATCH_CocoaLumberjack_Extensions 0
 
+// FIR.im
+#define COCOAPODS_POD_AVAILABLE_FIR_im
+#define COCOAPODS_VERSION_MAJOR_FIR_im 1
+#define COCOAPODS_VERSION_MINOR_FIR_im 2
+#define COCOAPODS_VERSION_PATCH_FIR_im 0
+
 // HHRouter
 #define COCOAPODS_POD_AVAILABLE_HHRouter
 #define COCOAPODS_VERSION_MAJOR_HHRouter 0

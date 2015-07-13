@@ -61,7 +61,7 @@
     credits.font = [UIFont systemFontOfSize:24];
     credits.textColor = UIColorFromRGB(0xfbb03f);
     credits.textAlignment = NSTextAlignmentRight;
-    credits.text = [NSString stringWithFormat:@"%d", self.currentUser.credits];
+    credits.text = [NSString stringWithFormat:@"%d", (int)self.currentUser.credits];
     [credits mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(container.mas_right).with.offset(-20);
         make.bottom.equalTo(container.mas_bottom).with.offset(-13);

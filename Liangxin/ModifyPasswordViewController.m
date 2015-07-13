@@ -41,12 +41,12 @@
 
 
 - (IBAction)switcherChanged:(id)sender {
-    UISwitch* switcher = (UISwitch*)sender;
+    UISwitch* _switcher = (UISwitch*)sender;
     for(int i = 0 ; i < 2; i++){
         NSIndexPath* index = [NSIndexPath indexPathForRow:i inSection:0];
         AccountFieldCell* cell = (AccountFieldCell*)[tableview cellForRowAtIndexPath:index];
         
-        cell.text.secureTextEntry = !switcher.on;
+        cell.text.secureTextEntry = !_switcher.on;
     }
     
     
