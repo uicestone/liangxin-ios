@@ -137,7 +137,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     LXCarouselViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"LXCarouselViewCell" forIndexPath:indexPath];
     NSInteger itemIndex = indexPath.item % self.imageURLsGroup.count;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:[[self.imageURLsGroup objectAtIndex:itemIndex] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:[[[self.imageURLsGroup objectAtIndex:itemIndex] stringByAppendingString:@"?imageView2/0/w/640"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
     return cell;
 }
 

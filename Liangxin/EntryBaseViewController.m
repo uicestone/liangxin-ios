@@ -11,6 +11,7 @@
 #import "SwitchBanner.h"
 #import "EntryListView.h"
 #import "Post.h"
+#import "LXCarouselView.h"
 #import "ActivityItemCell.h"
 #import "PostApi.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
@@ -19,6 +20,7 @@
 
 @interface EntryBaseViewController ()
 @property (nonatomic, strong) SwitchBanner* banner;
+@property (nonatomic, strong) LXCarouselView* carouselView;
 @end
 
 @implementation EntryBaseViewController
@@ -55,18 +57,33 @@
 
 // 初始化轮播
 -(void) initBanner{
-    CGRect rect = CGRectMake(0, offset, winWidth, winWidth / 2.5);
-    UIView * wrapper = [[UIView alloc] initWithFrame:rect];
+    CGFloat bannerHeight = self.view.frame.size.width / 2.48;
+    self.carouselView = [LXCarouselView carouselViewWithFrame:CGRectMake(0, 0, 320, bannerHeight) imageURLsGroup:nil];
+    self.carouselView.pageControl.hidden = YES;
+    [self.view addSubview:self.carouselView];
+    [self.carouselView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(0);
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        make.height.mas_equalTo(bannerHeight);
+    }];
     
-    wrapper.backgroundColor = [UIColor redColor];
-    [self.view addSubview:wrapper];
-    banner = [SwitchBanner initWithType:self.bannerType wrapper:wrapper];
-    [banner fetchNew];
+    @weakify(self)
+    [[[LXNetworkManager sharedManager] getBannersByType:LXBannerTypeService] subscribeNext:^(NSArray *x) {
+        @strongify(self)
+        NSMutableArray *bannerURLs = [NSMutableArray array];
+        for (LXBaseModelPost *post in x) {
+            if ([post.poster isValidObjectForKey:@"url"]) {
+                [bannerURLs addObject:[post.poster objectForKey:@"url"]];
+            }
+        }
+        self.carouselView.imageURLsGroup = bannerURLs;
+    } error:^(NSError *error) {
+        
+    }];
     
-    // 这句很关键，没有的话布局会错乱
-    self.automaticallyAdjustsScrollViewInsets = NO;
+    offset += bannerHeight;
     
-    offset += winWidth / 2.5;
 }
 
 

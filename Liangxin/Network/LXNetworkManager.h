@@ -12,7 +12,8 @@
 typedef NS_ENUM(NSInteger, LXBannerType){
     LXBannerTypeHome,
     LXBannerTypeClass,
-    LXBannerTypeActivity
+    LXBannerTypeActivity,
+    LXBannerTypeService
 };
 
 @interface LXNetworkManager : NSObject

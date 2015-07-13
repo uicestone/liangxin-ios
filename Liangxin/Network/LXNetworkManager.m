@@ -63,6 +63,9 @@
         case LXBannerTypeClass:
             return @"课堂";
             break;
+        case LXBannerTypeService:
+            return @"服务";
+            break;
         default:
             return @"";
             break;
