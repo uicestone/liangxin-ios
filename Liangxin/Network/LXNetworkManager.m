@@ -90,6 +90,7 @@
 - (RACSignal *)getPostByParameters:(LXNetworkPostParameters *)parameters {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         NSURLSessionDataTask *task = [self.sessionManager GET:@"/api/v1/post" parameters:[parameters dictionaryValue] success:^(NSURLSessionDataTask *task, id responseObject) {
+            NSLog(@"%@", task.originalRequest);
             NSMutableArray *posts = [NSMutableArray array];
             for (NSDictionary *post in responseObject) {
                 NSError *error;

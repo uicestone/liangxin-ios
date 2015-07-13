@@ -275,7 +275,7 @@
         }
             break;
         case 1: {
-            orderBy = @"updated_at";
+            orderBy = @"";
         }
             break;
         case 2: {
