@@ -100,8 +100,8 @@
                 self.hasMore = NO;
             }
             else {
-                self.pageNumber++;
                 self.hasMore = YES;
+                self.pageNumber++;
             }
             [self.viewModel.listData addObjectsFromArray:x];
             [self.tableView reloadData];
