@@ -31,19 +31,26 @@
 - (void)commonInit {
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = [[self.params objectForKey:@"title"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     @weakify(self)
     [[[LXNetworkManager sharedManager] downPDFByURL:[self.params objectForKey:@"url"]] subscribeNext:^(NSString *filePath) {
         @strongify(self)
         ReaderDocument *document = [ReaderDocument withDocumentFilePath:filePath password:nil];
-        ReaderViewController *readerViewController = [[ReaderViewController alloc] initWithReaderDocument:document];
-        [self.view addSubview:readerViewController.view];
-        [self addChildViewController:readerViewController];
+        if (document) {
+            [hud hide:YES];
+            ReaderViewController *readerViewController = [[ReaderViewController alloc] initWithReaderDocument:document];
+            [self.view addSubview:readerViewController.view];
+            [self addChildViewController:readerViewController];
+        }
+        else {
+            hud.labelText = @"PDF解析错误，请重试";
+            [hud hide:YES afterDelay:1.0];
+        }
     } error:^(NSError *error) {
-        
-    } completed:^{
         @strongify(self)
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    } completed:^{
+        
     }];
 }
 
