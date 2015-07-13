@@ -42,6 +42,7 @@
 		225991631B490CD100EE42BF /* ServiceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 225991621B490CD100EE42BF /* ServiceDetailViewController.m */; };
 		225BA69C1AFF30D0000E6D79 /* LXWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 225BA69B1AFF30D0000E6D79 /* LXWebView.m */; };
 		226341C01B2C3192001743DE /* LXJSBridge+User.m in Sources */ = {isa = PBXBuildFile; fileRef = 226341BF1B2C3192001743DE /* LXJSBridge+User.m */; };
+		226796851B535D08008A4F83 /* UIImage+Thumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = 226796841B535D08008A4F83 /* UIImage+Thumbnail.m */; };
 		227CA1C91B1D21D80094E7A7 /* ServiceHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227CA1C81B1D21D80094E7A7 /* ServiceHomeViewController.m */; };
 		228587AA1B20AFC100CCA3A4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 228587A91B20AFC100CCA3A4 /* libPods.a */; };
 		2293FA061AF50B550012CD10 /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2293FA051AF50B550012CD10 /* BannerModel.m */; };
@@ -279,6 +280,8 @@
 		226341BD1B2C01D8001743DE /* NSStrinAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSStrinAdditions.h; sourceTree = "<group>"; };
 		226341BE1B2C3192001743DE /* LXJSBridge+User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LXJSBridge+User.h"; sourceTree = "<group>"; };
 		226341BF1B2C3192001743DE /* LXJSBridge+User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LXJSBridge+User.m"; sourceTree = "<group>"; };
+		226796831B535D08008A4F83 /* UIImage+Thumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Thumbnail.h"; sourceTree = "<group>"; };
+		226796841B535D08008A4F83 /* UIImage+Thumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Thumbnail.m"; sourceTree = "<group>"; };
 		227CA1C71B1D21D80094E7A7 /* ServiceHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceHomeViewController.h; sourceTree = "<group>"; };
 		227CA1C81B1D21D80094E7A7 /* ServiceHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceHomeViewController.m; sourceTree = "<group>"; };
 		228587A91B20AFC100CCA3A4 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
@@ -1164,6 +1167,8 @@
 				2215CB4C1B07820C00D0359A /* NSDictionary+Encoding.m */,
 				2D00007E1B283C5900106110 /* UIBarButtonItem+Custom.h */,
 				2D00007F1B283C5900106110 /* UIBarButtonItem+Custom.m */,
+				226796831B535D08008A4F83 /* UIImage+Thumbnail.h */,
+				226796841B535D08008A4F83 /* UIImage+Thumbnail.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -1603,6 +1608,7 @@
 				2210A37E1AFDF84900D9CA1A /* Group.m in Sources */,
 				2DDBF0671B319FF40051E0BC /* ActivityAlbumViewController.m in Sources */,
 				2D537DF01B1AEB38006BD35E /* ClassDetailVideoCell.m in Sources */,
+				226796851B535D08008A4F83 /* UIImage+Thumbnail.m in Sources */,
 				2D6160B01B1C9EB7001D01D8 /* LXFilterViewCell.m in Sources */,
 				2215D9611B10CF3600D96C46 /* LXJSBridge+SetTitle.m in Sources */,
 			);
@@ -1684,7 +1690,7 @@
 					"$(PROJECT_DIR)/Liangxin/Vender/Weibo",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "75cf6869-8e5e-4c15-8f2e-372fa5f3d880";
+				PROVISIONING_PROFILE = "cd4774b7-08e7-48a5-bd35-a124d71dd05b";
 			};
 			name = "ad hoc distribution";
 		};
@@ -1793,7 +1799,7 @@
 					"$(PROJECT_DIR)/Liangxin/Vender/Weibo",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "75cf6869-8e5e-4c15-8f2e-372fa5f3d880";
+				PROVISIONING_PROFILE = "cd4774b7-08e7-48a5-bd35-a124d71dd05b";
 			};
 			name = Debug;
 		};
@@ -1822,7 +1828,7 @@
 					"$(PROJECT_DIR)/Liangxin/Vender/Weibo",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "75cf6869-8e5e-4c15-8f2e-372fa5f3d880";
+				PROVISIONING_PROFILE = "cd4774b7-08e7-48a5-bd35-a124d71dd05b";
 			};
 			name = Release;
 		};

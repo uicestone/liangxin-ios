@@ -28,6 +28,7 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.0.0):
     - CocoaLumberjack/Default
+  - FIR.im (1.2.0)
   - HHRouter (0.1.5)
   - Mantle (1.5.4):
     - Mantle/extobjc (= 1.5.4)
@@ -48,6 +49,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - CocoaLumberjack (~> 2.0.0)
+  - FIR.im (~> 1.2.0)
   - HHRouter (~> 0.1.5)
   - Mantle (~> 1.5.4)
   - Masonry (~> 0.6.0)
@@ -58,6 +60,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
   CocoaLumberjack: a6f77d987d65dc7ba86b0f84db7d0b9084f77bcb
+  FIR.im: e5c7367a35adcd796f30f176f059356c330c0c2e
   HHRouter: c82ce169fea838ea85a819133df40d19605f5c95
   Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
   Masonry: 4972309f2f134de9dd312f4dc4a21359b50e6caa
