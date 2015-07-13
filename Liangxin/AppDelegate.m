@@ -117,10 +117,10 @@
     NSArray* components = [path componentsSeparatedByString:@"/"];
     NSString* host = [components objectAtIndex:1];
     Channels* channels = [Channels shared];
-    int index = (int)[channels indexOfChannel: host];
+    NSInteger index = [channels indexOfChannel: host];
     
     NSLog(@"Navigate to %@", path);
-    if(index != -1){
+    if(index != NSNotFound){
         Channels* channels = [Channels shared];
         channels.currentIndex = index;
         [self.navigationController.navigationItem setTitle:[channels titleAtIndex:index]];

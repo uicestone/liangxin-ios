@@ -11,6 +11,7 @@
 #import "UserApi.h"
 #import "ApiBase.h"
 #import "Channels.h"
+#import "UIImage+Thumbnail.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 
 
@@ -377,7 +378,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 20;
+    return 15;
 }
 
 
@@ -388,7 +389,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [[items objectAtIndex:section] count];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
@@ -401,8 +401,9 @@
     NSString* icon = [item objectForKey:@"icon"];
     
     cell.textLabel.text = title;
-    cell.imageView.image = [UIImage imageNamed:icon];
+    cell.imageView.image = [[UIImage imageNamed:icon] makeThumbnailOfSize:CGSizeMake(14, 12)];
     
+//    CGSizeMake(50, <#CGFloat height#>)
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;

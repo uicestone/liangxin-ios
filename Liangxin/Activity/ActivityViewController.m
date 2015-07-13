@@ -96,7 +96,9 @@
         make.bottom.mas_equalTo(-10);
     }];
     
-    self.carouselView = [LXCarouselView carouselViewWithFrame:CGRectMake(0, 0, 320, 200) imageURLsGroup:nil];
+    
+    CGFloat bannerHeight = self.view.frame.size.width / 2.48;
+    self.carouselView = [LXCarouselView carouselViewWithFrame:CGRectMake(0, 0, 320, bannerHeight) imageURLsGroup:nil];
     self.carouselView.pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:0.29 green:0.69 blue:0.65 alpha:1.0];
     self.carouselView.pageControl.pageIndicatorTintColor = UIColorFromRGB(0xbbbdc0);
     [self.view addSubview:self.carouselView];
@@ -104,7 +106,7 @@
         self.bannerTopConstraint = make.top.mas_equalTo(0);
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
-        make.height.mas_equalTo(125);
+        make.height.mas_equalTo(bannerHeight);
     }];
     
     self.titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 178)];

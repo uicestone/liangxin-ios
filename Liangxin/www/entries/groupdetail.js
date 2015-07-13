@@ -12,15 +12,15 @@ bridge.onerror = function(err){
 
 var group_id = query.id;
 
-$(".section-intro .title").on("tap", function(){
+$(".section-intro .title").on("click", function(){
 	location.href = "liangxin://group/intro/" + group_id;
 });
 
-$(".section-activity .title").on("tap", function(){
+$(".section-activity .title").on("click", function(){
 	location.href = "liangxin://group/activity/" + group_id;
 });
 
-$(".section-album .title").on("tap", function(){
+$(".section-album .title").on("click", function(){
 	location.href = "liangxin://group/album/" + group_id;
 });
 
@@ -145,7 +145,7 @@ fetch({
 	result.news.forEach(function(post){
 		var html = itemTemplate(post);
 		var li = $(html);
-		li.on("tap", function(){
+		li.on("click", function(){
 			bridge.open("liangxin://article/" + post.id);
 		});
 		$activityList.append(li);

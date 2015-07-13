@@ -1,22 +1,25 @@
-webpackJsonp([7],{
-
-/***/ 0:
+webpackJsonp([5],[
+/* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(riot) {__webpack_require__(9);
+	/* WEBPACK VAR INJECTION */(function(riot) {__webpack_require__(6);
 
 
 	riot.mount('*');
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
 
 /***/ },
-
-/***/ 9:
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var riot = __webpack_require__(10);
 
-	__webpack_require__(18)
+	__webpack_require__(11)
 	var bridge = __webpack_require__(2);
 	var fetch = bridge.fetch;
 	riot.tag('followinggroups', '<followinggroup each="{items}" data="{this}"></followinggroup>', function(opts) {
@@ -49,8 +52,10 @@ webpackJsonp([7],{
 
 
 /***/ },
-
-/***/ 10:
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Riot v2.2.1, @license MIT, (c) 2015 Muut Inc. + contributors */
@@ -1376,8 +1381,7 @@ webpackJsonp([7],{
 
 
 /***/ },
-
-/***/ 18:
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var riot = __webpack_require__(10);
@@ -1417,5 +1421,4 @@ webpackJsonp([7],{
 	});
 
 /***/ }
-
-});
+]);

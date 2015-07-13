@@ -41,12 +41,7 @@
     
     CGFloat itemWidth = CGRectGetWidth([UIScreen mainScreen].bounds)/2;
     CGFloat itemHeight = itemWidth * 233 / 310;
-    CGFloat minBannerWidth = CGRectGetWidth([UIScreen mainScreen].bounds)/2.48;
-    CGFloat bannerHeight = self.view.frame.size.height - 20 - 44 - itemHeight * 3;
-    
-    if(bannerHeight < minBannerWidth){
-        bannerHeight = minBannerWidth;
-    }
+    CGFloat bannerHeight = self.view.frame.size.width / 2.48;
     
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
     titleLabel.textColor = [UIColor redColor];
@@ -58,7 +53,7 @@
     
     
     
-    self.carouselView = [LXCarouselView carouselViewWithFrame:CGRectMake(0, 0, 320, 200) imageURLsGroup:nil];
+    self.carouselView = [LXCarouselView carouselViewWithFrame:CGRectMake(0, 0, 320, bannerHeight) imageURLsGroup:nil];
     self.carouselView.pageControl.hidden = YES;
     [self.view addSubview:self.carouselView];
     [self.carouselView mas_makeConstraints:^(MASConstraintMaker *make) {
