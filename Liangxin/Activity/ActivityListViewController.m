@@ -139,7 +139,7 @@
             }
                 break;
             case 2: {
-                self.parameters.order_by = @"updated_at";
+                self.parameters.order_by = @"";
             }
                 break;
             case 3: {
