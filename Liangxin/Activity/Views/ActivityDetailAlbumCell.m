@@ -67,8 +67,9 @@
         }
         else {
             [self commonInit];
-            self.albums = [NSMutableArray arrayWithArray:data.images];
-            for (NSInteger i = 0; i < data.images.count; i++) {
+            _albums = [NSMutableArray arrayWithArray:data.images];
+            NSInteger count = data.images.count > 3?3:data.images.count;
+            for (NSInteger i = 0; i < count; i++) {
                 UILabel *albumLabel = [self.albumLabels objectAtIndex:i];
                 UIButton *albumButton = [self.albumButtons objectAtIndex:i];
                 albumButton.hidden = NO;
