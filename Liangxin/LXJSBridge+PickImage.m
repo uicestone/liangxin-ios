@@ -7,32 +7,66 @@
 //
 
 #import "LXJSBridge+PickImage.h"
+#import "VPImageCropperViewController.h"
 
-#define kTagPickImageSheet 1
+#define kTagImagePickerSheet 1
+#define kTagAvatarPickerSheet 2
 
+
+
+@interface LXJSBridge() <VPImageCropperDelegate>
+@property (nonatomic, assign) BOOL needCrop;
+@end
 
 @implementation LXJSBridge (PickImage)
 -(void)pickImage:(NSDictionary *)params{
     UIViewController* vc = self.viewController;
     
+//    self.needCrop = params[@"crop"];
+
+    self.needCrop = YES;
+    
     UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle:@"选择图片" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles: @"拍照", @"选取系统相册", nil];
-    sheet.tag = kTagPickImageSheet;
+    sheet.tag = kTagImagePickerSheet;
     sheet.delegate = self;
     [sheet showInView:vc.view];
     
 }
 
 
+-(void)pickAvatar:(NSDictionary *)params{
+    UIViewController* vc = self.viewController;
+    
+    UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle:@"选择头像" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles: @"拍照", @"选取系统相册", nil];
+    sheet.tag = kTagAvatarPickerSheet;
+    sheet.delegate = self;
+    [sheet showInView:vc.view];
+}
+
+
+#pragma mark VPImageCropperDelegate
+- (void)imageCropper:(VPImageCropperViewController *)cropperViewController didFinished:(UIImage *)editedImage {
+
+    [self completeWithResult:@{@"url": [self toDataURI:editedImage]}];
+    [cropperViewController dismissViewControllerAnimated:YES completion:^{
+        // TO DO
+    }];
+}
+
+- (void)imageCropperDidCancel:(VPImageCropperViewController *)cropperViewController {
+    [cropperViewController dismissViewControllerAnimated:YES completion:^{
+    }];
+}
+
+
+
 // Called when a button is clicked. The view will be automatically dismissed after this call returns
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     
-    
     if(buttonIndex == 2){
         [actionSheet dismissWithClickedButtonIndex:buttonIndex animated:YES];
-    
     }else{
         UIImagePickerController* picker = [[UIImagePickerController alloc] init];
-        
         picker.delegate = self;
         if(buttonIndex == 0){
             picker.sourceType = UIImagePickerControllerSourceTypeCamera;
@@ -41,12 +75,12 @@
         }
         
         [self.viewController presentViewController:picker animated:YES completion:NULL];
+        
     }
 }
 
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
-    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+- (NSString *)toDataURI:(UIImage *)image{
     NSData *imageData = UIImageJPEGRepresentation(image, 0.7);
     
     
@@ -54,8 +88,30 @@
     
     NSString *datauri = [NSString stringWithFormat:@"data:image/jpg;base64,%@", url];
     
-    [self completeWithResult:@{@"url":datauri}];
-    [picker dismissViewControllerAnimated:YES completion:nil];     
+    return datauri;
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    UIView *view = self.viewController.view;
+    
+    
+    if(self.needCrop){
+        // 裁剪
+        VPImageCropperViewController *imgEditorVC = [[VPImageCropperViewController alloc] initWithImage:image cropFrame:CGRectMake(0, 100.0f, view.frame.size.width, view.frame.size.width) limitScaleRatio:3.0];
+        imgEditorVC.delegate = self;
+        [self.viewController presentViewController:imgEditorVC animated:YES completion:^{
+            // crop view shown
+        }];
+    }else{
+        NSString* datauri = [self toDataURI:image];
+        [self completeWithResult:@{@"url":datauri}];
+        [picker dismissViewControllerAnimated:YES completion:nil];
+    }
+    
+    
+    
 }
 
 - (void)actionSheetCancel:(UIActionSheet *)actionSheet{
