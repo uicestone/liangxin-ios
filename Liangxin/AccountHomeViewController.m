@@ -169,6 +169,7 @@
         [self popMessage:@"更新成功"];
         [self currentUser].avatar = responseObject[@"avatar"];
         
+        [[UserApi shared] save];
         _avatar.image = [UIImage imageWithData:imageData];
     } error:^(NSError *error) {
         [self hideProgress];
