@@ -35,6 +35,15 @@
     return currentUser;
 }
 
+
+-(void)save{
+    if(!currentUser){return;}
+    NSData *serialized = [NSKeyedArchiver archivedDataWithRootObject:currentUser];
+    [[NSUserDefaults standardUserDefaults] setObject:serialized forKey:@"user"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+
 -(void)setCurrentUser:(LXBaseModelUser *)user{
     NSData *serialized = [NSKeyedArchiver archivedDataWithRootObject:user];
     [[NSUserDefaults standardUserDefaults] setObject:serialized forKey:@"user"];
