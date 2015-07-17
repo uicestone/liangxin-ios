@@ -35,6 +35,7 @@
 		22238C1B1AF64F02000B4F95 /* Channels.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C1A1AF64F02000B4F95 /* Channels.m */; };
 		22238C541AFBACA5000B4F95 /* BannerApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C531AFBACA5000B4F95 /* BannerApi.m */; };
 		22238C571AFBAE30000B4F95 /* ApiBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C561AFBAE30000B4F95 /* ApiBase.m */; };
+		22292DA81B58D2460066A008 /* VPImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22292DA71B58D2460066A008 /* VPImageCropperViewController.m */; };
 		223267C61AF2661B00431132 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 223267C51AF2661B00431132 /* main.m */; };
 		223267C91AF2661B00431132 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 223267C81AF2661B00431132 /* AppDelegate.m */; };
 		223267D11AF2661B00431132 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 223267D01AF2661B00431132 /* Images.xcassets */; };
@@ -266,6 +267,8 @@
 		22238C551AFBAE30000B4F95 /* ApiBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiBase.h; sourceTree = "<group>"; };
 		22238C561AFBAE30000B4F95 /* ApiBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiBase.m; sourceTree = "<group>"; };
 		2225EFFE1AF4591E007A6BB2 /* Definition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definition.h; sourceTree = "<group>"; };
+		22292DA61B58D2460066A008 /* VPImageCropperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPImageCropperViewController.h; sourceTree = "<group>"; };
+		22292DA71B58D2460066A008 /* VPImageCropperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPImageCropperViewController.m; sourceTree = "<group>"; };
 		223267C01AF2661B00431132 /* Liangxin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Liangxin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		223267C41AF2661B00431132 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		223267C51AF2661B00431132 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -759,6 +762,15 @@
 			name = Api;
 			sourceTree = "<group>";
 		};
+		22292DA51B58D2460066A008 /* VPImageCropper */ = {
+			isa = PBXGroup;
+			children = (
+				22292DA61B58D2460066A008 /* VPImageCropperViewController.h */,
+				22292DA71B58D2460066A008 /* VPImageCropperViewController.m */,
+			);
+			path = VPImageCropper;
+			sourceTree = "<group>";
+		};
 		223267B71AF2661B00431132 = {
 			isa = PBXGroup;
 			children = (
@@ -1058,6 +1070,7 @@
 		2D00FFC11B25820F00106110 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				22292DA51B58D2460066A008 /* VPImageCropper */,
 				2D06BAF51B5151EE0064BDAC /* Reader */,
 				2D00FFCB1B2582C800106110 /* Weibo */,
 				2D00FFC61B25827C00106110 /* WeChat */,
@@ -1608,6 +1621,7 @@
 				2210A37E1AFDF84900D9CA1A /* Group.m in Sources */,
 				2DDBF0671B319FF40051E0BC /* ActivityAlbumViewController.m in Sources */,
 				2D537DF01B1AEB38006BD35E /* ClassDetailVideoCell.m in Sources */,
+				22292DA81B58D2460066A008 /* VPImageCropperViewController.m in Sources */,
 				226796851B535D08008A4F83 /* UIImage+Thumbnail.m in Sources */,
 				2D6160B01B1C9EB7001D01D8 /* LXFilterViewCell.m in Sources */,
 				2215D9611B10CF3600D96C46 /* LXJSBridge+SetTitle.m in Sources */,
