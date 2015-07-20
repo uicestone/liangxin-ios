@@ -143,7 +143,7 @@ webpackJsonp([4],[
 		$(".meta .title").html(result.name);
 		
 		// 简介
-		$(".section-intro .content").html(result.description);
+		$(".section-intro .content").html(result.excerpt);
 
 		// 动态
 		result.news.forEach(function(post){
