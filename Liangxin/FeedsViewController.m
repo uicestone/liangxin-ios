@@ -45,7 +45,7 @@
     [super viewDidLoad];
     _loading = false;
     _noMore = false;
-    _perPage = [NSNumber numberWithInt:12];
+    _perPage = [NSNumber numberWithInt:20];
     _currentPage = [NSNumber numberWithInt:1];
     
     Channels* channels = [Channels shared];
@@ -170,6 +170,10 @@
         [tableview registerNib:[UINib nibWithNibName:@"PostItemCell" bundle:nil] forCellReuseIdentifier:kReuseIdentifier];
         cell = [tableview dequeueReusableCellWithIdentifier:kReuseIdentifier];
     }
+    
+    [cell.title mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(self.view.frame.size.width - 20);
+    }];
     
     cell.title.text = post.title;
     cell.author.text = post.author[@"name"];
