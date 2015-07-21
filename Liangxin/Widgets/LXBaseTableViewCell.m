@@ -41,7 +41,6 @@
         
         _titleLabel = [UILabel new];
         _titleLabel.font = [UIFont systemFontOfSize:15.0];
-//        _titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
         _titleLabel.numberOfLines = 2;
         
         [self.contentView addSubview:_titleLabel];

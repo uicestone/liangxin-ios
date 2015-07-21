@@ -218,7 +218,8 @@
 
 - (RACSignal *)getDocumentsByPostId:(NSString *)postId {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        NSURLSessionDataTask *task = [self.sessionManager GET:@"/api/v1/post" parameters:@{@"type":@"附件", @"parent_id":postId} success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSURLSessionDataTask *task = [self.sessionManager GET:@"/api/v1/post" parameters:@{@"type":@"附件", @"parent_id":postId, @"per_page":@(100)} success:^(NSURLSessionDataTask *task, id responseObject) {
+            NSLog(@"%@", task.originalRequest);
             NSMutableArray *posts = [NSMutableArray array];
             for (NSDictionary *post in responseObject) {
                 [posts addObject:[LXBaseModelPost modelWithDictionary:post error:nil]];
