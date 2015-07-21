@@ -139,7 +139,7 @@ fetch({
 	$(".meta .title").html(result.name);
 	
 	// 简介
-	$(".section-intro .content").html(result.excerpt);
+	$(".section-intro .content").html(result.description.slice(0,115) + '...');
 
 	// 动态
 	result.news.forEach(function(post){

@@ -44,6 +44,7 @@
 		225BA69C1AFF30D0000E6D79 /* LXWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 225BA69B1AFF30D0000E6D79 /* LXWebView.m */; };
 		226341C01B2C3192001743DE /* LXJSBridge+User.m in Sources */ = {isa = PBXBuildFile; fileRef = 226341BF1B2C3192001743DE /* LXJSBridge+User.m */; };
 		226796851B535D08008A4F83 /* UIImage+Thumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = 226796841B535D08008A4F83 /* UIImage+Thumbnail.m */; };
+		2267CA6B1B5D3D110014DE75 /* ServiceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2267CA6A1B5D3D110014DE75 /* ServiceListViewController.m */; };
 		227CA1C91B1D21D80094E7A7 /* ServiceHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227CA1C81B1D21D80094E7A7 /* ServiceHomeViewController.m */; };
 		228587AA1B20AFC100CCA3A4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 228587A91B20AFC100CCA3A4 /* libPods.a */; };
 		2293FA061AF50B550012CD10 /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2293FA051AF50B550012CD10 /* BannerModel.m */; };
@@ -285,6 +286,8 @@
 		226341BF1B2C3192001743DE /* LXJSBridge+User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LXJSBridge+User.m"; sourceTree = "<group>"; };
 		226796831B535D08008A4F83 /* UIImage+Thumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Thumbnail.h"; sourceTree = "<group>"; };
 		226796841B535D08008A4F83 /* UIImage+Thumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Thumbnail.m"; sourceTree = "<group>"; };
+		2267CA691B5D3D110014DE75 /* ServiceListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceListViewController.h; sourceTree = "<group>"; };
+		2267CA6A1B5D3D110014DE75 /* ServiceListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceListViewController.m; sourceTree = "<group>"; };
 		227CA1C71B1D21D80094E7A7 /* ServiceHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceHomeViewController.h; sourceTree = "<group>"; };
 		227CA1C81B1D21D80094E7A7 /* ServiceHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceHomeViewController.m; sourceTree = "<group>"; };
 		228587A91B20AFC100CCA3A4 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
@@ -850,6 +853,8 @@
 				227CA1C81B1D21D80094E7A7 /* ServiceHomeViewController.m */,
 				225991611B490CD100EE42BF /* ServiceDetailViewController.h */,
 				225991621B490CD100EE42BF /* ServiceDetailViewController.m */,
+				2267CA691B5D3D110014DE75 /* ServiceListViewController.h */,
+				2267CA6A1B5D3D110014DE75 /* ServiceListViewController.m */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -1510,6 +1515,7 @@
 				22D64A321B0ACB6A004045B8 /* ImageCell.m in Sources */,
 				2D06BB4E1B5152F60064BDAC /* ReaderViewController.m in Sources */,
 				2D537DE41B1ABA5B006BD35E /* ClassDetailDescCell.m in Sources */,
+				2267CA6B1B5D3D110014DE75 /* ServiceListViewController.m in Sources */,
 				22E7BBD01B22A2B3009F0266 /* AccountCreditDetailViewController.m in Sources */,
 				2D0000341B2595F600106110 /* ActivityParticipantCell.m in Sources */,
 				22BE07B01B1D3C9200A1E91F /* AccountHomeViewController.m in Sources */,

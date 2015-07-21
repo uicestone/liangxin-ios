@@ -19,6 +19,7 @@ typedef NS_ENUM(NSUInteger, EntryListViewType)
 
 @protocol EntryListViewDelegate
 -(UIColor *)colorForFilterView:(EntryListView *)filterView andIndex:(int)index;
+-(void)itemTappedForIndex:(int)index;
 @end
 
 @interface EntryListView : NSObject

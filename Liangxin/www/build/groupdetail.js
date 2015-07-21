@@ -143,7 +143,7 @@ webpackJsonp([4],[
 		$(".meta .title").html(result.name);
 		
 		// 简介
-		$(".section-intro .content").html(result.excerpt);
+		$(".section-intro .content").html(result.description.slice(0,115) + '...');
 
 		// 动态
 		result.news.forEach(function(post){
@@ -1806,7 +1806,7 @@ webpackJsonp([4],[
 	with (obj) {
 	__p += '<li>\n	<img src="' +
 	((__t = ( url )) == null ? '' : __t) +
-	'" alt="">\n	<div class="pic-title">' +
+	'?imageView2/0/h/114" alt="">\n	<div class="pic-title">' +
 	((__t = ( title )) == null ? '' : __t) +
 	'</div>\n</li>';
 

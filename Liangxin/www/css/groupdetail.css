@@ -44,6 +44,7 @@
 	position: relative;
 	float: left;
 	flex: 1;
+	-webkit-flex: 1;
 }
 
 .section-album .content li:last-child{
@@ -61,7 +62,7 @@
 }
 
 .section-album img{
-	width: 100%;
+	width: auto;
 	height: 100%;
 	display: block;
 }

@@ -29,8 +29,7 @@
     [super viewDidLoad];
     int groupId = [self.params[@"id"] intValue];
     
-    
-    
+    self.navigationItem.title = @"相册";
     
     CGFloat width = (CGRectGetWidth(self.view.frame) - 7 * 2 ) / 3 - 3 * 2;
     CGFloat height = width / 1.54;
@@ -93,8 +92,9 @@
     
     NSInteger index = [indexPath row];
     Post* imagePost = [images objectAtIndex:index];
-    NSURL* url = [NSURL URLWithString:imagePost.url];
-    
+    NSString* urlString = [imagePost.url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURL* url = [NSURL URLWithString:urlString];
+                  
     [cell.imageView setImageWithURL:url];
     [cell.captionLabel setText:imagePost.title];
     

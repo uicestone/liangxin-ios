@@ -37,31 +37,31 @@
                         @{
                             @"title":@"党建服务中心",
                             @"icon":@"Banner_DJ",
-                            @"link":@""
+                            @"link":@"liangxin://service/list/?type=党建服务中心"
                             },
                         @{
                             @"title":@"青年中心",
                             @"icon":@"Banner_QN",
-                            @"link":@""
+                            @"link":@"liangxin://service/list/?type=青年中心"
                             },
                         @{
                             @"title":@"志愿者服务中心",
                             @"icon":@"Banner_ZYZ",
-                            @"link":@""
+                            @"link":@"liangxin://service/list/?type=志愿者服务中心"
                             },
                         @{
                             @"title":@"妇女之家",
                             @"icon":@"Banner_FN",
-                            @"link":@""
+                            @"link":@"liangxin://service/list/?type=妇女之家"
                             }
                         ,@{
                             @"title":@"人才服务中心",
                             @"icon":@"Banner_RC",
-                            @"link":@""
+                            @"link":@"liangxin://service/list/?type=人才服务中心"
                         },@{
                             @"title":@"职工之家",
                             @"icon":@"Banner_ZG",
-                            @"link":@""
+                            @"link":@"liangxin://service/list/?type=职工之家"
                         }
                     ];
     
@@ -101,6 +101,8 @@
     
     
     [cell.image setImageWithURL:[NSURL URLWithString:activity.poster.url]];
+    [cell.image.layer setBorderColor: [UIColorFromRGB(0xacaeb0) CGColor]];
+    [cell.image.layer setBorderWidth: 0.5];
     
     cell.separatorInset = UIEdgeInsetsZero;
     

@@ -68,9 +68,20 @@
     }
     
     cell.icon.image = [UIImage imageNamed:imageName];
+    cell.tag = index;
     
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(itemTapped:)];
+    singleTap.numberOfTapsRequired = 1;
+    singleTap.numberOfTouchesRequired = 1;
+    [cell addGestureRecognizer:singleTap];
+    [cell setUserInteractionEnabled:YES];
     
     return cell;
+}
+
+-(void)itemTapped:(UIGestureRecognizer *)sender{
+    int index = (int)sender.view.tag;
+    [self.delegate itemTappedForIndex:index];
 }
 
 @end

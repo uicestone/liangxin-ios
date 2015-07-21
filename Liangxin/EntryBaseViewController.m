@@ -21,6 +21,7 @@
 @interface EntryBaseViewController ()
 @property (nonatomic, strong) SwitchBanner* banner;
 @property (nonatomic, strong) LXCarouselView* carouselView;
+@property (nonatomic, strong) EntryListView* filter;
 @end
 
 @implementation EntryBaseViewController
@@ -29,6 +30,7 @@
 @synthesize offset;
 @synthesize categoryList;
 @synthesize filterList;
+@synthesize filter;
 @synthesize posts;
 @synthesize bannerType;
 @synthesize banner;
@@ -91,7 +93,7 @@
 -(void) initFilter{
     NSInteger height = 52 * (([self.filterList count] + 1) / 2);
     CGRect frame = CGRectMake(0, offset, self.winWidth, height);
-    EntryListView* filter = [[EntryListView alloc] initWithFrame:frame andData:self.filterList rows:self.filterRows columns:self.filterColumns];
+    filter = [[EntryListView alloc] initWithFrame:frame andData:self.filterList rows:self.filterRows columns:self.filterColumns];
     filter.delegate = self;
     [filter render];
     [self.view addSubview:filter.view];
@@ -132,7 +134,6 @@
 //    [view addSubview:more];
     
     
-    
     [self.view addSubview:view];
     self.offset += 22;
 }
@@ -168,6 +169,11 @@
     return [UIColor whiteColor];
 }
 
+-(void)itemTappedForIndex:(int)index{
+    NSDictionary* item = [self.filterList objectAtIndex:index];
+    [self navigateToPath: item[@"link"]];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [posts count];
 }
@@ -185,15 +191,12 @@
 
     cell.title.numberOfLines = 3;
     [cell.image setImageWithURL:[NSURL URLWithString:activity.poster.url]];
+    [cell.image.layer setBorderColor: [UIColorFromRGB(0xacaeb0) CGColor]];
+    [cell.image.layer setBorderWidth: 0.5];
     
     cell.separatorInset = UIEdgeInsetsZero;
     
     return cell;
-}
-
-- (void)postBtnClicked:(id)sender{
-    Post* activity = [self activityFromSender:sender];
-    NSLog(@"%d post touched", activity.postId);
 }
 
 
