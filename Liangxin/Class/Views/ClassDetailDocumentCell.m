@@ -39,6 +39,7 @@
         [documentButton setBackgroundImage:[UIImage imageNamed:@"Article_BG"] forState:UIControlStateNormal];
         [documentButton addTarget:self action:@selector(openPDF:) forControlEvents:UIControlEventTouchUpInside];
         documentButton.hidden = YES;
+        documentButton.tag = i;
         [self.baseView addSubview:documentButton];
         [_documentButtons addObject:documentButton];
         documentButton.frame = CGRectMake(20 * (i + 1) + i * (CGRectGetWidth([UIScreen mainScreen].bounds) - 80)/3, 5, (CGRectGetWidth([UIScreen mainScreen].bounds) - 80)/3, 80);
