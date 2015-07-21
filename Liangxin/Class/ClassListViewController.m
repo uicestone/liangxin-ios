@@ -169,7 +169,7 @@
         return 44;
     }
     else {
-        return 75;
+        return 100;
     }
 }
 

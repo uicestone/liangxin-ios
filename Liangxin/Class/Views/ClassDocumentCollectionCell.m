@@ -34,7 +34,7 @@
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.font = [UIFont systemFontOfSize:13.0];
         _titleLabel.textColor = [UIColor whiteColor];
-        _titleLabel.backgroundColor = [UIColor colorWithWhite:0.3 alpha:0.7];
+        _titleLabel.backgroundColor = [UIColor colorWithRed:80/255.0 green:80/255.0 blue:80/255.0 alpha:1.0];
         [_documentView addSubview:_titleLabel];
         [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(0);
