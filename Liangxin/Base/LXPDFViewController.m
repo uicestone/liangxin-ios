@@ -8,6 +8,7 @@
 
 #import "LXPDFViewController.h"
 #import "ReaderViewController.h"
+#import "MBProgressHUD+AFNetworking.h"
 
 @interface LXPDFViewController ()
 
@@ -31,9 +32,13 @@
 - (void)commonInit {
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = [[self.params objectForKey:@"title"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self.view];
+    hud.mode = MBProgressHUDModeAnnularDeterminate;
+    hud.removeFromSuperViewOnHide = YES;
+    [self.view addSubview:hud];
+    [hud show:YES];
     @weakify(self)
-    [[[LXNetworkManager sharedManager] downPDFByURL:[self.params objectForKey:@"url"]] subscribeNext:^(NSString *filePath) {
+    [[[LXNetworkManager sharedManager] downPDFByURL:[self.params objectForKey:@"url"] progress:hud] subscribeNext:^(NSString *filePath) {
         @strongify(self)
         ReaderDocument *document = [ReaderDocument withDocumentFilePath:filePath password:nil];
         if (document) {
@@ -53,5 +58,6 @@
         
     }];
 }
+
 
 @end
