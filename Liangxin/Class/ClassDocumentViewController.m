@@ -56,7 +56,12 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     LXBaseModelPost *post = [self.documents objectAtIndex:indexPath.row];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://pdf/?url=%@&title=%@", [post.url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], [post.title stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
+    if ([post.url hasSuffix:@".jpg"]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://photobrowser/?url=%@&title=%@", [post.url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], [post.title stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
+    }
+    else {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://pdf/?url=%@&title=%@", [post.url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], [post.title stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
+    }
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {

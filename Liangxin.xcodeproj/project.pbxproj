@@ -227,6 +227,7 @@
 		2DB374AF1B5E203D0092E5D4 /* MWTapDetectingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB374811B5E203D0092E5D4 /* MWTapDetectingView.m */; };
 		2DB374B01B5E203D0092E5D4 /* MWZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB374831B5E203D0092E5D4 /* MWZoomingScrollView.m */; };
 		2DB374B11B5E203D0092E5D4 /* UIImage+MWPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB374851B5E203D0092E5D4 /* UIImage+MWPhotoBrowser.m */; };
+		2DB374B41B5E27730092E5D4 /* LXBasePhotoBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB374B31B5E27730092E5D4 /* LXBasePhotoBrowserController.m */; };
 		2DB6C2B31B2280CB00A94E6E /* LXNetworkParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB6C2B21B2280CB00A94E6E /* LXNetworkParameters.m */; };
 		2DB6C2BB1B24367300A94E6E /* LXSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB6C2BA1B24367300A94E6E /* LXSearchBar.m */; };
 		2DB6C2BE1B2865CF00A94E6E /* LXShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB6C2BD1B2865CF00A94E6E /* LXShareView.m */; };
@@ -639,6 +640,8 @@
 		2DB374831B5E203D0092E5D4 /* MWZoomingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWZoomingScrollView.m; sourceTree = "<group>"; };
 		2DB374841B5E203D0092E5D4 /* UIImage+MWPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MWPhotoBrowser.h"; sourceTree = "<group>"; };
 		2DB374851B5E203D0092E5D4 /* UIImage+MWPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MWPhotoBrowser.m"; sourceTree = "<group>"; };
+		2DB374B21B5E27730092E5D4 /* LXBasePhotoBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXBasePhotoBrowserController.h; path = Base/LXBasePhotoBrowserController.h; sourceTree = "<group>"; };
+		2DB374B31B5E27730092E5D4 /* LXBasePhotoBrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXBasePhotoBrowserController.m; path = Base/LXBasePhotoBrowserController.m; sourceTree = "<group>"; };
 		2DB6C2B11B2280CB00A94E6E /* LXNetworkParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXNetworkParameters.h; path = Network/Parameters/LXNetworkParameters.h; sourceTree = "<group>"; };
 		2DB6C2B21B2280CB00A94E6E /* LXNetworkParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXNetworkParameters.m; path = Network/Parameters/LXNetworkParameters.m; sourceTree = "<group>"; };
 		2DB6C2B91B24367300A94E6E /* LXSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXSearchBar.h; path = Widgets/LXSearchBar.h; sourceTree = "<group>"; };
@@ -1298,6 +1301,8 @@
 				2DD8A0B91B2D9B3300856E23 /* LXBaseVideoViewController.m */,
 				2DD8A0BE1B2DDEB900856E23 /* LXBasePDFViewController.h */,
 				2DD8A0BF1B2DDEB900856E23 /* LXBasePDFViewController.m */,
+				2DB374B21B5E27730092E5D4 /* LXBasePhotoBrowserController.h */,
+				2DB374B31B5E27730092E5D4 /* LXBasePhotoBrowserController.m */,
 				2D724CA01B50D1FE002266DA /* LXMoreTableViewCell.h */,
 				2D724CA11B50D1FE002266DA /* LXMoreTableViewCell.m */,
 				2D06BB5A1B5154790064BDAC /* LXPDFViewController.h */,
@@ -1736,6 +1741,7 @@
 				2D6160CA1B20B26B001D01D8 /* LXHomeCollectionViewCell.m in Sources */,
 				2215CB741B08EA0C00D0359A /* GroupMembersViewController.m in Sources */,
 				22E5E8D31B272A700004D1CA /* FeedsViewController.m in Sources */,
+				2DB374B41B5E27730092E5D4 /* LXBasePhotoBrowserController.m in Sources */,
 				2D06BB2E1B5152F60064BDAC /* CGPDFDocument.m in Sources */,
 				22D649DC1B0A2CDC004045B8 /* PostApi.m in Sources */,
 				221DF3421B306772002FF7DE /* CommentViewController.m in Sources */,

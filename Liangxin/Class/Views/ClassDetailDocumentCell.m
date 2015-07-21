@@ -80,7 +80,13 @@
 }
 
 - (void)openPDF:(UIButton *)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://pdf/?url=%@&title=%@", [[[self.attachments objectAtIndex:sender.tag] objectForKey:@"url"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], [[[self.attachments objectAtIndex:sender.tag] objectForKey:@"title"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
+    NSString *url = [[self.attachments objectAtIndex:sender.tag] objectForKey:@"url"];
+    if ([url hasSuffix:@".jpg"]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://photobrowser/?url=%@&title=%@", [[[self.attachments objectAtIndex:sender.tag] objectForKey:@"url"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], [[[self.attachments objectAtIndex:sender.tag] objectForKey:@"title"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
+    }
+    else {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://pdf/?url=%@&title=%@", [[[self.attachments objectAtIndex:sender.tag] objectForKey:@"url"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], [[[self.attachments objectAtIndex:sender.tag] objectForKey:@"title"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
+    }
 }
 
 - (void)showMore:(id)sender {
