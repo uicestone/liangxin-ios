@@ -28,6 +28,7 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.0.1):
     - CocoaLumberjack/Default
+  - DACircularProgress (2.3.1)
   - FIR.im (1.2.0)
   - HHRouter (0.1.5)
   - Mantle (1.5.4):
@@ -49,6 +50,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - CocoaLumberjack (~> 2.0.0)
+  - DACircularProgress (~> 2.3.1)
   - FIR.im (~> 1.2.0)
   - HHRouter (~> 0.1.5)
   - Mantle (~> 1.5.4)
@@ -60,6 +62,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   CocoaLumberjack: 019d1361244274a6138c788c6cb80baabc13fb8f
+  DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   FIR.im: e5c7367a35adcd796f30f176f059356c330c0c2e
   HHRouter: c82ce169fea838ea85a819133df40d19605f5c95
   Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
