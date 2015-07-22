@@ -10,6 +10,7 @@
 #import "LXBaseModelPost.h"
 #import "UserApi.h"
 #import <CommonCrypto/CommonDigest.h>
+#import "MBProgressHUD+AFNetworking.h"
 
 @interface LXNetworkManager()
 
@@ -327,7 +328,7 @@
     }];
 }
 
-- (RACSignal *)downPDFByURL:(NSString *)pdfURL {
+- (RACSignal *)downPDFByURL:(NSString *)pdfURL progress:(MBProgressHUD *)progress {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         NSURL *documentsDirectoryURL = [NSURL URLWithString:[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]];
         NSURL *_targetPath = [documentsDirectoryURL URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.pdf", [self cachedFileNameForKey:pdfURL]]];
@@ -338,18 +339,26 @@
             return nil;
         }
         else {
-            [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:pdfURL]] queue:self.queue completionHandler:^(NSURLResponse * __nullable response, NSData * __nullable data, NSError * __nullable connectionError) {
-                if (connectionError) {
-                    [subscriber sendError:connectionError];
+            NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+            AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+            NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:pdfURL]];
+            NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
+                NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+                return [documentsDirectoryURL URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.pdf", [self cachedFileNameForKey:pdfURL]]];
+            } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+                if (error) {
+                    [subscriber sendError:error];
                 }
                 else {
-                    NSError *error;
-                    [data writeToFile:_filePath options:NSDataWritingAtomic error:&error];
                     [subscriber sendNext:_filePath];
                     [subscriber sendCompleted];
                 }
             }];
-            return nil;
+            [progress setProgressWithDownloadProgressOfTask:downloadTask animated:YES];
+            [downloadTask resume];
+            return [RACDisposable disposableWithBlock:^{
+                [downloadTask cancel];
+            }];
         }
     }];
 }

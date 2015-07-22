@@ -229,6 +229,7 @@
 		2DB374B01B5E203D0092E5D4 /* MWZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB374831B5E203D0092E5D4 /* MWZoomingScrollView.m */; };
 		2DB374B11B5E203D0092E5D4 /* UIImage+MWPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB374851B5E203D0092E5D4 /* UIImage+MWPhotoBrowser.m */; };
 		2DB374B41B5E27730092E5D4 /* LXBasePhotoBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB374B31B5E27730092E5D4 /* LXBasePhotoBrowserController.m */; };
+		2DB374B71B5EB75C0092E5D4 /* MBProgressHUD+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB374B61B5EB75C0092E5D4 /* MBProgressHUD+AFNetworking.m */; };
 		2DB6C2B31B2280CB00A94E6E /* LXNetworkParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB6C2B21B2280CB00A94E6E /* LXNetworkParameters.m */; };
 		2DB6C2BB1B24367300A94E6E /* LXSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB6C2BA1B24367300A94E6E /* LXSearchBar.m */; };
 		2DB6C2BE1B2865CF00A94E6E /* LXShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB6C2BD1B2865CF00A94E6E /* LXShareView.m */; };
@@ -645,6 +646,8 @@
 		2DB374851B5E203D0092E5D4 /* UIImage+MWPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MWPhotoBrowser.m"; sourceTree = "<group>"; };
 		2DB374B21B5E27730092E5D4 /* LXBasePhotoBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXBasePhotoBrowserController.h; path = Base/LXBasePhotoBrowserController.h; sourceTree = "<group>"; };
 		2DB374B31B5E27730092E5D4 /* LXBasePhotoBrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXBasePhotoBrowserController.m; path = Base/LXBasePhotoBrowserController.m; sourceTree = "<group>"; };
+		2DB374B51B5EB75C0092E5D4 /* MBProgressHUD+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD+AFNetworking.h"; path = "Utils/MBProgressHUD+AFNetworking.h"; sourceTree = "<group>"; };
+		2DB374B61B5EB75C0092E5D4 /* MBProgressHUD+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MBProgressHUD+AFNetworking.m"; path = "Utils/MBProgressHUD+AFNetworking.m"; sourceTree = "<group>"; };
 		2DB6C2B11B2280CB00A94E6E /* LXNetworkParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXNetworkParameters.h; path = Network/Parameters/LXNetworkParameters.h; sourceTree = "<group>"; };
 		2DB6C2B21B2280CB00A94E6E /* LXNetworkParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXNetworkParameters.m; path = Network/Parameters/LXNetworkParameters.m; sourceTree = "<group>"; };
 		2DB6C2B91B24367300A94E6E /* LXSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXSearchBar.h; path = Widgets/LXSearchBar.h; sourceTree = "<group>"; };
@@ -1291,6 +1294,8 @@
 				2D00007F1B283C5900106110 /* UIBarButtonItem+Custom.m */,
 				226796831B535D08008A4F83 /* UIImage+Thumbnail.h */,
 				226796841B535D08008A4F83 /* UIImage+Thumbnail.m */,
+				2DB374B51B5EB75C0092E5D4 /* MBProgressHUD+AFNetworking.h */,
+				2DB374B61B5EB75C0092E5D4 /* MBProgressHUD+AFNetworking.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -1850,6 +1855,7 @@
 				2DD8A0CF1B2EAF9700856E23 /* ActivityDetailDescCell.m in Sources */,
 				2DDBF0641B319E180051E0BC /* ActivityArticleViewController.m in Sources */,
 				223267C61AF2661B00431132 /* main.m in Sources */,
+				2DB374B71B5EB75C0092E5D4 /* MBProgressHUD+AFNetworking.m in Sources */,
 				2215D96C1B10D08A00D96C46 /* TAAnimatedDotView.m in Sources */,
 				22238C571AFBAE30000B4F95 /* ApiBase.m in Sources */,
 				22BE07D21B1F384C00A1E91F /* AccountActivityViewController.m in Sources */,

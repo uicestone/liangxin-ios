@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "LXNetworkParameters.h"
+#import "MBProgressHUD.h"
 
 typedef NS_ENUM(NSInteger, LXBannerType){
     LXBannerTypeHome,
@@ -36,6 +37,6 @@ typedef NS_ENUM(NSInteger, LXBannerType){
 - (RACSignal *)agreeAttendeeByPostId:(NSString *)postId userId:(NSString *)userId;
 - (RACSignal *)disagreeAttendeeByPostId:(NSString *)postId userId:(NSString *)userId;
 - (RACSignal *)shareByShareTitle:(NSString *)shareTitle shareURL:(NSString *)shareURL;
-- (RACSignal *)downPDFByURL:(NSString *)pdfURL;
+- (RACSignal *)downPDFByURL:(NSString *)pdfURL progress:(MBProgressHUD *)progress;
 
 @end
