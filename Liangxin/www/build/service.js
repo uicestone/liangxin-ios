@@ -1,4 +1,4 @@
-webpackJsonp([2],[
+webpackJsonp([1],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -12,7 +12,7 @@ webpackJsonp([2],[
 	    url:"/post/" + id
 	}).then(function(post){
 	    bridge.setTitle(post.title);
-	    $('.section-intro .content').html(post.content);
+	    $('.section-intro .content').html((post.excerpt + '\n' + post.content).replace(/\n/g, '<br />'));
 	});
 
 /***/ },
