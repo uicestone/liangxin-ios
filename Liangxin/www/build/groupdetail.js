@@ -7,8 +7,8 @@ webpackJsonp([4],[
 	var query = __webpack_require__(3).parse();
 
 	var fetch = bridge.fetch;
-	var itemTemplate = __webpack_require__(8);
-	var imageTemplate = __webpack_require__(9);
+	var itemTemplate = __webpack_require__(9);
+	var imageTemplate = __webpack_require__(10);
 
 	bridge.onerror = function(err){
 		alert(err);
@@ -61,7 +61,7 @@ webpackJsonp([4],[
 			avatar.on('click', function(){
 				var imageData;
 				var dataUrl;
-				bridge.pickImage()
+				bridge.pickAvatar()
 					.then(function(result){
 						dataUrl = result.url;
 						imageData = result.url.split("base64,")[1];
@@ -1781,7 +1781,8 @@ webpackJsonp([4],[
 /* 5 */,
 /* 6 */,
 /* 7 */,
-/* 8 */
+/* 8 */,
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = function (obj) {
@@ -1801,7 +1802,7 @@ webpackJsonp([4],[
 	}
 
 /***/ },
-/* 9 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = function (obj) {

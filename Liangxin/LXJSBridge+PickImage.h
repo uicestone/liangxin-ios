@@ -7,7 +7,8 @@
 //
 
 #import "LXJSBridge.h"
+#import "VPImageCropperViewController.h"
 
-@interface LXJSBridge (PickImage) <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface LXJSBridge (PickImage) <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, VPImageCropperDelegate>
 -(void)pickImage:(NSDictionary *)params;
 @end

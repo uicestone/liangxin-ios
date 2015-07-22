@@ -1,4 +1,4 @@
-webpackJsonp([6],[
+webpackJsonp([5],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -6,11 +6,11 @@ webpackJsonp([6],[
 	var bridge = __webpack_require__(2);
 	var query = __webpack_require__(3).parse();
 
-	__webpack_require__(6);
+	__webpack_require__(5);
 	var type = query.type;
 
 	riot.mount('*');
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
 /* 1 */
@@ -1622,89 +1622,7 @@ webpackJsonp([6],[
 	}
 
 /***/ },
-/* 4 */,
-/* 5 */,
-/* 6 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var riot = __webpack_require__(10);
-
-	__webpack_require__(17)
-	var bridge = __webpack_require__(2);
-	var fetch = bridge.fetch;
-	var query = __webpack_require__(3).parse();
-	var $ = __webpack_require__(1);
-
-
-	riot.tag('comments', '<div riot-style="display:{(loaded && items.length)?\'block\':\'none\'}; margin-bottom: 20px;"> <comment each="{items}" data="{this}"></comment> </div> <div riot-style="display:{(loaded && !items.length)?\'block\':\'none\'};text-align:center;margin-top:90px"> <img src="./image/nocomments.png" height="136" width="91"> </div> <div class="mbox" riot-style="display:{writing?\'block\':\'none\'}"> <div class="inner"> <div class="close" onclick="{closepopup}"></div> <div class="title">评论</div> <div class="content"> <textarea name="" id="input" cols="30" rows="10"></textarea> </div> <div class="btn" onclick="{submit}">提交</div> </div> </div> <div class="write" onclick="{showpopup}"> <i class="icon-pencil"></i> <span>写评论</span> </div>', function(opts) {
-
-
-
-	  var self = this;
-	  var id = query.id;
-	  this.writing = false;
-	  this.loaded = false;
-
-	  this.showpopup = function() {
-	    self.update({writing:true})
-	  }.bind(this);
-
-	  this.closepopup = function() {
-	    self.update({writing:false})
-	  }.bind(this);
-
-	  var posting = false;
-	  this.submit = function() {
-	    posting = true;
-	    bridge.showProgress();
-	    fetch({
-	      method:"post",
-	      url:"/post",
-	      data:{
-	        type:"评论",
-	        parent_id:id,
-	        title:$('#input').val()
-	      }
-	    }).then(function(review){
-	      posting = false;
-
-
-	      bridge.hideProgress().then(function(){
-	        setTimeout(function(){
-	          location.reload();
-	        }, 200);
-	      });
-
-
-
-	    });
-	  }.bind(this);
-
-	  this.load = function() {
-	    self.items = [];
-
-	    fetch({
-	      url:"/post",
-	      data:{
-	        type:"评论",
-	        parent_id:id
-	      }
-	    }).then(function(items){
-	      self.loaded = true;
-	      self.items = items;
-	      self.update();
-	    });
-	  }.bind(this);
-
-	  this.load();
-
-	});
-
-/***/ },
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Riot v2.2.1, @license MIT, (c) 2015 Muut Inc. + contributors */
@@ -3030,16 +2948,92 @@ webpackJsonp([6],[
 
 
 /***/ },
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */,
-/* 16 */,
-/* 17 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var riot = __webpack_require__(10);
+	var riot = __webpack_require__(4);
+
+	__webpack_require__(11)
+	var bridge = __webpack_require__(2);
+	var fetch = bridge.fetch;
+	var query = __webpack_require__(3).parse();
+	var $ = __webpack_require__(1);
+
+
+	riot.tag('comments', '<div riot-style="display:{(loaded && items.length)?\'block\':\'none\'}; margin-bottom: 20px;"> <comment each="{items}" data="{this}"></comment> </div> <div riot-style="display:{(loaded && !items.length)?\'block\':\'none\'};text-align:center;margin-top:90px"> <img src="./image/nocomments.png" height="136" width="91"> </div> <div class="mbox" riot-style="display:{writing?\'block\':\'none\'}"> <div class="inner"> <div class="close" onclick="{closepopup}"></div> <div class="title">评论</div> <div class="content"> <textarea name="" id="input" cols="30" rows="10"></textarea> </div> <div class="btn" onclick="{submit}">提交</div> </div> </div> <div class="write" onclick="{showpopup}"> <i class="icon-pencil"></i> <span>写评论</span> </div>', function(opts) {
+
+
+
+	  var self = this;
+	  var id = query.id;
+	  this.writing = false;
+	  this.loaded = false;
+
+	  this.showpopup = function() {
+	    self.update({writing:true})
+	  }.bind(this);
+
+	  this.closepopup = function() {
+	    self.update({writing:false})
+	  }.bind(this);
+
+	  var posting = false;
+	  this.submit = function() {
+	    posting = true;
+	    bridge.showProgress();
+	    fetch({
+	      method:"post",
+	      url:"/post",
+	      data:{
+	        type:"评论",
+	        parent_id:id,
+	        title:$('#input').val()
+	      }
+	    }).then(function(review){
+	      posting = false;
+
+
+	      bridge.hideProgress().then(function(){
+	        setTimeout(function(){
+	          location.reload();
+	        }, 200);
+	      });
+
+
+
+	    });
+	  }.bind(this);
+
+	  this.load = function() {
+	    self.items = [];
+
+	    fetch({
+	      url:"/post",
+	      data:{
+	        type:"评论",
+	        parent_id:id
+	      }
+	    }).then(function(items){
+	      self.loaded = true;
+	      self.items = items;
+	      self.update();
+	    });
+	  }.bind(this);
+
+	  this.load();
+
+	});
+
+/***/ },
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var riot = __webpack_require__(4);
 
 	var bridge = __webpack_require__(2);
 	var fetch = bridge.fetch;

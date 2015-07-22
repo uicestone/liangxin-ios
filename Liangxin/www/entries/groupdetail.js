@@ -57,7 +57,7 @@ fetch({
 		avatar.on('click', function(){
 			var imageData;
 			var dataUrl;
-			bridge.pickImage()
+			bridge.pickAvatar()
 				.then(function(result){
 					dataUrl = result.url;
 					imageData = result.url.split("base64,")[1];
