@@ -24,6 +24,7 @@
 @property (nonatomic, strong) NSArray* tabitems;
 @property (nonatomic, strong) UIImageView* avatar;
 @property (nonatomic, strong) UserApi* userApi;
+@property (nonatomic, strong) UIActionSheet* avatarPickerSheet;
 @end
 
 @implementation AccountHomeViewController
@@ -138,19 +139,23 @@
 }
 
 -(void)avatarTapped{
-    UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle:@"更改头像" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍摄", @"从相册选取", nil];
-    [sheet showInView:self.view];
+    self.avatarPickerSheet = [[UIActionSheet alloc] initWithTitle:@"更改头像" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍摄", @"从相册选取", nil];
+    [self.avatarPickerSheet showInView:self.view];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if(buttonIndex == 2){
-        [actionSheet dismissWithClickedButtonIndex:buttonIndex animated:YES];
+    if(self.avatarPickerSheet == actionSheet){
+        if(buttonIndex == 2){
+            [actionSheet dismissWithClickedButtonIndex:buttonIndex animated:YES];
+        }else{
+            UIImagePickerController* picker = [[UIImagePickerController alloc] init];
+            picker.delegate = self;
+            
+            picker.sourceType = (buttonIndex == 0) ? UIImagePickerControllerSourceTypeCamera : UIImagePickerControllerSourceTypePhotoLibrary;
+            [self presentViewController:picker animated:YES completion:NULL];
+        }
     }else{
-        UIImagePickerController* picker = [[UIImagePickerController alloc] init];
-        picker.delegate = self;
-        
-        picker.sourceType = (buttonIndex == 0) ? UIImagePickerControllerSourceTypeCamera : UIImagePickerControllerSourceTypePhotoLibrary;
-        [self presentViewController:picker animated:YES completion:NULL];
+        [super actionSheet:actionSheet clickedButtonAtIndex:buttonIndex];
     }
 }
 

@@ -43,6 +43,7 @@ typedef void(^ LoginFinishBlock)();
 - (void)showProgress;
 - (void)hideProgress;
 - (void)doClickDetailBar:(UIButton *)sender;
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex;
 
 // 频道
 - (NSString *)channel;

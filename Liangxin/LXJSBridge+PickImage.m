@@ -43,23 +43,6 @@
     [sheet showInView:vc.view];
 }
 
-
-#pragma mark VPImageCropperDelegate
-- (void)imageCropper:(VPImageCropperViewController *)cropperViewController didFinished:(UIImage *)editedImage {
-
-    [self completeWithResult:@{@"url": [self toDataURI:editedImage]}];
-    [cropperViewController dismissViewControllerAnimated:YES completion:^{
-        // TO DO
-    }];
-}
-
-- (void)imageCropperDidCancel:(VPImageCropperViewController *)cropperViewController {
-    [cropperViewController dismissViewControllerAnimated:YES completion:^{
-    }];
-}
-
-
-
 // Called when a button is clicked. The view will be automatically dismissed after this call returns
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     
