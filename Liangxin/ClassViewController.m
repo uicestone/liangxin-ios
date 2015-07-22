@@ -316,7 +316,7 @@
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.tableView.bounds), 40)];
     headerView.backgroundColor = UIColorFromRGB(0xe6e7e8);
     UILabel *headerLabel = [UILabel new];
-    headerLabel.text = @"活动列表";
+    headerLabel.text = @"课堂列表";
     headerLabel.textColor = [UIColor darkGrayColor];
     headerLabel.font = [UIFont boldSystemFontOfSize:15.0];
     [headerView addSubview:headerLabel];
