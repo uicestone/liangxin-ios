@@ -93,16 +93,39 @@
     NSInteger index = [indexPath row];
     Post* imagePost = [images objectAtIndex:index];
     NSString* urlString = [imagePost.url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    urlString = [urlString stringByAppendingString:@"?imageView2/0/h/114"];
+    
     NSURL* url = [NSURL URLWithString:urlString];
-                  
+
+    
     [cell.imageView setImageWithURL:url];
     [cell.captionLabel setText:imagePost.title];
+
+
+    
+    cell.tag = index;
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(itemTapped:)];
+    singleTap.numberOfTapsRequired = 1;
+    singleTap.numberOfTouchesRequired = 1;
+    [cell addGestureRecognizer:singleTap];
+    [cell setUserInteractionEnabled:YES];
     
     return cell;
 
     
 }
 
+
+
+-(void)itemTapped:(UIGestureRecognizer *)sender{
+    int index = (int)sender.view.tag;
+    
+    Post* post = [images objectAtIndex:index];
+    NSString* path = [NSString stringWithFormat:@"photobrowser/?url=%@&title=%@", [post.url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], [post.title stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    
+    [self navigateToPath:path];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

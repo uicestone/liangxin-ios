@@ -161,6 +161,10 @@ webpackJsonp([4],[
 			var html = imageTemplate(image);
 			$albumList.append($(html));
 		});
+
+		if(result.images.length < 2){
+			$albumList.append($('<li />'));
+		}
 	});
 
 /***/ },
@@ -1804,11 +1808,15 @@ webpackJsonp([4],[
 	obj || (obj = {});
 	var __t, __p = '';
 	with (obj) {
-	__p += '<li>\n	<img src="' +
+	__p += '<li>\n    <a href="liangxin://photobrowser/?url=' +
+	((__t = ( url )) == null ? '' : __t) +
+	'&title=' +
+	((__t = ( encodeURIComponent(title) )) == null ? '' : __t) +
+	'">\n	<img src="' +
 	((__t = ( url )) == null ? '' : __t) +
 	'?imageView2/0/h/114" alt="">\n	<div class="pic-title">' +
 	((__t = ( title )) == null ? '' : __t) +
-	'</div>\n</li>';
+	'</div>\n    </a>\n</li>';
 
 	}
 	return __p

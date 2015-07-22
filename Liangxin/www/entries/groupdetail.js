@@ -157,4 +157,8 @@ fetch({
 		var html = imageTemplate(image);
 		$albumList.append($(html));
 	});
+
+	if(result.images.length < 2){
+		$albumList.append($('<li />'));
+	}
 });
