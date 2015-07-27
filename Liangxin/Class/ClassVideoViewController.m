@@ -52,11 +52,20 @@
     }];
 }
 
+- (NSString *)encodeToPercentEscapeString:(NSString *)input
+{
+    NSString* outputStr = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(NULL,(__bridge CFStringRef)input,NULL,(CFStringRef)@"!*'();:@&=+$,/?%#[]",kCFStringEncodingUTF8);
+    return outputStr;
+}
+
 #pragma mark - UICollectionViewDataSource && UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     LXBaseModelPost *post = [self.videos objectAtIndex:indexPath.row];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://video/?url=%@&title=%@", [post.url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], [post.title stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
+    if ([post.excerpt isKindOfClass:[NSDictionary class]]) {
+        NSString *URL = [self encodeToPercentEscapeString:[[(NSDictionary *)post.excerpt objectForKey:@"high"] objectAtIndex:0]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://video/?url=%@&title=%@", URL, [post.title stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
+    }
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
