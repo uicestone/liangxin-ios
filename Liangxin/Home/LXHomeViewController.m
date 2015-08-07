@@ -100,7 +100,7 @@
         
     }];
     
-    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"Intro"]) {
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"Introduction"] || ![[[NSUserDefaults standardUserDefaults] objectForKey:@"Introduction"] isEqualToString:[NSBundle mainBundle].bundleIdentifier]) {
         self.introView = [[LXIntroView alloc] initWithFrame:[UIScreen mainScreen].bounds];
         self.introView.introImages = @[@"Guide1", @"Guide2", @"Guide3"];
         self.introView.delegate = self;
@@ -127,7 +127,7 @@
         self.introView.alpha = 0;
     } completion:^(BOOL finished) {
         [self.introView removeFromSuperview];
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"Intro"];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSBundle mainBundle].bundleIdentifier forKey:@"Introduction"];
     }];
 }
 
