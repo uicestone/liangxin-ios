@@ -12,7 +12,7 @@
 
 @property (nonatomic, assign) int postId;
 @property (nonatomic, strong) NSString *type;
-@property (nonatomic, strong) Post *poster;
+@property (nonatomic, strong) LXBaseModelPost *poster;
 @property (nonatomic, strong) LXBaseModelUser *author;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *desc;

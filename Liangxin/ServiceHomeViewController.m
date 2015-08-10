@@ -80,7 +80,7 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    Post *activity = [posts objectAtIndex:[indexPath row]];
+    LXBaseModelPost *activity = [posts objectAtIndex:[indexPath row]];
     ActivityItemCell *cell = [tableView dequeueReusableCellWithIdentifier:kReuseIdentifier];
     
     if(!cell){
@@ -90,8 +90,6 @@
     
     cell.selectionStyle = UITableViewCellAccessoryNone;
     
-    
-//    cell.desc.text = activity.desc;
     cell.title.text = activity.title;
     
     cell.title.frame = CGRectMake(
@@ -99,8 +97,11 @@
                   cell.title.frame.origin.y,
                                   cell.title.frame.size.width, cell.title.frame.size.height);
     
-    
-    [cell.image setImageWithURL:[NSURL URLWithString:activity.poster.url]];
+    if(activity.poster){
+        NSString* url = activity.poster[@"url"];
+        url = [url stringByAppendingString:@"?imageView2/1/w/100/h/100"];
+        [cell.image setImageWithURL:[NSURL URLWithString:url]];
+    }
     [cell.image.layer setBorderColor: [UIColorFromRGB(0xacaeb0) CGColor]];
     [cell.image.layer setBorderWidth: 0.5];
     
