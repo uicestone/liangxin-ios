@@ -19,7 +19,7 @@ var fetch = bridge.fetch;
 	</div>
 
 	var self = this;
-		
+
 	loadData(){
 		bridge.showProgress();
 		bridge
@@ -71,6 +71,7 @@ var fetch = bridge.fetch;
 		if(!ids){return;}
 		console.log(ids);
 		bridge.showProgress();
+
 		fetch({
 			url:"/post?id=" + ids,
 			method:"delete"
@@ -78,9 +79,11 @@ var fetch = bridge.fetch;
 			removing = false;
 			bridge.hideProgress();
 			self.loadData();
+			opts.trigger('toggle-all', false);
 		}).catch(function(){
 			removing = false;
 			bridge.showMessage("删除失败");
+			opts.trigger('toggle-all', false);
 		});
 	});
 

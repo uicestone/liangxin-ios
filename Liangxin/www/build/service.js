@@ -1,4 +1,4 @@
-webpackJsonp([1],[
+webpackJsonp([2],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -6,13 +6,25 @@ webpackJsonp([1],[
 	var query = __webpack_require__(3).parse();
 	var bridge = __webpack_require__(2);
 	var fetch = bridge.fetch;
+	var image = __webpack_require__(4);
 	var id = query.id;
 
 	fetch({
-	    url:"/post/" + id
-	}).then(function(post){
-	    bridge.setTitle(post.title);
-	    $('.section-intro .content').html((post.excerpt + '\n' + post.content).replace(/\n/g, '<br />'));
+	  url: "/post/" + id
+	}).then(function(data) {
+	  var $images = $('.section-album ul');
+	  data.images.forEach(function(article) {
+	    article.poster = {
+	      url: image.clip(article.url, 400, 300)
+	    };
+	    var $template = __webpack_require__(7);
+	    var html = $template(article);
+	    var $li = $(html);
+	    $li.appendTo($images);
+	  });
+
+	  bridge.setTitle(data.title);
+	  $('.section-intro .content').html((data.excerpt + '\n' + data.content).replace(/\n/g, '<br />'));
 	});
 
 /***/ },
@@ -1622,6 +1634,42 @@ webpackJsonp([1],[
 	    ret[splited[0]] = decodeURIComponent(splited[1]);
 	  });
 	  return ret;
+	}
+
+/***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports.clip = function(url, w, h){
+	    var result = url + "?imageView2/1/w/" + parseInt(w) + "/h/" + parseInt(h);
+	    return result;
+	}
+
+/***/ },
+/* 5 */,
+/* 6 */,
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = function (obj) {
+	obj || (obj = {});
+	var __t, __p = '', __j = Array.prototype.join;
+	function print() { __p += __j.call(arguments, '') }
+	with (obj) {
+
+	 title = title.split(/\.jpg/i)[0] ;
+	__p += '\n<li>\n    <a data-title="' +
+	((__t = ( title )) == null ? '' : __t) +
+	'" data-url="' +
+	((__t = ( poster.url )) == null ? '' : __t) +
+	'">\n        <img src="' +
+	((__t = ( poster.url )) == null ? '' : __t) +
+	'" alt="">\n        <div class="pic-title">' +
+	((__t = ( title )) == null ? '' : __t) +
+	'</div>\n    </a>\n</li>\n';
+
+	}
+	return __p
 	}
 
 /***/ }

@@ -8,7 +8,7 @@
 
 #import "ServiceListViewController.h"
 #import "PostApi.h"
-#import "Post.h"
+#import "LXBaseModelPost.h"
 #import "ActivityItemCell.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 
@@ -30,7 +30,9 @@
     _tableview.delegate = self;
     _tableview.dataSource = self;
     _tableview.separatorColor = [UIColor clearColor];
-   
+    
+    [self.view addSubview:_tableview];
+    
     [PostApi getPostsByQuery:@{@"class_type":type} successHandler:^(NSArray *_posts) {
         [self hideProgress];
         self.posts = _posts;
@@ -45,7 +47,6 @@
         NSLog(@"Error");
     }];
     
-    [self.view addSubview:_tableview];
     
     [_tableview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(0);
@@ -53,6 +54,7 @@
         make.bottom.equalTo(self.view).with.offset(-44);
     }];
     
+    [self setTitle:type];
     
     [self showProgress];
     // Do any additional setup after loading the view.
@@ -73,7 +75,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    Post *activity = [posts objectAtIndex:[indexPath row]];
+    LXBaseModelPost *activity = [posts objectAtIndex:[indexPath row]];
     ActivityItemCell *cell = [tableView dequeueReusableCellWithIdentifier:kReuseIdentifier];
     
     if(!cell){
@@ -84,7 +86,10 @@
     cell.selectionStyle = UITableViewCellAccessoryNone;
     cell.title.text = activity.title;
     cell.title.numberOfLines = 3;
-    [cell.image setImageWithURL:[NSURL URLWithString:activity.poster.url]];
+    if(activity.poster){
+        NSString *url = activity.poster[@"url"];
+        [cell.image setImageWithURL:[NSURL URLWithString:[url stringByAppendingString:@"?imageView2/1/w/100/h/100"]]];
+    }
     [cell.image.layer setBorderColor: [UIColorFromRGB(0xacaeb0) CGColor]];
     [cell.image.layer setBorderWidth: 0.5];
     

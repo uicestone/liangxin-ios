@@ -1,4 +1,4 @@
-webpackJsonp([3],[
+webpackJsonp([4],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -24,7 +24,7 @@ webpackJsonp([3],[
 	});
 
 	riot.mount('*', bus);
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ },
 /* 1 */
@@ -1636,7 +1636,99 @@ webpackJsonp([3],[
 	}
 
 /***/ },
-/* 4 */
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var riot = __webpack_require__(12);
+
+	var bridge = __webpack_require__(2);
+	var fetch = bridge.fetch;
+
+
+	riot.tag('myalbum', '<div class="mypic" each="{items}"> <div class="inner" riot-style="background-image:url({this.url})" ontouchend="{parent.toggle}"> <div class="select {selected?\'selected\':\'\'}"></div> <div class="title">{this.title}</div> <div class="like"> <i class="icon-like"></i> <span class="count">{this.likes}</span> </div> <div class="comment"> <i class="icon-comment"></i> <span class="count">{this.comments}</span> </div> </div> </div>', 'class="album"', function(opts) {
+
+		var self = this;
+
+		this.loadData = function() {
+			bridge.showProgress();
+			bridge
+				.getUser()
+				.then(function(user){
+					fetch({
+						url: "/post",
+						data: {
+							author_id: user.id,
+							type: "图片"
+						}
+					}).then(function(data){
+						opts.trigger('data', data);
+						bridge.hideProgress();
+					}).catch(function(){
+						bridge.showMessage("发生错误");
+					});
+				});
+		}.bind(this);
+
+		this.toggle = function(e) {
+			var item = e.item
+			item.selected = !item.selected
+			return true;
+			self.update();
+		}.bind(this);
+
+		opts.on('toggle-all', function(selected){
+			self.items.forEach(function(el, i){
+				el.selected = selected;
+			});
+			self.update();
+		});
+
+		opts.on('data', function(pics){
+			self.items = pics;
+			self.update();
+		});
+
+		var removing = false;
+		opts.on('remove', function(){
+			if(removing){return};
+			removing = true;
+			var ids = self.items.filter(function(el){
+				return el.selected;
+			}).map(function(el){
+				return el.id;
+			}).join(',');
+			if(!ids){return;}
+			console.log(ids);
+			bridge.showProgress();
+
+			fetch({
+				url:"/post?id=" + ids,
+				method:"delete"
+			}).then(function(){
+				removing = false;
+				bridge.hideProgress();
+				self.loadData();
+				opts.trigger('toggle-all', false);
+			}).catch(function(){
+				removing = false;
+				bridge.showMessage("删除失败");
+				opts.trigger('toggle-all', false);
+			});
+		});
+
+		this.loadData();
+
+	});
+
+/***/ },
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Riot v2.2.1, @license MIT, (c) 2015 Muut Inc. + contributors */
@@ -2960,91 +3052,6 @@ webpackJsonp([3],[
 
 	})(typeof window != 'undefined' ? window : undefined);
 
-
-/***/ },
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var riot = __webpack_require__(4);
-
-	var bridge = __webpack_require__(2);
-	var fetch = bridge.fetch;
-
-
-	riot.tag('myalbum', '<div class="mypic" each="{items}"> <div class="inner" riot-style="background-image:url({this.url})" ontouchend="{parent.toggle}"> <div class="select {selected?\'selected\':\'\'}"></div> <div class="title">{this.title}</div> <div class="like"> <i class="icon-like"></i> <span class="count">{this.likes}</span> </div> <div class="comment"> <i class="icon-comment"></i> <span class="count">{this.comments}</span> </div> </div> </div>', 'class="album"', function(opts) {
-
-		var self = this;
-			
-		this.loadData = function() {
-			bridge.showProgress();
-			bridge
-				.getUser()
-				.then(function(user){
-					fetch({
-						url: "/post",
-						data: {
-							author_id: user.id,
-							type: "图片"
-						}
-					}).then(function(data){
-						opts.trigger('data', data);
-						bridge.hideProgress();
-					}).catch(function(){
-						bridge.showMessage("发生错误");
-					});
-				});
-		}.bind(this);
-
-		this.toggle = function(e) {
-			var item = e.item
-			item.selected = !item.selected
-			return true;
-			self.update();
-		}.bind(this);
-
-		opts.on('toggle-all', function(selected){
-			self.items.forEach(function(el, i){
-				el.selected = selected;
-			});
-			self.update();
-		});
-
-		opts.on('data', function(pics){
-			self.items = pics;
-			self.update();
-		});
-
-		var removing = false;
-		opts.on('remove', function(){
-			if(removing){return};
-			removing = true;
-			var ids = self.items.filter(function(el){
-				return el.selected;
-			}).map(function(el){
-				return el.id;
-			}).join(',');
-			if(!ids){return;}
-			console.log(ids);
-			bridge.showProgress();
-			fetch({
-				url:"/post?id=" + ids,
-				method:"delete"
-			}).then(function(){
-				removing = false;
-				bridge.hideProgress();
-				self.loadData();
-			}).catch(function(){
-				removing = false;
-				bridge.showMessage("删除失败");
-			});
-		});
-
-		this.loadData();
-
-	});
 
 /***/ }
 ]);

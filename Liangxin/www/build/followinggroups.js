@@ -3,15 +3,54 @@ webpackJsonp([7],{
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(riot) {__webpack_require__(7);
+	/* WEBPACK VAR INJECTION */(function(riot) {__webpack_require__(10);
 
 
 	riot.mount('*');
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ },
 
-/***/ 4:
+/***/ 10:
+/***/ function(module, exports, __webpack_require__) {
+
+	var riot = __webpack_require__(12);
+
+	__webpack_require__(19)
+	var bridge = __webpack_require__(2);
+	var fetch = bridge.fetch;
+	riot.tag('followinggroups', '<followinggroup each="{items}" data="{this}"></followinggroup>', function(opts) {
+		
+		var self = this;
+		var loading = false;
+		this.loadData = function() {
+			if(loading){return;}
+			loading = true;
+			bridge.showProgress();
+			bridge.getUser()
+				.then(function(user){
+					fetch({
+						url:"/user/" + user.id
+					}).then(function(user){
+						self.items = user.following_groups;
+						bridge.hideProgress();
+						self.update();
+						loading = false;
+					}).catch(function(){
+						loading = false;
+					});
+				});
+		}.bind(this);
+
+		this.loadData();
+
+	});
+
+
+
+/***/ },
+
+/***/ 12:
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Riot v2.2.1, @license MIT, (c) 2015 Muut Inc. + contributors */
@@ -1338,49 +1377,10 @@ webpackJsonp([7],{
 
 /***/ },
 
-/***/ 7:
+/***/ 19:
 /***/ function(module, exports, __webpack_require__) {
 
-	var riot = __webpack_require__(4);
-
-	__webpack_require__(18)
-	var bridge = __webpack_require__(2);
-	var fetch = bridge.fetch;
-	riot.tag('followinggroups', '<followinggroup each="{items}" data="{this}"></followinggroup>', function(opts) {
-		
-		var self = this;
-		var loading = false;
-		this.loadData = function() {
-			if(loading){return;}
-			loading = true;
-			bridge.showProgress();
-			bridge.getUser()
-				.then(function(user){
-					fetch({
-						url:"/user/" + user.id
-					}).then(function(user){
-						self.items = user.following_groups;
-						bridge.hideProgress();
-						self.update();
-						loading = false;
-					}).catch(function(){
-						loading = false;
-					});
-				});
-		}.bind(this);
-
-		this.loadData();
-
-	});
-
-
-
-/***/ },
-
-/***/ 18:
-/***/ function(module, exports, __webpack_require__) {
-
-	var riot = __webpack_require__(4);
+	var riot = __webpack_require__(12);
 
 	var bridge = __webpack_require__(2);
 	var fetch = bridge.fetch;
