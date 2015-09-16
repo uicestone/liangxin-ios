@@ -75,8 +75,8 @@
     int index = (int)[indexPath row];
     
     if(index == 0){
-        cell.label.text = @"手机号";
-        cell.input.placeholder = @"请输入手机号";
+        cell.label.text = @"用户";
+        cell.input.placeholder = @"请输入用户名或手机号";
     }else if(index == 1){
         cell.label.text = @"密码";
         cell.input.placeholder = @"请输入密码";
