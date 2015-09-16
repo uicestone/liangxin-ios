@@ -36,13 +36,14 @@
 }
 
 - (void)setIntroImages:(NSArray *)introImages {
-    _introImages = introImages;
-    [introImages enumerateObjectsUsingBlock:^(NSString *introImage, NSUInteger idx, BOOL *stop) {
+    _introImages = [NSArray arrayWithArray:introImages];
+    self.scrollView.contentSize = CGSizeMake(_introImages.count * CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
+    for (NSInteger i = 0; i < _introImages.count; i++) {
+        NSString *introImage = [_introImages objectAtIndex:i];
         UIImageView *introImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:introImage]];
-        introImageView.frame = CGRectMake(idx * CGRectGetWidth(self.bounds), 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
+        introImageView.frame = CGRectMake(i * CGRectGetWidth(self.bounds), 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
         [self.scrollView addSubview:introImageView];
-    }];
-    self.scrollView.contentSize = CGSizeMake(introImages.count * CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
+    }
 }
 
 - (void)doEnter:(id)sender {
