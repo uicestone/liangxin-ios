@@ -385,7 +385,7 @@
 
 -(void)handleDismissData:(NSDictionary *)data{
     if([data[@"type"] isEqualToString:@"publish"]){
-        [self popMessage: data[@"message"]];
+        [self popMessageWithTitle:@"" message:data[@"message"]];
     }
 }
 
@@ -399,7 +399,13 @@
     }
 }
 
+-(void)popMessageWithTitle:(NSString *)title message:(NSString *)message{
+    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"确认" otherButtonTitles:nil, nil];
+    [alertView show];
+}
+
 -(void)popMessage:(NSString *)message{
+    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = message;
     hud.mode = MBProgressHUDModeText;

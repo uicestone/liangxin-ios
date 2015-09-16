@@ -37,6 +37,7 @@ typedef void(^ LoginFinishBlock)();
 - (BOOL)hasToolBar;
 - (void)back:(id)sender;
 - (void)navigateToPath:(NSString *)path;
+- (void)popMessageWithTitle:(NSString *)title message:(NSString *)message;
 - (void)popMessage:(NSString *)message;
 - (void)dismissViewController;
 - (void)dismissViewControllerWithData:(NSDictionary *)data;

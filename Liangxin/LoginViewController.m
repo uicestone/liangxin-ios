@@ -129,7 +129,7 @@
         NSDictionary* result = (NSDictionary*) operation.responseObject;
         NSString* message = [result objectForKey:@"message"];
         
-        [self popMessage:message];
+        [self popMessageWithTitle:@"登录失败" message:message];
         NSLog(@"err detail %@", [result objectForKey:@"message"]);
         // pop error
     }];
