@@ -57,7 +57,8 @@
     } error:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSDictionary* obj = operation.responseObject;
         NSString* err = [obj objectForKey:@"message"];
-        [self popMessage:err];
+        [self hideProgress];
+        [self popMessageWithTitle:@"" message:err];
     }];
     
 }
