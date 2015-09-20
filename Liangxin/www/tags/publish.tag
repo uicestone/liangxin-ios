@@ -27,11 +27,11 @@ require('./selectctrl.tag')
 		<inputctrl title='请输入活动标题（字数限制50字）' limit='50' model='title' />
 		<datepicker title='请输入活动时间' model='event_date' />
 		<inputctrl title='请输入活动地点' limit='50' model='event_address' />
-		<textareactrl title='添加活动文字详情（字数限制1000字）' limit='500' model='describe'></textareactrl>
+		<textareactrl title='添加活动文字详情（字数限制1000字）' limit='500' model='content'></textareactrl>
 		<selectctrl title='请选择活动类型' choices={choices} model='event_type' />
-		<datepicker title='请输入报名截止日期' model='due_date' />	
+		<datepicker title='请输入报名截止日期' model='due_date' />
 	</div>
-	
+
 	<!-- 发布公告 -->
 	<div show={ opts.type=='notice' }>
 		<inputctrl title='请输入公告标题（字数限制50字）' limit='50' model='title' />
@@ -51,10 +51,10 @@ require('./selectctrl.tag')
 		<imgctrl icon='plus' size='big' model='images' placeholder='上传图片' />
 	</div>
 
-	
+
 
 	<btn title='发布' onclick='{submit}' />
-	
+
 	this.choices = ({
 		"activity": ['爱摄影','做公益','文艺迷','体育狂','长知识','学环保'],
 		"class": ['党建', '青年', '宣传', '妇女', '工会', '廉政']
@@ -75,16 +75,24 @@ require('./selectctrl.tag')
 		"class": ["poster", "title", "describe","content","title","class_type", "attachments","images","videos"]
 	})[opts.type];
 
+	var fields = {};
+
 	edit(field){
+		if(keys.indexOf(field.model) != -1){
+			fields[field.model] = field;
+		}
+
 		this[field.model] = field.val();
 	}
 
+	var posting = false;
 	submit(){
+
 		var self = this;
 		var data = {};
-		
+
 		keys.forEach(function(k){
-			data[k] = self[k];
+			data[k] = fields[k].val();
 		});
 
 		bridge.showProgress();
@@ -116,6 +124,7 @@ require('./selectctrl.tag')
 			delete data.poster;
 		}
 
+
 		var config = {
 			url: "/post",
 			method:"post",
@@ -124,10 +133,13 @@ require('./selectctrl.tag')
 
 		config.files = files;
 		console.log(config);
+		posting = true;
 		fetch(config).then(function(data){
+			posting = false;
 			bridge.hideProgress();
 			bridge.dismiss({type:"publish",message:"发布成功"});
 		}).catch(function(err){
+			posting = false;
 			bridge.hideProgress();
 			bridge.showMessage(err.message);
 		});

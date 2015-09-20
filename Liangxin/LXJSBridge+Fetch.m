@@ -10,7 +10,11 @@
 #import "ApiBase.h"
 #import "NSStrinAdditions.h"
 
+
+
 @implementation LXJSBridge (Fetch)
+
+
 
 -(void)fetch:(NSDictionary *)params{
     NSDictionary* data = [params objectForKey:@"data"];
@@ -25,12 +29,17 @@
     }
     
     
+    SuccessHandler successHandler = ^(AFHTTPRequestOperation* operation, id responseObject){
+        [self completeWithResult:responseObject];
+    };
+    
+    ErrorHandler errorHandler = ^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSString *errString = operation.responseObject[@"message"];
+        [self completeWithErrorString:errString];
+    };
+
     if([method isEqualToString:@"get"]){
-        [ApiBase getJSONWithPath:url data:data success:^(id responseObject) {
-            [self completeWithResult:responseObject];
-        } error:^(NSError *error) {
-            [self completeWithError:error];
-        }];
+        [ApiBase getJSONWithPath:url data:data success:successHandler error:errorHandler];
     }else if([method isEqualToString:@"post"]){
         
         if(origin_files != nil && origin_files.count){
@@ -46,33 +55,19 @@
                 [files addObject:file];
             }
             
-            [ApiBase postMultipartWithPath:url data:[data copy] files:[files copy] success:^(id responseObject) {
-                [self completeWithResult:responseObject];
-            } error:^(NSError *error) {
-                [self completeWithError:error];
-            }];
+            [ApiBase postMultipartWithPath:url
+                                      data:[data copy]
+                                     files:[files copy]
+                                   success:successHandler
+                                     error:errorHandler];
+            
         }else{
-            [ApiBase postJSONWithPath:url data:data success:^(id responseObject, AFHTTPRequestOperation* operation) {
-                [self completeWithResult:responseObject];
-            } error:^(AFHTTPRequestOperation *operation, NSError *error) {
-                NSLog(@"%@", operation.responseObject);
-                [self completeWithError:error];
-            }];
+            [ApiBase postJSONWithPath:url data:data success:successHandler error:errorHandler];
         }
     }else if([method isEqualToString:@"delete"]){
-        [ApiBase deleteWithPath:url data:nil success:^(id responseObject, AFHTTPRequestOperation* operation) {
-            [self completeWithResult:responseObject];
-        } error:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"%@", operation.responseObject);
-            [self completeWithError:error];
-        }];
+        [ApiBase deleteWithPath:url data:nil success:successHandler error:errorHandler];
     }else if([method isEqualToString:@"put"]){
-        [ApiBase putWithPath:url data:nil success:^(id responseObject, AFHTTPRequestOperation* operation) {
-            [self completeWithResult:responseObject];
-        } error:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"%@", operation.responseObject);
-            [self completeWithError:error];
-        }];
+        [ApiBase putWithPath:url data:nil success:successHandler error:errorHandler];
     }
 }
 

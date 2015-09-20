@@ -17,9 +17,9 @@ static NSArray *groups = nil;
 @implementation GroupApi
 
 #pragma 实现方法
-+ (void)getAllGroupsWithSuccessHandler:(void (^)(NSArray * groups))success errorHandler:(void (^)(NSError *error))error{
++ (void)getAllGroupsWithSuccessHandler:(void (^)(NSArray * groups))success errorHandler:(void (^)(NSError *error))errorHandler{
     NSMutableArray* groups = [NSMutableArray new];
-    [ApiBase getJSONWithPath:@"/group" data:nil success:^(id responseObject) {
+    [ApiBase getJSONWithPath:@"/group" data:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         for(int i = 0 ; i < [responseObject count]; i ++){
             NSDictionary * jsonObj = [responseObject objectAtIndex:i];
             
@@ -35,7 +35,9 @@ static NSArray *groups = nil;
         }
         [self setGroups:groups];
         success(groups);
-    } error:error];
+    } error:^(AFHTTPRequestOperation *operation, NSError *error){
+        errorHandler(error);
+    }];
 }
 
 

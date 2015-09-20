@@ -8,7 +8,7 @@ var pickImage = bridge.pickImage;
 		</div>
 		<div class="text-hint">{ opts.placeholder }</div>
 	</div>
-	
+
 	this.images = [];
 	this.model = opts.model;
 	add(){

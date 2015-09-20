@@ -113,7 +113,7 @@
     if(!processing){
         processing = YES;
         [self showProgress];
-    [ApiBase postJSONWithPath:@"/auth/login" data:data success:^(NSDictionary* responseObject, AFHTTPRequestOperation* operation) {
+    [ApiBase postJSONWithPath:@"/auth/login" data:data success:^(AFHTTPRequestOperation* operation, NSDictionary* responseObject) {
         @strongify(self);
         processing = NO;
         LXBaseModelUser* user = [LXBaseModelUser modelWithDictionary: responseObject error:nil];

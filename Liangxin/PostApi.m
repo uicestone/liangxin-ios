@@ -16,9 +16,9 @@
 
 +(void)getPostsByQuery:(NSDictionary*)query successHandler:(void (^)(NSArray * posts))successHandler errorHandler:(void (^)(NSError *error))errorHandler{
     
-    [ApiBase getJSONWithPath:@"/post" data:query success:^(id responseObject) {
+    [ApiBase getJSONWithPath:@"/post" data:query success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSMutableArray* posts = [NSMutableArray new];
-                
+        
         for(int i = 0 ; i < [responseObject count]; i ++){
             NSDictionary * jsonObj = [responseObject objectAtIndex:i];
             
@@ -27,7 +27,7 @@
         }
         
         successHandler(posts);
-    } error:^(NSError *error) {
+    } error:^(AFHTTPRequestOperation *operation, NSError *error) {
         errorHandler(error);
     }];
 }

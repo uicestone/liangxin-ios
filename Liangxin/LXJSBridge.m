@@ -74,7 +74,11 @@
 }
 
 -(void)completeWithError:(NSError *)error{
-    NSString *jsCode = [NSString stringWithFormat:@"setTimeout(function(){%@({error:\"%@\"})},0);", self.callback, [error localizedDescription]];
+    [self completeWithErrorString:[error localizedDescription]];
+}
+
+-(void)completeWithErrorString:(NSString *)error{
+    NSString *jsCode = [NSString stringWithFormat:@"setTimeout(function(){%@({error:\"%@\"})},0);", self.callback, error];
     [webview stringByEvaluatingJavaScriptFromString:jsCode];
 }
 

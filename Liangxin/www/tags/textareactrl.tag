@@ -1,8 +1,9 @@
 <textareactrl>
-	<div class="input-row">	
-		<textarea id="title" type="text" placeholder="{opts.title}"  maxlength="{opts.limit}" class="input input-textarea" onkeyup="{edit}"></textarea>
+	<div class="input-row">
+		<textarea type="text" placeholder="{opts.title}"  maxlength="{opts.limit}" class="input input-textarea" onkeyup="{edit}"></textarea>
 	</div>
-	
+
+	var self = this;
 	this.value = "";
 	this.model = opts.model;
 
@@ -12,7 +13,8 @@
 	}
 
 	val(){
-		return this.value;
+		var textarea = self.root.getElementsByTagName('textarea')[0];
+		return textarea ? textarea.value : '';
 	}
 
 	this.parent.edit(this);

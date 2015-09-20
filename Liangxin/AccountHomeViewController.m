@@ -169,14 +169,14 @@
                            }];
     
     [self showProgress];
-    [ApiBase postMultipartWithPath:@"/auth/user" data:nil files:files success:^(id responseObject) {
+    [ApiBase postMultipartWithPath:@"/auth/user" data:nil files:files success:^(id responseObject, AFHTTPRequestOperation* operation) {
         [self hideProgress];
         [self popMessage:@"更新成功"];
         [self currentUser].avatar = responseObject[@"avatar"];
         
         [[UserApi shared] save];
         _avatar.image = [UIImage imageWithData:imageData];
-    } error:^(NSError *error) {
+    } error:^(AFHTTPRequestOperation* operation, NSError *error) {
         [self hideProgress];
         [self popMessage:error.description];
     }];

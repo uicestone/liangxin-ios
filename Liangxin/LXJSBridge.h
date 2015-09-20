@@ -17,6 +17,7 @@
 +(instancetype) initWithWebView:(UIWebView *)webview;
 -(void)handleMessage:(NSString *)message;
 -(void)completeWithError:(NSError *)error;
+-(void)completeWithErrorString:(NSString *)error;
 -(void)completeWithResult:(NSDictionary *)result;
 
 

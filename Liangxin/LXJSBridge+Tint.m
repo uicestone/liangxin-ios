@@ -19,7 +19,7 @@
     [self completeWithResult:@{}];
 }
 -(void)showMessage:(NSDictionary *)params{
-    [self.viewController popMessage:params[@"message"]];
+    [self.viewController popMessageWithTitle:@"" message:params[@"message"]];
     [self completeWithResult:@{}];
 }
 @end

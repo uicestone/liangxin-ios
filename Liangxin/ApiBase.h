@@ -11,9 +11,14 @@
 #import <AFNetworking/AFNetworking.h>
 @interface ApiBase : NSObject
 
-+(void)deleteWithPath:(NSString *)path data:(NSDictionary *)data success:(void (^)(id responseObject, AFHTTPRequestOperation* operation))successCallback error:(void (^)(AFHTTPRequestOperation *operation, NSError *error))errorCallback;
-+(void)putWithPath:(NSString *)path data:(NSDictionary *)data success:(void (^)(id responseObject, AFHTTPRequestOperation* operation))successCallback error:(void (^)(AFHTTPRequestOperation *operation, NSError *error))errorCallback;
-+(void)getJSONWithPath:(NSString *)path data:(NSDictionary *)data success:(void (^)(id responseObject))successCallback error:(void (^)(NSError *error))errorCallback;
-+(void)postJSONWithPath:(NSString *)path data:(NSDictionary *)data success:(void (^)(id responseObject, AFHTTPRequestOperation* operation))successCallback error:(void (^)(AFHTTPRequestOperation *operation, NSError *error))errorCallback;
-+(void)postMultipartWithPath:(NSString *)path data:(NSDictionary *)data files:(NSArray *)files success:(void (^)(id responseObject))successCallback error:(void (^)(NSError *error))errorCallback;
+
+typedef void(^SuccessHandler)(AFHTTPRequestOperation *operation, id responseObject);
+typedef void(^ErrorHandler)(AFHTTPRequestOperation *operation, NSError *error);
+
+
++(void)deleteWithPath:(NSString *)path data:(NSDictionary *)data success:(SuccessHandler)successCallback error:(ErrorHandler)errorCallback;
++(void)putWithPath:(NSString *)path data:(NSDictionary *)data success:(SuccessHandler)successCallback error:(ErrorHandler)errorCallback;
++(void)getJSONWithPath:(NSString *)path data:(NSDictionary *)data success:(SuccessHandler)successCallback error:(ErrorHandler)errorCallback;
++(void)postJSONWithPath:(NSString *)path data:(NSDictionary *)data success:(SuccessHandler)successCallback error:(ErrorHandler)errorCallback;
++(void)postMultipartWithPath:(NSString *)path data:(NSDictionary *)data files:(NSArray *)files success:(SuccessHandler)successCallback error:(ErrorHandler)errorCallback;
 @end

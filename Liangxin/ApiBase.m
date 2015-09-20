@@ -37,7 +37,7 @@
     return url;
 }
 
-+(void)postMultipartWithPath:(NSString *)path data:(NSDictionary *)data files:(NSArray *)files success:(void (^)(id responseObject))successCallback error:(void (^)(NSError *error))errorCallback{
++(void)postMultipartWithPath:(NSString *)path data:(NSDictionary *)data files:(NSArray *)files success:(SuccessHandler)successCallback error:(ErrorHandler)errorCallback{
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
@@ -60,21 +60,15 @@
                                         name: file[@"name"]
                                     fileName: [fileName stringByAppendingString:@".jpg"]  mimeType:@"image/jpeg"];
         }
-    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        successCallback(responseObject);
-        NSLog(@"Response: %@", responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        errorCallback(error);
-        NSLog(@"Error: %@", error);
-    }];
+    } success:successCallback failure:errorCallback];
 }
 
 
-+(void)getJSONWithPath:(NSString *)path success:(void (^)(id responseObject))successCallback error:(void (^)(NSError *error))errorCallback{
++(void)getJSONWithPath:(NSString *)path success:(SuccessHandler)successCallback error:(ErrorHandler)errorCallback{
     [self getJSONWithPath:path data:nil success:successCallback error:errorCallback];
 }
 
-+(void)getJSONWithPath:(NSString *)path data:(NSDictionary *)data success:(void (^)(id responseObject))successCallback error:(void (^)(NSError *error))errorCallback{
++(void)getJSONWithPath:(NSString *)path data:(NSDictionary *)data success:(SuccessHandler)successCallback error:(ErrorHandler)errorCallback{
     
     NSString* url = [self getUrlByPath:path];
     
@@ -86,15 +80,11 @@
     
     [self addAuthority:manager];
     
-    [manager GET:url parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        successCallback(responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        errorCallback(error);
-    }];
+    [manager GET:url parameters:data success:successCallback failure:errorCallback];
 }
 
 
-+(void)deleteWithPath:(NSString *)path data:(NSDictionary *)data success:(void (^)(id responseObject, AFHTTPRequestOperation* operation))successCallback error:(void (^)(AFHTTPRequestOperation *operation, NSError *error))errorCallback{
++(void)deleteWithPath:(NSString *)path data:(NSDictionary *)data success:(SuccessHandler)successCallback error:(ErrorHandler)errorCallback{
     NSString *url = [self getUrlByPath:path];
     
     NSLog(@"<Request> DELETE:%@ %@", url, data);
@@ -104,15 +94,11 @@
     
     [self addAuthority:manager];
     
-    [manager DELETE:url parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        successCallback(responseObject, operation);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        errorCallback(operation, error);
-    }];
+    [manager DELETE:url parameters:data success:successCallback failure:errorCallback];
 }
 
 
-+(void)putWithPath:(NSString *)path data:(NSDictionary *)data success:(void (^)(id responseObject, AFHTTPRequestOperation* operation))successCallback error:(void (^)(AFHTTPRequestOperation *operation, NSError *error))errorCallback{
++(void)putWithPath:(NSString *)path data:(NSDictionary *)data success:(SuccessHandler)successCallback error:(ErrorHandler)errorCallback{
     NSString *url = [self getUrlByPath:path];
     
     NSLog(@"<Request> DELETE:%@ %@", url, data);
@@ -122,14 +108,10 @@
     
     [self addAuthority:manager];
     
-    [manager PUT:url parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        successCallback(responseObject, operation);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        errorCallback(operation, error);
-    }];
+    [manager PUT:url parameters:data success:successCallback failure:errorCallback];
 }
 
-+(void)postJSONWithPath:(NSString *)path data:(NSDictionary *)data  success:(void (^)(id responseObject, AFHTTPRequestOperation* operation))successCallback error:(void (^)(AFHTTPRequestOperation *operation, NSError *error))errorCallback{
++(void)postJSONWithPath:(NSString *)path data:(NSDictionary *)data  success:(SuccessHandler)successCallback error:(ErrorHandler)errorCallback{
     
     NSString *url = [self getUrlByPath:path];
     
@@ -142,10 +124,6 @@
     
     [self addAuthority:manager];
     
-    [manager POST:url parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        successCallback(responseObject, operation);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        errorCallback(operation, error);
-    }];
+    [manager POST:url parameters:data success:successCallback failure:errorCallback];
 }
 @end

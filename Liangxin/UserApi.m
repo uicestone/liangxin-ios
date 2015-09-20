@@ -55,7 +55,7 @@
 -(void) getUsersByGroupId:(int) groupId successHandler:(void (^)(NSArray *users))successHandler errorHandler:(void (^)(NSError *error))errorHandler{
 
     NSDictionary* data = @{@"group_id":[NSNumber numberWithInt:groupId]};
-    [ApiBase getJSONWithPath:@"/user" data:data success:^(id responseObject) {
+    [ApiBase getJSONWithPath:@"/user" data:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSMutableArray* users = [@[] mutableCopy];
         for(int i = 0 ; i < [responseObject count]; i ++){
             NSDictionary * jsonObj = [responseObject objectAtIndex:i];
@@ -66,7 +66,9 @@
             [users addObject:user];
         }
         successHandler(users);
-    } error:errorHandler];
+    } error:^(AFHTTPRequestOperation *operation, NSError *error){
+        errorHandler(error);
+    }];
 }
 
 @end
