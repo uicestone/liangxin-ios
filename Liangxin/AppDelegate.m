@@ -18,10 +18,12 @@
 #import <FIR/FIR.h>
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
+#import "LXIntroView.h"
 
 
-@interface AppDelegate () <WXApiDelegate, WeiboSDKDelegate>
+@interface AppDelegate () <WXApiDelegate, WeiboSDKDelegate, LXIntroViewDelegate>
 @property (nonatomic, strong) UINavigationController* loginNavigationController;
+@property (nonatomic, strong) LXIntroView *introView;
 @end
 
 @implementation AppDelegate
@@ -68,6 +70,14 @@
     navigationController= [[LXNavigationController alloc] initWithRootViewController:homeViewController];
     window.rootViewController = navigationController;
     [window makeKeyAndVisible];
+    
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"Introduction"] || ![[[NSUserDefaults standardUserDefaults] objectForKey:@"Introduction"] isEqualToString:[NSBundle mainBundle].bundleIdentifier]) {
+        self.introView = [[LXIntroView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        self.introView.introImages = @[@"Guide1", @"Guide2", @"Guide3"];
+        self.introView.delegate = self;
+        [window addSubview:self.introView];
+    }
+    
     return YES;
 }
 
@@ -194,6 +204,17 @@
 
 - (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
     
+}
+
+#pragma mark - LXIntroViewDelegate
+
+- (void)dismissIntroView {
+    [UIView animateWithDuration:1.0 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.introView.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self.introView removeFromSuperview];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSBundle mainBundle].bundleIdentifier forKey:@"Introduction"];
+    }];
 }
 
 @end

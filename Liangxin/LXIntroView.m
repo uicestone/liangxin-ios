@@ -28,22 +28,19 @@
         [self addSubview:_scrollView];
         _enterButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _enterButton.frame = CGRectMake(0, 0, 160, 60);
-        _enterButton.center = CGPointMake(CGRectGetWidth(frame)/2, CGRectGetHeight(frame) * 310 / 736.0);
+        _enterButton.center = CGPointMake(CGRectGetWidth(frame)*5/2, CGRectGetHeight(frame) * 310 / 736.0);
         [_enterButton addTarget:self action:@selector(doEnter:) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:_enterButton];
+        [_scrollView addSubview:_enterButton];
+        _introImages = @[@"Guide1", @"Guide2", @"Guide3"];;
+        self.scrollView.contentSize = CGSizeMake(_introImages.count * CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
+        for (NSInteger i = 0; i < _introImages.count; i++) {
+            NSString *introImage = [_introImages objectAtIndex:i];
+            UIImageView *introImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:introImage]];
+            introImageView.frame = CGRectMake(i * CGRectGetWidth(self.bounds), 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
+            [self.scrollView addSubview:introImageView];
+        }
     }
     return self;
-}
-
-- (void)setIntroImages:(NSArray *)introImages {
-    _introImages = [NSArray arrayWithArray:introImages];
-    self.scrollView.contentSize = CGSizeMake(_introImages.count * CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
-    for (NSInteger i = 0; i < _introImages.count; i++) {
-        NSString *introImage = [_introImages objectAtIndex:i];
-        UIImageView *introImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:introImage]];
-        introImageView.frame = CGRectMake(i * CGRectGetWidth(self.bounds), 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
-        [self.scrollView addSubview:introImageView];
-    }
 }
 
 - (void)doEnter:(id)sender {
