@@ -109,10 +109,10 @@
         make.top.mas_equalTo(0);
         make.bottom.mas_equalTo(0);
     }];
-    [self layoutIfNeeded];
+    [targetView layoutIfNeeded];
     self.contentTopConstraint.offset(-132);
     [UIView animateWithDuration:0.3 animations:^{
-        [self.contentView layoutIfNeeded];
+        [targetView layoutIfNeeded];
     } completion:^(BOOL finished) {
         
     }];
