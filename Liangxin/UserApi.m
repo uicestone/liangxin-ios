@@ -9,15 +9,16 @@
 #import "UserApi.h"
 #import "ApiBase.h"
 #import "LXBaseModelUser.h"
+#import <FIR/FIR.h>
 
 
-@implementation UserApi 
+@implementation UserApi
 @synthesize currentUser;
 + (instancetype)shared
 {
     static UserApi* api = nil;
     static dispatch_once_t onceToken;
-    
+
     dispatch_once(&onceToken, ^{
         if (!api) {
             api = [[self alloc] init];
@@ -30,8 +31,11 @@
     if(!currentUser){
         NSData* userData = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
         currentUser = [NSKeyedUnarchiver unarchiveObjectWithData:userData];
+        
+        [FIR setCustomizeValue:currentUser.name forKey:@"user_name"];
+        [FIR setCustomizeValue:currentUser.contact forKey:@"user_contact"];
     }
-    
+
     return currentUser;
 }
 
@@ -48,7 +52,7 @@
     NSData *serialized = [NSKeyedArchiver archivedDataWithRootObject:user];
     [[NSUserDefaults standardUserDefaults] setObject:serialized forKey:@"user"];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    
+
     currentUser = user;
 }
 
@@ -59,10 +63,11 @@
         NSMutableArray* users = [@[] mutableCopy];
         for(int i = 0 ; i < [responseObject count]; i ++){
             NSDictionary * jsonObj = [responseObject objectAtIndex:i];
-            
+
             LXBaseModelUser* user = [LXBaseModelUser
                                      modelWithDictionary:jsonObj
                                      error:nil];
+            
             [users addObject:user];
         }
         successHandler(users);

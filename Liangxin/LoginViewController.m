@@ -14,6 +14,7 @@
 #import "NSDictionary+Encoding.h"
 #import <HHRouter/HHRouter.h>
 #import <MBProgressHUD/MBProgressHUD.h>
+#import <FIR/FIR.h>
 
 #define kReuseIdentifier @"LoginViewCell"
 
@@ -117,7 +118,8 @@
         @strongify(self);
         processing = NO;
         LXBaseModelUser* user = [LXBaseModelUser modelWithDictionary: responseObject error:nil];
-        [[UserApi shared] setCurrentUser: user];
+        [[UserApi shared] setCurrentUser:user];
+        
         [[NSNotificationCenter defaultCenter] postNotificationName:LXNotificationLoginSuccess object:nil];
         [self hideProgress];
         [self dismissLoginViewController:nil];

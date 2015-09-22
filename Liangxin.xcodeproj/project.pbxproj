@@ -31,7 +31,6 @@
 		2215D96E1B10D08A00D96C46 /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215D96A1B10D08A00D96C46 /* TAPageControl.m */; };
 		221DF3421B306772002FF7DE /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 221DF3411B306772002FF7DE /* CommentViewController.m */; };
 		221DF34E1B327388002FF7DE /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 221DF34C1B327388002FF7DE /* Fabric.framework */; };
-		221DF34F1B327388002FF7DE /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 221DF34D1B327388002FF7DE /* Crashlytics.framework */; };
 		22238C1B1AF64F02000B4F95 /* Channels.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C1A1AF64F02000B4F95 /* Channels.m */; };
 		22238C541AFBACA5000B4F95 /* BannerApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C531AFBACA5000B4F95 /* BannerApi.m */; };
 		22238C571AFBAE30000B4F95 /* ApiBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C561AFBAE30000B4F95 /* ApiBase.m */; };
@@ -306,7 +305,6 @@
 		221DF3401B306772002FF7DE /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
 		221DF3411B306772002FF7DE /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
 		221DF34C1B327388002FF7DE /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
-		221DF34D1B327388002FF7DE /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		22238C191AF64F02000B4F95 /* Channels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Channels.h; sourceTree = "<group>"; };
 		22238C1A1AF64F02000B4F95 /* Channels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Channels.m; sourceTree = "<group>"; };
 		22238C521AFBACA5000B4F95 /* BannerApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerApi.h; sourceTree = "<group>"; };
@@ -719,7 +717,6 @@
 				2D06BB531B5153150064BDAC /* CoreGraphics.framework in Frameworks */,
 				2DF850F31B50C24E006547F4 /* MediaPlayer.framework in Frameworks */,
 				2D0000311B258E7E00106110 /* libc++.dylib in Frameworks */,
-				221DF34F1B327388002FF7DE /* Crashlytics.framework in Frameworks */,
 				2D00002F1B258E0200106110 /* libsqlite3.0.dylib in Frameworks */,
 				2D00002D1B258DF900106110 /* libz.dylib in Frameworks */,
 				221DF34E1B327388002FF7DE /* Fabric.framework in Frameworks */,
@@ -884,7 +881,6 @@
 			isa = PBXGroup;
 			children = (
 				221DF34C1B327388002FF7DE /* Fabric.framework */,
-				221DF34D1B327388002FF7DE /* Crashlytics.framework */,
 				223267C21AF2661B00431132 /* Liangxin */,
 				223267C11AF2661B00431132 /* Products */,
 				F41337B7084173F8F4E37747 /* Pods */,
@@ -1930,6 +1926,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Jiayi Xu (9B5M2V5PYT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jiayi Xu (LJWWUZH366)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries",
@@ -2039,6 +2036,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Jiayi Xu (9B5M2V5PYT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jiayi Xu (LJWWUZH366)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries",
@@ -2068,6 +2066,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Jiayi Xu (9B5M2V5PYT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jiayi Xu (LJWWUZH366)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries",

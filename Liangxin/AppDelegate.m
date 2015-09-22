@@ -17,7 +17,6 @@
 #import "WeiboSDK.h"
 #import <FIR/FIR.h>
 #import <Fabric/Fabric.h>
-#import <Crashlytics/Crashlytics.h>
 #import "LXIntroView.h"
 
 
@@ -35,7 +34,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [Fabric with:@[CrashlyticsKit]];
     [FIR handleCrashWithKey:@"b0f4446d46257d0a9d97fd4e330d4dff"];
     
     window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
