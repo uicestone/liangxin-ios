@@ -11,7 +11,6 @@
 @implementation LXBannerView
 
 - (void)layoutSubviews {
-    [super layoutSubviews];
     for (UIView *subview in self.subviews) {
         [subview removeFromSuperview];
     }
@@ -39,6 +38,7 @@
             }];
         }
     }
+    [super layoutSubviews];
 }
 
 - (void)doClickSubview:(UIButton *)sender {
