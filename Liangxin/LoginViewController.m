@@ -20,7 +20,7 @@
 
 
 
-@interface LoginViewController () 
+@interface LoginViewController ()
 @property (nonatomic, assign) BOOL processing;
 @end
 
@@ -33,13 +33,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     processing = NO;
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(dismissLoginViewController:)];
     self.navigationItem.rightBarButtonItem = cancelButton;
-    
+
     self.navigationItem.title = @"用户登录";
-    
+
     tableview.scrollEnabled = NO;
     // Do any additional setup after loading the view from its nib.
 }
@@ -65,16 +65,16 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+
     LoginViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kReuseIdentifier];
-    
+
     if(!cell){
         [tableView registerNib:[UINib nibWithNibName:@"LoginViewCell" bundle:nil] forCellReuseIdentifier:kReuseIdentifier];
         cell = [tableView dequeueReusableCellWithIdentifier:kReuseIdentifier];
     }
-    
+
     int index = (int)[indexPath row];
-    
+
     if(index == 0){
         cell.label.text = @"用户";
         cell.input.placeholder = @"请输入用户名或手机号";
@@ -83,8 +83,8 @@
         cell.input.placeholder = @"请输入密码";
         cell.input.secureTextEntry = YES;
     }
-    
-    
+
+
     return cell;
 }
 
@@ -98,14 +98,14 @@
     for(int i = 0 ; i < 2; i++){
         NSIndexPath* index = [NSIndexPath indexPathForRow:i inSection:0];
         LoginViewCell* cell = (LoginViewCell*)[tableview cellForRowAtIndexPath:index];
-        
+
         if(i==0){
             username = cell.input.text;
         }else{
             password = cell.input.text;
         }
     }
-    
+
     NSDictionary* data = @{
                            @"username": username,
                            @"password": password
@@ -119,7 +119,7 @@
         processing = NO;
         LXBaseModelUser* user = [LXBaseModelUser modelWithDictionary: responseObject error:nil];
         [[UserApi shared] setCurrentUser:user];
-        
+
         [[NSNotificationCenter defaultCenter] postNotificationName:LXNotificationLoginSuccess object:nil];
         [self hideProgress];
         [self dismissLoginViewController:nil];
@@ -130,13 +130,13 @@
         processing = NO;
         NSDictionary* result = (NSDictionary*) operation.responseObject;
         NSString* message = [result objectForKey:@"message"];
-        
+
         [self popMessageWithTitle:@"登录失败" message:message];
         NSLog(@"err detail %@", [result objectForKey:@"message"]);
         // pop error
     }];
     }
-    
+
 }
 
 

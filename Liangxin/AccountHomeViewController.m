@@ -467,6 +467,7 @@
         @strongify(self);
         make.top.equalTo(tabContainer.mas_bottom);
         make.width.equalTo(self.view);
+        make.left.equalTo(self.view);
         make.bottom.equalTo(self.view.mas_bottom);
     }];
 }

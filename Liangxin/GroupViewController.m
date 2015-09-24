@@ -61,6 +61,8 @@
         }
     }
     
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     // 初始化TableView
     [self initSearchBar];
     [self initTableView];
@@ -177,6 +179,7 @@
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
         make.top.equalTo(searchBar.mas_bottom);
+        make.left.equalTo(self.view.mas_left);
         make.bottom.equalTo(self.view).with.offset(-43);
         make.width.equalTo(self.view);
     }];
