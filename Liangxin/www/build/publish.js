@@ -10,7 +10,7 @@ webpackJsonp([6],[
 
 	var type = query.type;
 
-	__webpack_require__(5);
+	__webpack_require__(9);
 
 	riot.mount('*', {type:type});
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
@@ -1626,7 +1626,11 @@ webpackJsonp([6],[
 
 /***/ },
 /* 4 */,
-/* 5 */
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var riot = __webpack_require__(12);
@@ -1659,8 +1663,8 @@ webpackJsonp([6],[
 			"notice": ["title", "content"],
 			"article": ["title", "content", "images"],
 			"image": ["title", "images"],
-			"activity": ["poster", "title", "event_date", "event_address", "describe", "event_type", "due_date"],
-			"class": ["poster", "title", "describe","content","title","class_type", "attachments","images","videos"]
+			"activity": ["poster", "title", "event_date", "event_address","content","event_type", "due_date"],
+			"class": ["poster", "title","content","title","class_type", "attachments","images","videos"]
 		})[opts.type];
 
 		var fields = {};
@@ -1680,7 +1684,9 @@ webpackJsonp([6],[
 			var data = {};
 
 			keys.forEach(function(k){
-				data[k] = fields[k].val();
+				if(fields[k]){
+					data[k] = fields[k].val();
+				}
 			});
 
 			bridge.showProgress();
@@ -1736,10 +1742,6 @@ webpackJsonp([6],[
 	});
 
 /***/ },
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
 /* 10 */,
 /* 11 */,
 /* 12 */

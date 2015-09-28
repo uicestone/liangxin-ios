@@ -8,6 +8,7 @@
 
 #import "LXJSBridge+PickImage.h"
 #import "VPImageCropperViewController.h"
+#import "UIImage+Thumbnail.h"
 
 #define kTagImagePicker 1
 #define kTagAvatarPicker 2
@@ -57,10 +58,13 @@
     }
 }
 
+- (NSString *)toDataURI:(UIImage *)image withSize:(CGSize)size{
+    image = [image makeThumbnailOfSize:size];
+    return [self toDataURI:image];
+}
 
 - (NSString *)toDataURI:(UIImage *)image{
     NSData *imageData = UIImageJPEGRepresentation(image, 0.7);
-    
     
     NSString *url =  [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
     
@@ -86,10 +90,29 @@
             }];
         }];
     }else{
-        NSString* datauri = [self toDataURI:image];
+        UIImageView *imgView = [[UIImageView alloc] initWithImage:image];
+        CGSize size = [self fitTo:600 withSize:imgView.frame.size];
+        NSString* datauri = [self toDataURI:image withSize:size];
         [self completeWithResult:@{@"url":datauri}];
         [picker dismissViewControllerAnimated:YES completion:nil];
     }
+}
+
+- (CGSize)fitTo:(CGFloat)max withSize:(CGSize)size{
+    CGFloat height = size.height;
+    CGFloat width = size.width;
+    CGFloat scale = width / height;
+    
+    if(height < width){
+        width = max;
+        height = max * scale;
+    }else{
+        height = max;
+        width = max / scale;
+    }
+    
+    return CGSizeMake(width, height);
+    
 }
 
 

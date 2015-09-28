@@ -152,9 +152,8 @@
     if (data.title.length > 0) {
         self.titleLabel.text = data.title;
     }
-    if (data.excerpt.length > 0) {
+    
         self.summaryLabel.text = data.excerpt;
-    }
     
     if (data.likes > 0) {
         self.likeCountLabel.text = [NSString stringWithFormat:@"%@", @(data.likes)];

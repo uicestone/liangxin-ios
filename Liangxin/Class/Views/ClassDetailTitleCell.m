@@ -73,8 +73,8 @@
 
 - (void)reloadViewWithData:(LXBaseModelPost *)data {
     if (data) {
-        if (data.url.length > 0) {
-            [self.mainImageView sd_setImageWithURL:[NSURL URLWithString:data.url]];
+        if (data.poster != nil && data.poster[@"url"] != nil) {
+            [self.mainImageView sd_setImageWithURL:[NSURL URLWithString:data.poster[@"url"]]];
             self.mainImageView.layer.borderWidth = 0.0;
         }
         else {

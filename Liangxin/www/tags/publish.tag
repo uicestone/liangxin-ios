@@ -71,8 +71,8 @@ require('./selectctrl.tag')
 		"notice": ["title", "content"],
 		"article": ["title", "content", "images"],
 		"image": ["title", "images"],
-		"activity": ["poster", "title", "event_date", "event_address", "describe", "event_type", "due_date"],
-		"class": ["poster", "title", "describe","content","title","class_type", "attachments","images","videos"]
+		"activity": ["poster", "title", "event_date", "event_address","content","event_type", "due_date"],
+		"class": ["poster", "title","content","title","class_type", "attachments","images","videos"]
 	})[opts.type];
 
 	var fields = {};
@@ -92,7 +92,9 @@ require('./selectctrl.tag')
 		var data = {};
 
 		keys.forEach(function(k){
-			data[k] = fields[k].val();
+			if(fields[k]){
+				data[k] = fields[k].val();
+			}
 		});
 
 		bridge.showProgress();

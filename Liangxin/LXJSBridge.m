@@ -85,7 +85,6 @@
 -(void)completeWithResult:(NSDictionary *)result{
     NSString* jsonString = [result toJSON];
     NSString *jsCode = [NSString stringWithFormat:@"setTimeout(function(){%@(%@)},0);", self.callback, jsonString];
-    NSLog(@"evaluating %@", jsCode);
     [webview stringByEvaluatingJavaScriptFromString:jsCode];
 }
 
