@@ -16,7 +16,6 @@
 #import "WXApi.h"
 #import "WeiboSDK.h"
 #import <FIR/FIR.h>
-#import <Fabric/Fabric.h>
 #import "LXIntroView.h"
 
 

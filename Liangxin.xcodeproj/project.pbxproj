@@ -30,7 +30,6 @@
 		2215D96D1B10D08A00D96C46 /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215D9681B10D08A00D96C46 /* TADotView.m */; };
 		2215D96E1B10D08A00D96C46 /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2215D96A1B10D08A00D96C46 /* TAPageControl.m */; };
 		221DF3421B306772002FF7DE /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 221DF3411B306772002FF7DE /* CommentViewController.m */; };
-		221DF34E1B327388002FF7DE /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 221DF34C1B327388002FF7DE /* Fabric.framework */; };
 		22238C1B1AF64F02000B4F95 /* Channels.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C1A1AF64F02000B4F95 /* Channels.m */; };
 		22238C541AFBACA5000B4F95 /* BannerApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C531AFBACA5000B4F95 /* BannerApi.m */; };
 		22238C571AFBAE30000B4F95 /* ApiBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 22238C561AFBAE30000B4F95 /* ApiBase.m */; };
@@ -44,6 +43,7 @@
 		226341C01B2C3192001743DE /* LXJSBridge+User.m in Sources */ = {isa = PBXBuildFile; fileRef = 226341BF1B2C3192001743DE /* LXJSBridge+User.m */; };
 		226796851B535D08008A4F83 /* UIImage+Thumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = 226796841B535D08008A4F83 /* UIImage+Thumbnail.m */; };
 		2267CA6B1B5D3D110014DE75 /* ServiceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2267CA6A1B5D3D110014DE75 /* ServiceListViewController.m */; };
+		226CD8AD1BCB8B2100EC8DB0 /* FIR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 226CD8AC1BCB8B2100EC8DB0 /* FIR.framework */; settings = {ASSET_TAGS = (); }; };
 		227CA1C91B1D21D80094E7A7 /* ServiceHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227CA1C81B1D21D80094E7A7 /* ServiceHomeViewController.m */; };
 		228587AA1B20AFC100CCA3A4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 228587A91B20AFC100CCA3A4 /* libPods.a */; };
 		2293FA061AF50B550012CD10 /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2293FA051AF50B550012CD10 /* BannerModel.m */; };
@@ -302,7 +302,6 @@
 		2215D96A1B10D08A00D96C46 /* TAPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAPageControl.m; sourceTree = "<group>"; };
 		221DF3401B306772002FF7DE /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
 		221DF3411B306772002FF7DE /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
-		221DF34C1B327388002FF7DE /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		22238C191AF64F02000B4F95 /* Channels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Channels.h; sourceTree = "<group>"; };
 		22238C1A1AF64F02000B4F95 /* Channels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Channels.m; sourceTree = "<group>"; };
 		22238C521AFBACA5000B4F95 /* BannerApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerApi.h; sourceTree = "<group>"; };
@@ -330,6 +329,7 @@
 		226796841B535D08008A4F83 /* UIImage+Thumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Thumbnail.m"; sourceTree = "<group>"; };
 		2267CA691B5D3D110014DE75 /* ServiceListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceListViewController.h; sourceTree = "<group>"; };
 		2267CA6A1B5D3D110014DE75 /* ServiceListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceListViewController.m; sourceTree = "<group>"; };
+		226CD8AC1BCB8B2100EC8DB0 /* FIR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FIR.framework; sourceTree = "<group>"; };
 		227CA1C71B1D21D80094E7A7 /* ServiceHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceHomeViewController.h; sourceTree = "<group>"; };
 		227CA1C81B1D21D80094E7A7 /* ServiceHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceHomeViewController.m; sourceTree = "<group>"; };
 		228587A91B20AFC100CCA3A4 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
@@ -700,13 +700,13 @@
 			files = (
 				2D06BB591B51532F0064BDAC /* MessageUI.framework in Frameworks */,
 				2D06BB571B5153280064BDAC /* ImageIO.framework in Frameworks */,
+				226CD8AD1BCB8B2100EC8DB0 /* FIR.framework in Frameworks */,
 				2D06BB551B5153200064BDAC /* QuartzCore.framework in Frameworks */,
 				2D06BB531B5153150064BDAC /* CoreGraphics.framework in Frameworks */,
 				2DF850F31B50C24E006547F4 /* MediaPlayer.framework in Frameworks */,
 				2D0000311B258E7E00106110 /* libc++.dylib in Frameworks */,
 				2D00002F1B258E0200106110 /* libsqlite3.0.dylib in Frameworks */,
 				2D00002D1B258DF900106110 /* libz.dylib in Frameworks */,
-				221DF34E1B327388002FF7DE /* Fabric.framework in Frameworks */,
 				2D00002B1B258DED00106110 /* SystemConfiguration.framework in Frameworks */,
 				2D00FFCA1B25828600106110 /* libWeChatSDK.a in Frameworks */,
 				228587AA1B20AFC100CCA3A4 /* libPods.a in Frameworks */,
@@ -866,7 +866,7 @@
 		223267B71AF2661B00431132 = {
 			isa = PBXGroup;
 			children = (
-				221DF34C1B327388002FF7DE /* Fabric.framework */,
+				226CD8AC1BCB8B2100EC8DB0 /* FIR.framework */,
 				223267C21AF2661B00431132 /* Liangxin */,
 				223267C11AF2661B00431132 /* Products */,
 				F41337B7084173F8F4E37747 /* Pods */,
@@ -1618,7 +1618,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run 57d8c822db1b42cfd61ce592c38eab9734e55a9e 4e857269de15b4cc81ecc2552400f80454b51bf3ae180583875ec1bb62de6c6d";
+			shellScript = "";
 		};
 		6BF833AB3896044568595B59 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

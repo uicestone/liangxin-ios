@@ -73,7 +73,7 @@ THE SOFTWARE.
 
 ## FIR.im
 
-©2014 FIR.im · BugHD · Made with love :).
+©2015 fir.im · BugHD · Made with love :).
 
 ## HHRouter
 
