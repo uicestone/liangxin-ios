@@ -43,7 +43,6 @@
 		226341C01B2C3192001743DE /* LXJSBridge+User.m in Sources */ = {isa = PBXBuildFile; fileRef = 226341BF1B2C3192001743DE /* LXJSBridge+User.m */; };
 		226796851B535D08008A4F83 /* UIImage+Thumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = 226796841B535D08008A4F83 /* UIImage+Thumbnail.m */; };
 		2267CA6B1B5D3D110014DE75 /* ServiceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2267CA6A1B5D3D110014DE75 /* ServiceListViewController.m */; };
-		226CD8AD1BCB8B2100EC8DB0 /* FIR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 226CD8AC1BCB8B2100EC8DB0 /* FIR.framework */; settings = {ASSET_TAGS = (); }; };
 		227CA1C91B1D21D80094E7A7 /* ServiceHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227CA1C81B1D21D80094E7A7 /* ServiceHomeViewController.m */; };
 		228587AA1B20AFC100CCA3A4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 228587A91B20AFC100CCA3A4 /* libPods.a */; };
 		2293FA061AF50B550012CD10 /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2293FA051AF50B550012CD10 /* BannerModel.m */; };
@@ -329,7 +328,6 @@
 		226796841B535D08008A4F83 /* UIImage+Thumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Thumbnail.m"; sourceTree = "<group>"; };
 		2267CA691B5D3D110014DE75 /* ServiceListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceListViewController.h; sourceTree = "<group>"; };
 		2267CA6A1B5D3D110014DE75 /* ServiceListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceListViewController.m; sourceTree = "<group>"; };
-		226CD8AC1BCB8B2100EC8DB0 /* FIR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FIR.framework; sourceTree = "<group>"; };
 		227CA1C71B1D21D80094E7A7 /* ServiceHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceHomeViewController.h; sourceTree = "<group>"; };
 		227CA1C81B1D21D80094E7A7 /* ServiceHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceHomeViewController.m; sourceTree = "<group>"; };
 		228587A91B20AFC100CCA3A4 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
@@ -700,7 +698,6 @@
 			files = (
 				2D06BB591B51532F0064BDAC /* MessageUI.framework in Frameworks */,
 				2D06BB571B5153280064BDAC /* ImageIO.framework in Frameworks */,
-				226CD8AD1BCB8B2100EC8DB0 /* FIR.framework in Frameworks */,
 				2D06BB551B5153200064BDAC /* QuartzCore.framework in Frameworks */,
 				2D06BB531B5153150064BDAC /* CoreGraphics.framework in Frameworks */,
 				2DF850F31B50C24E006547F4 /* MediaPlayer.framework in Frameworks */,
@@ -866,7 +863,6 @@
 		223267B71AF2661B00431132 = {
 			isa = PBXGroup;
 			children = (
-				226CD8AC1BCB8B2100EC8DB0 /* FIR.framework */,
 				223267C21AF2661B00431132 /* Liangxin */,
 				223267C11AF2661B00431132 /* Products */,
 				F41337B7084173F8F4E37747 /* Pods */,
