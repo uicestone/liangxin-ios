@@ -2016,7 +2016,7 @@
 					"$(PROJECT_DIR)/Liangxin/Vender/Weibo",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b3186309-7fe9-4fac-9bea-d543dba1c008";
+				PROVISIONING_PROFILE = "49eed6ad-b931-4d32-b9b8-546b260ea6b0";
 			};
 			name = Debug;
 		};
@@ -2046,7 +2046,7 @@
 					"$(PROJECT_DIR)/Liangxin/Vender/Weibo",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fea3af2d-42bd-4085-a326-1ae83526ad57";
+				PROVISIONING_PROFILE = "f51072dd-ed58-4906-8c37-605d48693dae";
 			};
 			name = Release;
 		};

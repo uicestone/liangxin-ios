@@ -9,7 +9,7 @@
 #import "UserApi.h"
 #import "ApiBase.h"
 #import "LXBaseModelUser.h"
-#import <FIR/FIR.h>
+#import <BugHD/BugHD.h>
 
 
 @implementation UserApi
@@ -32,8 +32,8 @@
         NSData* userData = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
         currentUser = [NSKeyedUnarchiver unarchiveObjectWithData:userData];
         
-        [FIR setCustomizeValue:currentUser.name forKey:@"user_name"];
-        [FIR setCustomizeValue:currentUser.contact forKey:@"user_contact"];
+        [BugHD setCustomizeValue:currentUser.name forKey:@"user_name"];
+        [BugHD setCustomizeValue:currentUser.contact forKey:@"user_contact"];
     }
 
     return currentUser;
