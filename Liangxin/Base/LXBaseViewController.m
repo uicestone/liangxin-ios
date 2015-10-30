@@ -32,7 +32,7 @@
     self.extendedLayoutIncludesOpaqueBars = YES;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationController.navigationBar.translucent = NO;
-    
+
     self.backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
     [self.backButton setImage:[UIImage imageNamed:@"Back"] forState:UIControlStateNormal];
     self.backButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -42,13 +42,13 @@
         backImage = [backImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         [self.backButton setImage:backImage forState:UIControlStateNormal];
     }
-    
+
     if(self.navigationController.viewControllers.count > 1){
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.backButton];
     }
     self.currentUser = [[UserApi shared] getCurrentUser];
-    
-    
+
+
     if([self hasToolBar]){
         if (self.toolbarType == LXBaseToolbarTypeNormal) {
             [self initToolBar];
@@ -57,17 +57,17 @@
             [self initDetailBar];
         }
     }
-    
+
     self.shareObject = [LXShareObject new];
-    
+
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
+
     self.toolbarType = LXBaseToolbarTypeNormal;
 }
 
 -(void)dealloc{
     NSLog(@"dealloc view");
-    
+
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -76,9 +76,9 @@
     }else{
         [self hideToolBar];
     }
-    
+
     Channels* channels = [Channels shared];
-    
+
     if ([[self channel] isEqualToString:@"class"]) {
         self.navigationController.navigationBar.barTintColor = [channels colorAtIndex:2];
     }
@@ -114,14 +114,14 @@
 }
 
 -(void)initToolBar{
-    
+
     NSArray* tabTitles = @[@"我的账号",@"我要发起",@"返回首页"];
     NSArray* tabIcons = @[@"tab-account", @"tab-plus", @"tab-home"];
     CGFloat win_width = CGRectGetWidth([UIScreen mainScreen].bounds);
     CGFloat width = win_width / 3;
     CGFloat toolbar_y = CGRectGetHeight(self.view.frame) - 44.0f - 66.0f;
     toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, toolbar_y, win_width, 44)];
-    
+
     [self.view addSubview:toolbar];
     for (NSInteger i = 0; i < 3; i++) {
         UIButton *tabButton = [[UIButton alloc] initWithFrame:CGRectMake(i * width, 0, width, 44)];
@@ -136,8 +136,8 @@
         tabButton.tag = i;
         [tabButton addTarget:self action:@selector(toolbarItemsPressed:) forControlEvents:UIControlEventTouchUpInside];
         tabButton.imageEdgeInsets = UIEdgeInsetsMake(- (titleSize.height + spacing), 0.0, 0.0, - titleSize.width);
-        
-        
+
+
         [toolbar addSubview:tabButton];
     }
     [toolbar mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -264,13 +264,13 @@
 
 -(void)toolbarItemsPressed:(UIButton *)sender{
     NSInteger index = sender.tag;
-    
+
     if(index == 0){
         if(![self.params[@"route"] hasPrefix:@"/account"]){
             [self navigateToPath:@"/account"];
         }
     }else if(index == 1){
-        
+
         if(!self.currentUser){
             [appDelegate popLoginWithFinishHandler:^{
                 [self showPublishActionSheet];
@@ -288,7 +288,7 @@
 - (void)showPublishActionSheet{
     LXBaseModelUser* user = [[UserApi shared] getCurrentUser];
     UIActionSheet* actionSheet;
-    
+
     if([user.role isEqualToString:@"user"]){
         actionSheet = [[UIActionSheet alloc]
                                       initWithTitle:nil
@@ -304,7 +304,7 @@
                                       destructiveButtonTitle:nil
                        otherButtonTitles:@"公告", @"文章", @"相片", @"活动", @"课堂", nil];
     }
-    
+
     actionSheet.delegate = self;
     [actionSheet showInView:self.view];
 }
@@ -318,7 +318,7 @@
     }else{
         publishTypes = @[@"notice",@"article",@"image"];
     }
-    
+
     if(buttonIndex < publishTypes.count){
         [actionSheet dismissWithClickedButtonIndex:buttonIndex animated:YES];
         NSString* path = [@"/publish/?type=" stringByAppendingString: [publishTypes objectAtIndex:buttonIndex]];
@@ -343,26 +343,26 @@
 
 - (void)popModalToPath:(NSString *)path completion:(void (^)(void))completion {
     LXBaseViewController *viewController = (LXBaseViewController *)[[HHRouter shared] matchController:path];
-    
+
     Channels* channels = [Channels shared];
     NSInteger index = [channels currentIndex];
     UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
-    
-    
-    
+
+
+
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(dismissViewController)];
     viewController.navigationItem.rightBarButtonItem = cancelButton;
-    
-    
+
+
     if(index >= 0){
         NSDictionary* textAttr = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
         [viewController.navigationController.navigationItem.rightBarButtonItem setTitleTextAttributes:textAttr forState:UIControlStateNormal];
         [viewController.navigationController.navigationBar setBarTintColor: [channels colorAtIndex:(int)index]];
         [viewController.navigationController.navigationBar setTitleTextAttributes:textAttr];
     }
-    
-    
-    
+
+
+
     viewController.delegate = self;
     [self presentViewController:navigationController animated:YES completion:completion];
 }
@@ -405,11 +405,11 @@
 }
 
 -(void)popMessage:(NSString *)message{
-    
+
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = message;
     hud.mode = MBProgressHUDModeText;
-    
+
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         hud.hidden = YES;

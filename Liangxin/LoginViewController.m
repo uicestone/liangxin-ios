@@ -14,7 +14,6 @@
 #import "NSDictionary+Encoding.h"
 #import <HHRouter/HHRouter.h>
 #import <MBProgressHUD/MBProgressHUD.h>
-#import <BugHD/BugHD.h>
 
 #define kReuseIdentifier @"LoginViewCell"
 

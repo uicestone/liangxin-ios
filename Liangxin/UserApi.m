@@ -9,7 +9,6 @@
 #import "UserApi.h"
 #import "ApiBase.h"
 #import "LXBaseModelUser.h"
-#import <BugHD/BugHD.h>
 
 
 @implementation UserApi
@@ -31,9 +30,6 @@
     if(!currentUser){
         NSData* userData = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
         currentUser = [NSKeyedUnarchiver unarchiveObjectWithData:userData];
-        
-        [BugHD setCustomizeValue:currentUser.name forKey:@"user_name"];
-        [BugHD setCustomizeValue:currentUser.contact forKey:@"user_contact"];
     }
 
     return currentUser;
