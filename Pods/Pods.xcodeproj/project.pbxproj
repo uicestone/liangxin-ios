@@ -489,7 +489,6 @@
 		175EF0AF482D5AC9B5BF1650B00219CC /* UITextView+RACSignalSupport.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextView+RACSignalSupport.m"; path = "ReactiveCocoa/UITextView+RACSignalSupport.m"; sourceTree = "<group>"; };
 		17A406A49DE842C18B2ECFDAE52F655B /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityIndicatorManager.m; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m"; sourceTree = "<group>"; };
 		184BE517AC5427DC01894A93F722F6D0 /* Mantle-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Mantle-prefix.pch"; sourceTree = "<group>"; };
-		19185DF313F80624057776E37AA78AB6 /* BugHDConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BugHDConstants.h; path = BugHD.framework/Headers/BugHDConstants.h; sourceTree = "<group>"; };
 		19E5FDF6B2D6ECCAB302E521A0E96A45 /* libReactiveCocoa.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libReactiveCocoa.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F3269FD3651B93853A9025DF4F6263 /* HHRouter.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HHRouter.xcconfig; sourceTree = "<group>"; };
 		1AA30D21A67E7CF0D66BBEB9F89ED2E4 /* HHRouter-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HHRouter-dummy.m"; sourceTree = "<group>"; };
@@ -619,7 +618,6 @@
 		69A26723402B14CC5D3A3B30395B11C4 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASLayoutConstraint.h; path = Masonry/MASLayoutConstraint.h; sourceTree = "<group>"; };
 		6A5FB5883B5A55D652FD3ACF16E2ABD5 /* NSUserDefaults+RACSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSUserDefaults+RACSupport.h"; path = "ReactiveCocoa/NSUserDefaults+RACSupport.h"; sourceTree = "<group>"; };
 		6A8DCBD06E023729307AF77C5EA8B7C0 /* UITextField+RACSignalSupport.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextField+RACSignalSupport.m"; path = "ReactiveCocoa/UITextField+RACSignalSupport.m"; sourceTree = "<group>"; };
-		6ABB1DA84E1DFFB7A88D2D44836A68CD /* BugHD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BugHD.framework; sourceTree = "<group>"; };
 		6AF4009A2E53A07B6A4255EA6B96B2F3 /* NSObject+RACLifting.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+RACLifting.h"; path = "ReactiveCocoa/NSObject+RACLifting.h"; sourceTree = "<group>"; };
 		6B7A0ED06C71B02A363DB8AC504F2DB9 /* UISlider+RACSignalSupport.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UISlider+RACSignalSupport.m"; path = "ReactiveCocoa/UISlider+RACSignalSupport.m"; sourceTree = "<group>"; };
 		6BA62B688FF926D85E5E0536DF255828 /* HHRouter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HHRouter.m; path = HHRouter/HHRouter.m; sourceTree = "<group>"; };
@@ -706,7 +704,6 @@
 		97C78AFBCFFC9139E1906B686010E96D /* RACScopedDisposable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RACScopedDisposable.h; path = ReactiveCocoa/RACScopedDisposable.h; sourceTree = "<group>"; };
 		9875B60947280E873119F531ABB00667 /* DACircularProgressView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DACircularProgressView.m; path = DACircularProgress/DACircularProgressView.m; sourceTree = "<group>"; };
 		9909C0961724B2E43A5EF1F690059317 /* SDWebImageDecoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDecoder.m; path = SDWebImage/SDWebImageDecoder.m; sourceTree = "<group>"; };
-		99B255232E1EDE83C5045E305FEAA715 /* BugHD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BugHD.h; path = BugHD.framework/Headers/BugHD.h; sourceTree = "<group>"; };
 		99EB6D3F72B4AF60BBFA0F0065DE0CC8 /* MTLValueTransformer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MTLValueTransformer.m; path = Mantle/MTLValueTransformer.m; sourceTree = "<group>"; };
 		9A1B6C04EC0F09534F4EB2089123640E /* MBProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		9AC4F2497DAF937331C9CB5FCD4D9E59 /* RACSignal+Operations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RACSignal+Operations.h"; path = "ReactiveCocoa/RACSignal+Operations.h"; sourceTree = "<group>"; };
@@ -973,7 +970,6 @@
 			isa = PBXGroup;
 			children = (
 				62CB1DB6F1D6AFFAD485AD058B774EB6 /* AFNetworking */,
-				2A83B3D45A175F6C78E8383C43873608 /* BugHD */,
 				96B7397092ACE0061FD3B17D33055091 /* CocoaLumberjack */,
 				5162DF6428649EF56E8134AE2CD2A970 /* DACircularProgress */,
 				BF7FF49B88DF8B3E404BD23DF23ECA79 /* HHRouter */,
@@ -1213,16 +1209,6 @@
 			path = "../Target Support Files/HHRouter";
 			sourceTree = "<group>";
 		};
-		2A83B3D45A175F6C78E8383C43873608 /* BugHD */ = {
-			isa = PBXGroup;
-			children = (
-				99B255232E1EDE83C5045E305FEAA715 /* BugHD.h */,
-				19185DF313F80624057776E37AA78AB6 /* BugHDConstants.h */,
-				4189152BF2B6849DB937FA981C7F9E75 /* Frameworks */,
-			);
-			path = BugHD;
-			sourceTree = "<group>";
-		};
 		33C6A1001EC3F68A2113A44C40E82158 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -1276,14 +1262,6 @@
 				8E6CF37606E30B7B635969B521AD25DD /* Resources */,
 			);
 			path = WeiboSDK;
-			sourceTree = "<group>";
-		};
-		4189152BF2B6849DB937FA981C7F9E75 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				6ABB1DA84E1DFFB7A88D2D44836A68CD /* BugHD.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		47DEEB9A23ECB75BEE01DCE0DB51401E /* Masonry */ = {
