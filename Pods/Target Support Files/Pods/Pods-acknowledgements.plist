@@ -41,14 +41,6 @@ THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>&#169;2015 fir.im &#183; BugHD &#183; Made with love :).</string>
-			<key>Title</key>
-			<string>BugHD</string>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-		</dict>
-		<dict>
-			<key>FooterText</key>
 			<string>Software License Agreement (BSD License)
 
 Copyright (c) 2010-2015, Deusty, LLC

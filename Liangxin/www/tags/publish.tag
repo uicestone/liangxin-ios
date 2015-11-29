@@ -134,7 +134,6 @@ require('./selectctrl.tag')
 		};
 
 		config.files = files;
-		console.log(config);
 		posting = true;
 		fetch(config).then(function(data){
 			posting = false;

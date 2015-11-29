@@ -14,7 +14,7 @@
 
 	val(){
 		var textarea = self.root.getElementsByTagName('textarea')[0];
-		return textarea ? textarea.value : '';
+		return textarea ? (textarea.value ? textarea.innerHTML : '') : '';
 	}
 
 	this.parent.edit(this);

@@ -169,7 +169,7 @@
                            }];
     
     [self showProgress];
-    [ApiBase postMultipartWithPath:@"/auth/user" data:nil files:files success:^(id responseObject, AFHTTPRequestOperation* operation) {
+    [ApiBase postMultipartWithPath:@"/auth/user" data:nil files:files success:^(AFHTTPRequestOperation* operation, id responseObject) {
         [self hideProgress];
         [self popMessage:@"更新成功"];
         [self currentUser].avatar = responseObject[@"avatar"];

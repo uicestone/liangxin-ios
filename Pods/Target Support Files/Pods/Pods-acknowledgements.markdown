@@ -24,10 +24,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
-## BugHD
-
-©2015 fir.im · BugHD · Made with love :).
-
 ## CocoaLumberjack
 
 Software License Agreement (BSD License)
