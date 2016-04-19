@@ -1487,6 +1487,7 @@
 				223267BE1AF2661B00431132 /* Resources */,
 				CEF473974E9EF0D15F8374E9 /* Copy Pods Resources */,
 				221DF3431B326C2D002FF7DE /* ShellScript */,
+				7A9B558B1DFA48951CA5AC4F /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1629,6 +1630,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7A9B558B1DFA48951CA5AC4F /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CEF473974E9EF0D15F8374E9 /* Copy Pods Resources */ = {
@@ -2046,7 +2062,6 @@
 					"$(PROJECT_DIR)/Liangxin/Vender/Weibo",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f51072dd-ed58-4906-8c37-605d48693dae";
 			};
 			name = Release;
 		};
