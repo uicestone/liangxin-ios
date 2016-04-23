@@ -12,6 +12,7 @@
 #import "LXCarouselView.h"
 #import "LXBaseModelPost.h"
 #import "UserApi.h"
+#import "LXAVCaptureScanViewController.h"
 
 @interface LXHomeViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -49,7 +50,13 @@
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     self.navigationItem.titleView = titleLabel;
     
-    
+    UIButton *scanButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [scanButton setTitle:@"扫一扫" forState:UIControlStateNormal];
+    scanButton.titleLabel.font = [UIFont systemFontOfSize:15.0];
+    [scanButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    scanButton.frame = CGRectMake(0, 0, 60, 44);
+    [scanButton addTarget:self action:@selector(qrScan:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:scanButton];
     
     self.carouselView = [LXCarouselView carouselViewWithFrame:CGRectMake(0, 0, 320, bannerHeight) imageURLsGroup:nil];
     self.carouselView.pageControl.hidden = YES;
@@ -109,6 +116,11 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+}
+
+- (void)qrScan:(id)sender {
+    LXAVCaptureScanViewController *scanVC = [LXAVCaptureScanViewController new];
+    [self.navigationController pushViewController:scanVC animated:YES];
 }
 
 #pragma mark - UICollectionViewDataSource && UICollectionViewDelegate

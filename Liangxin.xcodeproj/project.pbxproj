@@ -183,6 +183,8 @@
 		2DB1311E1CCA70FA00BD9114 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DB131121CCA70FA00BD9114 /* libWeiboSDK.a */; };
 		2DB1311F1CCA70FA00BD9114 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2DB1311B1CCA70FA00BD9114 /* WeiboSDK.bundle */; };
 		2DB131231CCA714D00BD9114 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DB131221CCA714D00BD9114 /* CoreTelephony.framework */; };
+		2DB131271CCB0F3B00BD9114 /* LXAVCaptureScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB131261CCB0F3B00BD9114 /* LXAVCaptureScanViewController.m */; };
+		2DB131281CCB0F7400BD9114 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF850F01B50C202006547F4 /* AVFoundation.framework */; };
 		2DB374861B5E203D0092E5D4 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 2DB3744D1B5E203D0092E5D4 /* .gitkeep */; };
 		2DB374871B5E203D0092E5D4 /* ImageError.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DB3744E1B5E203D0092E5D4 /* ImageError.png */; };
 		2DB374881B5E203D0092E5D4 /* ImageError@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DB3744F1B5E203D0092E5D4 /* ImageError@2x.png */; };
@@ -588,6 +590,8 @@
 		2DB1311D1CCA70FA00BD9114 /* WeiboSDK+Statistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "WeiboSDK+Statistics.h"; path = "Vender/WeiboSDK/WeiboSDK+Statistics.h"; sourceTree = "<group>"; };
 		2DB131201CCA711A00BD9114 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		2DB131221CCA714D00BD9114 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		2DB131251CCB0F3B00BD9114 /* LXAVCaptureScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXAVCaptureScanViewController.h; path = Scan/LXAVCaptureScanViewController.h; sourceTree = "<group>"; };
+		2DB131261CCB0F3B00BD9114 /* LXAVCaptureScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXAVCaptureScanViewController.m; path = Scan/LXAVCaptureScanViewController.m; sourceTree = "<group>"; };
 		2DB3744D1B5E203D0092E5D4 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		2DB3744E1B5E203D0092E5D4 /* ImageError.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ImageError.png; sourceTree = "<group>"; };
 		2DB3744F1B5E203D0092E5D4 /* ImageError@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ImageError@2x.png"; sourceTree = "<group>"; };
@@ -713,6 +717,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DB131281CCB0F7400BD9114 /* AVFoundation.framework in Frameworks */,
 				2DB131231CCA714D00BD9114 /* CoreTelephony.framework in Frameworks */,
 				2D06BB591B51532F0064BDAC /* MessageUI.framework in Frameworks */,
 				2D06BB571B5153280064BDAC /* ImageIO.framework in Frameworks */,
@@ -902,6 +907,7 @@
 		223267C21AF2661B00431132 /* Liangxin */ = {
 			isa = PBXGroup;
 			children = (
+				2DB131241CCB0B9500BD9114 /* Scan */,
 				2D0000811B2A828800106110 /* Share */,
 				22E5E8D01B272A5A0004D1CA /* Feeds */,
 				2D00FFC11B25820F00106110 /* Vender */,
@@ -1372,6 +1378,15 @@
 			name = WeiboSDK;
 			sourceTree = "<group>";
 		};
+		2DB131241CCB0B9500BD9114 /* Scan */ = {
+			isa = PBXGroup;
+			children = (
+				2DB131251CCB0F3B00BD9114 /* LXAVCaptureScanViewController.h */,
+				2DB131261CCB0F3B00BD9114 /* LXAVCaptureScanViewController.m */,
+			);
+			name = Scan;
+			sourceTree = "<group>";
+		};
 		2DB3744B1B5E203D0092E5D4 /* MWPhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
@@ -1724,6 +1739,7 @@
 				2DFD651F1B15FE7800FAC662 /* LXCarouselView.m in Sources */,
 				2D06BB4B1B5152F60064BDAC /* ReaderThumbRequest.m in Sources */,
 				2D6160BF1B208938001D01D8 /* ActivityListViewModel.m in Sources */,
+				2DB131271CCB0F3B00BD9114 /* LXAVCaptureScanViewController.m in Sources */,
 				22BE07BA1B1F35E500A1E91F /* AccountArticleViewController.m in Sources */,
 				2D537DE11B1AA0AA006BD35E /* LXBaseViewController.m in Sources */,
 				225BA69C1AFF30D0000E6D79 /* LXWebView.m in Sources */,
