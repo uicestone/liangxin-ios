@@ -53,6 +53,10 @@
     return NO;
 }
 
+- (BOOL)needLogin {
+    return YES;
+}
+
 - (void)start {
     if (self.scanLine == nil) {
         [self initSubViews];

@@ -119,8 +119,7 @@
 }
 
 - (void)qrScan:(id)sender {
-    LXAVCaptureScanViewController *scanVC = [LXAVCaptureScanViewController new];
-    [self.navigationController pushViewController:scanVC animated:YES];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"liangxin://qrscan"]];
 }
 
 #pragma mark - UICollectionViewDataSource && UICollectionViewDelegate
