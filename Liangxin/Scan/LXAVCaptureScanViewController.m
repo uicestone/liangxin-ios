@@ -30,6 +30,7 @@ NSString *const LXAVCaptureScanSuccessNotification = @"LXAVCaptureScanSuccessNot
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.leftBarButtonItem = nil;
     self.view.backgroundColor = [UIColor colorWithRed:69.0f / 255 green:69.0f / 255 blue:69.0f / 255 alpha:1];
     self.title = @"扫一扫";
 }

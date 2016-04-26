@@ -105,6 +105,10 @@
         
     }];
     
+//    [[[LXNetworkManager sharedManager] deleteAttendByPostId:@"3866"] subscribeNext:^(id x) {
+//        
+//    }];
+    
     [[[NSNotificationCenter defaultCenter] rac_addObserverForName:LXAVCaptureScanSuccessNotification object:nil] subscribeNext:^(NSNotification *x) {
         NSString *result = (NSString *)x.object;
         if (result.length > 0 && [result hasPrefix:@"liangxin://attend/"]) {
