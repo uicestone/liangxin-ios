@@ -8,6 +8,8 @@
 
 #import "LXBaseViewController.h"
 
+extern NSString *const LXAVCaptureScanSuccessNotification;
+
 @interface LXAVCaptureScanViewController : LXBaseViewController
 
 @end

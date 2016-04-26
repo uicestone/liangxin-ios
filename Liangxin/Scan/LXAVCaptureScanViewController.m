@@ -8,6 +8,9 @@
 
 #import "LXAVCaptureScanViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "LXNetworkManager.h"
+
+NSString *const LXAVCaptureScanSuccessNotification = @"LXAVCaptureScanSuccessNotification";
 
 @interface LXAVCaptureScanViewController () <AVCaptureMetadataOutputObjectsDelegate>
 
@@ -29,6 +32,10 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithRed:69.0f / 255 green:69.0f / 255 blue:69.0f / 255 alpha:1];
     self.title = @"扫一扫";
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didEnterIntoBackGround:) name:UIApplicationWillResignActiveNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didBecomeActiveNotification:) name:UIApplicationDidBecomeActiveNotification object:nil];
 }
@@ -42,11 +49,8 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self stop];
-}
-
-- (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self stop];
 }
 
 - (BOOL)hasToolBar {
@@ -61,13 +65,15 @@
     if (self.scanLine == nil) {
         [self initSubViews];
     }
-    if ([self checkPermission]) {
-        [self setupCamera];
-    } else {
-        [self showPrompt];
+    if (!self.session.isRunning) {
+        if ([self checkPermission]) {
+            [self setupCamera];
+        } else {
+            [self showPrompt];
+        }
+        [self startScanAnimation];
+        [self.session startRunning];
     }
-    [self startScanAnimation];
-    [self.session startRunning];
 }
 
 - (void)stop {
@@ -286,6 +292,10 @@
     }
     [self.session stopRunning];
     [self stopScanAnimation];
+    if (result) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:LXAVCaptureScanSuccessNotification object:result];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 @end

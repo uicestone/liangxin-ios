@@ -104,6 +104,36 @@
     } error:^(NSError *error) {
         
     }];
+    
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:LXAVCaptureScanSuccessNotification object:nil] subscribeNext:^(NSNotification *x) {
+        NSString *result = (NSString *)x.object;
+        if (result.length > 0 && [result hasPrefix:@"liangxin://attend/"]) {
+            NSURL *scanURL = [NSURL URLWithString:result];
+            NSArray *pathComponents = [scanURL.path componentsSeparatedByString:@"/"];
+            if (pathComponents.count >= 3) {
+                [[[LXNetworkManager sharedManager] qrScanAttendByPostId:pathComponents[1]] subscribeNext:^(NSDictionary *x) {
+                    NSString *id = [x objectForKey:@"id"];
+                    if (id.length > 0) {
+                        NSString *title = [x objectForKey:@"title"];
+                        NSInteger points = [[x objectForKey:@"points"] integerValue];
+                        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:[NSString stringWithFormat:@"您已经成功签到%@，获得%@积分", title, @(points)] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+                        [alertView show];
+                    }
+                    else {
+                        NSNumber *code = [x objectForKey:@"code"];
+                        NSString *message = [x objectForKey:@"message"];
+                        if (code && [code integerValue] == 409) {
+                            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+                            [alertView show];
+                        }
+                    }
+                } error:^(NSError *error) {
+                    
+                }];
+            }
+            
+        }
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -120,6 +150,10 @@
 
 - (void)qrScan:(id)sender {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"liangxin://qrscan"]];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - UICollectionViewDataSource && UICollectionViewDelegate
