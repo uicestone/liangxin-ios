@@ -286,12 +286,12 @@
     }];
 }
 
-- (RACSignal *)qrScanAttendByPostId:(NSString *)postId {
+- (RACSignal *)qrScanAttendByURL:(NSString *)scanURL {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         self.sessionManager.requestSerializer = [AFHTTPRequestSerializer serializer];
         AFHTTPRequestSerializer *requestSerializer = self.sessionManager.requestSerializer;
         [requestSerializer setValue:[[UserApi shared] getCurrentUser].token forHTTPHeaderField:@"Authorization"];
-        NSURLSessionDataTask *task = [self.sessionManager POST:[NSString stringWithFormat:@"/api/v1/attend/%@/%@", postId, [[UserApi shared] getCurrentUser].token] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSURLSessionDataTask *task = [self.sessionManager POST:[NSString stringWithFormat:@"/api/v1/attend/%@", scanURL] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
             [subscriber sendNext:responseObject];
             [subscriber sendCompleted];
         } failure:^(NSURLSessionDataTask *task, NSError *error) {

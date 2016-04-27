@@ -105,17 +105,12 @@
         
     }];
     
-//    [[[LXNetworkManager sharedManager] deleteAttendByPostId:@"3866"] subscribeNext:^(id x) {
-//        
-//    }];
-    
     [[[NSNotificationCenter defaultCenter] rac_addObserverForName:LXAVCaptureScanSuccessNotification object:nil] subscribeNext:^(NSNotification *x) {
         NSString *result = (NSString *)x.object;
         if (result.length > 0 && [result hasPrefix:@"liangxin://attend/"]) {
             NSURL *scanURL = [NSURL URLWithString:result];
-            NSArray *pathComponents = [scanURL.path componentsSeparatedByString:@"/"];
-            if (pathComponents.count >= 3) {
-                [[[LXNetworkManager sharedManager] qrScanAttendByPostId:pathComponents[1]] subscribeNext:^(NSDictionary *x) {
+            if (scanURL.path.length > 0) {
+                [[[LXNetworkManager sharedManager] qrScanAttendByURL:[scanURL.path substringFromIndex:1]] subscribeNext:^(NSDictionary *x) {
                     NSString *id = [x objectForKey:@"id"];
                     if (id.length > 0) {
                         NSString *title = [x objectForKey:@"title"];
