@@ -13,11 +13,16 @@
 #import "LXBaseModelPost.h"
 #import "UserApi.h"
 #import "LXAVCaptureScanViewController.h"
+#import "NSString+Utils.h"
+#import "LXWebViewController.h"
+#import "NSURL+Utils.h"
+#import "UserApi.h"
 
-@interface LXHomeViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface LXHomeViewController () <UICollectionViewDataSource, UICollectionViewDelegate, LXCarouselViewDelegate>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) LXCarouselView *carouselView;
+@property (nonatomic, strong) NSMutableArray *bannerSchemes;
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
 @property (nonatomic, strong) NSArray *channelImages;
 @property (nonatomic, strong) NSArray *channelSchemes;
@@ -59,6 +64,7 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:scanButton];
     
     self.carouselView = [LXCarouselView carouselViewWithFrame:CGRectMake(0, 0, 320, bannerHeight) imageURLsGroup:nil];
+    self.carouselView.delegate = self;
     self.carouselView.pageControl.hidden = YES;
     [self.view addSubview:self.carouselView];
     [self.carouselView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -95,10 +101,12 @@
     [[[LXNetworkManager sharedManager] getBannersByType:LXBannerTypeHome] subscribeNext:^(NSArray *x) {
         @strongify(self)
         NSMutableArray *bannerURLs = [NSMutableArray array];
+        self.bannerSchemes = [NSMutableArray array];
         for (LXBaseModelPost *post in x) {
             if ([post.poster isValidObjectForKey:@"url"]) {
                 [bannerURLs addObject:[post.poster objectForKey:@"url"]];
             }
+            [self.bannerSchemes addObject:post.url];
         }
         self.carouselView.imageURLsGroup = bannerURLs;
     } error:^(NSError *error) {
@@ -153,6 +161,22 @@
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - LXCarouselViewDelegate
+
+- (void)carouselView:(LXCarouselView *)carouselView didSelectItemAtIndex:(NSInteger)index {
+    if (self.bannerSchemes.count > 0) {
+        NSString *URL = [self.bannerSchemes objectAtIndex:index];
+        if ([[URL lowercaseString] hasPrefix:@"http"] || [[URL lowercaseString] hasPrefix:@"https"]) {
+            LXWebViewController *webVC = [LXWebViewController new];
+            webVC.URL = [[NSURL URLWithString:URL] appendQueryParameter:[NSString stringWithFormat:@"authorization=%@", [[UserApi shared] getCurrentUser].token]];
+            [self.navigationController pushViewController:webVC animated:YES];
+        }
+        else {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:URL]];
+        }
+    }
 }
 
 #pragma mark - UICollectionViewDataSource && UICollectionViewDelegate
