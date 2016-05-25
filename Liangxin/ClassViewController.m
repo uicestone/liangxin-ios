@@ -17,8 +17,11 @@
 #import "Channels.h"
 #import "LXMoreTableViewCell.h"
 #import "LXSearchBar.h"
+#import "LXWebViewController.h"
+#import "UserApi.h"
+#import "NSURL+Utils.h"
 
-@interface ClassViewController () <UITableViewDataSource, UITableViewDelegate, LXBannerViewDelegate>
+@interface ClassViewController () <UITableViewDataSource, UITableViewDelegate, LXBannerViewDelegate, LXCarouselViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) LXCarouselView *carouselView;
@@ -36,6 +39,7 @@
 @property (nonatomic, strong) LXSearchBar *searchBar;
 @property (nonatomic, assign) BOOL isSearch;
 @property (nonatomic, strong) MASConstraint *bannerTopConstraint;
+@property (nonatomic, strong) NSMutableArray *bannerSchemes;
 
 @end
 
@@ -110,6 +114,7 @@
     self.carouselView = [LXCarouselView carouselViewWithFrame:CGRectMake(0, 0, 320, bannerHeight) imageURLsGroup:nil];
     self.carouselView.pageControl.currentPageIndicatorTintColor = UIColorFromRGB(0xf99d33);
     self.carouselView.pageControl.pageIndicatorTintColor = UIColorFromRGB(0xbbbdc0);
+    self.carouselView.delegate = self;
     [self.view addSubview:self.carouselView];
     [self.carouselView mas_makeConstraints:^(MASConstraintMaker *make) {
         self.bannerTopConstraint = make.top.mas_equalTo(0);
@@ -186,9 +191,11 @@
     [[[LXNetworkManager sharedManager] getBannersByType:LXBannerTypeClass] subscribeNext:^(id x) {
         @strongify(self)
         NSMutableArray *bannerURLs = [NSMutableArray array];
+        self.bannerSchemes = [NSMutableArray array];
         for (LXBaseModelPost *post in x) {
             if ([post.poster isValidObjectForKey:@"url"]) {
                 [bannerURLs addObject:[post.poster objectForKey:@"url"]];
+                [self.bannerSchemes addObject:post.url];
             }
         }
         self.carouselView.imageURLsGroup = bannerURLs;
@@ -288,6 +295,27 @@
             break;
     }
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://class/list/?order_by=%@", orderBy]]];
+}
+
+#pragma mark - LXCarouselViewDelegate
+
+- (void)carouselView:(LXCarouselView *)carouselView didSelectItemAtIndex:(NSInteger)index {
+    if (self.bannerSchemes.count > 0) {
+        NSString *URL = [self.bannerSchemes objectAtIndex:index];
+        if (([[URL lowercaseString] hasPrefix:@"http"] || [[URL lowercaseString] hasPrefix:@"https"])) {
+            LXWebViewController *webVC = [LXWebViewController new];
+            if ([[URL lowercaseString] rangeOfString:@"dangqun.malu.gov.cn"].location != NSNotFound) {
+                webVC.URL = [[NSURL URLWithString:URL] appendQueryParameter:[NSString stringWithFormat:@"authorization=%@", [[UserApi shared] getCurrentUser].token]];
+            }
+            else {
+                webVC.URL = [NSURL URLWithString:URL];
+            }
+            [self.navigationController pushViewController:webVC animated:YES];
+        }
+        else {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:URL]];
+        }
+    }
 }
 
 #pragma mark - LXBannerViewDelegate

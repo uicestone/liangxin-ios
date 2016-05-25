@@ -168,9 +168,14 @@
 - (void)carouselView:(LXCarouselView *)carouselView didSelectItemAtIndex:(NSInteger)index {
     if (self.bannerSchemes.count > 0) {
         NSString *URL = [self.bannerSchemes objectAtIndex:index];
-        if ([[URL lowercaseString] hasPrefix:@"http"] || [[URL lowercaseString] hasPrefix:@"https"]) {
+        if (([[URL lowercaseString] hasPrefix:@"http"] || [[URL lowercaseString] hasPrefix:@"https"])) {
             LXWebViewController *webVC = [LXWebViewController new];
-            webVC.URL = [[NSURL URLWithString:URL] appendQueryParameter:[NSString stringWithFormat:@"authorization=%@", [[UserApi shared] getCurrentUser].token]];
+            if ([[URL lowercaseString] rangeOfString:@"dangqun.malu.gov.cn"].location != NSNotFound) {
+                webVC.URL = [[NSURL URLWithString:URL] appendQueryParameter:[NSString stringWithFormat:@"authorization=%@", [[UserApi shared] getCurrentUser].token]];
+            }
+            else {
+                webVC.URL = [NSURL URLWithString:URL];
+            }
             [self.navigationController pushViewController:webVC animated:YES];
         }
         else {

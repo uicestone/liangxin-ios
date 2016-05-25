@@ -175,6 +175,7 @@
 		2D6160C21B208AB3001D01D8 /* ActivityParticipantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160C11B208AB3001D01D8 /* ActivityParticipantsViewController.m */; };
 		2D6160C61B20AA1B001D01D8 /* LXHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160C51B20AA1B001D01D8 /* LXHomeViewController.m */; };
 		2D6160CA1B20B26B001D01D8 /* LXHomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6160C91B20B26B001D01D8 /* LXHomeCollectionViewCell.m */; };
+		2D64769D1CF5DE0F00143D28 /* LXJSBridge+CloseWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D64769C1CF5DE0F00143D28 /* LXJSBridge+CloseWindow.m */; };
 		2D724CA21B50D1FE002266DA /* LXMoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D724CA11B50D1FE002266DA /* LXMoreTableViewCell.m */; };
 		2D75A2DB1B1B4A0700A8FA95 /* LXClassListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D75A2DA1B1B4A0700A8FA95 /* LXClassListViewModel.m */; };
 		2DA7DB3A1B4F8D6C00A15F74 /* LXIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA7DB391B4F8D6C00A15F74 /* LXIntroView.m */; };
@@ -568,6 +569,8 @@
 		2D6160C51B20AA1B001D01D8 /* LXHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXHomeViewController.m; path = Home/LXHomeViewController.m; sourceTree = "<group>"; };
 		2D6160C81B20B26B001D01D8 /* LXHomeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXHomeCollectionViewCell.h; path = Home/Views/LXHomeCollectionViewCell.h; sourceTree = "<group>"; };
 		2D6160C91B20B26B001D01D8 /* LXHomeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXHomeCollectionViewCell.m; path = Home/Views/LXHomeCollectionViewCell.m; sourceTree = "<group>"; };
+		2D64769B1CF5DE0F00143D28 /* LXJSBridge+CloseWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LXJSBridge+CloseWindow.h"; sourceTree = "<group>"; };
+		2D64769C1CF5DE0F00143D28 /* LXJSBridge+CloseWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LXJSBridge+CloseWindow.m"; sourceTree = "<group>"; };
 		2D724CA01B50D1FE002266DA /* LXMoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXMoreTableViewCell.h; path = Base/LXMoreTableViewCell.h; sourceTree = "<group>"; };
 		2D724CA11B50D1FE002266DA /* LXMoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXMoreTableViewCell.m; path = Base/LXMoreTableViewCell.m; sourceTree = "<group>"; };
 		2D75A2D91B1B4A0700A8FA95 /* LXClassListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXClassListViewModel.h; path = Class/ViewModel/LXClassListViewModel.h; sourceTree = "<group>"; };
@@ -783,6 +786,8 @@
 				22E7BBD91B24435F009F0266 /* LXJSBridge+ViewController.m */,
 				226341BE1B2C3192001743DE /* LXJSBridge+User.h */,
 				226341BF1B2C3192001743DE /* LXJSBridge+User.m */,
+				2D64769B1CF5DE0F00143D28 /* LXJSBridge+CloseWindow.h */,
+				2D64769C1CF5DE0F00143D28 /* LXJSBridge+CloseWindow.m */,
 			);
 			name = JSBridges;
 			sourceTree = "<group>";
@@ -1827,6 +1832,7 @@
 				22BE07BD1B1F35F200A1E91F /* AccountAlbumViewController.m in Sources */,
 				2DFD65221B16001200FAC662 /* LXCarouselViewCell.m in Sources */,
 				2215CB771B09675E00D0359A /* UserApi.m in Sources */,
+				2D64769D1CF5DE0F00143D28 /* LXJSBridge+CloseWindow.m in Sources */,
 				2D6160C21B208AB3001D01D8 /* ActivityParticipantsViewController.m in Sources */,
 				22BE07C91B1F363000A1E91F /* AccountCollectionViewController.m in Sources */,
 				2DB374AD1B5E203D0092E5D4 /* MWPhotoBrowser.m in Sources */,
@@ -1972,7 +1978,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: bohui xie (8698C2SK9Y)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1993,7 +1999,7 @@
 					"$(PROJECT_DIR)/Liangxin/Vender/WeiboSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "05e88472-5c57-428c-9cdf-32edbb76589c";
+				PROVISIONING_PROFILE = "";
 			};
 			name = "ad hoc distribution";
 		};
@@ -2083,7 +2089,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: bohui xie (8698C2SK9Y)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2104,7 +2110,7 @@
 					"$(PROJECT_DIR)/Liangxin/Vender/WeiboSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "05e88472-5c57-428c-9cdf-32edbb76589c";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -2114,7 +2120,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: bohui xie (8698C2SK9Y)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2135,7 +2141,7 @@
 					"$(PROJECT_DIR)/Liangxin/Vender/WeiboSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "05e88472-5c57-428c-9cdf-32edbb76589c";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
