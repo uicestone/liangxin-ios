@@ -12,7 +12,7 @@
 @implementation ActivityItemCell
 
 - (void)awakeFromNib {
-    
+    [super awakeFromNib];
     
     UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height, self.bounds.size.width, 1)];
     separatorLineView.backgroundColor = UIColorFromRGB(0xececec);

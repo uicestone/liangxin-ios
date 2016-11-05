@@ -11,6 +11,7 @@
 @implementation AccountFieldCell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     // Initialization code
 }
 

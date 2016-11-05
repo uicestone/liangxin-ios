@@ -80,7 +80,7 @@
         [self.viewModel.listData addObjectsFromArray:posts];
         [self.tableView reloadData];
     } error:^(NSError *error) {
-        
+        [self popMessage:error];
     } completed:^{
         @strongify(self)
         [self hideProgress];

@@ -24,6 +24,7 @@
 @property (nonatomic, strong) NSArray* tabitems;
 @property (nonatomic, strong) UIImageView* avatar;
 @property (nonatomic, strong) UserApi* userApi;
+@property (nonatomic, strong) UIView *tableFooter;
 @property (nonatomic, strong) UIActionSheet* avatarPickerSheet;
 @end
 
@@ -53,6 +54,49 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (UIView *)tableFooter{
+    if(!_tableFooter){
+        _tableFooter = [UIView new];
+        UILabel *label = [UILabel new];
+        label.text = @"保存或扫码，关注“嘉定新城马陆镇”微信公众号";
+        label.font = [UIFont systemFontOfSize:12];
+        label.textAlignment = NSTextAlignmentCenter;
+        [_tableFooter addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(_tableFooter);
+            make.top.mas_equalTo(10);
+            make.height.mas_equalTo(12);
+            make.width.mas_equalTo(320);
+        }];
+        
+        
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"qr"] ofType:@"jpg"];
+        UIImage *theImage = [UIImage imageWithContentsOfFile:filePath];
+
+        
+        UIImageView *image = [[UIImageView alloc] initWithImage:theImage];
+        
+        [_tableFooter addSubview:image];
+        [image mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(200);
+            make.height.mas_equalTo(200);
+            make.centerX.mas_equalTo(_tableFooter);
+            make.top.mas_equalTo(label.mas_bottom).with.offset(10);
+        }];
+
+
+        [_tableFooter addSubview:label];
+
+        _tableFooter.frame = CGRectMake(0, 0, 320, 300);
+//        [_tableFooter mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.height.mas_equalTo(220);
+//            make.width.mas_equalTo(320);
+//        }];
+    }
+    
+    return _tableFooter;
 }
 
 -(BOOL)needLogin{
@@ -167,6 +211,8 @@
                            @"name": @"avatar",
                            @"data": imageData
                            }];
+    
+    
     
     [self showProgress];
     [ApiBase postMultipartWithPath:@"/auth/user" data:nil files:files success:^(AFHTTPRequestOperation* operation, id responseObject) {
@@ -423,11 +469,11 @@
 
 -(void) initTableView{
     tableview = [UITableView new];
-    tableview.scrollEnabled = NO;
     tableview.backgroundColor = UIColorFromRGB(0xf1f1f2);
     tableview.delegate = self;
     tableview.dataSource = self;
-    tableview.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 1)];
+    
+    tableview.tableFooterView = self.tableFooter;
     
     items = @[
               @[@{
@@ -468,7 +514,7 @@
         make.top.equalTo(tabContainer.mas_bottom);
         make.width.equalTo(self.view);
         make.left.equalTo(self.view);
-        make.bottom.equalTo(self.view.mas_bottom);
+        make.bottom.equalTo(self.view.mas_bottom).with.offset(-50);
     }];
 }
 

@@ -404,10 +404,16 @@
     [alertView show];
 }
 
--(void)popMessage:(NSString *)message{
-
+-(void)popMessage:(id)obj{
+    NSString *m;
+    if([obj isKindOfClass:[NSError class]]){
+        m = [obj localizedDescription];
+    }else{
+        m = obj;
+    }
+    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = message;
+    hud.labelText = m;
     hud.mode = MBProgressHUDModeText;
 
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC);

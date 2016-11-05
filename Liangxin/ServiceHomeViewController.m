@@ -93,7 +93,7 @@
     cell.title.text = activity.title;
     
     cell.title.frame = CGRectMake(
-                  cell.title.frame.origin.x + 50,
+                  100,
                   cell.title.frame.origin.y,
                                   cell.title.frame.size.width, cell.title.frame.size.height);
     
