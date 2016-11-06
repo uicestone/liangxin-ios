@@ -12,11 +12,17 @@
 #import "LXCarouselView.h"
 #import "LXBaseModelPost.h"
 #import "UserApi.h"
+#import "LXAVCaptureScanViewController.h"
+#import "NSString+Utils.h"
+#import "LXWebViewController.h"
+#import "NSURL+Utils.h"
+#import "UserApi.h"
 
-@interface LXHomeViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface LXHomeViewController () <UICollectionViewDataSource, UICollectionViewDelegate, LXCarouselViewDelegate>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) LXCarouselView *carouselView;
+@property (nonatomic, strong) NSMutableArray *bannerSchemes;
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
 @property (nonatomic, strong) NSArray *channelImages;
 @property (nonatomic, strong) NSArray *channelSchemes;
@@ -49,9 +55,16 @@
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     self.navigationItem.titleView = titleLabel;
     
-    
+    UIButton *scanButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [scanButton setTitle:@"扫一扫" forState:UIControlStateNormal];
+    scanButton.titleLabel.font = [UIFont systemFontOfSize:15.0];
+    [scanButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    scanButton.frame = CGRectMake(0, 0, 60, 44);
+    [scanButton addTarget:self action:@selector(qrScan:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:scanButton];
     
     self.carouselView = [LXCarouselView carouselViewWithFrame:CGRectMake(0, 0, 320, bannerHeight) imageURLsGroup:nil];
+    self.carouselView.delegate = self;
     self.carouselView.pageControl.hidden = YES;
     [self.view addSubview:self.carouselView];
     [self.carouselView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -88,14 +101,45 @@
     [[[LXNetworkManager sharedManager] getBannersByType:LXBannerTypeHome] subscribeNext:^(NSArray *x) {
         @strongify(self)
         NSMutableArray *bannerURLs = [NSMutableArray array];
+        self.bannerSchemes = [NSMutableArray array];
         for (LXBaseModelPost *post in x) {
             if ([post.poster isValidObjectForKey:@"url"]) {
                 [bannerURLs addObject:[post.poster objectForKey:@"url"]];
             }
+            [self.bannerSchemes addObject:post.url];
         }
         self.carouselView.imageURLsGroup = bannerURLs;
     } error:^(NSError *error) {
         
+    }];
+    
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:LXAVCaptureScanSuccessNotification object:nil] subscribeNext:^(NSNotification *x) {
+        NSString *result = (NSString *)x.object;
+        if (result.length > 0 && [result hasPrefix:@"liangxin://attend/"]) {
+            NSURL *scanURL = [NSURL URLWithString:result];
+            if (scanURL.path.length > 0) {
+                [[[LXNetworkManager sharedManager] qrScanAttendByURL:[scanURL.path substringFromIndex:1]] subscribeNext:^(NSDictionary *x) {
+                    NSString *id = [x objectForKey:@"id"];
+                    if (id.length > 0) {
+                        NSString *title = [x objectForKey:@"title"];
+                        NSInteger points = [[x objectForKey:@"points"] integerValue];
+                        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:[NSString stringWithFormat:@"您已经成功签到%@，获得%@积分", title, @(points)] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+                        [alertView show];
+                    }
+                    else {
+                        NSNumber *code = [x objectForKey:@"code"];
+                        NSString *message = [x objectForKey:@"message"];
+                        if (code && [code integerValue] == 409) {
+                            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+                            [alertView show];
+                        }
+                    }
+                } error:^(NSError *error) {
+                    
+                }];
+            }
+            
+        }
     }];
 }
 
@@ -109,6 +153,35 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+}
+
+- (void)qrScan:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"liangxin://qrscan"]];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - LXCarouselViewDelegate
+
+- (void)carouselView:(LXCarouselView *)carouselView didSelectItemAtIndex:(NSInteger)index {
+    if (self.bannerSchemes.count > 0) {
+        NSString *URL = [self.bannerSchemes objectAtIndex:index];
+        if (([[URL lowercaseString] hasPrefix:@"http"] || [[URL lowercaseString] hasPrefix:@"https"])) {
+            LXWebViewController *webVC = [LXWebViewController new];
+            if ([[URL lowercaseString] rangeOfString:@"dangqun.malu.gov.cn"].location != NSNotFound) {
+                webVC.URL = [[NSURL URLWithString:URL] appendQueryParameter:[NSString stringWithFormat:@"authorization=%@", [[UserApi shared] getCurrentUser].token]];
+            }
+            else {
+                webVC.URL = [NSURL URLWithString:URL];
+            }
+            [self.navigationController pushViewController:webVC animated:YES];
+        }
+        else {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:URL]];
+        }
+    }
 }
 
 #pragma mark - UICollectionViewDataSource && UICollectionViewDelegate

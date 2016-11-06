@@ -55,6 +55,8 @@
 #import "ActivityAlbumViewController.h"
 #import "LXPDFViewController.h"
 #import "LXBasePhotoBrowserController.h"
+#import "LXAVCaptureScanViewController.h"
+#import "LXWebViewController.h"
 
 @implementation LXRouteManager
 
@@ -159,6 +161,8 @@
     
     [[HHRouter shared] map:@"/activity/albums" toControllerClass:[ActivityAlbumViewController class]];
     [[HHRouter shared] map:@"/photobrowser" toControllerClass:[LXBasePhotoBrowserController class]];
+    [[HHRouter shared] map:@"/qrscan" toControllerClass:[LXAVCaptureScanViewController class]];
+    [[HHRouter shared] map:@"/web" toControllerClass:[LXWebViewController class]];
 }
 
 @end

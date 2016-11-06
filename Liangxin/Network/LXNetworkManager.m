@@ -286,6 +286,40 @@
     }];
 }
 
+- (RACSignal *)qrScanAttendByURL:(NSString *)scanURL {
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        self.sessionManager.requestSerializer = [AFHTTPRequestSerializer serializer];
+        AFHTTPRequestSerializer *requestSerializer = self.sessionManager.requestSerializer;
+        [requestSerializer setValue:[[UserApi shared] getCurrentUser].token forHTTPHeaderField:@"Authorization"];
+        NSURLSessionDataTask *task = [self.sessionManager POST:[NSString stringWithFormat:@"/api/v1/attend/%@", scanURL] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+            [subscriber sendNext:responseObject];
+            [subscriber sendCompleted];
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            [subscriber sendError:error];
+        }];
+        return [RACDisposable disposableWithBlock:^{
+            [task cancel];
+        }];
+    }];
+}
+
+- (RACSignal *)deleteAttendByPostId:(NSString *)postId {
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        self.sessionManager.requestSerializer = [AFHTTPRequestSerializer serializer];
+        AFHTTPRequestSerializer *requestSerializer = self.sessionManager.requestSerializer;
+        [requestSerializer setValue:[[UserApi shared] getCurrentUser].token forHTTPHeaderField:@"Authorization"];
+        NSURLSessionDataTask *task = [self.sessionManager DELETE:[NSString stringWithFormat:@"/api/v1/attend/%@", postId] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+            [subscriber sendNext:responseObject];
+            [subscriber sendCompleted];
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            [subscriber sendError:error];
+        }];
+        return [RACDisposable disposableWithBlock:^{
+            [task cancel];
+        }];
+    }];
+}
+
 - (RACSignal *)agreeAttendeeByPostId:(NSString *)postId userId:(NSString *)userId {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         NSURLSessionDataTask *task = [self.sessionManager POST:[NSString stringWithFormat:@"/api/v1/post/%@/attendee/%@", postId, userId] parameters:@{@"approved":@(YES)} success:^(NSURLSessionDataTask *task, id responseObject) {
