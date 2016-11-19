@@ -16,7 +16,7 @@
 #define kReuseIdentifier @"postItemCell"
 
 @interface GroupPostViewController () <UITableViewDataSource, UITableViewDelegate, LXTabViewDelegate>
-@property (nonatomic, strong) NSMutableArray* posts;
+@property (nonatomic, strong) NSMutableArray<LXBaseModelPost *>* posts;
 @property (nonatomic, assign) int groupId;
 @property (nonatomic, strong) UITableView* tableview;
 @property (nonatomic, strong) LXTabView* tabview;
@@ -112,8 +112,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger row = [indexPath row];
-    Post* post = [posts objectAtIndex:row];
-    NSString* path = [NSString stringWithFormat:@"/article/%d", post.postId];
+    LXBaseModelPost* post = [posts objectAtIndex:row];
+    NSString* path = [NSString stringWithFormat:@"/article/%@", post.id];
     [self navigateToPath:path];
 }
 
