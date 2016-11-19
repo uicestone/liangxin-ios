@@ -7,4 +7,3 @@ pod 'ReactiveCocoa', '~> 2.4.7'
 pod 'SDWebImage', '~> 3.7.1'
 pod 'CocoaLumberjack', '~> 2.0.0'
 pod 'DACircularProgress', '~> 2.3.1'
-pod "WeiboSDK", :git => "https://github.com/sinaweibosdk/weibo_ios_sdk.git"

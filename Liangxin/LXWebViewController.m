@@ -66,6 +66,9 @@
     webview.backgroundColor = UIColorFromRGB(0xe6e7e8);
     
     [super viewDidLoad];
+    if (self.URL > 0) {
+        [self loadPage:[self.URL absoluteString]];
+    }
 }
 
 -(void)setStatusBarBackgroundColor{

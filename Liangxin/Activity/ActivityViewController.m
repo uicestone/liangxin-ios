@@ -16,8 +16,11 @@
 #import "ActivityListViewController.h"
 #import "ActivityDetailViewController.h"
 #import "LXMoreTableViewCell.h"
+#import "LXWebViewController.h"
+#import "UserApi.h"
+#import "NSURL+Utils.h"
 
-@interface ActivityViewController() <UITableViewDataSource, UITableViewDelegate, LXBannerViewDelegate>
+@interface ActivityViewController() <UITableViewDataSource, UITableViewDelegate, LXBannerViewDelegate, LXCarouselViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) LXCarouselView *carouselView;
@@ -34,6 +37,7 @@
 @property (nonatomic, strong) MASConstraint *searchTopConstraint;
 @property (nonatomic, strong) MASConstraint *bannerTopConstraint;
 @property (nonatomic, assign) BOOL isSearch;
+@property (nonatomic, strong) NSMutableArray *bannerSchemes;
 
 @end
 
@@ -184,9 +188,11 @@
     [[[LXNetworkManager sharedManager] getBannersByType:LXBannerTypeActivity] subscribeNext:^(id x) {
         @strongify(self)
         NSMutableArray *bannerURLs = [NSMutableArray array];
+        self.bannerSchemes = [NSMutableArray array];
         for (LXBaseModelPost *post in x) {
             if ([post.poster isValidObjectForKey:@"url"]) {
                 [bannerURLs addObject:[post.poster objectForKey:@"url"]];
+                [self.bannerSchemes addObject:post.url];
             }
         }
         self.carouselView.imageURLsGroup = bannerURLs;
@@ -288,6 +294,27 @@
             break;
     }
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"liangxin://activity/list/?order_by=%@", orderBy]]];
+}
+
+#pragma mark - LXCarouselViewDelegate
+
+- (void)carouselView:(LXCarouselView *)carouselView didSelectItemAtIndex:(NSInteger)index {
+    if (self.bannerSchemes.count > 0) {
+        NSString *URL = [self.bannerSchemes objectAtIndex:index];
+        if (([[URL lowercaseString] hasPrefix:@"http"] || [[URL lowercaseString] hasPrefix:@"https"])) {
+            LXWebViewController *webVC = [LXWebViewController new];
+            if ([[URL lowercaseString] rangeOfString:@"dangqun.malu.gov.cn"].location != NSNotFound) {
+                webVC.URL = [[NSURL URLWithString:URL] appendQueryParameter:[NSString stringWithFormat:@"authorization=%@", [[UserApi shared] getCurrentUser].token]];
+            }
+            else {
+                webVC.URL = [NSURL URLWithString:URL];
+            }
+            [self.navigationController pushViewController:webVC animated:YES];
+        }
+        else {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:URL]];
+        }
+    }
 }
 
 #pragma mark - LXBannerViewDelegate
