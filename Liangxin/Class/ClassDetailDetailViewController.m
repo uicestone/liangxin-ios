@@ -127,8 +127,8 @@
         if (self.data.excerpt.length > 0) {
             self.contentView.text = [NSString stringWithFormat:@"%@\n%@", self.data.excerpt?:@"", self.data.content?:@""];
         }
-        if (self.data.url.length > 0) {
-            [self.mainImageView sd_setImageWithURL:[NSURL URLWithString:self.data.url]];
+        if ([[self.data.poster objectForKey:@"url"] length] > 0) {
+            [self.mainImageView sd_setImageWithURL:[NSURL URLWithString:[self.data.poster objectForKey:@"url"]]];
             self.mainImageView.layer.borderWidth = 0.0;
         }
         else {
