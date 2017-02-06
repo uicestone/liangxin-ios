@@ -105,10 +105,10 @@
     
     if(height < width){
         width = max;
-        height = max * scale;
+        height = max / scale;
     }else{
         height = max;
-        width = max / scale;
+        width = scale * max;
     }
     
     return CGSizeMake(width, height);
