@@ -47,7 +47,7 @@
     [tableview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(tabview.mas_bottom);
         make.left.equalTo(self.view);
-        make.bottom.equalTo(self.view);
+        make.bottom.equalTo(self.view.mas_bottom).with.offset(-44);
         make.width.equalTo(self.view);
     }];
     
