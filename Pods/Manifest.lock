@@ -1,23 +1,23 @@
 PODS:
-  - AFNetworking (2.6.1):
-    - AFNetworking/NSURLConnection (= 2.6.1)
-    - AFNetworking/NSURLSession (= 2.6.1)
-    - AFNetworking/Reachability (= 2.6.1)
-    - AFNetworking/Security (= 2.6.1)
-    - AFNetworking/Serialization (= 2.6.1)
-    - AFNetworking/UIKit (= 2.6.1)
-  - AFNetworking/NSURLConnection (2.6.1):
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.6.1):
+  - AFNetworking/NSURLSession (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.6.1)
-  - AFNetworking/Security (2.6.1)
-  - AFNetworking/Serialization (2.6.1)
-  - AFNetworking/UIKit (2.6.1):
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - CocoaLumberjack (2.0.3):
@@ -29,12 +29,12 @@ PODS:
   - CocoaLumberjack/Extensions (2.0.3):
     - CocoaLumberjack/Default
   - DACircularProgress (2.3.1)
-  - HHRouter (0.1.5)
-  - Mantle (1.5.6):
-    - Mantle/extobjc (= 1.5.6)
-  - Mantle/extobjc (1.5.6)
-  - Masonry (0.6.3)
-  - MBProgressHUD (0.9.1)
+  - HHRouter (0.1.9)
+  - Mantle (1.5.8):
+    - Mantle/extobjc (= 1.5.8)
+  - Mantle/extobjc (1.5.8)
+  - Masonry (0.6.4)
+  - MBProgressHUD (0.9.2)
   - ReactiveCocoa (2.4.7):
     - ReactiveCocoa/UI (= 2.4.7)
   - ReactiveCocoa/Core (2.4.7):
@@ -42,9 +42,9 @@ PODS:
   - ReactiveCocoa/no-arc (2.4.7)
   - ReactiveCocoa/UI (2.4.7):
     - ReactiveCocoa/Core
-  - SDWebImage (3.7.3):
-    - SDWebImage/Core (= 3.7.3)
-  - SDWebImage/Core (3.7.3)
+  - SDWebImage (3.7.6):
+    - SDWebImage/Core (= 3.7.6)
+  - SDWebImage/Core (3.7.6)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
@@ -57,15 +57,29 @@ DEPENDENCIES:
   - ReactiveCocoa (~> 2.4.7)
   - SDWebImage (~> 3.7.1)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - CocoaLumberjack
+    - DACircularProgress
+    - HHRouter
+    - Mantle
+    - Masonry
+    - MBProgressHUD
+    - ReactiveCocoa
+    - SDWebImage
+
 SPEC CHECKSUMS:
-  AFNetworking: 8e4e60500beb8bec644cf575beee72990a76d399
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   CocoaLumberjack: f58d8a19629f4d8379ae14bb3534def24161430e
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
-  HHRouter: c82ce169fea838ea85a819133df40d19605f5c95
-  Mantle: a197db93e0f1e36194b1fdbc078219a8492eaef2
-  Masonry: ff105a956abcd19a618b2028b121cb638d7a8e2f
-  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  HHRouter: c096524e95a07a1970e6e23a19ee5a9592dc326d
+  Mantle: f03b2b606c3f0cabd80214ad8a2fed6b464a7359
+  Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   ReactiveCocoa: eb38dee0a0e698f73a9b25e5c1faea2bb4c79240
-  SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
+  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: f6185e2658bd62a1dfad95276a06400cc2f5c6e1
+
+COCOAPODS: 1.5.2

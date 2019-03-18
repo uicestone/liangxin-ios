@@ -67,7 +67,7 @@
         self.shareObject.shareTitle = self.viewModel.postData.title;
         self.shareObject.shareThumbImage = [UIImage imageNamed:@"ShareIcon"];
         self.shareObject.shareDescription = self.viewModel.postData.excerpt;
-        self.shareObject.shareURL = [NSString stringWithFormat:@"http://dangqun.malu.gov.cn/post/%@", self.viewModel.postData.id];
+        self.shareObject.shareURL = [NSString stringWithFormat:@"http://dangqun.hbird.com.cn/post/%@", self.viewModel.postData.id];
         [self.tableView reloadData];
     } error:^(NSError *error) {
         [self hideProgress];

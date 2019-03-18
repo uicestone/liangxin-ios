@@ -18,7 +18,7 @@
 /**
  *  Network
  */
-#define LXNetworkBaseURL            @"http://dangqun.malu.gov.cn/"
+#define LXNetworkBaseURL            @"http://dangqun.hbird.com.cn/"
 
 /**
  *  通知

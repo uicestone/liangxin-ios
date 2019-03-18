@@ -20,7 +20,7 @@
 {
     self = [super init];
     if (self) {
-        _sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:@"http://dangqun.malu.gov.cn/"]];
+        _sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:@"http://dangqun.hbird.com.cn/"]];
         _sessionManager.responseSerializer = [[AFJSONResponseSerializer alloc] init];
     }
     return self;

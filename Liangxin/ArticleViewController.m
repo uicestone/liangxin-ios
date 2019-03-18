@@ -31,7 +31,7 @@
     [super viewDidLoad];
     
     NSString* pageURL = [NSString
-        stringWithFormat:@"http://dangqun.malu.gov.cn/post/%@",
+        stringWithFormat:@"http://dangqun.hbird.com.cn/post/%@",
         self.postId];
     
     [self loadPage:pageURL];

@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loadPage:@"http://dangqun.malu.gov.cn/credit-policy"];
+    [self loadPage:@"http://dangqun.hbird.com.cn/credit-policy"];
     // Do any additional setup after loading the view.
 }
 

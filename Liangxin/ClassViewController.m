@@ -304,7 +304,7 @@
         NSString *URL = [self.bannerSchemes objectAtIndex:index];
         if (([[URL lowercaseString] hasPrefix:@"http"] || [[URL lowercaseString] hasPrefix:@"https"])) {
             LXWebViewController *webVC = [LXWebViewController new];
-            if ([[URL lowercaseString] rangeOfString:@"dangqun.malu.gov.cn"].location != NSNotFound) {
+            if ([[URL lowercaseString] rangeOfString:@"dangqun.hbird.com.cn"].location != NSNotFound) {
                 webVC.URL = [[NSURL URLWithString:URL] appendQueryParameter:[NSString stringWithFormat:@"authorization=%@", [[UserApi shared] getCurrentUser].token]];
             }
             else {

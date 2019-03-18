@@ -11,4 +11,4 @@
 #define LXScheme @"liangxin://"
 #define LXSchemeChannelBase @"liangxin://channel"
 //#define LXApiHost @"http://127.0.0.1:3000"
-#define LXApiHost @"http://dangqun.malu.gov.cn"
+#define LXApiHost @"http://dangqun.hbird.com.cn"
